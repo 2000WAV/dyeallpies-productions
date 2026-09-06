@@ -18,3 +18,8 @@ mediapipe
 ultralytics
 torch
 torchvision
+
+# phoneme breakdown: phone alignment + Goodness of Pronunciation
+torchaudio
+transformers
+huggingface_hub

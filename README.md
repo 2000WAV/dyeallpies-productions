@@ -19,6 +19,7 @@ nearly shipped.
 | [phonetics-panel](formats/phonetics-panel/) | A pronunciation-practice recording, cleaned and annotated: IPA subtitles with a letter grade per vowel, a live spectrogram / F1-F2 / pitch panel, a vowel-space chart. Reels 1–3, including the STRUT /ʌ/ "culture" video with its UK/US minimal pairs. | Praat formant tracking (parselmouth), Mahalanobis grading against Hillenbrand et al. (1995), faster-whisper for word identity |
 | [phonetics-trend](formats/phonetics-trend/) | The same measurements cut to a song's beat grid: acting shots, one word per beat at the drop, a waterfall ridgeline spectrum. Reel 4, "English is easy". | Beat grid from onset comb filtering, Deterding (1997) RP reference, MediaPipe face anchor for punch-ins |
 | [pullup-analysis](formats/pullup-analysis/) | A pull-up set counted and graded rep by rep: tempo, range of motion, chin-vs-bar verdict, lock-out, sway, velocity loss, work / power / kcal, an efficiency score, and a muscle-heat overlay on a matted body against a replaced backdrop. Plus a dashboard, a written report and an interactive page. | MediaPipe Pose heavy (33 landmarks, 3D) cross-checked by YOLOv8-pose, Robust Video Matting, MediaPipe multiclass segmentation, surface-EMG literature (Youdas 2010, Dickie 2017), velocity-loss fatigue (Sánchez-Medina 2011) |
+| [phoneme-breakdown](formats/phoneme-breakdown/) | A talking-head clip with every phoneme graded and mapped onto the spectrogram: phone boundaries, grade colours per symbol, an accent flag per phoneme, a hand skeleton, and the promoted videos appearing where the finger points. The GitHub promo reel. | wav2vec2 phoneme recogniser + CTC forced alignment, Goodness of Pronunciation (Witt & Young 2000), formants vs Deterding 1997 and Hillenbrand 1995, VOT vs Lisker & Abramson 1964, sibilant centre of gravity vs Haley 2010, MediaPipe Hand Landmarker |
 | [pushup-cat](formats/pushup-cat/) | A push-up set with a live rep counter, plus a live count of the cats that wander through the frame, with a ding per rep and a meow per cat. | MediaPipe Pose elbow-angle signal, YOLOv8n cat detection with colour-histogram identity, Haar cascade fallback |
 | [captions](formats/captions/) | Word-highlighted "viral" captions burned into a clip, timed against the real audio but worded from a reference transcript. | faster-whisper word timestamps aligned to the transcript with a sequence matcher |
 | [clip-cutting](formats/clip-cutting/) | A time range cut out of a screen / OBS recording as a landscape MP4 for YouTube and a 9:16 vertical for Reels and Shorts. | none, ffmpeg only |
@@ -31,7 +32,7 @@ formats/<name>/         one folder per format: README with the method and the ru
                         worked examples, captions, plans, per-reel build scripts
 tools/scripts/          the shared Python pipeline behind every format (Python 3.11+, ffmpeg)
 tools/assets/emoji/     Twemoji PNGs overlaid next to each word (meaning for non-English viewers)
-references/             formant reference data, pull-up EMG literature, Reels layout research
+references/             formant reference data, pull-up EMG literature, phoneme grading references, Reels layout research
 ```
 
 ## Rules every format follows
@@ -69,7 +70,8 @@ references/             formant reference data, pull-up EMG literature, Reels la
 - Model weights, all gitignored under `tools/models/`; each format README says where its
   files come from: `pose_landmarker_lite.task` and `pose_landmarker_heavy.task` (MediaPipe
   model card), `selfie_multiclass_256x256.tflite` (MediaPipe image segmenter),
-  `yolov8n.pt` and `yolov8m-pose.pt` (ultralytics assets release), OpenCV's
+  `yolov8n.pt` and `yolov8m-pose.pt` (ultralytics assets release), `hand_landmarker.task`
+  (MediaPipe model card), OpenCV's
   `haarcascade_frontalcatface_extended.xml`, and the Robust Video Matting weights that
   torch.hub downloads on first use.
 
@@ -82,6 +84,9 @@ references/             formant reference data, pull-up EMG literature, Reels la
 - **Deterding (1997)** tables were transcribed by hand from the paper's appendix; the
   script that rebuilds the means asserts that the transcription reproduces the paper's
   own Table 2. The paper PDFs themselves are not redistributed.
+- **Phoneme grading references** (Witt & Young 2000, Ferragne & Pellegrino 2010, Lisker &
+  Abramson 1964, Haley et al. 2010, Jongman 2024) are cited with the numbers used in
+  [references/phonemes/README.md](references/phonemes/README.md); the PDFs are not redistributed.
 - **Pull-up EMG values** come from the PubMed abstracts of Youdas et al. (2010) and
   Dickie et al. (2017), kept with their PMIDs in
   [references/pullup-emg/](references/pullup-emg/README.md).
