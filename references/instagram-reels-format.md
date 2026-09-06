@@ -47,3 +47,10 @@ Dark #1a1a19 canvas 1080×1920:
 - https://blitzcutai.com/blog/best-caption-size-instagram-reels-2026
 - https://www.itnavideo.com/blog/caption-font-size-guide-reels
 - https://www.screensnap.pro/blog/instagram-reels-size-guide
+
+## Caption text (added 2026-09-06)
+
+- Instagram keeps every newline in a pasted caption. Write each paragraph as one line,
+  blank line between paragraphs; never hard-wrap prose in `CAPTION.md`. LF endings.
+- Instagram currently allows **at most 5 hashtags** per post (Dennis, 2026-09-06). One
+  hashtag line at the end; `#Fable` stays when the model is credited in the video.

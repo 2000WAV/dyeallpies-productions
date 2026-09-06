@@ -55,6 +55,8 @@ references/             formant reference data, pull-up EMG literature, phoneme 
   only and is deleted once the cut is locked.
 - **Reels are full-bleed 1080x1920.** The talking video fills the frame; overlays sit on
   top of it, never in a box.
+- **Captions paste as written.** One paragraph per line, LF endings, at most 5 hashtags
+  (Instagram's current limit); a hard-wrapped caption shows every wrap as a line break.
 - **Check the source file exists before queueing work from it.** Sources get deleted to
   free disk, sometimes mid-session.
 
