@@ -1,0 +1,41 @@
+1. J Strength Cond Res. 2010 Dec;24(12):3404-14. doi:
+10.1519/JSC.0b013e3181f1598c.
+
+Surface electromyographic activation patterns and elbow joint motion during a 
+pull-up, chin-up, or perfect-pullup™ rotational exercise.
+
+Youdas JW(1), Amundson CL, Cicero KS, Hahn JJ, Harezlak DT, Hollman JH.
+
+Author information:
+(1)Program in Physical Therapy, Mayo Clinic, Rochester, Minnesota, USA. 
+youdas.james@mayo.edu
+
+This study compared a conventional pull-up and chin-up with a rotational 
+exercise using Perfect·Pullup™ twisting handles. Twenty-one men (24.9 ± 2.4 
+years) and 4 women (23.5 ± 1 years) volunteered to participate. 
+Electromyographic (EMG) signals were collected with DE-3.1 double-differential 
+surface electrodes at a sampling frequency of 1,000 Hz. The EMG signals were 
+normalized to peak activity in the maximum voluntary isometric contraction 
+(MVIC) trial and expressed as a percentage. Motion analysis data of the elbow 
+were obtained using Vicon Nexus software. One-factor repeated measures analysis 
+of variance examined the muscle activation patterns and kinematic differences 
+between the 3 pull-up exercises. Average EMG muscle activation values (%MVIC) 
+were as follows: latissimus dorsi (117-130%), biceps brachii (78-96%), 
+infraspinatus (71-79%), lower trapezius (45-56%), pectoralis major (44-57%), 
+erector spinae (39-41%), and external oblique (31-35%). The pectoralis major and 
+biceps brachii had significantly higher EMG activation during the chin-up than 
+during the pull-up, whereas the lower trapezius was significantly more active 
+during the pull-up. No differences were detected between the Perfect·Pullup™ 
+with twisting handles and the conventional pull-up and chin-up exercises. The 
+mean absolute elbow joint range of motion was 93.4 ± 14.6°, 100.6 ± 14.5°, and 
+99.8 ± 11.7° for the pull-up, chin-up, and rotational exercise using the 
+Perfect·Pullup™ twisting handles, respectively. For each exercise condition, the 
+timing of peak muscle activation was expressed as a percentage of the complete 
+pull-up cycle. A general pattern of sequential activation occurred suggesting 
+that pull-ups and chin-ups were initiated by the lower trapezius and pectoralis 
+major and completed with biceps brachii and latissimus dorsi recruitment. The 
+Perfect·Pullup™ rotational device does not appear to enhance muscular 
+recruitment when compared to the conventional pull-up or chin-up.
+
+DOI: 10.1519/JSC.0b013e3181f1598c
+PMID: 21068680 [Indexed for MEDLINE]

@@ -3,7 +3,7 @@
 The second phonetics reel made with this skill, and the one that shaped most of its
 current behavior. Read this before building another reel: the *decisions* here are
 reusable even though the words aren't. The rules distilled from it live in
-the [README](../README.md); this file keeps the reasoning and the numbers.
+the [README](README.md); this file keeps the reasoning and the numbers.
 
 **Input:** `WhatsApp Video 2026-09-01 at 18.46.52.mp4`, 81.6 s, 848x480 landscape with
 rotation metadata (the master comes out true portrait 480x848 — probe the MASTER).

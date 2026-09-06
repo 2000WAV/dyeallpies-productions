@@ -33,3 +33,10 @@ tools/models/
 .venv*/
 __pycache__/
 *.pyc
+
+# pose / matting intermediates (regenerate from the trackers)
+*.npz
+*.npy
+pullup/
+formats/*/work/
+formats/*/out/

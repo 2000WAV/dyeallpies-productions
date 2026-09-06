@@ -1,0 +1,41 @@
+1. Med Sci Sports Exerc. 2011 Sep;43(9):1725-34. doi:
+10.1249/MSS.0b013e318213f880.
+
+Velocity loss as an indicator of neuromuscular fatigue during resistance 
+training.
+
+Sánchez-Medina L(1), González-Badillo JJ.
+
+Author information:
+(1)Faculty of Sport, Pablo de Olavide University, Seville, Spain. 
+lsmedina@upo.es
+
+PURPOSE: This study aimed to analyze the acute mechanical and metabolic response 
+to resistance exercise protocols (REP) differing in the number of repetitions 
+(R) performed in each set (S) with respect to the maximum predicted number (P).
+METHODS: Over 21 exercise sessions separated by 48-72 h, 18 strength-trained 
+males (10 in bench press (BP) and 8 in squat (SQ)) performed 1) a progressive 
+test for one-repetition maximum (1RM) and load-velocity profile determination, 
+2) tests of maximal number of repetitions to failure (12RM, 10RM, 8RM, 6RM, and 
+4RM), and 3) 15 REP (S × R[P]: 3 × 6[12], 3 × 8[12], 3 × 10[12], 3 × 12[12], 3 × 
+6[10], 3 × 8[10], 3 × 10[10], 3 × 4[8], 3 × 6[8], 3 × 8[8], 3 × 3[6], 3 × 4[6], 
+3 × 6[6], 3 × 2[4], 3 × 4[4]), with 5-min interset rests. Kinematic data were 
+registered by a linear velocity transducer. Blood lactate and ammonia were 
+measured before and after exercise.
+RESULTS: Mean repetition velocity loss after three sets, loss of velocity 
+pre-post exercise against the 1-m·s load, and countermovement jump height loss 
+(SQ group) were significant for all REP and were highly correlated to each other 
+(r = 0.91-0.97). Velocity loss was significantly greater for BP compared with SQ 
+and strongly correlated to peak postexercise lactate (r = 0.93-0.97) for both SQ 
+and BP. Unlike lactate, ammonia showed a curvilinear response to loss of 
+velocity, only increasing above resting levels when R was at least two 
+repetitions higher than 50% of P.
+CONCLUSIONS: Velocity loss and metabolic stress clearly differs when 
+manipulating the number of repetitions actually performed in each training set. 
+The high correlations found between mechanical (velocity and countermovement 
+jump height losses) and metabolic (lactate, ammonia) measures of fatigue support 
+the validity of using velocity loss to objectively quantify neuromuscular 
+fatigue during resistance training.
+
+DOI: 10.1249/MSS.0b013e318213f880
+PMID: 21311352 [Indexed for MEDLINE]

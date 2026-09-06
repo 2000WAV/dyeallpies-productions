@@ -1,7 +1,7 @@
 # Build plan — "English is easy" reel (2026-09-04)
 
 Source facts and measurements: [NOTES.md](NOTES.md). Reference provenance:
-[`references/README.md`](../references/README.md).
+[`references/README.md`](../../references/README.md).
 
 ## The story
 

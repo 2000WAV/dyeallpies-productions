@@ -1,0 +1,36 @@
+1. J Electromyogr Kinesiol. 2017 Feb;32:30-36. doi:
+10.1016/j.jelekin.2016.11.004.  Epub 2016 Nov 28.
+
+Electromyographic analysis of muscle activation during pull-up variations.
+
+Dickie JA(1), Faulkner JA(2), Barnes MJ(1), Lark SD(3).
+
+Author information:
+(1)School of Sport and Exercise, Massey University, Wellington, New Zealand.
+(2)School of Sport and Exercise, Massey University, Wellington, New Zealand; 
+Department of Sport and Exercise, University of Winchester, UK.
+(3)School of Sport and Exercise, Massey University, Wellington, New Zealand. 
+Electronic address: s.lark@massey.ac.nz.
+
+This study sought to identify any differences in peak muscle activation 
+(EMGPEAK) or average rectified variable muscle activation (EMGARV) during 
+supinated grip, pronated grip, neutral grip and rope pull-up exercises. Nineteen 
+strength trained males (24.9±5y; 1.78±0.74m; 81.3±11.3kg; 22.7±2.5kgm-2) 
+volunteered to participate in the study. Surface electromyography (EMG) was 
+collected from eight shoulder-arm-forearm complex muscles. All muscle activation 
+was expressed as a percentage of maximum voluntary isometric contraction 
+(%MVIC). Over a full repetition, the pronated grip resulted in significantly 
+greater EMGPEAK (60.1±22.5vs. 37.1±13.1%MVIC; P=0.004; Effect Size [ES; Cohen's 
+d]=1.19) and EMGARV (48.0±21.2vs. 27.4±10.7%MVIC; P=0.001; ES=1.29) of the 
+middle trapezius when compared to the neutral grip pull-up. The concentric 
+phases of each pull-up variation resulted in significantly greater EMGARV of the 
+brachioradialis, biceps brachii, and pectoralis major in comparison to the 
+eccentric phases (P=<0.01). Results indicate that EMGPEAK and EMGARV of the 
+shoulder-arm-forearm complex during complete repetitions of pull-up variants are 
+similar despite varying hand orientations; however, differences exist between 
+concentric and eccentric phases of each pull-up.
+
+Copyright © 2016 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jelekin.2016.11.004
+PMID: 28011412 [Indexed for MEDLINE]
