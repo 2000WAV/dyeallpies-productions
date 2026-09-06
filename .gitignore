@@ -1,0 +1,35 @@
+# recordings, masters, exports -- never committed
+*.mkv
+*.mp4
+*.mov
+*.MOV
+*.avi
+*.webm
+*.m4v
+*.wav
+*.mp3
+*.ogg
+*.opus
+*.m4a
+*.zip
+
+# per-video intermediates (regenerate from the pipeline)
+panels*/
+segments*.json
+analysis*.json
+cuts*.json
+final_takes*.json
+removed_takes*.json
+*.ass
+vowel_space*.png
+frame*.png
+reel-*/originals/
+reel-*/work/
+reel-*/out/
+
+# model weights (see README for where each comes from)
+tools/models/
+
+.venv*/
+__pycache__/
+*.pyc

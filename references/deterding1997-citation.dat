@@ -1,0 +1,28 @@
+# Deterding (1997) Tables 3 and 4, "citation" columns: average F1/F2 (Hz) for CITATION
+# FORMS, from Deterding (1990) PhD thesis, reproduced in the 1997 paper for comparison
+# with the MARSEC connected-speech values. No per-speaker data and no SDs are published
+# for these, so SDs must come from deterding1997-perspeaker.dat (connected speech).
+# THESE are the right central values for citation-form recordings.
+# Columns: group vowel_code ipa f1 f2
+men iy iː 275 2221
+men ih ɪ 382 1958
+men eh ɛ 560 1797
+men ae æ 732 1527
+men uh ʌ 695 1224
+men aa ɑː 687 1077
+men op ɒ 593 866
+men ao ɔː 453 642
+men oo ʊ 414 1051
+men uw uː 302 1131
+men er ɜː 513 1377
+women iy iː 319 2723
+women ih ɪ 432 2296
+women eh ɛ 645 2287
+women ae æ 1011 1759
+women uh ʌ 813 1422
+women aa ɑː 779 1181
+women op ɒ 602 994
+women ao ɔː 431 799
+women oo ʊ 414 1203
+women uw uː 339 1396
+women er ɜː 650 1593
