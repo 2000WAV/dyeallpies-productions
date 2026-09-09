@@ -1,0 +1,20 @@
+Devise M, Quaine F, Vigouroux L (2023).
+Assessing climbers' pull-up capabilities by differentiating the parameters involved in power
+production.
+PeerJ, 11, e15886.
+doi:10.7717/peerj.15886. PMID 37780381. PMCID PMC10540777. Open access (CC-BY). Full text PDF saved
+at references/pullup-science/papers/devise2023-power-production-pullups-climbers.pdf.
+
+Fetched from PubMed E-utilities on 2026-09-08; full text via Europe PMC on 2026-09-08.
+
+ABSTRACT:
+Twenty-eight climbers of varying levels performed countermovement jump tests, progressively weighted
+pull-ups, and pull-up sets to failure. Muscle work performed during the max-rep set and the maximum
+number of pull-ups both correlated with climbing performance level; the authors identify fatigue
+resistance (capacity to keep producing force/work over repeated reps) as a critical determinant of
+climbing-relevant pull-up capability, separate from peak force or peak velocity, which were more
+individual-specific and less predictive of climbing level on their own.
+
+Notes for this project: supports reporting a work-capacity / fatigue-resistance metric (e.g. total
+mechanical work sustained across the set relative to early-set work) as a distinct output from peak
+power or peak velocity, rather than collapsing everything into a single "effort" multiplier.

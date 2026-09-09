@@ -1,0 +1,33 @@
+1. Med Sci Sports Exerc. 2008 Aug;40(8):1538-45. doi:
+10.1249/MSS.0b013e31817323ee.
+
+Occupational relevance and body mass bias in military physical fitness tests.
+
+Vanderburgh PM(1).
+
+Author information:
+(1)Department of Health and Sport Science, University of Dayton, Dayton, OH 
+45469-1210, USA. vanderburgh@udayton.edu
+
+Recent evidence makes a compelling case that US Army, Navy, and Air Force 
+health-related physical fitness tests penalize larger, not just fatter, service 
+members. As a result, they tend to receive lower scores than their lighter 
+counterparts, the magnitude of which can be explained by biologic scaling laws. 
+Larger personnel, on the other hand, tend to be better performers of 
+work-related fitness tasks such as load carriage, heavy lifting, and materiel 
+handling. This has been explained by empirical evidence that lean body mass and 
+lean body mass to dead mass ratio (dead mass = fat mass and external load to be 
+carried/lifted) are more potent determinants of performance of these military 
+tasks than the fitness test events such as push-ups, sit-ups, or 2-mile-distance 
+run time. Because promotions are based, in part, on fitness test performance, 
+lighter personnel have an advancement advantage, although they tend to be poorer 
+performers on many tests of work-related fitness. Several strategies have been 
+proposed to rectify this incongruence including balanced tests, scaled scores, 
+and correction factors--yet most need large-scale validation. Because nearly all 
+subjects in such research have been men, future investigations should focus on 
+women and elucidate the feasibility of universal physical fitness tests for all 
+that include measures of health- and work-related fitness while imposing no 
+systematic body mass bias.
+
+DOI: 10.1249/MSS.0b013e31817323ee
+PMID: 18614935 [Indexed for MEDLINE]

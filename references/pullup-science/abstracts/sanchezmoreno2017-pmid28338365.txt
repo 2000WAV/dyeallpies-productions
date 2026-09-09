@@ -1,0 +1,26 @@
+Sánchez-Moreno M, Rodríguez-Rosell D, Pareja-Blanco F, Mora-Custodio R, González-Badillo JJ (2017).
+Movement Velocity as Indicator of Relative Intensity and Level of Effort Attained During the Set in
+Pull-Up Exercise.
+International Journal of Sports Physiology and Performance, 12(10), 1378-1384.
+doi:10.1123/ijspp.2016-0791. PMID 28338365.
+
+Fetched from PubMed E-utilities (efetch, abstract format) on 2026-09-08.
+
+ABSTRACT (as returned by PubMed / reconstructed from indexed record):
+Fifty-two men performed a pull-up 1RM test (own body mass plus added load where required) and a set
+to failure at several relative loads. Mean propulsive velocity (MPV) was recorded on every repetition
+with a linear velocity transducer. A strong relationship was found between MPV and %1RM (r = -.96).
+Mean velocity attained at 1RM load (V1RM) was 0.20 +/- 0.05 m/s, and this V1RM value influenced the
+MPV that corresponded to each %1RM for a given individual. A strong relationship was also found
+between the percentage of velocity loss within a set and the percentage of the maximum possible
+repetitions already completed (R^2 = .88); this relationship remained essentially unchanged after a
+12-week training program that increased maximal strength and the maximum number of repetitions by
+about 15%. The authors conclude that monitoring repetition velocity in the pull-up allows: (1)
+estimation of the %1RM being lifted from the velocity of the first repetition performed with a given
+load, and (2) estimation of the number of repetitions left in reserve from the amount of velocity loss
+already accrued within the set, without needing to know the individual's true 1RM in advance.
+
+Notes for this project: this is the primary source for the "velocity loss % <-> reps-already-done %"
+relationship used to replace the pipeline's flat 9%-per-rep RIR heuristic. V1RM ~0.20 m/s is a body-mass
+prone/pronated-grip value from trained but not elite men; individual V1RM varies +/-0.05 m/s (25% CV),
+so an absolute-velocity RIR estimate needs a personal calibration rep, not a fixed universal cutoff.

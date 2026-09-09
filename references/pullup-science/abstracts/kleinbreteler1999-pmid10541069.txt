@@ -1,0 +1,30 @@
+1. J Biomech. 1999 Nov;32(11):1191-7. doi: 10.1016/s0021-9290(99)00122-0.
+
+Measuring muscle and joint geometry parameters of a shoulder for modeling 
+purposes.
+
+Klein Breteler MD(1), Spoor CW, Van der Helm FC.
+
+Author information:
+(1)Nijmegen Institute for Cognition and Information, The Netherlands. 
+kleinbreteler@nici.kun.nl
+
+An extensive set of muscle and joint geometry parameters was measured of the 
+right shoulder of an embalmed male. For all muscles the optimal muscle fiber 
+length was determined by laser diffraction measurements of sarcomere length. In 
+addition, tendon length and physiological cross-sectional area were determined. 
+The parameter set was needed to enhance the reliability of a computer model of 
+the shoulder (Van der Helm, 1994a,b Journal of Biomechanics 27, 527-550, 
+551-569). With the model, an abduction of the arm was simulated in seven 
+positions, at 30 degrees intervals. In each of the simulated arm positions, 
+actual sarcomere lengths were calculated from the lengths of 104 muscle 
+elements, distributed over 16 shoulder muscles. For most muscle elements, the 
+simulated abduction appeared to take place within the sarcomere length range in 
+which the muscle elements can exert force. The muscle elements can then act on 
+the ascending limb as well as on the plateau and on the descending limb of the 
+relative force-length curves of sarcomeres. The produced data set is not only 
+important for the refinement of shoulder modeling, but also for functional 
+analyses of shoulder movements in general.
+
+DOI: 10.1016/s0021-9290(99)00122-0
+PMID: 10541069 [Indexed for MEDLINE]

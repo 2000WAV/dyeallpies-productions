@@ -1,0 +1,31 @@
+1. Sports Biomech. 2019 Dec;18(6):622-635. doi: 10.1080/14763141.2018.1452971.
+Epub  2018 May 16.
+
+Alterations in kinematics and muscle activation patterns with the addition of a 
+kipping action during a pull-up activity.
+
+Dinunzio C(1), Porter N(1), Van Scoy J(1), Cordice D(1), McCulloch RS(1).
+
+Author information:
+(1)Department of Human Physiology, School of Nursing and Human Physiology, 
+Gonzaga University , Spokane , WA , USA.
+
+Recently, addition of a gymnastics glide kip to a standard pull-up (SPU) has 
+resulted in the kipping pull-up (KPU). Changes in muscle activation and 
+kinematics were evaluated with eleven athletes performing sets of 5 SPU and 5 
+KPU. Surface electromyography of upper body and lower body muscles was recorded 
+along with movement kinematics obtained via markers and motion tracking 
+software. Most kinematic variables were significantly higher in the KPU 
+including (KPU minus SPU deg): Max hip angle (48.8° ± 6.8°, p < 0.001) and max 
+knee angle (56.5° ± 11.3°, p < 0.001). The recruitment of core and lower body 
+muscles was significantly higher in the KPU (% MVIC increase): rectus abdominis 
+(28.7 ± 4.7%, p < 0.001), external oblique (21.8 ± 4.1%, p < 0.001), iliopsoas 
+(26.1 ± 5.5%, p = 0.001) and tensor fasciae latae (13.5 ± 2.3%, p < 0.001). 
+Correspondingly, the biceps brachii had lower activation in the KPU (% MVIC 
+decrease): (26.7 ± 0.6%, p = 0.006). Depending on the athlete's goal, they may 
+elect to perform an SPU for higher upper body muscle activation; or the KPU for 
+more full-body activation with the potential to perform more repetitions through 
+reduced upper body fatigue.
+
+DOI: 10.1080/14763141.2018.1452971
+PMID: 29768093 [Indexed for MEDLINE]

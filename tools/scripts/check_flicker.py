@@ -1,7 +1,13 @@
 """
 Fail-safe for composited exports: find flashing / flicker before anyone watches it.
 
-    python check_flicker.py <rendered.mp4> <matte.npy> <report.png> [region=body|frame] [thresh=3.0]
+    python check_flicker.py <rendered.mp4> <matte.npy> <report.png> [thresh=3.0]
+                            [offset=N] [map=frames.json] [skip=f1,f2,...]
+
+offset= shifts the matte index (a render trimmed to start at source frame N).
+map=    a JSON list, one source frame index per rendered frame (a scheduled cut); the
+        gate then also knows where the cuts are and reports them separately, since a cut
+        is a deliberate one-frame jump and not a flicker.
 
 Per frame it measures, inside the person region (matte alpha channel 0, eroded) and in a
 strip of the background (outside a dilated alpha):
@@ -22,9 +28,15 @@ import matplotlib.pyplot as plt
 
 def main():
     video, matte, out = sys.argv[1:4]
-    thresh = 3.0
+    thresh = 3.0; offset = 0; fmap = None; skip = set(); zoom = None
     for a in sys.argv[4:]:
         if a.startswith("thresh="): thresh = float(a[7:])
+        elif a.startswith("offset="): offset = int(a[7:])
+        elif a.startswith("zoom="): zoom = [float(x) for x in a[5:].split(",")]   # x0,y0,z: the renderer's push-in
+        elif a.startswith("map="):
+            import json as _json
+            fmap = _json.load(open(a[4:]))
+        elif a.startswith("skip="): skip = {int(x) for x in a[5:].split(",")}
     comp = np.load(matte, mmap_mode="r")
     cap = cv2.VideoCapture(video); fps = cap.get(cv2.CAP_PROP_FPS); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     W = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)); H = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -37,8 +49,11 @@ def main():
         got, f = cap.read()
         if not got or i >= n:
             break
-        fi = min(i, nm - 1)
+        fi = min((fmap[i] if fmap and i < len(fmap) else i + offset), nm - 1)
         a = cv2.resize(np.asarray(comp[fi])[..., 0], (W, H), interpolation=cv2.INTER_LINEAR)
+        if zoom:      # the render was cropped at (x0, y0) and scaled by z before the UI went on
+            x0, y0, z = int(zoom[0]), int(zoom[1]), zoom[2]
+            a = cv2.resize(a[y0:y0 + int(round(H / z)), x0:x0 + int(round(W / z))], (W, H), interpolation=cv2.INTER_LINEAR)
         body = cv2.erode((a > 128).astype(np.uint8), np.ones((15, 15), np.uint8)) > 0
         body[H // 2:] = False                      # torso/arms half: where the paint lives
         bg = cv2.dilate((a > 40).astype(np.uint8), np.ones((61, 61), np.uint8)) == 0
@@ -71,6 +86,10 @@ def main():
                 continue
             ref = np.median(nb) + 1e-3
             if d[k] > thresh * ref and d[k] > 4.0:
+                if k in skip or (fmap and k > 0 and k < len(fmap)
+                                 and abs(fmap[k] - fmap[k - 1]) not in (0, 1)
+                                 and abs(fmap[k] - fmap[k - 1]) != (fmap[1] - fmap[0] if len(fmap) > 1 else 1)):
+                    continue                      # a deliberate cut in the schedule
                 out.append((k, t[k], label, d[k], ref))
         return out
 

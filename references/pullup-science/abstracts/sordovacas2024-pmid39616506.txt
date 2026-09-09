@@ -1,0 +1,24 @@
+Sordo-Vacas C, Garcia-Ramos A, Colomer-Poveda D (2024).
+Intra and Inter-Session Reliability of Movement Velocity During Pull-Ups Performed at Small Climbing
+Holds.
+Journal of Musculoskeletal & Neuronal Interactions, 24(4), 370-376.
+PMID 39616506. PMCID PMC11609558. Open access. Full text PDF saved at
+references/pullup-science/papers/sordovacas2024-mpv-reliability-climbing-pullups.pdf.
+
+Fetched from PubMed E-utilities on 2026-09-08; full text via Europe PMC on 2026-09-08.
+
+ABSTRACT:
+Ten male climbers (self-reported maximal climbing grade 6b-8b French scale) completed two identical
+sessions. In each session they performed two blocks of two pull-ups on a large hold and on four small
+climbing edges (25, 20, 15, 10 mm), order randomised. Mean propulsive velocity (MPV) was recorded with
+a linear position transducer. MPV fell with hold size: large hold 0.84 +/- 0.16 m/s, 20 mm 0.75 +/- 0.16
+m/s, 15 mm 0.73 +/- 0.16 m/s, 10 mm 0.52 +/- 0.15 m/s. Intraclass correlation coefficients for MPV were
+good-to-excellent both within a session (ICC 0.84-0.99) and between the two sessions (ICC 0.73-0.96)
+across all hold sizes. The authors propose MPV during small-edge pull-ups as a sport-specific
+finger/elbow/shoulder power test for climbers.
+
+Notes for this project: this is the closest published pull-up-specific reliability figure for MPV
+measured with an instrumented device (linear position transducer, not smartphone video) — ICC 0.73-0.96
+between sessions is the benchmark to compare the pipeline's pose-based velocity reliability against.
+Also gives a real MPV range (0.52-0.84 m/s) for bodyweight pull-ups under different grip/friction
+conditions, useful context for what counts as a "fast" vs a "grip-limited" rep.

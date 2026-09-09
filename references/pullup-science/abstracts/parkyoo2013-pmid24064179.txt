@@ -1,0 +1,37 @@
+1. J Electromyogr Kinesiol. 2013 Dec;23(6):1350-5. doi: 
+10.1016/j.jelekin.2013.08.006. Epub 2013 Sep 8.
+
+Selective activation of the latissimus dorsi and the inferior fibers of 
+trapezius at various shoulder angles during isometric pull-down exertion.
+
+Park SY(1), Yoo WG.
+
+Author information:
+(1)Department of Physical Therapy, The Graduate School, Inje University, 
+Republic of Korea.
+
+The aim of this study was to determine the effect of isometric pull down 
+exercise on muscle activity with shoulder elevation angles of 60°, 90°, and 120° 
+and sagittal, scapular, and frontal movement planes, by electromyography (EMG) 
+of the latissimus dorsi, inferior fibers of trapezius, and latissimus 
+dorsi/inferior fibers of trapezius activity ratio. Fourteen men performed nine 
+conditions of isometric pull down exercise (three conditions of shoulder 
+elevation × three conditions of movement planes). Surface EMG was used to 
+collect data from the latissimus dorsi and inferior fibers of trapezius during 
+exercise. Two-way repeated analysis of variance with two within-subject factors 
+(shoulder elevation angles and planes of movement) was used to determine the 
+significance of the latissimus dorsi and inferior fibers of trapezius activity 
+and latissimus dorsi/inferior fibers of trapezius activity ratio. The latissimus 
+dorsi activity and ratio between the latissimus dorsi and the inferior fibers of 
+trapezius were significantly decreased as shoulder elevation angle increased 
+from 60° to 120°. The inferior fibers of trapezius activity was significantly 
+increased with shoulder elevation angle. The EMG activity and the ratios were 
+not affected by changes in movement planes. This study suggests that selective 
+activation of the latissimus dorsi is accomplished with a low shoulder elevation 
+angle, while the inferior fibers of the trapezius are activated with high 
+shoulder elevation angles.
+
+Copyright © 2013 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jelekin.2013.08.006
+PMID: 24064179 [Indexed for MEDLINE]

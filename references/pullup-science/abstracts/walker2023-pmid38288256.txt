@@ -1,0 +1,37 @@
+1. Int J Exerc Sci. 2023 Dec 1;16(1):1451-1460. doi: 10.70252/FJQL7859.
+eCollection  2023.
+
+Comparison of Muscle Activity During a Ring Muscle Up and a Bar Muscle Up.
+
+Walker CW(1), Bruenger AJ(1), Tucker WS(2), Lee HR(1).
+
+Author information:
+(1)Department of Exercise and Sport Science, University of Central Arkansas, 
+Conway, Arkansas, United States.
+(2)Department of Rehabilitation Sciences, Texas Tech University Health Sciences 
+Center, Lubbock, TX, United States.
+
+The muscle up (MU) is a variation of a common gymnastics movement that combines 
+a pull up and a dip. It can be performed on a bar (BMU) or a set of rings (RMU). 
+The difference in upper extremity muscle recruitment (MR) between BMU and RMU 
+has not been evaluated. Therefore, the purpose of this study was to compare the 
+MR of select muscles during BMU and RMU. Ten active males (27.6 ± 7.9 years) 
+performed 5 repetitions of BMU and RMU in randomized order. Muscle recruitment 
+of the upper (UT) and lower trapezius (LT), serratus anterior (SA), pectoralis 
+major (PM), latissimus dorsi (LD), triceps brachii (TB), biceps brachii (BB), 
+and forearm flexors (FF) was assessed using electromyography. A 2 × 2 ANOVA 
+(ring vs bar, pull phase vs push phase) with repeated measures was performed for 
+each muscle. Least significant differences post hoc tests were performed when a 
+significant interaction effect occurred. The RMU significantly elicited more 
+muscle activation in the UT (p = 0.007), BB (p = 0.001), and FF (p = 0.001) 
+during the pull phase. The RMU also significantly elicited more muscle 
+activation in the TB (p = 0.025) and BB (p = 0.001) during the push phase. These 
+results suggest that the instability of the RMU primarily increases the required 
+recruitment of the upper limbs but does not significantly change the recruitment 
+of the shoulder stabilizers. Appropriate upper limb development is needed to 
+perform the RMU and the BMU may be a better technique to learn first due to its 
+lower difficulty.
+
+DOI: 10.70252/FJQL7859
+PMCID: PMC10824315
+PMID: 38288256

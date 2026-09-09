@@ -1,0 +1,23 @@
+1. Sensors (Basel). 2010;10(5):4700-15. doi: 10.3390/s100504700. Epub 2010 May 7.
+
+An overview of recent application of medical infrared thermography in sports 
+medicine in Austria.
+
+Hildebrandt C(1), Raschner C, Ammer K.
+
+Author information:
+(1)Department of Sport Science, University of Innsbruck, Fuerstenweg 185, A-6020 
+Innsbruck, Austria. carolin.hildebrandt@uibk.ac.at
+
+Medical infrared thermography (MIT) is used for analyzing physiological 
+functions related to skin temperature. Technological advances have made MIT a 
+reliable medical measurement tool. This paper provides an overview of MIT's 
+technical requirements and usefulness in sports medicine, with a special focus 
+on overuse and traumatic knee injuries. Case studies are used to illustrate the 
+clinical applicability and limitations of MIT. It is concluded that MIT is a 
+non-invasive, non-radiating, low cost detection tool which should be applied for 
+pre-scanning athletes in sports medicine.
+
+DOI: 10.3390/s100504700
+PMCID: PMC3292141
+PMID: 22399901 [Indexed for MEDLINE]

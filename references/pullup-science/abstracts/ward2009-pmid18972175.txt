@@ -1,0 +1,34 @@
+1. Clin Orthop Relat Res. 2009 Apr;467(4):1074-82. doi:
+10.1007/s11999-008-0594-8.  Epub 2008 Oct 30.
+
+Are current measurements of lower extremity muscle architecture accurate?
+
+Ward SR(1), Eng CM, Smallwood LH, Lieber RL.
+
+Author information:
+(1)Department of Radiology, University of California and Veterans Administration 
+Medical Centers, San Diego, CA, USA.
+
+Skeletal muscle architecture is defined as the arrangement of fibers in a muscle 
+and functionally defines performance capacity. Architectural values are used to 
+model muscle-joint behavior and to make surgical decisions. The two most 
+extensively used human lower extremity data sets consist of five total specimens 
+of unknown size, gender, and age. Therefore, it is critically important to 
+generate a high-fidelity human lower extremity muscle architecture data set. We 
+disassembled 27 muscles from 21 human lower extremities to characterize muscle 
+fiber length and physiologic cross-sectional area, which define the excursion 
+and force-generating capacities of a muscle. Based on their architectural 
+features, the soleus, gluteus medius, and vastus lateralis are the strongest 
+muscles, whereas the sartorius, gracilis, and semitendinosus have the largest 
+excursion. The plantarflexors, knee extensors, and hip adductors are the 
+strongest muscle groups acting at each joint, whereas the hip adductors and hip 
+extensors have the largest excursion. Contrary to previous assertions, two-joint 
+muscles do not necessarily have longer fibers than single-joint muscles as seen 
+by the similarity of knee flexor and extensor fiber lengths. These 
+high-resolution data will facilitate the development of more accurate 
+musculoskeletal models and challenge existing theories of muscle design; we 
+believe they will aid in surgical decision making.
+
+DOI: 10.1007/s11999-008-0594-8
+PMCID: PMC2650051
+PMID: 18972175 [Indexed for MEDLINE]

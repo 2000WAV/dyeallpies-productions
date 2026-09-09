@@ -1,0 +1,43 @@
+1. Acta Physiol Scand. 1998 Mar;162(3):421-36. doi: 
+10.1046/j.1365-201X.1998.0293e.x.
+
+Skeletal muscle blood flow in humans and its regulation during exercise.
+
+Saltin B(1), Rådegran G, Koskolou MD, Roach RC.
+
+Author information:
+(1)The Copenhagen Muscle Research Centre, Rigshospitalet, Tagensvei, Denmark.
+
+Regional limb blood flow has been measured with dilution techniques 
+(cardio-green or thermodilution) and ultrasound Doppler. When applied to the 
+femoral artery and vein at rest and during dynamical exercise these methods give 
+similar reproducible results. The blood flow in the femoral artery is 
+approximately 0.3 L min(-1) at rest and increases linearly with dynamical 
+knee-extensor exercise as a function of the power output to 6-10 L min[-1] (Q= 
+1.94 + 0.07 load). Considering the size of the knee-extensor muscles, perfusion 
+during peak effort may amount to 2-3 L kg(-1) min(-1), i.e. approximately 
+100-fold elevation from rest. The onset of hyperaemia is very fast at the start 
+of exercise with T 1/2 of 2-10 s related to the power output with the muscle 
+pump bringing about the very first increase in blood flow. A steady level is 
+reached within approximately 10-150 s of exercise. At all exercise intensities 
+the blood flow fluctuates primarily due to the variation in intramuscular 
+pressure, resulting in a phase shift with the pulse pressure as a superimposed 
+minor influence. Among the many vasoactive compounds likely to contribute to the 
+vasodilation after the first contraction adenosine is a primary candidate as it 
+can be demonstrated to (1) cause a change in limb blood flow when infused i.a., 
+that is similar in time and magnitude as observed in exercise, and (2) become 
+elevated in the interstitial space (microdialysis technique) during exercise to 
+levels inducing vasodilation. NO appears less likely since NOS blockade with 
+L-NMMA causing a reduced blood flow at rest and during recovery, it has no 
+effect during exercise. Muscle contraction causes with some delay (60 s) an 
+elevation in muscle sympathetic nerve activity (MSNA), related to the exercise 
+intensity. The compounds produced in the contracting muscle activating the group 
+IIl-IV sensory nerves (the muscle reflex) are unknown. In small muscle group 
+exercise an elevation in MSNA may not cause vasoconstriction (functional 
+sympatholysis). The mechanism for functional sympatholysis is still unknown. 
+However, when engaging a large fraction of the muscle mass more intensely during 
+exercise, the MSNA has an important functional role in maintaining blood 
+pressure by limiting blood flow also to exercising muscles.
+
+DOI: 10.1046/j.1365-201X.1998.0293e.x
+PMID: 9578388 [Indexed for MEDLINE]

@@ -1,0 +1,32 @@
+1. J Appl Physiol (1985). 1997 Sep;83(3):867-74. doi:
+10.1152/jappl.1997.83.3.867.
+
+Efficiency of human skeletal muscle in vivo: comparison of isometric, 
+concentric, and eccentric muscle action.
+
+Ryschon TW(1), Fowler MD, Wysong RE, Anthony A, Balaban RS.
+
+Author information:
+(1)Laboratory of Cardiac Energetics, National Heart, Lung, and Blood Institute, 
+National Institutes of Health, Bethesda, Maryland 20892, USA.
+
+The purpose of this study was to estimate the efficiency of ATP utilization for 
+concentric, eccentric, and isometric muscle action in the human tibialis 
+anterior and extensor digitorum longus in vivo. A dynamometer was used to 
+quantitate muscle work, or tension, while simultaneous 31P-nuclear magnetic 
+resonance data were collected to monitor ATP, phosphocreatine, inorganic 
+phosphate, and pH. The relative efficiency of the actions was estimated in two 
+ways: steady-state effects on high-energy phosphates and a direct comparison of 
+ATP synthesis rates with work. In the steady state, the cytosolic free energy 
+dropped to the lowest value with concentric activity, followed by eccentric and 
+isometric action for comparative muscle tensions. Estimates of ATP synthesis 
+rates revealed a mechanochemical efficiency [i.e., ATP production rate/work 
+(both in J/s)] of 15.0 +/- 1.3% in concentric and 34.7 +/- 6.1% in eccentric 
+activity. The estimated maximum ATP production rate was highest in concentric 
+action, suggesting an activation of energy metabolism under these conditions. By 
+using direct measures of metabolic strain and ATP turnover, these data 
+demonstrate a decreasing metabolic efficiency in human muscle action from 
+isometric, to eccentric, to concentric action.
+
+DOI: 10.1152/jappl.1997.83.3.867
+PMID: 9292475 [Indexed for MEDLINE]

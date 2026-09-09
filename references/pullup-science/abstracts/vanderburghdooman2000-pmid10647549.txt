@@ -1,0 +1,37 @@
+1. Med Sci Sports Exerc. 2000 Jan;32(1):197-201. doi: 
+10.1097/00005768-200001000-00029.
+
+Considering body mass differences, who are the world's strongest women?
+
+Vanderburgh PM(1), Dooman C.
+
+Author information:
+(1)Health and Sport Science Dept., University of Dayton, OH 45469-1210, USA. 
+vanderbu@yar.udayton.edu
+
+PURPOSE: Allometric modeling (AM) has been used to determine the world's 
+strongest body mass-adjusted man. Recently, however, AM was shown to demonstrate 
+body mass bias in elite Olympic weightlifting performance. A second order 
+polynomial (2OP) provided a better fit than AM with no body mass bias for men 
+and women. The purpose of this study was to apply both AM and 2OP models to 
+women's world powerlifting records (more a function of pure strength and less 
+power than Olympic lifts) to determine the optimal model approach as well as the 
+strongest body mass-adjusted woman in each event.
+METHODS: Subjects were the 36 (9 per event) current women world record holders 
+(as of Nov., 1997) for bench press (BP), deadlift (DL), squat (SQ), and total 
+(TOT) lift (BP + DL + SQ) according to the International Powerlifting Federation 
+(IPF).
+RESULTS: The 2OP model demonstrated the superior fit and no body mass bias as 
+indicated by the coefficient of variation and residuals scatterplot inspection, 
+respectively, for DL, SQ, and TOT. The AM for these three lifts, however, showed 
+favorable bias toward the middle weight classes. The 2OP and AM yielded an 
+essentially identical fit for BP.
+CONCLUSIONS: Although body mass-adjusted world records were dependent on the 
+model used, Carrie Boudreau (U.S., 56-kg weight class), who received top scores 
+in TOT and DL with both models, is arguably the world's strongest woman overall. 
+Furthermore, although the 2OP model provides a better fit than AM for this elite 
+population, a case can still be made for AM use, particularly in light of 
+theoretical superiority.
+
+DOI: 10.1097/00005768-200001000-00029
+PMID: 10647549 [Indexed for MEDLINE]

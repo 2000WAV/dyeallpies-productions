@@ -1,0 +1,38 @@
+1. J Appl Physiol (1985). 1991 Dec;71(6):2476-82. doi: 
+10.1152/jappl.1991.71.6.2476.
+
+Control of internal temperature threshold for active cutaneous vasodilation by 
+dynamic exercise.
+
+Kellogg DL Jr(1), Johnson JM, Kosiba WA.
+
+Author information:
+(1)Department of Physiology and Geriatric Research, Education, and Clinical 
+Center, University of Texas, Health Science Center, San Antonio 78284.
+
+Exercise induces shifts in the internal temperature threshold at which cutaneous 
+vasodilation begins. To find whether this shift is accomplished through the 
+vasoconstrictor system or the cutaneous active vasodilator system, two forearm 
+sites (0.64 cm2) in each of 11 subjects were iontophoretically treated with 
+bretylium tosylate to locally block adrenergic vasoconstrictor control. Skin 
+blood flow was monitored by laser-Doppler flowmetry (LDF) at those sites and at 
+two adjacent untreated sites. Mean arterial pressure (MAP) was measured 
+noninvasively. Cutaneous vascular conductance was calculated as LDF/MAP. Forearm 
+sweat rate was also measured in seven of the subjects by dew point hygrometry. 
+Whole body skin temperature was raised to 38 degrees C, and supine bicycle 
+ergometer exercise was then performed for 7-10 min. The internal temperature at 
+which cutaneous vasodilation began was recorded for all sites, as was the 
+temperature at which sweating began. The same subjects also participated in 
+studies of heat stress without exercise to obtain vasodilator and sudomotor 
+thresholds from rest. The internal temperature thresholds for cutaneous 
+vasodilation were higher during exercise at both bretylium-treated (36.95 +/- 
+0.07 degrees C rest, 37.20 +/- 0.04 degrees C exercise, P less than 0.05) and 
+untreated sites (36.95 +/- 0.06 degrees C rest, 37.23 +/- 0.05 degrees C 
+exercise, P less than 0.05). The thresholds for cutaneous vasodilation during 
+rest or during exercise were not statistically different between untreated and 
+bretylium-treated sites (P greater than 0.05). The threshold for the onset of 
+sweating was not affected by exercise (P greater than 0.05).(ABSTRACT TRUNCATED 
+AT 250 WORDS)
+
+DOI: 10.1152/jappl.1991.71.6.2476
+PMID: 1778949 [Indexed for MEDLINE]

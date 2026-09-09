@@ -1,0 +1,62 @@
+1. J Therm Biol. 2022 Apr;105:103146. doi: 10.1016/j.jtherbio.2021.103146. Epub 
+2021 Dec 27.
+
+Skin temperature measurement in individuals with spinal cord injury during and 
+after exercise: Systematic review.
+
+Sanchez-Jimenez JL(1), Aparicio I(2), Romero-Avila JL(3), Bellot-Arcís C(4), 
+Cibrián Ortiz de Anda RM(5), Priego-Quesada JI(6).
+
+Author information:
+(1)Research Group in Sports Biomechanics (GIBD), Department of Physical 
+Education and Sports, University of Valencia, St: Gascó Oliag, 3, 46010, 
+Valencia, Spain.
+(2)Research Group in Sports Biomechanics (GIBD), Department of Physical 
+Education and Sports, University of Valencia, St: Gascó Oliag, 3, 46010, 
+Valencia, Spain. Electronic address: inmaculada.aparicio@uv.es.
+(3)Department of Physiotherapy, Universitat de València, St: Gascó Oliag, 3, 
+46010, Valencia, Spain.
+(4)Orthodontics Teaching Unit, Department of Stomatology, Faculty of Medicine 
+and Dentistry, University of Valencia, Ave: Blasco Ibáñez, 15, 46010, Valencia, 
+Spain.
+(5)Research Group in Medical Physics (GIFIME), Department of Physiology, 
+University of Valencia, Ave: Blasco Ibáñez, 15, 46010, Valencia, Spain.
+(6)Research Group in Sports Biomechanics (GIBD), Department of Physical 
+Education and Sports, University of Valencia, St: Gascó Oliag, 3, 46010, 
+Valencia, Spain; Research Group in Medical Physics (GIFIME), Department of 
+Physiology, University of Valencia, Ave: Blasco Ibáñez, 15, 46010, Valencia, 
+Spain.
+
+BACKGROUND: Athletes with spinal cord injury (SCI) have difficulties in 
+maintaining thermal homeostasis during exercise due to their lower sweat 
+capacity and skin vasodilation. Skin temperature (Tsk) assessment, as opposed to 
+core temperature, has become more widely accepted due to its non-invasive 
+nature. The aims of this systematic review was to collate research studies that 
+measured Tsk of individuals with SCI during or after exercise, study their Tsk 
+response, taking into account the method employed, the environmental and 
+exercise conditions, and to identify the different cooling strategies and their 
+effect during exercise.
+METHODS: Pubmed, Web of Science and Scopus databases were searched to identify 
+the articles published since year 2000. Two reviewers working independently 
+extracted data and assessed the quality of the articles included. If they 
+disagreed, a third reviewer was consulted. ROBINS-I scale was used to assess the 
+quality of the articles, and the review has been conducted in agreement with 
+PRISMA guidelines.
+RESULTS: Twenty studies were included in this review. 84% of them presented 
+moderate, serious or critical risk of bias. The entire of the studies assessed 
+Tsk during exercise, but only seven studies measured it during rest or after 
+exercise. Eighteen studies used contact thermometry to assess Tsk and the two 
+remaining studies employed non-contact techniques. Seven studies were conducted 
+in warm conditions (>31.5°C) and the remaining studies in moderate conditions 
+(10°C to 26.6°C). According to cooling strategies, ice vests and water spray are 
+effective in reducing Tsk and decreasing the risk of heat stroke.
+CONCLUSIONS: The 90% of the studies applied contact thermometry and due to their 
+effect in the data assessed, it is necessary more research into the SCI 
+population using infrared thermography due to its differences in 
+characteristics, methodology, and applications. The methodological differences 
+among studies make difficult to perform a meta-analysis.
+
+Copyright © 2021 The Authors. Published by Elsevier Ltd.. All rights reserved.
+
+DOI: 10.1016/j.jtherbio.2021.103146
+PMID: 35393040 [Indexed for MEDLINE]

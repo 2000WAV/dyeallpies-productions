@@ -1,0 +1,35 @@
+metric,value,unit,population,method,source
+strengthlevel.com pull-up level: beginner,<1,reps,adult male ~174 lb (79 kg) bodyweight bracket,crowd-sourced app/gym log data; 1,220,115 qualifying male results 2016-2026,strengthlevel.com (not peer-reviewed; convenience sample of app users, skews toward trained gymgoers)
+strengthlevel.com pull-up level: novice,7,reps,adult male ~174 lb bodyweight bracket,as above,strengthlevel.com
+strengthlevel.com pull-up level: intermediate (~50th pct of lifters who log),13,reps,adult male ~174 lb bodyweight bracket,as above,strengthlevel.com
+strengthlevel.com pull-up level: advanced,21,reps,adult male ~174 lb bodyweight bracket,as above,strengthlevel.com
+strengthlevel.com pull-up level: elite,29,reps,adult male ~174 lb bodyweight bracket,as above,strengthlevel.com
+ACSM/YMCA-derived pull-up rating: average,7-9,reps,adult male 18-35 y (secondary compilation),norms compilation, not the primary ACSM table itself,trainrboost.com / topendsports.com summaries (secondary; primary ACSM Guidelines table not directly fetched this session)
+ACSM/YMCA-derived pull-up rating: good,10-15,reps,adult male 18-35 y,as above,trainrboost.com / topendsports.com summaries (secondary)
+ACSM/YMCA-derived pull-up rating: excellent,16+,reps,adult male 18-35 y,as above,trainrboost.com / topendsports.com summaries (secondary)
+untrained adult male estimate,1-3,reps,general adult male population (informal compilations, not a single dataset),multiple fitness-media summaries, no single primary survey citation found,marathonhandbook.com / inspireusafoundation.org (secondary, ESTIMATE-grade)
+"<5% of general population can do 10 strict pull-ups" claim,<5,percent,general population (unsourced in the secondary article itself),claim repeated across fitness media without a traceable primary dataset,inspireusafoundation.org (secondary, flag as unverified/ESTIMATE)
+1RM lat-pull vs 1RM pull-up correlation (men),0.78,r,35 college men,1RM testing,johnson2009-pmid19387371
+1RM lat-pull vs 1RM pull-up correlation (women),0.44 (n.s.),r,23 college women,1RM testing,johnson2009-pmid19387371
+PUmax relative to body mass (men),1.16 +/- 0.15,x bodyweight,35 college men,added/counter-weighted 1RM pull-up,johnson2009-pmid19387371
+PUmax relative to body mass (women),0.73 +/- 0.09,x bodyweight,23 college women,added/counter-weighted 1RM pull-up,johnson2009-pmid19387371
+pull-up reps at 80% 1RM (men),8.1 +/- 1.9,reps,35 college men,repetitions to fatigue,johnson2009-pmid19387371
+pull-up reps at 80% 1RM (women),10.5 +/- 2.2,reps,23 college women,repetitions to fatigue,johnson2009-pmid19387371
+pull-ups vs body mass correlation,-0.48,r,28 elite D2 women swimmers,free-hanging max pull-ups,halet2009-pmid19620915
+pull-ups vs lean body mass correlation,-0.43,r,28 elite D2 women swimmers,free-hanging max pull-ups + skinfold LBM,halet2009-pmid19620915
+pull-ups vs percent body fat correlation,-0.32,r,28 elite D2 women swimmers,free-hanging max pull-ups + skinfold %fat,halet2009-pmid19620915
+pull-ups vs 1RM lat-pull correlation,0.34 (p=.08),r,28 elite D2 women swimmers,,halet2009-pmid19620915
+pull-up-times-bodymass (PUxBM) vs 1RM lat-pull,0.86 (SEE 4.4 kg),r,28 elite D2 women swimmers,stepwise regression,halet2009-pmid19620915
+PUxBM + %fat vs 1RM lat-pull,0.90 (SEE 3.9 kg),R,28 elite D2 women swimmers,stepwise regression,halet2009-pmid19620915
+predictor equation for successful pull-up completion,two-variable: %body fat + strength-to-fat-free-mass ratio,model (no numeric coefficients in abstract),college-age women, pre/post 8-wk combined strength+aerobic program,flanaganvanderburgh2003-pmid12659476
+1RM lat-pull vs body mass correlation,0.38,r,28 elite D2 women swimmers,skinfold + 1RM,halet2009-pmid19620915
+1RM lat-pull vs lean body mass correlation,0.41,r,28 elite D2 women swimmers,skinfold LBM + 1RM,halet2009-pmid19620915
+1RM lat-pull vs percent body fat correlation (n.s.),0.13,r,28 elite D2 women swimmers,skinfold %fat + 1RM,halet2009-pmid19620915
+field tests validity vs criterion strength (raw scores),nonsignificant,r,94 children 9-10y (38 boys 56 girls),zero-order correlation, criterion = supported-weight resistance device,pate1993-pmid8451529
+field tests validity vs criterion strength (relative to body weight),significant p<.01 for every field test,r,94 children 9-10y,same as above but strength expressed per kg body weight,pate1993-pmid8451529
+allometric scaling exponent (general strength, theoretical),-2/3 (0.667),exponent b in S = a*M^b,geometric-similarity theory applied to strength testing,asep.org summary of Vanderburgh's allometric scaling approach (secondary page hosting his index method; primary JSCR 2000 paywalled)
+allometric mass-adjustment index for men,I = 73^(2/3) * M^(-2/3),dimensionless multiplier on raw lift/score,reference body mass 73.0 kg (men),asep.org (Vanderburgh's simplified index)
+Wilks formula validity (bench press, total),no systematic body-mass bias found,qualitative,30 men + 27 women, IPF world/championship record holders,vanderburghbatterham1999-wilks-pmid10613442
+Wilks formula validity (deadlift),linear unfavorable bias toward heavier lifters,qualitative,30 men + 27 women, IPF record holders,vanderburghbatterham1999-wilks-pmid10613442
+military PT tests penalize larger (not just fatter) service members,qualitative finding,review,US Army/Navy/Air Force fitness tests,vanderburgh2008-pmid18614935
+lean body mass / lean-to-dead-mass ratio better predicts occupational tasks than PT test events,qualitative finding,review,US military,vanderburgh2008-pmid18614935

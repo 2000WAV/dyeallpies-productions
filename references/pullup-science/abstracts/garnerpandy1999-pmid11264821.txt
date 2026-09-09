@@ -1,0 +1,36 @@
+1. Comput Methods Biomech Biomed Engin. 1999;2(2):107-124. doi: 
+10.1080/10255849908907981.
+
+A Kinematic Model of the Upper Limb Based on the Visible Human Project (VHP) 
+Image Dataset.
+
+Garner BA(1), Pandy MG.
+
+Author information:
+(1)Department of Mechanical Engineering and Department of Kinesiology University 
+of Texas at Austin, Austin, Texas 78712, U.S.A.
+
+A kinematic model of the arm was developed using high-resolution medical images 
+obtained from the National Library of Medicine's Visible Human Project (VHP) 
+dataset. The model includes seven joints and uses thirteen degrees of freedom to 
+describe the relative movements of seven upper-extremity bones: the clavicle, 
+scapula, humerus, ulna, radius, carpal bones, and hand. Two holonomic 
+constraints were used to model the articulation between the scapula and the 
+thorax. The kinematic structure of each joint was based on anatomical 
+descriptions reported in the literature. The three joints comprising the 
+shoulder girdle - the sternoclavicular joint, the acromioclavicular joint, and 
+the glenohumeral joint - were each modeled as a three degree-of-freedom, ideal, 
+ball-and-socket joint. The articulations at the elbow and wrist - humeroulnar 
+flexion-extension, radioulnar pronation-supination, radiocarpal 
+flexion-extension, and radiocarpal radial-ulnar deviation - were each modeled as 
+a single degree-of-freedom, ideal, hinge joint. Locations of the joint centers 
+and joint axes were derived by graphically inspecting the three-dimensional 
+surfaces of the reconstructed bones. The relative positions of the bones were 
+defined by fixing a reference frame to each bone; the position and orientation 
+of each reference frame were based on the positions of anatomical landmarks and 
+on the shapes of the reconstructed bone surfaces. Tables are provided which 
+specify the positions and orientations of the joint axes and the bone-fixed 
+reference frames for the model arm.
+
+DOI: 10.1080/10255849908907981
+PMID: 11264821

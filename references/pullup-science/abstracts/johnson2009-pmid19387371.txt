@@ -1,0 +1,31 @@
+1. J Strength Cond Res. 2009 May;23(3):1022-8. doi: 10.1519/JSC.0b013e3181a2d7f5.
+
+Relationship of lat-pull repetitions and pull-ups to maximal lat-pull and 
+pull-up strength in men and women.
+
+Johnson D(1), Lynch J, Nash K, Cygan J, Mayhew JL.
+
+Author information:
+(1)Human Performance Laboratory, Quincy University, Quincy, Illinois, USA. 
+johnsdo@quincy.edu
+
+To determine the relationships among selected shoulder pulling strength and 
+endurance maneuvers, college men (n = 35) and women (n = 23) were evaluated for 
+1-repetition maximum (1RM) lat-pull (LPmax), 1RM pull-up (PUmax), lat-pull 
+repetitions-to-fatigue using 80% of 1RM (LPreps), and pull-up repetitions at 80% 
+of 1RM (PUreps). PUmax was determined by adding to or counter-weighting the body 
+mass to achieve one repetition. Men and women performed the 1RM with 
+significantly more weight relative to body mass in the PUmax (1.16 +/- 0.15 and 
+0.73 +/- 0.09, respectively) than in the LPmax (0.93 +/- 0.17 and 0.55 +/- 0.11, 
+respectively). The correlation between LPmax and PUmax was higher in men (r = 
+0.78; p < 0.01) than in women (r = 0.44; p > 0.05). Women performed 
+significantly more PUreps (10.5 +/- 2.2) than men (8.1 +/- 1.9) but were 
+equivalent to men in the LPreps (10.0 +/- 2.4 and 9.9 +/- 2.5, respectively). 
+Men performed significantly more LPreps than PUreps, whereas the women were 
+equivalent. Body composition components (lean body mass [LBM] and %fat) affected 
+LPmax and PUmax to a greater degree in men than in women. Maximal strength 
+performance in each lift in each sex could be predicted using the analogous 
+muscular endurance exercise or body composition components.
+
+DOI: 10.1519/JSC.0b013e3181a2d7f5
+PMID: 19387371 [Indexed for MEDLINE]

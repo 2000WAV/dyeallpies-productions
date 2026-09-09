@@ -1,0 +1,68 @@
+study,year,pmid,exercise,grip_variant,muscle,value_type,value,sd,n,population,normalisation,phase,note
+Youdas et al.,2010,21068680,pull-up/chin-up/Perfect-Pullup,pronated (pull-up) vs supinated (chin-up),latissimus dorsi,percent_MVIC,"117-130",,25 (21M 4F),resistance-trained adults,MVIC (double-differential surface EMG),whole rep average,range across the three exercise variants; highest of all muscles
+Youdas et al.,2010,21068680,pull-up/chin-up,pronated vs supinated,biceps brachii,percent_MVIC,"78-96",,25 (21M 4F),resistance-trained adults,MVIC,whole rep average,significantly higher in chin-up than pull-up
+Youdas et al.,2010,21068680,pull-up/chin-up,both,infraspinatus,percent_MVIC,"71-79",,25 (21M 4F),resistance-trained adults,MVIC,whole rep average,
+Youdas et al.,2010,21068680,pull-up/chin-up,both,lower trapezius,percent_MVIC,"45-56",,25 (21M 4F),resistance-trained adults,MVIC,whole rep average,significantly higher in pull-up than chin-up
+Youdas et al.,2010,21068680,pull-up/chin-up,both,pectoralis major,percent_MVIC,"44-57",,25 (21M 4F),resistance-trained adults,MVIC,whole rep average,significantly higher in chin-up; "initiated" the rep with lower trapezius
+Youdas et al.,2010,21068680,pull-up/chin-up,both,erector spinae,percent_MVIC,"39-41",,25 (21M 4F),resistance-trained adults,MVIC,whole rep average,
+Youdas et al.,2010,21068680,pull-up/chin-up,both,external oblique,percent_MVIC,"31-35",,25 (21M 4F),resistance-trained adults,MVIC,whole rep average,
+Dickie et al.,2017,28011412,pull-up,pronated,middle trapezius,percent_MVIC_peak,60.1,22.5,19 men,strength-trained men 24.9y,MVIC,peak,
+Dickie et al.,2017,28011412,pull-up,pronated,middle trapezius,percent_MVIC_avg,48.0,21.2,19 men,strength-trained men 24.9y,MVIC,average,
+Dickie et al.,2017,28011412,pull-up,neutral,middle trapezius,percent_MVIC_peak,37.1,,19 men,strength-trained men 24.9y,MVIC,peak,
+Dickie et al.,2017,28011412,pull-up,neutral,middle trapezius,percent_MVIC_avg,27.4,,19 men,strength-trained men 24.9y,MVIC,average,
+Dickie et al.,2017,28011412,pull-up,pronated/supinated/neutral/rope,brachioradialis; biceps brachii; pectoralis major,qualitative,,,19 men,strength-trained men 24.9y,MVIC,concentric > eccentric,concentric significantly greater than eccentric (P<0.01); otherwise grips similar
+Snarr et al.,2017,28828073,traditional pull-up,pronated 1.5x biacromial,latissimus dorsi,percent_MVC,79.82,21.95,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Snarr et al.,2017,28828073,traditional pull-up,pronated 1.5x biacromial,biceps brachii,percent_MVC,43.93,13.94,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Snarr et al.,2017,28828073,traditional pull-up,pronated 1.5x biacromial,middle trapezius,percent_MVC,60.52,18.06,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Snarr et al.,2017,28828073,traditional pull-up,pronated 1.5x biacromial,posterior deltoid,percent_MVC,106.09,69.64,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,very large SD in original
+Snarr et al.,2017,28828073,suspension-device pull-up,pronated 1.5x biacromial,latissimus dorsi,percent_MVC,83.76,18.14,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,not sig diff from traditional
+Snarr et al.,2017,28828073,suspension-device pull-up,pronated 1.5x biacromial,biceps brachii,percent_MVC,45.80,16.33,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Snarr et al.,2017,28828073,suspension-device pull-up,pronated 1.5x biacromial,middle trapezius,percent_MVC,55.21,15.13,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Snarr et al.,2017,28828073,suspension-device pull-up,pronated 1.5x biacromial,posterior deltoid,percent_MVC,102.48,61.44,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Snarr et al.,2017,28828073,towel pull-up,pronated 1.5x biacromial,latissimus dorsi,percent_MVC,85.34,19.78,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Snarr et al.,2017,28828073,towel pull-up,pronated 1.5x biacromial,biceps brachii,percent_MVC,41.42,17.40,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Snarr et al.,2017,28828073,towel pull-up,pronated 1.5x biacromial,middle trapezius,percent_MVC,51.00,14.22,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,significantly LOWER than traditional pull-up (only sig diff found)
+Snarr et al.,2017,28828073,towel pull-up,pronated 1.5x biacromial,posterior deltoid,percent_MVC,100.94,61.04,15 (M+F),resistance-trained adults 24.9y,MVC,whole rep,
+Dinunzio et al.,2018,29768093,strict pull-up (SPU) vs kipping pull-up (KPU),pronated,rectus abdominis,percent_MVIC_increase_in_KPU,28.7,4.7,11,athletes,MVIC,whole rep,p<0.001; KPU minus SPU
+Dinunzio et al.,2018,29768093,SPU vs KPU,pronated,external oblique,percent_MVIC_increase_in_KPU,21.8,4.1,11,athletes,MVIC,whole rep,p<0.001
+Dinunzio et al.,2018,29768093,SPU vs KPU,pronated,iliopsoas,percent_MVIC_increase_in_KPU,26.1,5.5,11,athletes,MVIC,whole rep,p=0.001
+Dinunzio et al.,2018,29768093,SPU vs KPU,pronated,tensor fasciae latae,percent_MVIC_increase_in_KPU,13.5,2.3,11,athletes,MVIC,whole rep,p<0.001
+Dinunzio et al.,2018,29768093,SPU vs KPU,pronated,biceps brachii,percent_MVIC_decrease_in_KPU,26.7,0.6,11,athletes,MVIC,whole rep,p=0.006; KPU LOWER than SPU
+Tucker et al.,2011,21814139,supine pull-up (inverted row),unspecified,upper trapezius,percent_MVIC,61.57,29.67,30 (15 overhead+15 nonoverhead athletes),collegiate athletes,MVIC,whole rep,significantly > push-up and Cuff Link
+Tucker et al.,2011,21814139,supine pull-up,unspecified,middle trapezius,percent_MVIC,62.89,24.17,30,collegiate athletes,MVIC,whole rep,significantly highest of the 3 exercises tested
+Tucker et al.,2011,21814139,supine pull-up,unspecified,lower trapezius,percent_MVIC,60.47,34.80,30,collegiate athletes,MVIC,whole rep,significantly highest of the 3 exercises tested
+Tucker et al.,2011,21814139,supine pull-up,unspecified,serratus anterior,percent_MVIC,25.52,19.80,30,collegiate athletes,MVIC,whole rep,LOWEST of the 3 exercises (push-up and Cuff Link both higher)
+Andersen et al.,2014,24662157,lat pull-down,narrow (1x biacromial),6RM_load_kg,80.3,7.2,15 men,resistance-trained men,1RM-scaled 6RM test,concentric+eccentric,strength not EMG
+Andersen et al.,2014,24662157,lat pull-down,medium (1.5x biacromial),6RM_load_kg,80.0,7.1,15 men,resistance-trained men,1RM-scaled 6RM test,concentric+eccentric,
+Andersen et al.,2014,24662157,lat pull-down,wide (2x biacromial),6RM_load_kg,77.3,6.3,15 men,resistance-trained men,1RM-scaled 6RM test,concentric+eccentric,significantly lower than narrow/medium (p=0.02)
+Andersen et al.,2014,24662157,lat pull-down,narrow/medium/wide,latissimus dorsi; trapezius; infraspinatus,qualitative,,,15 men,resistance-trained men,MVIC,whole rep,"similar EMG across grip widths (whole-rep); wide>narrow eccentric for LD and infraspinatus (p<=0.04)"
+Andersen et al.,2014,24662157,lat pull-down,medium vs narrow,biceps brachii,qualitative,,,15 men,resistance-trained men,MVIC,concentric,medium greater than narrow (p=0.03)
+Sperandei et al.,2009,19855327,lat pull-down,behind-neck (BNL) vs front-of-neck (FNL) vs V-bar,pectoralis major,ordinal_rank,,,24 men,trained adult men,MVIC (normalised to highest of all techniques),concentric,FNL>V-bar/BNL and V-bar>BNL concentric; FNL/V-bar>BNL eccentric
+Sperandei et al.,2009,19855327,lat pull-down,BNL/FNL/V-bar,latissimus dorsi,qualitative,,,24 men,trained adult men,MVIC,both phases,no significant difference between techniques
+Sperandei et al.,2009,19855327,lat pull-down,BNL/FNL/V-bar,posterior deltoid,ordinal_rank,,,24 men,trained adult men,MVIC,both phases,BNL>FNL/V-bar concentric; BNL>V-bar eccentric
+Sperandei et al.,2009,19855327,lat pull-down,BNL/FNL/V-bar,biceps brachii,ordinal_rank,,,24 men,trained adult men,MVIC,both phases,BNL>V-bar/FNL and V-bar>FNL in both phases
+Lusk et al.,2010,20543740,lat pull-down (anterior),pronated vs supinated (wide+narrow pooled),latissimus dorsi,qualitative,,,12 men,healthy men,MVIC,both phases,"pronated > supinated (p<0.05); no numeric %MVIC given in abstract"
+Lusk et al.,2010,20543740,lat pull-down,pronated vs supinated,middle trapezius; biceps brachii,qualitative,,,12 men,healthy men,MVIC,both phases,no effect of grip type
+Signorile et al.,2002,12423182,lat pull-down,close(CG)/supinated(SG)/wide-anterior(WGA)/wide-posterior(WGP),latissimus dorsi,ordinal_rank,,,10 men,healthy men,MVIC (NrmsEMG),concentric,WGA>WGP,SG,CG
+Signorile et al.,2002,12423182,lat pull-down,CG/SG/WGA/WGP,triceps long head,ordinal_rank,,,10 men,healthy men,MVIC,concentric,WGA>WGP,SG,CG and WGP>CG,SG
+Signorile et al.,2002,12423182,lat pull-down,CG/SG/WGA/WGP,posterior deltoid; pectoralis major,ordinal_rank,,,10 men,healthy men,MVIC,concentric,"CG,WGA,SG>WGP"
+Doma et al.,2013,24245055,chin-up vs lat pull-down,pronated (chin-up) narrow,biceps brachii; erector spinae,qualitative,,,not stated in abstract,not stated,MVIC,concentric,chin-up BB and ES greater than lat pull-down (p<0.05)
+Doma et al.,2013,24245055,chin-up vs lat pull-down,pronated,rectus abdominis,qualitative,,,not stated,not stated,MVIC,eccentric,lat pull-down RA greater than chin-up (p<0.05)
+Doma et al.,2013,24245055,chin-up,pronated,biceps brachii; latissimus dorsi; erector spinae vs pectoralis major,qualitative,,,not stated,not stated,MVIC,concentric,"BB, LD, ES > PM"
+Doma et al.,2013,24245055,chin-up,pronated,biceps brachii; latissimus dorsi vs triceps brachii; rectus abdominis,qualitative,,,not stated,not stated,MVIC,eccentric,"BB, LD > TB; LD > RA"
+Park & Yoo,2013,24064179,isometric pull-down,shoulder elevation 60/90/120 deg x 3 planes,latissimus dorsi,qualitative,,,14 men,healthy men,MVIC,isometric hold,LD activity and LD/LT ratio DECREASE as elevation angle increases 60->120 deg; no plane effect
+Park & Yoo,2013,24064179,isometric pull-down,60/90/120 deg,inferior (lower) trapezius,qualitative,,,14 men,healthy men,MVIC,isometric hold,LT activity INCREASES with elevation angle
+Urbanczyk et al.,2020,32715526,pull-up,pronated front vs pronated wide vs supinated reverse,latissimus dorsi,qualitative_modelled_force,,,11 men,no shoulder pathology history,UK National Shoulder Model (inverse dynamics, not surface EMG),whole rep,wide grip relatively more active (P<.01)
+Urbanczyk et al.,2020,32715526,pull-up,front grip,biceps brachii; brachialis,qualitative_modelled_force,,,11 men,no shoulder pathology history,modelled muscle force,whole rep,front grip favoured activation (P<.02)
+Urbanczyk et al.,2020,32715526,pull-up,reverse (supinated) grip,rotator cuff (composite),qualitative_modelled_force,,,11 men,no shoulder pathology history,modelled muscle force,whole rep,higher proportional activation than other grips (P<.01)
+Williamson & Price,2021,,strict vs kipping vs butterfly pull-up,pronated 1.5x biacromial,biceps brachii; latissimus dorsi,cohens_d,"1.1-1.4",,not stated in abstract,CrossFit-style trainees,MVIC,whole rep,kipping REDUCES biceps/lat activation vs strict by this effect size; source: J Sport Exerc Sci 2021 (see pullup-thermal/README.md)
+Ferrer-Uris et al.,2023,37304875,dead-hang (not pull-up),CRIMP grip,flexor digitorum superficialis (FDS),RMS_mV,610.64,236.73,25 climbers,rock climbers,raw surface RMS (NOT %MVIC),isometric max hang,not normalised to MVIC; global RMS = sum across FDP/FDS/FCR/EDC
+Ferrer-Uris et al.,2023,37304875,dead-hang,SLOPE grip,flexor digitorum superficialis,RMS_mV,520.87,228.28,25 climbers,rock climbers,raw surface RMS,isometric max hang,significantly lower than CRIMP (p=0.001) and SLOPER
+Ferrer-Uris et al.,2023,37304875,dead-hang,SLOPER grip,flexor digitorum superficialis,RMS_mV,675.56,231.44,25 climbers,rock climbers,raw surface RMS,isometric max hang,highest of the three grips
+Ferrer-Uris et al.,2023,37304875,dead-hang,CRIMP grip,flexor carpi radialis (FCR),RMS_mV,189.77,70.04,25 climbers,rock climbers,raw surface RMS,isometric max hang,
+Ferrer-Uris et al.,2023,37304875,dead-hang,SLOPER grip,flexor carpi radialis,RMS_mV,292.6,130.81,25 climbers,rock climbers,raw surface RMS,isometric max hang,significantly higher than CRIMP/SLOPE (p<0.001)
+Ferrer-Uris et al.,2023,37304875,dead-hang,CRIMP grip,flexor digitorum profundus (FDP),RMS_mV,708.96,172.04,25 climbers,rock climbers,raw surface RMS,isometric max hang,
+Dykes et al.,2019,30721754,static crimp-grip hang (no tape),crimp,flexor digitorum superficialis,percent_RVC,102.4,59.1,10,uninjured rock climbers,relative to a non-crimp static hang (RVC; NOT MVIC),isometric hold,intramuscular EMG
+Dykes et al.,2019,30721754,static crimp-grip hang,crimp,flexor digitorum profundus,percent_RVC,96.6,40.0,10,uninjured rock climbers,RVC (not MVIC),isometric hold,intramuscular EMG
+Walker et al.,2023,38288256,bar muscle-up (BMU) vs ring muscle-up (RMU),pull phase,upper trapezius; biceps brachii; forearm flexors,qualitative,,,10 men,active males,MVIC,pull phase,RMU significantly greater than BMU (p=0.007/0.001/0.001); no numeric %MVIC values recovered from abstract/available tables
+Walker et al.,2023,38288256,BMU vs RMU,push phase,triceps brachii; biceps brachii,qualitative,,,10 men,active males,MVIC,push phase,RMU significantly greater than BMU (p=0.025/0.001)

@@ -1,0 +1,36 @@
+1. J Appl Physiol (1985). 1990 Sep;69(3):1131-6. doi:
+10.1152/jappl.1990.69.3.1131.
+
+Roles of absolute and relative load in skin vasoconstrictor responses to 
+exercise.
+
+Taylor WF(1), Johnson JM, Kosiba WA.
+
+Author information:
+(1)Department of Physiology, The University of Texas Health Science Center, San 
+Antonio 78284.
+
+Systemic hemodynamic responses to exercise (e.g., heart rate, blood pressure) 
+depend on the relative intensity, the active muscle mass, and the mode of 
+exercise. It is not known whether regional vasomotor responses follow the same 
+pattern. To answer this question, in five men we examined cutaneous vascular 
+responses to dynamic and isometric exercise of two legs, one leg, one arm, and 
+one hand, each at high and low work loads. Skin blood flow was monitored by 
+laser-Doppler flowmetry (LDF) at the forearm. Mean arterial pressure (MAP) was 
+measured each minute. Cutaneous vascular conductance (CVC) was indexed as 
+LDF/MAP. Reductions in CVC during the 1st min of dynamic exercise were 
+statistically significant for two-leg exercise at either level and for one-leg 
+exercise at the higher level. Dynamic exercise of smaller muscle groups at 
+either intensity was not associated with significant changes in CVC. The 
+reduction in CVC correlated with external work load (r = 0.75). Work load 
+relative to the capacity of a given muscle group had no identifiable role in the 
+response of CVC to dynamic exercise but did have a role in the increase in MAP 
+at the beginning of exercise. Isometric exercise did not have a measurable 
+effect on CVC regardless of the muscle group or the intensity of the exercise. 
+We conclude that the level of external work determines the redistribution of 
+blood flow from skin to active muscle. Furthermore, absolute rather than 
+relative work and dynamic rather than isometric modes of exercise are the 
+dominant factors.
+
+DOI: 10.1152/jappl.1990.69.3.1131
+PMID: 2246162 [Indexed for MEDLINE]

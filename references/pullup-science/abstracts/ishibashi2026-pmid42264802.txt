@@ -1,0 +1,54 @@
+1. J Bodyw Mov Ther. 2026 Jul;47:252-259. doi: 10.1016/j.jbmt.2026.03.008. Epub 
+2026 Mar 17.
+
+Brachiation-based movement as a theoretical framework for addressing 
+technology-related postural dysfunction: An evolutionary and neuromuscular 
+perspective.
+
+Ishibashi RF(1).
+
+Author information:
+(1)Elanare Institute, Tokyo, Japan; Japan 2E & Neurodivergent Initiative, Tokyo, 
+Japan; Japanese Association for Gifted & Twice Exceptional Children, Tokyo, 
+Japan; Faculty of Liberal Arts, The Open University of Japan, Chiba, Japan. 
+Electronic address: rysh.cact@gmail.com.
+
+BACKGROUND: Technology-related postural dysfunction, characterized by forward 
+head posture, thoracic hyperkyphosis, and scapular dyskinesis, represents a 
+growing public health concern. Upper Crossed Syndrome (UCS)-a pattern of muscle 
+imbalance involving overactive upper trapezius and inhibited lower trapezius, 
+serratus anterior, and deep cervical flexors-is prevalent among desk workers. 
+While rehabilitation protocols targeting individual muscles exist, an integrated 
+framework addressing the evolutionary origins of this dysfunction remains 
+underdeveloped.
+OBJECTIVE: This theoretical paper proposes that brachiation-based 
+movements-particularly unilateral hanging with oscillatory perturbation-may 
+offer a biomechanically optimal approach for addressing UCS and related postural 
+dysfunctions by restoring muscle activation patterns consistent with our 
+evolutionary heritage.
+METHODS: A comprehensive review of electromyographic (EMG) literature on 
+trapezius, serratus anterior, rotator cuff, and deep cervical flexor activation 
+during various exercises was synthesized with evolutionary biomechanics research 
+on human brachiation capacity.
+RESULTS: EMG evidence demonstrates that overhead movements and pull-up exercises 
+preferentially activate lower trapezius (45-56% MVIC) and serratus anterior 
+while minimizing upper trapezius dominance. Critically, unilateral hanging with 
+body oscillation theoretically induces rotational perturbations that trigger 
+feedforward activation of deep rotator cuff muscles (subscapularis: 37% MVIC; 
+infraspinatus: 28% MVIC in perturbation studies), potentially addressing deep 
+stabilizer dysfunction inaccessible through conventional exercise.
+CONCLUSIONS: Brachiation-based exercise presents a theoretically coherent 
+approach to UCS rehabilitation that addresses multiple muscle imbalances 
+simultaneously through evolutionarily congruent movement patterns. Empirical 
+validation through randomized controlled trials measuring EMG outcomes is 
+warranted.
+
+Copyright © 2026 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jbmt.2026.03.008
+PMID: 42264802 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.

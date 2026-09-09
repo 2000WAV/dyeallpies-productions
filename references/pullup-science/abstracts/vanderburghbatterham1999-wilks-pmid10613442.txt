@@ -1,0 +1,39 @@
+1. Med Sci Sports Exerc. 1999 Dec;31(12):1869-75. doi: 
+10.1097/00005768-199912000-00027.
+
+Validation of the Wilks powerlifting formula.
+
+Vanderburgh PM(1), Batterham AM.
+
+Author information:
+(1)Department of Health and Sport Science, University of Dayton, OH 45469-1210, 
+USA. vanderbu@yar.udayton.edu
+
+PURPOSE: Because maximal strength varies with body mass, the International 
+Powerlifting Federation (IPF) has adopted a method of adjusting powerlifting 
+events (bench press, BP; squat, SQ; deadlift, DL, and total lift (the sum of BP, 
+DL, and SQ), TOT) by body mass. This method, the Wilks formula, multiplies one's 
+lift by an index based on body mass so that lifters of different size can be 
+compared on the same event. The Wilks formula is not, however, based on 
+published data and has yet to be critically evaluated. The purpose of this 
+investigation, then, was to validate the Wilks formula.
+METHODS: This was performed by 1) examining residuals bias to verify that the 
+adjusted score does, in fact, lead to no systematic bias based on body mass and 
+2) by applying a more theoretically supportable allometric model to the same 
+data and comparing the fit with the Wilks approach. Subjects were the current 
+men's and women's world record holders as well as the top two performers for 
+each event in the IPF's 1996 and 1997 World Championships (a total of 30 men and 
+27 women for each lift).
+RESULTS: Results of data analysis regarding the Wilks formula indicate that: 1) 
+there is no bias for men's or women's BP and TOT; 2) there is a favorable bias 
+toward intermediate weight class lifters in the women's SQ with no bias for 
+men's SQ; and 3) there is a linear unfavorable bias toward heavier men and women 
+in the DL. Furthermore, the allometric approach indicated a bias against light 
+and heavy men and women which may be considered acceptable given that half as 
+many lifters are found in the lightest and heaviest weight classes as in the 
+intermediate weight classes.
+CONCLUSION: As used currently (BP and TOT only), the Wilks formula appears to be 
+a valid method to adjust powerlifting scores by body mass.
+
+DOI: 10.1097/00005768-199912000-00027
+PMID: 10613442 [Indexed for MEDLINE]

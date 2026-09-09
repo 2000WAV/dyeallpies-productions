@@ -1,0 +1,49 @@
+1. Eur J Sport Sci. 2026 Jun;26(6):e70197. doi: 10.1002/ejsc.70197.
+
+Upper-Body Neuromechanical Coordination Strategies During Fatiguing Sustained 
+Dead Hangs in Climbers.
+
+Exel J(1)(2), Kaufmann P(1)(3), Froschauer O(1), Baca A(1), Kainz H(1)(2), 
+Mochizuki L(4).
+
+Author information:
+(1)Department of Sport and Human Movement Science, Centre for Sport Science and 
+University Sports, University of Vienna, Vienna, Austria.
+(2)Neuromechanics Research Group, University of Vienna, Vienna, Austria.
+(3)Laboratoire Motricité Humaine Expertise Sport Santé, Université Côte d'Azur, 
+Nice, France.
+(4)School of Arts, Sciences and Humanities, University of São Paulo, São Paulo, 
+Brazil.
+
+This study investigated how upper-body joint and muscle coordination strategies 
+are related and adapted under fatigue during sustained dead hangs, a task 
+relevant to climbing performance. Eleven climbers performed a dead hang until 
+failure. Joint coordination variability (rCV) was assessed using a modified 
+vector coding method in kinematic data. Muscle coordination was analyzed through 
+EMG linear and non-linear dependencies between signals with coherence (β/γCOH) 
+and mutual information (β/γMI) at beta and gamma bands. Fatigue induced 
+joint-specific changes in coordination variability, with wrist rCV decreasing 
+from START to END (39.6 ± 32.9% vs. 21.2 ± 12.4%; p = 0.002), showing a 
+redistribution of coordination demands across the upper limb. At the muscle 
+level, βCOH increased in selected postural muscle pairs, including 
+brachioradialis-biceps (p = 0.04), trapezius-biceps (p = 0.04), and 
+trapezius-brachioradialis (p = 0.003), while γCOH decreased for 
+trapezius-brachioradialis (p = 0.01). In addition, βMI increased for 
+brachioradialis (p = 0.01) and brachioradialis-biceps (p = 0.01), while γMI 
+increased within the finger flexors (p = 0.03). Repeated-measures correlation 
+revealed inverse within-subject associations between wrist rCV and 
+trapezius-brachioradialis γCOH (rrm (10) = -0.57, p = 0.05) and finger-flexor 
+γMI (rrm (10) = -0.61, p = 0.03). These findings are consistent with a 
+multi-level compensatory strategy in which distal joint behavior becomes more 
+constrained while proximal and local muscle coordination is reinforced to 
+sustain suspension under fatigue, offering new insight into joint-muscle 
+coordination during climbing-specific isometric tasks.
+
+© 2026 The Author(s). European Journal of Sport Science published by Wiley‐VCH 
+GmbH on behalf of European College of Sport Science.
+
+DOI: 10.1002/ejsc.70197
+PMCID: PMC13240036
+PMID: 42168114 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.

@@ -1,0 +1,24 @@
+Urbanczyk CA, Prinold JAI, Reilly P, Bull AMJ (2020).
+Avoiding high-risk rotator cuff loading: Muscle force during three pull-up techniques.
+Scandinavian Journal of Medicine & Science in Sports, 30(11), 2205-2214.
+doi:10.1111/sms.13780. PMID 32715526. Closed access (no PMC copy found).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Eleven male regular pull-up practitioners were motion-captured performing three pull-up variants
+(pronated front grip, pronated wide grip, supinated reverse grip); an OpenSim-style musculoskeletal
+model was driven by the motion data to estimate individual muscle and rotator-cuff force. Latissimus
+dorsi was relatively more active in the wide-grip variant (P < .01); the front (shoulder-width
+pronated) variant favoured biceps brachii activity; the reverse (supinated, chin-up-like) variant
+produced elevated rotator-cuff (supraspinatus/infraspinatus/subscapularis) force estimates, i.e. it is
+the technically highest-risk variant for subacromial impingement of the three studied here, consistent
+with the wide-grip finding in Prinold & Bull 2016 (already in references/pullup-thermal/README.md,
+which found the wide grip riskiest for scapular impingement via kinematics alone). The authors recommend
+rotating all three grip variants across a training program rather than relying on one, to spread
+joint loading and reduce cumulative rotator-cuff risk.
+
+Notes for this project: a modelled (not measured) muscle-force complement to the Prinold & Bull 2016
+kinematic study already cited; both flag grip variant as a joint-loading risk factor independent of
+technique quality, which the pipeline's technique verdict should treat separately from the
+strict-vs-kipping check.

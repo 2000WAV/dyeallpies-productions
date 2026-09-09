@@ -1,0 +1,25 @@
+Vigouroux L, Devise M (2024).
+Pull-Up Performance Is Affected Differently by the Muscle Contraction Regimens Practiced during
+Training among Climbers.
+Bioengineering (Basel), 11(1), 85.
+doi:10.3390/bioengineering11010085. PMID 38247962. PMCID PMC10813506. Open access (MDPI, CC-BY).
+Full text PDF saved at
+references/pullup-science/papers/vigouroux2024-contraction-regimens-climbers-pullups.pdf.
+
+Fetched from PubMed E-utilities on 2026-09-08; full text via Europe PMC on 2026-09-08.
+
+ABSTRACT:
+Thirty experienced climbers were assigned to eccentric, isometric, plyometric or control training
+protocols over 5 weeks of pull-up-focused training. All three active intervention groups improved
+maximum strength. Velocity variables (peak/mean pull velocity) improved specifically in the
+eccentric (ECC) and plyometric (PLYO) groups; total muscle work performed during a max-rep set
+increased specifically in the PLYO group (+21.9 +/- 16.6%, p = 0.015). The authors conclude the
+contraction regimen used in training selectively shapes which mechanical outputs (force, velocity,
+work capacity) improve, i.e. velocity gains and endurance/work-capacity gains are somewhat separable
+training effects rather than one generic "getting stronger."
+
+Notes for this project: relevant to the "effort/RIR" replacement because it shows pull velocity and
+total work-to-failure can move independently depending on training history — a fixed velocity-loss-per-
+rep constant will not generalise across people with different training backgrounds (plyometric-trained
+people can sustain more total work at a given velocity loss). Should be listed as a caveat on any new
+formula, not baked into the model.

@@ -1,0 +1,24 @@
+Balsalobre-Fernández C, Marchante D, Muñoz-López M, Jiménez SL (2018).
+Validity and reliability of a novel iPhone app for the measurement of barbell velocity and 1RM on the
+bench-press exercise.
+Journal of Sports Sciences, 36(1), 64-70.
+PMID 28097928. Closed access (Taylor & Francis; no PMC copy found).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Ten powerlifters completed an incremental bench-press test (75-100% 1RM, 5 loads) while mean barbell
+velocity was measured with both a linear transducer and the smartphone app PowerLift (predecessor name
+of "MyLift"). Velocity measurements correlated very highly between methods (r = 0.94, standard error of
+the estimate 0.028 m/s); Bland-Altman agreement was very high (ICC = 0.965), with a small but
+significant systematic bias where the app read velocity about 0.008 +/- 0.03 m/s higher than the
+transducer. Estimated 1RM (from the app's load-velocity extrapolation) correlated with actual 1RM at
+r = 0.98 (mean difference 5.5 +/- 9.6 kg). The app was judged highly valid and reliable versus the
+transducer criterion.
+
+Notes for this project: the original PowerLift/MyLift validation paper; later independent validations of
+the same app line for squat/deadlift have been more mixed (see WebSearch summary in this project's
+research notes — some studies report the app missing a large fraction of reps), so this single-paper
+result should not be taken as proof any given smartphone velocity app is reliable for a novel exercise
+like the pull-up; it is evidence only that camera/app-based barbell velocity CAN be made valid when
+purpose-built and validated per exercise. No pull-up-specific app validation was found.

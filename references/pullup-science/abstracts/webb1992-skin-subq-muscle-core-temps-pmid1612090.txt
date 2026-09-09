@@ -1,0 +1,26 @@
+1. Eur J Appl Physiol Occup Physiol. 1992;64(5):471-6. doi: 10.1007/BF00625070.
+
+Temperatures of skin, subcutaneous tissue, muscle and core in resting men in 
+cold, comfortable and hot conditions.
+
+Webb P.
+
+To examine the core-shell model of temperature distribution and the possible 
+role of subcutaneous temperature in heat regulation, comprehensive temperature 
+measurements were made on six nude resting men exposed for 2-3 h to comfort (27 
+degrees C), cold (15 degrees C) and heat (45 degrees C). Cold produced strong 
+shivering and heat caused heavy sweating. Temperatures were recorded every 10 
+min from: esophagus, rectum and auditory canal; back muscle and thigh muscle at 
+20 mm and 40 mm depths; 6 subcutaneous sites; and 16 skin sites. Average 
+temperatures at these 29 sites were tabulated at the ends of comfort, hot and 
+cold and the onsets of sweating and shivering. Body temperature changes were 
+slow to develop, the skin temperatures being fastest, and successively deeper 
+tissues progressively slower. There was occasional after-drop and after-rise. 
+The data were consistent with the core-shell concept. The temperature gradient 
+from subcutaneous tissue to skin, which differed substantially with comfort, the 
+onset of shivering and the onset of sweating, could serve as a regulatory 
+signal. The data are now in computer format and may be of interest to biothermal 
+modelers.
+
+DOI: 10.1007/BF00625070
+PMID: 1612090 [Indexed for MEDLINE]

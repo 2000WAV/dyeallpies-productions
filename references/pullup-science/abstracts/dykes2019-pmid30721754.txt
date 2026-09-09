@@ -1,0 +1,35 @@
+1. J Electromyogr Kinesiol. 2019 Apr;45:11-17. doi:
+10.1016/j.jelekin.2019.01.004.  Epub 2019 Jan 28.
+
+Effects of finger taping on forearm muscle activation in rock climbers.
+
+Dykes B(1), Johnson J(1), San Juan JG(2).
+
+Author information:
+(1)Department of Health and Human Development, Western Washington University, 
+516 High St., Bellingham, WA 98225, USA.
+(2)Department of Health and Human Development, Western Washington University, 
+516 High St., Bellingham, WA 98225, USA. Electronic address: 
+jun.sanjuan@wwu.edu.
+
+Flexor tendon pulley injury is associated with a change in relative activation 
+of the flexor digitorum superficialis (FDS) and flexor digitorum profundus (FDP) 
+muscles. The purpose of this study was to determine the effect of taping of the 
+fingers on relative muscle activation of the FDS and FDP muscles in uninjured 
+rock climbers. Muscle activation in 10 healthy volunteers were recorded using 
+intramuscular electromyography (EMG) during a static hang with subjects 
+utilizing the crimp grip without tape, with a circumferential tape and with an 
+H-tape in random order. EMG data were normalized to a static hang with a 
+non-crimp grip (RVC). Average EMG activity of the FDS as a percentage of RVC was 
+102.4 ± 59.1 without tape, 116.9 ± 35.3 with H-tape and 99.3 ± 35.3 with 
+circumferential tape. Average EMG activity of the FDP as a percentage of RVC was 
+96.6 ± 40.0 without tape, 98.9 ± 30.3 with H-tape and 90.6 ± 28.7 with 
+circumferential tape. Taping did not have a significant effect on average 
+relative muscle activation of the FDS or FDP muscles (p = 0.069). This study 
+showed that finger taping may not significantly affect the activity of the FDS 
+and FDP during static holds while rock climbing.
+
+Published by Elsevier Ltd.
+
+DOI: 10.1016/j.jelekin.2019.01.004
+PMID: 30721754 [Indexed for MEDLINE]

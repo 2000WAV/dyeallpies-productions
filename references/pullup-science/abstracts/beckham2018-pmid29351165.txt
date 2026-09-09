@@ -1,0 +1,24 @@
+Beckham GK, Olmeda JJ, Flores AJ, Echeverry JA, Campos AF, Kim SB (2018).
+The Relationship between Maximum Pull-up Repetitions and First Repetition Mean Concentric Velocity.
+Journal of Strength and Conditioning Research, 32(7), 1831-1837.
+doi:10.1519/JSC.0000000000002431. PMID 29351165. Closed access (no PMC copy found).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Forty-nine participants performed a single, isolated pull-up while mean concentric velocity (MCV) was
+recorded with a linear position transducer, then immediately performed a set of pull-ups to failure.
+There was a statistically significant linear relationship between the MCV of the single first
+repetition and the maximum number of pull-ups subsequently completed to failure (R = 0.841,
+prediction error approximately 2.07 repetitions). The authors propose that measuring the velocity of
+just one pull-up can estimate how many total repetitions a person could complete to failure, without
+needing to actually perform a set to failure.
+
+Notes for this project: this is the key study for "first-rep velocity predicts total reps available,"
+i.e. a legitimate substitute for the pipeline's current "effort_x = fastest-rep-in-this-set-velocity /
+this-rep-velocity" heuristic. Rather than normalising to the fastest rep actually observed in a
+possibly-truncated set, the pipeline could normalise to the velocity expected from a person's own first
+(freshest) rep using this R=0.841 regression, and then derive RIR from where the current rep's velocity
+falls on that predicted total-reps curve. Caveat: 49 general trained subjects, bodyweight only, no
+report of grip/sex breakdown in the abstract; prediction error of ~2 reps is not small for someone whose
+total is under 8.

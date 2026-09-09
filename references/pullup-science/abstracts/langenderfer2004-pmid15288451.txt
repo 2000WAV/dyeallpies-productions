@@ -1,0 +1,34 @@
+1. Clin Biomech (Bristol). 2004 Aug;19(7):664-70. doi: 
+10.1016/j.clinbiomech.2004.04.009.
+
+Musculoskeletal parameters of muscles crossing the shoulder and elbow and the 
+effect of sarcomere length sample size on estimation of optimal muscle length.
+
+Langenderfer J(1), Jerabek SA, Thangamani VB, Kuhn JE, Hughes RE.
+
+Author information:
+(1)Department of Biomedical Engineering, University of Michigan, Ann Arbor, MI 
+48109-0436, USA.
+
+BACKGROUND: Knowledge of musculoskeletal parameters is essential to 
+understanding and modeling a muscle's force generating capability. A study of 
+musculoskeletal parameters was conducted in two parts: (I) Empirical measurement 
+of upper extremity musculoskeletal parameters. (II) Computational bootstrap 
+simulation to examine statistical power of detecting optimal muscle length as a 
+function of sarcomere length sample size and effect size.
+METHODS: Parameters were determined with a cadaver model. Sarcomere lengths were 
+measured for 120 samples per muscle using laser diffraction and the mean 
+sarcomere length used to estimate optimal muscle length. A bootstrap 
+computational simulation was conducted to estimate variance in mean sarcomere 
+length as a function of sample size. Statistical power for detecting optimal 
+muscle length as a function of sample size and effect size was then determined.
+FINDINGS: Parameters are reported in tabular format. Power is 80% at 
+approximately 85, 50, 40 and 25 samples for effect sizes of 0.5, 0.75, 1.0 and 
+1.5 mm respectively.
+INTERPRETATION: Musculoskeletal parameters for predicting muscle forces can be 
+adequately measured in a cadaver model. Measurement of 40-60 sarcomere lengths 
+per muscle is sufficient to calculate mean sarcomere length for estimating 
+optimal muscle length with power of 80% for an effect size of 0.75-1.0 mm.
+
+DOI: 10.1016/j.clinbiomech.2004.04.009
+PMID: 15288451 [Indexed for MEDLINE]

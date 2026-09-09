@@ -1,0 +1,36 @@
+1. J Strength Cond Res. 2009 Aug;23(5):1496-502. doi:
+10.1519/JSC.0b013e3181b338ec.
+
+Relationship of 1 repetition maximum lat-pull to pull-up and lat-pull 
+repetitions in elite collegiate women swimmers.
+
+Halet KA(1), Mayhew JL, Murphy C, Fanthorpe J.
+
+Author information:
+(1)Human Performance Laboratory, Truman State University, Kirksville, Missouri 
+63501, USA.
+
+The purposes of this study were to determine the relationships among pull-ups, 
+lat-pull repetitions, and 1 repetition maximum (1RM) lat-pull in elite women 
+swimmers and to assess the effect of various anthropometric dimensions on each 
+exercise. Women members (n = 28) of an elite National Collegiate Athletic 
+Association (NCAA) Division II swim team were measured for their ability to 
+perform a maximum number of free-hanging pull-ups, 1RM lat-pull, and lat-pull 
+repetitions at 80% of 1RM. Anthropometric dimensions included selected arm 
+lengths, percent body fat (%fat), and lean body mass (LBM) estimated from 
+skinfold measurements. The correlations of 1RM lat-pull with body mass (r = 
+0.38, p = 0.04) and LBM (r = 0.41, p = 0.03) were significant, whereas that with 
+%fat (r = 0.13, p = 0.49) was not. The same variables had a significant negative 
+pattern with pull-ups (r = -0.48, -0.43, -0.32, respectively). Pull-ups were 
+moderately correlated with 1RM lat-pull (r = 0.34, p = 0.08) but not with 
+lat-pull repetitions (r = 0.07, p = 0.73). The product of pull-ups times body 
+mass (PU x BM) was a better predictor of 1RM lat-pull (r = 0.86, standard errors 
+of estimate [SEEs] = 4.4 kg) than either measurement alone. The addition of %fat 
+to PU x BM in a stepwise regression analysis raised the correlation (R = 0.90) 
+and reduced the SEE (3.9 kg) only slightly. Addition of arm or forearm lengths 
+failed to increase the multiple R significantly. These results confirmed that 
+the seemingly analogous exercises of pull-ups and lat-pulls were not highly 
+related and should not be substituted for one another in a training regimen.
+
+DOI: 10.1519/JSC.0b013e3181b338ec
+PMID: 19620915 [Indexed for MEDLINE]

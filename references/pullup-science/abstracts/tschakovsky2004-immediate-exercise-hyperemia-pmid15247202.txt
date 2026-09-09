@@ -1,0 +1,35 @@
+1. J Appl Physiol (1985). 2004 Aug;97(2):739-47. doi: 
+10.1152/japplphysiol.00185.2004.
+
+Immediate exercise hyperemia: contributions of the muscle pump vs. rapid 
+vasodilation.
+
+Tschakovsky ME(1), Sheriff DD.
+
+Author information:
+(1)School of Physical and Health Education, Department of Physiology, Queen's 
+University, Kingston, Ontario, Canada K7L 3N6. mt29@post.queensu.ca
+
+A striking characteristic of the blood flow adaptation at exercise onset is the 
+immediate and substantial increase in the first few (0-5 s) seconds of exercise. 
+The purpose of this mini-review is to put into context the present evidence 
+regarding mechanisms responsible for this phase of exercise hyperemia. One 
+potential mechanism that has received much attention is the mechanical effect of 
+muscle contraction (the muscle pump). The rapid vasodilatory mechanism(s) is 
+another possible mechanism that has recently been shown to exist. This review 
+will provide the reader with 1) an understanding of the basic physics of blood 
+flow and the theories of muscle pump function, 2) a critical examination of 
+evidence both for and against the contribution of the muscle pump or rapid 
+vasodilatory mechanisms, and 3) an awareness of the limitations and impact of 
+experimental models and exercise modes on the contribution of each of these 
+mechanisms to the immediate exercise hyperemia. The inability to measure 
+microvenular pressure continues to limit investigators to indirect assessments 
+of the muscle pump vs. vasodilatory mechanism contributions to immediate 
+exercise hyperemia in vivo. Future research directions should include 
+examination of muscle-contraction-induced resistance vessel distortion as a 
+trigger for rapid smooth muscle relaxation and further investigation into the 
+exercise mode dependency of muscle pump vs. rapid vasodilatory contributions to 
+immediate exercise hyperemia.
+
+DOI: 10.1152/japplphysiol.00185.2004
+PMID: 15247202 [Indexed for MEDLINE]

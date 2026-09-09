@@ -1,0 +1,23 @@
+Sánchez-Moreno M, Pareja-Blanco F, Díaz-Cueli D, González-Badillo JJ (2016).
+Determinant factors of pull-up performance in trained athletes.
+The Journal of Sports Medicine and Physical Fitness, 56(7-8), 825-833.
+PMID 26176615. Closed access (no PMC copy found); affiliation Physical Performance and Sports Research
+Center, Pablo de Olavide University, Seville, Spain.
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Twenty-five male trained athletes were assessed for maximum unweighted pull-ups, lat-pulldown/lat-pull
+strength at various loads, and anthropometric/body-composition variables. Maximum pull-up repetitions
+correlated significantly with lat-pull strength normalised to body mass (r = 0.62, P < 0.01), and
+correlated negatively with total body mass (r = -0.55, P < 0.01) and fat mass (r = -0.52, P < 0.01);
+athletes who could do more pull-ups tended to have lower body mass and lower lean body mass, not higher.
+The authors conclude pull-up and lat-pull performance share common strength determinants, but body-mass
+and body-composition effects (since the pull-up moves the whole body while lat-pull moves only an
+external load) make bodyweight pull-up max-rep counts a poor proxy for pulling "strength" per se when
+comparing across people of different body mass.
+
+Notes for this project: supports treating the pipeline's per-rep power/velocity outputs (which do
+scale with body mass, since the load is bodyweight) as more comparable across people than raw rep count,
+and flags that raw max-rep count is body-mass confounded — relevant if the report ever compares this
+set's rep count to a normative table without accounting for the subject's mass.

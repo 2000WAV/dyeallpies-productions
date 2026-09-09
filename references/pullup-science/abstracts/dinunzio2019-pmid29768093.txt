@@ -1,0 +1,25 @@
+Dinunzio C, Porter N, Van Scoy J, Cordice D, McCulloch RS (2019).
+Alterations in kinematics and muscle activation patterns with the addition of a kipping action during
+a pull-up activity.
+Sports Biomechanics, 18(6), 622-635.
+doi:10.1080/14763141.2018.1452971. PMID 29768093. Closed access (no PMC copy found).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Eleven athletes performed standard (strict) and kipping pull-ups while 3D kinematics and surface EMG
+were recorded. Kipping pull-ups produced significantly greater hip and knee joint angle excursions than
+strict pull-ups, i.e. the kip is visible as leg/hip motion during the pull, not just a subjective
+"cheating" label. Core and lower-body muscle recruitment rose substantially in the kipping variation,
+including rectus abdominis (28.7 +/- 4.7%, p < 0.001) and external oblique (21.8 +/- 4.1%, p < 0.001)
+percent-MVIC activation increases relative to strict form. Biceps brachii activation was significantly
+lower during kipping than strict pull-ups. The authors conclude technique choice should depend on
+training goal: strict pull-ups better target upper-body (arm/lat) musculature, kipping recruits the
+whole kinetic chain and can move more total reps but shifts work onto the trunk/hips.
+
+Notes for this project: this is the primary source for a kinematic (not just subjective) definition of
+a kip: significant hip and knee angle excursion during the pull is the machine-checkable signature,
+consistent with the Williamson & Price 2021 EMG-based definition already in
+references/pullup-thermal/README.md. Useful for the technique-verdict module to flag "kip suspected"
+directly from the pose landmarks (hip/knee angle change during the concentric phase) rather than only
+from trunk sway.

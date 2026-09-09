@@ -1,0 +1,25 @@
+1. J Physiol. 1976 Sep;260(2):267-77. doi: 10.1113/jphysiol.1976.sp011515.
+
+Integrated electromyogram and oxygen uptake during positive and negative work.
+
+Bigland-Ritchie B, Woods JJ.
+
+1. Integrated electromyogram (e.m.g.) from the vastus lateralis muscles, and 
+steady-state rates of oxygen uptake, were measured simultaneously during the 
+performance of set rates of positive (concentric) and negative (eccentric) work 
+at 50 rev/min on a motorized bicycle ergometer. 2. Similar experiments were also 
+carried out at other pedalling rates and using other leg muscles. 3. The 
+relationships between each of the variables (integrated e.m.g., oxygen 
+consumption) and mean torque on pedals were found to be linear (r greater than 
+0-98) with a remarkable degree of reproducibility in surface e.m.g. for each 
+subject over several months. 4. The ratio of the e.m.g. slopes at 50 rev/min 
+(positive/negative) was 1-96 +/- 0-12 while the same ratio for the oxygen uptake 
+slopes was 6-34 +/- 0-82. The discrepancy between the ratios suggests that not 
+only is less muscle fibre activity required to maintain the same exerted force 
+during negative work exercise, but there is also a substantial reduction in the 
+oxygen uptake when the fibres are stretched. This was observed for all speeds of 
+pedalling.
+
+DOI: 10.1113/jphysiol.1976.sp011515
+PMCID: PMC1309091
+PMID: 978517 [Indexed for MEDLINE]

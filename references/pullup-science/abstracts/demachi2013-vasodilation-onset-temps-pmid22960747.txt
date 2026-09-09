@@ -1,0 +1,38 @@
+1. Int J Biometeorol. 2013 Jul;57(4):589-96. doi: 10.1007/s00484-012-0586-y. Epub
+ 2012 Sep 9.
+
+The influence of internal and skin temperatures on active cutaneous vasodilation 
+under different levels of exercise and ambient temperatures in humans.
+
+Demachi K(1), Yoshida T, Kume M, Tsuji M, Tsuneoka H.
+
+Author information:
+(1)Graduate School of Science and Technology, Kyoto Institute of Technology, 
+Matsugasaki, Sakyo-ku, Kyoto, 606-8585, Japan.
+
+To clarify the influence of internal and skin temperature on the active 
+cutaneous vasodilation during exercise, the body temperature thresholds for the 
+onset of active vasodilation during light or moderate exercise under different 
+ambient temperature conditions were compared. Seven male subjects performed 30 
+min of a cycling exercise at 20 % or 50 % of peak oxygen uptake in a room 
+maintained at 20, 24, or 28 °C. Esophageal (Tes) and mean skin temperature (Tsk) 
+as measured by a thermocouple, deep thigh temperature (Tdt) by the 
+zero-heat-flow (ZHF) method, and forearm skin blood flow by laser-Doppler 
+flowmetry (LDF) were monitored. The mean arterial pressure (MAP) was also 
+monitored non-invasively, and the cutaneous vascular conductance (CVC) was 
+calculated as the LDF/MAP. Throughout the experiment, the Tsk at ambient 
+temperatures of 20, 24, and 28 °C were approximately 30, 32, and 34 °C, 
+respectively, for both 20 % and 50 % exercise. During 50 % exercise, the Tes or 
+Tdt thresholds for the onset of the increase in CVC were observed to be similar 
+among the 20, 24, and 28 °C ambient conditions. During 20 % exercise, the 
+increase in Tes and Tdt was significantly lower than those found at 50 %, and 
+the onset of the increase in CVC was only observed at 28 °C. These results 
+suggest that the onset of active vasodilation was affected more strongly by the 
+internal or exercising tissue temperatures than by the skin temperatures during 
+exercise performed at a moderate load in comparison to a light load under Tsk 
+variations ranging from 30 °C to 34 °C. Therefore, the modification by skin 
+temperature of the central control on cutaneous vasomotor tone during exercise 
+may differ between different exercise loads.
+
+DOI: 10.1007/s00484-012-0586-y
+PMID: 22960747 [Indexed for MEDLINE]

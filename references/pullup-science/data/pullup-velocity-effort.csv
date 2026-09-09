@@ -1,0 +1,26 @@
+metric,value,unit,population,method,source
+MPV vs %1RM correlation,-0.96,r,52 trained men,linear velocity transducer,sanchezmoreno2017-pmid28338365
+V1RM (velocity at 1RM),0.20,m/s,52 trained men (SD 0.05),linear velocity transducer,sanchezmoreno2017-pmid28338365
+velocity-loss vs %reps-completed R2,0.88,R2,52 trained men,within-set regression,sanchezmoreno2017-pmid28338365
+VL25 group: additional gains beyond 25% loss,none,categorical,29 strength-trained men 8wk program,RCT VL25 vs VL50,sanchezmoreno2020-pmid32213783
+VL50 group: max reps to failure difference vs VL25,not significant,categorical,29 strength-trained men,RCT VL25 vs VL50,sanchezmoreno2020-pmid32213783
+load-velocity R2 (individual),0.975,R2 (SD 0.02),82 resistance-trained men,linear velocity transducer,munozlopez2017-pmid28253041
+force-velocity R2 (individual),0.954,R2 (SD 0.04),82 resistance-trained men,linear velocity transducer,munozlopez2017-pmid28253041
+power-velocity R2 (individual),0.966,R2 (SD 0.04),82 resistance-trained men,linear velocity transducer,munozlopez2017-pmid28253041
+load at max power (Pmax),71.0,%1RM (SD 6.6),82 resistance-trained men,linear velocity transducer,munozlopez2017-pmid28253041
+pull-up 1RM normalized,1.5,x bodyweight (SD 0.34),82 resistance-trained men,load cell/added load test,munozlopez2017-pmid28253041
+first-rep MCV vs max reps to failure,0.841,R (pred error ~2.07 reps),49 general trained subjects,linear position transducer,beckham2018-pmid29351165
+stop-velocity CV across 2/4/6/8 RIR,4.4-8.0,% CV (between-session),30 men varying training levels; 4 exercises,linear velocity transducer,morannavarro2019-pmid29944141
+RTF-velocity relationship goodness of fit,robust (not numeric in abstract),qualitative,6 pooled studies (systematic review),systematic review,miras-moreno2025-pmid39837320
+MPV large-hold pull-up,0.84,m/s (SD 0.16),10 male climbers,linear position transducer,sordovacas2024-pmid39616506
+MPV 20mm edge pull-up,0.75,m/s (SD 0.16),10 male climbers,linear position transducer,sordovacas2024-pmid39616506
+MPV 15mm edge pull-up,0.73,m/s (SD 0.16),10 male climbers,linear position transducer,sordovacas2024-pmid39616506
+MPV 10mm edge pull-up,0.52,m/s (SD 0.15),10 male climbers,linear position transducer,sordovacas2024-pmid39616506
+MPV reliability ICC intra-session,0.84-0.99,ICC,10 male climbers,linear position transducer,sordovacas2024-pmid39616506
+MPV reliability ICC inter-session,0.73-0.96,ICC,10 male climbers,linear position transducer,sordovacas2024-pmid39616506
+Vmean/Vmax vs isometric strength (pure concentric),strong positive (not numeric in abstract),qualitative,50 male collegiate athletes,linear transducer + isometric mid-hang test,hayashi2026-pmid41798105
+Vmean/Vmax vs isometric strength (countermovement),weaker than PCP,qualitative,50 male collegiate athletes,linear transducer + isometric mid-hang test,hayashi2026-pmid41798105
+camera/app barbell velocity validity r,0.94-0.98,r vs linear transducer,10 elite powerlifters; bench/squat/hip-thrust (NOT pull-up),smartphone app + wearables vs transducer,balsalobrefernandez2017-pmid28894425
+camera/app barbell velocity reliability ICC,0.910-0.990,ICC,10 elite powerlifters (NOT pull-up),smartphone app + wearables vs transducer,balsalobrefernandez2017-pmid28894425
+PowerLift app mean velocity validity r,0.94,r vs linear transducer,10 powerlifters; bench press (NOT pull-up),smartphone app vs transducer,balsalobrefernandez2018-pmid28097928
+PowerLift 1RM estimate validity r,0.98,r,10 powerlifters; bench press (NOT pull-up),smartphone app vs transducer,balsalobrefernandez2018-pmid28097928

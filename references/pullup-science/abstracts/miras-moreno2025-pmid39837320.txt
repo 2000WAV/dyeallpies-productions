@@ -1,0 +1,28 @@
+Miras-Moreno S, Pérez-Castilla A, Weakley J, Rojas-Ruiz FJ, García-Ramos A (2025).
+Improving the Use of Lifting Velocity to Predict Repetitions to Failure: A Systematic Review.
+International Journal of Sports Physiology and Performance, 20(3), 335-344.
+PMID 39837320. Closed access (Human Kinetics; no PMC copy found).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+BACKGROUND: velocity-based training can estimate the maximum number of repetitions to failure (RTF)
+from the fastest velocity recorded within a set, but no prior review had examined the fundamental
+properties of the RTF-velocity relationship. PURPOSE: (1) determine goodness of fit, reliability and
+accuracy of RTF-velocity relationships; (2) give guidance on methodological factors affecting accuracy.
+METHODS: PubMed, SPORTDiscus and Scopus were searched for studies with >=2 sets to failure at different
+loads, multijoint exercises, RTF and fastest velocity recorded per set. RESULTS: six qualifying studies
+showed (1) robust goodness of fit, (2) acceptable-to-high between-session reliability of the velocity
+associated with each RTF value (1-15 reps to failure), and (3) acceptable RTF-prediction accuracy in
+fatigue-free conditions (long inter-set rest), but accuracy was compromised under fatigue (short
+inter-set rest) except in athletes with more than 2 years of training-to-failure experience.
+CONCLUSIONS: relationship properties hold regardless of exercise (upper vs. lower body), equipment
+(Smith machine vs. free weight), velocity variable (mean vs. peak), or rest duration (5-10 min); but the
+regression approach (multiple-point vs. two-point) changes accuracy, and training-to-failure experience
+is critical to accuracy.
+
+Notes for this project: general (non-pull-up-specific) systematic review supporting velocity-based RTF
+prediction as a class of method, with the key caveat that inter-set fatigue and lack of training-to-
+failure experience both degrade prediction accuracy — relevant since the pipeline's video is typically a
+single set (no inter-set fatigue issue) but the subject's training-to-failure experience is unknown, so
+any RTF/RIR estimate should be flagged with an uncertainty band rather than reported as exact.

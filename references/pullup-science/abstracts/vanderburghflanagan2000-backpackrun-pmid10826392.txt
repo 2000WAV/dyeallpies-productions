@@ -1,0 +1,27 @@
+1. Mil Med. 2000 May;165(5):418-21.
+
+The backpack run test: a model for a fair and occupationally relevant military 
+fitness test.
+
+Vanderburgh PM(1), Flanagan S.
+
+Author information:
+(1)Department of Health and Sport Science, University of Dayton, OH 45469-1210, 
+USA.
+
+Our purpose in this investigation was to develop and validate a theoretical 
+model for a backpack run test based on how fast one can run 2 miles while 
+wearing a backpack. Using actual unloaded (no backpack) 2-mile-run test data 
+from 59 male service academy cadets, we calculated the average oxygen cost 
+during the run, the equivalent cost if wearing additional weight, and the 
+corresponding estimated run time with the backpack. The correlations between 
+body weight and loaded (backpack weight = 30 kg) run times (r = 0.55 [p < 0.05] 
+and r = 0.12 [p > 0.05], respectively) demonstrate that the bias against heavier 
+runners is eliminated with the backpack run. Given that the backpack run test 
+requires only standard-issue equipment, demonstrates clear occupational and 
+health-related fitness relevance, predicts no apparent body-size bias, and 
+measures work- and health-related components of fitness, we recommend that the 
+military services consider the present data when developing or modifying tests 
+of physical fitness.
+
+PMID: 10826392 [Indexed for MEDLINE]

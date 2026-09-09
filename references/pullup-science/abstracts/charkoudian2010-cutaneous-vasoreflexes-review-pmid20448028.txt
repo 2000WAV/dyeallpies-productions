@@ -1,0 +1,39 @@
+1. J Appl Physiol (1985). 2010 Oct;109(4):1221-8. doi: 
+10.1152/japplphysiol.00298.2010. Epub 2010 May 6.
+
+Mechanisms and modifiers of reflex induced cutaneous vasodilation and 
+vasoconstriction in humans.
+
+Charkoudian N(1).
+
+Author information:
+(1)Dept. of Physiology & BME-JO4184W, Mayo Clinic College of Medicine, 
+Rochester, MN 55905, USA. charkoudian.nisha@mayo.edu
+
+Human skin blood flow responses to body heating and cooling are essential to the 
+normal processes of physiological thermoregulation. Large increases in skin 
+blood flow provide the necessary augmentation of convective heat loss during 
+environmental heat exposure and/or exercise, just as reflex cutaneous 
+vasoconstriction is key to preventing excessive heat dissipation during cold 
+exposure. In humans, reflex sympathetic innervation of the cutaneous circulation 
+has two branches: a sympathetic noradrenergic vasoconstrictor system, and a 
+non-noradrenergic active vasodilator system. Noradrenergic vasoconstrictor 
+nerves are tonically active in normothermic environments and increase their 
+activity during cold exposure, releasing both norepinephrine and cotransmitters 
+(including neuropeptide Y) to decrease skin blood flow. The active vasodilator 
+system in human skin does not exhibit resting tone and is only activated during 
+increases in body temperature, such as those brought about by heat exposure or 
+exercise. Active cutaneous vasodilation occurs via cholinergic nerve 
+cotransmission and has been shown to include potential roles for nitric oxide, 
+vasoactive intestinal peptide, prostaglandins, and substance P (and/or 
+neurokinin-1 receptors). It has proven both interesting and challenging that no 
+one substance has been identified as the sole mediator of active cutaneous 
+vasodilation. The processes of reflex cutaneous vasodilation and 
+vasoconstriction are both modified by acute factors, such as exercise and 
+hydration, and more long-term factors, such as aging, reproductive hormones, and 
+disease. This review will highlight some of the recent findings in these areas, 
+as well as interesting areas of ongoing and future work.
+
+DOI: 10.1152/japplphysiol.00298.2010
+PMCID: PMC2963327
+PMID: 20448028 [Indexed for MEDLINE]

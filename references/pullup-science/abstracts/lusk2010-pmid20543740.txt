@@ -1,0 +1,37 @@
+1. J Strength Cond Res. 2010 Jul;24(7):1895-900. doi:
+10.1519/JSC.0b013e3181ddb0ab.
+
+Grip width and forearm orientation effects on muscle activity during the lat 
+pull-down.
+
+Lusk SJ(1), Hale BD, Russell DM.
+
+Author information:
+(1)Department of Kinesiology, The Pennsylvania State University-Berks, Reading, 
+Pennsylvania.
+
+Based on electromyographic (EMG) studies, an anterior (in front of the face) 
+wide grip with a pronated forearm has been recommended as the optimal lat 
+pull-down (LPD) variation for strengthening the latissimus dorsi (LD) 
+(Signorile, JF, Zink, A, and Szwed, S. J Strength Cond Res 16: 539-546, 2002; 
+Wills, R, Signorile, J, Perry, A, Tremblay, L, and Kwiatkowski, K. Med Sci 
+Sports Exerc 26: S20, 1994). However, it is not clear whether this finding was 
+because of grip width or forearm orientation. This study aimed to resolve this 
+issue by comparing wide-pronated, wide-supinated, narrow-pronated, and 
+narrow-supinated grips of an anterior LPD. Twelve healthy men performed the 4 
+grip variations using an experimentally determined load of 70% of 1 repetition 
+maximum. Two trials of 5 repetitions were analyzed for each grip type. 
+Participants maintained a cadence of 2-second concentric and 2-second eccentric 
+phases. The grip widths were normalized for each individual by using a wide grip 
+that corresponded to their carrying width and a narrow grip that matched their 
+biacromial diameter. Surface EMG of the LD, middle trapezius (MT), and biceps 
+brachii (BB) was recorded, and the root mean square of the EMG was normalized, 
+using a maximum isometric voluntary contraction. Repeated-measures analysis of 
+variance for each muscle revealed that a pronated grip elicited greater LD 
+activity than a supinated grip (p < 0.05), but had no influence of grip type on 
+the MT and BB muscles. Based on these findings, an anterior LPD with pronated 
+grip is recommended for maximally activating the LD, irrespective of the grip 
+width (carrying width or biacromial diameter).
+
+DOI: 10.1519/JSC.0b013e3181ddb0ab
+PMID: 20543740 [Indexed for MEDLINE]

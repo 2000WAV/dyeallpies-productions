@@ -1,0 +1,34 @@
+1. Ann Biomed Eng. 2010 Jan;38(1):158-63. doi: 10.1007/s10439-009-9809-8. Epub
+2009  Oct 2.
+
+Thermal imaging of cutaneous temperature modifications in runners during graded 
+exercise.
+
+Merla A(1), Mattei PA, Di Donato L, Romani GL.
+
+Author information:
+(1)Department of Clinical Sciences and Bioimaging, School of Medicine, 
+University of Chieti-Pescara, Chieti, Italy. a.merla@itab.unich.it
+
+In this paper we used high-resolution thermal imaging to visualize the human 
+whole body anterior cutaneous temperature (T(c)) variations in well-trained 
+runners during graded exercise. Fifteen male volunteers underwent a graded 
+treadmill test until reaching their individual maximal heart rate. Total body 
+T(c) decreased as the subjects started the exercise. Thighs and forearms 
+exhibited the earliest response. A further T(c) diminution occurred with the 
+progress of the exercise. At the exercise interruption, T(c) values were in 
+average 3-5 degrees C lower than at baseline. T(c) increased during recovery 
+from exercise. Forearms and thighs exhibited the earliest increase, followed by 
+total body T(c) increase. Thermal imaging documented the presence of 
+hyperthermal spots (occasionally tree-shaped) due to the presence of muscle 
+perforator vessels during baseline and recovery, but not during exercise. The 
+results we report indicate that thermal infrared imaging permits the 
+quantitative evaluation of specific cutaneous whole body thermal adaptations 
+which occur during and after graded physical activity. Thus providing the basis 
+for evaluating local and systemic cutaneous blood flow adaptation as a function 
+of specific type, intensity and duration of exercise, and helping to determine 
+the ideal conditions (in terms of environment and apparel) in which physical 
+activities should be conducted in order to favor thermal regulatory processes.
+
+DOI: 10.1007/s10439-009-9809-8
+PMID: 19798579 [Indexed for MEDLINE]

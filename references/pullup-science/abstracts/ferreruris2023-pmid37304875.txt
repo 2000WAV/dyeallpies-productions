@@ -1,0 +1,49 @@
+1. PeerJ. 2023 Jun 5;11:e15464. doi: 10.7717/peerj.15464. eCollection 2023.
+
+Exploring forearm muscle coordination and training applications of various grip 
+positions during maximal isometric finger dead-hangs in rock climbers.
+
+Ferrer-Uris B(#)(1), Arias D(1), Torrado P(1), Marina M(1), Busquets A(#)(1).
+
+Author information:
+(1)Institut Nacional d'Educació Física de Catalunya (INEFC), Universitat de 
+Barcelona (UB), Barcelona, Spain.
+(#)Contributed equally
+
+BACKGROUND: Maximal isometric finger dead-hangs are used in rock climbing to 
+strengthen finger flexors. Although various grip positions are often used when 
+performing finger dead-hangs, little is known regarding how these grip positions 
+can affect forearm muscle activity. Understanding how forearm muscles are 
+recruited during dead-hangs could help foreseeing the potential for training of 
+different grip positions. The aim of the present study was to explore the 
+training applications of the various grip positions by comparing the activity of 
+forearm muscles during maximal dead-hangs in rock climbers.
+MATERIALS & METHODS: Twenty-five climbers performed maximal dead-hangs in three 
+climbing-specific grip positions: CRIMP, SLOPE, and SLOPER. We recorded the 
+maximal loads used and the sEMG of the flexor digitorum profundus (FDP), the 
+flexor digitorum superficialis (FDS), the flexor carpi radialis (FCR), and the 
+extensor digitorum communis (EDC). Individual and global (sum of all muscles) 
+root mean square (RMS) and neuromuscular efficiency (NME) values were computed. 
+Repeated measures analysis were performed to assess grip differences (p < 0.05).
+RESULTS: SLOPER showed the largest maximal load values among the three grip 
+positions (p < 0.001, d ≥ 2.772). Greater global (p ≤ 0.044, d ≥ 0.268), FDS 
+(p ≤ 0.005, d ≥ 0.277), and FCR (p < 0.001, d ≥ 1.049) activity was observed for 
+the SLOPER compared to CRIMP and SLOPE, while EDC (p ≤ 0.005, d ≥ 0.505) showed 
+lower activity in the SLOPER compared to the other two grip positions. SLOPER 
+presented the highest global (p < 0.001, d ≥ 0.629), FDP (p < 0.001, d ≥ 0.777), 
+FDS (only CRIMP vs SLOPER: p < 0.001, d = 0.140), and EDC NME (p < 0.001, d ≥ 
+1.194). The CRIMP showed greater FDS activity (p = 0.001, d = 0.386) and lower 
+NME (p = 0.003, d = 0.125) compared to SLOPE.
+CONCLUSIONS: These results revealed that, under maximum intensity conditions, 
+SLOPER could stimulate the FDS and FCR better than the other grip positions at 
+the expense of using greater loads. Similarly, maximum CRIMP dead-hang could 
+better stimulate the FDS than the SLOPE, even when using similar loads.
+
+©2023 Ferrer-Uris et al.
+
+DOI: 10.7717/peerj.15464
+PMCID: PMC10249616
+PMID: 37304875 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare there are no competing 
+interests.

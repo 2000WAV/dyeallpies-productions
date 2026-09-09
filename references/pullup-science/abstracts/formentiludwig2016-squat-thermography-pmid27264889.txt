@@ -1,0 +1,41 @@
+1. J Therm Biol. 2016 Jul;59:58-63. doi: 10.1016/j.jtherbio.2016.04.013. Epub
+2016  May 10.
+
+Dynamics of thermographic skin temperature response during squat exercise at two 
+different speeds.
+
+Formenti D(1), Ludwig N(2), Trecroci A(3), Gargano M(2), Michielon G(3), Caumo 
+A(4), Alberti G(3).
+
+Author information:
+(1)Department of Biomedical Sciences for Health, Università degli Studi di 
+Milano, Italy. Electronic address: damiano.formenti@unimi.it.
+(2)Department of Physics, Università degli Studi di Milano, Italy.
+(3)Department of Biomedical Sciences for Health, Università degli Studi di 
+Milano, Italy.
+(4)Department of Biomedical Sciences for Health, Università degli Studi di 
+Milano, Italy; Metabolism Research Centre, IRCCS Policlinico San Donato 
+Milanese, Milano, Italy.
+
+Low intensity resistance training with slow movement and tonic force generation 
+has been shown to create blood flow restriction within muscles that may affect 
+thermoregulation through the skin. We aimed to investigate the influence of two 
+speeds of exercise execution on skin temperature dynamics using infrared 
+thermography. Thirteen active males performed randomly two sessions of squat 
+exercise (normal speed, 1s eccentric/1s concentric phase, 1s; slow speed, 5s 
+eccentric/5s concentric phase, 5s), using ~50% of 1 maximal repetition. Thermal 
+images of ST above muscles quadriceps were recorded at a rate of 0.05Hz before 
+the exercise (to determine basal ST) and for 480s following the initiation of 
+the exercise (to determine the nonsteady-state time course of ST). Results 
+showed that ST changed more slowly during the 5s exercise (p=0.002), whereas the 
+delta (with respect to basal) excursions were similar for the two exercises 
+(p>0.05). In summary, our data provided a detailed nonsteady-state portrait of 
+ST changes following squat exercises executed at two different speeds. These 
+results lay the basis for further investigations entailing the joint use of 
+infrared thermography and Doppler flowmetry to study the events taking place 
+both at the skin and the muscle level during exercises executed at slow speed.
+
+Copyright © 2016 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jtherbio.2016.04.013
+PMID: 27264889 [Indexed for MEDLINE]

@@ -1,0 +1,35 @@
+1. J Strength Cond Res. 2002 Nov;16(4):539-46.
+
+A comparative electromyographical investigation of muscle utilization patterns 
+using various hand positions during the lat pull-down.
+
+Signorile JF(1), Zink AJ, Szwed SP.
+
+Author information:
+(1)Human Performance Laboratory, Department of Exercise and Sport Sciences, 
+University of Miami, Coral Gables, Florida 33124, USA.
+
+This study aimed at investigating the effects of different hand positions on the 
+electromyographic (EMG) activity of shoulder muscles during the performance of 
+the lat pull-down exercise. Ten healthy men performed 3 repetitions of the lat 
+pull-down exercise using their experimentally determined 10RM (repetition 
+maximum) weight. Four different common variations of the lat pull-down were 
+used: close grip (CG), supinated grip (SG), wide grip anterior (WGA), and wide 
+grip posterior (WGP). Normalized root mean square of the EMG (NrmsEMG) activity 
+for the right posterior deltoid (PD), latissimus dorsi (LD), pectoralis major 
+(PM), teres major (TM), and long head of the triceps (TLH) were recorded using 
+surface electrodes and normalized using maximum voluntary contractions. Repeated 
+measures analysis of variance for each muscle detected statistical differences 
+(p < 0.05) in myoelectric activity among hand positions during both the 
+concentric and eccentric phases of the exercise. During the concentric phase, 
+NrmsEMG results for the LD included WGA > WGP, SG, CG. For the TLH: WGA > WGP, 
+SG, CG and WGP > CG, SG. For the PD: CG, WGA, SG > WGP. For the PM: CG, WGA, SG 
+> WGP. During the eccentric phase, the LD produced the following patterns: WGA > 
+WGP, SG, CG and WGP > CG. The TLH pattern showed WGA > SG and CG. For the PD: CG 
+> WGA, WGP. The results indicate that changes in handgrip position affect the 
+activities of specific muscles during the lat pull-down movement. Also, 
+performance of the lat pull-down exercise using the WGA hand position produces 
+greater muscle activity in the LD than any other hand position during both the 
+concentric or eccentric phases of the movement.
+
+PMID: 12423182 [Indexed for MEDLINE]

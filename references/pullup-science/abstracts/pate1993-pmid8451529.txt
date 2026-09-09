@@ -1,0 +1,29 @@
+1. Res Q Exerc Sport. 1993 Mar;64(1):17-24. doi: 10.1080/02701367.1993.10608774.
+
+Validity of field tests of upper body muscular strength.
+
+Pate RR(1), Burgess ML, Woods JA, Ross JG, Baumgartner T.
+
+Author information:
+(1)Department of Exercise Science, University of South Carolina, Columbia 29208.
+
+The purpose of this study was to determine the validity of five field tests 
+(FTs) of upper body muscular strength and endurance (UBMSE) in 9-10-year-old 
+children. Ninety-four children (38 boys, 56 girls) performed five FTs of UBMSE: 
+pull-ups, flexed arm hang, push-ups, Vermont modified pull-ups (VMPU), and New 
+York modified pull-ups. They also performed three criterion tests (CTs) of 
+strength and three CTs of muscular endurance using a supported weight, 
+set-resistance device. Zero-order correlations between the sum of the standard 
+scores on the three CTs of strength (SUM1RM) and the FTs were nonsignificant. 
+However, when SUM1RM was expressed relative to body weight (SUM1RM.kg-1), 
+significant (p < .01) correlation coefficients were obtained for each FT. 
+Highest correlations with SUM1RM.kg-1 were observed for the VMPU, and this same 
+test yielded the smallest percentage of zero scores. Principal components 
+analysis of the CTs, normalized for body weight, and FTs yielded a factor on 
+which both the FTs and CTs of strength loaded significantly. These data indicate 
+that the five FTs, though invalid as measures of absolute strength and muscular 
+endurance, manifest concurrent and construct validity as measures of 
+weight-relative muscular strength.
+
+DOI: 10.1080/02701367.1993.10608774
+PMID: 8451529 [Indexed for MEDLINE]

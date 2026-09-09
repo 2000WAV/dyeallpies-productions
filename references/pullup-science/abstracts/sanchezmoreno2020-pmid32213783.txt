@@ -1,0 +1,26 @@
+Sánchez-Moreno M, Cornejo-Daza PJ, González-Badillo JJ, Pareja-Blanco F (2020).
+Effects of Velocity Loss During Body Mass Prone-Grip Pull-up Training on Strength and Endurance
+Performance.
+Journal of Strength and Conditioning Research, 34(4), 911-917.
+doi:10.1519/JSC.0000000000003500. PMID 32213783. Closed access (no PMC copy found).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Twenty-nine strength-trained men were randomly assigned to one of two 8-week (16-session) velocity-
+based, body-mass, prone-grip pull-up training programs differing only in the within-set velocity-loss
+(VL) threshold allowed before stopping the set: VL25 (25% velocity loss) or VL50 (50% velocity loss).
+The VL25 group showed significantly greater improvements than VL50 in estimated 1RM, and in mean
+propulsive/peak velocity attained against all common loads. Maximum repetitions to failure improved
+similarly in both groups (no significant between-group difference). The authors conclude that "once a
+25% velocity loss is achieved during PU training, further repetitions did not elicit additional gains"
+and, for this bodyweight pulling exercise, may even blunt strength/velocity adaptations relative to
+stopping the set earlier, even though completing more reps (to 50% loss) did not further improve
+absolute endurance (max reps).
+
+Notes for this project: direct evidence that a 25%-velocity-loss cutoff is the practical
+"still-productive" ceiling for a bodyweight pull-up training set; going to 50% loss buys no extra
+strength/velocity adaptation. Useful as a training-prescription anchor (not the same claim as an RIR
+count per rep, but converts naturally: if 25% cumulative loss over a whole set is the "worth stopping"
+line for a fresh strength-focused set, the "reserve" figure the pipeline reports for a max-effort set
+should be interpreted against this VL25 landmark rather than an arbitrary 9%/rep slope).

@@ -1,0 +1,28 @@
+1. Ann Biomed Eng. 2003 Feb;31(2):207-20. doi: 10.1114/1.1540105.
+
+Estimation of musculotendon properties in the human upper limb.
+
+Garner BA(1), Pandy MG.
+
+Author information:
+(1)Department of Engineering, Baylor University, Waco, TX, USA.
+
+The purpose of this study was to develop and apply a general method for 
+estimating the architectural properties of human muscles in vivo. The method 
+consists of a two-phase, nested optimization procedure in which the values of 
+peak isometric force, optimal muscle-fiber length, and tendon slack length are 
+calculated for each musculotendon actuator, knowing muscle volume and the 
+minimum and maximum physiological lengths of the actuator. In phase I, the 
+positions of the bones and the activation levels of the muscles are found by 
+maximizing the isometric torque developed for each degree of freedom at each 
+joint. In phase II, the architectural properties of each musculotendon actuator 
+are found by matching the strength profile of the model to that measured for 
+subjects. The method is used to estimate the architectural properties of 26 
+major muscle groups crossing the shoulder, elbow, and wrist. Wherever possible, 
+the model calculations are compared against measurements obtained from 
+anatomical studies reported in the literature. Architectural data obtained from 
+our work should be useful to researchers interested in developing 
+musculoskeletal models of the upper limb.
+
+DOI: 10.1114/1.1540105
+PMID: 12627828 [Indexed for MEDLINE]

@@ -1,0 +1,35 @@
+metric,value,unit,population,method,source
+Compendium 2024 code 02020: calisthenics vigorous effort (incl. pull-ups),7.5,METs,adult general population,compendium consensus rating (not a directly measured VO2 study),pacompendium.com 2024 Adult Compendium
+Compendium 2024 code 02022: calisthenics moderate effort (incl. pull-ups),3.8,METs,adult general population,compendium consensus rating,pacompendium.com 2024 Adult Compendium
+Compendium 2024 code 02024: calisthenics light effort (core-focused),2.8,METs,adult general population,compendium consensus rating,pacompendium.com 2024 Adult Compendium
+Compendium 2024 code 02030: calisthenics general light/moderate,3.5,METs,adult general population,compendium consensus rating,pacompendium.com 2024 Adult Compendium
+Compendium 2024 code 02056: bodyweight resistance exercise general intensity,3.0,METs,adult general population,compendium consensus rating,pacompendium.com 2024 Adult Compendium
+Compendium 2024 code 02057: bodyweight resistance exercise high intensity,6.5,METs,adult general population,compendium consensus rating,pacompendium.com 2024 Adult Compendium
+Compendium (older/2011-era) code 02050: calisthenics vigorous (pull-ups/push-ups),8.0,METs,adult general population,compendium consensus rating; superseded by 02020 in the 2024 update,earlier WebSearch result citing pacompendium.com (predecessor code; flag version difference)
+mechanochemical efficiency, concentric action (ATP production rate / work),15.0 +/- 1.3,percent,human tibialis anterior/EDL in vivo,31P-NMR + dynamometer,ryschon1997-pmid9292475
+mechanochemical efficiency, eccentric action,34.7 +/- 6.1,percent,human tibialis anterior/EDL in vivo,31P-NMR + dynamometer,ryschon1997-pmid9292475
+metabolic efficiency ranking,isometric > eccentric > concentric (decreasing),ordinal,human tibialis anterior/EDL in vivo,31P-NMR + dynamometer,ryschon1997-pmid9292475
+EMG slope ratio positive/negative work (vastus lateralis),1.96 +/- 0.12,ratio,human knee extensors, motorized bicycle ergometer,integrated EMG,biglandritchiewoods1976-pmid978517
+oxygen-uptake slope ratio positive/negative work (vastus lateralis),6.34 +/- 0.82,ratio,human knee extensors, motorized bicycle ergometer,steady-state VO2,biglandritchiewoods1976-pmid978517
+implied eccentric:concentric metabolic cost ratio,~1/6.34 (~16%),fraction,derived from the 6.34 ratio above,derivation,biglandritchiewoods1976-pmid978517 (ratio itself is primary; the 1/6.34 restatement is this session's arithmetic)
+Abbott/Bigland/Ritchie 1952 classic finding (secondary description),6-7x lower metabolic cost for negative vs positive work at equal mechanical magnitude,ratio,human whole-body cycling ergometer (two-bicycle-and-chain apparatus),original 1952 J Physiol paper not retrieved directly this session (pre-PubMed-indexed abstract; PubMed esearch for this exact paper returned 0 hits),secondary description via journals.biologists.com "Revisiting the positive aspects of negative work" (WebSearch summary; ESTIMATE-grade citation of the original, not a fetched primary abstract)
+EPOC contribution to total exercise energy cost,6-15,percent of total workout kcal,general HIIT/resistance-training literature (non-pull-up-specific),narrative synthesis (secondary, not a specific study extracted this session),marathonhandbook.com / acefitness.org summaries (secondary)
+de Leva 1996 male reference body,73.0 kg / 1.741 m stature,anthropometric reference,adjusted Zatsiorsky-Seluyanov dataset,gamma-ray scanning (original Zatsiorsky data) + de Leva's landmark adjustment,deleva1996-pmid8872282 (Table 4)
+de Leva 1996 female reference body,61.9 kg / 1.735 m stature,anthropometric reference,as above,as above,deleva1996-pmid8872282 (Table 4)
+hand mass fraction (male),0.61,percent of total body mass,de Leva adjusted Zatsiorsky-Seluyanov,as above,deleva1996-pmid8872282 (Table 4)
+forearm mass fraction (male),1.62,percent of total body mass,de Leva adjusted Zatsiorsky-Seluyanov,as above,deleva1996-pmid8872282 (Table 4)
+upper arm mass fraction (male),2.71,percent of total body mass,de Leva adjusted Zatsiorsky-Seluyanov,as above,deleva1996-pmid8872282 (Table 4)
+hand+forearm mass fraction, one arm (male),2.23,percent of total body mass,derived (0.61+1.62),arithmetic on Table 4 values,deleva1996-pmid8872282 (derived)
+hand+forearm mass fraction, both arms (male),4.46,percent of total body mass,derived (2 x 2.23),arithmetic on Table 4 values,deleva1996-pmid8872282 (derived)
+hand mass fraction (female),0.56,percent of total body mass,de Leva adjusted Zatsiorsky-Seluyanov,as above,deleva1996-pmid8872282 (Table 4)
+forearm mass fraction (female),1.38,percent of total body mass,de Leva adjusted Zatsiorsky-Seluyanov,as above,deleva1996-pmid8872282 (Table 4)
+upper arm mass fraction (female),2.55,percent of total body mass,de Leva adjusted Zatsiorsky-Seluyanov,as above,deleva1996-pmid8872282 (Table 4)
+forearm segment CM position from elbow (male, ETC-to-TTIP definition),45.74,percent of segment length (proximal to distal),de Leva Table 4,anthropometric regression,deleva1996-pmid8872282
+hand segment CM position from wrist (male, WJCS definition),79.00,percent of segment length,de Leva Table 4,anthropometric regression,deleva1996-pmid8872282
+upper arm segment CM position from shoulder (male, SK-to-KJCS),57.72,percent of segment length,de Leva Table 4,anthropometric regression,deleva1996-pmid8872282
+Dempster 1955 (secondary restatement) hand mass,0.4,kg (50th-pct male, 74.4 kg reference),cadaver-derived reference body segment data,secondary web restatement of Dempster 1955,coursehero.com summary (secondary, not the primary Dempster table; de Leva/Zatsiorsky rows above are the primary-sourced numbers used in the deliverable)
+Dempster 1955 (secondary restatement) forearm mass,1.2,kg (50th-pct male, 74.4 kg reference),as above,as above,coursehero.com summary (secondary)
+GWR most pull-ups in 1 minute (male, unweighted),90,reps,Yutaro Matsuta (Japan), 10 Apr 2026,Guinness World Records verified attempt,guinnessworldrecords.com
+GWR most pull-ups in 1 minute with 40 lb pack (male),46,reps,Adam Sandel (USA), 30 May 2025,Guinness World Records verified attempt,guinnessworldrecords.com
+GWR most pull-ups in 1 minute with 60 lb pack,35,reps,Li Zechuan (China), 22 Mar 2025,Guinness World Records verified attempt,guinnessworldrecords.com
+GWR most pull-ups in 1 minute with 100 lb pack,25,reps,Liu Weiqiang (China), 12 Mar 2023,Guinness World Records verified attempt,guinnessworldrecords.com

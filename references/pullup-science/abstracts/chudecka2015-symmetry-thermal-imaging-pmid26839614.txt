@@ -1,0 +1,40 @@
+1. J Hum Kinet. 2015 Dec 30;49:141-7. doi: 10.1515/hukin-2015-0116. eCollection 
+2015 Dec 22.
+
+The Use of Thermal Imaging in the Evaluation of the Symmetry of Muscle Activity 
+in Various Types of Exercises (Symmetrical and Asymmetrical).
+
+Chudecka M(1), Lubkowska A(2), Leźnicka K(1), Krupecki K(3).
+
+Author information:
+(1)Department of Human Functional Anatomy and Biometry, Faculty of Physical 
+Culture and Health Promotion, Szczecin University, Szczecin, Poland.
+(2)Department of Functional Diagnostics and Physical Medicine, Faculty of Health 
+Sciences, Pomeranian Medical University in Szczecin, Szczecin, Poland.
+(3)Department of Theory and Practice of Sport, Faculty of Physical Culture and 
+Health Promotion, Szczecin University, Szczecin, Poland.
+
+In order to achieve higher efficiency of training and thus better athletic 
+performance, new research and diagnostic methods are constantly being developed, 
+particularly those that are non-invasive. One such a method is thermography, 
+suitable for quantitative and therefore objective evaluation of variables, such 
+as changes in the temperature of the skin covering working muscles. The aim of 
+this study was to use a thermal imaging infrared camera to evaluate temperature 
+changes of symmetric body surfaces over symmetrically working muscles of male 
+scullers after exercising on a two-oared rowing ergometer and compare these to 
+asymmetrically working muscles of handball players after an endurance training 
+session containing elements of an actual game. In the scullers, the mean 
+temperature of body surfaces was always lower post than pre exercise, with no 
+significant differences in an average temperature drop between the opposite 
+sides, indicating that the work of the muscles involved in the physical exertion 
+on the rowing ergometer was symmetrical. In contrast, in the handball players, 
+skin temperatures in symmetric areas over the asymmetrically working muscles 
+showed statistically significant differences between sides, which was associated 
+with the functional asymmetry of training. This study indicates that thermal 
+imaging may be useful for coaches in the evaluation of technical preparations in 
+sports in which equal involvement of symmetric muscles is a condition of 
+success, e.g. in scullers.
+
+DOI: 10.1515/hukin-2015-0116
+PMCID: PMC4723162
+PMID: 26839614

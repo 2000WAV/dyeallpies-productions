@@ -1,0 +1,46 @@
+1. Biology (Basel). 2022 Feb 17;11(2):322. doi: 10.3390/biology11020322.
+
+Central and Peripheral Thermal Signatures of Brain-Derived Fatigue during 
+Unilateral Resistance Exercise: A Preliminary Study.
+
+Perpetuini D(1), Formenti D(2), Iodice P(3), Cardone D(1), Filippini C(1), 
+Chiarelli AM(1), Michielon G(4), Trecroci A(4), Alberti G(4), Merla A(1).
+
+Author information:
+(1)Department of Neuroscience and Imaging, Institute for Advanced Biomedical 
+Technologies, University G. D'Annunzio of Chieti-Pescara, Via Luigi Polacchi 13, 
+66100 Chieti, Italy.
+(2)Department of Biotechnology and Life Sciences (DBSV), University of Insubria, 
+Via Dunant, 3, 21100 Varese, Italy.
+(3)Center for the Study and the Transformation of Physical Activities, Faculty 
+of Sport Sciences, University of Rouen Normandie, Rue Thomas Becket, 76130 
+Rouen, France.
+(4)Department of Biomedical Sciences for Health, University of Milan, Via Kramer 
+4, 20129 Milan, Italy.
+
+Infrared thermography (IRT) allows to evaluate the psychophysiological state 
+associated with emotions from facial temperature modulations. As fatigue is a 
+brain-derived emotion, it is possible to hypothesize that facial temperature 
+could provide information regarding the fatigue related to exercise. The aim of 
+this study was to investigate the capability of IRT to assess the central and 
+peripheral physiological effect of fatigue by measuring facial skin and muscle 
+temperature modulations in response to a unilateral knee extension exercise 
+until exhaustion. Rate of perceived exertion (RPE) was recorded at the end of 
+the exercise. Both time- (∆TROI: pre-post exercise temperature variation) and 
+frequency-domain (∆PSD: pre-post exercise power spectral density variation of 
+specific frequency bands) analyses were performed to extract features from 
+regions of interest (ROIs) positioned on the exercised and nonexercised leg, 
+nose tip, and corrugator. The ANOVA-RM revealed a significant difference between 
+∆TROI (F(1.41,9.81) = 15.14; p = 0.0018), and between ∆PSD of myogenic 
+(F(1.34,9.39) = 15.20; p = 0.0021) and neurogenic bands (F(1.75,12.26) = 9.96; p 
+= 0.0034) of different ROIs. Moreover, significant correlations between thermal 
+features and RPE were found. These findings suggest that IRT could assess both 
+peripheral and central responses to physical exercise. Its applicability in 
+monitoring the psychophysiological responses to exercise should be further 
+explored.
+
+DOI: 10.3390/biology11020322
+PMCID: PMC8869276
+PMID: 35205188
+
+Conflict of interest statement: The authors declare no conflict of interest.

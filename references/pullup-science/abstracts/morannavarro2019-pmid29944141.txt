@@ -1,0 +1,25 @@
+Morán-Navarro R, Martínez-Cava A, Sánchez-Medina L, Mora-Rodríguez R, González-Badillo JJ, Pallarés JG
+(2019).
+Movement Velocity as a Measure of Level of Effort During Resistance Exercise.
+Journal of Strength and Conditioning Research, 33(6), 1496-1504.
+doi:10.1519/JSC.0000000000002017. PMID 29944141. Closed access (no PMC copy found).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Thirty men of varying resistance-training levels performed sets to failure at 65%, 75% and 85% 1RM
+across four different exercises (multijoint upper- and lower-body). The velocity at which a lifter
+would need to stop a set to leave a given number of repetitions in reserve (2, 4, 6 or 8 RIR) was
+highly consistent across loads and across the four exercises, and had high between-session reliability
+(coefficient of variation 4.4-8.0%); training level did not meaningfully change these "stop velocities."
+The authors conclude that the velocity at which N reps remain in reserve is a stable, generalisable
+value (an "absolute velocity for X-RIR" table) that can be used instead of subjective RPE/RIR ratings
+to control proximity to failure objectively.
+
+Notes for this project: this is the general (non-pull-up) evidence that "velocity associated with N RIR"
+is a more stable target than a linear %-loss-per-rep rule, and that this stop-velocity generalises
+reasonably across exercises/loads within a person. Combined with Sánchez-Moreno 2017's pull-up-specific
+V1RM (~0.20 m/s) and the pull-up RTF/velocity-loss curve, this supports building the new RIR formula
+around a small lookup/regression of "velocity relative to this person's V1RM (or first-rep V0) -> RIR",
+rather than the current constant-slope 9%-per-rep model, while flagging that Jukic et al. 2023 (above)
+found the SAME kind of relationship is not perfectly universal (sex/training-history effects exist).

@@ -1,0 +1,15 @@
+metric,value,unit,population,method,source
+peak/relative force F0,individual-only (not pooled in abstract),x bodyweight-equivalent,82 resistance-trained men,linear transducer force-velocity extrapolation,munozlopez2017-pmid28253041
+elbow ROM pull-up,93.4,degrees (SD 14.6),21 men + 4 women,surface EMG + goniometry,youdas2010 (see references/pullup-emg/README.md)
+elbow ROM chin-up,100.6,degrees (SD 14.5),21 men + 4 women,surface EMG + goniometry,youdas2010 (see references/pullup-emg/README.md)
+hand-force asymmetry SD (regular practitioners),<5,% bodyweight,11 regular practitioners,force plate / bar instrumentation,prinold2016 (see references/pullup-thermal/README.md)
+inter-limb asymmetry flag convention,10 (10-15 range),%,systematic review,systematic review,bishop2018 (see references/pullup-thermal/README.md)
+rectus abdominis activation increase (kip vs strict),28.7,%MVIC (SD 4.7; p<0.001),11 athletes,surface EMG,dinunzio2019-pmid29768093
+external oblique activation increase (kip vs strict),21.8,%MVIC (SD 4.1; p<0.001),11 athletes,surface EMG,dinunzio2019-pmid29768093
+biceps activation (kip vs strict),significantly lower in kip,qualitative,11 athletes,surface EMG,dinunzio2019-pmid29768093
+muscle work increase (plyometric training group),21.9,% (SD 16.6; p=0.015),30 experienced climbers,pre/post training test,vigouroux2024-pmid38247962
+muscle work / max reps correlated with climbing level,positive correlation (not numeric in abstract),qualitative,28 climbers,pull-up to failure + climbing grade,devise2023-pmid37780381
+scapular protraction/retraction range (front grip),22,degrees,11 regular practitioners,3D motion capture,prinold2016 (see references/pullup-thermal/README.md)
+wide-grip abduction/external rotation (impingement risk),90 / 45,degrees,11 regular practitioners,3D motion capture,prinold2016 (see references/pullup-thermal/README.md)
+rotator cuff force,elevated in reverse (supinated) grip vs front/wide,qualitative (modelled),11 male practitioners,musculoskeletal model driven by mocap,urbanczyk2020-pmid32715526
+latissimus dorsi relative activity,higher in wide grip (P<.01),qualitative (modelled),11 male practitioners,musculoskeletal model driven by mocap,urbanczyk2020-pmid32715526

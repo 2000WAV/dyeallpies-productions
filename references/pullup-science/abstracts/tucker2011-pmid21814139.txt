@@ -1,0 +1,42 @@
+1. Clin J Sport Med. 2011 Sep;21(5):405-10. doi: 10.1097/JSM.0b013e31822179e8.
+
+Scapular muscle activity in overhead and nonoverhead athletes during closed 
+chain exercises.
+
+Tucker WS(1), Bruenger AJ, Doster CM, Hoffmeyer DR.
+
+Author information:
+(1)Department of Kinesiology and Physical Education, University of Central 
+Arkansas, Conway, Arkansas 72035, USA. stucker@uca.edu
+
+OBJECTIVE: To compare scapular muscle activity in healthy overhead and 
+nonoverhead athletes.
+DESIGN: One between (group) and 1 within (exercise) repeated measures.
+SETTING: Controlled laboratory environment.
+PARTICIPANTS: Fifteen overhead sport athletes (10 women and 5 men) and 15 
+nonoverhead sport athletes (10 women and 5 men).
+INTERVENTIONS: Subjects completed 5 individual trials of a Cuff Link, standard 
+push-up, and supine pull-up while surface electromyography (EMG) recorded muscle 
+activity of 4 scapular muscles on the throwing dominant side. Mean EMG data were 
+normalized to a maximum voluntary isometric contraction.
+MAIN OUTCOME MEASURES: Normalized mean EMG.
+RESULTS: The upper trapezius was significantly more active (F2,56 = 70.118; P < 
+0.001) during supine pull-up (61.57 ± 29.67%) than during push-up (27.89 ± 
+16.21%) and Cuff Link (5.50 ± 2.94%). The middle trapezius was significantly 
+more active (F2,56 = 134.192; P < 0.001) during supine pull-up (62.89 ± 24.17%) 
+than during push-up (21.12 ± 13.10%) and Cuff Link (6.59 ± 4.81%). The lower 
+trapezius was significantly more active (F2,56 = 41.326; P < 0.001) during 
+supine pull-up (60.47 ± 34.80%) than during push-up (34.80 ± 30.81%) and Cuff 
+Link (9.67 ± 4.34%). For upper trapezius, middle trapezius, and lower trapezius, 
+the levels of activation during push-up were significantly greater compared with 
+those during Cuff Link. The serratus anterior was significantly more active 
+(F2,56 = 25.652; P < 0.001) during push-up (49.97 ± 18.86%) and Cuff Link (43.81 
+± 19.70%) than during supine pull-up (25.52 ± 19.80%). There were no significant 
+influences of group on muscle activation.
+CONCLUSIONS: Overhead and nonoverhead athletes elicited similar levels of muscle 
+activation. Differences in muscle activation existed within the 3 exercises. 
+Clinicians should consider the muscle of interest when prescribing one of these 
+exercises.
+
+DOI: 10.1097/JSM.0b013e31822179e8
+PMID: 21814139 [Indexed for MEDLINE]

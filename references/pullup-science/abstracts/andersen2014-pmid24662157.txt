@@ -1,0 +1,37 @@
+1. J Strength Cond Res. 2014 Apr;28(4):1135-42. doi:
+10.1097/JSC.0000000000000232.
+
+Effects of grip width on muscle strength and activation in the lat pull-down.
+
+Andersen V(1), Fimland MS, Wiik E, Skoglund A, Saeterbakken AH.
+
+Author information:
+(1)1Faculty of Teacher Education and Sport, Sogn og Fjordane University College, 
+Sogndal, Norway; 2Department of Public Health and General Practice, Faculty of 
+Medicine, Norwegian University of Science and Technology, Trondheim, Norway; and 
+3Hysnes Rehabilitation Center, St. Olavs University Hospital, Trondheim, Norway.
+
+The lat pull-down is one of the most popular compound back exercises. Still, it 
+is a general belief that a wider grip activates the latissimus dorsi more than a 
+narrow one, but without any broad scientific support. The aim of the study was 
+to compare 6 repetition maximum (6RM) load and electromyographic (EMG) activity 
+in the lat pull-down using 3 different pronated grip widths. Fifteen men 
+performed 6RM in the lat pull-down with narrow, medium, and wide grips (1, 1.5, 
+and 2 times the biacromial distance) in a randomized and counterbalanced order. 
+The 6RM strengths with narrow (80.3 ± 7.2 kg) and medium grip (80 ± 7.1 kg) were 
+higher than wide grip (77.3 ± 6.3 kg; p = 0.02). There was similar EMG 
+activation between grip widths for latissimus, trapezius, or infraspinatus, but 
+a tendency for biceps brachii activation to be greater for medium vs. narrow (p 
+= 0.09), when the entire movement was analyzed. Analyzing the concentric phase 
+separately revealed greater biceps brachii activation using the medium vs. 
+narrow grip (p = 0.03). In the eccentric phase, there was greater activation 
+using wide vs. narrow grip for latissimus and infraspinatus (p ≤ 0.04), and 
+tendencies for medium greater than narrow for latissimus, and medium greater 
+than wide for biceps (both p = 0.08), was observed. Collectively, a medium grip 
+may have some minor advantages over small and wide grips; however, athletes and 
+others engaged in resistance training can generally expect similar muscle 
+activation which in turn should result in similar hypertrophy gains with a grip 
+width that is 1-2 times the biacromial distance.
+
+DOI: 10.1097/JSC.0000000000000232
+PMID: 24662157 [Indexed for MEDLINE]

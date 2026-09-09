@@ -1,0 +1,38 @@
+muscle,source,specimen_n,volume_cm3,pcsa_cm2,optimal_fiber_length_cm,tendon_slack_length_cm,note
+latissimus dorsi,Holzbaur et al. 2007 (MRI),10 (5M5F),262 (SD147),,,,"per side; small-bodied sample (188cm/79kg trained man use ~1.4x scale factor, stated in Holzbaur README)"
+latissimus dorsi,Garner & Pandy 2003 (VHM model),1 (Visible Human Male),676.40,461.89,39.27,0.44,"model's own VHM-derived + torque-optimised values; text flags model volume/PCSA as noticeably LARGER than cadaver dissection literature -- treat as upper bound"
+latissimus dorsi,Garner & Pandy 2003 (lit. compiled: Veeger 1991),,226.10,,,,cadaver dissection literature compiled inside the Garner&Pandy tables
+latissimus dorsi,Garner & Pandy 2003 (lit. compiled: An 1981 PCSA),,,22.04,,,
+teres major,Holzbaur et al. 2007 (MRI),10 (5M5F),33 (SD16),,,,per side
+teres major,Garner & Pandy 2003 (VHM model),1,38.70,514.57,5.72,6.35,model value; PCSA looks anomalously high relative to volume/fibre-length ratio in the source table -- flagged, use with caution
+biceps brachii,Holzbaur et al. 2007 (MRI),10 (5M5F),144 (SD69),,,,per side; both heads combined
+biceps brachii,Garner & Pandy 2003 (VHM model),1,619.99,849.29,8.77,,model value; both heads combined
+biceps brachii,Garner & Pandy 2003 (lit. compiled: Amis 1979 fibre length),,,,8.70,,
+brachialis,Holzbaur et al. 2007 (MRI),10 (5M5F),144 (SD64),,,,per side
+brachialis,Garner & Pandy 2003 (VHM model),1,365.84,853.76,14.22,5.38,model value
+brachioradialis,Holzbaur et al. 2007 (MRI),10 (5M5F),65 (SD36),,,,per side
+brachioradialis,Garner & Pandy 2003 (VHM model),1,265.96,101.56,10.28,,model value
+flexor digitorum superficialis (FDS),Holzbaur et al. 2007 (MRI),10 (5M5F),74 (SD27),,,,per side
+flexor digitorum profundus (FDP),Holzbaur et al. 2007 (MRI),10 (5M5F),92 (SD39),,,,per side
+flexor carpi radialis (FCR),Holzbaur et al. 2007 (MRI),10 (5M5F),35,,,,per side
+flexor carpi radialis (FCR),Garner & Pandy 2003 (VHM model),1,80.41,368.63,4.48,5.58,model value
+flexor carpi ulnaris (FCU),Holzbaur et al. 2007 (MRI),10 (5M5F),37,,,,per side
+flexor carpi ulnaris (FCU),Garner & Pandy 2003 (VHM model),1,56.97,561.00,5.10,,model value
+infraspinatus,Holzbaur et al. 2007 (MRI),10 (5M5F),119 (SD47),,,,per side
+infraspinatus,Garner & Pandy 2003 (VHM model),1,89.23,1100.13,4.28,,"model value; note the very high PCSA/short fibre length signature typical of a pennate rotator-cuff muscle"
+infraspinatus,Garner & Pandy 2003 (lit. compiled: An 1981 PCSA),,,9.95,,,
+deltoid (whole),Holzbaur et al. 2007 (MRI),10 (5M5F),380 (SD158),,,,per side; anterior+middle+posterior combined
+deltoid (whole),Garner & Pandy 2003 (VHM model),1,549.69,2044.65,12.80,,model value; posterior fibres are the ones relevant to the pull; whole-muscle only in this source
+trapezius (whole),Garner & Pandy 2003 (VHM model),1,457.89,802.25,18.84,0.34,"model value; Garner&Pandy split trap into TRPc/TRPc7/TRPt1/TRPt2 (upper/mid/lower) internally but only reports summed volume/PCSA in the abstracted tables here; Holzbaur does not include trapezius (README already flags this: ~250cm3/side estimate, 48% lower / 28% middle / 23% upper of volume, ESTIMATE)"
+rhomboid major,Garner & Pandy 2003 (VHM model),1,117.77,217.12,17.90,,model value
+rhomboid minor,Garner & Pandy 2003 (VHM model),1,71.92,221.45,17.55,0.46,model value
+pectoralis major,Holzbaur et al. 2007 (MRI),10 (5M5F),290 (SD169),,,,per side
+pectoralis major,Garner & Pandy 2003 (VHM model),1,73.14,1175.01,19.00,,"model value; the volume figure (73.14) looks like a truncated/partial-head entry in the source table relative to Holzbaur's whole-muscle 290 -- flagged as ESTIMATE / possible partial value, do not average the two uncritically"
+serratus anterior,Garner & Pandy 2003 (VHM model),1,358.56,677.30,17.47,,model value; not in Holzbaur (lower-limb/upper-limb MRI paper did not report it either)
+subscapularis,Holzbaur et al. 2007 (MRI),10 (5M5F),165 (SD64),,,,per side; deep, not visible from surface -- listed for completeness only
+subscapularis,Garner & Pandy 2003 (VHM model),1,225.36,1178.38,6.76,0.24,model value
+triceps brachii (whole),Holzbaur et al. 2007 (MRI),10 (5M5F),372 (SD177),,,,per side
+triceps brachii (whole),Garner & Pandy 2003 (VHM model),1,80.01,2332.92,17.60,15.19,"model value; volume figure again looks anomalously low vs Holzbaur -- treat the Garner&Pandy VOLUME column with caution generally, PCSA/fibre-length columns are the ones the paper's own optimisation targeted"
+external oblique,NOT FOUND in any primary anatomy source located this session,,,,,,ESTIMATE gap -- no PCSA/volume/fibre-length source found for trunk wall muscles in the upper-limb-focused literature searched (Garner&Pandy stops at the shoulder girdle; Holzbaur is upper-limb only)
+rectus abdominis,NOT FOUND in any primary anatomy source located this session,,,,,,ESTIMATE gap -- same reason as external oblique
+erector spinae,NOT FOUND in any primary anatomy source located this session,,,,,,ESTIMATE gap -- same reason; Youdas/Dickie measured its EMG but no volume/PCSA source was found

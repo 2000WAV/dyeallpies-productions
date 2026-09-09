@@ -1,0 +1,27 @@
+Balsalobre-Fernández C, Marchante D, Baz-Valle E, Alonso-Molero I, Jiménez SL, Muñoz-López M (2017).
+Analysis of Wearable and Smartphone-Based Technologies for the Measurement of Barbell Velocity in
+Different Resistance Training Exercises.
+Frontiers in Physiology, 8, 649.
+PMID 28894425. Open access (Frontiers, CC-BY).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Ten elite powerlifters performed reps at 50-100% 1RM across bench press, back squat and hip thrust,
+while a linear position transducer (reference), two wearable inertial devices (wrist-worn and
+barbell-mounted "Beast"), and a smartphone camera app (PowerLift, iOS) all recorded bar velocity
+simultaneously. All device types correlated highly with the transducer (r = 0.94-0.98 depending on
+device/exercise, standard error of the estimate 0.03-0.07 m/s); reliability (ICC) ranged 0.910-0.990
+across devices and exercises. The authors conclude both wearable and smartphone-camera-based systems are
+valid, reliable alternatives to a linear transducer for measuring barbell velocity in common barbell
+exercises.
+
+Notes for this project: not pull-up-specific and not pose-tracking (a fixed camera tracking a bar
+marker, not a person), but the closest available validity/reliability numbers for camera-based velocity
+measurement in resistance exercise generally (r >= 0.94, ICC >= 0.91). Cited here as the best available
+proxy for "how much to trust a video-derived velocity number," while flagging that markerless full-body
+pose tracking of a moving person (as this pipeline does) has different, generally worse, expected error
+sources (self-occlusion, landmark jitter at the wrist/shoulder, camera-plane parallax) than a barbell
+marker tracked by a purpose-built app — no pull-up-specific or markerless-pose-specific validity study
+was found in this search. ESTIMATE: treat the pipeline's own velocity numbers as directionally correct
+rep-to-rep but not validated to transducer-level absolute accuracy.

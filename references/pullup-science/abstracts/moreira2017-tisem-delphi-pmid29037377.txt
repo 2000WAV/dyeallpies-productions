@@ -1,0 +1,87 @@
+1. J Therm Biol. 2017 Oct;69:155-162. doi: 10.1016/j.jtherbio.2017.07.006. Epub 
+2017 Jul 18.
+
+Thermographic imaging in sports and exercise medicine: A Delphi study and 
+consensus statement on the measurement of human skin temperature.
+
+Moreira DG(1), Costello JT(2), Brito CJ(3), Adamczyk JG(4), Ammer K(5), Bach 
+AJE(6), Costa CMA(7), Eglin C(2), Fernandes AA(8), Fernández-Cuevas I(9), 
+Ferreira JJA(10), Formenti D(11), Fournet D(12), Havenith G(13), Howell K(14), 
+Jung A(15), Kenny GP(16), Kolosovas-Machuca ES(17), Maley MJ(6), Merla A(18), 
+Pascoe DD(19), Priego Quesada JI(20), Schwartz RG(21), Seixas ARD(22), Selfe 
+J(23), Vainer BG(24), Sillero-Quintana M(25).
+
+Author information:
+(1)Federal Institute for Education, Science and Technology of Minas Gerais, 
+Campus Governador Valadares, Brasil; Sports Department, Faculty of Sciences for 
+Physical Activity and Sport (INEF), Technical University of Madrid, Madrid, 
+Spain. Electronic address: danilo.moreira@ifmg.edu.br.
+(2)Extreme Environments Laboratory, Department of Sport and Exercise Science, 
+University of Portsmouth, Portsmouth, UK.
+(3)Department of Physical Education, Federal University of Juiz de Fora, 
+Governador Valadares, Brazil.
+(4)Józef Piłsudski University of Physical Education in Warsaw, Warsaw, Poland; 
+Medical University of Warsaw, Warsaw, Poland.
+(5)European Association of Thermology, Vienna, Austria; Medical Imaging Research 
+Unit, University of South Wales, Pontypridd, United Kingdom.
+(6)School of Exercise and Nutrition Sciences and Institute of Health and 
+Biomedical Innovation, Queensland University of Technology, Brisbane, Australia.
+(7)Aeronatutics Instruction and Adaptation Center, Minas Gerais, Brazil.
+(8)Federal Institute for Education, Science and Technology of Minas Gerais, 
+Campus Ipatinga, Brasil.
+(9)School of Health and Sports Science, Cluster for Health Improvement, 
+University of the Sunshine Coast, Australia; Sports Department, Faculty of 
+Sciences for Physical Activity and Sport (INEF), Technical University of Madrid, 
+Madrid, Spain.
+(10)Department of Physical Therapy, Federal University of Paraíba, João Pessoa, 
+Brazil.
+(11)Department of Biomedical Sciences for Health, Università degli Studi di 
+Milano, Italy.
+(12)Thermal Sciences Laboratory, DECATHLON SportsLab, Villeneuve d'Ascq, France.
+(13)Environmental Ergonomics Research Centre, Loughborough Design School, 
+Loughborough University, Loughborough, United Kingdom.
+(14)UCL Institute of Immunity and Transplantation, Royal Free Hospital, London, 
+United Kingdom.
+(15)Military Institute of Medicine, Warsaw, Poland.
+(16)Human and Environmental Physiology Research Unit, School of Human Kinetics, 
+University of Ottawa, Ottawa, Ontario, Canada.
+(17)Autonomous University of San Luis Potosí, México.
+(18)Department of Neurosciences, Imaging and Clinical Sciences, University of 
+Chieti-Pescara, Chieti, Italy.
+(19)Thermal Research Laboratory, Department of Kinesiology, Auburn University, 
+Auburn, United States.
+(20)Biophysics and Medical Physics Group, Department of Physiology, University 
+of Valencia, Valencia, Spain.
+(21)American Academy of Thermology. Piedmont Physical Medicine and 
+Rehabilitation, PA, United States.
+(22)Escola Superior de Saúde, Universidade Fernando Pessoa, Porto, Portugal.
+(23)Manchester Metropolitan University, Manchester, United Kingdom.
+(24)Rzhanov Institute of Semiconductor Physics SB RAS, Novosibirsk State 
+University, Novosibirsk, Russia.
+(25)Sports Department, Faculty of Sciences for Physical Activity and Sport 
+(INEF), Technical University of Madrid, Madrid, Spain.
+
+The importance of using infrared thermography (IRT) to assess skin temperature 
+(tsk) is increasing in clinical settings. Recently, its use has been increasing 
+in sports and exercise medicine; however, no consensus guideline exists to 
+address the methods for collecting data in such situations. The aim of this 
+study was to develop a checklist for the collection of tsk using IRT in sports 
+and exercise medicine. We carried out a Delphi study to set a checklist based on 
+consensus agreement from leading experts in the field. Panelists (n = 24) 
+representing the areas of sport science (n = 8; 33%), physiology (n = 7; 29%), 
+physiotherapy (n = 3; 13%) and medicine (n = 6; 25%), from 13 different 
+countries completed the Delphi process. An initial list of 16 points was 
+proposed which was rated and commented on by panelists in three rounds of 
+anonymous surveys following a standard Delphi procedure. The panel reached 
+consensus on 15 items which encompassed the participants' demographic 
+information, camera/room or environment setup and recording/analysis of tsk 
+using IRT. The results of the Delphi produced the checklist entitled 
+"Thermographic Imaging in Sports and Exercise Medicine (TISEM)" which is a 
+proposal to standardize the collection and analysis of tsk data using IRT. It is 
+intended that the TISEM can also be applied to evaluate bias in thermographic 
+studies and to guide practitioners in the use of this technique.
+
+Copyright © 2017 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jtherbio.2017.07.006
+PMID: 29037377 [Indexed for MEDLINE]

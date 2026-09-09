@@ -1,0 +1,25 @@
+Hayashi K, Yasuda J, Aruga S (2026).
+Relationship Between Mechanical Variables and Maximum Strength in Countermovement and Pure Concentric
+Pull-Ups Among Male Collegiate Athletes.
+International Journal of Exercise Science, 19(4), article 4001.
+PMID 41798105. PMCID PMC12965800. Open access. Full text PDF saved at
+references/pullup-science/papers/hayashi2026-mechanical-variables-pullups.pdf.
+
+Fetched from PubMed E-utilities on 2026-09-08; full text via Europe PMC on 2026-09-08.
+
+ABSTRACT:
+Fifty male collegiate athletes performed countermovement pull-ups (CPU, a slight controlled downward
+counter-movement from a dead hang before pulling, using the stretch-shortening cycle) and pure
+concentric pull-ups (PCP, starting from a static dead hang with no counter-movement) while mean/peak
+velocity, power, and an isometric mid-hang pull-up strength test (LP-IMS) were recorded. Vmean and Vmax
+of PCP reps showed significant strong positive correlations with LP-IMS strength; the corresponding
+correlations for CPU reps were weaker, which the authors attribute to stretch-shortening-cycle (SSC)
+contribution in the countermovement variant partially decoupling bar velocity from underlying maximal
+strength.
+
+Notes for this project: directly relevant to the pipeline's velocity-based effort/RIR estimate, because
+it shows the velocity-to-strength (and by extension velocity-to-effort) relationship is tighter for a
+strict dead-hang start than for any rep style with a counter-movement/kip component. Any velocity-based
+RIR or %1RM estimate should specify or detect whether the rep started from a true dead hang (pure
+concentric) vs. a bounced/countermovement start, since the same velocity means different things in the
+two cases.

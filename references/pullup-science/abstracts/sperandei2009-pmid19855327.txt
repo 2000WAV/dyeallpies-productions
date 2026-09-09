@@ -1,0 +1,32 @@
+1. J Strength Cond Res. 2009 Oct;23(7):2033-8. doi: 10.1519/JSC.0b013e3181b8d30a.
+
+Electromyographic analysis of three different types of lat pull-down.
+
+Sperandei S(1), Barros MA, Silveira-Júnior PC, Oliveira CG.
+
+Author information:
+(1)Biomedical Engineering Program, COPPE/UFRJ, Rio de Janeiro, Brazil. 
+ssperandei@hotmail.com
+
+The purpose of this work was to evaluate the activity of the primary motor 
+muscles during the performance of 3 lat pull-down techniques through surface 
+electromyography (EMG). Twenty-four trained adult men performed 5 repetitions of 
+behind-the-neck (BNL), front-of-the-neck (FNL), and V-bar exercises at 80% of 1 
+repetition maximum. For each technique, the root mean square from the EMG signal 
+was registered from the pectoralis major (PM), latissimus dorsi (LD), posterior 
+deltoid (PD), and biceps brachii (BB) and further normalized in respect to that 
+which presented the highest value of all the techniques. A series of two-way 
+repeated measures analysis of variance was used to compare the results, with 
+Tukey-Kramer as the post hoc test and alpha = 0.05. During the concentric phase, 
+PM value showed the FNL to be significantly higher than V-bar/BNL and V-bar 
+higher than BNL. During the eccentric phase, FNL/V-bar was higher than BNL. For 
+LD, there was no difference between techniques. PD presented BNL higher than 
+FNL/V-bar and FNL higher than V-bar in the concentric phase and BNL higher than 
+V-bar in the eccentric phase. BB exhibited BNL higher than V-bar/FNL and V-bar 
+higher than FNL in both concentric and eccentric phases. Considering the main 
+objectives of lat pull-down, we concluded that FNL is the better choice, whereas 
+BNL is not a good lat pull-down technique and should be avoided. V-bar could be 
+used as an alternative.
+
+DOI: 10.1519/JSC.0b013e3181b8d30a
+PMID: 19855327 [Indexed for MEDLINE]

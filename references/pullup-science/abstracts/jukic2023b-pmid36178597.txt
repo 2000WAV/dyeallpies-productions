@@ -1,0 +1,26 @@
+Jukic I, Castilla AP, Ramos AG, Van Hooren B, McGuigan MR, Helms ER (2023).
+The Acute and Chronic Effects of Implementing Velocity Loss Thresholds During Resistance Training: A
+Systematic Review, Meta-Analysis, and Critical Evaluation of the Literature.
+Sports Medicine, 53(1), 177-214.
+doi:10.1007/s40279-022-01754-4. PMID 36178597. PMCID PMC9807551. Open access. Full text PDF saved at
+references/pullup-science/papers/jukic2023-acute-chronic-vl-thresholds-review.pdf.
+
+Fetched from PubMed E-utilities on 2026-09-08; full text via Europe PMC on 2026-09-08.
+
+ABSTRACT:
+Systematic review + meta-analysis/meta-regression (PRISMA) of 18 acute and 19 longitudinal studies using
+velocity loss (VL) to prescribe or monitor resistance training. As VL within a set increases: reps per
+set, blood lactate and RPE generally increase, while countermovement-jump height, sprint time and
+velocity against a fixed submaximal load generally decrease — but the size of these effects depends on
+exercise and load used. Chronically, VL threshold did not affect strength or muscular-endurance gains;
+higher VL thresholds favoured hypertrophy (meta-regression b = 0.006, 95% CI 0.001-0.012 per unit VL);
+lower VL thresholds favoured countermovement-jump (b = -0.040, CI -0.079 to -0.001), sprint (b = 0.001,
+CI 0.001-0.002) and submaximal-velocity performance (b = -0.018, CI -0.029 to -0.006) outcomes.
+CONCLUSION: VL is a real graded dose-response variable for acute fatigue and volume, but its chronic
+training effect is adaptation-specific (hypertrophy vs. power/speed) and moderated by exercise/load/
+individual factors, not a single universal "stop here" number.
+
+Notes for this project: broad VBT context for why "one velocity-loss constant" is an oversimplification
+in general, reinforcing the pull-up-specific finding in Sánchez-Moreno 2020 (25% vs 50% VL) — i.e. VL25
+is specifically the strength/velocity-adaptation-optimal stopping point for this exercise, matching this
+review's general finding that lower VL thresholds favour velocity/power-type outcomes over hypertrophy.

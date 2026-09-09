@@ -1,0 +1,7 @@
+[
+ {"kind": "summary", "f": 1631, "dur": 2.6},
+ {"kind": "play", "f0": 396, "f1": 566, "step": 1},
+ {"kind": "play", "f0": 566, "f1": 1523, "step": 3},
+ {"kind": "play", "f0": 1523, "f1": 1705, "step": 1},
+ {"kind": "summary", "dur": 4.0}
+]

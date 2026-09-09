@@ -1,0 +1,31 @@
+Jukic I, Prnjak K, McGuigan MR, Helms ER (2023).
+One Velocity Loss Threshold Does Not Fit All: Consideration of Sex, Training Status, History, and
+Personality Traits When Monitoring and Controlling Fatigue During Resistance Training.
+Sports Medicine - Open, 9(1), 80.
+doi:10.1186/s40798-023-00626-z. PMID 37668949. PMCID PMC10480128. Open access (CC-BY). Full text PDF
+saved at references/pullup-science/papers/jukic2023-one-vl-threshold-not-fit-all.pdf.
+
+Fetched from PubMed E-utilities on 2026-09-08; full text via Europe PMC on 2026-09-08.
+
+ABSTRACT:
+PURPOSE: quantify variability in volume-of-work completed after reaching different velocity-loss (VL)
+thresholds, and test effects of sex, training status/history and personality traits, in the back squat.
+METHODS: 46 resistance-trained people (15 female, 31 male, 18-40 y) did a 1RM test then two
+repetitions-to-failure tests 72 h apart at 70/80/90% 1RM with 10 min inter-set rest. RESULTS: agreement
+in the amount of work completed across two testing sessions at the same nominal VL threshold was "not
+acceptable" — i.e. a fixed VL% does not reproducibly correspond to a fixed number of reps done, even in
+the same person on a different day. Regardless of load, females completed more reps than males at every
+VL threshold while males lifted at higher absolute velocities; people with higher trait emotional
+stability also completed more reps at a given VL threshold. Sex, load choice, strength/training history
+and emotional stability all affected how linear the rep-velocity relationship was and therefore where a
+set actually terminated.
+CONCLUSION: using one universal VL threshold for everyone will produce inconsistent acute training
+stimuli and, over time, divergent adaptations; sex, training status/history and psychological traits
+should be considered when setting or interpreting VL thresholds.
+
+Notes for this project: strong direct caution against the pipeline's current single fixed constant
+(9% loss = 1 RIR for everyone). This is squat, not pull-up, and free-weight loaded not bodyweight, but
+the general finding — same %VL does not mean the same number of reps left, and varies systematically by
+sex/training history/psychological trait — should be stated as an explicit caveat wherever the new
+pull-up RIR formula is presented, and argues for a personally-calibrated (first-rep or fastest-rep
+referenced) model over a universal fixed threshold.

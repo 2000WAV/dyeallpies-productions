@@ -1,0 +1,9 @@
+metric,value,unit,population,method,source
+elbow ROM pull-up (pronated),93.4,degrees (SD 14.6),21 men + 4 women,surface EMG + goniometry,youdas2010 (see references/pullup-emg/README.md)
+elbow ROM chin-up (supinated),100.6,degrees (SD 14.5),21 men + 4 women,surface EMG + goniometry,youdas2010 (see references/pullup-emg/README.md)
+sticking region location,mid-ROM (~chin 6-12 in below bar),qualitative / secondary source,not a primary study - general strength-training literature,ESTIMATE - non-primary web summary,see notes below
+hip/knee angle excursion increase (kipping vs strict),significantly greater in kipping,qualitative,11 athletes,3D kinematics,dinunzio2019-pmid29768093
+scapular protraction/retraction ROM (front grip),22,degrees,11 regular practitioners,3D motion capture,prinold2016 (see references/pullup-thermal/README.md)
+shoulder abduction at end-range (wide grip),90,degrees,11 regular practitioners,3D motion capture,prinold2016 (see references/pullup-thermal/README.md)
+external rotation at end-range (wide grip),45,degrees,11 regular practitioners,3D motion capture,prinold2016 (see references/pullup-thermal/README.md)
+concentric vs eccentric muscle activation,concentric significantly greater (brachioradialis, biceps, pectoralis major; P<0.01),qualitative,19 strength-trained men,surface EMG,dickie2017 (see references/pullup-emg/README.md)

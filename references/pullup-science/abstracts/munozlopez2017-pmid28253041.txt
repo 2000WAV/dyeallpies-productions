@@ -1,0 +1,23 @@
+Muñoz-López M, Marchante D, Cano-Ruiz MA, Chicharro JL, Balsalobre-Fernández C (2017).
+Load-, Force-, and Power-Velocity Relationships in the Prone Pull-Up Exercise.
+International Journal of Sports Physiology and Performance, 12(9), 1249-1255.
+doi:10.1123/ijspp.2016-0657. PMID 28253041. Closed access (no PMC copy found).
+
+Fetched from PubMed E-utilities on 2026-09-08.
+
+ABSTRACT:
+Eighty-two resistance-trained men (age 26.8 +/- 5.0 y; pull-up 1RM normalised per kg body mass
+1.5 +/- 0.34) performed 2 repetitions at each of 4 incremental loads (70-100% 1RM) on the prone
+(pronated-grip) pull-up while mean propulsive velocity (MPV), mean propulsive force (MPF) and mean
+propulsive power (MPP) were measured with a linear velocity transducer. Individual load-velocity
+(R^2 = .975 +/- 0.02), force-velocity (R^2 = .954 +/- 0.04) and power-velocity (R^2 = .966 +/- 0.04)
+relationships were almost perfectly linear/parabolic for every subject, allowing calculation of each
+individual's maximal theoretical force (F0), maximal theoretical velocity (V0) and maximal power
+(Pmax). The load that maximised MPP was 71.0% +/- 6.6% of 1RM. The very high goodness of fit means
+1RM and load can be estimated from velocity measured on a single submaximal set, without a formal
+1RM test.
+
+Notes for this project: gives the pull-up load-velocity profile shape (mostly linear across 70-100%
+1RM) and the power-optimal load (~71% 1RM) as a reference point for what a "peak-power" rep should look
+like even though the pipeline set is bodyweight-only (added-load load-velocity curve does not directly
+transfer to a fixed-bodyweight set, since %1RM here includes added load, not just bodyweight).
