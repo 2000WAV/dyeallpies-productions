@@ -103,9 +103,12 @@ references/             formant reference data, pull-up EMG literature, phoneme 
 - **Pull-up EMG values** come from the PubMed abstracts of Youdas et al. (2010) and
   Dickie et al. (2017), kept with their PMIDs in
   [references/pullup-emg/](references/pullup-emg/README.md).
-- **Jungle backdrop** (`formats/pullup-analysis/assets/jungle_plate.jpg`) is a crop of
-  a CC BY 4.0 photo by Vyacheslav Argenberg via Wikimedia Commons; the required credit
-  line is in the folder's `ATTRIBUTION.md` and in the posted caption.
+- **Jungle backdrops.** Set #3's plate (`formats/pullup-analysis/assets/jungle3_plate.jpg`)
+  is a crop of a CC BY 4.0 photo by Jens Lallensack with monkey cut-outs by lwolfartist,
+  Greg Schechter and Tomasz Baranowski (CC BY 2.0) and Wilfredor (CC0), all via Wikimedia
+  Commons; the archived first plate (`formats/archive/pullup-analysis-sets-1-2/assets/jungle_plate.jpg`)
+  is a crop of a CC BY 4.0 photo by Vyacheslav Argenberg. Every source, licence and the
+  required credit line for each post is in the folders' `ATTRIBUTION.md`.
 - **Twemoji** graphics (`tools/assets/emoji/`) are CC-BY 4.0, © Twitter, Inc. and
   contributors, via the maintained `jdecked/twemoji` fork.
 - Code: MIT, see [LICENSE](LICENSE).
