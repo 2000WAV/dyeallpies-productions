@@ -14,22 +14,33 @@ nearly shipped.
 
 ## Formats
 
+The three current formats. Everything older sits in [formats/archive/](formats/archive/), kept
+as it was posted.
+
 | Format | What it makes | The measurement / ML part |
 |---|---|---|
-| [phonetics-panel](formats/phonetics-panel/) | A pronunciation-practice recording, cleaned and annotated: IPA subtitles with a letter grade per vowel, a live spectrogram / F1-F2 / pitch panel, a vowel-space chart. Reels 1–3, including the STRUT /ʌ/ "culture" video with its UK/US minimal pairs. | Praat formant tracking (parselmouth), Mahalanobis grading against Hillenbrand et al. (1995), faster-whisper for word identity |
-| [phonetics-trend](formats/phonetics-trend/) | The same measurements cut to a song's beat grid: acting shots, one word per beat at the drop, a waterfall ridgeline spectrum. Reel 4, "English is easy". | Beat grid from onset comb filtering, Deterding (1997) RP reference, MediaPipe face anchor for punch-ins |
-| [pullup-analysis](formats/pullup-analysis/) | A pull-up set counted and graded rep by rep: tempo, range of motion, chin-vs-bar verdict, lock-out, sway, velocity loss, work / power / kcal, an efficiency score, and a muscle-heat overlay on a matted body against a replaced backdrop. Plus a dashboard, a written report and an interactive page. | MediaPipe Pose heavy (33 landmarks, 3D) cross-checked by YOLOv8-pose, Robust Video Matting, MediaPipe multiclass segmentation, surface-EMG literature (Youdas 2010, Dickie 2017), velocity-loss fatigue (Sánchez-Medina 2011) |
+| [pullup-analysis](formats/pullup-analysis/) | A pull-up set counted and graded rep by rep against the USMC standard: tempo, range of motion, chin-vs-bar verdict in a rectified doorway plane, lock-out, sway, velocity loss, work / power / kcal, an efficiency score, and a muscle map on a matted body against a replaced backdrop, coloured by a physics-driven muscle model (inverse dynamics, force sharing, Hill force–velocity, three-compartment fatigue that carries from rep to rep). Plus a dashboard, a written report, a references card and an interactive page. Set #3 is the current one; sets #1 and #2 are in the same folder. | MediaPipe Pose heavy (33 landmarks, 3D) cross-checked by YOLOv8-pose, Robust Video Matting, MediaPipe multiclass segmentation; the model's constants come from the archived literature in `references/pullup-science/` (Youdas 2010, Crowninshield & Brand 1981, Frey-Law 2012, Looft 2018, Holzbaur 2005, …) |
 | [phoneme-breakdown](formats/phoneme-breakdown/) | A talking-head clip with every phoneme graded and mapped onto the spectrogram: phone boundaries, grade colours per symbol, an accent flag per phoneme, a hand skeleton, and the promoted videos appearing where the finger points. The GitHub promo reel. | wav2vec2 phoneme recogniser + CTC forced alignment, Goodness of Pronunciation (Witt & Young 2000), formants vs Deterding 1997 and Hillenbrand 1995, VOT vs Lisker & Abramson 1964, sibilant centre of gravity vs Haley 2010, MediaPipe Hand Landmarker |
-| [pushup-cat](formats/pushup-cat/) | A push-up set with a live rep counter, plus a live count of the cats that wander through the frame, with a ding per rep and a meow per cat. | MediaPipe Pose elbow-angle signal, YOLOv8n cat detection with colour-histogram identity, Haar cascade fallback |
-| [captions](formats/captions/) | Word-highlighted "viral" captions burned into a clip, timed against the real audio but worded from a reference transcript. | faster-whisper word timestamps aligned to the transcript with a sequence matcher |
-| [clip-cutting](formats/clip-cutting/) | A time range cut out of a screen / OBS recording as a landscape MP4 for YouTube and a 9:16 vertical for Reels and Shorts. | none, ffmpeg only |
-| [deck-walkthrough](formats/deck-walkthrough/) | A silent captioned MP4 that walks through already-rendered figures, one slide each, as the quick preview of a report. | none, PIL and an ffmpeg xfade chain |
+| [phonetics-trend](formats/phonetics-trend/) | Vowel measurements cut to a song's beat grid: acting shots, one word per beat at the drop, a waterfall ridgeline spectrum. Reel 4, "English is easy". | Beat grid from onset comb filtering, Praat formant tracking (parselmouth), Deterding (1997) RP reference, MediaPipe face anchor for punch-ins |
+
+### Archive
+
+Earlier formats, unchanged since they were posted. Their scripts are still in `tools/scripts/`.
+
+| Format | What it makes | The measurement / ML part |
+|---|---|---|
+| [phonetics-panel](formats/archive/phonetics-panel/) | A pronunciation-practice recording, cleaned and annotated: IPA subtitles with a letter grade per vowel, a live spectrogram / F1-F2 / pitch panel, a vowel-space chart. Reels 1–3, including the STRUT /ʌ/ "culture" video with its UK/US minimal pairs. | Praat formant tracking (parselmouth), Mahalanobis grading against Hillenbrand et al. (1995), faster-whisper for word identity |
+| [pushup-cat](formats/archive/pushup-cat/) | A push-up set with a live rep counter, plus a live count of the cats that wander through the frame, with a ding per rep and a meow per cat. | MediaPipe Pose elbow-angle signal, YOLOv8n cat detection with colour-histogram identity, Haar cascade fallback |
+| [captions](formats/archive/captions/) | Word-highlighted "viral" captions burned into a clip, timed against the real audio but worded from a reference transcript. | faster-whisper word timestamps aligned to the transcript with a sequence matcher |
+| [clip-cutting](formats/archive/clip-cutting/) | A time range cut out of a screen / OBS recording as a landscape MP4 for YouTube and a 9:16 vertical for Reels and Shorts. | none, ffmpeg only |
+| [deck-walkthrough](formats/archive/deck-walkthrough/) | A silent captioned MP4 that walks through already-rendered figures, one slide each, as the quick preview of a report. | none, PIL and an ffmpeg xfade chain |
 
 ## Layout
 
 ```
-formats/<name>/         one folder per format: README with the method and the rules,
+formats/<name>/         one folder per current format: README with the method and the rules,
                         worked examples, captions, plans, per-reel build scripts
+formats/archive/<name>/ the earlier formats, as posted
 tools/scripts/          the shared Python pipeline behind every format (Python 3.11+, ffmpeg)
 tools/assets/emoji/     Twemoji PNGs overlaid next to each word (meaning for non-English viewers)
 references/             formant reference data, pull-up EMG literature, phoneme grading references, Reels layout research
