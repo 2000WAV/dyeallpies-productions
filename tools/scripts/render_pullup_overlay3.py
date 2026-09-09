@@ -4,6 +4,16 @@ Render the pull-up analysis, version 3 (set #3, floor camera, anatomy paint).
     python render_pullup_overlay3.py <video> <pose_mp.npz> <analysis.json> <out.mp4>
         [heat=matte.npy] [bg=plate.jpg] [look=1] [grid=1] [cat=1] [lut=bluered|iron|blue]
         [trim=f0,f1] [hold=4.0] [schedule=sched.json] [preview=i,i,..] [silent=1] [tscale=1.5]
+        [cache=body.mkv] [bake=1|only]
+
+cache=  bakes the body layer (plate + paint + look, ~1 s a frame, 90 % of a render) ONCE per
+        source frame into a lossless FFV1 file plus a .json sidecar (validity key, label
+        centroids) and every later render reads it back, so a reworded box or a moved footer
+        is a ~5x faster pass instead of a full re-render. The cache is rebuilt when missing,
+        when any input file or the paint / look / model code changed, or when bake=1;
+        bake=only stops after baking. Bake with trim= over the widest range (282,1768 for set
+        #3) and both exports share it. Added 2026-09-09 after every minor iteration cost
+        25 min (profiled: paint 0.67 s, look 0.26 s, centroids 0.08 s, the whole UI < 0.15 s).
 
 Differences from render_pullup_overlay2.py (kept for set #2):
   * the body is painted by pullup_atlas3 (muscles with fibre direction, one continuous colour
@@ -21,11 +31,12 @@ Differences from render_pullup_overlay2.py (kept for set #2):
   * the judge's card leads with three numbers and stays for 4 s;
   * the cat is kept in front of the backdrop (a dark-blob mask in its corner, after it sits).
 """
-import sys, json, subprocess, os
+import sys, json, subprocess, os, time, hashlib, inspect
 import numpy as np
 import cv2
 from PIL import Image, ImageDraw, ImageFont
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pullup_look as PL
 from pullup_look import LookPass
 import pullup_thermal3 as TH3
 import pullup_thermal4 as TH4
@@ -111,9 +122,11 @@ def main():
     video, npz, ajson, out = sys.argv[1:5]
     hold_s = 4.0; heat_path = None; preview = None; look_on = False; sched_path = None
     silent = False; trim = None; bg_path = None; grid_on = False; cat_on = False; lut_name = "bluered"; t_scale = 1.5
-    model_v = 4
+    model_v = 4; cache_path = None; bake_mode = "0"
     for a in sys.argv[5:]:
         if a.startswith("heat="): heat_path = a[5:]
+        elif a.startswith("cache="): cache_path = a[6:]
+        elif a.startswith("bake="): bake_mode = a[5:]
         elif a.startswith("preview="): preview = [int(x) for x in a[8:].split(",")]
         elif a.startswith("look="): look_on = a[5:] not in ("0", "", "no")
         elif a.startswith("schedule="): sched_path = a[9:]
@@ -301,6 +314,102 @@ def main():
     total = len(plan)
     print(f"rendering {total} frames ({total/fps:.2f} s)", flush=True)
 
+    # ---- the body layer: plate + paint + look. Profiled 2026-09-09: paint 0.67 s, look 0.26 s,
+    # centroids 0.08 s a frame against under 0.15 s for everything drawn after it, so this is
+    # ~90 % of a render and it never changes when the UI does. cache= bakes it once per SOURCE
+    # frame (lossless FFV1, exact on read-back) and the render reads it back. Two quantities are
+    # keyed on the source frame in the baked version instead of the output index: the plate's 5 %
+    # push-in runs over the baked range (the same thing for the full export, source time instead
+    # of output time in a scheduled reel) and the grain plate (fi instead of i; eight random plates
+    # cycling, no visible difference). The head gate's temporal smoothing runs over consecutive
+    # source frames in the bake, which is what it was designed for. ----
+    def body_layer(f, fi, P_use, zprog, gi):
+        """f: source frame (BGR uint8). fi: source index. P_use: pose for the paint, None before the
+        first tracked frame. zprog: 0..1 push-in progress. gi: grain plate index.
+        Returns (the frame after plate + paint + look, the full-res label map or None)."""
+        lab_full = None
+        comp_now = np.asarray(masks[fi]) if masks is not None else None
+        if plate is not None and comp_now is not None:
+            alpha_full = cv2.resize(comp_now[..., 0], (W, H), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255
+            z = 1.0 + 0.05 * zprog
+            cw, ch = int(W / z), int(H / z); px0 = (W - cw) // 2; py0 = (H - ch) // 2
+            pl = cv2.resize(plate[py0:py0 + ch, px0:px0 + cw], (W, H), interpolation=cv2.INTER_LINEAR)
+            keep = np.clip(alpha_full[:, :, None] + bar_mask, 0, 1)
+            f = np.clip(pl * (1 - keep) + f.astype(np.float32) * keep, 0, 255).astype(np.uint8)
+        if masks is not None and P_use is not None and phase[fi] != "SETUP":
+            # colour = the effort index (0..1, scale 1.0); the brightness nudge = effective activation
+            reg_E = AT.region_values(Em, masses, fi); reg_A = AT.region_values(Am, masses, fi)
+            f, mf, lab_full = AT.paint(f, comp_now, P_use, reg_E, reg_A, 1.0, (bar_a, bar_b))
+            if look is not None:
+                rim_v = float(np.clip(lat_T[fi] / t_scale, 0, 1))
+                rim = tuple(int(c) for c in LUT[int((0.15 + 0.7 * rim_v) * 255), 0])
+                f = look.apply(f, mf, rim, 0.8, gi, keep_colour=plate is not None, rim=0.0)
+        return f, lab_full
+
+    def _fstat(p):
+        st = os.stat(p); return [os.path.basename(p), st.st_size, st.st_mtime_ns]
+
+    def cache_key(f0, f1):
+        """Everything the baked frames depend on: the input files (size + mtime), the paint / look /
+        model modules and body_layer itself (source hash), the LUT bytes, the switches, the range."""
+        h = hashlib.sha1()
+        for m in (AT, TH, PL):
+            h.update(open(m.__file__, "rb").read())
+        return {"files": [_fstat(p) for p in (video, npz, ajson, heat_path, bg_path) if p],
+                "modules": h.hexdigest()[:12],
+                "body_layer": hashlib.sha1(inspect.getsource(body_layer).encode("utf-8")).hexdigest()[:12],
+                "lut": hashlib.sha1(LUT.tobytes()).hexdigest()[:12],
+                "params": {"look": bool(look_on), "t_scale": t_scale, "model": model_v, "W": W, "H": H, "fps": fps},
+                "range": [int(f0), int(f1)]}
+
+    cache_cap = None; cache_f0 = 0; cache_cents = {}
+    if cache_path:
+        need = sorted({fi_ for fi_, _, _ in plan})
+        meta_path = cache_path + ".json"
+        meta = json.load(open(meta_path, encoding="utf-8")) if os.path.exists(meta_path) and os.path.exists(cache_path) else None
+        stale = None
+        if meta is None:
+            stale = "no cache yet"
+        else:
+            ck = cache_key(*meta["range"])
+            diff = [k for k in ck if ck[k] != meta["key"].get(k)]
+            if diff:
+                stale = "changed: " + ", ".join(diff)
+            elif need[0] < meta["range"][0] or need[-1] >= meta["range"][1]:
+                stale = f"baked range {meta['range']} does not cover {need[0]}..{need[-1]}"
+        if stale or bake_mode in ("1", "only"):
+            f0b, f1b = (trim if trim else (need[0], need[-1] + 1)); f1b = min(f1b, N)
+            print(f"baking the body layer for source frames {f0b}..{f1b - 1} -> {cache_path} ({stale or 'bake forced'})", flush=True)
+            AT._HEAD_PREV = None
+            bcmd = ["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", f"{fps}",
+                    "-i", "pipe:0", "-c:v", "ffv1", "-level", "3", "-g", "1", "-threads", "8", "-pix_fmt", "bgr0", cache_path]
+            bproc = subprocess.Popen(bcmd, stdin=subprocess.PIPE)
+            bcap = cv2.VideoCapture(video); bcap.set(cv2.CAP_PROP_POS_FRAMES, f0b)
+            cents_all = {}; b_last = None; t0b = time.time(); nb = 0
+            for fi_ in range(f0b, f1b):
+                got, fr = bcap.read()
+                if not got:
+                    break
+                if ok[fi_]:
+                    b_last = P[fi_]
+                fb, lab_b = body_layer(fr, fi_, b_last, (fi_ - f0b) / max(1, f1b - 1 - f0b), fi_)
+                cents_all[str(fi_)] = ({str(k): [float(v[0]), float(v[1])] for k, v in AT.label_centroids(lab_b, W, H).items()}
+                                       if lab_b is not None else {})
+                bproc.stdin.write(np.ascontiguousarray(fb).tobytes()); nb += 1
+                if (fi_ - f0b) % 150 == 0:
+                    print(f"  bake {fi_ - f0b}/{f1b - f0b}  {time.time() - t0b:.0f} s", flush=True)
+            bcap.release(); bproc.stdin.close(); bproc.wait()
+            meta = {"key": cache_key(f0b, f0b + nb), "range": [f0b, f0b + nb], "centroids": cents_all}
+            json.dump(meta, open(meta_path, "w", encoding="utf-8"))
+            print(f"baked {nb} frames in {time.time() - t0b:.0f} s -> {cache_path} (ffmpeg rc {bproc.returncode})", flush=True)
+            if bake_mode == "only" or nb == 0:
+                return
+        cache_f0 = int(meta["range"][0])
+        rk = {str(r_): r_ for r_ in AT.REGIONS}
+        cache_cents = {int(k): {rk.get(r_, r_): tuple(v) for r_, v in d.items()} for k, d in meta["centroids"].items()}
+        cache_cap = cv2.VideoCapture(cache_path)
+        print(f"body layer from the cache {cache_path} (source frames {meta['range'][0]}..{meta['range'][1] - 1})", flush=True)
+
     proc = None
     if preview is None:
         cmd = ["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", f"{fps}", "-i", "pipe:0"]
@@ -315,7 +424,7 @@ def main():
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
 
     cap = cv2.VideoCapture(video)
-    cur_src = -1; frame = None; last_ok = None
+    cur_src = -1; frame = None; last_ok = None; cur_cache = -1; cframe = None
     for i, (fi, kind, seg) in enumerate(plan):
         if preview is not None and i not in preview:
             if i > max(preview): break
@@ -340,23 +449,21 @@ def main():
         pc = PHASE_COL.get(ph, MUTED)
         fast = int(seg.get("step", 1)) if kind == "play" else 1
 
-        comp_now = np.asarray(masks[fi]) if masks is not None else None
-        if plate is not None and comp_now is not None:
-            alpha_full = cv2.resize(comp_now[..., 0], (W, H), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255
-            z = 1.0 + 0.05 * (i / max(1, total - 1))
-            cw, ch = int(W / z), int(H / z); px0 = (W - cw) // 2; py0 = (H - ch) // 2
-            pl = cv2.resize(plate[py0:py0 + ch, px0:px0 + cw], (W, H), interpolation=cv2.INTER_LINEAR)
-            keep = np.clip(alpha_full[:, :, None] + bar_mask, 0, 1)
-            f = np.clip(pl * (1 - keep) + f.astype(np.float32) * keep, 0, 255).astype(np.uint8)
-        lab_full = None
-        if masks is not None and last_ok is not None and ph not in ("SETUP",):
-            # colour = the effort index (0..1, scale 1.0); the brightness nudge = effective activation
-            reg_E = AT.region_values(Em, masses, fi); reg_A = AT.region_values(Am, masses, fi)
-            f, mf, lab_full = AT.paint(f, comp_now, P_use, reg_E, reg_A, 1.0, (bar_a, bar_b))
-            if look is not None:
-                rim_v = float(np.clip(lat_T[fi] / t_scale, 0, 1))
-                rim = tuple(int(c) for c in LUT[int((0.15 + 0.7 * rim_v) * 255), 0])
-                f = look.apply(f, mf, rim, 0.8, i, keep_colour=plate is not None, rim=0.0)
+        if cache_cap is not None:
+            # the baked body layer: same sequential-read / seek logic as the source
+            if fi != cur_cache:
+                if cur_cache >= 0 and 0 < fi - cur_cache <= 12:
+                    for _ in range(fi - cur_cache):
+                        gotc, cf = cache_cap.read()
+                        if not gotc: break
+                else:
+                    cache_cap.set(cv2.CAP_PROP_POS_FRAMES, fi - cache_f0); gotc, cf = cache_cap.read()
+                if gotc:
+                    cframe = cf; cur_cache = fi
+            f = cframe.copy(); lab_full = None; cents_now = cache_cents.get(fi, {})
+        else:
+            f, lab_full = body_layer(f, fi, P_use if last_ok is not None else None, i / max(1, total - 1), i)
+            cents_now = None
 
         # ---- grid under the skeleton ----
         if grid_on and last_ok is not None and ph not in ("SETUP", "DONE"):
@@ -416,8 +523,8 @@ def main():
         dr.text((min(bx, W - 40), by + 44), "BAR", font=F["small"], fill=(*WHITE, 230), anchor="rs")
 
         # ---- muscle names, once each, in a slot beside the counter with a leader line ----
-        if lab_full is not None and kind == "play":
-            cents = AT.label_centroids(lab_full, W, H)
+        if (lab_full is not None or cents_now is not None) and kind == "play":
+            cents = cents_now if cents_now is not None else AT.label_centroids(lab_full, W, H)
             slot = 0
             for r_ in order:
                 f_at = label_at[r_]; age = (fi - f_at) / fps

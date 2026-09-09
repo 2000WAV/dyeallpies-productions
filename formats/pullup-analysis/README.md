@@ -62,10 +62,11 @@ $PY tools/scripts/measure_redness.py work3/master.mp4 work3/pose_mp.npz work3/an
 # 4. backdrop: Commons search (curl), cut-outs (rembg isnet), plate
 $PY work3/commons_search.py "spider monkey" work3/commons/spider_monkey.json 2500 50
 $PY work3/commons_download.py && $PY work3/commons_credits.py && $PY work3/build_plate3.py
-# 5. renders: preview three frames at 1:1 first (atlas), then the full set, then the reel by schedule
+# 5. renders: preview three frames at 1:1 first (atlas), bake the body layer once, then the full set and the reel from the cache
 $PY tools/scripts/pullup_atlas3.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json work3/matte.npy 430,506,1478 work3/atlas3
-$PY -u tools/scripts/render_pullup_overlay3.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json out/pullup3-analysis.mp4 heat=work3/matte.npy look=1 grid=1 cat=1 lut=iron bg=assets/jungle3_plate.jpg trim=150,1727 hold=4 > work3/full_render.log   # dashboard3 / page3 take pose=work3/pose_mp.npz to use the v4 model
-$PY -u tools/scripts/render_pullup_overlay3.py ... out/pullup3-reel-30.mp4 ... schedule=work3/reel_schedule.json
+$PY -u tools/scripts/render_pullup_overlay3.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json work3/bake_dummy.mp4 heat=work3/matte.npy look=1 grid=1 cat=1 bg=assets/jungle3_plate.jpg trim=282,1768 hold=0.5 cache=work3/body.mkv bake=only > work3/bake_body.log   # ~25 min once: plate + paint + look per source frame, lossless FFV1 + .json (centroids, validity key); rebuilds itself when the paint, the look, the model or an input changes
+$PY -u tools/scripts/render_pullup_overlay3.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json out/pullup3-analysis.mp4 heat=work3/matte.npy look=1 grid=1 cat=1 bg=assets/jungle3_plate.jpg trim=282,1768 hold=0.5 cache=work3/body.mkv > work3/full_render.log   # ~2 min from the cache; dashboard3 / page3 take pose=work3/pose_mp.npz to use the v4 model
+$PY -u tools/scripts/render_pullup_overlay3.py ... out/pullup3-reel-30.mp4 ... cache=work3/body.mkv schedule=work3/reel_schedule.json   # ~1.5 min from the cache (was 14)
 # 6. gates, dashboard, page
 $PY tools/scripts/check_flicker.py out/pullup3-analysis.mp4 work3/matte.npy work3/flicker_full.png offset=150
 $PY tools/scripts/render_pullup_dashboard3.py work3/analysis.json out/pullup3-dashboard.png work3/redness.json
