@@ -33,7 +33,7 @@ crossed at rep 10.
 | **The chin, by witness** | The bar is mounted at the back edge of the lintel's underside, so at the top of a legal rep the whole head is hidden by the bar and the underside together, with the neck visible up to the bar. YOLO's nose confidence collapses on reps 1–8 and stays high (hallucinated) on 9–11; MediaPipe's visibility stays 1.0 throughout. So the chin is extrapolated from the last frame the face is genuinely seen on the way up (eyes ≥ 4 cm below the bar's underside and nose confidence > 0.35) plus the shoulder rise after it, and the head-hidden time is reported as its own number. The silhouette (RVM alpha) was tried as a witness too: it confirms the neck reaches the bar's underside on every top, and nothing more. |
 | **Phase walker from the local base** | A passive dead hang sits 2–3 cm lower than the active hang he pulls from; walking back to the deep base swallowed the whole dead hang into rep 1's concentric (3.2 s). Each concentric now starts from the highest shoulder position in the second before the pull. |
 | **Velocity references** | Rep 1 (Beckham 2018) and the fastest rep, both printed. Velocity loss against the 25 % / 50 % landmarks; RIR as an estimate range, never an integer. |
-| **Anatomy** | 14 painted regions from a landmark-warped atlas with fibre directions, boundaries and belly shading (`pullup_atlas3.py`), 23 muscles in the heat budget (`pullup_thermal3.py`): serratus anterior, upper trapezius, middle deltoid, triceps and forearm extensors added from 01-emg-and-anatomy.md; the lat share shifts toward the trapezius at the top (Park & Yoo 2013); core heat keys off measured hip motion (Dinunzio 2018). |
+| **Anatomy** | 14 painted regions from a landmark-warped atlas with fibre directions, boundaries and belly shading (`pullup_atlas3.py`), 23 muscles in the heat budget (`pullup_thermal4.py`: inverse dynamics → force sharing → force–velocity → activation dynamics → fatigue; `MUSCLE-MODEL.md`): serratus anterior, upper trapezius, middle deltoid, triceps and forearm extensors added from 01-emg-and-anatomy.md; the lat share shifts toward the trapezius at the top (Park & Yoo 2013); core heat keys off measured hip motion (Dinunzio 2018). |
 
 **Cross-check.** YOLOv8m-pose finds the same 11 tops; shoulder tracks correlate at r = 0.998.
 MediaPipe found a pose on 1897 of 1909 frames.
@@ -119,32 +119,48 @@ recovered from two secondary sources, the .mil PDFs refuse fetches). Crowd-sourc
 norms put 13 at "intermediate" for 79 kg. Allometric adjustment (2/3 power, 73 kg reference)
 moves 11 reps at 79 kg to 11.6.
 
-## Modelled muscle temperature
+## Modelled muscle temperature (v4: driven by the mechanics of the rep)
 
-Same heat budget as set #2, per muscle: C dT/dt = share × P_heat − k(t) dT, 3.6 kJ/kg/K,
-removal ramping with a 90 s time constant to 42 W/K/kg (González-Alonso 2000). 23 muscles;
-the painted ones and their end-of-set rise:
+The heat budget is the one from set #2 - C dT/dt = q - k(t) dT, 3.6 kJ/kg/K, removal ramping
+with a 90 s time constant to 42 W/K/kg (González-Alonso 2000), 26.9 kJ deposited in the
+muscles - but *where and when* the heat lands is no longer a fixed share read from an EMG
+table. `pullup_thermal4.py` (formulation in `MUSCLE-MODEL.md`) runs the standard chain:
+the hand force from the body's weight and acceleration, each joint's moment from that force
+and its lever measured in the rectified plane (the forearm's foreshortening gives the elbow's
+lever; the shoulder's depth behind the bar is assumed, 4 → 20 cm), Crowninshield & Brand 1981
+force sharing between the muscles that cross the joint, Hill force–velocity (which is why the
+pull costs more than the lowering), Thelen 2003 activation dynamics, and the three-compartment
+fatigue model of Xia & Frey-Law 2008 so that a late rep draws on a smaller pool of able motor
+units. Peak elbow moment 79 N·m, peak shoulder moment 76 N·m; the biceps reaches its limit in
+the middle of every pull, the lats peak at the top (0.84). The fatigued pool ends at 24 % for
+the biceps, 27 % for the grip, 16 % for the lats. End-of-set rise, painted muscles:
 
-| muscle | %MVIC | ΔT at the end |
+| muscle | Youdas %MVIC | ΔT at the end |
 |---|---|---|
-| latissimus dorsi | 124 | **+1.38 °C** |
-| brachioradialis / forearm flexors (grip) | 62 / 60 | +1.36 / +1.34 °C |
-| forearm extensors (estimate) | 35 | +1.06 °C |
-| biceps, brachialis | 78 | +0.87 °C |
-| infraspinatus | 75 | +0.83 °C |
-| upper trapezius (Tucker 2011) | 62 | +0.69 °C |
-| posterior / middle deltoid | 60 / 45 | +0.67 / +0.50 °C |
-| trapezius, middle and lower | 52 | +0.58 °C |
-| pectoralis major | 44 | +0.49 °C |
-| external oblique | 33 | +0.37 °C |
-| serratus anterior (Tucker 2011) | 26 | +0.29 °C |
-| rectus abdominis | 20 | +0.22 °C |
-| triceps (estimate) | 15 | +0.17 °C |
-| hip flexors, quadriceps, calves | 18 / 8 / 4 | +0.17 / +0.08 / +0.04 °C |
+| biceps brachii | 78 | **+1.05 °C** |
+| forearm flexors (grip) | 60 | +1.03 °C |
+| latissimus dorsi | 124 | +1.00 °C |
+| pectoralis major | 44 | +0.82 °C |
+| brachialis | 78 | +0.79 °C |
+| brachioradialis | 62 | +0.72 °C |
+| infraspinatus | 75 | +0.62 °C |
+| forearm extensors (estimate) | 35 | +0.60 °C |
+| triceps | 15 | +0.58 °C |
+| teres major | 99 | +0.56 °C |
+| upper trapezius (Tucker 2011) | 62 | +0.55 °C |
+| trapezius, middle and lower | 52 | +0.48 °C |
+| middle / posterior deltoid | 45 / 60 | +0.37 / +0.33 °C |
+| external oblique | 33 | +0.33 °C |
+| rectus abdominis | 20 | +0.24 °C |
+| serratus anterior (Tucker 2011) | 26 | +0.22 °C |
+| hip flexors, quadriceps, calves | 18 / 8 / 4 | +0.31 / +0.14 / +0.07 °C |
 
 The colour is on an ironbow scale, 0 to +1.5 °C, with the muscle names shown once each the
-first time they pass +0.3 °C. Brightness pulses with modelled activation. The legend says it
-on every frame: a model, not a thermal camera.
+first time they pass +0.3 °C. Brightness is the effective activation, a / (1 − fatigued), so
+it contracts and relaxes with the levers of the rep and climbs through the set. Where the
+model and the EMG literature disagree (Youdas has the lats above the biceps over the whole
+rep; the model has them below) the cause is the shoulder depth the front camera cannot see.
+The legend says it on every frame: a model, not a thermal camera.
 
 **What an infrared camera would show (04-thermal-skin-and-anatomy-assets.md):** less, and
 later. Skin over a working muscle *drops* in the first minute of a bout (Merla 2010,
@@ -217,8 +233,10 @@ chin carries ±3 cm.
 - The chin verdict band is ±3 cm for this camera; "at the bar" means exactly that.
 - The 3D elbow angles are MediaPipe's estimate and disagree with the image plane; no claim.
 - The scale carries about ±5 % (two anchors agree within 0.5 %; the third is explained).
-- The temperature map is a model on a literature prior: five of 23 activations are
-  estimates, most lower-body volumes are estimates.
+- The temperature map is a model: the joint moments come from the video, the muscle
+  forces are shared by an optimisation criterion, the shoulder's depth behind the bar is
+  assumed, the fatigue rates are from memory of Frey-Law 2012, most lower-body volumes are
+  estimates (`MUSCLE-MODEL.md` §5).
 - The flush index is eleven points on one person with a moving white balance and no valid
   baseline; the wall control is the only thing keeping it honest.
 

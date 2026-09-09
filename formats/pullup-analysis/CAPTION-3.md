@@ -4,7 +4,7 @@ Pull Up Analysis by Fable and DyeAllPies
 
 Third set, and this time I gave the AI a literature review before it judged me: 60 papers on pull-up EMG, biomechanics, velocity loss, muscle heat and skin temperature, all downloaded and cited. 11 reps. Chin at the bar on every one, never clearly over it. Same verdict as last time, from a different camera and a different method 🤖
 
-What is new on the body: 14 muscles drawn as muscles, with fibre direction, boundaries and the frame's own shading, coloured by a modelled temperature over 23 muscles. Lats and forearms finish about +1.4 °C, biceps +0.9, chest +0.5, legs +0.1 because they only hold the tuck. It is a heat budget on EMG data (Youdas 2010, Snarr 2017, Tucker 2011), not a thermal camera, and the legend says so on every frame.
+What is new on the body: 14 muscles drawn as muscles, with fibre direction, boundaries and the frame's own shading, coloured by a modelled temperature over 23 muscles, and this time the heat follows the mechanics: the force on the bar and the levers of the elbow and shoulder give each joint's torque, the muscles share it, and a fatigue model makes every late rep draw on a smaller pool of motor units. Biceps, forearms and lats finish about +1 °C, chest +0.8, legs +0.1 because they only hold the tuck. It is a model, not a thermal camera, and the legend says so on every frame.
 
 The verdict:
 ✅ 11/11 full lock-outs, no swing (hips travel 5 cm), a 0.7 s pause at the top, head behind the bar for over a second on every rep

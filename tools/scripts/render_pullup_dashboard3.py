@@ -17,6 +17,8 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager as fm
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pullup_thermal3 as TH
+import pullup_thermal4 as TH4
+POSE = next((a_[5:] for a_ in sys.argv if a_.startswith("pose=")), None)   # pose=<pose_mp.npz> -> the v4 model
 
 BLUE, ORANGE, AQUA, YELLOW, MAGENTA, GREEN, VIOLET, RED = \
     "#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#4a3aa7", "#e34948"
@@ -27,13 +29,16 @@ RED_C = "#c2352a"
 
 def main():
     A = json.load(open(sys.argv[1])); out = sys.argv[2]
-    REDN = json.load(open(sys.argv[3])) if len(sys.argv) > 3 else None
+    REDN = json.load(open(sys.argv[3])) if len(sys.argv) > 3 and not sys.argv[3].startswith("pose=") else None
     S, atts, sig = A["summary"], A["reps"], A["signals"]
     reps = [r for r in atts if r.get("rep")]
     fails = [r for r in atts if not r.get("rep")]
     AS = S["asymmetry"]; TC = S["technique"]
     t = np.array(sig["t"]); n = len(reps); x = np.arange(1, n + 1)
     Tm = TH.integrate(A); tsum = TH.summarise(A, Tm)
+    if POSE:
+        _d = np.load(POSE); _P = _d["img"][:, :, :2] * np.array([int(_d["width"]), int(_d["height"])])
+        Tm = TH4.integrate(A, P=_P); tsum = TH4.summarise(A, Tm, _P)
 
     for f in ("C:/Windows/Fonts/segoeui.ttf", "C:/Windows/Fonts/segoeuib.ttf"):
         fm.fontManager.addfont(f)

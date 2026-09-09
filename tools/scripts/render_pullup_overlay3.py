@@ -23,8 +23,10 @@ import cv2
 from PIL import Image, ImageDraw, ImageFont
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pullup_look import LookPass
-import pullup_thermal3 as TH
+import pullup_thermal3 as TH3
+import pullup_thermal4 as TH4
 import pullup_atlas3 as AT
+TH = TH4                  # model=3 on the command line swaps the phase-table model back in
 
 FONT_B = "C:/Windows/Fonts/segoeuib.ttf"; FONT_S = "C:/Windows/Fonts/seguisb.ttf"
 FONT_R = "C:/Windows/Fonts/segoeui.ttf"; FONT_SYM = "C:/Windows/Fonts/seguisym.ttf"
@@ -38,8 +40,11 @@ EDGES = [(11, 13, BLUE), (13, 15, BLUE), (12, 14, ORANGE), (14, 16, ORANGE), (11
          (12, 24, WHITE), (23, 24, WHITE), (23, 25, BLUE), (25, 27, BLUE), (24, 26, ORANGE), (26, 28, ORANGE)]
 JOINTS = [11, 12, 13, 14, 15, 16, 23, 24, 25, 26, 27, 28]
 GRID_BOTTOM = 1500
+STACK_Y0 = 536            # the live left stack starts under the phase pill (six rows, 76 px apart) ...
+LABEL_Y0 = 996            # ... and the one muscle-name slot sits under it, ending at 1042: the red
+                          # monkey on the left lives at y 1060-1240 after the push-in, leave him be
 LABEL_T = 0.30            # a muscle is named the first time its modelled rise passes this (degrees C)
-LABEL_S = 1.6             # seconds the name stays
+LABEL_S = 1.4             # seconds the name stays (one at a time: the stagger below equals it)
 BLUE_STOPS = [(0.00, (110, 30, 15)), (0.18, (200, 70, 20)), (0.36, (220, 170, 0)), (0.52, (60, 210, 120)),
               (0.68, (0, 210, 240)), (0.82, (20, 90, 250)), (0.93, (60, 40, 235)), (1.00, (225, 235, 255))]
 IRON_STOPS = [(0.00, (40, 0, 20)), (0.15, (120, 0, 60)), (0.32, (170, 10, 120)), (0.50, (60, 20, 210)),
@@ -101,6 +106,7 @@ def main():
     video, npz, ajson, out = sys.argv[1:5]
     hold_s = 4.0; heat_path = None; preview = None; look_on = False; sched_path = None
     silent = False; trim = None; bg_path = None; grid_on = False; cat_on = False; lut_name = "iron"; t_scale = 1.5
+    model_v = 4
     for a in sys.argv[5:]:
         if a.startswith("heat="): heat_path = a[5:]
         elif a.startswith("preview="): preview = [int(x) for x in a[8:].split(",")]
@@ -114,6 +120,9 @@ def main():
         elif a.startswith("cat="): cat_on = a[4:] not in ("0", "", "no")
         elif a.startswith("lut="): lut_name = a[4:]
         elif a.startswith("tscale="): t_scale = float(a[7:])
+        elif a.startswith("model="): model_v = int(a[6:])
+    global TH
+    TH = TH3 if model_v == 3 else TH4
     AT.LUT = make_lut(IRON_STOPS if lut_name == "iron" else BLUE_STOPS)
     LUT = AT.LUT
 
@@ -136,10 +145,18 @@ def main():
     Ht = np.array(S["H_total"]); Hinv = np.linalg.inv(Ht)
     BAR_Y = S["bar_y_rect"]
 
-    # ---- thermal model ----
-    Tm = TH.integrate(A); Am = TH.activation(A); masses = TH.muscle_masses()
-    tsum = TH.summarise(A, Tm)
+    # ---- muscle model: v4 = inverse dynamics + force sharing + activation dynamics + fatigue ----
+    if TH is TH4:
+        Mo = TH4.model(A, P); Tm = Mo["T"]; Am = Mo["a_eff"]; masses = TH.muscle_masses()
+        tsum = TH4.summarise(A, Tm, P)
+        fat_bic = Mo["MF"]["biceps brachii"]; fat_lat = Mo["MF"]["latissimus dorsi"]
+        print(f"model v4: elbow moment peak {Mo['M_el'].max():.0f} N m, shoulder {Mo['M_sh'].max():.0f} N m; "
+              f"fatigued pool at the end: biceps {fat_bic[-1]*100:.0f} %, lats {fat_lat[-1]*100:.0f} %", flush=True)
+    else:
+        Tm = TH.integrate(A); Am = TH.activation(A); masses = TH.muscle_masses()
+        tsum = TH.summarise(A, Tm); fat_bic = fat_lat = np.zeros(len(img))
     lat_T = Tm["latissimus dorsi"]; lat_A = Am["latissimus dorsi"]
+    heat_kj = np.cumsum(sum(Mo["q"][m] for m in Mo["q"])) / fps / 1000 if TH is TH4 else np.zeros(len(img))
     reg_T_series = {r: np.zeros(N) for r in AT.REGIONS}
     for r, ms in AT.REGION_MUSCLES.items():
         w = sum(masses[m] for m in ms)
@@ -152,8 +169,8 @@ def main():
     # stagger labels that would fire on the same frame
     order = sorted(label_at, key=lambda r: label_at[r]); last = -999
     for r in order:
-        if label_at[r] < last + int(0.9 * fps):
-            label_at[r] = last + int(0.9 * fps)
+        if label_at[r] < last + int(LABEL_S * fps) + 2:
+            label_at[r] = last + int(LABEL_S * fps) + 2
         last = label_at[r]
     print("labels:", {AT.LABELS[r]: round(label_at[r] / fps, 1) for r in order}, flush=True)
 
@@ -167,6 +184,13 @@ def main():
     vloss = np.zeros(N); v1 = reps[0]["peak_conc_v"]
     for r in atts:
         vloss[r["f_end"]:] = max(0.0, (1 - r["peak_conc_v"] / v1) * 100)
+    # live tallies for the left stack: chin verdicts so far, running peak power, running kcal
+    chin_ok = np.zeros(N, int); chin_n = np.zeros(N, int); peak_w = np.zeros(N)
+    for r in atts:
+        chin_n[r["f_end"]:] += 1
+        if r.get("chin_verdict", "at") in ("at", "above") and not r.get("failed"):
+            chin_ok[r["f_end"]:] += 1
+        peak_w[r["f_end"]:] = np.maximum(peak_w[r["f_end"]:], r.get("peak_power_w", 0.0))
     count = np.zeros(N, int); card = [None] * N
     for r in atts:
         if r.get("rep"):
@@ -217,8 +241,8 @@ def main():
         return (x - ZX0) * Z, (y - ZY0) * Z
     CAT_AT = (820, 1180)      # where the cat is placed after the push-in (its own crop from the source)
 
-    # ---- the grid in the rectified plane, mapped back ----
-    grid_lines = []
+    # ---- the grid in the rectified plane, mapped back: rules every 10 cm both ways ----
+    grid_lines = []; grid_cols = []
     if grid_on:
         step = 0.10 * ppm
         k = 1
@@ -230,6 +254,16 @@ def main():
                 break
             grid_lines.append((k, pi))
             k += 1
+        # verticals: same spacing, same weight, centred on the grip midpoint at the dead hang
+        gx0 = float(np.median([(cv2.perspectiveTransform(np.array([[[(P[i][15][0] + P[i][16][0]) / 2, (P[i][15][1] + P[i][16][1]) / 2]]]), Ht)[0, 0, 0])
+                               for i in range(hang0, min(hang0 + 30, N))]))
+        for k in range(-12, 13):
+            xr = gx0 + k * step
+            pts = np.array([[[xr, y]] for y in np.linspace(BAR_Y - 40, BAR_Y + 3.2 * ppm, 12)], float)
+            pi = cv2.perspectiveTransform(pts, Hinv).reshape(-1, 2)
+            if pi[:, 0].max() < -20 or pi[:, 0].min() > W + 20:
+                continue
+            grid_cols.append((k, pi))
 
     # ---- output frame list ----
     plan = []
@@ -308,11 +342,15 @@ def main():
             if look is not None:
                 rim_v = float(np.clip(lat_T[fi] / t_scale, 0, 1))
                 rim = tuple(int(c) for c in LUT[int((0.15 + 0.7 * rim_v) * 255), 0])
-                f = look.apply(f, mf, rim, 0.8, i, keep_colour=plate is not None)
+                f = look.apply(f, mf, rim, 0.8, i, keep_colour=plate is not None, rim=0.0)
 
         # ---- grid under the skeleton ----
         if grid_on and last_ok is not None and ph not in ("SETUP", "DONE"):
             gl = f.copy()
+            for k, pi in grid_cols:
+                pc_ = pi[pi[:, 1] <= GRID_BOTTOM]
+                if len(pc_) > 1:
+                    cv2.polylines(gl, [np.round(pc_).astype(np.int32).reshape(-1, 1, 2)], False, (215, 215, 210), 1, cv2.LINE_AA)
             for k, pi in grid_lines:
                 pts = np.round(pi).astype(np.int32).reshape(-1, 1, 2)
                 cv2.polylines(gl, [pts], False, (215, 215, 210), 1, cv2.LINE_AA)
@@ -374,7 +412,7 @@ def main():
                     cx, cy = zmap(cents[r_][0], cents[r_][1])
                     txt = f"{AT.LABELS[r_]}  +{reg_T_series[r_][fi]:.1f} °C"
                     fnt = fit(dr, txt, FONT_B, 30, 380); tw = dr.textlength(txt, font=fnt) + 28
-                    lx, ly = 60, 640 + slot * 56
+                    lx, ly = 60, LABEL_Y0 + slot * 56
                     dr.line((cx, cy, lx + tw / 2, ly + 46), fill=(*WHITE, a_), width=2)
                     dr.ellipse((cx - 6, cy - 6, cx + 6, cy + 6), fill=(*WHITE, a_))
                     rounded(dr, (lx, ly, lx + tw, ly + 46), 10, (*INK, int(225 * a_ / 255)))
@@ -405,12 +443,23 @@ def main():
                 fw = dr.textlength(f"×{fast}", font=F["phase"]) + 44
                 rounded(dr, (60 + pw + 12, 446, 60 + pw + 12 + fw, 516), 18, (*WHITE, 230))
                 dr.text((60 + pw + 12 + 22, 452), f"×{fast}", font=F["phase"], fill=INK)
-            if vloss[fi] >= 1 and count[fi] > 0:
+            # ---- the left stack: the numbers people share, live, between the two monkeys ----
+            if count[fi] > 0:
                 vcol = WHITE if vloss[fi] < 25 else YELLOW if vloss[fi] < 50 else ORANGE
-                txt = f"−{vloss[fi]:.0f} % speed vs rep 1"
-                tw = dr.textlength(txt, font=F["small"]) + 28
-                rounded(dr, (60, 532, 60 + tw, 578), 12, (*INK, 190))
-                dr.text((74, 537), txt, font=F["small"], fill=vcol)
+                rows_ = [(f"{chin_ok[fi]}/{chin_n[fi]}" if chin_n[fi] else "–", "CHIN AT THE BAR", AQUA if chin_ok[fi] == chin_n[fi] else YELLOW),
+                         (f"−{vloss[fi]:.0f} %" if vloss[fi] >= 1 else "0 %", "SPEED VS REP 1", vcol),
+                         (f"{peak_w[fi]:.0f} W", "PEAK POWER", WHITE),
+                         (f"+{lat_T[fi]:.2f} °C", "LATS · MODELLED", ORANGE)]
+                if TH is TH4:
+                    rows_.append((f"{fat_bic[fi]*100:.0f} %", "BICEPS FATIGUED · MODEL", WHITE))
+                rows_.append((f"≈ {kcal[fi]:.1f} kcal", f"{heat_kj[fi]:.0f} kJ OF HEAT" if TH is TH4 else "ENERGY, A MODEL", MUTED))
+                y_ = STACK_Y0
+                bw = max(max(dr.textlength(b_, font=F["pill"]), dr.textlength(s_, font=F["pill_l"])) for b_, s_, _ in rows_) + 28
+                for big, small, col in rows_:
+                    rounded(dr, (60, y_, 60 + bw, y_ + 70), 14, (*INK, 200))
+                    dr.text((74, y_ + 0), big, font=F["pill"], fill=col)
+                    dr.text((74, y_ + 44), small, font=F["pill_l"], fill=MUTED)
+                    y_ += 76
             # diegetic pills: the elbow angle at the elbow, the speed at the hips, the lats' temperature at the lats
             if last_ok is not None and fast == 1:
                 def pill(x, y, big, small, anchor_right=False):
@@ -421,7 +470,7 @@ def main():
                     dr.text((x0p + 14, y + 52), small, font=F["pill_l"], fill=MUTED)
                 ex, ey = zmap(*P_use[13]); pill(ex - 150 if ex > 300 else 60, ey - 42, f"{(el_l[fi] + el_r[fi]) / 2:.0f}°", "ELBOW", anchor_right=ex > 300)
                 hx, hy_ = zmap(*P_use[24]); pill(min(hx + 60, W - 260), hy_ - 42, f"{abs(vy[fi]):.2f} m/s", "SPEED " + ("UP" if vy[fi] > 0.05 else "DOWN" if vy[fi] < -0.05 else ""))
-                if masks is not None:
+                if masks is not None and count[fi] == 0:
                     lx_, ly_ = zmap(*((P_use[11] + P_use[23]) / 2)); pill(lx_ + 40, ly_ - 42, f"+{lat_T[fi]:.2f} °C", "LATS, MODELLED")
 
         r = card[fi]
@@ -511,7 +560,8 @@ def main():
                     ("peak speed  rep 1 → last", f"{S['peak_v_first']:.2f} → {S['peak_v_last']:.2f} m/s  (−{max(0, S['velocity_loss_pct']):.0f} %)"),
                     ("right shoulder rides low", f"{AS['sh_tilt_top_deg']:+.1f}° at the top, {AS['sh_tilt_standing_deg']:+.1f}° standing"),
                     ("work · peak power", f"{S['set_work_kj']:.1f} kJ · {S['peak_power_w_max']:.0f} W"),
-                    ("energy, a model", f"≈ {S['set_kcal_total']:.0f} kcal · {tsum['total_heat_kj']:.0f} kJ of heat")]
+                    ("energy, a model", f"≈ {S['set_kcal_total']:.0f} kcal · {tsum['total_heat_kj']:.0f} kJ of heat"),
+                    ("fatigued motor units, a model", f"biceps {fat_bic[-1]*100:.0f} % · lats {fat_lat[-1]*100:.0f} %")]
             for k, (lab, val) in enumerate(rows):
                 yy = 560 + k * 56
                 dr.text((100, yy), lab, font=F["sum_l"], fill=(*MUTED, a))

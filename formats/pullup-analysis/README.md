@@ -119,7 +119,7 @@ $PY tools/scripts/extract_pose_yolo.py work3/master.mp4 tools/models/yolov8m-pos
 $PY tools/scripts/extract_matte.py work3/master.mp4 work3/matte.npy 2
 # 3. analysis in the rectified plane (stand= the reach under the bar, ref= arms down after the set)
 $PY tools/scripts/analyze_pullups3.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json work3/pose_yolo.npz height=1.88 mass=79 stand=7.8,9.2 ref=57.2,58.6
-$PY tools/scripts/pullup_thermal3.py work3/analysis.json
+$PY tools/scripts/pullup_thermal4.py work3/analysis.json work3/pose_mp.npz   # the muscle model: moments, force sharing, fatigue; validation table vs Youdas (MUSCLE-MODEL.md)
 $PY tools/scripts/pullup_chin_silhouette.py work3/analysis.json work3/matte.npy work3/chin_sil.json strip=work3/chin_strip.jpg
 $PY tools/scripts/measure_redness.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json work3/matte.npy work3/redness.json ref=0.22,0.22,0.35,0.28 base=205,275
 # 4. backdrop: Commons search (curl), cut-outs (rembg isnet), plate
@@ -127,7 +127,7 @@ $PY work3/commons_search.py "spider monkey" work3/commons/spider_monkey.json 250
 $PY work3/commons_download.py && $PY work3/commons_credits.py && $PY work3/build_plate3.py
 # 5. renders: preview three frames at 1:1 first (atlas), then the full set, then the reel by schedule
 $PY tools/scripts/pullup_atlas3.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json work3/matte.npy 430,506,1478 work3/atlas3
-$PY -u tools/scripts/render_pullup_overlay3.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json out/pullup3-analysis.mp4 heat=work3/matte.npy look=1 grid=1 cat=1 lut=iron bg=assets/jungle3_plate.jpg trim=150,1712 hold=4.5 > work3/full_render.log
+$PY -u tools/scripts/render_pullup_overlay3.py work3/master.mp4 work3/pose_mp.npz work3/analysis.json out/pullup3-analysis.mp4 heat=work3/matte.npy look=1 grid=1 cat=1 lut=iron bg=assets/jungle3_plate.jpg trim=150,1727 hold=4 > work3/full_render.log   # dashboard3 / page3 take pose=work3/pose_mp.npz to use the v4 model
 $PY -u tools/scripts/render_pullup_overlay3.py ... out/pullup3-reel-30.mp4 ... schedule=work3/reel_schedule.json
 # 6. gates, dashboard, page
 $PY tools/scripts/check_flicker.py out/pullup3-analysis.mp4 work3/matte.npy work3/flicker_full.png offset=150
@@ -139,7 +139,7 @@ $PY tools/scripts/build_pullup_page3.py work3/analysis.json out/pullup3-report.h
 
 Worked example: `pullups-2026-09-08.md` (in this folder). Scripts:
 `analyze_pullups3.py`, `render_pullup_overlay3.py`, `render_pullup_dashboard3.py`,
-`build_pullup_page3.py`, `pullup_thermal3.py`, `pullup_atlas3.py`, `pullup_chin_silhouette.py`;
+`build_pullup_page3.py`, `pullup_thermal4.py` (inverse dynamics → force sharing → force–velocity → activation dynamics → fatigue; formulation in `MUSCLE-MODEL.md`; `pullup_thermal3.py` is the phase-table model it replaced), `pullup_atlas3.py`, `pullup_chin_silhouette.py`;
 geometry helpers in `pullup/work3/` (`vp_fit.py`, `geom_fit.py`, `rectify.py`, `build_plate3.py`,
 `commons_search.py`). Research archive: `references/pullup-science/` (read `01`–`06` before
 changing a constant; `DOWNLOADS.md` lists every file).

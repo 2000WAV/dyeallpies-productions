@@ -24,7 +24,9 @@ class LookPass:
         rng = np.random.default_rng(seed)
         self.grain = [rng.normal(0, 1, (H // 2, W // 2)).astype(np.float32) for _ in range(8)]
 
-    def apply(self, frame, alpha, rim_bgr, strength=1.0, i=0, keep_colour=False):
+    def apply(self, frame, alpha, rim_bgr, strength=1.0, i=0, keep_colour=False, rim=0.75):
+        """rim = weight of the coloured aura outside the silhouette (0 turns it off: on a replaced
+        backdrop it read as a halo that went yellow as the model warmed - Dennis, 2026-09-08)."""
         f = frame.astype(np.float32)
         a = np.clip(alpha, 0, 1)[:, :, None]
         if keep_colour:
@@ -41,10 +43,11 @@ class LookPass:
         fg = np.clip((fg - 118) * 1.10 + 118, 0, 255)
         out = bg * (1 - a) + fg * a
         # rim glow outside the silhouette
-        a8 = (np.clip(alpha, 0, 1) * 255).astype(np.uint8)
-        ring = cv2.GaussianBlur(cv2.dilate(a8, np.ones((13, 13), np.uint8)), (0, 0), 7).astype(np.float32) / 255
-        ring = np.clip(ring - np.clip(alpha, 0, 1), 0, 1)[:, :, None]
-        out = out * (1 - 0.75 * ring) + np.array(rim_bgr, np.float32)[None, None, :] * 0.75 * ring
+        if rim > 0:
+            a8 = (np.clip(alpha, 0, 1) * 255).astype(np.uint8)
+            ring = cv2.GaussianBlur(cv2.dilate(a8, np.ones((13, 13), np.uint8)), (0, 0), 7).astype(np.float32) / 255
+            ring = np.clip(ring - np.clip(alpha, 0, 1), 0, 1)[:, :, None]
+            out = out * (1 - rim * ring) + np.array(rim_bgr, np.float32)[None, None, :] * rim * ring
         # grain + vignette
         gr = cv2.resize(self.grain[i % len(self.grain)], (self.W, self.H), interpolation=cv2.INTER_LINEAR)[:, :, None]
         out = out + gr * 5.5

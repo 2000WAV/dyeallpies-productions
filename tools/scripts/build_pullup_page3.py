@@ -9,15 +9,20 @@ import sys, json, os
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pullup_thermal3 as TH
+import pullup_thermal4 as TH4
+POSE = next((a_[5:] for a_ in sys.argv if a_.startswith("pose=")), None)   # pose=<pose_mp.npz> -> the v4 model
 
 A = json.load(open(sys.argv[1])); out = sys.argv[2]
-REDN = json.load(open(sys.argv[3])) if len(sys.argv) > 3 else None
+REDN = json.load(open(sys.argv[3])) if len(sys.argv) > 3 and not sys.argv[3].startswith("pose=") else None
 S, atts, sig = A["summary"], A["reps"], A["signals"]
 reps = [r for r in atts if r.get("rep")]
 fails = [r for r in atts if not r.get("rep")]
 fail = fails[0] if fails else None
 AS, TC = S["asymmetry"], S["technique"]
 Tm = TH.integrate(A); tsum = TH.summarise(A, Tm)
+if POSE:
+    _d = np.load(POSE); _P = _d["img"][:, :, :2] * np.array([int(_d["width"]), int(_d["height"])])
+    Tm = TH4.integrate(A, P=_P); tsum = TH4.summarise(A, Tm, _P)
 t = np.array(sig["t"]); pct = np.array(sig["height_pct"])
 h0, h1 = sig["hang0"], sig["hang1"]
 trace = [[round(float(t[i]), 2), round(float(pct[i]), 1)] for i in range(h0, h1 + 1, 2)]
@@ -217,17 +222,26 @@ allowance for a chin 8 cm behind the bar. Whiskers are the ±3 cm "at the bar" b
   <p class="eyebrow">Muscle temperature</p>
   <h2>The colour on the body is a heat budget, not a camera</h2>
   <p>The set produced about 36 kJ of heat: 21 kJ from muscle work and 16 kJ from simply
-  hanging on. That heat is divided between 23 muscles by how hard surface-EMG studies say
-  each one works in a pull-up (Youdas 2010, corroborated at almost this grip by Snarr 2017;
-  serratus anterior and upper trapezius from Tucker 2011), weighted by how much of it there
-  is to warm, and then drained by blood at a rate that ramps up over the first minutes.
-  The lat share shifts toward the trapezius at the top of each rep (Park &amp; Yoo 2013),
-  and the core's share keys off measured hip motion, not pull speed (Dinunzio 2018).</p>
+  hanging on. Where and when that heat lands is no longer read from an EMG table. The force
+  on the bar is the body's weight plus what it accelerates; each joint's torque is that
+  force times its lever, measured in the rectified plane (the forearm's foreshortening gives
+  the elbow's lever, the shoulder's depth behind the bar is assumed); the muscles crossing a
+  joint share the torque by the Crowninshield &amp; Brand criterion, with the Hill
+  force&ndash;velocity curve making the pull cost more than the lowering; activation turns on
+  in 15 ms and off in 50 ms; and a three-compartment fatigue model (Xia &amp; Frey-Law 2008)
+  makes every late rep draw on a smaller pool of able motor units. Peak elbow torque 79 N&middot;m,
+  peak shoulder torque 76 N&middot;m; the biceps reaches its limit in the middle of every pull
+  and the lats peak at the top. By the end 24 % of the biceps' units and 16 % of the lats' are
+  modelled as fatigued. The heat total is calibrated to the energy budget above, then drained
+  by blood at a rate that ramps up over the first minutes.</p>
   <p>The legs are in the model too, and they are the reason they stay blue on screen: they
-  hold a tucked position for the whole set rather than lifting anything, so they take no
-  share of the work heat and finish between +0.04 and +0.19 °C. Colour on the body is
-  temperature, which only accumulates; brightness pulses with a modelled activation that
-  follows the movement itself, so the map breathes with each rep.</p>
+  hold a tucked position for the whole set rather than lifting anything, so they finish
+  between +0.07 and +0.31 &deg;C. Colour on the body is temperature, which only accumulates;
+  brightness is the effective activation &mdash; the share of the still-able motor units in
+  use &mdash; so the map contracts and relaxes with the levers of each rep and climbs through
+  the set. Where the model and the EMG literature disagree (Youdas has the lats above the
+  biceps over the whole rep; the model has them just below), the cause is the shoulder depth
+  a front camera cannot see. The formulation is written out in <span class="mono">pullup/MUSCLE-MODEL.md</span>.</p>
   <p>Two of those constants are measured rather than fitted. González-Alonso and colleagues
   tracked heat production rising from 70 to 126 J/s in 2.68 kg of working muscle while
   blood-borne removal climbed from nothing to 112 J/s over three minutes — which fixes both
@@ -319,8 +333,9 @@ with a different white balance, so it is not a usable baseline.</figcaption></fi
     <li>One camera, front on. Depth is not measured; every three-dimensional joint angle is
     the pose model's estimate, not an observation.</li>
     <li>Where the 3D estimate and the image plane disagree — the elbows — no claim is made.</li>
-    <li>The temperature map is a model built on a literature prior. Four activation values
-    and four muscle volumes are assumptions, and they are marked as such in the code.</li>
+    <li>The temperature map is a model. The joint torques come from the video; the muscle
+    forces, the shoulder's depth behind the bar and the fatigue rates are inferred or assumed,
+    and marked as such in the code.</li>
     <li>Leg angles rely on extrapolated landmarks whenever the crossed ankles hide each other.</li>
   </ul>
 </section>

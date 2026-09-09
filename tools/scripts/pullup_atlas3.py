@@ -140,11 +140,39 @@ def _frames(P):
         if L < 4:
             continue
         e1 = seg / L; e2 = np.array([-e1[1], e1[0]])
-        # + w must point toward the body's midline (medial)
-        if np.dot(e2, mid - a) < 0:
+        if name.startswith("arm_"):
+            # Upper arm: do NOT flip e2. The medial side of the humerus genuinely swaps sides in
+            # the picture between the hang (arm overhead, medial = toward the head) and the top
+            # (arm abducted, medial = the lower edge); a hard sign flip half-way put the biceps
+            # on the wrong side for a frame (Dennis, 2026-09-08). Instead the roll rho in
+            # [-1, 1] says how far the trunk centre sits on the +e2 side of the segment, and
+            # upper_arm_specs() slides the biceps band across the visible face continuously.
+            ref = mid - (a + b) / 2; ref = ref / (np.linalg.norm(ref) + 1e-6)
+            out["rho_" + name] = float(np.clip(np.dot(e2, ref) / 0.5, -1, 1))
+        elif np.dot(e2, mid - a) < 0:
+            # + w must point toward the body's midline (medial); forearms and legs never
+            # cross the ambiguous geometry, so the flip is stable there
             e2 = -e2
         out[name] = (a, e1, e2, L, WIDTHS[wk] * half)
     return out
+
+
+def upper_arm_specs(rho):
+    """Biceps / triceps polygons for one upper arm, as a function of the roll rho.
+
+    The biceps is the anterior belly, so it stays in the middle of the visible face; the
+    triceps shows only as a rim - the lateral head on the lateral edge, the long head at the
+    axilla - and the rim on the side away from the trunk grows as the arm rolls. Continuous
+    in rho, so no frame can jump."""
+    w_minus = 0.25 + 0.55 * max(rho, 0.0)      # -e2 side is lateral when the trunk is on +e2
+    w_plus = 0.25 + 0.55 * max(-rho, 0.0)
+    lo, hi = -1.35 + w_minus, 1.35 - w_plus
+    return {
+        "deltoid": UPPER_ARM["deltoid"],
+        "biceps": dict(polys=[[(0.30, lo), (0.30, hi), (1.00, hi), (1.00, lo)]], fibre=("par", 0.0)),
+        "triceps": dict(polys=[[(0.30, -1.35), (0.30, lo), (1.00, lo), (1.00, -1.35)],
+                               [(0.30, hi), (0.30, 1.35), (1.00, 1.35), (1.00, hi)]], fibre=("par", 0.0)),
+    }
 
 
 def label_and_fibre(P, shape, div=1.0):
@@ -185,7 +213,7 @@ def label_and_fibre(P, shape, div=1.0):
                 paint(key, TORSO[key], sm, u, rr, trunk, half, sgn)
         elif key in UPPER_ARM:
             for nm in ("arm_l", "arm_r"):
-                if nm in fr: paint(key, UPPER_ARM[key], *fr[nm])
+                if nm in fr: paint(key, upper_arm_specs(fr["rho_" + nm])[key], *fr[nm])
         elif key in FOREARM:
             for nm in ("fore_l", "fore_r"):
                 if nm in fr: paint(key, FOREARM[key], *fr[nm])
@@ -230,6 +258,7 @@ def make_lut():
 
 
 LUT = make_lut()
+_HEAD_PREV = None       # temporal state of the class-based part of the head gate (see paint)
 
 
 def paint(frame_bgr, comp_small, P, reg_T, reg_A, t_scale, bar_line, alpha=0.93, head_gate=True, seed=0):
@@ -247,7 +276,23 @@ def paint(frame_bgr, comp_small, P, reg_T, reg_A, t_scale, bar_line, alpha=0.93,
     head_r = max(0.62 * sw, 1.9 * float(np.linalg.norm(P[7] - P[8])) * s)
     above = np.clip((sh[1] - 0.10 * trunk - yy) / (0.06 * trunk), 0, 1)
     near = np.clip((head_r - np.sqrt((xx - ear[0]) ** 2 + (yy - ear[1]) ** 2)) / (0.22 * head_r), 0, 1)
-    head_g = np.clip(head * 1.6, 0, 1) * above * near if head_gate else 0.0
+    # The head gate is GEOMETRIC: an ellipse on the face landmarks, scaled on the shoulder
+    # width. The segmenter's head class was the gate before, and it wanders between 6 % and
+    # 56 % of the face from one frame to the next when the head is near the bar, so the paint
+    # flashed over the face (Dennis, 2026-09-08). The class now only widens the ellipse, and
+    # is smoothed over time so it cannot flash either.
+    global _HEAD_PREV
+    nose = P[0] * s; eye = (P[2] + P[5]) / 2 * s
+    fc = 0.5 * (ear + nose)                                   # face centre, between ears and nose
+    ax_ = max(0.40 * sw, 0.5 * float(np.linalg.norm(P[7] - P[8])) * s + 6)
+    ay_ = max(0.52 * sw, 1.6 * float(np.linalg.norm(eye - nose)) + 8)
+    ell = np.sqrt(((xx - fc[0]) / ax_) ** 2 + ((yy - fc[1]) / ay_) ** 2)
+    geo = np.clip((1.18 - ell) / 0.25, 0, 1) * above
+    cls = np.clip(head * 1.6, 0, 1) * above * near
+    if _HEAD_PREV is not None and _HEAD_PREV.shape == cls.shape:
+        cls = 0.6 * _HEAD_PREV + 0.4 * cls
+    _HEAD_PREV = cls
+    head_g = np.maximum(geo, cls) if head_gate else 0.0
     below = np.clip((yy - (hip[1] - 0.30 * trunk)) / (0.06 * trunk), 0, 1)
     m = a_s * (1 - head_g) * (1 - clothes * below)
     bar_row = (bar_line[0] * xx / s + bar_line[1]) * s
