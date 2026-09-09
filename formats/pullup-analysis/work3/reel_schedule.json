@@ -1,6 +1,24 @@
 [
- {"kind": "play", "f0": 396, "f1": 687, "step": 1},
- {"kind": "play", "f0": 687, "f1": 1523, "step": 3},
- {"kind": "play", "f0": 1523, "f1": 1705, "step": 1},
- {"kind": "summary", "dur": 4.0}
+ {
+  "kind": "play",
+  "f0": 396,
+  "f1": 687,
+  "step": 1
+ },
+ {
+  "kind": "play",
+  "f0": 687,
+  "f1": 1523,
+  "step": 3
+ },
+ {
+  "kind": "play",
+  "f0": 1523,
+  "f1": 1768,
+  "step": 1
+ },
+ {
+  "kind": "summary",
+  "dur": 0.5
+ }
 ]

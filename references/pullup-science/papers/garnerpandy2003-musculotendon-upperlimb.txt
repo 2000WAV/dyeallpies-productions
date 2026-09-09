@@ -1,0 +1,1116 @@
+Annals of Biomedical Engineering, Vol. 31, pp. 207­220, 2003                                 0090-6964/2003/312/207/14/$20.00
+Printed in the USA. All rights reserved.                                   Copyright © 2003 Biomedical Engineering Society
+
+Estimation of Musculotendon Properties in the Human Upper Limb
+
+                                    BRIAN A. GARNER1 and MARCUS G. PANDY2
+
+  1Department of Engineering, Baylor University, Waco, TX and 2Department of Biomedical Engineering, University of Texas,
+                                                                        Austin, TX
+
+                                                         (Received 1 May 2002; accepted 2 December 2002)
+
+Abstract--The purpose of this study was to develop and apply               muscles in humans, and the properties of muscles and
+a general method for estimating the architectural properties of            tendons can change over time in the same individual
+human muscles in vivo. The method consists of a two-phase,                 e.g., as the person ages or changes his/her activity
+nested optimization procedure in which the values of peak                  level.7 One of the most difficult parameters to estimate
+isometric force, optimal muscle-fiber length, and tendon slack             is tendon slack length. Values of this parameter are re-
+length are calculated for each musculotendon actuator, knowing             ported sparingly in the literature, possibly due to the
+muscle volume and the minimum and maximum physiological                    difficulty in distinguishing the aponeurotic part of tendon
+lengths of the actuator. In phase I, the positions of the bones            from the muscle belly proper. The accuracy of movement
+and the activation levels of the muscles are found by maximiz-             simulation models can depend greatly on the values as-
+ing the isometric torque developed for each degree of freedom              sumed for tendon slack length, as this parameter deter-
+at each joint. In phase II, the architectural properties of each           mines the compliance and therefore the force response of
+musculotendon actuator are found by matching the strength                  the actuator as a whole.5,43 It is important, therefore, to
+profile of the model to that measured for subjects. The method             have reasonable estimates of tendon slack length in
+is used to estimate the architectural properties of 26 major               particular.
+muscle groups crossing the shoulder, elbow, and wrist. Wher-
+ever possible, the model calculations are compared against                    The purpose of this study was to develop and apply a
+measurements obtained from anatomical studies reported in the              general method for estimating values of tendon slack
+literature. Architectural data obtained from our work should be            length, peak isometric muscle force, and optimal muscle-
+useful to researchers interested in developing musculoskeletal             fiber length of human musculotendon actuators in vivo.
+models of the upper limb. © 2003 Biomedical Engineering                    The method we present is a two-phase, nested optimiza-
+Society. DOI: 10.1114/1.1540105                                            tion procedure in which the architectural properties of
+                                                                           muscles are found by matching modeled and measured
+Keywords--Musculoskeletal, Modeling, Muscle, Tendon, Pa-                   strength profiles for various joints comprising a whole
+rameter optimization, Joint torque.                                        limb. An important feature of the method is that, together
+                                                                           with the measured strength profiles, only three param-
+                       INTRODUCTION                                        eters need to be specified for each musculotendon MT
+                                                                           actuator before the values of the remaining parameters
+   An important component of any model of the human                        can be found; these three parameters are muscle volume
+musculoskeletal system is a model of the musculotendon                     and the minimum and maximum MT lengths. We used
+actuator. Zajac43 proposed a generic model that can be                     the method to estimate the architectural properties of 26
+customized to specific muscles by specifying the values                    major muscle groups crossing the human shoulder, el-
+of five parameters: peak isometric muscle force and the                    bow, and wrist.
+corresponding fiber length and pennation angle, muscle's
+intrinsic maximum shortening velocity, and tendon slack                     MUSCULOSKELETAL MODEL OF THE UPPER
+length. This phenomenological Hill-type model accounts                                                    LIMB
+for the force-length-velocity property of muscle and can
+be used to calculate muscle force if values of musculo-                       Details of the arm model are presented in Garner and
+tendon length, velocity, and muscle activation are known.                  Pandy,14,16 so only a brief summary is provided here.
+                                                                           Thirteen degrees of freedom dof were used to describe
+   Although the Hill model has been used extensively in                    the positions and orientations of seven bones in the
+human movement modeling studies,31 finding appropriate                     model: clavicle, scapula, humerus, radius, ulna, carpal
+values for some of its parameters can be difficult. Values                 bones, and the hand which was represented as a single
+appearing in the literature vary widely for even the same                  rigid body. Two holonomic constraints were used to
+
+    Address correspondence to Marcus G. Pandy, PhD, Department of
+Biomedical Engineering, ENS 610, University of Texas at Austin, Aus-
+tin, Texas 78712. Electronic mail: pandy@mail.utexas.edu
+
+                                                                      207
+208  B. A. GARNER and M. G. PANDY
+
+                                                                                                        FIGURE 1. Normalized force-
+
+                                                                                                        length relationships for muscle.
+
+                                                                                                        Peak        isometric       force,    F   M    ,  is    the
+                                                                                                                                                  o
+
+                                                                                                        maximum force developed when
+
+                                                                                                        fully-activated muscle is held at
+
+                                                                                                        its      optimal         length,      L  M  .     Active
+                                                                                                                                                 o
+
+                                                                                                        muscle force ,,solid line..., which
+
+                                                                                                        is assumed to scale linearly with
+
+                                                                                                        activation, is developed between
+
+                                                                                                        0.5L     M   and      1.5L  M  .   Passive           force
+                                                                                                                 o                  o
+
+                                                                                                        is developed only when muscle
+
+                                                                                                        is stretched beyond its optimal
+
+                                                                                                        length ,,dashed line....
+
+model the articulation between the scapula and the tho-     set. The modeled muscle paths were validated against
+rax. The locations of the joint centers and the positions   experimental moment arm data.14
+and orientations of the joint axes of rotation were de-
+rived from three-dimensional representations of bone sur-                REPRESENTING MUSCULOTENDON
+faces reconstructed from medical cross-sectional                                         PARAMETERS
+images.16 The medical images, which were obtained
+from the National Library of Medicine's Visible Human           Values of the parameters in our model of musculoten-
+Project, display axial cross sections of a human male
+cadaver taken at 1 mm intervals from head to toe. The       don actuation are not independent. For example, peak
+entire set of images constitutes a high-resolution ``digi-
+tal'' cadaver.                                              isometric          muscle      force     (  F  M  )  is  assumed              to  be       propor-
+                                                                                                           o
+   The model was actuated by 42 muscle bundles, which       tional to physiological cross-sectional area PCSA,43
+represented the actions of 26 muscle groups in the upper
+limb. Each MT actuator was represented as a three-          where PCSA is defined as the ratio between muscle vol-
+element Hill-type muscle in series with tendon. The path
+of each muscle was calculated using a computational         ume       and      optimal     muscle-fiber             length:      PCSA            Vol/        L  M     .
+algorithm based on the obstacle-set method.15 Using this                                                                                                        o
+method, the path of the cross-sectional centroid of each                                                                         M
+muscle was approximated by a series of straight and         The    proportionality               constant     relating        F  o  to     PCSA           repre-
+curved line segments connected together at ``via'' points.
+Curved line segments represented portions of the muscle     sents the maximum muscle stress, which has been as-
+path that wrapped around underlying anatomical struc-
+tures obstacles such as bones and other muscles. These      signed values ranging from 22035 to 360 kPa.36 We as-
+structures were modeled mathematically as simple geo-
+metric shapes e.g., a sphere or cylinder, and a muscle's    sumed a value of 330 kPa for muscles in the upper
+path was found by computing the shortest distance
+around the obstacles and between endpoints. In this way,    limb.39
+the path of a muscle can be calculated for any given
+configuration of the bones in the model. The locations of       Optimal              muscle-fiber       length       (  L  M  )  and       tendon            slack
+via points and the positions and orientations of obstacles                                                                 o
+used to model muscle paths were derived from three-                            T
+dimensional representations of the muscle surfaces re-      length       (  L  s  )  are  also   related.     Due    to    its   force-length             prop-
+constructed from the visible human male VHM image
+                                                            erty, there is a limited range of fiber lengths over which
+
+                                                            a muscle can operate effectively. Zajac43 represented this
+
+                                                            property in terms of normalized muscle force (~FM
+
+                                                                F  M  /  F  M  )     and  normalized          fiber     length      (  ~L  M     L  M     /  L  M  )  .
+                                                                            o                                                                                   o
+
+                                                            As is evident from Fig. 1, the effective operating range
+
+                                                            of  muscle            begins   at    roughly         0.5L   M  and      ends      at    1.5L        M     ;
+                                                                                                                        o                                       o
+
+                                                            muscle cannot generate active force beyond these
+
+                                                            lengths. In addition, when muscle is stretched to lengths
+
+                                                            greater         than     1.2L  M  ,  it  generates       a     significant        amount            of
+                                                                                           o
+
+                                                            passive force.
+
+                                                                Brand et al.7 discussed the importance of this operat-
+
+                                                            ing range with respect to the required excursion of a
+
+                                                            muscle. These investigators defined muscle excursion as
+
+                                                            the difference between the maximum physiological
+                                     Estimation of Musculotendon Properties in the Human Upper Limb                                                                       209
+
+                                                                                                                       FIGURE 2. Diagram illustrating
+
+                                                                                                                       the relationships between opti-
+
+                                                                                                                       mal        muscle-fiber         length,            L  M  ,
+                                                                                                                                                                             o
+                                                                                                                                                              T
+                                                                                                                       tendon     slack       length,      L  s  ,  and   the
+
+                                                                                                                       minimum and maximum physi-
+
+                                                                                                                       ological lengths of a muscle,
+
+                                                                                                                       L  M      and   L   M    ,  and     a     musculo-
+                                                                                                                          min              max
+                                                                                                                                                       MT                 MT
+                                                                                                                       tendon         actuator,    L   min    and      L  max   ,
+
+                                                                                                                       respectively. For the purpose of
+
+                                                                                                                       illustration, pennation angle is
+
+                                                                                                                       assumed to be zero. ,,a... When
+                                                                                                                       tendon slack length is large,
+
+                                                                                                                       muscle-fiber length is small;
+
+                                                                                                                       thus, muscle excursion will be
+
+                                                                                                                       small. ,,b... Conversely, when ten-
+                                                                                                                       don slack length is small,
+
+                                                                                                                       muscle-fiber length is large, and
+
+                                                                                                                       muscle excursion will be large.
+
+length (LmMaTx) and the minimum physiological length                     slack     length,    L  T  .   Because             the   total      length     ( L MT)        of       a
+(LmMiTn) of the muscle. Minimum and maximum physi-                                               s
+ological lengths correspond to the extreme lengths of an
+                                                                         MT actuator is given by the sum of muscle length (LM)
+
+MT actuator when a joint is moved through its full range                 corrected for pennation and tendon length (LT), tendon
+
+of motion. Assuming a muscle will operate effectively                    length will affect the length of the muscle when the
+
+over most of the range of motion of a joint, the optimal                 actuator     is  at  L  MT    and      L   MT   .  If,   for  simplification,                 tendon
+                                                                                                 min                max
+
+fiber length of the muscle should be related to the ex-                  is assumed to be sufficiently stiff so that a change in its
+
+cursion of the actuator. Specifically, for muscles with a                length is negligible compared to a change in muscle
+
+large  excursion,     one  can  expect    the  value  of  L  M  to  be   length, then all variation in MT length (LMT) can be
+                                                             o
+                                                                         attributed to a change in muscle length. If an actuator
+relatively large; conversely, for muscles with a small
+                                                                         has minimum and maximum physiological lengths which
+excursion,  the  value     of  L  M  should    be  relatively   small.
+                                  o                                      are both relatively large, then one can expect the value of
+
+Unfortunately, the relationship between optimal muscle-                  L  T  to     be  large  and         the    value         of   L  M   to   be    small         Fig.
+                                                                            s                                                             o
+fiber length and MT excursion has been shown to vary                                                               MT                                                           T
+                                                                         2a.       Conversely,            if    L  min    is   relatively          small,        then     L     s
+widely among muscles, and it cannot be used to define
+                                                                         should       be  small     and      L  M   should        be   large       Fig.     2b.        It    is
+the  value  of  L  M  precisely.     For  example,    Brand     et al.7                                         o
+                   o                                                                                   M         T        MT                  MT
+                                                                         clear,    then,  that   L     o  ,   L  s  ,  L  min  ,  and      L  max  are     all      related.
+found that measured ratios of optimal muscle-fiber length
+                                                                                                                                                                             M
+and MT excursion varied from 0.76 to 2.35 for muscles                          To  model      these     relationships,            we      chose    to   express           L  o
+
+of the forearm.                                                          and   L   T  in  terms     of    two       quantities,        ~L  M    and    ~L  M        ,  which
+                                                                                   s                                                       min             max
+
+Also affecting the relation between optimal muscle-                      represent, respectively, the minimum and maximum
+
+fiber length and MT excursion is the value of tendon                     physiological        muscle          lengths       normalized             by  L  M   .     Formu-
+                                                                                                                                                          o
+210                                                                              B. A. GARNER and M. G. PANDY
+
+                                                                                                                                    Pmin ~LmMin2sin2 o,                                                        5
+
+                                                                                                                                   Pmax ~LmMax2sin2 o.                                                         6
+
+                                                                                                       Solving        Eqs.        3      and     4      for      L  M  and       L  T  we   obtain
+                                                                                                                                                                    o               s
+
+                                                                                                                                           L  M      L      mMaTx    L mMiTn  ,                                7
+                                                                                                                                              o      P      max      P min
+
+                                                                                                                                  L   T       P  maxL mMiTn         P minL    mMaTx    .                       8
+                                                                                                                                      s            Pmax             P min
+
+                                                                                                       Thus,      L  M  and       L   T  may        be  expressed           as   functions          of  L   MT   ,
+                                                                                                                     o                s                                                                     min
+                                                                                                          MT      ~L  M                ~L  M                                           MT              MT
+FIGURE 3. Relationship between pennation angle and                                                     L  max  ,      min  ,  and          max   .  If  the      values     of   L     min  and     L  max  are
+
+muscle-fiber length. All muscle fibers are assumed to be                                               known,         the     only     remaining            unknowns             are   ~L   M    and    ~L  M    .
+arranged in parallel, to have the same length, LM, and to                                                                                                                                   min             max
+insert at an angle, , on tendon. As the muscle fibers
+shorten,  increases, while the width of the muscle, w, re-                                             The transformation Eqs. 5­8 are helpful because one
+mains constant. The equations show how pennation angle
+                                                                                                       might      expect          values         of     ~L  M    and   ~L   M        to     be   somewhat
+can be expressed in terms of optimal muscle-fiber length,                                                                                                   min             max
+                                                                                                                                                                                                           ~L  M
+the value of pennation angle at peak isometric muscle force,                                           similar        for     all     muscles           in  the        body.     Specifically,                 min
+and normalized muscle-fiber length, L~ M.
+                                                                                                       should fall somewhere near the minimum of the ascend-
+
+                                                                                                       ing     region         of      muscle's              force-length            curve        i.e.,     ~L  M
+                                                                                                                                                                                                               min
+                                                                                                                                  ~L  M
+                                                                                                       0.5) ,        while            max   should          lie  in    the  vicinity        of   the    mini-
+
+                                                                                                       mum of the descending region i.e., ~LmMax1.5) see Fig.
+                                                                                                                                                                                                        M
+                                                                                          M            1.   Finally,          if  the    volume         of   a   muscle          is    known,       F   o   can
+                                                                                          o
+las      for   transforming            between          the   parameter          set,  L          and  be   found       using         L  M    as    follows:
+                                                                                                                                         o
+L  T  ,  and      the    normalized            minimum          and      maximum          physi-
+   s
+                                               ~L  M            ~L  M                                         F
+ological          muscle          lengths,         min  and         max  ,  are  derived          be-             M                                                                       Volume
+                                                                                                                  o
+low. Note that although tendon compliance is neglected                                                                     330        kPa  PCSA   330                       kPa             L    M      ,      9
+                                                                                                                                                                                                 o
+in the derivation of these transformation equations, its
+
+effect is taken into account in the calculation of the                                                 where the constant 330 kPa represents maximum muscle
+                                                                                                       stress.39
+unknown MT parameters described below see Parameter
+
+Estimation Method in Methods.
+
+      From Figs. 2 and 3 it can be seen that
+
+                                  L  mMiTn  L  sT   cos         L   M    ,                        1                               METHODS
+                                                                    min
+                                                                                                               Measurement of Joint Torque-Angle Curves
+                                  L  mMaTx  L  sT   cos         L   M    ,                        2
+                                                                    max                                   Measured torque-angle curves were used to estimate
+                                                                                                       the architectural properties of 42 muscles in the model
+where  is the pennation angle of muscle. From Fig. 3 it                                                arm. The experiments were conducted on three healthy,
+                                                                                                       active, males age 253 years, mass 847 kg, and
+is also apparent that cos  may be expressed as                                                         height 1853 cm. A Biodex dynamometer was used to
+                  (~L                                                                                  measure the active torques developed at the shoulder,
+(  L  M  /  L  M         M  )  2     sin2(o)),      so   that   Eqs.        1    and      2       be-  elbow, and wrist during maximum voluntary isometric
+      o                                                                                                contractions of the muscles. The strength profile of each
+                                                                                                       subject was comprised of 14 maximum isometric torque-
+come                                                                                                   angle curves, the data for which were obtained from a
+                                                                                                       large number of individual maximum isometric torque-
+       L                               ~L                                                              angle trials. Each trial consisted of a maximum contrac-
+            mMiTn  L  sT    L     M        mMin  2    sin2      o        L  sT   L  M  P  min  ,       tion given at a specific joint shoulder, elbow, or wrist
+                                  o                                                 o                  with the joint placed in a specific configuration e.g., the
+                                                                                                  3    elbow flexed to 30° with the forearm in the neutral po-
+                                                                                                       sition. Torque-angle curves were generated for flexion,
+       L              T           M    ~L  mMax                             T       M                  extension, abduction, adduction, internal rotation and ex-
+         mMaTx     L  s     L     o              2    sin2      o        L  s    L  o  P  max  ,
+
+                                                                                                  4
+
+where o is the pennation angle corresponding to peak
+isometric muscle force, and the symbols Pmin and Pmax ,
+introduced merely for simplicity, are given by
+Estimation of Musculotendon Properties in the Human Upper Limb                                                                       211
+
+                                                                                                       FIGURE 4. Flow chart showing
+                                                                                                       the two main phases of the pa-
+                                                                                                       rameter estimation method de-
+                                                                                                       scribed in the text. Note that
+                                                                                                       phases I and II are interdepen-
+                                                                                                       dent since changing the MT
+                                                                                                       parameters in phase II can al-
+                                                                                                       ter some of the joint angles
+                                                                                                       calculated in phase I. The algo-
+                                                                                                       rithm iterates back and forth
+                                                                                                       between phases I and II until
+                                                                                                       the best possible match is ob-
+                                                                                                       tained between the torque-
+                                                                                                       angle curves calculated by the
+                                                                                                       model and those measured for
+                                                                                                       the subjects.
+
+ternal rotation of the shoulder; for flexion and extension         image. Because some broadly shaped muscles were mod-
+of the elbow; for pronation and supination of the fore-            eled using multiple bundles e.g., the three heads of
+arm; and for flexion, extension, radial deviation, and             deltoid were modeled separately, the total volume com-
+ulnar deviation of the wrist.                                      puted for these muscles was divided among the separate
+
+   Measurements were made over practically the full                bundles according to PCSA ratios reported by Johnson
+range of movement of each joint. For example, maxi-                et al.22 see Garner and Pandy14 for details.
+mum elbow flexion torque was measured from full ex-
+tension to 120° of flexion in 15° increments of elbow                      Calculation of Extreme Musculotendon Lengths
+flexion, with the humerus positioned alongside the torso
+and the wrist fully extended. Subjects exerted maximum                 The      transformation  Eqs.   5­8  that  relate  L  M  and  L  T
+effort against the arm of the dynamometer for 3 s and                                                                        o          s
+peak torque was recorded. To minimize the effects of                   ~L  M         ~L  M
+fatigue, subjects were encouraged to rest between each             to      min  and      max  require  the  minimum  and  maximum
+contraction, and data for each subject were recorded over
+a two-day period. For each joint, data were averaged               musculotendon lengths to be known. For each actuator,
+across the three subjects and then pooled with maximum
+isometric torque-angle data reported in the                        we calculated these extreme physiological lengths based
+literature2,10,12,17,21,26,30,34,41 to create a combined average.
+A third-order polynomial was then fitted to each com-              on the geometrical representations of the muscle path
+bined average torque-angle curve resulting in fourteen
+polynomial functions representing the average strength             and on the simulated joint range-of-motion limits. How-
+profile for the upper limbs of our subjects.
+                                                                   ever, because most muscles cross more than one joint,
+                Calculation of Muscle Volume
+                                                                   and also because many joints have multiple dofs, calcu-
+   The volume of each muscle in the model was calcu-
+lated by adding the volumes of the cross-sectional slices          lating values of the minimum and maximum musculo-
+defined by the VHM images. The volume of a slice was
+computed as the product of the thickness between images            tendon lengths is not a simple task. In the case of mul-
+and the cross-sectional area of the muscle within the
+                                                                   tiple dof joints such as the shoulder, for example, the
+
+                                                                   range-of-motion limits constitute a whole sinus of joint-
+                                                                   angle configurations,13 and the unique joint-angle con-
+
+                                                                   figuration corresponding to a position of extreme physi-
+
+                                                                   ological length for an individual muscle is not easily
+
+                                                                   found.
+
+                                                                       To compute the extreme physiological lengths of each
+
+                                                                   actuator, a forward-dynamics simulation problem was
+
+                                                                   solved using the musculoskeletal model of the arm. For
+
+                                                                   example, to find the minimum physiological length of a
+
+                                                                   given muscle, a 100 N tensile force was applied along
+212                                                        B. A. GARNER and M. G. PANDY
+
+                                                                                                        FIGURE 5. Flow charts show-
+
+                                                                                                        ing details of phases I and II of
+
+                                                                                                        the parameter estimation
+
+                                                                                                        method. ,,a... The purpose of
+                                                                                                        each simulated trial in phase I
+
+                                                                                                        is to compute the muscle acti-
+
+                                                                                                        vation levels together with any
+
+                                                                                                        unspecified joint angles in or-
+
+                                                                                                        der to maximize the isometric
+
+                                                                                                        torque developed at a given
+
+                                                                                                        joint. Joint angles and muscle
+
+                                                                                                        activations are calculated us-
+
+                                                                                                        ing initial guesses for values of
+
+                                                                                                        L~   M    and        L~  M    .  Kinematic     mea-
+                                                                                                             min                 max
+
+                                                                                                        surements of bone positions
+
+                                                                                                        could not be obtained for some
+
+                                                                                                        joints in the body ,,e.g., the
+                                                                                                        sternoclavicular and acromio-
+
+                                                                                                        clavicular joints..., so these un-
+                                                                                                        known joint angles are also
+
+                                                                                                        treated as variables in the op-
+
+                                                                                                        timization problem. ,,b... The
+                                                                                                        purpose of phase II is to calcu-
+
+                                                                                                        late      the  optimum           values        of   L~  M
+                                                                                                                                                                min
+                                                                                                                  L~
+                                                                                                        and           M      ,  which    are   then    used
+                                                                                                                      max
+
+                                                                                                        to find values of peak isomet-
+
+                                                                                                        ric muscle force, optimal
+
+                                                                                                        muscle-fiber length and tendon
+
+                                                                                                        slack length. Values of the joint
+
+                                                                                                        angles and muscle activations
+
+                                                                                                        obtained from phase I are left
+
+                                                                                                        unchanged.               Values        of  L~  M    and
+                                                                                                                                                       min
+                                                                                                        L~
+                                                                                                             M    are           found    by    minimizing
+                                                                                                             max
+
+                                                                                                        the sum of the squares of the
+
+                                                                                                        differences between the
+
+                                                                                                        strength profile in the model
+
+                                                                                                        and that measured for the
+
+                                                                                                        subjects.
+
+the path of the muscle that caused the muscle to shorten.               eter estimation. For muscles in the human arm, pennation
+The simulation was performed until one extreme of the
+joint's range of motion was reached and static equilib-                 angle is relatively small 20° and has little effect on
+rium was attained. To find the maximum physiological
+length, the procedure was repeated using a 100 N com-                   the force response of an actuator.25,27,43 Muscle's intrinsic
+pressive force that caused the muscle to lengthen.
+                                                                        maximum     shortening  velocity,    v    M       ,     was      also  not     part     of
+                                                                                                                  max
+
+                                                                        the parameter estimation because the problem was solved
+
+                                                                        under isometric conditions and shortening velocity was
+
+                                                                        assumed to be zero.
+
+                  Parameter Estimation Method                           The procedure begins by specifying initial guesses for
+
+   The overall goal of the method is to find values of                  all the unknown MT parameters in the model see Fig.
+
+F  M  ,  L  M  ,  and  L  T  for  all  actuators  in  the  model  that  4. Note that because Eqs. 5­8 give the unknown MT
+   o        o             s
+                                                                        parameters  in   terms  of  ~L  M    and      ~L  M      ,  reasonably         good
+result in the best possible match between the strength                                                  min               max
+
+profile of the model and that measured for the subjects.                guesses can be made for the initial values of these pa-
+
+Values of muscle pennation angle (o) were obtained                      rameters. The method itself is divided into two interde-
+from the literature and did not play a part in the param-
+                                                                        pendent phases. In phase I, the model is used to simulate
+                                     Estimation of Musculotendon Properties in the Human Upper Limb                                                                 213
+
+each of 116 maximum isometric torque-angle trials simi-         values of the MT parameters, joint angles, and muscle
+lar to those performed by the subjects. In each trial,          activations. The net muscle torque at each joint is found
+values of the MT parameters are left unchanged, and the         from
+muscle activation levels plus any unspecified joint
+angles; see later are calculated in order to maximize the                                 i    f   ¯q  i  ,¯a    i  ,  LD  M    ,  LD  mMax ,                       10
+isometric torque developed at the joint. In phase II, the                                                                  min
+muscle activation levels are left unchanged, and the val-
+ues of the MT parameters are found so that the torque-          where the subscript i denotes the ith simulated trial, i is
+angle curves in the model are matched as closely as             the joint torque generated in the ith simulated trial, ¯q is
+possible to those measured for the subjects.
+                                                                the vector of joint angles, ¯a is the vector of muscle
+   For simulated trials involving the elbow and wrist, all
+joint angles required to completely specify the relative        activations,  and        LD  M     ,   LD    M         are         vectors             of    normalized
+configurations of the humerus, forearm, and hand were                                        min             max
+known in advance. For elbow extension at 30°, for ex-
+ample, the humerus was positioned alongside the torso,          minimum and maximum physiological lengths of the
+the elbow was flexed to 30°, the forearm was supinated,
+and the wrist was in neutral. Thus, only the muscle             muscles. For the simulated trials in which all the joint
+activations needed to produce maximum elbow-joint
+torque needed to be found. For trials involving the shoul-      angles are known i.e., those trials involving the elbow
+der, however, it was not possible to completely specify
+the configurations of some of the bones in the model.           and wrist, each optimization problem solved in phase I
+For example, in the trial for maximum shoulder flexion
+torque at 45° of shoulder flexion, the humerus was po-          can be stated as follows:
+sitioned at 45° of flexion, but the corresponding positions
+of the clavicle and scapula were unknown. This is be-                                     maximize J¯aii .                                                          11
+cause it is not possible to accurately measure the three-
+dimensional positions of these bones with surface mark-         Additional constraints were introduced for the simulated
+ers mounted on the subjects. So, instead of specifying          trials involving the shoulder, and in these cases the op-
+arbitrary positions for the clavicle and scapula in these       timization problem can be stated as
+trials, we included the glenohumeral, acromioclavicular,
+and sternoclavicular joint angles as variables in the op-                          maximize                  J  ¯q     unspec   ,¯a    i            i  ,            12
+timization problem. Thus, for simulated trials involving                                                               i
+the shoulder, phase I calculated the muscle activation
+levels and the glenohumeral, acromioclavicular, and ster-              subject     to    x^  hum·     x^  spec      i      1,          z^  hum· z^     spec  i  1,  13
+noclavicular joint angles needed to produce maximum                                                       hum                                          hum
+net muscle torque. The following sections describe the
+details of phases I and II in turn.                                                          p AC0,  scap0,                                                         14
+
+                                                                where  ¯q  unspec  is  a  vector             containing                   the   unspecified         joint
+                                                                           i
+
+                                                                angles for the ith simulated trial. Equations 13 con-
+
+                                                                strain the x and z axes of the humerus in the model (x^ hum
+
+                                                                and z^ hum) to remain aligned with the x and z axes of the
+                                                                                                                                                    spec          z^ hspumeci) .
+                                                                humerus    measured          in    the       experiments                     (  x^  hum i    and
+
+                                                                Equations 14 constrain all components of the linear
+
+                                                                accelerations of the acromioclavicular joint ( p AC) and
+                                                                the angular acceleration of the scapula ( scap) in the
+                                                                model to be zero. This ensures that the muscles of the
+
+         Phase I--Maximizing Joint-Torque Output                upper shoulder girdle i.e., those that do not cross the
+
+                                                                glenohumeral joint develop sufficient force to hold the
+
+In this phase, one optimization problem is solved for           shoulder in static equilibrium during a simulated trial.
+
+each trial simulated by the model see Fig. 5a. The
+
+goal of each optimization problem is to compute the                 Phase II--Estimating Musculotendon Parameters
+
+muscle activation levels together with any unspecified             A single optimization problem is solved in phase II
+                                                                see Fig. 5b. The goal of this phase is to find the
+joint angles in order to maximize the isometric torque          values of the unknown MT parameters which give the
+                                                                best possible match between the strength profile of the
+developed at the joint. Phase I begins by specifying the        model and that measured for the subjects. Thus, the op-
+                                                                timization problem can be stated as
+joint angles prescribed by the protocol followed in the
+
+experimental trials, and an initial guess is then made for
+
+the values of the remaining unspecified joint angles and
+
+the muscle activation levels. Because the values of all
+
+MT parameters are left unchanged in phase I, these pa-
+
+rameters are computed only once using the current val-                                                                          116
+
+ues  of  ~L  M    and  ~L  M    and  Eqs.  5­8.  Musculotendon          minimize                   M                                        isitd2, 15
+             min           max                                                            J    LD  min    ,  LD  mMax      
+
+force is then found based on the current estimates of the                                                                    i1
+214                                                                      B. A. GARNER and M. G. PANDY
+
+TABLE 1. Muscle belly volumes reported in the literature compared to those computed from the VHM medical images. For muscles
+with multiple heads only total volume is given. The model estimates of muscle volume are noticeably larger than values obtained
+
+                                                                     from cadaver dissection studies.
+
+                                                                                                         Volume (cm3)
+
+Muscle Group                                  Model         Wood         Veegera                Bassett  Winters       Chen      An    Veeger  Cutts
+                                                            (1989)       (1991)                 (1990)   (1988)        (1988)  (1981)  (1997)  (1991)
+
+Subclavius                                    8.80          193.37           204.80             303.30                 23.00
+Serratus anterior                          358.56           370.35           185.80             209.30                 44.00
+Trapezius                                  457.89                                               475.10                 53.00
+Levator scapulae                                             27.86            37.90                                    12.40
+Rhomboid minor                              71.92            40.97                               56.70
+Rhomboid major                             117.77            52.44            71.40             153.00   283.02                152.60   42.00
+Pectoralis minor                           117.77           268.75            41.50             207.90   113.21                 64.20  379.00
+Pectoralis major                            73.14           339.21           202.60                       84.91                 59.30  128.00
+Latissimus dorsi                           676.40           386.73           226.10             132.60    37.74                 21.90  122.00
+Deltoid                                    549.69            39.33           314.40              37.20                          10.90
+Supraspinatus                              792.87            85.21            36.20                       23.58                 18.70   66.00
+Infraspinatus                               89.23           121.26           109.80             152.00    18.87                 12.40   17.00
+Subscapularis                              225.36            24.58           138.60             128.00    23.58                 15.20   33.00
+Teres minor                                318.52            70.46            28.30                       47.17                 34.10
+Teres major                                 38.70            21.30            88.30                       18.87                 14.90
+Coracobrachialis                           231.40           298.24            30.60
+Triceps brachii                             80.01           108.15            99.70
+Biceps brachii                             619.99            49.98           111.20
+Brachialis                                 365.84            40.97
+Brachioradialis                            265.96
+Supinator                                   83.19                                                                                              33.02
+Pronator teres                              34.11                                                                                              46.89
+Flexor carpi radialis                       80.41                                                                                              82.92
+Flexor carpi ulnaris                        56.97                                                                                              36.04
+Extensor carpi radialis                     67.66
+Extensor carpi ulnaris                     166.61
+                                            28.65
+
+aSee Ref. 38.
+
+                  subject       to   L  T     0      for all muscles,                  16                                   RESULTS
+                                        s
+                                                                                                   Values of muscle volume, physiological cross-
+where i denotes the ith trial for both the model and the                                        sectional area, and peak isometric force calculated for
+                                                                                                the VHM cadaver were all much larger than correspond-
+subjects, i is the maximum joint torque calculated in the                                       ing values reported in the literature Tables 1 and 2. For
+                                                       std                                      example, summed volumes for the model pectoralis ma-
+ith  trial        for  the      model,        and      i    is  the  corresponding              jor and trapezius were 676 and 458 cm3, respectively,
+                                                                                                compared to 269 and 370 cm3 reported by Wood et al.,42
+average maximum joint torque measured for the subjects.                                         and 203 and 186 cm3 reported by Veeger et al.37 Table
+                                                                                                1. The sizes of the model biceps and triceps were also
+Equation          16    ensures      there       are   no   combinations          of   ~L  M    roughly three times larger than those of the specimens
+                                                                                           min  used in the literature studies. Summed volumes for bi-
+         ~L  M                                                               T                  ceps and triceps for the VHM cadaver were 366 and 620
+and          max  that  result       in    a  negative      value    of  L   s  for    any      cm3, respectively, compared to 100 cm3 for biceps and
+                                                                                                100­300 cm3 for triceps reported by Winters and Stark,41
+actuator. Note that only the values of the MT parameters                                        Wood et al.,42 Bassett et al.,6 and Veeger et al.37
+
+are changed in phase II; the joint angles and muscle                                               Calculated values of optimal muscle-fiber lengths
+                                                                                                were in general agreement with data obtained from ana-
+activations found in phase I are left unchanged during                                          tomical studies. Fiber lengths average of the separate
+                                                                                                bundles for each muscle group of deltoid, biceps, tri-
+phase II.
+
+     Initial      guesses       were     made        for   the  values   of   ~L  M    and
+                                                                                  min
+~L  M
+    max  ,   these     being    typically        0.5  and   1.2,  respectively.        No
+
+more than ten iterations of the computational algorithm
+
+were needed to meet the convergence criterion. Values
+
+for  ~L     M     were      constrained          to   lie   between     0.1     and    0.8,
+            min
+                            ~L  M
+while        those     for      max  were     bounded       between      0.7    and    1.6.
+
+The average difference between the computed and mea-
+
+sured joint torques across all trials was 4 N m.
+                                            Estimation of Musculotendon Properties in the Human Upper Limb                                                                           215
+
+TABLE 2. PCSA reported in the literature compared with those computed by the model. For muscles with multiple heads, only the
+
+total  PCSA  is  given.  In  the    model,  PCSA     was  computed      by        dividing  muscle  volume    by  optimal               muscle    fiber  length    ,,  L  M  ...  .  These
+                                                                                                                                                                          o
+                                                                                                                             M
+values  were  multiplied     by  a  factor  of  330  kPa  ,,see  Ref.  39...  to  compute   peak   isometric  force   ,,  F  o  ...  .  As  with  volume,     the  model             PCSA
+
+                                                values are generally larger than the literature values.
+
+                                                                                                   PCSA (cm2)
+
+                             F   M  ( N...           Wood Veeger Johnson Bassett Chen Keatinga Veeger An Lieberb Cutts
+                                 o
+
+Muscle group                 Model Model (1989) (1991) (1996) (1990) (1988) (1993) (1997) (1981) (1992) (1991)
+
+Subclavius                    143.76         4.36    12.38       13.93            10.50     13.19   18.30          4.02
+Serratus anterior             677.30        20.53    23.57       15.99            13.00     12.31   43.10          5.88
+Trapezius                     802.25        25.70                                           24.90                 13.50
+Levator scapulae              124.78                  3.54        2.82             2.30             16.80          2.58
+Rhomboid minor                221.45         3.78     3.58                         1.30      7.09   11.70
+Rhomboid major                217.12         6.71     3.90        6.27             4.40     17.00
+Pectoralis minor              160.59         6.62    13.12        3.74             3.30     25.99
+Pectoralis major             1175.01         4.87    12.60       13.65
+Latissimus dorsi              461.89        36.20    22.04        8.64            12.20     11.05
+Deltoid                      2044.65        14.33     4.55       25.90             3.00      1.96
+Supraspinatus                 687.99        81.98     5.69        5.21             6.00      4.61
+Infraspinatus                1100.13        20.84     9.95        9.51             7.80      4.80
+Subscapularis                1178.38        33.32     2.36       13.51             2.10
+Teres minor                   223.27        35.69     5.78        2.92             4.10
+Teres major                   514.57         6.77     1.15       10.02
+Coracobrachialis              150.02        15.59    11.40        2.51                                                                      2.10   18.80
+Triceps brachii              2332.92         4.55     3.39        6.84                                                                     13.81    4.60
+Biceps brachii                849.29        76.30     4.45        6.29                                                                              7.00
+Brachialis                    853.76        25.90     1.43                                                                                  5.34    1.50
+Brachioradialis               101.56        25.88                                                                                           5.55    3.40      1.33
+Supinator                     186.36         3.08                                                                                           2.87    3.40
+Pronator teres                592.31         5.65                                                                                                   2.00      4.13
+Flexor carpi radialis         368.63        17.96                                                                                           1.65    3.20      1.99
+Flexor carpi ulnaris          561.00        11.16                                                                                                   5.30      3.42
+Extensor carpi radialis       755.76        16.99                                                                                                   3.40      4.19                    4.90
+Extensor carpi ulnaris        265.58        24.89                                                                                                             2.60                    5.60
+                                             8.04                                                                                                                                    13.90
+                                                                                                                                                                                      5.60
+
+aSee Ref. 24.
+bSee Ref. 28.
+
+ceps, and extensor carpi radialis obtained from the model                                model biceps was found to be 23.0 cm, which is also in
+were, respectively, 12.8, 14.2, 8.8, and 7.3 cm Table 3.                                 reasonable agreement with data reported by Chen8 and
+Corresponding values reported in the literature are 13.2                                 Winters and Stark41 18.2 and 20.5 cm, respectively
+cm for deltoid,6 14.3 cm for biceps,3 8.3 cm for triceps,3                               Table 3. Loren et al.29 measured tendon slack lengths
+and 9.9 cm for extensor carpi radialis.29 It should be
+                                                                                         for several actuators crossing the wrist, and their results
+noted that even though differences are evident between
+                                                                                         show values of 24.8 cm for extensor carpi radialis and
+the fiber lengths estimated for the model and values
+                                                                                         23.1 cm for flexor carpi radialis. Corresponding values
+reported in the literature, there are also differences
+                                                                                         obtained for the model were 26.8 and 27.1 cm, respec-
+among the results for the various anatomical studies. For
+example, Bassett et al.6 reported a fiber length of 18 cm                                tively Table 3.
+
+for biceps, which is a good deal higher than the value of                                     The normalized minimum and maximum physiologi-
+14 cm given by An et al.3 Also, Cutts et al.9 found fiber
+                                                                                         cal  lengths,  ~L  M    and  ~L     M          ,  for  nearly   all  the  muscles           in
+lengths of roughly 8 cm for flexor carpi ulnaris, which is                                                  min              max
+nearly twice the values given by Amis et al.,2 Brand
+et al.,7 and Winters and Stark.41                                                        the model lie in the force-generating range of 0.5­1.5
+
+   Relatively few measurements are available with which                                  Fig. 6. The lengths estimated for coracobrachialis
+
+to compare the model estimates for tendon slack length.                                  CRCB indicate that this muscle operates near the flat
+Chen8 and Winters and Stark41 reported triceps tendon
+                                                                                         region of its force-length curve for practically the entire
+slack lengths of 19.9 and 19.3 cm, respectively, which
+                                                                                         range of glenohumeral joint motion, although the muscle
+compare favorably with the value of 19.1 cm estimated
+in the model Table 3. Tendon slack length for the                                        never actually reaches the length at which peak force is
+
+                                                                                         developed  i.e.,     muscle-fiber                 length  remains    less        than       L  M
+                                                                                                                                                                                        o
+
+                                                                                         for the full range of shoulder joint motion. In contrast,
+
+                                                                                         the medial head of triceps brachii TRCm in the model
+216                                                                  B. A. GARNER and M. G. PANDY
+
+TABLE   3.  Muscle  fiber   lengths   ,,  L  M  ...  and     tendon  slack  lengths       ,,  L  T  ...  reported  in  the  literature  compared  with  those  computed  in  the
+                                             o                                                   s
+
+model. Where necessary, values for multiple heads were averaged together. For most muscles, values for optimal muscle fiber
+
+length vary considerably between studies. Values used in the model were optimized so that joint strength computed in simulated
+
+                                             torque-angle tests matched the strength of human subjects.
+
+                                                                                                         Optimal length (cm)
+
+                                                                           Muscle fiber (LoM)                                                            Tendon (LTs )
+
+                                     Bassett Chen Keating An Amis Winters Brand Cutts Loren                                                              Chen Winters Loren
+
+Muscle                      Model (1990) (1988) (1993) (1981) (1979) (1988) (1981) (1991) (1996) Model (1988) (1988) (1996)
+
+Subclavius                   2.02                                                                                                                 5.07
+Serratus anterior           17.47
+Trapezius                   18.84                                                                                                                 0.34
+Levator scapulae            19.02
+Rhomboid minor              17.55                                                                                                                 0.46
+Rhomboid major              17.90
+Pectoralis minor            15.03                                                                                                                 0.90
+Pectoralis major            19.00
+Latissimus dorsi            39.27                                                                                                                 0.44
+Deltoid                     12.80
+Supraspinatus                                                                                                                                     0.46
+Infraspinatus                4.28
+Subscapularis                6.76                                                                                                                 0.24
+Teres minor                  8.92
+Teres major                  5.72    22.55               13.30                                                                                    6.35 2.25
+Coracobrachialis            14.84    34.60                7.93
+Triceps brachii             17.60    13.20                                                                                                        15.19
+Biceps brachii               8.77                         8.70
+Brachialis                  14.22     6.90               11.15                                                                                    5.38 6.43
+Brachioradialis             10.28     9.30
+Supinator                   27.03     8.70                           5.64                                                                         13.03
+Pronator teres               6.04                                    7.50
+Flexor carpi radialis        4.48    16.80                           4.12                                                                         5.58
+Flexor carpi ulnaris         5.10     9.90                           4.90
+Extensor carpi radialis      3.98                                                                                                                 4.94
+Extensor carpi ulnaris       7.28    12.10
+                             3.56    17.95                                                                                                        4.55
+
+                                                                                                                                                  5.79
+
+                                                                                                                                                  4.23
+
+                                                                                8.30 6.70 7.33                                                    19.05 19.90 19.33
+
+                                                                                14.30 15.30 14.50                                                 22.98 18.20 20.50
+
+                                                                                9.00 12.30 9.00 16.10                                             1.75         3.00
+
+                                                                                16.40 14.20 16.00                                                 6.04         7.00
+
+                                                                                3.30 4.70                              2.70                       2.48
+
+                                                                                5.60 6.70 7.00 5.10                                               11.58        5.00
+
+                                                                                5.80 8.00 7.00 5.20 6.81                                5.98 27.08             21.00 23.08
+
+                                                                                4.80 4.80 5.00 4.20 8.42                                4.19 27.14             20.00 20.78
+
+                                                                                6.55 7.80 7.00 7.70 6.41                                9.91 26.80             20.50 24.78
+
+                                                                                4.50 3.40 4.00 4.50 6.44                                5.88 28.18             21.00 21.58
+
+operates    between    0.4L  M   and      1.4L       M   ,   suggesting    that     this                 found by matching the strength profile of the model to
+                             o                       o                                                   that measured for subjects. We used the method to esti-
+                                                                                                         mate the architectural properties of 26 major muscle
+muscle may develop force over the full range of motion                                                   groups crossing the shoulder, elbow, and wrist.
+
+of the shoulder and elbow. A few muscles in the model                                                       A significant feature of our work is that the results are
+                                                                                                         based on a detailed model of the upper limb. The model
+have  values   of  ~L  M    and  ~L  M       that        lie  outside      the  force-                   was developed from a high-resolution set of muscle and
+                       min           max                                                                 bone geometric data obtained from a single specimen,
+                                                                                                         the VHM cadaver. Thirteen dofs were used to describe
+producing range. Superior head of latissimus dorsi                                                       the relative positions and orientations of seven bones:
+                                                                                                         clavicle, scapula, humerus, radius, ulna, carpal bones,
+LTDt,     for  example,     has    values            of  ~L  M    and  ~L  M    of  0.2                  and the hand. The joints were actuated by 42 muscle
+                                                             min           max                           bundles representing the actions of 26 muscle groups in
+                                                                                                         the upper limb. Previous investigators have developed
+and 0.8, respectively; this muscle can therefore produce                                                 models of the shoulder girdle, elbow, and wrist,1,23,27 but
+                                                                                                         the model used in this study is the first to include all of
+force in the model only when its fibers are near their                                                   the major dofs from the sternum down to the wrist.14,16
+
+maximum physiological lengths.                                                                              There are also a number of important features of the
+                                                                                                         parameter estimation method itself. First, the algorithm
+                          DISCUSSION                                                                     we present is general in the sense that it can be applied
+                                                                                                         to any number of muscles crossing any number of joints
+   The purpose of this study was to develop and apply a                                                  with any number of dofs. To be implemented, the algo-
+general method for estimating the architectural properties
+of human musculotendon actuators. The method consists
+of a two-phase, nested optimization procedure in which
+the values of MT parameters are found by matching
+modeled and measured strength profiles. In phase I, the
+activation levels of the muscles plus any unspecified
+joint angles are calculated in order to maximize the iso-
+metric torque developed for each dof of each joint. In
+phase II, values of the unknown MT parameters are
+                        Estimation of Musculotendon Properties in the Human Upper Limb                                                   217
+
+FIGURE 6. Diagram showing the operating range predicted for each muscle in the arm model. The left and right edges of each
+
+dark  bar  define  the  normalized  minimum  and  maximum  physiological  lengths  of  each  musculotendon  actuator,  L~  M    and  L~  M    ,
+                                                                                                                           min           max
+
+respectively. The position of each dark bar illustrates the portion of the force-length curve on which muscle develops active
+
+force. For example, all the trapezius muscles ,,trap 1­4... operate mainly on the ascending region of their force-length curves ,,i.e.,
+L~ MË1.0.... Muscle symbols are: subclavius ,,SBCL..., serratus anterior superior ,,SRAs..., serratus anterior middle ,,SRAm..., serratus
+anterior inferior ,,SRAi..., trapezius C1­C6 ,,TRPc..., trapezius C7 ,,TRPc7..., trapezius T1 ,,TRPt1..., trapezius T2­T7 ,,TRPt2..., levator
+scapulae ,,LVS..., rhomboid minor ,,RMN..., rhomboid major T1­T2 ,,RMJt2..., rhomboid major T3­T4 ,,RMJt3..., pectoralis minor
+,,PMN..., pectoralis major clavicular ,,PMJc..., pectoralis major sternal ,,PMJs..., pectoralis major ribs ,,PMJr..., latissimus dorsi
+thoracic ,,LTDt..., latissimus dorsi lumbar ,,LTDl..., latissimus dorsi illiac ,,LTDi..., deltoid clavicular ,,DLTc..., deltoid acromial ,,DLTa...,
+deltoid scapular ,,DLTs..., supraspinatus ,,SUPR..., infraspinatus ,,INFR..., subscapularis ,,SBSC..., teres minor ,,TMN..., teres major
+,,TMJ..., coracobrachialis ,,CRCB..., triceps brachii long ,,TRClg..., triceps brachii medial ,,TRCm..., triceps brachii lateral ,,TRClt...,
+biceps short ,,BICs..., biceps long ,,BICl..., brachialis ,,BRA..., brachioradialis ,,BRD..., supinator ,,SUPR..., pronator teres ,,PRNT..., flexor
+carpi radialis ,,FCR..., flexor carpi ulnaris ,,FCU..., extensor carpi radialis long ,,ECRl..., extensor carpi radialis brev ,,ECRb..., and
+extensor carpi ulnaris ,,ECU....
+
+rithm requires that three properties of each MT actuator      ticularly the upper limb, very few studies have reported
+muscle volume and the minimum and maximum physi-
+ological lengths of the actuator be known and that mea-       values of optimal muscle-fiber length, and even fewer
+surements of maximum isometric torques be available
+for most of the joints of interest. Although it is not        data are available for tendon slack length.
+necessary for isometric torque-angle curves to be used at
+all joints, the reliability of the results is increased when     A particularly useful feature of the method is that it is
+measurements of net muscle torques are available for as
+many joint dofs as possible.                                  relatively easy to give a good initial guess for the un-
+                                                              known MT parameters (~LmMin and ~LmMax). The parameter
+   Another important advantage of our method is that          ~LmMin represents the minimum fiber length of the muscle
+muscle properties are estimated consonant with the            normalized by its optimal value. Assuming a muscle op-
+model assumed for the muscle paths. The procedure typi-
+cally followed in musculoskeletal modeling studies is to      erates on the active region of its force-length curve for
+use values of MT parameters obtained from cadaver             the full range of motion of the joint it spans, ~LmMin should
+dissections.4,11,20,32,33 This is somewhat problematic be-    have a value somewhere between 0.5 and 1.0.18 Simi-
+cause cadaver specimens usually differ in age, size, and      larly, ~LmMax should have a value somewhere between 1.0
+strength, and MT parameters obtained from these speci-        and 1.5. Because these criteria hold for any muscle
+mens are not likely to be compatible with the muscu-
+loskeletal geometry i.e., muscle paths assumed in the         crossing any number of joints, it is easy to provide good
+model. In addition, for some regions of the body, par-
+                                                              initial guesses for the unknown values of the MT param-
+
+                                                              eters in any model.
+
+                                                                 The idea of using in vivo joint torque-angle data to
+                                                              estimate muscle properties is not new. Hatze19 first used
+
+                                                              this approach to estimate the properties of the three
+218  B. A. GARNER and M. G. PANDY
+
+heads of triceps brachii in the human arm. In that study,    don lengths, and the measured torque-angle curves, is an
+torque-angle curves measured for maximum voluntary           important issue that should be addressed in future work.
+contractions of the triceps were matched to the maximum
+isometric extension torque calculated using a simple one        A second limitation is that the accuracy of the results
+dof model of the elbow joint. Although our method is         depends on the availability of maximum isometric joint
+similar in principle to the one described by Hatze,19 there  torques. While numerous studies have reported torque-
+are some important differences. Our method capitalizes       angle curves for the shoulder, elbow, and wrist, a com-
+on known properties of a MT actuator muscle volume           plete set of measurements for even a single joint is dif-
+and the extreme physiological lengths to limit the num-      ficult to obtain. Winters and Kleweno40 recorded
+ber of unknown parameters to two. Hatze's method re-         maximum isometric torque-angle curves for flexion and
+quires four parameters to be optimized for each muscle.      abduction, but not for internal rotation. Delp et al.10 re-
+We also used a change of variables Eqs. 5­8 to               corded the maximum torques developed by the wrist
+express the unknown parameters in a form that allows         muscles for flexion-extension and radial-ulnar deviation,
+their initial values to be found quite easily. Perhaps most  but no data were reported for combined movements of
+importantly, Hatze tested his method on a relatively         the wrist. Also, muscles that cross more than one joint
+simple model which consisted of three muscles crossing       contribute simultaneously to the torques developed at all
+a single dof hinge joint. Our method was tested on a 13      the spanned joints. Thus, the net torque developed at a
+dof model of the arm actuated by 42 muscles, with all        primary joint is affected by changes in the configuration
+the muscles producing torque about many dofs simulta-        of a neighboring joint. Although our method can account
+neously e.g., the long head of triceps crosses both the      for the possibility of muscles crossing multiple joints, in
+elbow and shoulder, which together have four dofs in the     practice it is difficult to obtain a complete set of torque-
+model.                                                       angle curves for all possible configurations of each joint.
+                                                             Thus, estimates obtained for the biarticular muscles in
+   There are also some limitations of the method. Per-       the model may be limited by the absence of a full
+haps most significantly, it does not guarantee a unique      complement of experimental torque-angle data for the
+set of results. Values of maximum isometric muscle           arm. It is also quite difficult to measure isometric torques
+force, optimal muscle-fiber length, and tendon slack         for some joints in the upper limb, specifically the ster-
+length for each actuator are obtained by matching the        noclavicular and acromioclavicular joints which form
+strength profile of the model to that measured for sub-      part of the shoulder girdle. Estimates obtained for
+jects. Because the muscles and bones of the upper limb       muscles crossing these joints may therefore be less reli-
+comprise a mechanically redundant system, it is possible     able than those for which maximum isometric torque-
+for this requirement to be satisfied by more than one set    angle data were available.
+of MT parameters. Nonetheless, the values given in
+Tables 1­3 should approximate reasonably well the               Finally, our results for the wrist muscles may be lim-
+properties of the muscles in the VHM cadaver because         ited by the fact that the extrinsic finger and thumb flex-
+1 the architectural properties of each actuator were         ors and extensors were not included in the model. The
+constrained by the calculated values of muscle volume        hand extrinsics can contribute significantly to the maxi-
+and the maximum and minimum musculotendon lengths;           mum isometric torques developed at the wrist. Neglect-
+2 the results of a large number of simulated trials were     ing the involvement of these muscles is likely to mean
+included in the optimization calculations; and 3 the         that the peak isometric strengths of the other muscles at
+model simulations were performed over a large region of      the wrist are overestimated in the model.
+the configuration space of the arm.
+                                                                Perhaps most noticeable from our results is the fact
+   More confidence could be gained in the model results      that the volumes and cross-sectional areas of the muscles
+by perturbing the values of the MT parameters and re-        of the VHM cadaver are much larger than the values
+solving the optimization problem. If the algorithm con-      reported by others Tables 1 and 2. The most likely
+verges to the same solution, then one may conclude that      explanation is that the measurements reported in the lit-
+the calculations are relatively insensitive to small         erature are based on cadavers obtained from elderly do-
+changes in the initial guesses. Even though estimates of     nors, while the VHM dataset is based on a relatively
+parameter sensitivity to model assumptions and measure-      young, muscular male. On the other hand, our estimates
+ment errors were not obtained in this study, we believe      of optimal muscle-fiber length and tendon slack length
+our method is at least partially substantiated by the fact   are in reasonable agreement with data available in the
+that the model predictions compare favorably with re-        literature Table 3, which is not surprising given that the
+sults obtained from cadaver dissections see Tables 2 and     lengths of the bones and the ranges of motion of the
+3. Quantifying the sensitivity of the optimization solu-     joints are not likely to be very different for the VHM
+tion to changes in the input parameters, specifically        cadaver and the specimens used in anatomical studies.
+muscle volumes, minimum and maximum musculoten-
+                                                                In summary, the computational method presented in
+                                                             this paper should be useful to researchers interested in
+                                 Estimation of Musculotendon Properties in the Human Upper Limb  219
+
+developing musculoskeletal models of the human body.                                          REFERENCES
+Although it was applied to the upper limb here, the
+method itself is general and can be used to estimate the              1 Amis, A. A., D. Dowson, and V. Wright. Elbow joint force
+properties of MT actuators in the lower limb without                   predictions for some strenuous isomeric actions. J. Biomech.
+modification. For each actuator in the model, values of                13:765­775, 1980.
+peak isometric force, optimal muscle-fiber length, and                2 Amis, A. A., D. Dowson, and V. Wright. Muscle strengths
+tendon slack length are calculated knowing muscle vol-                 and musculoskeletal geometry of the upper limb. Eng. Med.
+ume and the extreme minimum and maximum lengths                        (Berlin) 8:41­ 48, 1979.
+of the actuator. The muscle architectural data obtained in            3 An, K. N., F. C. Hui, B. G. Morrey, R. L. Linscheid, and E.
+this study should also be useful to those interested in                Y. Chao. Muscles across the elbow joint: A biomechanical
+developing models of the upper limb, because much of                   analysis. J. Biomech. 14:659­ 669, 1981.
+these data, especially tendon slack lengths, were not pre-            4 Anderson, F. C., and M. G. Pandy. Dynamic optimization of
+viously available.                                                     human walking. J. Biomech. Eng. 123:381­390, 2001.
+                                                                      5 Anderson, F. C., and M. G. Pandy. Storage and utilization of
+                  ACKNOWLEDGMENTS                                      elastic strain energy during jumping. J. Biomech. 26:1413­
+                                                                       1427, 1993.
+   Partial funding for this work was provided by NASA                 6 Bassett, R. W., A. O. Browne, B. F. Morrey, and K. N. An.
+Grant Nos. NGT-51025 and NAG9-805. The authors                         Glenohumeral muscle force and moment mechanics in a po-
+thank the National Library of Medicine for making avail-               sition of shoulder instability. J. Biomech. 14:659­ 669, 1990.
+able to us the Visible Human Project dataset. Support                 7 Brand, P. W., R. B. Beach, and D. E. Thompson. Relative
+provided by the Visualization Laboratory at The Univer-                tension and potential excursion of muscles in the forearm and
+sity of Texas Center for High Performance Computing is                 hand. J. Hand Surgery 6:209­219, 1981.
+also gratefully acknowledged.                                         8 Chen, J. J. Quantitative architectural analysis of human
+                                                                       upper-extremity muscles. PhD dissertation, University of Vir-
+                      NOMENCLATURE                                     ginia, 1988.
+                                                                      9 Cutts, A., R. M. Alexander, and R. F. Ker. Ratios of cross-
+FM muscle force                                                        sectional areas of muscles and their tendons in a healthy
+                                                                       human forearm. J. Anatomy 176:133­137, 1991.
+F   M    peak isometric muscle force                                 10 Delp, S. L., A. E. Grierson, and T. S. Buchanan. Maximum
+    o                                                                  isometric movements generated by the wrist muscles in
+~F M                                        M                          flexion-extension and radial-ulnar deviation. J. Biomech.
+         muscle   force  normalized  by  F  o                          29:1371­1375, 1996.
+                                                                     11 Delp, S. L., J. P. Loan, M. G. Hoy, F. E. Zajac, E. L. Topp,
+v   M    maximum shortening velocity of a muscle                       and J. M. Rosen. An interactive graphics-based model of the
+    o                                                                  lower extremity to study orthopaedic surgical procedures.
+                                                                       IEEE Trans. Biomed. Eng. 37:757­767, 1990.
+ pennation angle of a muscle                                         12 Engin, A. E., and I. Kaleps. Active muscle torques about
+                                                                       long-bone axes of major human joints. Aviat., Space Environ.
+o pennation angle at the optimal muscle-fiber length                   Med. 51:551­555, 1980.
+            M                                                        13 Engin, A. E., and S. M. Chen. Statistical data base for the
+         L  o                                                          biomechanical properties of the human shoulder complex--I:
+                                                                       Kinematics of the shoulder complex. J. Biomech. Eng.
+LM muscle-fiber length                                                 108:215­225, 1986.
+                                                                     14 Garner, B. A., and M. G. Pandy. Musculoskeletal model of
+L   M    optimal muscle-fiber length                                   the human arm based on the visible human male dataset.
+    o                                                                  Comput. Methods Biomech. Biomed. Eng. 4:93­126, 2001.
+~L M                                                M                15 Garner, B. A., and M. G. Pandy. The obstacle set method for
+         muscle-fiber    length  normalized  by  L  o                  representing muscle paths in musculoskeletal models. Com-
+                                                                       put. Methods Biomech. Biomed. Eng. 3:1­30, 2000.
+L   M    minimum physiological muscle-fiber length                   16 Garner, B. A., and M. G. Pandy. A kinematic model of the
+    min                                                                upper limb based on the visible human project VHP image
+    M                                                                  dataset. Comput. Methods Biomech. Biomed. Eng. 2:107­
+L   max  maximum  physiological      muscle-fiber   length             124, 1999.
+                                                                     17 Gonzalez, R. V., E. L. Hutchins, R. E. Barr, and L. D.
+~L  M    minimum  physiological      muscle-fiber      length  nor-    Abraham. Development and evaluation of a musculoskeletal
+    min                                                                model of the elbow joint complex. J. Biomech. Eng. 118:32­
+                         M                                             40, 1996.
+         malized  by  L  o                                           18 Gordon, A. M., A. F. Huxley, and F. J. Julian. The variation
+                                                                       in isometric tension with sarcomere length in vertebrate
+~L  M    maximum      physiological  muscle-fiber      length  nor-    muscle fibres. J. Physiol. (London) 184:170­192, 1966.
+    max                                                              19 Hatze, H. Estimation of myodynamic parameter values from
+                         M                                             observations on isometrically contracting muscle groups.
+         malized  by  L  o                                             Appl. Phys. (Berlin) 46:325­338, 1981.
+                                                                     20 Hoy, M. G., F. E. Zajac, and M. E. Gordon. A musculoskel-
+LT tendon length                                                       etal model of the human lower extremity: The effect of
+
+L   T    tendon slack length
+    s
+LMT musculotendon actuator length
+
+L   MT   minimum      physiological  musculotendon     actuator
+    min
+
+         length
+
+L   MT   maximum      physiological  musculotendon     actuator
+    max
+
+         length
+220  B. A. GARNER and M. G. PANDY
+
+  muscle, tendon, and moment arm on the moment-angle rela-            32 Pandy, M. G., F. E. Zajac, E. Sim, and W. S. Levine. An
+  tionship of musculotendon actuators at the hip, knee, and             optimal control model for maximum-height human jumping.
+  ankle. J. Biomech. 23:157­169, 1990.                                  J. Biomech. 23:1185­1198, 1990.
+21 Hutchins, E. L. The musculoskeletal geometry of the human
+  elbow and wrist: An analysis using torque-angle relation-           33 Raasch, C. C., F. E. Zajac, B. Ma, and W. S. Levine. Muscle
+  ships. Masters thesis, The University of Texas at Austin,             coordination of maximum-speed pedaling. J. Biomech.
+  1993.                                                                 30:595­ 602, 1997.
+22 Johnson, G. R., D. Spalding, A. Nowitzke, and N. Bogduk.
+  Modelling the muscles of the scapula: Morphometric and              34 Reiser, R. F. Development of geometric and muscle-specific
+  coordinate data and functional implications. J. Biomech.              parameter values for musculoskeletal modeling of the shoul-
+  29:1039­1051, 1996.                                                   der joint. Masters thesis, The University of Texas at Austin,
+23 Karlsson, D., and B. Peterson. Towards a model for force             1993.
+  predictions in the human shoulder. J. Biomech. 25:189­192,
+  1992.                                                               35 Spector, S. A., P. F. Gardiner, R. F. Zernicke, R. R. Roy, and
+24 Keating, J. F., P. Waterworth, J. Shaw-Dunn, and J. Crossan.         V. R. Edgerton. Muscle architecture and force-velocity char-
+  The relative strengths of the rotator cuff muscles. J. Bone Jt.       acteristics of cat soleus and medial gastrocnemius: Implica-
+  Surg., Br. Vol. 75B:137­140, 1993.                                    tions for motor control. J. Neurophysiol. 44:951­960, 1980.
+25 Klein-Breteler, M. D., C. W. Spoor, and F. C. T. Van der
+  Helm. Measuring muscle and joint geometry parameters of a           36 Steindler, A. Postgraduate lectures in orthopedics, diagnosis,
+  shoulder for modeling purposes. J. Biomech. 32:1191­1197,             and indications. Springfield, Illinois: Charles C. Thomas,
+  1999.                                                                 1950.
+26 Knapik, J. J., J. E. Wright, R. H. Mawdsley, and J Braun.
+  Isometric, isotonic, and isokinetic torque variations in four       37 Veeger, H. E., Y. Bing, K. N. An, and R. H. Rozendal.
+  muscle groups through a range of joint motion. Physical               Parameters for modeling the upper extremity. J. Biomech.
+  Therapy 63:938 ­947, 1983.                                            30:647­ 652, 1997.
+27 Lemay, M. A., and P. E. Crago. A dynamic model for simu-
+  lating movements of the elbow, forearm, and wrist. J. Bio-          38 Veeger, H. E., F. C. van der Helm, L. H. van der Woulde, G.
+  mech. 29:1319­1330, 1996.                                             M. Pronk, and R. H. Rozendal. Inertia and muscle contrac-
+28 Lieber, R. L., M. D. Jacobson, B. M. Fazeli, R. A. Abrams,           tion parameters for musculoskeletal modeling of the shoulder
+  and M. J. Botte. Architecture of selected muscles of the arm          mechanism. J. Biomech. 24:615­ 629, 1991.
+  and forearm: Anatomy and implications for tendon transfer. J.
+  Hand Surgery 17A:787­798, 1992.                                     39 Weijs, W. A., and B. Hillen. Cross-sectional areas and esti-
+29 Loren, G. J., S. D. Shoemaker, T. J. Burkholder, M. D.               mated intrinsic strength of the human jaw muscles. Acta
+  Jacobson, J. Friden, and R. L. Lieber. Human wrist motors:            Morphology Aeerl.-Scand 23:267­274, 1985.
+  Biomechanical design and application to tendon transfers. J.
+  Biomech. 29:331­342, 1996.                                          40 Winters, J. M., and D. J. Kleweno. Effect of initial upper
+30 Otis, J. C., R. F. Warren, S. I. Backus, T. J. Santner, and J. D.    limb alignment on muscle contributions to isometric strength
+  Mabrey. Torque production in the shoulder of the normal               curves. J. Biomech. 26:143­153, 1993.
+  young adult male. Am. J. Sports Med. 18:119­123, 1990.
+31 Pandy, M. G. Computer modeling and simulation of human             41 Winters, J. M., and L. Stark. Estimated mechanical properties
+  movement. Annu. Rev. Biomed. Eng. 3:245­273, 2001.                    of synergistic muscles involved in movements of a variety of
+                                                                        human joints. J. Biomech. 21:1027­1041, 1988.
+
+                                                                      42 Wood, J. E., S. G. Meek, and S. C. Jacobsen. Quantitation of
+                                                                        human shoulder anatomy for prosthetic arm control--I. Sur-
+                                                                        face modelling. J. Biomech. 22:273­292, 1989.
+
+                                                                      43 Zajac, F. E. Muscle and tendon: Properties, models, scaling,
+                                                                        and application to biomechanics and motor control. In: CRC
+                                                                        Critical Reviews in Biomedical Engineering, edited by J. R.
+                                                                        Bourne. Baltimore; Williams & Wilkins, 1989, Vol. 17, pp.
+                                                                        359­ 411.
+

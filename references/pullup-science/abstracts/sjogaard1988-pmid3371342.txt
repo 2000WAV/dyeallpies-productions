@@ -1,0 +1,25 @@
+1. Eur J Appl Physiol Occup Physiol. 1988;57(3):327-35. doi: 10.1007/BF00635992.
+
+Muscle blood flow during isometric activity and its relation to muscle fatigue.
+
+Sjøgaard G(1), Savard G, Juel C.
+
+Author information:
+(1)Danish National Institute of Occupational Health, Copenhagen.
+
+The effect of isometric exercise on blood flow, blood pressure, intramuscular 
+pressure as well as lactate and potassium efflux from exercising muscle was 
+examined. The contractions performed were continuous or intermittent (5 s on, 5 
+s off) and varied between 5% and 50% maximal voluntary contraction (MVC). A 
+knee-extensor and a hand-grip protocol were used. Evidence is presented that 
+blood flow through the muscle is sufficient during low-level sustained 
+contractions (less than 10% MVC). Despite this muscle fatigue occurs during 
+prolonged contractions. One mechanism for this fatigue may be the disturbance of 
+the potassium homeostasis. Such changes may also play a role in the development 
+of fatigue during intermittent isometric contractions and even more so in the 
+recovery from such exercise. In addition the role of impaired transport of 
+substances within the muscle, due to long-lasting daily oedema formation, is 
+discussed in relation to fatigue in highly repetitive, monotonous jobs.
+
+DOI: 10.1007/BF00635992
+PMID: 3371342 [Indexed for MEDLINE]

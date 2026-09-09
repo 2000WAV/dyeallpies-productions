@@ -1,0 +1,31 @@
+1. Eur J Appl Physiol Occup Physiol. 1983;51(3):395-408. doi: 10.1007/BF00429076.
+
+Skeletal muscle tension, flow, pressure, and EMG during sustained isometric 
+contractions in humans.
+
+Sadamoto T, Bonde-Petersen F, Suzuki Y.
+
+In five healthy males sustained isometric torques during elbow flexion, knee 
+extension, and plantar flexion correlated positively with intramuscular tissue 
+pressure (MTP) in the range 0-80% of the maximal voluntary contraction (MVC). 
+During passive compression of the muscle at rest 133-Xenon muscle clearance 
+stopped when MTP reached diastolic arterial pressure (DAP) indicating that the 
+muscle vascular bed was occluded. However, during sustained contraction this 
+relation between DAP, flow and MTP was not seen. In two cases 133-Xenon 
+clearance from M. soleus did not stop in spite of an 80% maximal contraction and 
+MTP stayed below DAP. In other cases MTP would reach as high as 240 mm Hg before 
+clearance was zero. In the deeper parts of the muscles MTP during contraction 
+was increased in relation to the more superficial parts. The means values for 
+the % MVC that would stop MBF varied between 50 and 64% MVC for the investigated 
+muscles. Mean rectified EMG (MEMG) showed a high correlation to MTP during 
+sustained exhaustive contractions: When MEMG was kept constant MTP also remained 
+constant while the exerted force decreased; when force was kept constant both 
+MEMG and MTP increased in parallel. This demonstrated that muscle tissue 
+compliance is decreasing during fatigue. Muscle ischemia occurring during 
+sustained isometric contractions is partly due to the developed MTP, where 
+especially the MTP around the veins in the deeper parts of the muscle can be 
+considered of importance. However, ischemia is also affected by muscle fiber 
+texture and anatomical distorsion of tissues.
+
+DOI: 10.1007/BF00429076
+PMID: 6685038 [Indexed for MEDLINE]

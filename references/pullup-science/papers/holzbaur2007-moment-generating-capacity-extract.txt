@@ -1,0 +1,481 @@
+ARTICLE IN PRESS
+
+Journal of Biomechanics ] (]]]]) ]]]­]]]
+
+                                                                          www.elsevier.com/locate/jbiomech
+                                                                                            www.JBiomech.com
+
+Moment-generating capacity of upper limb muscles in healthy adults
+
+  Katherine R.S. Holzbaura,b,Ã, Scott L. Delpa,b,c, Garry E. Goldd, Wendy M. Murrayc
+
+                                              aBioengineering Department, Stanford University, Stanford, CA 94305, USA
+                                        bMechanical Engineering Department, Stanford University, Stanford, CA 94305, USA
+
+                                                 cBone and Joint Center, VA Palo Alto HCS, Palo Alto, CA 94304, USA
+                                                 dRadiology Department, Stanford University, Stanford, CA 94305, USA
+
+                                                                             Accepted 17 November 2006
+
+Abstract
+
+   Muscle strength and volume vary greatly among individuals. Maximum isometric joint moment, a standard measurement of strength,
+has typically been assessed in young, healthy subjects, whereas muscle volumes have generally been measured in cadavers. This has made
+it difficult to characterize the relationship between isometric strength and muscle size in humans. We measured maximum isometric
+moments about the shoulder, elbow, and wrist in 10 young, healthy subjects, ranging in size from a 20th percentile female to a 97th
+percentile male. The volumes of 32 upper limb muscles were determined from magnetic resonance images of these same subjects, and
+grouped according to their primary function. The maximum moments produced using the shoulder adductors (67.9728.4 Nm) were
+largest, and were approximately 6.5(71.2) times greater than those produced using the wrist extensors (10.274.6 Nm), which were
+smallest. While there were substantial differences in moment-generating capacity among these 10 subjects, moment significantly covaried
+with muscle volume of the appropriate functional group, explaining between 95% (po0.0001; shoulder adductors) and 68% (p ¼ 0.004;
+wrist flexors) of the variation in the maximum isometric joint moments among subjects. While other factors, such as muscle moment
+arms or neural activation and coordination, can contribute to variation in strength among subjects, they either were relatively constant
+across these subjects compared to large differences in muscle volumes or they covaried with muscle volume. We conclude that differences
+in strength among healthy young adults are primarily a consequence of variation in muscle volume, as opposed to other factors.
+r 2006 Elsevier Ltd. All rights reserved.
+
+Keywords: Upper limb; Strength; Scaling; Imaging; Biomechanics
+
+1. Introduction                                                           entire upper limb often focus on functional tasks, such as
+                                                                          weight lifting (Hortobagyi et al., 1989) or pushing (Roman-
+   Studies that characterize strength of upper limb muscles               Liu and Tokarski, 2005). While evaluating strength in the
+have typically involved measurement of the maximum                        context of a functional task is important, these relatively
+moment generated about a single joint in differing subject                complex tasks may highlight the motor coordination
+populations (Amis et al., 1980; Engin and Kaleps, 1980;                   required to complete that specific task, rather than
+Otis et al., 1990; Winters and Kleweno, 1993; Delp et al.,                revealing the maximum moment-generating capacity of
+1996; Buchanan et al., 1998). As a result, it is difficult to             each muscle group. Garner and Pandy (2001) reported the
+combine data from previous studies to determine the                       moment-generating capacity of the muscles crossing the
+relative moment-generating capacity of the different joints               shoulder, elbow, forearm, and wrist in three male subjects,
+of the upper limb. Studies that characterize strength of the              and provided valuable insight into the relative strength of
+                                                                          upper limb muscles in this population.
+   ÃCorresponding author. Bioengineering Department, Stanford Uni-
+versity, James H. Clark Center, Room S-355 MC 5450, 318 Campus               Upper limb muscle size has typically been characterized
+Drive, Stanford CA 94305-5450, USA. Tel.: +1 650 724 5323;                in cadaveric specimens (An et al., 1981; Lieber et al., 1990,
+fax: +1 650 724 1922.                                                     1992; Jacobson et al., 1992; Murray et al., 2000;
+                                                                          Langenderfer et al., 2004). The physiologic cross-sectional
+    E-mail address: krsholzbaur@gmail.com (K.R.S. Holzbaur).              areas of muscles in cadavers do not reflect the absolute size
+
+0021-9290/$ - see front matter r 2006 Elsevier Ltd. All rights reserved.
+doi:10.1016/j.jbiomech.2006.11.013
+
+Please cite this article as: Holzbaur, K.R., et al., Moment-generating capacity of upper limb muscles in healthy adults. Journal of Biomechanics (2006),
+doi:10.1016/j.jbiomech.2006.11.013
+                                                                                                                                                                                                                                                                                                                                       2
+
+   Please cite this article as: Holzbaur, K.R., et al., Moment-generating capacity of upper limb muscles in healthy adults. Journal of Biomechanics (2006),  Table 1
+doi:10.1016/j.jbiomech.2006.11.013                                                                                                                           Subject characteristics and maximum isometric moments
+
+                                                                                                                                                             Subjecta    Age         Height (cm)  Percentileb       Weight (kg)                Percentileb  Shoulder moments (Nm)     Elbow moments (Nm)       Wrist moments (Nm)
+                                                                                                                                                                                                  (height)                                     (weight)
+                                                                                                                                                                                                                                                                                                                                       K.R.S. Holzbaur et al. / Journal of Biomechanics ] (]]]]) ]]]­]]]
+                                                                                                                                                             F1          24          157.5        20                49.9                        5           Abduction    Adduction    Flexion     Extension    Flexion     Extension                                                                      ARTICLE IN PRESS
+                                                                                                                                                             F2          36          162.6        50                49.9                        5
+                                                                                                                                                             F3          24          162.6        50                59.0                       40           31.6          43.0        23.5        23.1         10.3         6.7
+                                                                                                                                                             F4          30          165.1        65                52.2                       10           39.2          48.0        35.2        28.4          7.6         6.7
+                                                                                                                                                             M1          28          172.7        35                72.6                       30           28.3          42.8        38.0        24.0         14.4         6.8
+                                                                                                                                                             M2          27          175.3        50                83.9                       70           41.3          43.5        32.4        23.5          8.6         7.0
+                                                                                                                                                             M3          37          175.3        50                93.0                       90           75.1          81.4        78.2        62.3         22.7        14.0
+                                                                                                                                                             F5          26          177.8        99                72.6                       90           55.6          91.1        68.3        57.6         26.6        12.9
+                                                                                                                                                             M4          27          177.8        65                72.6                       30           79.7         111.7        90.8        52.3         37.2        19.3
+                                                                                                                                                             M5          27          188.0        97                86.2                       75           34.4          33.3        30.3        26.2         12.4         4.8
+                                                                                                                                                             Mean        28.0 (5.1)  165.1 (7.6)  56.8 (28.7)       56.7 (9.6)                 30.0 (36.6)  79.3          88.9        82.1        69.1         22.4         9.8
+                                                                                                                                                             female                                                                                         82.3          95.6        78.1        61.4         18.9        13.8
+                                                                                                                                                             (7SD)       29.2 (4.4)                                                            59.0 (27.5)  34.9 (5.4)    42.1 (5.4)  31.9 (5.5)  25.0 (2.2)   10.7 (2.7)   6.4 (0.9)
+                                                                                                                                                             Mean male
+                                                                                                                                                             (7SD)                   177.8 (6.0)  59.4 (23.5)       81.6 (8.9)                              74.4 (10.8)  93.7 (11.3) 79.5 (8.1)   60.5 (6.2)   25.6 (7)    14.0 (3.4)
+                                                                                                                                                                                                                                                            54.7 (22.3)  67.9 (28.4) 55.7 (25.9)  42.8 (19.2)  18.1 (9.3)  10.2 (4.6)
+                                                                                                                                                             Mean total  28.6 (4.5)  171.5 (9.3)  58.1 (24.8)       69.2 (15.8)                44.5 (34.1)
+                                                                                                                                                             (7SD)
+
+                                                                                                                                                             aThe letter in the subject designation indicates the gender of the subject.
+                                                                                                                                                             bPercentile values based on height and weight are based on Gordon et al. (1989).
+                                  ARTICLE IN PRESS
+
+   K.R.S. Holzbaur et al. / Journal of Biomechanics ] (]]]]) ]]]­]]]                                                                                      3
+
+of muscles in the upper limb in young healthy subjects            The purpose of this study is (1) to assess the relative
+(Holzbaur et al., 2007). Magnetic resonance imaging            moment-generating capacity of muscles at the shoulder,
+(MRI) allows assessment of muscle volume and other             elbow, and wrist in males and females, and (2) to evaluate
+features (Asakawa et al., 2002; Pappas et al., 2002; Tingart   the degree to which variation in moment-generating
+et al., 2003) in subjects for whom we can also assess          capacity among subjects can be explained by differences
+moment-generating capability.                                  in their muscle volumes.
+
+   Isometric strength is highly correlated to muscle           2. Methods
+volume and cross-sectional area at the elbow (Kanehisa
+et al., 1994; Fukunaga et al., 2001; Klein et al., 2001). The     Ten subjects (5 females, 5 males, 24­37 years, 158­188 cm tall,
+shoulder and wrist differ in structural complexity and         50­86 kg) with no history of injury or pathology of the upper limb were
+purpose from each other and from the elbow; thus, it is        studied. The subjects ranged from a 20th percentile female to a 97th
+unclear if a relationship between muscle volume and            percentile male (Gordon et al., 1989), based on height (Table 1). All
+isometric strength also exists at these joints. If such a      subjects provided informed consent in accordance with institutional
+relationship were to exist, it would provide insight to the    guidelines. The dominant arm of each subject was tested; in all cases the
+functional design of the upper limb, and elucidate a general   right limb was dominant.
+principle governing the transformation from muscle mass
+to physical strength.                                             Isometric joint moments produced during a maximum voluntary
+                                                               contraction were quantified for six muscle groups using a Biodex System3
+
+   Moment-generating capacity assessment
+
+a                                 b                                c
+
+Shoulder abduction and adduction      Elbow flexion and extension     Wrist flexion and extension
+
+                                  Muscle volume assessment
+
+d                                     e                               f
+
+   Acquire magnetic resonance images  Segment muscle boundaries Create 3D muscle surfaces
+
+Fig. 1. Muscle volume and moment-generating capacity assessments. Maximum isometric moment-generating capacity (top) was assessed at the
+(a) shoulder (in abduction and adduction), (b) elbow (in flexion and extension), and (c) wrist (in flexion and extension). The elbow and wrist were braced
+during maximal shoulder tasks, and the wrist was braced during maximal elbow tasks. The subject was restrained to minimize torso motion. Muscle
+volume was assessed (bottom) using (d) magnetic resonance imaging to acquire images for the anatomical region shown shaded in red. (e) Muscle
+boundaries were identified on individual images and (f) three-dimensional muscle surfaces were created from these boundaries. Volumes were calculated
+based on these surfaces.
+
+Please cite this article as: Holzbaur, K.R., et al., Moment-generating capacity of upper limb muscles in healthy adults. Journal of Biomechanics (2006),
+doi:10.1016/j.jbiomech.2006.11.013
+                                                        ARTICLE IN PRESS
+
+4                                 K.R.S. Holzbaur et al. / Journal of Biomechanics ] (]]]]) ]]]­]]]
+
+(Biodex Medical Systems, Shirley, NY). Maximum shoulder abduction              Table 2                         Shoulder adduction
+and adduction moments were assessed with the shoulder positioned at 601        Functional groups of muscles
+abduction with the elbow braced in an extended posture (IMAK Products                                          Latissimus dorsi
+Corporation, San Diego, CA), the forearm in neutral rotation, and the          Shoulder abduction              Pectoralis major
+wrist braced in neutral flexion and deviation (Thermoskin by United                                            Infraspinatus
+Pacific Industries, Kilsyth, Australia) (Fig. 1a). Extension and flexion       Deltoid                         Teres minor
+moments at the elbow were assessed with the elbow in 901 flexion, the          Subscapularis                   Teres major
+forearm supinated, the shoulder in neutral abduction, and the wrist braced     Supraspinatus                   Coracobrachialis
+in a neutral posture (Fig. 1b). Extension and flexion moments at the wrist
+were measured with the wrist in a neutral posture, the forearm pronated,       Elbow flexion                   Elbow extension
+the shoulder in neutral abduction, and the elbow flexed to 901 (Fig. 1(c)).
+For all tests, the subject was seated, and the torso restrained with straps    Biceps brachii                  Triceps brachii
+placed around the trunk. For each test, the axis of rotation of the joint of   Brachialis                      Anconeus
+interest was aligned with the center of rotation of the dynamometer.           Brachioradialis                 Supinator
+Because the Biodex System3 attachments for shoulder and elbow tests            Pronator teres
+transmit load through the wrist to the hand grip, we used rigid splints to     Wrist flexion                   Wrist extension
+brace distal joints not being tested. We also modified the hand grip so that
+the hand was fixed to the grip with a padded locking cuff, allowing            Flexor carpi radialis           Extensor carpi radialis longus
+effective force transmission for all isometric tests and restricting rotation  Flexor carpi ulnaris            Extensor carpi radialis brevis
+of the hand on the grip. Finally, the choice of joint postures was intended    Palmaris longus                 Extensor carpi ulnaris
+to isolate the muscle group being tested.                                      Flexor digitorum superficialis  Extensor digitorum communis
+                                                                               Flexor digitorum profundus      Extensor digiti minimi
+   For each muscle group, we collected three trials of 3 s duration. Data      Flexor pollicis longus          Extensor indicis propio
+were sampled at 100 Hz. Subjects were instructed to produce a maximum          Abductor pollicis longus        Extensor pollicis longus
+voluntary contraction and were given visual and verbal feedback to                                             Extensor pollicis brevis
+encourage performance. To minimize the effects of fatigue, 60 s of rest was
+provided in between trials, and the order in which joints were tested wasMaximum isometric moment (Nm)deviation/mean) for all muscle groups and all subjects was 6.5%,
+randomized across subjects.                                                    indicating that each subject produced comparable moments in repeated
+                                                                               trials. To compare relative strengths at each joint, we used the Wilcoxon
+   For each subject, the maximum isometric moment produced using a             Signed-Ranks test (n ¼ 10), with an experiment-wide po0.05, adjusted for
+given muscle group was calculated after the testing session was completed.     multiple comparisons using the Bonferonni correction to po0.0033 for
+For each trial, maximum moment was determined by identifying the 0.5 s         individual comparisons.
+window during which the largest moment was maintained, and then
+averaging over the window (Fig. 2). The maximum moments from all three            The same subjects were imaged in a 1.5 T MRI scanner (GE
+trials were averaged to estimate the representative moment produced for        Healthcare, Milwaukee, WI), and three-dimensional reconstructions were
+that muscle group. The average coefficient of variation (standard              created of the geometry of the 32 muscles of the upper limb crossing the
+                                                                               shoulder (glenohumeral joint), elbow, and wrist (Fig. 1d­f). From these
+      30                                                                       reconstructions we measured the volume of each muscle. We provide
+                                                                               details on volume determination and establish the accuracy of this method
+      20                                                                       in a previous publication (Holzbaur et al., 2007).
+
+      10                                                                          To evaluate the relationship between joint moment and muscle volume,
+                                                                               we grouped the muscles according to their primary function (Table 2);
+        0                                                                      these groups were determined using the peak moment arm of each muscle
+                                                                               found using a musculoskeletal model that characterizes the geometry of
+                                                                               the upper limb (Holzbaur et al., 2005). We compared the sum of the
+                                                                               volumes of muscles in each group to the corresponding maximum moment
+                                                                               measured for each subject using linear regression analysis. We used the
+                                                                               coefficient of determination (r2) to evaluate the degree of covariation in
+                                                                               the maximum isometric moment and total muscle volume for a functional
+                                                                               group. We also performed a multivariate analysis, considering the effect of
+                                                                               muscle volume, muscle group, gender, and subject weight on the
+                                                                               maximum isometric joint moment, with moment and volume measure-
+                                                                               ments adjusted by taking the square root to normalize the range. This
+                                                                               prevents bias due to differences in the ranges of volume and moment
+                                                                               observed for the various functional groups. Results were considered
+                                                                               significant for both analyses for po0.01.
+
+                               0                        5
+
+                               Time in trial (seconds)                         3. Results
+
+Fig. 2. Example data trace for a single 3 s trial. This example was obtained      Maximum isometric moments varied substantially, both
+from the test of elbow extension moment for subject F5. Stars indicate the     across different subjects and different functional muscle
+0.5 s period during which the highest average moment was recorded. The         groups that were evaluated. Standard deviations for
+circle indicates the peak moment determined by averaging over the 0.5 s        a given joint averaged 57% of the average moment,
+period.
+
+   Please cite this article as: Holzbaur, K.R., et al., Moment-generating capacity of upper limb muscles in healthy adults. Journal of Biomechanics (2006),
+   doi:10.1016/j.jbiomech.2006.11.013
+                                                        ARTICLE IN PRESS
+
+                                          K.R.S. Holzbaur et al. / Journal of Biomechanics ] (]]]]) ]]]­]]]                                               5
+
+                                     120
+
+Maximum isometric joint moment (Nm)  100
+
+                                     80
+
+                                     60
+
+                                     40
+
+                                     20
+
+                                     0                  Shoulder   Elbow      Elbow    Wrist                    Wrist
+                                             Shoulder   adduction  flexion  extension  flexion               extension
+                                             abduction
+
+Fig. 3. Maximum isometric joint moments generated about the shoulder, elbow, and wrist. Bars indicate the mean for 10 subjects, with one standard
+deviation shown with the error bars.
+
+illustrating the high variability in joint moments produced                 4. Discussion
+by these subjects. We observed over a sixfold difference
+(p ¼ 0.002) in the maximum moments produced during                             This study is the first to evaluate moment-generating
+shoulder adduction and wrist extension, the largest                         capacity of muscles about the shoulder, elbow, and wrist in
+difference between any two functional groups we tested                      a group of subjects with known muscle volumes. For each
+(Fig. 3). Elbow flexion moments were significantly greater                  of the six functional muscle groups, the strongest subject
+than elbow extension moments (p ¼ 0.002), which were                        generated moments that were approximately 2.5 times
+greater than wrist flexion moments (p ¼ 0.002), followed                    greater than the weakest subject. We observed over a
+by wrist extension moments (p ¼ 0.002).                                     sixfold difference in maximum isometric moments between
+                                                                            the strongest (shoulder adductors) and weakest (wrist
+   While there were substantial differences in strength                     extensors) functional groups. Isometric moments produced
+among these 10 subjects, an average of 80% of the                           during maximum voluntary effort significantly covaried
+variation in the maximum joint moments was accounted                        with the sum of the volumes of muscles in the correspond-
+for by differences in muscle volumes between subjects, as                   ing functional group. We conclude that variation in
+determined using regression analysis (n ¼ 10) (Fig. 4). At                  isometric strength among healthy young adults is primarily
+the shoulder, 90% of the variation in maximum shoulder                      a consequence of differences in muscle volume.
+abduction moment was accounted for by the sum of the
+volumes of the shoulder abduction muscles (po0.0001)                           The magnitude of isometric moment produced about a
+(Fig. 4a). The total volume of shoulder adductors                           joint during maximum effort depends on levels of activa-
+explained 95% of variation in maximum isometric                             tion of muscles spanning the joint and joint posture (which
+shoulder adduction moment (po0.0001) (Fig. 4b). At the                      influences both the mechanical advantages of muscles and
+elbow, 83% of variation in flexion moment (p ¼ 0.0001)                      muscle lengths); muscle force is highly dependent on its
+(Fig. 4c) and 76% of the extension moment was accounted                     length (Gordon et al., 1966) and the architectural arrange-
+for by muscle volumes (p ¼ 0.0006) (Fig. 4d). At the wrist,                 ment of the fibers of the muscle (Zajac, 1989). Because
+68% of variation in flexion moment (p ¼ 0.0035) (Fig. 4e)                   many different factors contribute to moment produced
+and 68% of variation in extension moment (p ¼ 0.0035)                       about a joint, it is interesting that muscle volumes covaried
+(Fig. 4f) were accounted for by the volume of wrist flexor                  so strongly with isometric strength for six different muscle
+muscles and extensor muscles, respectively.                                 functional groups at three joints with substantial differ-
+                                                                            ences in geometric design and kinematic complexity. The
+   The multivariate analysis considering muscle volume,                     high degree of variation in maximum joint moments
+muscle group, gender, and subject weight revealed a                         explained by muscle volumes suggests that, while other
+significant effect on maximum isometric joint moment only                   factors have the potential to contribute to variation
+for muscle volume (po0.001). The within-subject correlation                 in isometric strength among subjects, they either were
+coefficient was 0.373, indicating that 14% of the variation in              relatively constant across these subjects compared to the
+maximum isometric joint moment was due to differences in                    large differences in muscle volumes or they covaried with
+subject-specific characteristics other than volume.
+
+Please cite this article as: Holzbaur, K.R., et al., Moment-generating capacity of upper limb muscles in healthy adults. Journal of Biomechanics (2006),
+doi:10.1016/j.jbiomech.2006.11.013
+                                                                     ARTICLE IN PRESS
+
+6                                                     K.R.S. Holzbaur et al. / Journal of Biomechanics ] (]]]]) ]]]­]]]
+
+                                        120      Shoulder abduction               120 b  Shoulder adduction
+
+   Maximum isometric joint moment (Nm)       a
+
+                                        80                                        80
+
+                                        40                                        40
+
+                                           0                                      0
+                                              0
+                                                 400  800            1,200 1,600      0  400  800                        1,200 1,600
+                                        120 c
+                                                      Elbow flexion               120 d       Elbow extension
+
+   Maximum isometric joint moment (Nm)  80                                        80
+
+                                        40                                        40
+
+                                        0                                         0
+
+                                            0    200  400            600  800         0  200  400                        600  800
+
+                                        40 e          Wrist flexion               40 f        Wrist extension
+
+   Maximum isometric joint moment (Nm)  30                                        30
+
+                                        20                                        20
+
+                                        10                                        10
+
+                                        0                                         0
+
+                                            0    200       400            600         0  200                             400  600
+
+                                                 Muscle volume (cm3)                     Muscle volume (cm3)
+
+Fig. 4. Maximum isometric moment versus total volume of muscles in the corresponding functional group. Data points for all 10 subjects are shown as
+
+squares (male subjects) and triangles (female subjects) for shoulder abduction (a) and adduction (b), elbow flexion (c) and extension (d), and wrist flexion
+(e) and extension (f). Strong correlations (r240.67, po0.0001) between moments and volumes indicate that most of the variation in strength across
+subjects can be explained by the differences in muscle volume.
+
+   Please cite this article as: Holzbaur, K.R., et al., Moment-generating capacity of upper limb muscles in healthy adults. Journal of Biomechanics (2006),
+   doi:10.1016/j.jbiomech.2006.11.013
+ARTICLE IN PRESS
+
+K.R.S. Holzbaur et al. / Journal of Biomechanics ] (]]]]) ]]]­]]]                                                                                         7
+
+muscle volume. We previously observed coefficients of          braced the distal upper limb joints and the hand at the grip.
+variation (SD/mean) on the order of 10­20% for moment          In general, changes in joint posture during testing were
+arms and muscle fascicle lengths measured from cadaveric       most evident in rotations at the wrist. This had little effect
+specimens that spanned a comparable height range as these      on joint centers for the elbow and shoulder, but had a
+subjects (Murray et al., 2000, 2002). In contrast, the         larger effect on wrist alignment. Because moments gener-
+coefficient of variation for total muscle volume for 10        ated at the wrist are smaller than moments at the elbow
+subjects studied here was approximately 45%. The large         and shoulder, and because the force at the hand is applied
+differences in muscle volume between subjects accounted        closer to the rotation axis for the wrist, the measured wrist
+for a high fraction of differences in moment-generating        moments are the most sensitive to variations in subject
+capacity among individuals.                                    alignment. Similarly, the resolution of our strength
+                                                               measurement device (1 Nm) is a larger proportion of the
+   Muscle volumes obtained from cadaveric experiments do       isometric moments measured at the wrist (10% for wrist
+not correspond to the magnitude of joint moments               extension) than at the elbow or shoulder (2%). Finally,
+measured at the shoulder and elbow in adult human              because the range of moments measured at the wrist is
+subjects. We have shown (Holzbaur et al., 2007) that           smaller, this can also reduce the magnitude of correlation
+muscle volumes from cadaveric studies (An et al., 1981;        coefficients that were calculated (Atkinson and Nevill,
+Lieber et al., 1990, 1992; Jacobson et al., 1992; Murray       1998). It is likely that these factors contributed to the lower
+et al., 2000; Langenderfer et al., 2004) are consistent with   correlations observed between muscle volumes and iso-
+muscle volumes of the smallest individuals in our study.       metric moments produced at the wrist.
+However, only previously measured values of maximal
+moment for wrist flexion and extension (Delp et al., 1996)        We have previously shown (Holzbaur et al., 2007) that
+are consistent with the smaller individuals in this study.     the distribution of muscle volume in the upper limb is
+This mismatch between cadaveric data and previous              conserved across individuals with dramatically different
+literature describing moment-generating capacity at the        total upper limb muscle volume. For example, the volume
+shoulder and elbow in living subjects explains why it has      of muscles capable of adducting the shoulder accounts for
+been difficult to represent accurately the magnitudes of       approximately 28% of the total volume of muscle in the
+isometric moments for these joints using computer models       upper limb, regardless of overall muscle volume of the
+that are derived from cadaveric data (see Holzbaur et al.,     individual. In contrast, only about 5% of total upper limb
+2005 for summary).                                             muscle volume is capable of extending the wrist. The
+                                                               approximately sixfold difference in muscle volume ob-
+   Moment-generating capacity depends on joint position,       served between these two functional groups is comparable
+but we report strength for a single posture for each joint as  to the difference in their isometric strength, measured in
+we sought to quantify the degree of variability in isometric   this study.
+moment-generating capacities for healthy individuals
+spanning a broad size range. We did not measure the               We observed a marked difference between the moment-
+moment­angle relationship over the range of motion; the        generating capacity of male and female subjects. We
+general relationships between isometric moment and joint       selected the male and female subjects to obtain a wide
+posture have been previously established for the shoulder,     range of sizes, taking care to choose subjects such that
+elbow, and wrist (Amis et al., 1980; Otis et al., 1990; Delp   weight and height ranges of the male and female subjects
+et al., 1996; Buchanan et al., 1998; Garner and Pandy,         overlapped, and were surprised that the strength and
+2001). While the relative strengths presented here (Fig. 3)    muscle volume data were so separated. We have previously
+may not reflect relative strength in different limb config-    shown that muscle volume distributions are consistent
+urations, the significant relationship identified between      between these male and female subjects, despite differences
+volume and moment should not be affected by the choice         in total muscle volume (Holzbaur et al., 2007). In addition,
+of posture. Rather, the entire moment­angle relationship       the multivariate analysis did not show an effect of gender
+will be affected similarly by the volume of the muscles,       on maximum isometric joint moment that was independent
+because the distribution of muscle is conserved for these      from the effect of muscle volume. That is, the women
+subjects (Holzbaur et al., 2007). The joint postures for the   generated smaller moments at each joint primarily because
+current study were chosen because they are functional          they had less muscle volume.
+positions near the posture in which maximum moment-
+generation is expected.                                           It has been suggested that distribution of muscle within
+                                                               the upper limb may be related to the requirement to reduce
+   Muscle volumes explained 66­95% of the variations in        mass at the distal end of the extremity (Bramble and
+isometric moments across six functional groups. The            Lieberman, 2004). Our data suggest that not only is muscle
+experimental technique could contribute to differences in      volume, and therefore mass, highest at the shoulder and
+the amount of variation explained across muscle groups.        lowest at the wrist, but that isometric strength at these
+For example, misalignment or movement of the joint center      joints is coupled to volume in a way that is also conserved
+relative to the dynamometer is known to affect measure-        across individuals. Large moments about the shoulder are
+ments of isometric moment (Arampatzis et al., 2005). To        needed to move the entire upper limb, whereas smaller
+minimize these effects and restrict changes in posture we      moments about the wrist are adequate to move the hand.
+
+Please cite this article as: Holzbaur, K.R., et al., Moment-generating capacity of upper limb muscles in healthy adults. Journal of Biomechanics (2006),
+doi:10.1016/j.jbiomech.2006.11.013
+   ARTICLE IN PRESS
+
+8  K.R.S. Holzbaur et al. / Journal of Biomechanics ] (]]]]) ]]]­]]]
+
+The stereotyped distribution of muscle volume and relative                     Gordon, A.M., Huxley, A.F., Julian, F.J., 1966. The variation in isometric
+strength in this population of healthy young adults                                tension with sarcomere length in vertebrate muscle fibres. Journal of
+suggests consistent design of the upper limb. Whether                              Physiology 184, 170­192.
+these relationships are preserved in other human popula-
+tions, such as the elderly or individuals with physical                        Gordon, C.C., Churchill, T., Clauser, C.E., Bradtmiller, B., McConville,
+impairments, or whether these relationships are substan-                           J.T., Tebbets, I., Walker, R.A., 1988. Anthropometric Survey of U.S.
+tially altered by specialized training (such as the exercise                       Army Personnel: Methods and Summary Statistics, 1989.
+regimens adopted by athletes) requires further investiga-
+tion.                                                                          Holzbaur, K.R., Murray, W.M., Delp, S.L., 2005. A model of the upper
+                                                                                   extremity for simulating musculoskeletal surgery and analyzing
+   This study provides data sets for maximum isometric                             neuromuscular control. Annals of Biomedical Engineering 33,
+joint moment-generating capacity measured for six func-                            829­840.
+tional muscle groups of the upper limb in a group of
+subjects with known muscle volumes. These data have                            Holzbaur, K.R., et al., 2007. Upper limb muscle volumes in the adult
+multiple applications, including improved parameter esti-                          subjects. Journal of Biomechanics, in press, doi:10.1016/j.biomech.
+mation for musculoskeletal modeling and creation of                                2006.11.011.
+models that more closely represent individuals of different
+size.                                                                          Hortobagyi, T., Katch, F.I., LaChance, P.F., 1989. Interrelationships
+                                                                                   among various measures of upper body strength assessed by different
+Acknowledgments                                                                    contraction modes. Evidence for a general strength component.
+                                                                                   European Journal of Applied Physiology and Occupational Physiology
+   We would like to acknowledge the support of the                                 58, 749­755.
+Whitaker Foundation, Medtronic Foundation Stanford
+Graduate Fellowship, the Rehabilitation Research and                           Jacobson, M.D., Raab, R., Fazeli, B.M., Abrams, R.A., Botte, M.J.,
+Development Service of the Department of Veterans                                  Lieber, R.L., 1992. Architectural design of the human intrinsic
+Affairs (]A3741R), and NIH R01 HD046774. We thank                                  hand muscles. Journal of Hand Surgery--American Volume 17,
+Jarrett Rosenberg for discussion of the statistical analyses.                      804­809.
+
+References                                                                     Kanehisa, H., Ikegawa, S., Fukunaga, T., 1994. Comparison of muscle
+                                                                                   cross-sectional area and strength between untrained women and men.
+Amis, A.A., Dowson, D., Wright, V., 1980. Analysis of elbow forces due             European Journal of Applied Physiology and Occupational Physiology
+    to high-speed forearm movements. Journal of Biomechanics 13,                   68, 148­154.
+    825­831.
+                                                                               Klein, C.S., Rice, C.L., Marsh, G.D., 2001. Normalized force, activation,
+An, K.N., Hui, F.C., Morrey, B.F., Linscheid, R.L., Chao, E.Y., 1981.              and coactivation in the arm muscles of young and old men. Journal of
+    Muscles across the elbow joint: a biomechanical analysis. Journal of           Applied Physiology 91, 1341­1349.
+    Biomechanics 14, 659­669.
+                                                                               Langenderfer, J., Jerabek, S.A., Thangamani, V.B., Kuhn, J.E., Hughes,
+Arampatzis, A., Morey-Klapsing, G., Karamanidis, K., DeMonte, G.,                  R.E., 2004. Musculoskeletal parameters of muscles crossing the
+    Stafilidis, S., Bruggemann, G.P., 2005. Differences between measured           shoulder and elbow and the effect of sarcomere length sample size
+    and resultant joint moments during isometric contractions at the ankle         on estimation of optimal muscle length. Clinical Biomechanics 19,
+    joint. Journal of Biomechanics 38, 885­892.                                    664­670.
+
+Asakawa, D.S., Blemker, S.S., Gold, G.E., Delp, S.L., 2002. In vivo            Lieber, R.L., Fazeli, B.M., Botte, M.J., 1990. Architecture of selected
+    motion of the rectus femoris muscle after tendon transfer surgery.             wrist flexor and extensor muscles. Journal of Hand Surgery--
+    Journal of Biomechanics 35, 1029­1037.                                         American Volume 15, 244­250.
+
+Atkinson, G., Nevill, A.M., 1998. Statistical methods for assessing            Lieber, R.L., Jacobson, M.D., Fazeli, B.M., Abrams, R.A., Botte, M.J.,
+    measurement error (reliability) in variables relevant to sports medicine.      1992. Architecture of selected muscles of the arm and forearm:
+    Sports Medicine 26, 217­238.                                                   anatomy and implications for tendon transfer. Journal of Hand
+                                                                                   Surgery--American Volume 17, 787­798.
+Bramble, D.M., Lieberman, D.E., 2004. Endurance running and the
+    evolution of Homo. Nature 432, 345­352.                                    Murray, W.M., Buchanan, T.S., Delp, S.L., 2000. The isometric
+                                                                                   functional capacity of muscles that cross the elbow. Journal of
+Buchanan, T.S., Delp, S.L., Solbeck, J.A., 1998. Muscular resistance to            Biomechanics 33, 943­952.
+    varus and valgus loads at the elbow. Journal of Biomechanical
+    Engineering 120, 634­639.                                                  Murray, W.M., Buchanan, T.S., Delp, S.L., 2002. Scaling of peak moment
+                                                                                   arms of elbow muscles with upper extremity bone dimensions. Journal
+Delp, S.L., Grierson, A.E., Buchanan, T.S., 1996. Maximum isometric                of Biomechanics 35, 19­26.
+    moments generated by the wrist muscles in flexion­extension and
+    radial­ulnar deviation. Journal of Biomechanics 29, 1371­1375.             Otis, J.C., Warren, R.F., Backus, S.I., Santner, T.J., Mabrey, J.D.,
+                                                                                   1990. Torque production in the shoulder of the normal young
+Engin, A.E., Kaleps, I., 1980. Active muscle torques about long-bone axes          adult male. The interaction of function, dominance, joint angle,
+    of major human joints. Aviation Space and Environmental Medicine               and angular velocity. American Journal of Sports Medicine 18,
+    51, 551­555.                                                                   119­123.
+
+Fukunaga, T., Miyatani, M., Tachi, M., Kouzaki, M., Kawakami, Y.,              Pappas, G.P., Asakawa, D.S., Delp, S.L., Zajac, F.E., Drace, J.E., 2002.
+    Kanehisa, H., 2001. Muscle volume is a major determinant of joint              Nonuniform shortening in the biceps brachii during elbow flexion.
+    torque in humans. Acta Physiologica Scandinavica 172, 249­255.                 Journal of Applied Physiology 92, 2381­2389.
+
+Garner, B.A., Pandy, M.G., 2001. Musculoskeletal model of the upper            Roman-Liu, D., Tokarski, T., 2005. Upper limb strength in relation to
+    limb based on the visible human male dataset. Computer Methods in              upper limb posture. International Journal of Industrial Ergonomics 35,
+    Biomechanics and Biomedical Engineering 4, 93­126.                             19­31.
+
+                                                                               Tingart, M.J., Apreleva, M., Lehtinen, J.T., Capell, B., Palmer, W.E.,
+                                                                                   Warner, J.J., 2003. Magnetic resonance imaging in quantitative
+                                                                                   analysis of rotator cuff muscle volume. Clinical Orthopaedics and
+                                                                                   Related Research, 104­110.
+
+                                                                               Winters, J.M., Kleweno, D.G., 1993. Effect of initial upper-limb
+                                                                                   alignment on muscle contributions to isometric strength curves.
+                                                                                   Journal of Biomechanics 26, 143­153.
+
+                                                                               Zajac, F.E., 1989. Muscle and tendon: properties, models, scaling, and
+                                                                                   application to biomechanics and motor control. Critical Reviews in
+                                                                                   Biomedical Engineering 17, 359­411.
+
+   Please cite this article as: Holzbaur, K.R., et al., Moment-generating capacity of upper limb muscles in healthy adults. Journal of Biomechanics (2006),
+   doi:10.1016/j.jbiomech.2006.11.013
+

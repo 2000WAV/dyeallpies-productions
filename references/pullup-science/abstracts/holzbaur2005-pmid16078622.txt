@@ -1,0 +1,32 @@
+1. Ann Biomed Eng. 2005 Jun;33(6):829-40. doi: 10.1007/s10439-005-3320-7.
+
+A model of the upper extremity for simulating musculoskeletal surgery and 
+analyzing neuromuscular control.
+
+Holzbaur KR(1), Murray WM, Delp SL.
+
+Author information:
+(1)Mechanical Engineering Department, Stanford University, Stanford, California 
+94305, USA.
+
+Biomechanical models of the musculoskeletal system are frequently used to study 
+neuromuscular control and simulate surgical procedures. To be broadly 
+applicable, a model must be accessible to users, provide accurate 
+representations of muscles and joints, and capture important interactions 
+between joints. We have developed a model of the upper extremity that includes 
+15 degrees of freedom representing the shoulder, elbow, forearm, wrist, thumb, 
+and index finger, and 50 muscle compartments crossing these joints. The 
+kinematics of each joint and the force-generating parameters for each muscle 
+were derived from experimental data. The model estimates the muscle-tendon 
+lengths and moment arms for each of the muscles over a wide range of postures. 
+Given a pattern of muscle activations, the model also estimates muscle forces 
+and joint moments. The moment arms and maximum moment-generating capacity of 
+each muscle group (e.g., elbow flexors) were compared to experimental data to 
+assess the accuracy of the model. These comparisons showed that moment arms and 
+joint moments estimated using the model captured important features of upper 
+extremity geometry and mechanics. The model also revealed coupling between 
+joints, such as increased passive finger flexion moment with wrist extension. 
+The computer model is available to researchers at http://nmbl.stanford.edu.
+
+DOI: 10.1007/s10439-005-3320-7
+PMID: 16078622 [Indexed for MEDLINE]

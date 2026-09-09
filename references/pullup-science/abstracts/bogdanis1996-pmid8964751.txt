@@ -1,0 +1,41 @@
+1. J Appl Physiol (1985). 1996 Mar;80(3):876-84. doi:
+10.1152/jappl.1996.80.3.876.
+
+Contribution of phosphocreatine and aerobic metabolism to energy supply during 
+repeated sprint exercise.
+
+Bogdanis GC(1), Nevill ME, Boobis LH, Lakomy HK.
+
+Author information:
+(1)Department of Physical Education, Loughborough University, United Kingdom.
+
+This study examined the contribution of phosphocreatine (PCr) and aerobic 
+metabolism during repeated bouts of sprint exercise. Eight male subjects 
+performed two cycle ergometer sprints separated by 4 min of recovery during two 
+separate main trials. Sprint 1 lasted 30 s during both main trials, whereas 
+sprint 2 lasted either 10 or 30 s. Muscle biopsies were obtained at rest, 
+immediately after the first 30-s sprint, after 3.8 min of recovery, and after 
+the second 10- and 30-s sprints. At the end of sprint 1, PCr was 16.9 +/- 1.4% 
+of the resting value, and muscle pH dropped to 6.69 +/- 0.02. After 3.8 min of 
+recovery, muscle pH remained unchanged (6.80 +/- 0.03), but PCr was 
+resynthesized to 78.7 +/- 3.3% of the resting value. PCr during sprint 2 was 
+almost completely utilized in the first 10 s and remained unchanged thereafter. 
+High correlations were found between the percentage of PCr resynthesis and the 
+percentage recovery of power output and pedaling speed during the initial 10 s 
+of sprint 2 (r = 0.84, P < 0.05 and r = 0.91, P < 0.01). The anaerobic ATP 
+turnover, as calculated from changes in ATP, PCr, and lactate, was 235 +/- 9 
+mmol/kg dry muscle during the first sprint but was decreased to 139 +/- 7 
+mmol/kg dry muscle during the second 30-s sprint, mainly as a result of a 
+approximately 45% decrease in glycolysis. Despite this approximately 41% 
+reduction in anaerobic energy, the total work done during the second 30-s sprint 
+was reduced by only approximately 18%. This mismatch between anaerobic energy 
+release and power output during sprint 2 was partly compensated for by an 
+increased contribution of aerobic metabolism, as calculated from the increase in 
+oxygen uptake during sprint 2 (2.68 +/- 0.10 vs. 3.17 +/- 0.13 l/min; sprint 1 
+vs. sprint 2; P < 0.01). These data suggest that aerobic metabolism provides a 
+significant part (approximately 49%) of the energy during the second sprint, 
+whereas PCr availability is important for high power output during the initial 
+10 s.
+
+DOI: 10.1152/jappl.1996.80.3.876
+PMID: 8964751 [Indexed for MEDLINE]

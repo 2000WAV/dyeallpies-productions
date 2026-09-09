@@ -231,15 +231,36 @@ allowance for a chin 8 cm behind the bar. Whiskers are the ±3 cm "at the bar" b
   in 15 ms and off in 50 ms; and a three-compartment fatigue model (Xia &amp; Frey-Law 2008)
   makes every late rep draw on a smaller pool of able motor units. Peak elbow torque 79 N&middot;m,
   peak shoulder torque 76 N&middot;m; the biceps reaches its limit in the middle of every pull
-  and the lats peak at the top. By the end 24 % of the biceps' units and 16 % of the lats' are
-  modelled as fatigued. The heat total is calibrated to the energy budget above, then drained
-  by blood at a rate that ramps up over the first minutes.</p>
+  and the lats work at or above their isometric capacity through the pull (whole-rep 1.19,
+  against Youdas' 124 %MVIC), relaxing only in the hang. By the end 41 % of the lats' units and
+  20 % of the biceps' are modelled as fatigued, with the joint-specific rates of Frey-Law, Looft
+  &amp; Heitsman 2012 (Table 1, archived: the shoulder's fatigue rate is twice the elbow's; an
+  earlier cut held the table's ankle row for the shoulder, from memory, and had the biceps' pool
+  leading). Nothing recovers inside the set: the hang keeps the grip and the shoulder loaded
+  above the level at which a contracting muscle shuts its own blood flow (Sadamoto 1983,
+  50&ndash;64 %MVC), so the fatigue of one rep is carried into the next &mdash; peripheral fatigue
+  with incomplete recovery (Carroll, Taylor &amp; Gandevia 2017) &mdash; and recovery starts only
+  when the hands open, fifteen to thirty times faster than under load (Looft, Herkert &amp;
+  Frey-Law 2018). In the five seconds after the release the model clears 6&ndash;11 % of the
+  fatigued pool, in line with phosphocreatine's 21&ndash;22 s half-time (Harris 1976). The
+  shoulder's depth behind the bar, which sets the lats' level, is computed from the elbow angle
+  and the measured segment lengths (26&ndash;31 cm at the tops) rather than assumed; the biceps
+  carries the pronated grip's smaller moment arm; whole-rep lats / biceps comes out at 1.67
+  against Youdas' 1.59 and Snarr's 1.82. The heat total is calibrated to the energy budget above,
+  then drained by blood at a rate that ramps up over the first minutes.</p>
   <p>The legs are in the model too, and they are the reason they stay blue on screen: they
   hold a tucked position for the whole set rather than lifting anything, so they finish
-  between +0.07 and +0.31 &deg;C. Colour on the body is temperature, which only accumulates;
-  brightness is the effective activation &mdash; the share of the still-able motor units in
-  use &mdash; so the map contracts and relaxes with the levers of each rep and climbs through
-  the set. Where the model and the EMG literature disagree (Youdas has the lats above the
+  between +0.07 and +0.31 &deg;C. Colour on the body is the <em>effort index</em>, blue to red:
+  0.9 &times; the share of each muscle's motor units that are not resting &mdash; the active ones,
+  which contract and relax with the levers of each rep, plus the fatigued ones, the heat one rep
+  leaves in the next &mdash; plus 0.2 &times; the temperature over 1.5 &deg;C. The biceps go red at
+  the sticking point and blue at the first hang, green by the last; the lats peak at the top and
+  settle to green in the early hangs and orange in the late ones; the grip stays orange; and when
+  the hands open every working share drops at once while the fatigued share only begins to
+  clear, which is the slight cooling of the last seconds. (The first cut coloured by
+  temperature alone, which never falls in a set, so the map only ever got hotter; the elbow
+  flexors also carry a &times;1.25 strength factor over the generic OpenSim strengths so the
+  pull's demand no longer clips at 1.) Where the model and the EMG literature disagree (Youdas has the lats above the
   biceps over the whole rep; the model has them just below), the cause is the shoulder depth
   a front camera cannot see. The formulation is written out in <span class="mono">pullup/MUSCLE-MODEL.md</span>.</p>
   <p>Two of those constants are measured rather than fitted. González-Alonso and colleagues
@@ -334,8 +355,9 @@ with a different white balance, so it is not a usable baseline.</figcaption></fi
     the pose model's estimate, not an observation.</li>
     <li>Where the 3D estimate and the image plane disagree — the elbows — no claim is made.</li>
     <li>The temperature map is a model. The joint torques come from the video; the muscle
-    forces, the shoulder's depth behind the bar and the fatigue rates are inferred or assumed,
-    and marked as such in the code.</li>
+    forces and the shoulder's depth behind the bar are inferred; the fatigue and recovery rates
+    are the published joint-region values (Frey-Law 2012, Looft 2018), with the shoulder's rest
+    recovery extrapolated from the other joints; everything is marked as such in the code.</li>
     <li>Leg angles rely on extrapolated landmarks whenever the crossed ankles hide each other.</li>
   </ul>
 </section>

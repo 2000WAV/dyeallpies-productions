@@ -1,0 +1,37 @@
+Nicolay, C. W., & Walker, A. L. (2005). Grip strength and endurance: Influences of
+anthropometric variation, hand dominance, and gender. International Journal of Industrial
+Ergonomics, 35(7), 605-618. doi:10.1016/j.ergon.2005.01.007.
+
+NOT PubMed-indexed (Elsevier ergonomics journal, no PMID). Searched PubMed E-utilities under
+several author/topic combinations this session (zero hits); located instead via WebSearch,
+DOI resolved via CrossRef bibliographic query. Confirmed CLOSED access via Unpaywall
+(is_oa: false, no oa_locations) and Semantic Scholar Graph API (openAccessPdf.status:
+"CLOSED", abstract field elided by the publisher). Direct fetch of the ScienceDirect
+abstract page (ancID S0169814105000260) returned a Cloudflare-protected shell page, not the
+abstract text (same bot-wall pattern already logged in this file's DOWNLOADS.md history for
+other publishers) -- no primary abstract text could be saved this session.
+
+WHAT FOLLOWS IS A SECONDARY, WEBSEARCH-DERIVED SUMMARY, NOT THE PAPER'S OWN ABSTRACT --
+flagged as such per this project's sourcing rules. It is Claude's paraphrase of a search-
+engine result snippet (Semantic Scholar's public listing), not a verbatim quote:
+
+- 51 subjects, aged 18-33, three experiments: a single maximal grip repetition, a
+  10-repetition protocol, and a 30-second static (sustained) maximal handgrip hold.
+- Forearm/hand anthropometric measurements predicted absolute grip strength better than
+  height or weight; predictive accuracy was highest for the single-repetition test and
+  declined as protocol duration increased (i.e., strength is a weaker predictor of
+  endurance than of peak force).
+- Anthropometric variation was NOT associated with relative grip endurance (percent
+  decline in force output over the protocol) -- bigger hands/forearms do not fatigue
+  proportionally less.
+- The dominant hand was significantly stronger than the non-dominant hand but ALSO fatigued
+  MORE rapidly (a larger relative force decline), a trend more pronounced in women than men.
+
+Relevance to this project: the 30-second static maximal hold is the closest published
+protocol duration to a single hard set (Dennis's ~45 s of near-maximal effort); the direction
+of the dominant-hand finding (stronger but fatigues faster) is consistent with a peripheral,
+occlusion-driven fatigue mechanism (see Byström & Kilbom 1990, this directory) rather than a
+central one, since a stronger muscle contracting at a similar or higher %MVC would occlude
+its own blood flow more severely. No literal %-force-decline number from this paper could be
+retrieved this session -- do not report a numeric grip-decline percentage attributed to this
+citation; the only usable content is the qualitative summary above.

@@ -1,0 +1,628 @@
+                                                              Journal of Biomechanics 33 (2000) 943}952
+
+  The isometric functional capacity of muscles that cross the elbow
+
+                  Wendy M. Murray *, Thomas S. Buchanan , Scott L. Delp
+
+     Biomedical Engineering Department, Case Western Reserve University & VA FES Center, MetroHealth Medical Center, 2500 MetroHealth Dr.,
+                                                                      H601 Cleveland, OH 44109-1998, USA
+
+                                         Mechanical Engineering Department, University of Delaware, Newark, DE 19716, USA
+                   Biomechanical Engineering Division, Mechanical Engineering Department, Stanford University, Stanford, CA 04305, USA
+
+                                                                             Accepted 17 February 2000
+
+Abstract
+
+   We hypothesized that muscles crossing the elbow have fundamental di!erences in their capacity for excursion, force generation, and
+moment generation due to di!erences in their architecture, moment arm, and the combination of their architecture and moment arm.
+Muscle fascicle length, sarcomere length, pennation angle, mass, and tendon displacement with elbow #exion were measured for the
+major elbow muscles in 10 upper extremity specimens. Optimal fascicle length, physiological cross-sectional area (PCSA), moment
+arm, operating range on the force}length curve, and moment-generating capacity were estimated from these data. Brachioradialis and
+pronator teres had the longest (17.7 cm) and shortest (5.5 cm) fascicles, respectively. Triceps brachii (combined heads) and
+brachioradialis had the greatest (14.9 cm) and smallest (1.2 cm) PCSAs, respectively. Despite a comparable fascicle length, long head
+of biceps brachii operates over a broader range of the force}length curve (length change"56% of optimal length, 12.8 cm) than the
+long head of triceps brachii (length change"28% of optimal length, 12.7 cm) because of its larger moment arm (4.7 cm vs. 2.3 cm).
+Although brachioradialis has a small PCSA, it has a relatively large moment-generating capacity (6.8 cm) due to its large moment
+arm (average peak"7.7 cm). These results emphasize the need to consider the interplay of architecture and moment arm when
+evaluating the functional capabilities of a muscle. 2000 Elsevier Science Ltd. All rights reserved.
+
+Keywords: Elbow; Muscle architecture; Moment arms
+
+1. Introduction                                                     musculotendon excursion during joint rotation (An et al.,
+                                                                    1984).
+   Separately, a muscle's architecture and moment arm
+provide complementary views of its force- and moment-                  Given the in#uence of both muscle architecture and
+generating capabilities. For example, physiological                 moment arm, some aspects of a muscle's function cannot
+cross-sectional area (PCSA, muscle volume/optimal "ber              be predicted from understanding either its force-generat-
+length), a measure of the number of sarcomeres in paral-            ing properties or its moment arm alone. For example, the
+lel, determines a muscle's maximum force-generating ca-             ratio between moment arm and optimal fascicle length,
+pacity (Gans, 1982; Sacks and Roy, 1982). Moment arm,               which expresses length change relative to excursion capa-
+the shortest distance between a muscle's line of action             city, indicates how much of the isometric force}length
+and the joint center, transforms muscle force into joint            curve the muscle uses during joint rotation (Delp and
+moment. Similarly, optimal "ber length, a measure of the            Zajac, 1992; Hoy et al., 1990; Lieber and Shoemaker,
+number of sarcomeres in series, determines the maximum              1992). Assuming constant muscle activation, a muscle's
+length change over which a muscle can actively generate             moment arm, PCSA, and its operating range (how much
+force (i.e., excursion capacity). Moment arm determines             and what portion of the isometric force}length curve
+                                                                    the muscle uses during joint rotation) are the key
+   * Corresponding author. Tel.: #1-216-778-4211; fax: #1-216-778-  factors that characterize maximum moment-generating
+4259.                                                               capacity as a function of joint position (Gonzalez et al.,
+                                                                    1997; Lieber and Boakes, 1988). Thus, a muscle's archi-
+   E-mail address: wmm@po.cwru.edu (W.M. Murray).                   tecture and its moment arm must be known to estimate
+                                                                    its force- and moment-generating capacity over a range
+                                                                    of motion.
+
+0021-9290/00/$ - see front matter 2000 Elsevier Science Ltd. All rights reserved.
+PII: S 0 0 2 1 - 9 2 9 0 ( 0 0 ) 0 0 0 5 1 - 8
+944                            W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952
+
+   Previous studies provide quantitative descriptions of      a portion of each muscle was "rst removed and "xed in
+architecture and moment arms for the elbow muscles
+(Amis et al., 1979; An et al., 1981; Brand et al., 1981;      formalin, tendon displacement measurements were com-
+Gerbeaux et al., 1996; Lieber et al., 1990, 1992; Murray
+et al., 1995; Veeger et al., 1991, 1997; Wood et al., 1989).  pleted, and the remaining muscle segments were "xed in
+However, no study reports both moment arms and archi-
+tectural parameters measured in the same specimens.           formalin. The cadaveric specimens ranged in size from
+Evaluating function by combining data from di!erent
+specimens is problematic because there is a high degree of    a 50 female to a 64 male (see Table 1 for anthropomet-
+interspecimen variability in the available data.
+                                                              ric data). All protocols followed the guidelines and regu-
+   We hypothesized that the individual elbow muscles
+have fundamental di!erences in their isometric func-          lations for use of human cadaveric material at
+tional capacities due to intermuscular di!erences in
+muscle architecture, moment arms, and the interplay of        Northwestern University (Chicago, IL), the site of data
+each muscle's architecture and moment arm. To test this
+hypothesis, moment arm and muscle architecture were           collection.
+estimated in the same cadaveric upper extremity speci-
+mens and used to calculate fascicle lengths as a function     After "xation, muscles were prepared for further dis-
+of elbow rotation, the e!ect of elbow position on muscle
+force-generating capacity, and the moment-generating          section as described by Sacks and Roy (1982). We mea-
+capacity of each muscle.
+                                                              sured musculotendon length (the length of the entire
+2. Methods
+                                                              muscle}tendon unit from origin to insertion), muscle
+   We collected anatomical data from 10 unembalmed
+upper extremities, taken from nine cadavers. Each ex-         length (the distance from the most proximal "bers at the
+tremity was obtained in a frozen state, thawed over
+36}48 h, and dissected. Biceps brachii (BIC, long and         origin to the most distal "bers at the insertion),
+short heads), brachialis (BRA), brachioradialis (BRD),        pennation angle (the acute angle between the line
+extensor carpi radialis longus (ECRL), pronator teres
+(PT) and triceps brachii (TRI, long and lateral heads)        of action of the tendon and the line of action of the
+were studied in detail. To estimate both architectural
+parameters and moment arms from the same muscles,             muscle "bers), fascicle length (the length of a small bundle
+                                                              of muscle "bers from the tendon of origin to the tendon
+                                                              of insertion), and sarcomere length in each muscle. Fas-
+
+                                                              cicle lengths were measured instead of "ber lengths be-
+
+                                                              cause it is di$cult to isolate individual "bers. Muscle
+
+                                                              parameters for long head of biceps are not reported in
+
+                                                              three cadavers (M1, F6, F7) because the tendons were
+
+                                                              damaged at the shoulder joint and the muscles were
+
+                                                              pathologically short.
+
+                                                                 Optimal fascicle  lengths     (lle+n)gwthesre(lc$a)lctoulaatesdarbcyomnoerre-
+                                                              malizing measured    fascicle
+
+                                                              length (l1) of 2.8 m, the optimal sarcomere length in
+
+                                                              human muscle (Walker and Schrodt, 1974). That is,
+
+                                                              l+ "l$  2.8  .                                      (1)
+                                                                      l1
+
+Table 1
+Anthropometric data
+
+Specimen label Humerus length  Radius length  Ulna length     Trans-epicondylar                Upper arm      Carrying angle
+                                                              width                            circumference  (deg)
+
+M10  34.0                      26.6           28.9            7.3                              47.8           0
+
+M5   32.9                      25.1           26.6            6.6                              31.3           9
+
+M3   33.5                      24.4           26.4            6.8                              17.2           9
+
+F7   32.1                      24.1           26.2            6.2                              31.9           16
+
+M2   33.1                      24.0           25.9            6.7                              19.0           12
+
+M1   29.4                      23.6           25.0            6.6                              17.1           13
+
+F4   31.6                      23.5           25.1            6.0                              21.0           22
+
+F8   31.7                      23.2           24.6            5.8                              35.5           14
+
+F6   31.1                      22.6           24.2            5.6                              23.3           15
+
+F9   30.6                      22.1           24.0            5.5                              14.3           29
+
+  Upper arm circumference and carrying angle were measured before dissection, bone lengths and trans-epicondylar width were measured after
+dissection. Upper arm circumference was measured at the point where the circumference was the largest. Carrying angle was de"ned as the acute angle
+between the long axis of the upper arm and the long axis of the forearm while the arm was in full extension. The carrying angles of specimens that could
+not be fully extended before dissection (F4, F6, and F8) were measured after dissection was completed. Bone lengths were measured from the most
+superior point to the most inferior point on each bone. The distance between the epicondyles of the humerus was measured using calipers.
+
+  M indicates male specimen, F indicates female specimen.
+  Values in cm.
+                 W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952  945
+
+Fig. 1. (A) Side view of laser apparatus used for sarcomere length measurements. A 5 mW He}Ne laser (black rectangle) is shone through a prism
+(dashed lines) which re-directs the laser beam. The prism is housed in a stand (gray rectangle) directly in front of the laser. Small pieces of muscle
+fascicles are mounted on a microscope slide, which is placed on the stand and aligned so the laser beam di!racts through a muscle segment. The
+resulting di!raction pattern is viewed on a frosted glass surface located 7.56 cm from the slide. (B) Top view of the frosted glass surface and a schematic
+di!raction pattern. A piece of felt (dark circle) shields the undi!racted laser beam. The distance between the "rst-order di!raction bands (2y) is
+measured and used to calculate sarcomere length.
+
+Reported optimal lengths are the average of 10 nor-             Architectural parameters are not reported for eight of
+malized fascicle lengths per muscle. Sarcomere lengths       the 80 muscles because di!raction patterns could not be
+were determined using the laser di!raction method            obtained in these muscles. Thus, measured fascicle
+(Baskin et al., 1981; Yeh et al., 1980). A 5 mW He}Ne        lengths could not be normalized to a common sarcomere
+laser was shone through small pieces of each fascicle        length, which is critical because large di!erences in sar-
+mounted on a microscope slide. The width of the "rst-        comere lengths were observed (e.g., Fig. 2A). One source
+order di!raction pattern (2y in Fig. 1) was measured         of variation in sarcomere lengths was elbow posture.
+using calipers (resolution"0.0025 cm) and used to cal-       While frozen, "ve of the specimens were in an extended
+culate sarcomere length:                                     position and "ve were #exed approximately 903.
+                                                             Upon thawing and before dissection, the "ve extended
+l1" ,            (2)                                         specimens had a limited range of elbow #exion and three
+sin                                                          of the #exed specimens could not be extended. The aver-
+                                                             age sarcomere length of the major elbow #exors (BIC
+     y                                                       long, BIC short, BRA, BRD, and ECRL) from the "ve
+tan " ,          (3)                                         extended specimens was signi"cantly longer (p(0.05)
+     ¸                                                       than the average sarcomere length from the three #exed
+                                                             specimens (Fig. 2B). Also, the average sarcomere length
+where is the wavelength of the laser (0.6327 m), y is the    of the #exors was signi"cantly longer (p(0.05) than the
+distance between the undi!racted laser beam and the          sarcomere length of the extensors (TRI long and lateral)
+"rst-order band, and ¸ is the distance from the micro-       in the "ve extended specimens, but not in the three #exed
+scope slide to the frosted glass surface (7.56 cm). Caliper  specimens.
+measurements were repeatable to $0.038 cm, equiva-
+lent to $0.05 m for sarcomere lengths. Twelve                   Moment arms were estimated using the tendon dis-
+measurements were made in each fascicle: three from the      placement method (An et al., 1984) and a protocol similar
+origin, six from the middle, and three from the insertion.   to that described previously (Murray et al., 1995). Each
+                                                             muscle was connected to a position transducer (Celesco
+   PCSA was calculated as muscle volume divided by           Transducer Products, Canoga Park, CA) with a wire.
+optimal fascicle length. Muscle volume was calculated        Elbow #exion angle was measured with an elec-
+from muscle mass, measured after the tendon was re-          trogoniometer (Penny and Giles Biometrics, United
+moved, and muscle density, 1.06 g/cm (Mendez and             Kingdom). The outputs of the position transducer and
+Keys, 1960). The PCSA of lateral head of triceps includes    the electrogoniometer were sampled at 15 Hz while the
+the combined masses of the medial and lateral heads.         forearm was slowly moved through its range of motion.
+Tendon length (l2) was estimated by subtracting average      The forearm was maintained in 03 pronation}supination
+fascicle length (l$) from musculotendon length (l+2), tak-   during data collection.
+ing pennation angle ( ) into account:
+                                                                Moment arms were estimated between 203 and 1203
+l2"l+2!l$ cos .  (4)                                         #exion for the elbow #exors and between 303 and 1203
+                                                             #exion for triceps. Five trials of tendon displacement
+Pennation angle was measured using a handheld
+goniometer.
+946  W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952
+
+                                                                        ment arms. Because multiple comparisons were per-
+                                                                        formed for each parameter (e.g., BRD vs. BIC, BRD vs.
+                                                                        BRA,2), a higher level of signi"cance for individual
+                                                                        comparisons is required if all of the comparisons are to
+                                                                        reach the desired level (p(0.05). The levels of signi"-
+                                                                        cance for intermuscular comparisons for PCSA, peak
+                                                                        moment arm, average moment arm (p(0.0033) and op-
+                                                                        timal fascicle length (p(0.00179) were calculated using
+                                                                        the Bonferroni method (McClave and Dietrich, 1991).
+                                                                        Linear regressions were performed to evaluate relation-
+                                                                        ships between optimal fascicle length, PCSA, and mo-
+                                                                        ment arm and relationships between specimen size and
+                                                                        architectural parameters. Results were considered signi"-
+                                                                        cant for p(0.05.
+
+                                                                           To evaluate how the interplay of muscle architecture
+                                                                        and moment arm in#uences function, the operating
+                                                                        ranges and moment-generating potentials of the elbow
+                                                                        muscles were estimated. Assuming inelastic tendon and
+                                                                        aponeurosis, fascicle excursions during elbow #exion
+                                                                        were estimated from the tendon displacement measure-
+                                                                        ments. Estimated excursions were normalized by optimal
+                                                                        fascicle lengths and superimposed on a normalized
+                                                                        isometric force}length curve based on the average sar-
+                                                                        comere lengths of the "ve extended specimens. For the
+                                                                        elbow #exors, we assumed sarcomere lengths of 2.9 m at
+                                                                        103 elbow #exion (see Fig. 2B) and constant moment
+                                                                        arms between 103 and 203 elbow #exion. For the long
+                                                                        and lateral heads of triceps we assumed sarcomere
+                                                                        lengths of 2.1 m at 103 #exion and constant moment
+                                                                        arms between 103 and 303 elbow #exion. Moment-
+                                                                        generating potential was estimated as the product of
+                                                                        PCSA, average moment arm, and the cosine of pennation
+                                                                        angle.
+
+Fig. 2. (A) Distributions of sarcomere lengths measured in the long     3. Results
+head of TRI ("lled bars) in specimen M5 (n"120) and BRA (white
+bars) in specimen M1 (n"118). Both specimens M5 and M1 were                The elbow muscles posses a broad range of excursion
+extended specimens. As illustrated here, large di!erences in average    capacities and force-generating potentials, and undergo
+sarcomere lengths were often observed across muscles. (B) Average       a wide range of length changes during elbow #exion as
+sarcomere lengths of the major elbow #exors (BIC long, BIC short,       indicated by substantial di!erences in optimal fascicle
+BRA, BRD, and ECRL, "lled bars) and the extensors (TRI long and         lengths, PCSAs, and moment arms (Table 2). The inter-
+TRI lateral, white bars) for the extended and #exed specimens. Elbow    muscular di!erences in architectural parameters and mo-
+posture was a source of variation in sarcomere lengths across muscles.  ment arms are evident despite large variations observed
+                                                                        between specimens (see Figs. 3 and 4). For example, the
+vs. elbow #exion angle were collected per muscle. The                   optimal fascicle length of brachioradialis varied by
+numerical derivative of each trial was digitally "ltered                9.7 cm (54% of the average length) across specimens, yet
+using a second-order Butterworth "lter with a cuto!                     brachioradialis had the longest fascicles in each speci-
+frequency of 1 radian\. The "ve "ltered derivatives were                men. The optimal fascicle length of pronator teres varied
+averaged to estimate moment arm as a function of elbow                  by 4.3 cm (78% of the average length), but had the
+position, and the peak and average of this curve are                    shortest fascicles in each specimen. On average, the
+reported. Moment arms for brachialis in one specimen                    PCSA of the combined heads of triceps brachii (14.9 cm,
+(M2) and ECRL in a second specimen (M5) are not                         range"6.8}28.1 cm) was approximately 10 times
+reported due to di$culties in dissection and data collec-               greater than brachioradialis (1.2 cm, range"
+tion, respectively.                                                     0.5}2.3 cm; p(0.0005) or ECRL (1.5 cm, range"
+                                                                        0.8}2.1 cm; p(0.0008). The peak moment arm of
+   Matched pairs Student's t tests were performed to
+evaluate intermuscular di!erences in optimal fascicle
+lengths, PCSAs, peak moment arms, and average mo-
+                                         W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952                                947
+
+Table 2
+Summary of muscle moment arms and architectural parameters
+
+                      N                  Peak moment  Average             Tendon      Optimal Optimal              PCSA        Pennation
+                                         arm (cm)     moment              length                                   (cm)        angle (deg)
+                                                      arm (cm)            (cm)        muscle      fascicle length
+
+                                                                                      length (cm) (cm)
+
+                      Moment Muscle
+
+                      arm         archi
+
+Brachioradialis 10                10     7.7 (0.7)    5.4 (0.6)           16.9 (1.7)  26.0 (4.7)  17.7 (3.0)       1.2 (0.6)    0
+                                                      3.7 (0.3)
+Biceps                10                 4.7 (0.4)                        22.9 (1.6)  21.6 (4.5)  12.8 (3.2)       2.5 (1.1)    0
+                                                      2.1 (0.4)           18.3 (2.5)  23.4 (4.2)  14.5 (3.2)       2.1 (0.6)    0
+(1) Long                          6                   2.1 (0.3)                                   13.6 (3.7)       5.1 (1.6)
+                                                      1.2 (0.2)           24.8 (1.0)  13.9 (2.1)   9.2 (1.8)       1.5 (0.5)    1 (2)
+(2) Short                         8                   2.0 (0.2)           11.6 (1.3)  21.2 (2.9)   9.9 (1.6)       5.4 (1.3)    0
+                                                                          12.0 (1.6)  17.6 (2.9)   5.5 (1.2)       2.8 (0.9)   13 (6)
+Combined
+                                                                          21.7 (2.9)  35.6 (7.6)  12.7 (2.1)       4.3 (1.8)   10 (3)
+ECRL                  9           10     3.2 (0.5)                        18.7 (1.8)  29.1 (5.2)   9.3 (2.8)       10.5 (5.2)   8 (2)
+                                                                                                  10.3 (2.5)       14.9 (6.7)
+Brachialis            9           9      2.6 (0.3)
+
+Pronator teres        10          9      1.7 (0.3)
+
+Triceps               10                 2.3 (0.3)
+
+(1) Long                          9
+
+(2) Lateral                       8
+
+Combined
+
+Average of moment arm values between 20 and 1203 elbow #exion for #exors and between 30 and 1203 elbow #exion for triceps.
+
+Measured muscle length normalized to sarcomere length of 2.8 m.
+
+Standard deviations in parenthesis.
+
+Combined     l+"PCSAPC SlA+       #PCSA    l+  .
+                                  #PCSA  
+
+Combined PCSA"PCSA  #PCSA  .
+Magnitude of triceps extension moment arm. By convention, if #exion moment arms are positive, extension moment arms are negative.
+
+PCSA            mass   #mass     .
+            "          1.06l+
+
+Fig. 3. Physiological cross-sectional area (PCSA) and optimal fascicle    Fig. 4. Peak moment arms and optimal fascicle lengths estimated for
+lengths estimated for the elbow muscles. Ellipses show the 68% con"-      the elbow muscles. Ellipses show the 68% con"dence regions and are
+dence regions and are centered at the average optimal fascicle length     centered at the average optimal fascicle length and moment arm for
+and PCSA for each muscle. The upper boundary of the con"dence             each muscle. Optimal fascicle length was signi"cantly correlated to
+region for TRI extends beyond PCSA values of 11 cm and is not             peak moment arm across the elbow muscles. The regression line and
+pictured. TRI data points that have PCSAs greater than 11 cm but less     regression equation for optimal fascicle length and peak moment arm
+than 28 cm are aligned at the appropriate fascicle lengths in the         across all muscles in this study are shown.
+horizontal shaded region of the plot. These architectural parameters
+indicate that the elbow muscles possess a broad range of excursion
+capacities and force-generating potentials. These di!erences are evident
+despite substantial interspecimen variability.
+948                           W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952
+
+Fig. 5. Estimated operating ranges of the elbow #exors over 1003 of elbow #exion and of the extensors over 903 #exion. Estimated fascicle excursions
+
+were normalized   by optimal  fascicle length  (l+) and superimposed on a    normalized force}length curve based on the sarcomere lengths measured     from
+the "ve extended  specimens.  The variation    in force-generating capacity  during elbow #exion is expressed as a proportion of peak isometric force  (F+).
+
+Results shown are averages ($one standard deviation) of the 10 extremities in this study. Both muscle moment arm and optimal fascicle length
+
+determine how much of the isometric force}length curve each muscle uses.
+W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952  949
+
+brachioradialis (7.7 cm, range"7.0}9.0 cm) was more           Fig. 6. Isometric moment-generating capacity, estimated as the prod-
+than four times greater than the peak moment arm of           uct of PCSA, average moment arm, and the cosine of pennation angle.
+pronator teres (1.7 cm, range"1.3}2.0 cm; p(0.0001).          Results shown are averages ($one standard deviation), units are cm.
+                                                              Triceps brachii (combined heads) had the greatest moment-generating
+   Across the elbow muscles, muscles with larger moment       capacity in each specimen. Biceps brachii (combined heads) had the
+arms generally have longer fascicles. Given all the           greatest moment-generating potential of the elbow #exors.
+muscles in this study (n"68), optimal fascicle length was
+signi"cantly correlated to peak moment arm (r"0.775;          and are the smallest of the muscles studied. This would
+p(0.0001; Fig. 4). Across specimens, moment arm and           not be predicted from muscle architectural parameters
+optimal fascicle length were signi"cantly correlated in       alone because brachioradialis had the smallest PCSA in
+brachioradialis (r"0.712; p(0.02) and ECRL                    eight of ten extremities. The PCSA of pronator teres was
+(r"0.752; p(0.01). Optimal fascicle length was signi"-        2.3 times greater than brachioradialis (p(0.0008). Be-
+cantly correlated to humerus (r"0.656; p(0.04), radius        cause force-generating capacity and elbow muscle mo-
+(r"0.671;p(0.03), and ulna lengths (r"0.720; p(0.02)          ment arms vary as a function of elbow #exion angle, the
+in brachioradialis, and radius (r"0.753; p(0.01) and          relative strengths of the individual elbow muscles may
+ulna lengths (r"0.780; p(0.01) in ECRL. PCSA was              also vary as a function of elbow position.
+not correlated to peak moment arm, optimal fascicle
+length, or bone lengths for any muscle in this study.         4. Discussion
+
+   Brachioradialis and long and short heads of biceps            This work evaluated the isometric functional capabili-
+brachii have broad operating ranges on the isometric          ties of muscles that cross the elbow based on architec-
+force}length curve during elbow #exion; long head of          tural parameters and moment arms estimated in
+triceps brachii has a narrow operating range.                 di!erently sized upper extremity specimens. We hy-
+Brachioradialis and the two heads of biceps brachii have      pothesized that the individual elbow muscles have funda-
+signi"cantly di!erent peak and average moment arms            mental di!erences in their isometric functional capacities
+(p(0.0001); biceps brachii experiences a smaller absolute     due to intermuscular di!erences in muscle architecture,
+length change than brachioradialis during elbow #exion.       moment arms, and the interplay of each muscle's archi-
+However, the two heads of biceps also have shorter            tecture and moment arm. The anatomical data indicate
+fascicles than brachioradialis (p(0.001), indicating          that the excursion capacities of the elbow muscles vary
+a smaller excursion capacity. Thus, as a result of substan-   by as much as threefold, the force-generating capacities
+tial di!erences in both moment arms and optimal fascicle      vary by as much as tenfold, and the length changes
+lengths, the length change experienced relative to excur-     experienced during elbow #exion vary by as much as
+sion capacity is comparable in brachioradialis (55%),         fourfold. Long head of biceps and long head of triceps use
+long head (56%), and short head (48%) over 1003 of            substantially di!erent amounts of the isometric
+elbow #exion (Fig. 5). Long head of triceps has fascicles of  force}length curve during elbow #exion despite having
+comparable length to long head of biceps, but uses only       comparable excursion capacities. Despite having the
+28% of its isometric force}length curve over 903 of elbow     smallest force-generating potential, brachioradialis has
+#exion because of its smaller moment arm (p(0.0001).          the potential to contribute signi"cantly to elbow #exion
+Given the sarcomere lengths measured in this study (Fig.      moment because of its large #exion moment arm.
+2B), this di!erence in the ratio between moment arm and       This study emphasizes that understanding how a muscle
+optimal fascicle length has important functional conse-
+quences. The force-generating potentials of brachio-
+radialis and biceps brachii are compromised in #exed
+elbow postures, while long head of the triceps has a rela-
+tively constant force-generating capacity over a broad
+range of elbow postures (Fig. 5). For the remaining
+muscles (ECRL, BRA, PT, and TRI, lateral head), oper-
+ating ranges and force-generating capacities during el-
+bow #exion are intermediate to the described extremes.
+
+   Triceps brachii (combined heads) had the greatest mo-
+ment-generating potential in every specimen (Fig. 6),
+a result of its substantial PCSA. Biceps brachii (com-
+bined heads) had the largest moment-generating poten-
+tial of the #exors in each specimen. The moment-
+generating capacity of biceps originates from a smaller
+PCSA and a larger moment arm than triceps. The
+isometric moment-generating potentials of ECRL and
+pronator teres at the elbow are comparable to each other
+950                                   W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952
+
+Table 3
+Summary of published muscle architectural parameters
+
+                                      Optimal fascicle length (cm)  PCSA (cm)                         Pennation angle
+                                                                                                      (deg)
+
+BRD                                   14.2}23.9                     0.5}2.3                           0
+   Amis (N"1)                         14.2                          3.2                               0
+   An (N"4)                           16.4                          1.5
+   Brand (N"5)                        16.1                          3.4                               *
+   Lieber and Shoemaker (1992) (N"8)  15.4                          1.0
+   Veeger et al. (1997) (N"1)                                       2.9                               *
+   Wood (N"1)                         *                             1.3                               2
+                                                                    1.4}4.3                           (15
+BIC (long)                            *                             4.1
+   Amis (N"1)                          7.8}16.6                     2.5                               *
+   An (N"4)                           15.0                          2.8                               0
+   Veeger et al. (1997) (N"1)         13.6                          3.2                               0
+   Veeger et al. (1991) (N"14)                                      1.9
+   Wood (N"1)                         *                             1.6}3.2                           *
+                                                                    3.9                               (15
+BIC (short)                           *                             2.1
+   Amis (N"1)                                                       2.6                               *
+   An (N"4)                           *                             3.1
+   Veeger et al. (1997) (N"1)          9.6}18.8                     1.3                               *
+   Veeger et al. (1991) (N"14)        15.7                          0.7}2.1                           0
+   Wood (N"1)                         15.0                          3.3                               5
+                                                                    2.4
+ECRL                                  *                             4.9                               *
+   Amis (N"1)                                                       1.1                               (15
+   An (N"4)                           *                             3.9}7.4
+   Brand (N"5)                                                      9.4                               *
+   Lieber et al. (1990) (N"5)         *                             6.6
+                                       6.6}13.0                     5.6                               *
+BRA                                   10.8                          9.0                               0
+   Amis (N"1)                          7.8                          2.1}4.2                           4}6
+   An (N"4)                            9.3                          4.4
+   Veeger (1997) (N"1)                 9.7                          3.4                               *
+   Wood (N"1)                          8.6}12.2                     7.8
+                                      12.3                          3.3                               *
+PT                                     9.0                          1.7                               2.5
+   Amis (N"1)                                                       2.8}8.2                           0
+   An (N"4)                           *                             21.0                              0
+   Brand (N"5)                                                      6.7
+  Lieber and Shoemaker (1992) (N"8)   *                             4.7                               *
+  Veeger et al. (1997) (N"1)           3.5}7.8                      6.8                               (15
+                                       6.7                          3.9
+TRI (long)                             5.6                          4.0}19.9                          *
+   Amis (N"1)                          5.1                          28.3                              6}27.5
+   An (N"4)                            4.6                          10.2                              5}9
+   Veeger et al. (1997) (N"1)                                       8.1
+   Veeger et al. (1991) (N"14)        *                             6.9                               *
+   Wood (N"1)                          9.5}16.5
+                                       7.4                                                            *
+TRI (lat)                             10.2                                                            10
+   Amis (N"1)                                                                                         (15
+   An (N"4)                           *                                                               6.5}15
+   Veeger et al. (1997) (N"1)                                                                         16
+   Wood (N"1)                         *
+                                                                                                      *
+                                      *                                                               30
+                                       6.6}13.9
+                                       6.8                                                            *
+                                       8.4
+                                                                                                      *
+                                      *                                                               6}10
+                                                                                                      8}12
+                                      *
+                                                                                                      *
+                                                                                                      30
+
+                                                                                                      *
+
+  For each muscle, the "rst line summarizes the data reported in this study. With the exception of the data from Leiber et al., lengths from other studies
+are not normalized to a common sarcomere length. Fiber length data reported by Leiber et al. were scaled by a factor of 2.8/2.2 to re#ect lengths at
+2.8 m. For equivalent comparison with this study, PCSA values were calculated from other studies as follows:
+
+   Amis: muscle weight/"ber length;1.06
+  An: reported PCSA (muscle volume/"ber length)
+   Brand: 141 cm;tension fraction
+   Lieber (1990, 1992): muscle weight/("ber length at 2.8 m;1.06)
+   Veeger (1997): reported PCSA (muscle volume/muscle length)
+   Veeger (1991): reported PCSA (PCSA was digitized)
+   Wood: reported PCSA (muscle volume/muscle length)
+  For an equivalent comparison with the data from this study, PCSA data for TRI (lat) was calculated using the combined masses (or volumes) of the
+medial and lateral heads and the length of the lateral head.
+W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952  951
+
+functions within the musculoskeletal system requires an         The signi"cant relationship between peak moment
+understanding of the unique combination of its moment        arm and optimal fascicle length across the elbow muscles
+arm and architectural parameters, especially optimal fas-    implies a degree of biomechanical specialization. In these
+cicle length and PCSA.                                       muscles, we found that the greater the length change
+                                                             a muscle experiences during joint rotation, the greater its
+   The e!ects of several assumptions and limitations of      overall excursion capacity. Across specimens, a signi"-
+this study should be considered. We assumed the tendons      cant relationship between moment arm and fascicle
+and aponeuroses of the elbow muscles are inelastic. We       length was identi"ed in only two muscles (BRD and
+evaluated this assumption using a musculoskeletal model      ECRL). Multiple factors in#uence muscle fascicle lengths
+of the elbow joint (Murray et al., 1995) to simulate         (Herzog et al., 1991; McClearn, 1985; Williams and Gold-
+fascicle excursions given an inelastic tendon (0.1% ten-     spink, 1978), so it is reasonable that moment arms do not
+don strain at peak muscle force) and a compliant tendon      fully explain interspecimen variability in optimal fascicle
+(5% tendon strain at peak force). The length changes         lengths. Importantly, the data indicate that moment arm
+di!ered by less than 10% in the two simulations. Given       and optimal fascicle length are correlated across the
+that 5% tendon strain is well above the reported tendon      elbow muscles, even when brachioradialis and ECRL are
+strain of ECRL at peak isometric force (1.78%, Loren         excluded from the analysis (n"49, r"0.635,
+and Lieber, 1995), we believe this study provides reason-    p(0.0001). However, the data also illustrate an excep-
+able approximations of fascicle length changes with el-      tion; long head of biceps and long head of triceps have
+bow #exion.                                                  comparable fascicle lengths but signi"cantly di!erent
+                                                             moment arms. The functional consequence of the di!er-
+   The conclusions about the e!ect of elbow position on      ence is that long head of triceps has the potential to
+force-generating capacity are sensitive to our assump-       generate nearly maximal forces over a broad range of
+tions about the relationship between sarcomere length        elbow positions, whereas long head of biceps does not.
+and elbow position. Sarcomere shortening is associated
+with rigor mortis. Freezing, thawing, and "xation of            This study improves upon previous anatomical invest-
+muscle could in#uence sarcomere lengths (Cutts, 1988;        igations of the elbow muscles; a larger number and
+Friederich and Brand, 1990). The e!ect of elbow #exion       a broader size range of specimens were studied, architec-
+on force-generating capacity should be further investi-      ture and moment arm data were obtained in the same
+gated in human subjects, using intramuscular stimulation     specimens, and sarcomere lengths were quanti"ed. Pre-
+(Leedham and Dowling, 1995) or intraoperative                viously published architectural parameters for muscles
+measurements (Freehafer et al., 1979; Lieber et al., 1994).  that cross the elbow (Amis et al., 1979; An et al., 1981;
+In this study, measured fascicle lengths were norma-         Brand et al., 1981; Lieber et al., 1990, 1992; Veeger et al.,
+lized to a common sarcomere length to minimize the           1991, 1997; Wood et al., 1989) generally fall within the
+e!ects of the anatomical preparation on optimal fascicle     range of values reported here (Table 3). The PCSA values
+lengths, PCSAs, and fascicle excursions during joint         reported by Amis et al. (1979) and Brand et al. (1981) are
+rotation.                                                    larger than the data from this and other studies. With the
+                                                             exception of the data collected by Lieber et al. (1990,
+   The form of the normalized force}length curve is based    1992) previous studies did not measure sarcomere
+on several assumptions: fascicle lengths are identical to    lengths. The di!erences in sarcomere lengths measured in
+"ber lengths, sarcomere lengths and fascicle lengths are     this study illustrate that it is critical to account for
+homogeneous within a muscle, and muscle shortening or        variations in sarcomere lengths when reporting architec-
+lengthening involves uniform length changes. There is        tural parameters. Peak moment arms reported in earlier
+evidence that, in some muscles, fascicles are composed of    studies are also comparable to the data from this study
+shorter, interdigitated "bers (Chanaud et al., 1991). Also,  (see Murray et al., 1995, for review).
+distributions of sarcomere and "ber lengths within
+a muscle in#uence the form of the isometric force}length     Acknowledgements
+relationship (Allinger et al., 1996; Ettema and Huijing,
+1994). Experimental studies have shown that "bers with-         We would like to thank Allison Arnold, Mahidhar
+in a muscle reach optimum length at di!erent muscle          Durbhakula, and David Wyles for assistance with data
+lengths, broadening the range of lengths over which          collection and analysis, Dr. Randolph Perkins for his
+a muscle can actively generate force (Heslinga and           assistance in the anatomy lab, and the Orthopaedics
+Huijing, 1993; Willems and Huijing, 1994; Zuurbier           Department of Northwestern University for the use of
+and Huijing, 1993). The relationship between                 the anatomy lab. We would like to acknowledge the
+muscle length and isometric force development is in-         contribution of Andrew Krylow (1960}1998) for design-
+#uenced by complexities that could not be evaluated by       ing the laser system. This work supported by NSF BES-
+this study. However, we believe that the basic relation-     9257229, NIH, and an NIDRR Training Grant.
+ships presented here provide the underlying character-
+istics upon which the e!ects of these complexities are
+superimposed.
+952  W.M. Murray et al. / Journal of Biomechanics 33 (2000) 943}952
+
+References                                                                  Lieber, R.L., Boakes, J.L., 1988. Sarcomere length and joint kinematics
+                                                                                during torque production in frog hindlimb. American Journal of
+Allinger, T.L., Herzog, W., Epstein, M., 1996. Force}length properties          Physiology 254, C759}C768.
+    in stable skeletal muscle "bers * theoretical considerations. Jour-
+    nal of Biomechanics 29, 1235}1240.                                      Lieber, R.L., Fazeli, B.M., Botte, M.J., 1990. Architecture of selected
+                                                                                wrist #exor and extensor muscles. Journal of Hand Surgery 15A,
+Amis, A.A., Dowson, D., Wright, V., 1979. Muscle strengths and mus-             244}250.
+    culo-skeletal geometry of the upper limb. Engineering Medicine 8,
+    41}47.                                                                  Lieber, R.L., Jacobson, M.D., Fazeli, B.M., Abrams, R.A., Botte, M.J.,
+                                                                                1992. Architecture of selected muscles of the arm and forearm:
+An, K.N., Hui, F.C., Morrey, B.F., Linscheid, R.L., Chao, E.Y., 1981.           anatomy and implications for tendon transfer. Journal of Hand
+    Muscles across the elbow joint: a biomechanical analysis. Journal of        Surgery 17A, 787}798.
+    Biomechanics 14, 659}669.
+                                                                            Lieber, R.L., Loren, G.J., FrideH n, J., 1994. In vivo measurement of
+An, K.N., Takahashi, K., Harrigan, T.P., Chao, E.Y., 1984. Determina-           human wrist extensor muscle sarcomere length changes. Journal of
+    tion of muscle orientations and moment arms. Journal of Bio-                Neurophysiology 71, 874}881.
+    mechanical Engineering 106, 280}282.
+                                                                            Lieber, R.L., Shoemaker, S.D., 1992. Muscle, joint, and tendon contri-
+Baskin, R.J., Lieber, R.L., Oba, T., Yeh, Y., 1981. Intensity of light          butions to the torque pro"le of frog hip joint. American Journal of
+    di!raction from striated muscle as a function of incident angle.            Physiology 263, R586}R590.
+    Biophysics Journal 36, 759}773.
+                                                                            Loren, G.J., Lieber, R.L., 1995. Tendon biomechanical properties en-
+Brand, P.W., Beach, R.B., Thompson, D.E., 1981. Relative tension and            hance human wrist muscle specialization. Journal of Biomechanics
+    potential excursion of muscles in the forearm and hand. Journal of          28, 791}799.
+    Hand Surgery 6A, 209}219.
+                                                                            McClave, J.T., Dietrich, F.H., 1991. Statistics, 5th Edition. Dellen
+Chanaud, C.M., Pratt, C.A., Loeb, G.E., 1991. Functionally complex              Publishing Company, San Francisco, CA.
+    muscles of the cat hindlimb. II. Mechanical and architectural het-
+    erogeneity within the biceps femoris. Experimental Brain Research       McClearn, D., 1985. Anatomy of raccoon (Procyon Iotor) and coati
+    85, 257}270.                                                                (Nasua narica and N. nasua) forearm and leg muscles: relations
+                                                                                between "ber length, moment-arm length, and joint-angle ex-
+Cutts, A., 1988. Shrinkage of muscle "bres during the "xation of                curison. Journal of Morphology 183, 87}115.
+    cadaveric tissue. Journal of Anatomy 160, 75}78.
+                                                                            Mendez, J., Keys, A., 1960. Density and composition of mammalian
+Delp, S.L., Zajac, F.E., 1992. Force- and moment-generating capacity of         muscle. Metabolism, Clinical and Experimental 9, 184}188.
+    lower-extremity muscles before and after tendon lengthening. Clini-
+    cal Orthopaedics 284, 247}259.                                          Murray, W.M., Delp, S.L., Buchanan, T.S., 1995. Variation of muscle
+                                                                                moment arms with elbow and forearm position. Journal of Bio-
+Ettema, G.J., Huijing, P.A., 1994. E!ects of distribution of muscle "ber        mechanics 28, 513}525.
+    length on active length}force characteristics of rat gastrocnemius
+    medialis. Anatomical Record 239, 414}420.                               Sacks, R.D., Roy, R.R., 1982. Architecture of the hind limb muscles of
+                                                                                cats: functional signi"cance. Journal of Morphology 173, 185}195.
+Freehafer, A.A., Peckham, P.H., Keith, M.W., 1979. Determination of
+    muscle}tendon unit properties during tendon transfer. Journal of        Veeger, H.E.J., Van der Helm, F.C., Van der Woude, L.H., Pronk, G.M.,
+    Hand Surgery 4A, 331}339.                                                   Rozendal, R.H., 1991. Inertia and muscle contraction parameters
+                                                                                for musculoskeletal modeling of the shoulder mechanism. Journal of
+Friederich, J.A., Brand, R.A., 1990. Muscle "ber architecture in the            Biomechanics 24, 615}629.
+    human lower limb. Journal of Biomechanics 23, 91}95.
+                                                                            Veeger, H.E.J., Yu, B., An, K.N., Rozendal, R.H., 1997. Parameters for
+Gans, C., 1982. Fiber architecture and muscle function. Exercise and            modeling the upper extremity. Journal of Biomechanics 6, 647}652.
+    Sport Sciences Reviews 10, 160}207.
+                                                                            Walker, S.M., Schrodt, G.R., 1974. I segment lengths and this "lament
+Gerbeaux, M., Turpin, E., Lensel-Corbeil, G., 1996. Musculo-articular           periods in skeletal muscle "bres of the Rhesus monkey and human.
+    modelling of the triceps brachii. Journal of Biomechanics 29,               Anatomical Record 178, 63}81.
+    171}180.
+                                                                            Willems, M.E.T., Huijing, P.A., 1994. Heterogeneity of mean sarcomere
+Gonzalez, R.V., Buchanan, T.S., Delp, S.L., 1997. How muscle architec-          length in di!erent "bres: e!ects on length range of active force
+    ture and moment arms a!ect wrist #exion}extension moments.                  production in rat muscle. European Journal of Applied Physiology
+    Journal of Biomechanics 30, 705}712.                                        68, 489}496.
+
+Herzog, W., Guimaraes, A.C., Anton, M.G., Carter-Erdman, K.A.,              Williams, P.E., Goldspink, G., 1978. Changes in sarcomere length and
+    1991. Moment}length relations of rectus femoris muscles of speed            physiological properties in immobilized muscle. Journal of Anat-
+    skaters/cyclists and runners. Medical and Science in Sports Exer-           omy 127, 459}468.
+    cises 23, 1289}1296.
+                                                                            Wood, J.E., Meek, S.G., Jacobsen, S.C., 1989. Quantitation of human
+Heslinga, J.W., Huijing, P.A., 1993. Muscle length}force characteristics        shoulder anatomy for prosthetic arm control * I. Surface model-
+    in relation to muscle architecture: a bilateral study of gastrocnemius      ling. Journal of Biomechanics 22, 273}292.
+    medialis muscles of unilaterally immobilized rats. European Journal
+    of Applied Physiology 66, 289}298.                                      Yeh, Y., Baskin, R.J., Lieber, R.L., Roos, K.P., 1980. Theory of light
+                                                                                di!raction by single skeletal muscle "bers. Biophysics Journal 29,
+Hoy, M.G., Zajac, F.E., Gordon, M.E., 1990. A musculoskeletal model             509}522.
+    of the human lower extremity: the e!ect of muscle, tendon, and
+    moment arm on the moment}angle relationship of musculotendon            Zuurbier, C.J., Huijing, P.A., 1993. Changes in geometry of actively
+    actuators at the hip, knee, and ankle. Journal of Biomechanics 23,          shortening unipennate rate gastrocnemius muscle. Journal of Mor-
+    157}169.                                                                    phology 218, 167}180.
+
+Leedham, J.S., Dowling, J.J., 1995. Force}length, torque}angle and
+    EMG}joint angle relationships of the human in vivo biceps brachii.
+    European Journal of Applied Physiology 70, 421}426.
+

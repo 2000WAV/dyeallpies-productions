@@ -1,0 +1,43 @@
+1. J Biomech. 2012 Jun 26;45(10):1803-8. doi: 10.1016/j.jbiomech.2012.04.018.
+Epub  2012 May 9.
+
+A three-compartment muscle fatigue model accurately predicts joint-specific 
+maximum endurance times for sustained isometric tasks.
+
+Frey-Law LA(1), Looft JM, Heitsman J.
+
+Author information:
+(1)The University of Iowa, 1-252 Medical Education Building, Iowa City, IA 
+52242-1190, USA. laura-freylaw@uiowa.edu
+
+The development of localized muscle fatigue has classically been described by 
+the nonlinear intensity-endurance time (ET) curve (Rohmert, 1960; El Ahrache et 
+al., 2006). These empirical intensity-ET relationships have been well-documented 
+and vary between joint regions. We previously proposed a three-compartment 
+biophysical fatigue model, consisting of compartments (i.e. states) for active 
+(M(A)), fatigued (M(F)), and resting (M(R)) muscles, to predict the decay and 
+recovery of muscle force (Xia and Frey Law, 2008). The purpose of this 
+investigation was to determine optimal model parameter values, fatigue (F) and 
+recovery (R), which define the "flow rate" between muscle states and to evaluate 
+the model's accuracy for estimating expected intensity-ET curves. Using a 
+grid-search approach with modified Monte Carlo simulations, over 1 million F and 
+R permutations were used to predict the maximum ET for sustained isometric tasks 
+at 9 intensities ranging from 10% to 90% of maximum in 10% increments (over 9 
+million simulations total). Optimal F and R values ranged from 0.00589 
+(F(ankle)) and 0.0182 (R(ankle)) to 0.00058 (F(shoulder)) and 0.00168 
+(R(shoulder)), reproducing the intensity-ET curves with low mean RMS errors: 
+shoulder (2.7s), hand/grip (5.6s), knee (6.7s), trunk (9.3s), elbow (9.9s), and 
+ankle (11.2s). Testing the model at different task intensities (15-95% maximum 
+in 10% increments) produced slightly higher errors, but largely within the 95% 
+prediction intervals expected for the intensity-ET curves. We conclude that this 
+three-compartment fatigue model can be used to accurately represent 
+joint-specific intensity-ET curves, which may be useful for ergonomic analyses 
+and/or digital human modeling applications.
+
+Copyright © 2012 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jbiomech.2012.04.018
+PMCID: PMC3397684
+PMID: 22579269 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of interest Statement None.

@@ -1,0 +1,35 @@
+1. Acta Physiol Scand. 1996 Mar;156(3):265-70. doi: 
+10.1046/j.1365-201X.1996.192000.x.
+
+High-and low-frequency fatigue revisited.
+
+Jones DA(1).
+
+Author information:
+(1)School of Sport and Exercise Sciences, University of Birmingham, UK.
+
+Changes in excitation-contraction coupling have long been recognized as possible 
+causes of the failure in function which occurs in fatigued muscle. 
+High-frequency fatigue is characterized by an excessive loss of force at high 
+frequencies of stimulation and rapid recovery when the frequency is reduced. 
+Frequencies in excess of 50 Hz are rarely seen with voluntary activation of 
+human muscle, and for this reason there has been some doubt as to whether 
+high-frequency fatigue is a significant feature of normal activity. Recent 
+experiments have shown that with 30 Hz stimulation there is a more rapid loss of 
+force if the muscle is held isometric in a shortened position and the fatigue is 
+rapidly reversed if the muscle is re-extended, even under ischaemic conditions. 
+These findings are consistent with the accumulation of K+ in the t-tubules and 
+interfibre spaces of the muscle. Low-frequency fatigue is characterized by a 
+relative loss of force at low frequencies of stimulation and a slow recovery 
+over the course of hours or even days. There is evidence from intracellular 
+measurements that low-frequency fatigue is due to a reduction in Ca2+ release. 
+However, there is a possibility that in the fatiguing exercise, the end 
+sarcomeras of the fibre overextend and damage those in the middle section of the 
+fibre. In this situation the active sarcomas would be working at a shorter 
+length than predicted from the overall fibre length and the force-frequency 
+curve will be shifted to the right. Measurements of the length-tension 
+relationship of muscles damaged by stretching are consistent with this 
+happening.
+
+DOI: 10.1046/j.1365-201X.1996.192000.x
+PMID: 8729686 [Indexed for MEDLINE]

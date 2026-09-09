@@ -1,0 +1,40 @@
+1. J Appl Physiol (1985). 2017 May 1;122(5):1068-1076. doi: 
+10.1152/japplphysiol.00775.2016. Epub 2016 Dec 8.
+
+Recovery of central and peripheral neuromuscular fatigue after exercise.
+
+Carroll TJ(1), Taylor JL(2), Gandevia SC(2).
+
+Author information:
+(1)Centre for Sensorimotor Performance, School of Human Movement and Nutrition 
+Sciences, University of Queensland; and timothy.carroll@uq.edu.au.
+(2)Neuroscience Research Australia and University of New South Wales.
+
+Sustained physical exercise leads to a reduced capacity to produce voluntary 
+force that typically outlasts the exercise bout. This "fatigue" can be due both 
+to impaired muscle function, termed "peripheral fatigue," and a reduction in the 
+capacity of the central nervous system to activate muscles, termed "central 
+fatigue." In this review we consider the factors that determine the recovery of 
+voluntary force generating capacity after various types of exercise. After 
+brief, high-intensity exercise there is typically a rapid restitution of force 
+that is due to recovery of central fatigue (typically within 2 min) and aspects 
+of peripheral fatigue associated with excitation-contraction coupling and 
+reperfusion of muscles (typically within 3-5 min). Complete recovery of muscle 
+function may be incomplete for some hours, however, due to prolonged impairment 
+in intracellular Ca2+ release or sensitivity. After low-intensity exercise of 
+long duration, voluntary force typically shows rapid, partial, recovery within 
+the first few minutes, due largely to recovery of the central, neural component. 
+However, the ability to voluntarily activate muscles may not recover completely 
+within 30 min after exercise. Recovery of peripheral fatigue contributes 
+comparatively little to the fast initial force restitution and is typically 
+incomplete for at least 20-30 min. Work remains to identify what factors 
+underlie the prolonged central fatigue that usually accompanies long-duration 
+single joint and locomotor exercise and to document how the time course of 
+neuromuscular recovery is affected by exercise intensity and duration in 
+locomotor exercise. Such information could be useful to enhance rehabilitation 
+and sports performance.
+
+Copyright © 2017 the American Physiological Society.
+
+DOI: 10.1152/japplphysiol.00775.2016
+PMID: 27932676 [Indexed for MEDLINE]

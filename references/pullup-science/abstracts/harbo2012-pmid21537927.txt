@@ -1,0 +1,33 @@
+1. Eur J Appl Physiol. 2012 Jan;112(1):267-75. doi: 10.1007/s00421-011-1975-3.
+Epub  2011 May 3.
+
+Maximal isokinetic and isometric muscle strength of major muscle groups related 
+to age, body mass, height, and sex in 178 healthy subjects.
+
+Harbo T(1), Brincks J, Andersen H.
+
+Author information:
+(1)Department of Neurology, Århus University Hospital, Århus C, Denmark. 
+tharbo@dadlnet.dk
+
+The main objective of this study was to establish normative values for maximal 
+concentric isokinetic strength and maximal isometric strength of all major 
+muscle groups in healthy subjects applying sex, age, height, and body 
+mass-adjusted statistical models. One hundred and seventy-eight (178) (93 male 
+and 85 female) healthy non-athletic Danish volunteers aged 15-83 years were 
+recruited. Eighteen test protocols for each sex were applied to determine 
+isokinetic and isometric muscle strength at knee, ankle, hip, shoulder, elbow, 
+and wrist using a dynamometer (Biodex System 3 PRO). Multiple linear regressions 
+were performed with maximal muscle strength (peak torque) as dependent variable 
+and age, height, and body mass as independent variables. Muscle strength 
+significantly related to age in 24, to height in 13 and to body mass in 27 out 
+of the 36 models. In gender-specific analyses, the variables age, height and 
+body mass accounted for 25% (20-29) (95% confidence interval) of the variation 
+(r (2)) in strength for men and 31% (25-38) for women. The r (2) was similar for 
+the isokinetic models and the isometric models [31% (22-40) vs. 28% (23-34)]. 
+Age, height, and body mass related to strength in most muscle groups and 
+gender-specific models with estimated prediction intervals were established for 
+maximal strength of major muscle groups.
+
+DOI: 10.1007/s00421-011-1975-3
+PMID: 21537927 [Indexed for MEDLINE]

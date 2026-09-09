@@ -1,0 +1,34 @@
+1. J Biomech. 2000 Aug;33(8):943-52. doi: 10.1016/s0021-9290(00)00051-8.
+
+The isometric functional capacity of muscles that cross the elbow.
+
+Murray WM(1), Buchanan TS, Delp SL.
+
+Author information:
+(1)Biomedical Engineering Department, Case Western Reserve University & VA FES 
+Center, MetroHealth Medical Center, Cleveland, OH 44109-1998, USA. 
+wmm@po.cwru.edu
+
+We hypothesized that muscles crossing the elbow have fundamental differences in 
+their capacity for excursion, force generation, and moment generation due to 
+differences in their architecture, moment arm, and the combination of their 
+architecture and moment arm. Muscle fascicle length, sarcomere length, pennation 
+angle, mass, and tendon displacement with elbow flexion were measured for the 
+major elbow muscles in 10 upper extremity specimens. Optimal fascicle length, 
+physiological cross-sectional area (PCSA), moment arm, operating range on the 
+force-length curve, and moment-generating capacity were estimated from these 
+data. Brachioradialis and pronator teres had the longest (17.7cm) and shortest 
+(5.5cm) fascicles, respectively. Triceps brachii (combined heads) and 
+brachioradialis had the greatest (14.9cm(2)) and smallest (1.2cm(2)) PCSAs, 
+respectively. Despite a comparable fascicle length, long head of biceps brachii 
+operates over a broader range of the force-length curve (length change=56% of 
+optimal length, 12.8cm) than the long head of triceps brachii (length change=28% 
+of optimal length, 12. 7cm) because of its larger moment arm (4.7cm vs. 2.3cm). 
+Although brachioradialis has a small PCSA, it has a relatively large 
+moment-generating capacity (6.8cm(3)) due to its large moment arm (average 
+peak=7.7cm). These results emphasize the need to consider the interplay of 
+architecture and moment arm when evaluating the functional capabilities of a 
+muscle.
+
+DOI: 10.1016/s0021-9290(00)00051-8
+PMID: 10828324 [Indexed for MEDLINE]

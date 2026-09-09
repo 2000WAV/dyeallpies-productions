@@ -1,0 +1,426 @@
+
+<!DOCTYPE article
+  PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD with MathML3 v1.4 20241031//EN" "JATS-archivearticle1-4-mathml3.dtd">
+<article article-type="research-article" xml:lang="en" dtd-version="1.4"><front><journal-meta><journal-id journal-id-type="nlm-ta">Physiol Rep</journal-id><journal-id journal-id-type="iso-abbrev">Physiol Rep</journal-id><journal-id journal-id-type="pmc-domain-id">2252</journal-id><journal-id journal-id-type="pmc-domain">physrep</journal-id><journal-id journal-id-type="nlm-id">101607800</journal-id><journal-id journal-id-type="publisher-id">PHY2</journal-id><journal-title-group><journal-title>Physiological Reports</journal-title></journal-title-group><issn pub-type="epub">2051-817X</issn><?publisher_abbrev blackwell?><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC5789656</article-id><article-id pub-id-type="pmcid-ver">PMC5789656.1</article-id><article-id pub-id-type="pmcaid">5789656</article-id><article-id pub-id-type="pmcaiid">5789656</article-id><article-id pub-id-type="pmid">29333724</article-id><article-id pub-id-type="doi">10.14814/phy2.13560</article-id><article-id pub-id-type="publisher-id">PHY213560</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="article-subject-classification"><subject>Muscle Contraction and Relaxation</subject></subj-group><subj-group subj-group-type="article-subject-classification"><subject>Skeletal Muscle</subject></subj-group><subj-group subj-group-type="article-subject-classification"><subject>Endurance and Performance</subject></subj-group><subj-group subj-group-type="overline"><subject>Original Research</subject></subj-group><subj-group subj-group-type="heading"><subject>Original Research</subject></subj-group></article-categories><title-group><article-title>Voluntary activation and twitch potentiation of the elbow flexors across supinated, neutral, and pronated forearm orientations</article-title><alt-title alt-title-type="left-running-head">S. Kohn <italic toggle="yes">et al</italic>.</alt-title></title-group><contrib-group><contrib id="phy213560-cr-0001" contrib-type="author"><name name-style="western"><surname>Kohn</surname><given-names initials="S">Sienna</given-names></name><xref ref-type="aff" rid="phy213560-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="phy213560-cr-0002" contrib-type="author"><name name-style="western"><surname>Smart</surname><given-names initials="RR">Rowan R.</given-names></name><xref ref-type="aff" rid="phy213560-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="phy213560-cr-0003" contrib-type="author" corresp="yes"><name name-style="western"><surname>Jakobi</surname><given-names initials="JM">Jennifer M.</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0001-8613-7275</contrib-id><address><email>jennifer.jakobi@ubc.ca</email></address><xref ref-type="aff" rid="phy213560-aff-0001">
+<sup>1</sup>
+</xref></contrib></contrib-group><aff id="phy213560-aff-0001">
+<label><sup>1</sup></label>
+<named-content content-type="organisation-division">School of Health and Exercise Sciences</named-content>
+<institution>Healthy Exercise and Aging Lab Group</institution>
+<institution>University of British Columbia Okanagan</institution>
+<named-content content-type="city">Kelowna</named-content>
+<named-content content-type="country-part">British Columbia</named-content>
+<country country="CA">Canada</country>
+</aff><author-notes><corresp id="correspondenceTo"><label>*</label><bold>Correspondence</bold><break/>
+Jennifer M. Jakobi, School of Health and Exercise Sciences, Faculty of Health and Social Development, The University of British Columbia, ART 168, 1147 Research Road, Kelowna, BC V1V 1V7, Canada.<break/>
+Tel: 250 807 9884<break/>
+Fax: 250 807 8085<break/>
+E‐mail: <email>jennifer.jakobi@ubc.ca</email><break/></corresp></author-notes><pub-date pub-type="epub"><day>15</day><month>1</month><year>2018</year></pub-date><pub-date pub-type="collection"><month>1</month><year>2018</year></pub-date><volume>6</volume><issue>1</issue><issue-id pub-id-type="pmc-issue-id">305683</issue-id><issue-id pub-id-type="doi">10.1002/phy2.2018.6.issue-1</issue-id><elocation-id>e13560</elocation-id><history><date date-type="received"><day>17</day><month>9</month><year>2017</year></date><date date-type="rev-recd"><day>29</day><month>11</month><year>2017</year></date><date date-type="accepted"><day>04</day><month>12</month><year>2017</year></date></history><pub-history><event event-type="pmc-release"><date><day>15</day><month>01</month><year>2018</year></date></event><event event-type="pmc-live"><date><day>15</day><month>03</month><year>2018</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2024-06-05 21:25:13.093"><day>05</day><month>06</month><year>2024</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2018 The Authors. <italic toggle="yes">Physiological Reports</italic> published by Wiley Periodicals, Inc. on behalf of The Physiological Society and the American Physiological Society</copyright-statement><license license-type="creativeCommonsBy"><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="PHY2-6-e13560.pdf"><?pdf-name PHY2-6-e13560.pdf?><?pdf-size 113884?><?pdf-md5 df0753e3ca96f81a0281c78ff9cd1aea?><?pdf-image-server-status NEVER_LOAD?><?pdf-cloudpmc-urn urn:app:9992/5789656/df0753e3ca96/PHY2-6-e13560.pdf?></self-uri><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:PHY2-6-e13560.pdf"/><abstract id="phy213560-abs-0001"><title>Abstract</title><p>Elbow flexion force depends on forearm orientation with supinated and neutral being stronger than pronated. The purpose of this study was to assess the influence of forearm orientation on voluntary activation (<styled-content style="fixed-case">VA</styled-content>), postactivation potentiation (<styled-content style="fixed-case">PAP</styled-content>), and twitch properties. Eleven males (23 ± 3 years) performed isometric elbow flexion maximal voluntary contractions (<styled-content style="fixed-case">MVC</styled-content>) in supinated, neutral, and pronated forearm orientations with supramaximal stimulation to the biceps brachii muscle belly before, during, and after the <styled-content style="fixed-case">MVC</styled-content>. <styled-content style="fixed-case">MVC</styled-content> and <styled-content style="fixed-case">VA</styled-content> were higher in supinated (213.6 ± 49.6 N; 93.0 ± 5.2%) and neutral (243.6 ± 48.0 N; 96.1 ± 3.2%) compared with pronated (113.6 ± 21.3 N; 70.9 ± 20.4%) (<italic toggle="yes">P</italic> &lt; 0.05), while <styled-content style="fixed-case">PAP</styled-content> did not differ across the three orientations (71.6 ± 42.2%) (<italic toggle="yes">P</italic> &gt; 0.05). In the rested state, pronated peak tension (<styled-content style="fixed-case">PT</styled-content>) was less compared with supinated (42%). In the potentiated state, pronated <styled-content style="fixed-case">PT</styled-content> was less than supinated (50%) and neutral (53%) (<italic toggle="yes">P</italic> &lt; 0.05). Reduced strength in the pronated orientation is partially attributed to reduced drive; however, reductions in peak tension indicate that there also is a mechanical disadvantage when the forearm is placed into a pronated orientation, and this does not alter <styled-content style="fixed-case">PAP</styled-content>.</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="phy213560-kwd-0001">Biceps brachii</kwd><kwd id="phy213560-kwd-0002">contractile properties</kwd><kwd id="phy213560-kwd-0003">force</kwd><kwd id="phy213560-kwd-0004">strength</kwd></kwd-group><funding-group><award-group><funding-source>Natural Sciences and Engineering Research Council of Canada</funding-source><award-id>312038</award-id></award-group></funding-group><counts><fig-count count="0"/><table-count count="1"/><page-count count="6"/><word-count count="3877"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>component-id</meta-name><meta-value>phy213560</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>January 2018</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_NLMPMC version:5.2.8 mode:remove_FC converted:15.01.2018</meta-value></custom-meta></custom-meta-group></article-meta><notes><p content-type="self-citation">
+<mixed-citation publication-type="journal" id="phy213560-cit-1001">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Kohn</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. R.</given-names>
+<surname>Smart</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Jakobi</surname>
+</string-name>. <article-title>Voluntary activation and twitch potentiation of the elbow flexors across supinated, neutral, and pronated forearm orientations</article-title>. <source>Physiol Rep</source>, <volume>6</volume> (<issue>1</issue>), <year>2018</year>, <elocation-id>e13560</elocation-id>, <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.14814/phy2.13560">https://doi.org/10.14814/phy2.13560</ext-link>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.14814/phy2.13560</pub-id><pub-id pub-id-type="pmcid">PMC5789656</pub-id><pub-id pub-id-type="pmid">29333724</pub-id></mixed-citation>
+</p><fn-group id="phy213560-ntgp-0001"><fn fn-type="funding" id="phy213560-note-1001"><p>
+<bold>Funding Information</bold>
+</p><p>Jennifer M. Jakobi received funding from the Natural Sciences and Engineering Research Council of Canada (NSERC).</p></fn></fn-group></notes></front><body><sec id="phy213560-sec-0001"><title>Introduction</title><p>A maximal voluntary contraction (MVC) can act as a conditioning stimulus to produce an acute enhancement of force, known as postactivation potentiation (PAP) (Vandervoort et al. <xref rid="phy213560-bib-0030" ref-type="ref">1983</xref>). The extent of PAP is dependent on the amount of muscle activation, where higher levels of activation increase force output and culminate in greater PAP following the MVC through Ca<sup>2+</sup>‐induced phosphorylation of the myosin regulatory light chains (Sweeny et al. <xref rid="phy213560-bib-0027" ref-type="ref">1993</xref>; Rassier and MacIntosh <xref rid="phy213560-bib-0023" ref-type="ref">2000</xref>; Sale <xref rid="phy213560-bib-0024" ref-type="ref">2002</xref>; de Tombe et al. <xref rid="phy213560-bib-0029" ref-type="ref">2006</xref>; Miyamoto et al. <xref rid="phy213560-bib-0019" ref-type="ref">2010</xref>). Increased force capacity in the potentiated state also contributes to faster twitch contractile times and rates, albeit somewhat controversial faster relaxation times in whole human muscle (Hamada et al. <xref rid="phy213560-bib-0010" ref-type="ref">2000</xref>; Baudry and Duchateau <xref rid="phy213560-bib-0005" ref-type="ref">2007</xref>; Baudry et al. <xref rid="phy213560-bib-0006" ref-type="ref">2008</xref>).</p><p>To ensure that the conditioning MVC is maximal in order to achieve high levels of PAP, the twitch interpolation technique can be applied to quantify the degree of voluntary activation (VA) (Allen et al. <xref rid="phy213560-bib-0002" ref-type="ref">1995</xref>; Jakobi and Rice <xref rid="phy213560-bib-0015" ref-type="ref">2002</xref>). Greater MVC force output results in a smaller interpolated twitch and higher VA (Arampatzis et al. <xref rid="phy213560-bib-0003" ref-type="ref">2007</xref>; Kooistra et al. <xref rid="phy213560-bib-0018" ref-type="ref">2007</xref>; Taylor <xref rid="phy213560-bib-0028" ref-type="ref">2009</xref>; Huang et al. <xref rid="phy213560-bib-0013" ref-type="ref">2010</xref>). What remains unknown is whether position‐dependent force production of the elbow flexors, whereby the pronated orientation is ~40% weaker than supinated and neutral (Brown et al. <xref rid="phy213560-bib-0007" ref-type="ref">2010</xref>), is due to reductions in VA of the biceps brachii in pronated, and whether PAP occurs in the pronated orientation when MVC is considerably reduced. Therefore, the purpose of this study was to quantify VA, PAP, and twitch contractile properties across supinated, neutral, and pronated forearm orientations. It was hypothesized that the pronated orientation would have reduced VA, PAP, and twitch properties compared to supinated and neutral.</p></sec><sec id="phy213560-sec-0002"><title>Materials and Methods</title><sec id="phy213560-sec-0003"><title>Participants</title><p>Eleven right‐hand dominant males (23 ± 3 years, 175.6 ± 8.2 cm, 72.9 ± 7.5 kg) volunteered to participate in this study. Ethics approval was gained from the University of British Columbia Okanagan Behavioural Research Ethics Board, and informed written consent was obtained from each participant prior to commencing the study. Exclusion criteria included: (1) active tendinopathy, (2) injury/orthopedic surgery to right arm or shoulder in the prior 6 months, (3) systemic diseases affecting collagenous tissue, (4) participation in high levels of upper body strength training, (5) history of training in fine motor tasks (e.g., musician), and/or (6) nerve damage to the right arm.</p></sec><sec id="phy213560-sec-0004"><title>Experimental setup</title><p>Participants were seated upright in a custom dynamometer chair with knees and hips positioned and maintained at 90°, the dominant (right) elbow was flexed to 110° (full extension being 180°) and placed into a supportive mold that cupped the elbow into a constant position. The shoulder was abducted 10° and flexed forward at 15° for each orientation. The forearm apparatus through consistent positioning of the elbow with the hand gripping the manipulandum was maintained constant across supinated, neutral, and pronated orientations. The force transducer was located immediately below the hand (MLP‐150 linear force transducer, 68 kg, 266 V sensitivity, Transducer Techniques, Temecula, CA). As previously described (Harwood et al. <xref rid="phy213560-bib-0011" ref-type="ref">2010</xref>), the forearm was placed into a supinated, neutral, or pronated orientation by rotating the manipulandum in the direction of the desired orientation. Force was displayed in real time on a 52‐cm monitor located 1 m in front of the participant for visual feedback. Force signals were amplified (100×) (Coulbourn Electronics, Allentown, PA), sampled at 2381 Hz and converted from analog to digital using a Power 1401 (Cambridge Electronic Design [CED], Cambridge, England), and stored for offline analysis using Spike 2 version 7 (CED, Cambridge, England). Two 4 cm × 4 cm carbon–carbon stimulation electrodes coated in electrode gel were placed proximally and distally on the biceps brachii (BB) muscle belly to evoke supramaximal twitches.</p></sec><sec id="phy213560-sec-0005"><title>Protocol</title><p>Supramaximal stimulation intensity was established for the supinated, neutral, and pronated orientations in a randomized order. Stimulation (100 <italic toggle="yes">μ</italic>sec pulse width, DS7AH, Digitimer Ltd., Welwyn Garden City, UK) to the BB was progressively increased until a plateau in twitch force amplitude occurred and then increased a further 10% to achieve supramaximal intensity. In randomized order, participants performed two to three 5‐sec MVCs in each orientation with twitches applied at rest, during the MVC, and post‐MVC at 1‐sec intervals to measure VA and induce PAP. A rest period of 2–3 min between each contraction was given and 3–5 min rest between orientations. The highest MVC value of the 2–3 trials was used for subsequent force and twitch analysis.</p></sec><sec id="phy213560-sec-0006"><title>Data analysis</title><sec id="phy213560-sec-0007"><title>Force</title><p>VA during the MVCs was calculated using the twitch interpolation technique with the following formula: VA (%) = (1 − [interpolated twitch/resting twitch]) × 100 (Allen et al. <xref rid="phy213560-bib-0002" ref-type="ref">1995</xref>; Jakobi and Rice <xref rid="phy213560-bib-0015" ref-type="ref">2002</xref>; Simpson et al. <xref rid="phy213560-bib-0025" ref-type="ref">2016</xref>). Postactivation potentiation was calculated as the percentage increase in peak twitch torque from the resting (using the twitch directly prior to MVC) to potentiated twitch.</p></sec><sec id="phy213560-sec-0008"><title>Twitch properties</title><p>Twitch properties of peak tension, time to peak tension (TPT), half relaxation time (HRT), peak rise, and peak fall were measured. Peak tension was calculated as the highest tension (peak) of the twitch from the baseline. TPT was calculated as time (msec) from the onset of the evoked force to the peak tension of the twitch and HRT as the time for the twitch to relax half of maximal amplitude (msec). Peak rise (N/msec) and peak fall (N/msec) were measured as the first derivative of the force signal and reported for the rate of rise and fall of the twitch.</p></sec></sec><sec id="phy213560-sec-0009"><title>Statistical analysis</title><p>Using Statistical Package for Social Sciences (SPSS) version 24 (IBM, Armonk, NY), a one‐way ANOVA was used to compare VA, PAP, and MVC across supinated, neutral, and pronated forearm orientations. To assess contractile properties, a 2 (time: resting twitch, potentiated twitch) × 3 (orientation: supinated, neutral, and pronated) repeated measures ANOVA was applied. Significant interactions were assessed with a Tukey's post hoc test, and the alpha level was set at <italic toggle="yes">P</italic> &lt; 0.05. Values are reported as mean ± SD.</p></sec></sec><sec id="phy213560-sec-0010"><title>Results</title><p>In the pronated orientation, MVC (113.6 ± 21.3 N) and VA (70.9 ± 20.4%) were less compared with supinated (213.6 ± 49.6 N; 93.0 ± 5.2%) and neutral (243.6 ± 48.0 N; 96.1 ± 3.2%) (<italic toggle="yes">P</italic> &lt; 0.05), which did not differ from each other (<italic toggle="yes">P</italic> &gt; 0.05). Twitch potentiation occurred in all orientations, but did not differ across supinated (70.7 ± 33.8%), neutral (86.1 ± 40.4%), and pronated (58.1 ± 52.3%) (<italic toggle="yes">P</italic> &gt; 0.05) orientations. To ensure that differences did not arise from the contractions inducing potentiation in the resting twitches, they were compared within an orientation across the three contractions. The amplitude of the resting twitch peak tensions were highly correlated within supinated (<italic toggle="yes">R</italic>
+<sup>2</sup> = 0.90), neutral (<italic toggle="yes">R</italic>
+<sup>2</sup> = 0.92), and pronated (<italic toggle="yes">R</italic>
+<sup>2</sup> = 0.90) orientations. To further explore this, the percent difference was calculated as [% diff = ([first resting twitch − second resting twitch]/second resting twitch) × 100] between resting twitches prior to the first MVC, second MVC, and third MVC. The resting twitches were similar between the first and second (1%, −0.05%, 0.4%), first to third (−3.4%, 1.8%, 3.0%), and second to third (−4.1%, 1.9%, 2.7%) twitches in the supinated, neutral, and pronated orientations, respectively. These data indicate that there was sufficient time to allow dissipation of potentiation between contractions.</p><p>There was a time by orientation interaction observed for twitch contractile properties of peak tension (<italic toggle="yes">F</italic> = 6.98, <italic toggle="yes">P</italic> &lt; 0.01), TPT (<italic toggle="yes">F</italic> = 8.078, <italic toggle="yes">P</italic> &lt; 0.01), peak rate of rise (<italic toggle="yes">F</italic> = 3.54, <italic toggle="yes">P</italic> &lt; 0.05), and peak rate of fall (<italic toggle="yes">F</italic> = 3.48, <italic toggle="yes">P</italic> &lt; 0.05) (Table <xref rid="phy213560-tbl-0001" ref-type="table-wrap">1</xref>). HRT had no time by orientation interaction (<italic toggle="yes">F</italic> = 0.78, <italic toggle="yes">P</italic> &gt; 0.05) or main effects of time (<italic toggle="yes">F</italic> = 0.89, <italic toggle="yes">P</italic> &gt; 0.05) or orientation (<italic toggle="yes">F</italic> = 2.74, <italic toggle="yes">P</italic> &gt; 0.05). Resting twitch peak tension was less in pronated compared with supinated (<italic toggle="yes">P</italic> &lt; 0.05), and potentiated twitch peak tension was less in pronated compared with supinated and neutral (<italic toggle="yes">P</italic> &lt; 0.05). Time to peak tension decreased from the resting to potentiated twitch in pronated (<italic toggle="yes">P</italic> &lt; 0.05). TPT of the resting twitch was less in supinated compared to pronated (<italic toggle="yes">P</italic> &lt; 0.05). Peak rise and fall of the potentiated twitch were slower in pronated compared to neutral (<italic toggle="yes">P</italic> &lt; 0.05). Peak fall was faster in the potentiated twitch compared to the resting twitch for supinated and neutral (<italic toggle="yes">P</italic> &lt; 0.05), and peak fall was slower in pronated compared with supinated and neutral for the potentiated twitch (<italic toggle="yes">P</italic> &lt; 0.05) (Table <xref rid="phy213560-tbl-0001" ref-type="table-wrap">1</xref>).</p><table-wrap id="phy213560-tbl-0001" xml:lang="en" orientation="portrait" position="float"><label>Table 1</label><caption><p>Twitch contractile properties of resting and potentiated twitches across the three forearm orientations</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><thead valign="top"><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="2" valign="top" colspan="1">Twitch properties</th><th align="center" colspan="2" style="border-bottom:solid 1px #000000" valign="top" rowspan="1">Supinated</th><th align="center" colspan="2" style="border-bottom:solid 1px #000000" valign="top" rowspan="1">Neutral</th><th align="center" colspan="2" style="border-bottom:solid 1px #000000" valign="top" rowspan="1">Pronated</th></tr><tr style="border-bottom:solid 1px #000000"><th align="center" valign="top" rowspan="1" colspan="1">Resting</th><th align="center" valign="top" rowspan="1" colspan="1">Potentiated</th><th align="center" valign="top" rowspan="1" colspan="1">Resting</th><th align="center" valign="top" rowspan="1" colspan="1">Potentiated</th><th align="center" valign="top" rowspan="1" colspan="1">Resting</th><th align="center" valign="top" rowspan="1" colspan="1">Potentiated</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">Peak tension (N)</td><td align="char" char="±" rowspan="1" colspan="1">22.1 ± 7.7</td><td align="char" char="±" rowspan="1" colspan="1">34.9 ± 8.1<xref ref-type="fn" rid="phy213560-note-0003">a</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">18.2 ± 5.7</td><td align="char" char="±" rowspan="1" colspan="1">32.6 ± 8.1<xref ref-type="fn" rid="phy213560-note-0003">a</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">14.9 ± 6.4<xref ref-type="fn" rid="phy213560-note-0005">c</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">20.9 ± 6.2<xref ref-type="fn" rid="phy213560-note-0003">a</xref>, <xref ref-type="fn" rid="phy213560-note-0005">c</xref>, <xref ref-type="fn" rid="phy213560-note-0004">b</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">TPT (msec)</td><td align="char" char="±" rowspan="1" colspan="1">41.3 ± 6.6</td><td align="char" char="±" rowspan="1" colspan="1">42.8 ± 7.7</td><td align="char" char="±" rowspan="1" colspan="1">46.2 ± 13.6</td><td align="char" char="±" rowspan="1" colspan="1">42.1 ± 11.8</td><td align="char" char="±" rowspan="1" colspan="1">59.4 ± 12.8<xref ref-type="fn" rid="phy213560-note-0005">c</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">40.5 ± 11.7<xref ref-type="fn" rid="phy213560-note-0003">a</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">HRT (msec)</td><td align="char" char="±" rowspan="1" colspan="1">42.2 ± 23.0</td><td align="char" char="±" rowspan="1" colspan="1">37.3 ± 21.6</td><td align="char" char="±" rowspan="1" colspan="1">50.9 ± 13.4</td><td align="char" char="±" rowspan="1" colspan="1">43.1 ± 17.6</td><td align="char" char="±" rowspan="1" colspan="1">55.4 ± 12.0</td><td align="char" char="±" rowspan="1" colspan="1">58.3 ± 14.6</td></tr><tr><td align="left" rowspan="1" colspan="1">Peak rise (N/msec)</td><td align="char" char="±" rowspan="1" colspan="1">1.3 ± 0.6</td><td align="char" char="±" rowspan="1" colspan="1">2.0 ± 0.9<xref ref-type="fn" rid="phy213560-note-0003">a</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">1.7 ± 1.1</td><td align="char" char="±" rowspan="1" colspan="1">2.7 ± 1.2<xref ref-type="fn" rid="phy213560-note-0003">a</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">1.0 ± 0.5</td><td align="char" char="±" rowspan="1" colspan="1">1.5 ± 0.7<xref ref-type="fn" rid="phy213560-note-0003">a</xref>, <xref ref-type="fn" rid="phy213560-note-0004">b</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">Peak fall (N/msec)</td><td align="char" char="±" rowspan="1" colspan="1">−0.8 ± 0.3</td><td align="char" char="±" rowspan="1" colspan="1">−1.4 ± 0.4<xref ref-type="fn" rid="phy213560-note-0003">a</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">−0.9 ± 0.6</td><td align="char" char="±" rowspan="1" colspan="1">−1.5 ± 0.9<xref ref-type="fn" rid="phy213560-note-0003">a</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">−0.5 ± 0.2</td><td align="char" char="±" rowspan="1" colspan="1">−0.6 ± 0.3<xref ref-type="fn" rid="phy213560-note-0005">c</xref>, <xref ref-type="fn" rid="phy213560-note-0004">b</xref>
+</td></tr></tbody></table><table-wrap-foot><fn id="phy213560-note-0002"><p>TPT, time to peak tension; HRT, half relaxation time; N, Newton; significant at alpha 0.05.</p></fn><fn id="phy213560-note-0003"><label>a</label><p>Differs from resting twitch.</p></fn><fn id="phy213560-note-0004"><label>b</label><p>Differs from neutral orientation in same condition.</p></fn><fn id="phy213560-note-0005"><label>c</label><p>Differs from supinated orientation in same condition.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd</copyright-holder></permissions></table-wrap></sec><sec id="phy213560-sec-0011"><title>Discussion</title><p>In this study, MVC, VA, PAP, and twitch contractile properties of the BB were measured in the supinated, neutral, and pronated forearm orientations for isometric elbow flexion. In support of the hypothesis, MVC and VA were less in the pronated orientation compared with supinated and neutral, which did not differ. However, the nonsignificant difference in PAP across the three orientations was not expected. Peak tension was less in pronated compared with supinated at rest and less than both supinated and neutral in the potentiated state. Overall, potentiated twitches were higher and had a faster peak rise and peak fall compared with the resting twitch. Force production in the pronated orientation is reduced and this likely arises from reductions in descending drive as suggested by the decline in VA. As well, reduced force in pronated likely occurs from a mechanical disadvantage that is induced through rotation of the forearm; evident in the decrease in peak tension, in the pronated position.</p><p>We have previously reported that MVC is lower in pronated compared with supinated and neutral orientations (Brown et al. <xref rid="phy213560-bib-0007" ref-type="ref">2010</xref>), and this study suggests that this reduction in maximal strength occurs through a decrease in descending drive to the BB in the pronated orientation. This is marked by the reduced VA in pronated orientation and supported by previous observations of lower motor evoked potentials in pronated compared with supinated and neutral orientations (Mogk et al. <xref rid="phy213560-bib-0020" ref-type="ref">2014</xref>; Forman et al. <xref rid="phy213560-bib-0009" ref-type="ref">2016</xref>; Nuzzo et al. <xref rid="phy213560-bib-0022" ref-type="ref">2016</xref>). Voluntary activation calculated using the twitch interpolation technique does not offer insight into where descending drive to the motoneurons fails or the input–output relationship of the motoneuron pool (Herbert and Gandevia <xref rid="phy213560-bib-0012" ref-type="ref">1999</xref>; Kooistra et al. <xref rid="phy213560-bib-0018" ref-type="ref">2007</xref>; Taylor <xref rid="phy213560-bib-0028" ref-type="ref">2009</xref>); however, it does offer evidence that drive to the BB is reduced in the pronated orientation. This decrease in drive might arise from central sources (Mogk et al. <xref rid="phy213560-bib-0020" ref-type="ref">2014</xref>; Forman et al. <xref rid="phy213560-bib-0009" ref-type="ref">2016</xref>; Nuzzo et al. <xref rid="phy213560-bib-0022" ref-type="ref">2016</xref>), but peripheral sources, such as inhibition from the brachioradialis (Barry et al. <xref rid="phy213560-bib-0004" ref-type="ref">2008</xref>) leading to increased motor unit recruitment thresholds in the short head of the BB for the pronated forearm orientation (Harwood et al. <xref rid="phy213560-bib-0011" ref-type="ref">2010</xref>), should not be ignored. The potential contribution of peripheral sources to reduced force of the pronated orientation is supported by lower peak tension of the resting and potentiated twitches in the electrically evoked contractions.</p><p>The similar level of PAP in pronated relative to neutral and supinated orientations was not expected, as we hypothesized that the reduced MVC would result in lower levels of PAP in pronated. Despite the lower peak tension of the twitches in the pronated orientation, the relative increase in peak tension from resting to potentiated was similar to that of supinated and neutral. The lack of significant differences in PAP across orientations might arise from the high level of variability within each orientation as seen by the SD of supinated (33.8%), neutral (40.4%), and pronated (52.3%) orientations. Although the variability was high, it aligns with the large range of PAP reports in the literature (Baudry and Duchateau <xref rid="phy213560-bib-0005" ref-type="ref">2007</xref>; Hamada et al. <xref rid="phy213560-bib-0010" ref-type="ref">2000</xref>; : Vandervoort et al. <xref rid="phy213560-bib-0030" ref-type="ref">1983</xref>). Despite the lower VA and MVC in the pronated orientation, this did not affect the ability of the twitches to potentiate. This suggests that the mechanisms that induce PAP through phosphorylation of the regulatory light chains are unaffected by forearm orientation and that MVC is sufficient to induce PAP, albeit VA is substantially lower. As force was less in the involuntary contraction, as highlighted in the ~70% reduction in peak tension in pronated relative to neutral and supinated orientations, there are factors beyond descending drive inhibiting force production in the pronated orientation.</p><p>Muscle length has been shown to influence VA, with VA being greater at short compared with long muscle lengths (Suter and Herzog <xref rid="phy213560-bib-0026" ref-type="ref">1997</xref>; Kluka et al. <xref rid="phy213560-bib-0016" ref-type="ref">2015</xref>). As elbow flexion angle increases, the length of the BB increases (Ismail and Ranatunga <xref rid="phy213560-bib-0014" ref-type="ref">1978</xref>; Doheny et al. <xref rid="phy213560-bib-0008" ref-type="ref">2008</xref>). Due to the insertion of the distal BB tendon, as the forearm is rotated into the pronated orientation and the radius is rotated medially (Koch and Tillman <xref rid="phy213560-bib-0017" ref-type="ref">1995</xref>), there is likely a lengthening of the muscle as the tendon articulates over the radial head. Thus, rotation of the forearm into pronation might impart lengthening that may coincide with moving along the force–length curve and culminate in reduced force production in the pronated orientation. The length of the BB was not recorded during contraction due to the limitations of gaining ultrasound images with stimulation pads placed over the BB, thus we can only speculate on differences in muscle length between orientations. Torque production is dependent on the muscle's moment arm and prior studies have shown increases in BB moment arm up to elbow flexion angles of 100° (Murray et al. <xref rid="phy213560-bib-0021" ref-type="ref">1995</xref>), and with increasing force (Akagi et al. <xref rid="phy213560-bib-0001" ref-type="ref">2012</xref>). However, the lever arm, due to the fixed position of the forearm and elbow joint, remained identical across orientations. Previously reported moment arms of the BB were also found to be similar across supinated, neutral, and pronated forearm orientations at 110° of flexion (Murray et al. <xref rid="phy213560-bib-0021" ref-type="ref">1995</xref>). Although it is unlikely that moment arm is a key contributor to reduced force in the pronation position, future studies should quantify the combined influence of BB muscle length and tendon moment arm across forearm orientations.</p><p>In conclusion, greater elbow flexor strength in supinated and neutral orientations compared with pronated likely arises from both reductions in descending drive and mechanics of force production. This might be consequential to position‐dependent alterations in muscle and tendon. To tease out these mechanical and neural effects, and ascertain the location of altered drive, transcranial magnetic stimulation and transmastoid stimulation should be used for identification of cortical and spinal excitability in combination with ultrasonography to measure muscle and tendon mechanics.</p></sec><sec id="phy213560-sec-0012"><title>Conflict of Interest</title><p>The authors declare no conflict of interest.</p></sec></body><back><ref-list content-type="cited-references" id="phy213560-bibl-0001"><title>References</title><ref id="phy213560-bib-0001"><mixed-citation publication-type="journal" id="phy213560-cit-0001">
+<string-name name-style="western">
+<surname>Akagi</surname>, <given-names>R.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Iwanuma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Kanehisa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Yanai</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kawakami</surname>
+</string-name>. <year>2012</year>
+<article-title>In vivo measurements of moment arm lengths of three elbow flexors at rest and during isometric contractions</article-title>. <source>J. Appl. Biomech.</source>
+<volume>28</volume>:<fpage>63</fpage>–<lpage>69</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1123/jab.28.1.63">https://doi.org/10.1123/jab.28.1.63</ext-link>.<pub-id pub-id-type="pmid">22431216</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1123/jab.28.1.63</pub-id></mixed-citation></ref><ref id="phy213560-bib-0002"><mixed-citation publication-type="journal" id="phy213560-cit-0002">
+<string-name name-style="western">
+<surname>Allen</surname>, <given-names>G. M.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>S. C.</given-names>
+<surname>Gandevia</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>D. K.</given-names>
+<surname>McKenzie</surname>
+</string-name>. <year>1995</year>
+<article-title>Reliability of measurements of muscle strength and voluntary activation using twitch interpolation</article-title>. <source>Muscle Nerve</source>
+<volume>18</volume>:<fpage>567</fpage>–<lpage>681</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1002/mus.880180605">https://doi.org/10.1002/mus.880180605</ext-link>.<pub-id pub-id-type="pmid">7753121</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/mus.880180605</pub-id></mixed-citation></ref><ref id="phy213560-bib-0003"><mixed-citation publication-type="journal" id="phy213560-cit-0003">
+<string-name name-style="western">
+<surname>Arampatzis</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Mademli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>De Monte</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Walsh</surname>
+</string-name>. <year>2007</year>
+<article-title>Changes in fascicle length from rest to maximal voluntary contraction affect the assessment of voluntary activation</article-title>. <source>J. Biomech.</source>
+<volume>40</volume>:<fpage>3193</fpage>–<lpage>3200</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jbiomech.2007.04.011">https://doi.org/10.1016/j.jbiomech.2007.04.011</ext-link>.<pub-id pub-id-type="pmid">17599340</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jbiomech.2007.04.011</pub-id></mixed-citation></ref><ref id="phy213560-bib-0004"><mixed-citation publication-type="journal" id="phy213560-cit-0004">
+<string-name name-style="western">
+<surname>Barry</surname>, <given-names>B. K.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>Z. A.</given-names>
+<surname>Riley</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Pascoe</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R. M.</given-names>
+<surname>Enoka</surname>
+</string-name>. <year>2008</year>
+<article-title>A spinal pathway between synergists can modulate activity in human elbow flexor muscles</article-title>. <source>Exp. Brain Res.</source>
+<volume>190</volume>:<fpage>347</fpage>–<lpage>359</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00221-008-1479-5">https://doi.org/10.1007/s00221-008-1479-5</ext-link>.<pub-id pub-id-type="pmid">18597082</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00221-008-1479-5</pub-id><pub-id pub-id-type="pmcid">PMC2570337</pub-id></mixed-citation></ref><ref id="phy213560-bib-0005"><mixed-citation publication-type="journal" id="phy213560-cit-0005">
+<string-name name-style="western">
+<surname>Baudry</surname>, <given-names>S.</given-names>
+</string-name>, and <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Duchateau</surname>
+</string-name>. <year>2007</year>
+<article-title>Postactivation potentiation in a human muscle: effect on the load‐velocity relation of tetanic and voluntary shortening contractions</article-title>. <source>J. Appl. Physiol.</source>
+<volume>103</volume>:<fpage>1318</fpage>–<lpage>1325</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1152/japplphysiol.00403.2007">https://doi.org/10.1152/japplphysiol.00403.2007</ext-link>.<pub-id pub-id-type="pmid">17641222</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00403.2007</pub-id></mixed-citation></ref><ref id="phy213560-bib-0006"><mixed-citation publication-type="journal" id="phy213560-cit-0006">
+<string-name name-style="western">
+<surname>Baudry</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Klass</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Duchateau</surname>
+</string-name>. <year>2008</year>
+<article-title>Postactivation potentiation of short tetanic contractions is differently influenced by stimulation frequency in young and elderly adults</article-title>. <source>Eur. J. Appl. Physiol.</source>
+<volume>103</volume>:<fpage>449</fpage>–<lpage>459</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00421-008-0739-1">https://doi.org/10.1007/s00421-008-0739-1</ext-link>.<pub-id pub-id-type="pmid">18392844</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-008-0739-1</pub-id></mixed-citation></ref><ref id="phy213560-bib-0007"><mixed-citation publication-type="journal" id="phy213560-cit-0007">
+<string-name name-style="western">
+<surname>Brown</surname>, <given-names>R. E.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>D. E.</given-names>
+<surname>Edwards</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Jakobi</surname>
+</string-name>. <year>2010</year>
+<article-title>Sex differences in force steadiness in three positions of the forearm</article-title>. <source>Eur. J. Appl. Physiol.</source>
+<volume>110</volume>:<fpage>1251</fpage>–<lpage>1257</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00421-010-1600-x">https://doi.org/10.1007/s00421-010-1600-x</ext-link>.<pub-id pub-id-type="pmid">20737167</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-010-1600-x</pub-id></mixed-citation></ref><ref id="phy213560-bib-0008"><mixed-citation publication-type="journal" id="phy213560-cit-0008">
+<string-name name-style="western">
+<surname>Doheny</surname>, <given-names>E. P.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>M. M.</given-names>
+<surname>Lowery</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. P.</given-names>
+<surname>FitzPatrick</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>O'Malley</surname>
+</string-name>. <year>2008</year>
+<article-title>Effect of elbow joint angle on force‐EMG relationships in human elbow flexor and extensor muscles</article-title>. <source>J. Electromyogr. Kinesiol.</source>
+<volume>18</volume>:<fpage>760</fpage>–<lpage>770</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.jelekin.2007.03.006">https://doi.org/10.1016/j.jelekin.2007.03.006</ext-link>.<pub-id pub-id-type="pmid">17499516</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jelekin.2007.03.006</pub-id></mixed-citation></ref><ref id="phy213560-bib-0009"><mixed-citation publication-type="journal" id="phy213560-cit-0009">
+<string-name name-style="western">
+<surname>Forman</surname>, <given-names>D. A.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Richards</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. N.</given-names>
+<surname>Forman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. W. R.</given-names>
+<surname>Holmes</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>K. E.</given-names>
+<surname>Power</surname>
+</string-name>. <year>2016</year>
+<article-title>Changes in corticospinal and spinal excitability to the biceps brachii with a neutral vs. pronated handgrip position differ between arm cycling and tonic elbow flexion</article-title>. <source>Front. Human Neurosci.</source>
+<volume>10</volume>:<fpage>1</fpage>–<lpage>12</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.3389/fnhum.2016.00543">https://doi.org/10.3389/fnhum.2016.00543</ext-link>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fnhum.2016.00543</pub-id><pub-id pub-id-type="pmcid">PMC5078689</pub-id><pub-id pub-id-type="pmid">27826236</pub-id></mixed-citation></ref><ref id="phy213560-bib-0010"><mixed-citation publication-type="journal" id="phy213560-cit-0010">
+<string-name name-style="western">
+<surname>Hamada</surname>, <given-names>T.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>D. G.</given-names>
+<surname>Sale</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>MacDougall</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Tarnopolsky</surname>
+</string-name>. <year>2000</year>
+<article-title>Postactivation potentiation, fiber type, and twitch contraction time in human knee extensor muscles</article-title>. <source>J. Appl. Physiol.</source>
+<volume>88</volume>:<fpage>2131</fpage>–<lpage>2137</lpage>.<pub-id pub-id-type="pmid">10846027</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jappl.2000.88.6.2131</pub-id></mixed-citation></ref><ref id="phy213560-bib-0011"><mixed-citation publication-type="journal" id="phy213560-cit-0011">
+<string-name name-style="western">
+<surname>Harwood</surname>, <given-names>B.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>D. L.</given-names>
+<surname>Edwards</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Jakobi</surname>
+</string-name>. <year>2010</year>
+<article-title>Age independent and position‐dependent alterations in motor unit activity of the biceps brachii</article-title>. <source>Eur. J. Appl. Physiol.</source>
+<volume>110</volume>:<fpage>27</fpage>–<lpage>38</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00421-010-1438-2">https://doi.org/10.1007/s00421-010-1438-2</ext-link>.<pub-id pub-id-type="pmid">20383774</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-010-1438-2</pub-id></mixed-citation></ref><ref id="phy213560-bib-0012"><mixed-citation publication-type="journal" id="phy213560-cit-0012">
+<string-name name-style="western">
+<surname>Herbert</surname>, <given-names>R. D.</given-names>
+</string-name>, and <string-name name-style="western">
+<given-names>S. C.</given-names>
+<surname>Gandevia</surname>
+</string-name>. <year>1999</year>
+<article-title>Twitch interpolation in human muscles: mechanisms and implications for measurement of voluntary activation</article-title>. <source>J. Appl. Physiol.</source>
+<volume>82</volume>:<fpage>2271</fpage>–<lpage>2283</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.1999.82.5.2271</pub-id><pub-id pub-id-type="pmid">10561405</pub-id></mixed-citation></ref><ref id="phy213560-bib-0013"><mixed-citation publication-type="journal" id="phy213560-cit-0013">
+<string-name name-style="western">
+<surname>Huang</surname>, <given-names>Y.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hsu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wei</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Chang</surname>
+</string-name>. <year>2010</year>
+<article-title>The non‐linear relationship between muscle voluntary activation level and voluntary force measured by the interpolated twitch technique</article-title>. <source>Sensors</source>
+<volume>10</volume>:<fpage>796</fpage>–<lpage>807</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.3390/s100100796">https://doi.org/10.3390/s100100796</ext-link>.<pub-id pub-id-type="pmid">22315569</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/s100100796</pub-id><pub-id pub-id-type="pmcid">PMC3270870</pub-id></mixed-citation></ref><ref id="phy213560-bib-0014"><mixed-citation publication-type="journal" id="phy213560-cit-0014">
+<string-name name-style="western">
+<surname>Ismail</surname>, <given-names>H. M.</given-names>
+</string-name>, and <string-name name-style="western">
+<given-names>K. W.</given-names>
+<surname>Ranatunga</surname>
+</string-name>. <year>1978</year>
+<article-title>Isometric tension development in a human skeletal muscle in relation to its working range of movement: the length‐tension relation of biceps brachii muscle</article-title>. <source>Exp. Neurol.</source>
+<volume>62</volume>:<fpage>595</fpage>–<lpage>604</lpage>.<pub-id pub-id-type="pmid">750212</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/0014-4886(78)90271-6</pub-id></mixed-citation></ref><ref id="phy213560-bib-0015"><mixed-citation publication-type="journal" id="phy213560-cit-0015">
+<string-name name-style="western">
+<surname>Jakobi</surname>, <given-names>J. M.</given-names>
+</string-name>, and <string-name name-style="western">
+<given-names>C. L.</given-names>
+<surname>Rice</surname>
+</string-name>. <year>2002</year>
+<article-title>Voluntary activation varies with age and muscle group</article-title>. <source>J. Appl. Physiol.</source>
+<volume>93</volume>:<fpage>457</fpage>–<lpage>462</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1152/japplphysiol.00012.2002">https://doi.org/10.1152/japplphysiol.00012.2002</ext-link>.<pub-id pub-id-type="pmid">12133850</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00012.2002</pub-id></mixed-citation></ref><ref id="phy213560-bib-0016"><mixed-citation publication-type="journal" id="phy213560-cit-0016">
+<string-name name-style="western">
+<surname>Kluka</surname>, <given-names>V.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Martin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. G.</given-names>
+<surname>Vincencio</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Jegu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Cardenoux</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Morio</surname>
+</string-name>, et al. <year>2015</year>
+<article-title>Effect of muscle length on voluntary activation level in children and adults</article-title>. <source>Med. Sci. Sports Exerc.</source>
+<volume>47</volume>:<fpage>718</fpage>–<lpage>724</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1249/MSS.0000000000000463">https://doi.org/10.1249/MSS.0000000000000463</ext-link>.<pub-id pub-id-type="pmid">25083726</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1249/MSS.0000000000000463</pub-id></mixed-citation></ref><ref id="phy213560-bib-0017"><mixed-citation publication-type="journal" id="phy213560-cit-0017">
+<string-name name-style="western">
+<surname>Koch</surname>, <given-names>S.</given-names>
+</string-name>, and <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Tillman</surname>
+</string-name>. <year>1995</year>
+<article-title>The distal tendon of the biceps brachii: structure and correlations</article-title>. <source>Ann. Anat.</source>
+<volume>177</volume>:<fpage>467</fpage>–<lpage>474</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1016/S0940-9602(11)80155-X">https://doi.org/10.1016/S0940-9602(11)80155-X</ext-link>.<pub-id pub-id-type="pmid">7645742</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S0940-9602(11)80155-X</pub-id></mixed-citation></ref><ref id="phy213560-bib-0018"><mixed-citation publication-type="journal" id="phy213560-cit-0018">
+<string-name name-style="western">
+<surname>Kooistra</surname>, <given-names>R. D.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>C. J.</given-names>
+<surname>de Ruiter</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>de Haan</surname>
+</string-name>. <year>2007</year>
+<article-title>Conventionally assessed voluntary activation does not represent relative voluntary torque production</article-title>. <source>Eur. J. Appl. Physiol.</source>
+<volume>100</volume>:<fpage>309</fpage>–<lpage>320</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00721-007-0425-8">https://doi.org/10.1007/s00721-007-0425-8</ext-link>.<pub-id pub-id-type="pmid">17357793</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-007-0425-8</pub-id><pub-id pub-id-type="pmcid">PMC1914240</pub-id></mixed-citation></ref><ref id="phy213560-bib-0019"><mixed-citation publication-type="journal" id="phy213560-cit-0019">
+<string-name name-style="western">
+<surname>Miyamoto</surname>, <given-names>N.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Mitsukawa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Sugisaki</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Fukunaga</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kawakami</surname>
+</string-name>. <year>2010</year>
+<article-title>Joint angle dependence of intermuscle difference in postactivation potentiation</article-title>. <source>Muscle Nerve</source>
+<volume>41</volume>:<fpage>519</fpage>–<lpage>523</lpage>
+<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1002/mus.21529">https://doi.org/10.1002/mus.21529</ext-link>
+<pub-id pub-id-type="pmid">19882641</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/mus.21529</pub-id></mixed-citation></ref><ref id="phy213560-bib-0020"><mixed-citation publication-type="journal" id="phy213560-cit-0020">
+<string-name name-style="western">
+<surname>Mogk</surname>, <given-names>J. P. M.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>L. M.</given-names>
+<surname>Rogers</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. M.</given-names>
+<surname>Murray</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. J.</given-names>
+<surname>Perreault</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Stinear</surname>
+</string-name>. <year>2014</year>
+<article-title>Corticomotor excitability of arm muscles modulates according to static position and orientation of the upper limb</article-title>. <source>Clin. Neurophysiol.</source>
+<volume>125</volume>:<fpage>2046</fpage>–<lpage>2054</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1016/j.clinph.2014.02.007">https://doi.org/10.1016/j.clinph.2014.02.007</ext-link>.<pub-id pub-id-type="pmid">24630543</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.clinph.2014.02.007</pub-id></mixed-citation></ref><ref id="phy213560-bib-0021"><mixed-citation publication-type="journal" id="phy213560-cit-0021">
+<string-name name-style="western">
+<surname>Murray</surname>, <given-names>W. M.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>S. L.</given-names>
+<surname>Delp</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>T. S.</given-names>
+<surname>Buchanan</surname>
+</string-name>. <year>1995</year>
+<article-title>Variation of muscle moment arms with elbow and forearm position</article-title>. <source>J. Biomech.</source>
+<volume>28</volume>:<fpage>513</fpage>–<lpage>525</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1016/0021-9290(94)00114-J">https://doi.org/10.1016/0021-9290(94)00114-J</ext-link>.<pub-id pub-id-type="pmid">7775488</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/0021-9290(94)00114-j</pub-id></mixed-citation></ref><ref id="phy213560-bib-0022"><mixed-citation publication-type="journal" id="phy213560-cit-0022">
+<string-name name-style="western">
+<surname>Nuzzo</surname>, <given-names>J. L.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>G. S.</given-names>
+<surname>Trajano</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. K.</given-names>
+<surname>Barry</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. C.</given-names>
+<surname>Gandevia</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. L.</given-names>
+<surname>Taylor</surname>
+</string-name>. <year>2016</year>
+<article-title>Arm posture‐dependent changes in corticospinal excitability are largely spinal in origin</article-title>. <source>J. Neurophysiol.</source>
+<volume>115</volume>:<fpage>2076</fpage>–<lpage>2082</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1152/jn.00885.2015">https://doi.org/10.1152/jn.00885.2015</ext-link>.<pub-id pub-id-type="pmid">26864764</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00885.2015</pub-id><pub-id pub-id-type="pmcid">PMC4869508</pub-id></mixed-citation></ref><ref id="phy213560-bib-0023"><mixed-citation publication-type="journal" id="phy213560-cit-0023">
+<string-name name-style="western">
+<surname>Rassier</surname>, <given-names>D. E.</given-names>
+</string-name>, and <string-name name-style="western">
+<given-names>B. R.</given-names>
+<surname>MacIntosh</surname>
+</string-name>. <year>2000</year>
+<article-title>Coexistence of potentiation and fatigue in skeletal muscle</article-title>. <source>Braz. J. Med. Biol. Res.</source>
+<volume>33</volume>:<fpage>409</fpage>–<lpage>508</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1590/S0100-879X2000000500003">https://doi.org/10.1590/S0100-879X2000000500003</ext-link>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1590/s0100-879x2000000500003</pub-id><pub-id pub-id-type="pmid">10775880</pub-id></mixed-citation></ref><ref id="phy213560-bib-0024"><mixed-citation publication-type="journal" id="phy213560-cit-0024">
+<string-name name-style="western">
+<surname>Sale</surname>, <given-names>D. G.</given-names>
+</string-name>
+<year>2002</year>
+<article-title>Post‐activation potentiation: role in human performance</article-title>. <source>Exerc. Sport Sci. Rev.</source>
+<volume>30</volume>:<fpage>138</fpage>–<lpage>143</lpage>.<pub-id pub-id-type="pmid">12150573</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/00003677-200207000-00008</pub-id></mixed-citation></ref><ref id="phy213560-bib-0025"><mixed-citation publication-type="journal" id="phy213560-cit-0025">
+<string-name name-style="western">
+<surname>Simpson</surname>, <given-names>C. L.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Arefin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. R.</given-names>
+<surname>Smart</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Hardwood</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Jakobi</surname>
+</string-name>. <year>2016</year>
+<article-title>Duration of fascicle shortening is affected by muscle architecture and sex</article-title>. <source>Eur. J. Appl. Physiol.</source>
+<volume>116</volume>(<issue>11–12</issue>):<fpage>2237</fpage>–<lpage>2245</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1007/s00421-016-3476-x">https://doi.org/10.1007/s00421-016-3476-x</ext-link>.<pub-id pub-id-type="pmid">27654877</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-016-3476-x</pub-id></mixed-citation></ref><ref id="phy213560-bib-0026"><mixed-citation publication-type="journal" id="phy213560-cit-0026">
+<string-name name-style="western">
+<surname>Suter</surname>, <given-names>E.</given-names>
+</string-name>, and <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Herzog</surname>
+</string-name>. <year>1997</year>
+<article-title>Extent of muscle inhibition as a function of knee angle</article-title>. <source>J. Electromyogr. Kinesiol.</source>
+<volume>7</volume>:<fpage>123</fpage>–<lpage>130</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1016/S1050-6411(96)00028-4">https://doi.org/10.1016/S1050-6411(96)00028-4</ext-link>.<pub-id pub-id-type="pmid">20719697</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/s1050-6411(96)00028-4</pub-id></mixed-citation></ref><ref id="phy213560-bib-0027"><mixed-citation publication-type="journal" id="phy213560-cit-0027">
+<string-name name-style="western">
+<surname>Sweeny</surname>, <given-names>H. L.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>B. F.</given-names>
+<surname>Bowman</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. T.</given-names>
+<surname>Stull</surname>
+</string-name>. <year>1993</year>
+<article-title>Myosin light chain phosphorylation in vertebrae striated muscle: regulation and function</article-title>. <source>Am. J. Physiol.</source>
+<volume>264</volume>:<fpage>C1085</fpage>–<lpage>C1095</lpage>.<pub-id pub-id-type="pmid">8388631</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpcell.1993.264.5.C1085</pub-id></mixed-citation></ref><ref id="phy213560-bib-0028"><mixed-citation publication-type="journal" id="phy213560-cit-0028">
+<string-name name-style="western">
+<surname>Taylor</surname>, <given-names>J. L.</given-names>
+</string-name>
+<year>2009</year>
+<article-title>Counterpoint: the interpolated twitch does not provide a valid measure of the voluntary activation of a muscle</article-title>. <source>J. Appl. Physiol.</source>
+<volume>107</volume>:<fpage>354</fpage>–<lpage>355</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1152/japplphysiol.91220.2008a">https://doi.org/10.1152/japplphysiol.91220.2008a</ext-link>.<pub-id pub-id-type="pmid">19567806</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.91220.2008a</pub-id></mixed-citation></ref><ref id="phy213560-bib-0029"><mixed-citation publication-type="journal" id="phy213560-cit-0029">
+<string-name name-style="western">
+<surname>de Tombe</surname>, <given-names>P. P.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Belus</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Piroddi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Scellini</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. S.</given-names>
+<surname>Walker</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. F.</given-names>
+<surname>Martin</surname>
+</string-name>, et al. <year>2006</year>
+<article-title>Myofilament calcium sensitivity does not affect cross‐bridge activation‐relaxation kinetics</article-title>. <source>Am. J. Regul. Integr. Comp. Physiol.</source>
+<volume>209</volume>:<fpage>R1126</fpage>–<lpage>R1136</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1152/ajpregu.00630">https://doi.org/10.1152/ajpregu.00630</ext-link>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpregu.00630.2006</pub-id><pub-id pub-id-type="pmid">17082350</pub-id></mixed-citation></ref><ref id="phy213560-bib-0030"><mixed-citation publication-type="journal" id="phy213560-cit-0030">
+<string-name name-style="western">
+<surname>Vandervoort</surname>, <given-names>A. A.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Quinilan</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>McComas</surname>
+</string-name>. <year>1983</year>
+<article-title>Twitch potentiation after voluntary contraction</article-title>. <source>Exp. Neurol.</source>
+<volume>81</volume>:<fpage>141</fpage>–<lpage>152</lpage>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://doi.org/10.1016/0014-4886(83)90163-2">https://doi.org/10.1016/0014-4886(83)90163-2</ext-link>.<pub-id pub-id-type="pmid">6861942</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/0014-4886(83)90163-2</pub-id></mixed-citation></ref></ref-list></back></article>

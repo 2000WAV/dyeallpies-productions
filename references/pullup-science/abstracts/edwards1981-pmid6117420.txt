@@ -1,0 +1,29 @@
+1. Ciba Found Symp. 1981;82:1-18. doi: 10.1002/9780470715420.ch1.
+
+Human muscle function and fatigue.
+
+Edwards RH.
+
+Fatigue is defined as a failure to maintain the required or expected force. The 
+force of a voluntary contraction is graded according to both the tension 
+generated in each muscle fibre and the number of fibres recruited. The same is 
+true of fatigue. Percutaneous electrical stimulation of a muscle via its motor 
+nerve allows the contractile function to be measured independently of volition. 
+Studies have been made of the forces generated isometrically at different 
+stimulation frequencies (frequency: force curve), and of fatiguability (tendency 
+to lose force in a given time at specified stimulation frequencies), in the 
+quadriceps and adductor pollicis muscles. Electrical stimulation recordings of 
+the programmed stimulation myograms distinguish forms of muscle fatigue. Low 
+frequency fatigue which implies impaired excitation-contraction coupling is 
+long-lasting, whereas high frequency fatigue which represents impaired muscle 
+membrane excitation recovers rapidly. Electromyographic (EMG) indicators of 
+fatigue are well recognized but their use is limited because they cannot alone 
+indicate whether alterations in excitation-contraction coupling underlie 
+fatigue. Alterations in the power spectrum of the EMG precede (force) fatigue in 
+sustained maximum voluntary contractions. Fatigue may ultimately be due to a 
+failure of the rate of energy supply to meet demand, but the precise expression 
+of this defect may vary, such that failure of excitation or of activation may 
+predominate over failure of the energy supply.
+
+DOI: 10.1002/9780470715420.ch1
+PMID: 6117420 [Indexed for MEDLINE]

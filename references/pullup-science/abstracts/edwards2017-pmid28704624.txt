@@ -1,0 +1,35 @@
+1. J Orthop Sports Phys Ther. 2017 Dec;47(12):931-944. doi: 
+10.2519/jospt.2017.7271. Epub 2017 Jul 13.
+
+A Systematic Review of Electromyography Studies in Normal Shoulders to Inform 
+Postoperative Rehabilitation Following Rotator Cuff Repair.
+
+Edwards PK, Ebert JR, Littlewood C, Ackland T, Wang A.
+
+Study Design Systematic review. Background Electromyography (EMG) has previously 
+been used to guide postoperative rehabilitation progression following rotator 
+cuff repair to prevent deleterious loading of early surgical repair. Objective 
+To review the current literature investigating EMG during rehabilitation 
+exercises in normal shoulders, and to identify exercises that meet a cut point 
+of 15% maximal voluntary isometric contraction (MVIC) or less and are unlikely 
+to result in excessive loading in the early postoperative stages. Methods An 
+electronic search of MEDLINE via Ovid, Embase, CINAHL, SPORTDiscus, PubMed, and 
+the Cochrane Library for all years up to June 2016 was performed. Studies were 
+selected in relation to predefined selection criteria. Pooled mean MVICs were 
+reported and classified as low (0%-15% MVIC), low to moderate (16%-20% MVIC), 
+moderate (21%-40% MVIC), high (41%-60% MVIC), and very high (greater than 60% 
+MVIC). Results A search identified 2159 studies. After applying the selection 
+criteria, 20 studies were included for quality assessment, data extraction, and 
+data synthesis. In total, 43 exercises spanning passive range of motion, 
+active-assisted range of motion, and strengthening exercises were evaluated. Out 
+of 13 active-assisted exercises, 9 were identified as suitable (15% MVIC or 
+less) to load the supraspinatus and 10 as suitable to load the infraspinatus 
+early after surgery. All exercises were placed in a theoretical-continuum model, 
+by which general recommendations could be made for prescription in patients post 
+rotator cuff repair. Conclusion This review identified passive and 
+active-assisted exercises that may be appropriate in the early stages after 
+rotator cuff repair. J Orthop Sports Phys Ther 2017;47(12):931-944. Epub 13 Jul 
+2017. doi:10.2519/jospt.2017.7271.
+
+DOI: 10.2519/jospt.2017.7271
+PMID: 28704624 [Indexed for MEDLINE]

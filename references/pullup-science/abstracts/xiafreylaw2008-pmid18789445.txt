@@ -1,0 +1,29 @@
+1. J Biomech. 2008 Oct 20;41(14):3046-52. doi: 10.1016/j.jbiomech.2008.07.013.
+Epub  2008 Sep 11.
+
+A theoretical approach for modeling peripheral muscle fatigue and recovery.
+
+Xia T(1), Frey Law LA.
+
+Author information:
+(1)Center for Computer-Aided Design, College of Engineering, The University of 
+Iowa, Iowa City, IA 52242, USA.
+
+A three-compartment model is presented to describe muscle activation, fatigue, 
+and recovery under a variety of loading conditions. Muscle is considered to be 
+in one of three states: resting (M(R)), activated (M(A)), or fatigued (M(F)). A 
+bounded proportional controller represents muscle activation-deactivation, the 
+transfer between M(R) and M(A). The fatigue and recovery rates determine the 
+transfer to/from M(F) state. The model qualitatively demonstrates empirically 
+based fatigue behavior, known as Rohmert's curves, with isometric loading 
+conditions. An expanded version of the model utilizes the properties of three 
+muscle fiber types and a last-in-first-out stack mechanism to represent the 
+known muscle recruitment hierarchy. Additionally, a novel yet practical approach 
+is introduced to quantitatively evaluate task-related muscle fatigue for complex 
+and/or dynamic movements at the joint level, encompassing the nonlinear 
+influences of joint angle and velocity. This approach may have potential for 
+digital human modeling, ergonomics, and other real-time applications due to its 
+computational efficiency.
+
+DOI: 10.1016/j.jbiomech.2008.07.013
+PMID: 18789445 [Indexed for MEDLINE]

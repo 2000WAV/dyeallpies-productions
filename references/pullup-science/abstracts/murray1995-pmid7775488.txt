@@ -1,0 +1,28 @@
+1. J Biomech. 1995 May;28(5):513-25. doi: 10.1016/0021-9290(94)00114-j.
+
+Variation of muscle moment arms with elbow and forearm position.
+
+Murray WM(1), Delp SL, Buchanan TS.
+
+Author information:
+(1)Department of Biomedical Engineering, Northwestern University, Chicago, IL, 
+USA.
+
+We hypothesized that the moment arms of muscles crossing the elbow vary 
+substantially with forearm and elbow position and that these variations could be 
+represented using a three-dimensional computer model. Flexion/extension and 
+pronation/supination moment arms of the brachioradialis, biceps, brachialis, 
+pronator teres, and triceps were calculated from measurements of tendon 
+displacement and joint angle in two anatomic specimens and were estimated using 
+a computer model of the elbow joint. The anatomical measurements revealed that 
+the flexion/extension moment arms varied by at least 30% over a 95 degrees range 
+of motion. The changes in flexion/extension moment arm magnitudes with elbow 
+flexion angle were represented well by the computer model. The anatomical 
+studies and the computer model demonstrate that the biceps flexion moment arm 
+peaks in a more extended elbow position and has a larger peak when the forearm 
+is supinated. Also, the peak biceps supination moment arm decreases as the elbow 
+is extended. These results emphasize the need to account for the variation of 
+muscle moment arms with elbow flexion and forearm position.
+
+DOI: 10.1016/0021-9290(94)00114-j
+PMID: 7775488 [Indexed for MEDLINE]

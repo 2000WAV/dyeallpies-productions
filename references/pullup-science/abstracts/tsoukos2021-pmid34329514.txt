@@ -1,0 +1,42 @@
+1. Scand J Med Sci Sports. 2021 Nov;31(11):2071-2082. doi: 10.1111/sms.14027.
+Epub  2021 Aug 9.
+
+Changes in EMG and movement velocity during a set to failure against different 
+loads in the bench press exercise.
+
+Tsoukos A(1), Brown LE(2), Terzis G(1), Wilk M(3), Zajac A(3), Bogdanis GC(1).
+
+Author information:
+(1)School of Physical Education and Sports Science, National & Kapodistrian 
+University of Athens, Dafne, Greece.
+(2)Human Performance Laboratory, California State University, Fullerton, 
+California, USA.
+(3)Institute of Sport Sciences, Jerzy Kukuczka Academy of Physical Education in 
+Katowice, Katowice, Poland.
+
+This study examined changes in movement velocity and surface electromyographic 
+(sEMG) activity of the pectoralis major (PM) and triceps brachii (TB) muscles 
+during the bench press exercise to failure against different loads. Fourteen men 
+performed a set to failure with maximum intended velocity, against low (40%-1 
+repetition maximum-RM), moderate (60%-1RM), and heavy loads (80%-1RM). Number of 
+repetitions, volume load, mean and peak velocity, and total time increased with 
+decreasing load (40% > 60% > 80%, p < 0.01). sEMG comparisons between different 
+loads were performed by matching time under tension at the initial, middle, and 
+last part of the set. sEMG was higher in the middle and last repetitions, 
+compared with the initial, for all loads in both muscles (p < 0.001). sEMG 
+activity of both muscles was higher in the 60% and 80%-1RM conditions compared 
+with the 40%1-RM (p < 0.007). Also, sEMG of both muscles was similar for the 
+60%-1RM and 80%-1RM loads at the initial, middle, and last repetitions, with the 
+exception of the last repetitions for the TB muscle. In contrast, sEMG 
+integrated activity was higher for the 40% 1-RM and 60% 1-RM (p < 0.01) compared 
+with the 80% 1-RM load. Mean velocity loss at exhaustion and drop in sEMG median 
+frequency were greater in the 40% and 60%-1RM compared with the 80%-1RM 
+condition (p < 0.05). It was concluded that performing a set to exhaustion with 
+maximum intended velocity using a load of 60% 1-RM combines the characteristics 
+of the high average sEMG activity of heavier loads, and the high total 
+integrated sEMG observed at lighter loads.
+
+© 2021 John Wiley & Sons A/S. Published by John Wiley & Sons Ltd.
+
+DOI: 10.1111/sms.14027
+PMID: 34329514 [Indexed for MEDLINE]

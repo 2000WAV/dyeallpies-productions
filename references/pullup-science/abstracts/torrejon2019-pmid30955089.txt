@@ -1,0 +1,49 @@
+1. Eur J Appl Physiol. 2019 Jun;119(6):1409-1417. doi:
+10.1007/s00421-019-04131-8.  Epub 2019 Apr 6.
+
+Acute effects of different set configurations during a strength-oriented 
+resistance training session on barbell velocity and the force-velocity 
+relationship in resistance-trained males and females.
+
+Torrejón A(1), Janicijevic D(2), Haff GG(3), García-Ramos A(4)(5).
+
+Author information:
+(1)Department of Physical Education and Sport, Faculty of Sport Sciences, 
+University of Granada, Granada, Spain. alejandrotorrejon1@hotmail.com.
+(2)Faculty of Sport and Physical Education, University of Belgrade, The Research 
+Centre, Belgrade, Serbia.
+(3)Centre for Exercise and Sports Science Research, Edith Cowan University, 
+Joondalup, WA, Australia.
+(4)Department of Physical Education and Sport, Faculty of Sport Sciences, 
+University of Granada, Granada, Spain.
+(5)Department of Sports Sciences and Physical Conditioning, Faculty of 
+Education, CIEDE, Catholic University of Most Holy Concepción, Concepción, 
+Chile.
+
+PURPOSE: This study explored the acute effects of strength-oriented resistance 
+training sessions performed using three different set configurations on barbell 
+velocity and the force-velocity (F-v) relationship of upper-body muscles in men 
+and women.
+METHOD: Thirteen men (age: 23.8 ± 2.5 years; 6-repetition maximum [6RM] load: 
+73.4 ± 15.6 kg) and 13 women (age: 21.5 ± 1.4 years; 6RM load: 32.8 ± 5.2 kg) 
+performed 24 repetitions with a 6RM load during the bench press exercise using 
+traditional (TR: 6 sets of 4 repetitions with 3 min of rest between sets), 
+cluster (CL: 6 sets of 4 repetitions with 15 s of intra-set rest every two 
+repetitions and 2 min and 45 s of rest between sets) and inter-repetition rest 
+(IRR: 1 set of 24 repetitions with 39 s of rest between repetitions) set 
+configurations. The F-v relationship parameters [maximum force (F0), maximum 
+velocity (v0) and maximum power (Pmax)] were determined before and after each 
+training session.
+RESULTS: The average training velocity did not differ between the three set 
+configurations (p = 0.234), but the IRR set configuration generally provided 
+higher velocities during the last repetition of each set. Significant decreases 
+in F0 (p = 0.001) and Pmax (p = 0.024) but not in v0 (p = 0.669) were observed 
+after the training sessions. Comparable velocity loss was observed for men and 
+women (- 12.1% vs. - 11.3%; p = 0.699).
+CONCLUSIONS: The administration of very short intra-set rest periods does not 
+allow for the attainment of higher velocities than traditional set 
+configurations during strength-oriented resistance training sessions conducted 
+with the bench press exercise when the work-to-rest ratio is equated.
+
+DOI: 10.1007/s00421-019-04131-8
+PMID: 30955089 [Indexed for MEDLINE]

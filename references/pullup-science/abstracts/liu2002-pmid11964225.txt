@@ -1,0 +1,31 @@
+1. Biophys J. 2002 May;82(5):2344-59. doi: 10.1016/S0006-3495(02)75580-X.
+
+A dynamical model of muscle activation, fatigue, and recovery.
+
+Liu JZ(1), Brown RW, Yue GH.
+
+Author information:
+(1)Department of Biomedical Engineering, Cleveland Clinic Foundation, Cleveland, 
+Ohio 44195, USA. liuj@bme.ri.ccf.org
+
+A dynamical model is presented as a framework for muscle activation, fatigue, 
+and recovery. By describing the effects of muscle fatigue and recovery in terms 
+of two phenomenological parameters (F, R), we develop a set of dynamical 
+equations to describe the behavior of muscles as a group of motor units 
+activated by voluntary effort. This model provides a macroscopic view for 
+understanding biophysical mechanisms of voluntary drive, fatigue effect, and 
+recovery in stimulating, limiting, and modulating the force output from muscles. 
+The model is investigated under the condition in which brain effort is assumed 
+to be constant. Experimental validation of the model is performed by fitting 
+force data measured from healthy human subjects during a 3-min sustained maximal 
+voluntary handgrip contraction. The experimental results confirm a theoretical 
+inference from the model regarding the possibility of maximal muscle force 
+production, and suggest that only 97% of the true maximal force can be reached 
+under maximal voluntary effort, assuming that all motor units can be recruited 
+voluntarily. The effects of different motor unit types, time-dependent brain 
+effort, sources of artifacts, and other factors that could affect the model are 
+discussed. The applications of the model are also discussed.
+
+DOI: 10.1016/S0006-3495(02)75580-X
+PMCID: PMC1302027
+PMID: 11964225 [Indexed for MEDLINE]

@@ -1,0 +1,40 @@
+1. J Physiol. 1995 Jan 15;482 ( Pt 2)(Pt 2):467-80. doi: 
+10.1113/jphysiol.1995.sp020533.
+
+Recovery of power output and muscle metabolites following 30 s of maximal sprint 
+cycling in man.
+
+Bogdanis GC(1), Nevill ME, Boobis LH, Lakomy HK, Nevill AM.
+
+Author information:
+(1)Department of Physical Education and Sports Science, Loughborough University, 
+Leicestershire, UK.
+
+1. The recovery of power output and muscle metabolites was examined following 
+maximal sprint cycling exercise. Fourteen male subjects performed two 30 s cycle 
+ergometer sprints separated by 1.5, 3 and 6 min of recovery, on three separate 
+occasions. On a fourth occasion eight of the subjects performed only one 30 s 
+sprint and muscle biopsies were obtained during recovery. 2. At the end of the 
+30 s sprint phosphocreatine (PCr) and ATP contents were 19.7 +/- 1.2 and 70.5 
++/- 6.5% of the resting values (rest), respectively, while muscle lactate was 
+119.0 +/- 4.6 mmol (kg dry wt)-1 and muscle pH was 6.72 +/- 0.06. During 
+recovery, PCr increased rapidly to 65.0 +/- 2.8% of rest after 1.5 min, but 
+reached only 85.5 +/- 3.5% of rest after 6 min of recovery. At the same time ATP 
+and muscle pH remained low (19.5 +/- 0.9 mmol (kg dry wt)-1 and 6.79 +/- 0.02, 
+respectively). Modelling of the individual PCr resynthesis using a power 
+function curve gave an average half-time for PCr resynthesis of 56.6 +/- 7.3 s. 
+3. Recovery of peak power output (PPO), peak pedal speed (maxSp) and mean power 
+during the initial 6 s (MPO6) of sprint 2 did not reach the control values after 
+6 min of rest, and occurred in parallel with the resynthesis of PCr, despite the 
+low muscle pH. High correlations (r = 0.71-0.86; P < 0.05) were found between 
+the percentage resynthesis of PCr and the percentage restoration of PPO, maxSp 
+and MPO6 after 1.5 and 3 min of recovery. No relationship was observed between 
+muscle pH recovery and power output restoration during sprint 2 (P > 0.05). 4. 
+These data suggest that PCr resynthesis after 30 s of maximal sprint exercise is 
+slower than previously observed after dynamic exercise of longer duration, and 
+PCr resynthesis is important for the recovery of power during repeated bouts of 
+sprint exercise.
+
+DOI: 10.1113/jphysiol.1995.sp020533
+PMCID: PMC1157744
+PMID: 7714837 [Indexed for MEDLINE]

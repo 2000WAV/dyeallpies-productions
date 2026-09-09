@@ -1,0 +1,31 @@
+1. Eur J Appl Physiol Occup Physiol. 1991;62(5):363-8. doi: 10.1007/BF00634974.
+
+Electrical stimulation of human forearm extensor muscles as an indicator of 
+handgrip fatigue and recovery.
+
+Byström S(1), Kilbom A.
+
+Author information:
+(1)Division of Applied Work Physiology, National Institute of Occupational 
+Health, Solna, Sweden.
+
+A set-up for percutaneous electrical stimulation of the forearm extensor muscles 
+and measurement of wrist extension force is described. The frequency-force 
+relationship and pulse duration-force relationship are described together with 
+an experimental protocol showing that brief electrical test stimulations do not 
+produce fatigue. In another set of experiments carried out a few weeks later, 
+the subjects performed handgrip contractions: protocol A at 25% of maximal 
+voluntary contraction (MVC) continuously until exhaustion, protocol B at 25% MVC 
+intermittent (contraction + relaxation = 10 + 2 s) until exhaustion, and 
+protocol C at 25% MVC intermittent until half the time to exhaustion. In all 
+experiments, brief electrical stimulations were used to test the degree of 
+fatigue during and up to 24 h after the experiments. There were marked changes 
+in the force during stimulation at 20 and 100 Hz and these changes did not 
+correlate with the increase in intramuscular temperature. Low frequency fatigue 
+persisted for at least 24 h after protocol A and 1 h after protocols B and C. 
+The significance of this is discussed and it is suggested that low frequency 
+fatigue could be used as a sensitive indicator of muscle dysfunction after low 
+and medium intensity exercise.
+
+DOI: 10.1007/BF00634974
+PMID: 1874244 [Indexed for MEDLINE]

@@ -1,0 +1,390 @@
+                      The Journal of Sport and Exercise Science, Vol. 5, Issue 2, 149-155 (2021)         JSES
+                                                        www.sesnz.org.nz                          ISSN: 2703-240X
+
+A comparison of muscle activity between strict, kipping and butterfly pull-ups
+
+Toby Williamson1 *, Phil Price1
+
+1Faculty of Sport, Allied Health, and Performance Science, St Mary's University, UK
+
+ARTICLE INFO                                     ABSTRACT
+Received: 18.09.2020
+Accepted: 18.02.2021                             The kipping pull-up (KPU) and butterfly pull-up (BPU) are variations of the strict pull-up
+Online: 08.03.2021                               (SPU) where an athlete uses hollow and arched body positions to gain momentum, before
+                                                 accelerating vertically. Understanding the muscle activity of each of these exercises will
+Keywords:                                        help coaches better utilise them within a strength and conditioning programme. The aim of
+Kipping pull-up                                  this study was to compare upper and lower body muscle activation between the SPU, KPU
+Butterfly pull-up                                and BPU during the concentric and eccentric phases of each exercise. 11 participants had
+EMG                                              surface electromyography data collected from three upper and three lower body muscles
+                                                 while completing each pull-up variation. Peak EMG data from each phase for each muscle
+                                                 from the SPU were used to normalise peak KPU and BPU EMG data. A repeated measures
+                                                 ANOVA with Bonferroni post hoc testing was used to identify significant differences
+                                                 between each variation. The results show significantly reduced muscle activation in the
+                                                 bicep brachii during the concentric (p < 0.05; d = 1.1) and eccentric (p < 0.05; d = 1.1)
+                                                 phases of the BPU, when compared to the SPU. Activation of the latissimus dorsi was
+                                                 significantly lower during the concentric phase of the KPU (p < 0.02; d = 1.2) and eccentric
+                                                 phase (p < 0.01; d = 1.4) of the BPU in comparison to the SPU. Furthermore, significantly
+                                                 greater muscle activation was shown in the rectus femoris, gluteus maximus and rectus
+                                                 abdominus in both the KPU and BPU, when compared to the SPU. However, results
+                                                 differed within the concentric and eccentric phases. These findings show that both styles of
+                                                 kipping increase lower body muscle activation and decrease upper body activation in
+                                                 comparison to the SPU. Further, due to the different style of kip, the KPU and BPU display
+                                                 different muscle activations during both the concentric and eccentric phases.
+
+1. Introduction                                                      seen when comparing the concentric and eccentric phases of the
+                                                                     SPU. Further, changes in approach to performing the SPU
+The strict pull-up (SPU) is a popular exercise in many strength      exercise has seen changes in muscle activation. In 2010, Youdas
+and conditioning programmes (Pate, Burgess, Woods, Ross, &           et al. examined the effect of hand orientations on muscle activity
+Baumgartner, 1993; Woods, Pate, & Burgess, 1992). The pull-up        in seven upper body muscles and found the BB produced higher
+requires the upper limbs to pull the body (which is in a hanging     levels of muscle activity when a supinated grip was used
+position while gripping onto a fixed bar) vertically until the chin  compared to a pronated grip. These studies suggest muscle force
+passes the bar (Ronai & Scibek, 2014; Youdas et al., 2010). The      contributions to the SPU exercise can differ depending on the
+biceps brachii (BB) and latissimus dorsi (LD) are the prime          phase of the exercise and the approach used.
+movers of the SPU exercise as the glenohumeral joint and elbow
+joint go through extension and flexion during the concentric phase,      The kipping pull-up (KPU) is a variation of the SPU, where
+respectively, and are considerably more active during the pulling    the lower limbs are incorporated to create a greater impulse via an
+(concentric) and lowering (eccentric) phase of the SPU than other    increase in force over a longer duration. This increase in impulse
+upper body musculature (Dorma, Deakin, & Ness, 2013).                causes greater momentum and velocity during the concentric
+Interestingly, Dickie, Faulkner, Barnes and Lark (2017)              phase of the exercise. KPU's have recently gained popularity in
+highlighted that differences in upper body muscle activation are     physical training communities as they allow more reps to be
+                                                                     completed in a shorter amount of time, and can be performed by
+
+*Corresponding Author: Toby Williamson, Faculty of Sport, Allied Health, and Performance Science, St Mary's University, UK, tobywilliamson@hotmail.co.uk
+
+JSES | https://doi.org/10.36905/jses.2021.02.08                                                   149
+T. Williamson and P. Price / The Journal of Sport and Exercise Science, Journal Vol. 5, Issue 2, 149-155 (2021)
+
+athletes who may not have the upper body strength to perform           study was approved by the St Mary's University Ethics
+SPU's. KPUs have been compared to a glide kip in gymnastics            Committee.
+(Yamasaki, Gotoh, & Xin, 2010), this is largely due to increased
+contribution of the lower body, when compared to the SPU               2.2. Procedures
+(Dinunzio, Porter, Van Scoy, Cordice, & McCulloch, 2018). As a
+result, upper body muscle contributions have been reported to be       Participants took part in one testing session which was preceded
+reduced in the KPU (Snarr, Hallmark, Casey, Nickerson, & Esco,         by 48 hours total rest. Before the trial commenced, height (SECA
+2015). Snarr and colleagues (2018) reported a decrease in both         Free Standing Height Measure) and weight (Marsden Weighing
+BB and LD muscle activation during the KPU when compared to            Group Portable Scale) were measured. A 10-minute
+the SPU, suggesting an increased emphasis of hip extension to be       familiarisation of the equipment and procedures was completed
+a possible cause. Dinunzio et al. (2018) provide support for these     before two rounds of a standardised warm up were performed: 250
+claims as they reported increased lower limb joint angles and          m row, ten PVC pipe pass throughs, eight kettlebell swings and
+increased lower limb muscle activation.                                six banded reverse rows. Following the warm-up, participants
+                                                                       completed five repetitions of all three pull-up variations in
+    Similar to the KPU, another variation of the SPU which has         random order. Each set was followed by 5 minutes rest. Due to its
+also gained recent popularity is the butterfly pull-up (BPU). The      ability to show high muscle activation in a pull-up, a pronated,
+BPU requires an advanced form of kipping, where the athlete            medium width grip (1.5 times bi-acromial distance) was used for
+performs a more cyclical style of kipping in comparison to the up      all three variations (Andersen, Fimland, Wiik, Skoglund, &
+and back motion used for the KPU. The BPU style of kipping can         Saeterbakken, 2014). The use of chalk or gymnastic handguards
+be performed more quickly, though requires greater whole-body          was not permitted. The SPU started in a hanging position with the
+coordination to perform. Because of the involvement of the lower       arms fully extended and feet off the floor. Participants then pulled
+body, it is logical to assume upper body muscle activations during     themselves upward, using only their upper body and without the
+the BPU would also be lower in comparison to the SPU. Further,         use of the lower limbs to generate momentum. The top of the
+due to the different kipping strategy, there may be different          repetition was completed when the chin successfully passed over
+muscle activation patterns between the KPU and BPU. However,           the horizontal line of the bar, before returning to the start point.
+no research has currently investigated the BPU.                        For the KPU, participants started in the same hanging position
+                                                                       (Figure 1a). From the start position they would pull forward with
+    The programming of these pull-up variations has often been         an arched body (extension of the spine and hips ­ Figure 1b), then
+based on the different adaptations they may develop. Typically,        back to a hollow position (flexion of the hips ­ Figure 1c) to
+the SPU has been programmed for developing upper body weight-          generate momentum, before swinging themselves upward with
+relative muscular strength (Pate et al., 1993) and testing upper       the chin passing over the horizontal line of the bar (Figure 1d).
+body muscular endurance (Ronai & Scibek, 2014), whereas the            During the descent, they would push backwards and fall down
+KPU and BPU are often programmed to improve whole body                 into the hollow position (Figure 1e), before passing though the
+coordination and for increasing the number of repetitions the          start point as they completed the next repetition.
+athlete can perform. However, little is known regarding the
+muscular strategies needed to perform the KPU and BPU. This            a  b                                         c
+knowledge will provide greater understanding of how these
+exercises effect key physiological adaptations, such as maximal
+strength, muscular endurance and hypertrophy, enabling coaches
+and rehabilitators to make better programming decisions. It is
+therefore the aim of this study to compare upper and lower body
+muscle activation between the SPU, KPU and BPU during both
+the concentric and eccentric phases of the exercise. It is
+hypothesised that upper body muscle activation will be higher in
+the SPU, lower body muscle activation will be higher in the KPU
+and BPU, and the KPU and BPU will display different lower body
+muscle activations throughout the exercise.
+
+2. Methods                                                             d  e                                         f
+2.1. Participants
+
+Ten males (height = 176.6 ± 9.1 cm, weight = 84.9 ± 6.5 kg, age        Figure 1: The phases of the kipping pull-up
+= 33 ± 6 years) and one female (height = 155 cm, weight = 54.9
+kg, age = 31 years) volunteered for the study after being
+recommended by the head coach of a CrossFit affiliate. The
+inclusion criteria required participants to be injury free, capable
+of performing five repetitions of each pull-up variation
+(competency determined by the head coach) and have a minimum
+of twelve months experience training at the Crossfit affiliate. Prior
+to the study, participants provided written, informed consent. The
+
+JSES | https://doi.org/10.36905/jses.2021.02.08                                                                        150
+   T. Williamson and P. Price / The Journal of Sport and Exercise Science, Journal Vol. 5, Issue 2, 149-155 (2021)
+
+    The BPU also started in the hanging position (Figure 2a). The         A video camera (Panasonic HC-V210 HD camcorder,
+participant would move into the hollow body shape (Figure 2b) to      Panasonic UK Ltd., Berkshire, UK) recording at 50 Hz was placed
+generate momentum and dynamically pull up to the line of the bar      four metres behind the participant in the frontal plane. The height
+(Figure 2c). On their descent they would pull into the arch position  of the camera was set so that a reflective marker placed on the 7th
+(Figure 2d), before once again passing through the start point        vertebrae of the cervical portion of the spine was as central as
+(Figure 2e & 2f).                                                     possible when in the hanging start position. The marker was used
+                                                                      to identify the concentric and eccentric phases of each exercise.
+a  b                                             c                    The concentric phase was deemed to have started as soon as the
+                                                                      arms were fully extended when descending from the previous
+                                                                      repetition with the marker being at its lowest position. The start
+                                                                      of the eccentric phase was identified as the moment the athlete
+                                                                      began their descent from the peak height achieved when the
+                                                                      marker was at its highest position. These kinematic data were
+                                                                      analysed using Kinovea analysis software (Kinovea 0.8.15,
+                                                                      Kinovea open source, www.kinovea.com).
+
+                                                                      2.3. Electromyographical Measurement
+
+d  e                                             f                    Electromyographical (EMG) data was recorded using a Delsys
+                                                                      Myomonitor® IV Wireless Transmission & Datalogging System
+Figure 2: The phases of the butterfly pull-up                         (Delsys Inc. Boston, MA, USA) at 1000 Hz. Prior to the
+                                                                      application of electrodes, participant's skin was shaved and
+                                                                      swabbed. Electrodes were placed on the muscle belly in three
+                                                                      upper and three lower body locations, on the participant's
+                                                                      dominant side, in line with the muscle fibres. Electrode location
+                                                                      followed previous recommendations, which can be seen in Table
+                                                                      1 (Criswell, 2010; Hermens et al., 1999). However, deviation was
+                                                                      permitted at the discretion of the lead researcher, when visual
+                                                                      identification of the muscle belly differed from recommendations.
+                                                                      For example, the muscle belly of the rectus abdominus would
+                                                                      often vary between participants in both distance from the xiphoid
+                                                                      process and alignment between the linear alba and ribs.
+
+Table 1: Shows electrode location for each muscle and the literature used to identify correct application
+
+Muscle                 Electrode location                                                   Reference
+Bicep brachii (BB)     Centre of flexed bicep. 60% of the distance from the fossa cubit     Hermens et al. (1999)
+Latissimus dorsi (LD)  and medial acromion.                                                 Criswell (2010)
+Infraspinatus (IF)     4 cm inferior to the angle of the scapula. 50% of the distance from  Criswell (2010)
+Rectus femoris (RF)    the vertebrae and the lateral border of the latissimus dorsi.        Hermens et al. (1999)
+Gluteus maximus (GM)   4 cm inferior to the spine of the scapula, in the middle of the      Hermens et al. (1999)
+Rectus abdominus (RA)  fossa.                                                               Hermens et al. (1999)
+                       50% of the distance from the anterior superior iliac crest to the
+                       superior part of the patella.
+                       50% of the distance from the sacrum to the greater trochanter. In
+                       correspondence with the greatest prominence of the buttock.
+                       50% of the distance from the xiphoid process to the naval. 50%
+                       of the distance from the linear alba to the ribs.
+
+JSES | https://doi.org/10.36905/jses.2021.02.08                                                                     151
+T. Williamson and P. Price / The Journal of Sport and Exercise Science, Journal Vol. 5, Issue 2, 149-155 (2021)
+
+2.4. Statistical Approach                                             these data. Differences in peak muscle activations were shown for
+                                                                      both the concentric and eccentric phases of each pull-up variation
+EMG readings from repetitions 2-4 were collected in order to          (Figures 3 to 8). Significant differences in EMGPEAK for the RF
+eliminate any changes in activation and movement pattern during       (Figure 3) were seen during both the concentric (X2 = 16.55, p <
+the swing start of the KPU and BPU (Dinunzio et al., 2018). EMG       0.01) and eccentric phase (X2 = 20.00, p < 0.01). EMGPEAK for
+data for each muscle was individually rectified and smoothed          the RF was significantly higher in the KPU concentric phase (Z =
+using a 101-point rolling average. The timeframe at which EMG         -2.93, p < 0.01; d = 1.2) and eccentric phase (Z = -2.93, p < 0.01;
+recording began was then identified within the video footage in       d = 1.3) in comparison to SPU. RF EMGPEAK was also
+order to synchronise data sets and define the concentric and          significantly higher in the BPU in both the concentric phase (Z =
+eccentric phases of each rep. From here, the peak EMG                 -2.93, p < 0.01; d = 1.4) and eccentric phase (Z = -2.93, p < 0.01;
+activations for each phase of all three repetitions where identified  d = 1.3) in comparison to SPU. EMGPEAK for the RF for the
+and averaged (EMGPEAK). This provided an EMGPEAK for                  BPU was significantly higher than the KPU only during the
+each muscle, across each phase, for all three pull-up variations.     eccentric phase (Z = -2.93, p < 0.01; d = 1.1).
+Data from the SPU was used to normalise KPU and BPU data
+(Sousa & Tavares, 2012). EMGPEAK values were presented as a               For the BB, significant differences in EMGPEAK during the
+percentage of peak SPU muscle activation, with peak SPU muscle        concentric phase were reported (F(1.29, 12.95) = 4.23, p < 0.05).
+activation displayed at 100%. EMGPEAK values were screened            Post hoc tests revealed BB EMGPEAK was only lower during the
+for normality using the Shapiro-Wilk test. Data with normal           BPU (p < 0.05; d = 1.1) in comparison to SPU. Significant
+distribution were analysed using a repeated measures ANOVA            differences in BB EMGPEAK during the eccentric phase (X2 =
+using SPSS statistics software (SPSS Inc. Chicago, IL). Non-          16.55, p < 0.01) were also reported. EMGPEAK of the KPU was
+normal distributed data were analysed using a Friedman's              significantly lower than the SPU (Z = -2.66, p < 0.01; d = 1.3)
+ANOVA. A Bonferroni and Wilcoxon signed-rank post hoc tests           and the BPU (Z = -2.93, p < 0.01; d = 1.3). These EMGPEAK
+were used to identify where significant differences occurred in       differences can be seen in Figure 4.
+normal and non-normal distributed data, respectively.
+                                                                          Significant differences were highlighted for RA EMGPEAK
+3. Results                                                            (Figure 5) between pull-up variations during both the concentric
+                                                                      phase (F(1.94, 19.39) = 6.36, p < 0.05) and eccentric phase (X2 =
+The Shapiro-Wilk's test identified that the following variables       14.36, p < 0.01). Post hoc testing for the concentric data found the
+were non-normally distributed. RF and GM for the concentric           KPU to have significantly greater EMGPEAK (p = 0.01; d = 1.3)
+phase, and BB, RF, GM, RA for the eccentric phase. The                in comparison to SPU. Post hoc testing for the eccentric phase
+appropriate non-parametric statistical tests were therefore used on   showed a lower EMGPEAK for the SPU (Z = -2.93, p < 0.01; d
+                                                                      = 1.6) and KPU (Z = -2.85, p < 0.01; d = 1.2) when compared to
+                                                                      that of the BPU.
+
+        SPU KPU BPU                                                                               SPU KPU BPU
+
+% SPU3500%                                                                                 250%
+                                                                                    % SPU3000%200%
+2500%                                                                                      150%
+2000%                                                                                      100%
+1500%                                                                                       50%
+1000%
+ 500%                                                                                         0%
+
+    0%
+
+        Concentric                               Eccentric                                        Concentric                 Eccentric
+
+                    Pull-up Phase                                                                             Pull-up Phase
+
+Figure 3: EMGPEAK as % SPU for the rectus femoris across all          Figure 4: EMGPEAK as % SPU for the bicep brachii across all
+three variations. Values are given as mean ± SD. * indicates          three variations. Values are given as mean ± SD. * indicates
+significant difference (p < 0.05).                                    significant difference (p < 0.05).
+
+JSES | https://doi.org/10.36905/jses.2021.02.08                                                                                         152
+T. Williamson and P. Price / The Journal of Sport and Exercise Science, Journal Vol. 5, Issue 2, 149-155 (2021)
+
+       SPU KPU BPU                                                                                          SPU KPU BPU
+
+500%% SPU                                                                                           6000%
+400%                                                                                         % SPU  5000%
+300%                                                                                                4000%
+200%                                                                                                3000%
+100%                                                                                                2000%
+                                                                                                    1000%
+   0%
+                                                                                                        0%
+
+       Concentric                                Eccentric                                                  Concentric                 Eccentric
+
+                   Pull-up Phase                                                                                        Pull-up Phase
+
+Figure 5: EMGPEAK as % SPU for the rectus abdominus across        Figure 6: EMGPEAK as % SPU for the gluteus maximus across
+all three variations. Values are given as mean ± SD. * indicates  all three variations. Values are given as mean ± SD. * indicates
+significant difference (p < 0.05).                                significant difference (p < 0.05).
+
+    Significant differences in EMGPEAK for the GM were also       EMGPEAK for the KPU was significantly lower (p < 0.05; d =
+reported between pull-up variations during both concentric (X2 =  1.2) in comparison to the SPU during the concentric phase. For
+13.27, p < 0.01) and eccentric phases (X2 = 20.18, p < 0.01)      the eccentric phase LD EMGPEAK for the SPU was greater than
+(Figure 6). GM EMGPEAK was significantly greater during the       both the KPU (p < 0.01; d = 1.5) and the BPU (p < 0.01; d = 1.4).
+concentric phase for both the KPU (Z = -2.85, p < 0.01; d = 0.8)
+and BPU (Z = -2.40, p < 0.05; d = 0.9) in comparison to the SPU.      No significant differences were found for IF EMGPEAK
+Similarly, GM EMGPEAK was significantly greater for the KPU       during the concentric phase (F(1.72, 17.17) = 2.27, p = 0.14).
+(Z = -2.76, p < 0.01; d = 0.8) and BPU (Z = -2.93, p < 0.01; d =  However, a significant difference in IF EMGPEAK during the
+0.9) in comparison to the SPU during the eccentric phase.         eccentric phase was reported (F(1.96, 19.85) = 8.20, p < 0.01). IF
+                                                                  EMGPEAK for the BPU was significantly higher in comparison
+    Significant differences were also reported for LD EMGPEAK     both to the KPU (p < 0.05; d = 0.9) and SPU (p < 0.05; d = 1.2).
+during both the concentric (F(1.92, 19.16) = 5.55, p < 0.05) and  No other significant differences were found.
+eccentric phase (F(1.79, 17.90) = 14.73, p < 0.01). LD
+
+       SPU KPU BPU                                                                                          SPU KPU BPU
+
+% SPU140%                                                                                           200%
+                                                                                    % SPU120%       150%
+100%                                                                                                100%
+ 80%                                                                                                 50%
+ 60%
+ 40%                                                                                                   0%
+ 20%
+
+   0%
+
+       Concentric                                Eccentric                                                  Concentric                 Eccentric
+
+                   Pull-up Phase                                                                                        Pull-up Phase
+
+Figure 7: EMGPEAK as % SPU for the latissimus dorsi across        Figure 8: EMGPEAK as % SPU for the infraspinatus across all
+all three variations. Values are given as mean ± SD. * indicates  three variations. Values are given as mean ± SD. * indicates
+significant difference (p < 0.05).                                significant difference (p < 0.05).
+
+JSES | https://doi.org/10.36905/jses.2021.02.08                                                                                                   153
+T. Williamson and P. Price / The Journal of Sport and Exercise Science, Journal Vol. 5, Issue 2, 149-155 (2021)
+
+4. Discussion                                                          the BPU the athlete moves into an arched position (Figure 2e).
+                                                                       The arched position likely requires a large contribution from the
+The purpose of this study was to provide insight into the KPU and      BB to eccentrically control the lowering of the body, thus the
+BPU in comparison to the SPU. Previous research had shown              higher BB activation during this phase. This highlights that lower
+lower levels of upper body muscle activation in the KPU                limb momentum does reduce upper body muscle activation during
+(Dinunzio et al., 2017; 2018) in comparison to the SPU. However,       the KPU and BPU, however, the different styles in kipping also
+no research in this area exists for BPUs and it is unknown how         influences upper limb muscle activations, most notably during the
+muscle activation may differ between the concentric and eccentric      eccentric phase.
+phases during all three pull-up variations. The results of this study
+confirm that both styles of kipping increase lower body muscle             Further analysis of the results of this study also highlight the
+activation and decrease upper body activation in comparison to         different lower limb muscle activations seen between the KPU
+the SPU. It is important to point out that muscle activation was       and the BPU. During the concentric phase of the KPU the athlete
+compared to levels shown in the SPU and not a true lower body          pulls into an arched position before swinging into a hollowed
+MVC. Therefore, it is not possible to determine whether a true         position as momentum moves the body upwards. In comparison,
+meaningful stimulus was produced in the lower body. Our                during the BPU the athlete does not pull into an arched position
+findings also suggest that, due to the different style of kip, both    until the eccentric phase. This would explain why GM activation
+the KPU and BPU display different muscle activations. Further,         is significantly greater during the concentric phase of the KPU,
+these muscle activation patterns are dependent on the phase of the     and the eccentric phase of the BPU. Further, though not as clear,
+pull-up. This confirms the hypothesis of this study.                   both the RA and RF show similar activation patterns between
+                                                                       exercises. Pulling into the arch position allows these muscles to
+    Confirming the findings from Snarr et al. (2018) an increase       lengthen, which increases muscle activation and generates the
+in lower body muscle activation was found in this study between        necessary muscle force to swing the legs through, creating
+the KPU and BPU in comparison to the SPU. While significant            momentum for the pulling phase of the exercise. This highlights
+increases in muscle activation were found in all three lower body      that both kipping strategies for the KPU and BPU are similar but
+muscles, only the RF had elevated levels of activation across both     occur during different phases of the exercises, which alters lower
+phases in both the KPU and BPU. This increase in activation of         limb muscle activation patterns.
+the RF is expected, due to the lower body swing when moving
+between the hollow and arch position (Figure 1b-d and Figure 2b-           The current study expressed muscle activation as a % of SPU.
+e) in each style of pull-up. Similar findings were found by            However, Snarr et al. (2018) presented activation as % MVIC,
+Dinunzio et al. (2018) who found the tensor fasciae latae (TFL)        whereas Dinunzio et al. (2017) presented absolute values with
+and iliopsoas (IL) muscles elicited greater levels of muscle           SPU data being subtracted from the KPU and then expressed as
+activation during a KPU in comparison to the SPU. As the TFL,          a % MVIC. Therefore, the method in which muscle activation is
+IL, and RF all contribute to flexion of the hip (Jiroumaru,            presented differs between studies, which makes the comparison
+Kurihara, & Isaka, 2014), this confirms the role of the hip flexors    of findings difficult. No kinematic data was recorded in the
+in generating momentum during the KPU and BPU.                         sagittal plane for this study. As a result, differences in the arched
+                                                                       and hollow body positions used in both the KPU and BPU in this
+    As hypothesized, when absolute load (in this case body mass)       study are not objectively known. Further, the participants were
+is constant, the generation of momentum from the lower limbs           allowed to perform all three exercises at a self-selected speed.
+during the BPU and KPU resulted in reduced upper limb muscle           Participants being able to get into a greater arched position at a
+activation in comparison to the SPU. Both the BB and LD showed         greater speed may increase the activation of certain muscles and
+significant decreases in muscle activation during the BPU and          influenced the results of this study. To minimise this, we recruited
+KPU, though no differences in muscle activation were found             participants who have a similar training history with all three
+between exercises for the IF. These findings compare with              exercises. However, having this additional kinematic data would
+Dinunzio, Van Scoy, Porter, Cordice and McCulloch, (2017) who          help provide insight to the muscle activation patterns when
+found a reduction in activation of the BB and LD ranging from 5        performing these exercises and further understand the differences
+­ 15% MVIC during the KPU. In a more recent study Dinunzio et          between the KPU and BPU.
+al. (2018), highlighted the BB as the only upper body muscle to
+demonstrate reduced muscle activation during the KPU when              Conflict of Interest
+compared to the SPU. Momentum is generated using the lower
+limb during the kip, which aids the pulling action from the upper      The authors declare no conflict of interests.
+limbs during the concentric phase of the exercise, requiring less
+muscular effort from muscles such as the BB and LD. This               References
+appears to not be true for the BB during the eccentric phase of the
+pull-up as the style of kip may also influence upper limb muscle       Andersen, V., Fimland, M. S., Wiik, E., Skoglund, A., &
+activation. As supported by the literature (Dinunzio et al., 2018),        Saeterbakken, A. H. (2014). Effects of grip width on muscle
+BB muscle activation is reduced for the KPU during both the                strength and activation in the lat pull-down. The Journal of
+concentric and eccentric phases in comparison to the SPU.                  Strength & Conditioning Research, 28, 1135-1142.
+However, BB muscle activation during the eccentric phase of the
+BPU is significantly higher in comparison to both the KPU and,         Criswell, E. (2010). Cram's introduction to surface
+though not significant, the SPU (Figure 4). This is likely due to          electromyography. Sudbury, MA: Jones & Bartlett Publishers.
+the body position during the eccentric phase. During the KPU, the
+athlete moves into a hollowed position (Figure 1e) whereas during      Dickie, J. A., Faulkner, J. A., Barnes, M. J., & Lark, S. D. (2017).
+JSES | https://doi.org/10.36905/jses.2021.02.08                            Electromyographic analysis of muscle activation during pull-
+
+                                                                                                                                           154
+T. Williamson and P. Price / The Journal of Sport and Exercise Science, Journal Vol. 5, Issue 2, 149-155 (2021)
+
+    up variations. Journal of Electromyography and                   Ronai, P., & Scibek, E. (2014). The pull-up. Strength &
+    Kinesiology, 32, 30-36.                                              Conditioning Journal, 36, 88-90.
+Dinunzio, C., Porter, N., Van Scoy, J., Cordice, D., & McCulloch,
+    R. S. (2018). Alterations in kinematics and muscle activation    Snarr, R. L., Hallmark, A. V., Casey, J. C., Nickerson, B. S., &
+    patterns with the addition of a kipping action during a pull-up      Esco, M. R. (2015). Electromyographic comparison of pull-
+    activity. Sports Biomechanics, 18(6), 622-635.                       up variations (Conference presentation). National Strength &
+Dinunzio, C., Van Scoy, J., Porter, N., Cordice, D., & McCulloch,        Conditioning Association Conference, Orlando, 2015.
+    R. S. (2017). Kinematic and muscle activation differences            Orlando, FL.
+    between a standard pull-up and a dynamic crossfit "kipping"
+    pull-up. International Journal of Exercise Science:              Snarr, R. L., Hallmark, A. V., Casey, J. C., Nickerson, B. S., &
+    Conference Proceedings, 8(5), 61.                                    Esco, M. R. (2018). Electromyographic comparison of pull-up
+    https://digitalcommons.wku.edu/ijesab/vol8/iss5/61                   variations. Journal of Australian Strength & Conditioning. 26,
+Doma, K., Deakin, G. B., & Ness, K. F. (2013). Kinematic and             28-34.
+    electromyographic comparisons between chin-ups and lat-pull
+    down exercises. Sports Biomechanics, 12, 302-313.                Sousa, A., & Tavares, J. (2012). Repositório Aberto da
+Hermens, H. J., Freriks, B., Merletti, R., Stegeman, D., Blok, J.,       Universidade do Porto: Surface electromyographic amplitude
+    Rau, G., Disselhorst-Klug, C., & Hägg, G. (1999). European           normalization methods: a review. Repositório Aberto Da
+    recommendations for surface electromyography. Roessingh              Universidade Do Porto. Retrieved from: https://repositorio-
+    Research and Development, 8, 13-54.                                  aberto.up.pt/handle/10216/64430
+Jiroumaru, T., Kurihara, T., & Isaka, T. (2014). Measurement of
+    muscle length-related electromyography activity of the hip       Woods, J. A., Pate, R. R., & Burgess, M. L. (1992). Correlates to
+    flexor muscles to determine individual muscle contributions          performance on field tests of muscular strength. Pediatric
+    to the hip flexion torque. SpringerPlus, 3, 624.                     Exercise Science, 4, 302-311.
+    https://doi.org/10.1186/2193-1801-3-624
+Pate, R. R., Burgess, M. L., Woods, J. A., Ross, J. G., &            Yamasaki, T., Gotoh, K., & Xin, X. (2010). Optimality of a kip
+    Baumgartner, T. (1993). Validity of field tests of upper body        performance on the high bar: An example of skilled goal-
+    muscular strength. Research Quarterly for Exercise and               directed whole-body movement. Human Movement
+    Sport, 64, 17-24.                                                    Science, 29, 464-482.
+
+                                                                     Youdas, J. W., Amundson, C. L., Cicero, K. S., Hahn, J. J.,
+                                                                         Harezlak, D. T., & Hollman, J. H. (2010). Surface
+                                                                         electromyographic activation patterns and elbow joint motion
+                                                                         during a pull-up, chin-up, or perfect-pullupTM rotational
+                                                                         exercise. The Journal of Strength & Conditioning
+                                                                         Research, 24, 3404-3414.
+
+JSES | https://doi.org/10.36905/jses.2021.02.08                                                                  155
+

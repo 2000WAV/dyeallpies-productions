@@ -1,0 +1,51 @@
+1. J Strength Cond Res. 2020 Mar;34(3):663-670. doi:
+10.1519/JSC.0000000000002301.
+
+Mechanical and Metabolic Responses to Traditional and Cluster Set Configurations 
+in the Bench Press Exercise.
+
+García-Ramos A(1)(2), González-Hernández JM(3), Baños-Pelegrín E(3), 
+Castaño-Zambudio A(3), Capelo-Ramírez F(3), Boullosa D(4)(5), Haff GG(6), 
+Jiménez-Reyes P(3).
+
+Author information:
+(1)Department of Physical Education and Sport, Faculty of Sport Sciences, 
+University of Granada, Granada, Spain.
+(2)Faculty of Education, Catholic University of the Most Holy Conception, 
+Concepción, Chile.
+(3)Faculty of Sport, Catholic University of San Antonio, Murcia, Spain.
+(4)Post-Graduate Program in Physical Education, Catholic University of Brasilia, 
+Brasilia, Brazil.
+(5)Sport and Exercise Science, College of Healthcare Sciences, James Cook 
+University, Townsville, Queensland, Australia; and.
+(6)Center for Exercise and Sport Science Research, Edith Cowan University, 
+Joondalup, Australia.
+
+García-Ramos, A, González-Hernández, JM, Baños-Pelegrín, E, Castaño-Zambudio, A, 
+Capelo-Ramírez, F, Boullosa, D, Haff, GG, and Jiménez-Reyes, P. Mechanical and 
+metabolic responses to traditional and cluster set configurations in the bench 
+press exercise. J Strength Cond Res 34(3): 663-670, 2020-This study aimed to 
+compare mechanical and metabolic responses between traditional (TR) and cluster 
+(CL) set configurations in the bench press exercise. In a counterbalanced 
+randomized order, 10 men were tested with the following protocols (sets × 
+repetitions [inter-repetition rest]): TR1: 3 × 10 (0-second), TR2: 6 × 5 
+(0-second), CL5: 3 × 10 (5-second), CL10: 3 × 10 (10-second), and CL15: 3 × 10 
+(15-second). The number of repetitions (30), interset rest (5 minutes), and 
+resistance applied (10 repetition maximum) were the same for all set 
+configurations. Movement velocity and blood lactate concentration were used to 
+assess the mechanical and metabolic responses, respectively. The comparison of 
+the first and last set of the training session revealed a significant decrease 
+in movement velocity for TR1 (Effect size [ES]: -0.92), CL10 (ES: -0.85), and 
+CL15 (ES: -1.08) (but not for TR2 [ES: -0.38] and CL5 [ES: -0.37]); while blood 
+lactate concentration was significantly increased for TR1 (ES: 1.11), TR2 (ES: 
+0.90), and CL5 (ES: 1.12) (but not for CL10 [ES: 0.03] and CL15 [ES: -0.43]). 
+Based on velocity loss, set configurations were ranked as follows: TR1 (-39.3 ± 
+7.3%) > CL5 (-20.2 ± 14.7%) > CL10 (-12.9 ± 4.9%), TR2 (-10.3 ± 5.3%), and CL15 
+(-10.0 ± 2.3%). The set configurations were ranked as follows based on the 
+lactate concentration: TR1 (7.9 ± 1.1 mmol·L) > CL5 (5.8 ± 0.9 mmol·L) > TR2 
+(4.2 ± 0.7 mmol·L) > CL10 (3.5 ± 0.4 mmol·L) and CL15 (3.4 ± 0.7 mmol·L). These 
+results support the use of TR2, CL10, and CL15 for the maintenance of high 
+mechanical outputs, while CL10 and CL15 produce less metabolic stress than TR2.
+
+DOI: 10.1519/JSC.0000000000002301
+PMID: 29076963 [Indexed for MEDLINE]

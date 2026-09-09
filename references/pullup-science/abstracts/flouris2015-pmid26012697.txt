@@ -1,0 +1,37 @@
+1. Physiol Meas. 2015 Jul;36(7):N103-13. doi: 10.1088/0967-3334/36/7/N103. Epub 
+2015 May 27.
+
+Non-invasive measurement of tibialis anterior muscle temperature during rest, 
+cycling exercise and post-exercise recovery.
+
+Flouris AD(1), Dinas PC, Tsitoglou K, Patramani I, Koutedakis Y, Kenny GP.
+
+Author information:
+(1)FAME Laboratory, Department of Exercise Science, University of Thessaly, 
+Trikala, Greece. Institute of Research and Technology Thessaly, Centre for 
+Research and Technology Hellas, Trikala 42100, Greece.
+
+We introduce a non-invasive and accurate method to assess tibialis anterior 
+muscle temperature (Tm) during rest, cycling exercise, and post-exercise 
+recovery using the insulation disk (INDISK) technique. Twenty-six healthy males 
+(23.6  ±  6.2 years; 24.1  ±  3.1 body mass index) were randomly allocated into 
+the 'model' (n = 16) and the 'validation' (n = 10) groups. Participants 
+underwent 20 min supine rest, 20 min cycling exercise at 60% of age-predicted 
+maximum heart rate, and 20 min supine post-exercise recovery. In the model 
+group, Tm (34.55  ±  1.02 °C) was greater than INDISK temperature (Tid; 
+32.44  ±  1.23 °C; p < 0.001) and skin surface temperature (Tsk; 
+29.84  ±  1.47 °C; p < 0.001) throughout the experimental protocol. The 
+strongest prediction model (R(2) = 0.646) incorporated Tid and the difference 
+between the current Tid temperature and that recorded four minutes before. No 
+mean difference (p > 0.05) and a strong correlation (r = 0.804; p < 0.001) were 
+observed between Tm and predicted Tm (predTm) in the model group. 
+Cross-validation analyses in the validation group demonstrated no mean 
+difference (p > 0.05), a strong correlation (r = 0.644; p < 0.001), narrow 95% 
+limits of agreement (-0.06  ±  1.51), and low percent coefficient of variation 
+(2.24%) between Tm (34.39  ±  1.00 °C) and predTm (34.45  ±  0.73 °C). We 
+conclude that the novel technique accurately predicts Tm during rest, cycling 
+exercise, and post-exercise recovery, providing a valid and cost-efficient 
+alternative when direct Tm measurement is not feasible.
+
+DOI: 10.1088/0967-3334/36/7/N103
+PMID: 26012697 [Indexed for MEDLINE]

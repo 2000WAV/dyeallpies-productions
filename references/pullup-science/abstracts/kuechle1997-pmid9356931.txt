@@ -1,0 +1,31 @@
+1. J Shoulder Elbow Surg. 1997 Sep-Oct;6(5):429-39. doi: 
+10.1016/s1058-2746(97)70049-1.
+
+Shoulder muscle moment arms during horizontal flexion and elevation.
+
+Kuechle DK(1), Newman SR, Itoi E, Morrey BF, An KN.
+
+Author information:
+(1)Department of Orthopedic Surgery, Mayo Clinic, Rochester, MN 55905, USA.
+
+The instantaneous muscle moment arms of 10 shoulder muscles including the three 
+portions of the deltoid and the rotator cuff and scapulohumeral muscle groups 
+during four specified glenohumeral motions were calculated. Moment arm values 
+were derived from a plot of tendon excursion versus glenohumeral joint rotation 
+angle during horizontal flexion along the 90 degrees elevation plane and 
+elevation in the sagittal, scapular, and coronal planes. The deltoid had the 
+largest moment arm in elevation. The anterior deltoid has a larger moment arm in 
+the anterior planes, whereas the midportion is greater in the scapular and 
+coronal planes. The muscles with the largest depressor (adductor) moment arms 
+are the pectoralis major, latissimus dorsi, and teres major. Contrary to the 
+findings of other investigators, the supraspinatus and infraspinatus have a 
+smaller potential elevation torque in the scapular plane than has been 
+previously reported. Furthermore the subscapularis may potentially be a more 
+important elevator in the scapular plane than either the supraspinatus or 
+infraspinatus, especially in the latter phases of motion. The pectoralis major 
+has the largest horizontal flexion moment arm with the humerus elevated 90 
+degrees, whereas the posterior deltoid and infraspinatus have the largest 
+horizontal extension moment arms in this plane.
+
+DOI: 10.1016/s1058-2746(97)70049-1
+PMID: 9356931 [Indexed for MEDLINE]

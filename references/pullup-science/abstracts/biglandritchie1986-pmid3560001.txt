@@ -1,0 +1,19 @@
+1. J Physiol. 1986 Oct;379:451-9. doi: 10.1113/jphysiol.1986.sp016263.
+
+Reflex origin for the slowing of motoneurone firing rates in fatigue of human 
+voluntary contractions.
+
+Bigland-Ritchie BR, Dawson NJ, Johansson RS, Lippold OC.
+
+During fatigue from a sustained maximal voluntary contraction (m.v.c.) the mean 
+motoneurone discharge rates decline. In the present experiments we found no 
+recovery of firing rates after 3 min of rest if the fatigued muscle was kept 
+ischaemic, but near full recovery 3 min after the blood supply was restored. 
+Since 3 min is thus sufficient time for recovery of any central changes in 
+excitability, the results support the hypothesis that, during fatigue, 
+motoneurone firing rates may be regulated by a peripheral reflex originating in 
+response to fatigue-induced changes within the muscle.
+
+DOI: 10.1113/jphysiol.1986.sp016263
+PMCID: PMC1182907
+PMID: 3560001 [Indexed for MEDLINE]

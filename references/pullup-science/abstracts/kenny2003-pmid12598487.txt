@@ -1,0 +1,38 @@
+1. J Appl Physiol (1985). 2003 Jun;94(6):2350-7. doi: 
+10.1152/japplphysiol.01107.2002. Epub 2003 Feb 21.
+
+Muscle temperature transients before, during, and after exercise measured using 
+an intramuscular multisensor probe.
+
+Kenny GP(1), Reardon FD, Zaleski W, Reardon ML, Haman F, Ducharme MB.
+
+Author information:
+(1)Faculty of Health Sciences, School of Human Kinetics, Faculty of Medicine, 
+and Faculty of Sciences, University of Ottawa, Ottawa, Canada K1N 6N5. 
+gkenny@uottawa.ca
+
+Seven subjects (1 woman) performed an incremental isotonic test on a Kin-Com 
+isokinetic apparatus to determine their maximal oxygen consumption during 
+bilateral knee extensions (Vo(2 sp)). A multisensor thermal probe was inserted 
+into the left vastus medialis (middiaphysis) under ultrasound guidance. The 
+deepest sensor (tip) was located approximately 10 mm from the femur and deep 
+femoral artery (T(mu 10)), with additional sensors located 15 (T(mu 25)) and 30 
+mm (T(mu 40)) from the tip. Esophageal temperature (T(es)) was measured as an 
+index of core temperature. Subjects rested in an upright seated position for 60 
+min in an ambient condition of 22 degrees C. They then performed 15 min of 
+isolated bilateral knee extensions (60% of Vo(2 sp)) on a Kin-Com, followed by 
+60 min of recovery. Resting T(es) was 36.80 degrees C, whereas T(mu 10), T(mu 
+25), and T(mu 40) were 36.14, 35.86, and 35.01 degrees C, respectively. Exercise 
+resulted in a T(es) increase of 0.55 degrees C above preexercise resting, 
+whereas muscle temperature of the exercising leg increased by 2.00, 2.37, and 
+3.20 degrees C for T(mu 10), T(mu 25), and T(mu 40), respectively. Postexercise 
+T(es) showed a rapid decrease followed by a prolonged sustained elevation 
+approximately 0.3 degrees C above resting. Muscle temperature decreased 
+gradually over the course of recovery, with values remaining significantly 
+elevated by 0.92, 1.05, and 1.77 degrees C for T(mu 10), T(mu 25), and T(mu 40), 
+respectively, at end of recovery (P < 0.05). These results suggest that the 
+transfer of residual heat from previously active musculature may contribute to 
+the sustained elevation in postexercise T(es).
+
+DOI: 10.1152/japplphysiol.01107.2002
+PMID: 12598487 [Indexed for MEDLINE]

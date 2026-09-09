@@ -1,0 +1,29 @@
+1. J Strength Cond Res. 2003 Feb;17(1):95-103. doi: 
+10.1519/1533-4287(2003)017<0095:eodsco>2.0.co;2.
+
+Effects of different set configurations on barbell velocity and displacement 
+during a clean pull.
+
+Haff GG(1), Whitley A, McCoy LB, O'Bryant HS, Kilgore JL, Haff EE, Pierce K, 
+Stone MH.
+
+Author information:
+(1)Strength Research Laboratory, Midwestern State University, Wichita Falls, 
+Texas 76308, USA. greg.haff@mwsu.edu
+
+The effects of 3 types of set configurations (cluster, traditional, and 
+undulating) on barbell kinematics were investigated in the present study. 
+Thirteen men (track and field = 8; Olympic weightlifters = 5) (mean +/- SEM age, 
+23.4 +/- 1.1 years; height, 181.3 +/- 2.1 cm; body mass, 89.8 +/- 4.2 kg) 
+performed 1 set of 5 repetitions in a cluster, traditional, and undulating 
+fashion at 90 and 120% of their 1 repetition maximum (1RM) power clean (119.0 
++/- 4.3 kg). All data were collected at 50 Hz and analyzed with a V-Scope 
+Weightlifting Analysis System. Peak velocity (PV) and peak displacement (PD) 
+were analyzed for each repetition and averaged for each set type. Results 
+indicated that a significantly (p < 0.016) higher PV occurred during the cluster 
+set when compared with the traditional sets at both intensities. PD was 
+significantly higher than traditional sets at the 120% intensity. The present 
+study suggests set configuration can affect PV and PD during clean pulls.
+
+DOI: 10.1519/1533-4287(2003)017<0095:eodsco>2.0.co;2
+PMID: 12580663 [Indexed for MEDLINE]

@@ -1,0 +1,217 @@
+Original Research
+Neuromuscular Fatigability Associated with Different Pacing Strategies During an Ultra-Endurance Pull-Up Task: A Case Study
+JENNY ZHANG1, ARASH KHASSETARASH1, GUILLAUME Y. MILLET2, and SAIED J. ABOODARDA1
+1Human Performance Laboratory, Faculty of Kinesiology, University of Calgary, Calgary, AB, CANADA; 2Inter-university Laboratory of Human Movement Biology, Université Jean Monnet, Saint-Étienne, FRANCE
+Denotes graduate student author, Denotes professional author
+ABSTRACT International Journal of Exercise Science 15(3): 1514-1527, 2022. While neuromuscular fatigability has
+been previously characterized after running and cycling, no study has investigated an ultra-endurance upper body task. In preparation for a world record attempt, three pacing strategies to perform 1980 pull-ups in 6 hrs were compared during independent sessions: fast pace, long recovery (FL), fast pace, multiple short recoveries (FMS), and slow pace, no recovery (SN). Elbow flexion maximal voluntary contraction (MVC) force, grip strength, peripheral fatigue, and biceps brachii electromyography were quantified every 330 pull-ups and during recovery, alongside heart rate, perceived effort, and arm muscle pain. In all conditions, MVC force decreased rapidly within the first set of 330 pull-ups, with the greatest depression observed in FL (-29.1%) and more gradual declines in FMS (-18.6%) and SN (-8.6%). Similarly, FL displayed the greatest decline in potentiated single twitch (FL: -75.0%; FMS: -53.9%; SN: -41.8%) and high-frequency doublet forces (FL: -63.3%; FMS: -29.2%; SN: -41.8%) following the first set, as well as higher heart rate, effort, and pain throughout the task. Following 24 hrs, MVC force recovered slowest in FL and grip strength recovered fastest in SN. Therefore, for the world record attempt, a strategy with a continuous workload at slower pace should be used.
+KEY WORDS: Elbow flexors, biceps, extreme exercise, effort, world record, recovery
+INTRODUCTION
+Athletic events requiring ultra-endurance (e.g., ultramarathon) have gained immense interest in the past few decades (20, 45). Accordingly, several studies aimed to explore physiological responses to the types of tasks applied in such settings (31, 34, 35). An important implication of these investigations is unveiling human physiological and psychological responses to the unique and extreme demands placed by an ultra-endurance exercise task. The majority of existing ultra-endurance studies have focused on running (28, 32, 35, 39, 40) and cycling (7, 26, 33) tasks, with very few studies investigating events compiling ultra-endurance of upper limbs as the chief exercising muscle group. Some existing works have investigated low-load repetitive
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+industrial tasks (43), swimming (27), and rowing (2, 25, 42); however, these prior studies focused on the cardiovascular or metabolic responses to the given task and there is limited knowledge about neuromuscular (NM) fatigability kinetics during upper limb ultra-endurance exercises.
+Fatigability (i.e., alternatively known in the literature as NM fatigue) is characterized by a temporary exercise-induced decline in maximal force generating capacity (16, 21) and includes both central and peripheral components. Central fatigue, consisting of alterations above the NM junction, is caused by lowered central motor output from the brain and/or spinal motoneurons and can be measured via assessing maximal voluntary activation. In order to measure voluntary activation, the magnitude of a maximal evoked force at rest is compared to that during a maximal voluntary contraction (MVC) (17). Peripheral fatigue, which occurs at or below the NM junction, reflects alterations in processes involved with action potential transmission, excitationcontraction coupling, and muscle contractile machinery. Peripheral fatigue is measured with supramaximal muscle twitches evoked on relaxed muscles (3). Prior ultramarathon-related research observed that at the end of a 24-hr treadmill run, MVC reductions from baseline reached 41% for the knee extensors, which was associated with a 33% decline in voluntary activation and a 25% reduction in single evoked twitch force (31). Contrary to these observations, Lepers et al. (29) measured NM fatigability kinetics across a 5-hr constant-intensity cycling task and observed that twitch force declined rapidly within the first hour of exercise before plateauing for the remainder of the task, while voluntary activation diminished towards later stages. Regardless of the differences in muscle contraction patterns leading to the discrepancies between these cycling and running studies, NM fatigability development may differ between lower and upper limb muscles. For example, isometric MVC force declined to a greater extent following 90 repeated maximal concentric contractions (with submaximal load) using the knee extensors, compared to elbow flexors (46). Additionally, our group has shown that after a 2-min sustained MVC, maximal force and voluntary activation declined more following knee extension, but evoked twitch reduced more following elbow flexion (49). While these two prior studies compared upper- vs. lower-limb fatigability using a within-subject design, both examined short-duration tasks so their NM fatigability findings cannot be applied to an ultra-endurance setting.
+Despite the essential role of pacing during an endurance task, there is a lack of evidence regarding NM fatigability in response to self-paced exercises with different pacing strategies (4, 6). Recently, Azevedo et al. (5) demonstrated that despite three different pacing profiles, overall cycling performance, MVC force, and central and peripheral fatigue of the quadriceps (as determined by voluntary activation and single evoked twitch force, respectively) were similar at the end of all trials. However, participants completed a 4-km time trial which lasted ~6 mins in all three conditions, thereby only applying to short tasks and resulting in rapid fatigability (9). Central and peripheral fatigue demonstrate different patterns in a long-duration endurance task (9, 22, 48) but how different pacing profiles affect these physiological variables in this scenario remains unknown.
+
+International Journal of Exercise Science
+
+1515
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+The current case report was conducted in preparation for achieving the Guinness World Record for most pull-ups completed in 24 hrs, with the goal of 8000 pull-ups. The study purpose was to compare NM fatigability responses across and following three different pacing strategies with varying work:rest ratios in order to develop an optimal strategy for the world record attempt.
+METHODS
+Participants This case report presents data obtained from a 31-year-old male (168.0 cm, 72.5 kg) with no history of metabolic, cardiovascular, neurological, or musculoskeletal health conditions. Within the six months prior to the study, the participant underwent a self-led training program consisting of up to 1000-2000 pull-ups per day alongside upper body strength and conditioning exercises. The participant was not taking any supplements during training, nor before, during, or after testing sessions. This study was approved by the University of Calgary Conjoint Health Research Ethics Board (REB20-0154) and complied with journal ethical standards (36). Prior to commencing the study, the participant provided written, informed consent. Given that data was collected on only one participant, no power analyses nor statistical analyses could be conducted in this study.
+Protocol The participant completed three sessions, wherein 1980 pull-ups were completed in each session (Figure 1). This number of pull-ups was selected because the athlete was aiming to perform ~2000 pull-ups every 6 hrs to achieve 8000 pull ups in 24 hrs. Pull-ups were performed in sets of 330 which, combined with rest, lasted 45 min. Three pacing strategies were completed in the following order, with two weeks of recovery between each strategy: fast pace, long recovery (FL), wherein each set of 330 pull-ups were completed in 33 mins with a resting time of 12 mins; fast pace, multiple short recoveries (FMS), wherein 3 subsets of 110 pull-ups were completed in 11 mins with a 4 mins rest between subsets; and slow pace, no recovery (SN), wherein all 330 pull-ups were completed within 45 mins with minimal rest (no more than ~30 s) between sets. It should be noted that although session order could potentially impact this study, the participant underwent daily training prior to the study and with the 2-wk washout period between sessions, it is highly unlikely any training effect occurred. The pull-ups were performed on a straight bar with pronated hand grip, and hip and knees maintained at full extension. To complete each set in all pacing strategies, repeated bouts of 5 consecutive overhand grip pullups with a brief rest (~15-30 s on the ground) were performed. NM fatigability was assessed at baseline (i.e., prior to the start of the first set of pull-ups), immediately after each set of 330 pullups, and following 24-, 48-, and 96-hrs of exercise task completion. At the beginning of each session, resting heart rate (HR) was measured and averaged prior to NM fatigability assessments with the participant resting in a seated position for 4 mins. HR was monitored continuously using a chest strap (HRM-Pro, Garmin Ltd., Olathe KS) during each set of 330 pullups and including short recoveries (i.e., during 15-30 s recoveries during SN), but not during 4 mins rest in FMS nor long recoveries (i.e., 11 mins rest in FL).
+
+International Journal of Exercise Science
+
+1516
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+
+Figure 1. Experimental protocol displaying three different pacing strategies: fast pace, long recovery (FL; 330 pullups with 11 mins rest each hr), fast pace, multiple short recoveries (FMS; 110 pull-ups with 4 mins rest intervals per hr), and slow pace, no recovery (SN; 330 pull-ups with no/minimal rest per hr). As indicated by up arrows, at baseline, following each set, and following 24, 48, and 96 hrs recovery, a neuromuscular assessment consisting of a 5-s maximal voluntary contraction (MVC) with a superimposed high-frequency doublet (Db100), followed by a resting Db100, low-frequency doublet (Db10), and single potentiated twitch (Pt) was performed. Additionally, handgrip MVCs and perceptual responses were recorded at the same timepoints.
+To measure electromyography (EMG), the skin was shaved and thoroughly cleaned with an isopropyl alcohol swab (1) at the start of each session. Two Ag-AgCl surface electrodes (10-mm diameter; Meditrace 100, Covidien, Mansfield MA) were placed with a 20-mm interelectrode distance on the biceps brachii, while a reference electrode was placed on the lateral epicondyle. The participant was right-hand dominant, as determined by the Edinburgh Handedness Inventory (37). Prior to recording, an electrode impedance of < 5 k was confirmed to ensure signal quality. Then, signals were sampled at a rate of 2000 Hz using a PowerLab system (16/35, ADInstruments, Bella Vista, Australia), amplified (ML138, ADInstruments; common mode rejection ratio = 85 dB, gain = 500), band-pass filtered (20-500 Hz; AD Instruments), and then analyzed offline using LabChart 8 software (ADInstruments). Root mean square (rms) EMG was taken from a 2-s maximal force plateau during MVCs. Due to testing limitations (described below), rmsEMG signal could not be normalized to the maximal M-wave (Mmax) to control for changes in muscle excitability.
+To assess NM fatigability, electrical stimulation was delivered to the elbow flexors with the anode electrode (10-mm diameter; Meditrace 100, Covidien, Mansfield, MA) placed over the motor point (marked as halfway between the anterior deltoid edge and elbow crease (47)) and the cathode electrode (50 × 90 mm; Durastick Plus; DJO Global, Mississauga, ON) over the distal
+
+International Journal of Exercise Science
+
+1517
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+
+tendon of the elbow flexor. Optimal stimulation site was determined as the location inducing the highest twitch force using a stimulator intensity of ~100 mA, which was confirmed to create a distinguishable evoked twitch force. Locations of the anode and cathode were measured and recorded for consistent placement in subsequent testing sessions, and electrodes were marked with ink, taped, and left on during pull-up exercises. The participant was seated in front of a custom-built elbow flexion dynamometer with the hip, right shoulder, and elbow positioned at 90° (1,49). The forearm was attached to a force transducer (Model LC101-2K, Omegadyne Inc., Sunbury OH) using a wrist strap. At the start of each session, optimal stimulation intensity was determined by delivering a single electrical stimulus (Model DS7AH, Digitimer Ltd., Welwyn Garden City) in 10 mA increments until a further increase intensity failed to produce a subsequent increase in force. The stimulator was then set to 130% (150-200 mA) above the maximal intensity for the rest of the session. Given the dramatic decline in single twitch force evoked by this intensity following the pull-up task (see Results), the stimulator intensity was further increased by 10-50 mA without change in force; thus, we are confident 130% supramaximal intensity was sufficient to recruit all muscle units. Each NM fatigability assessment consisted of a 5-s MVC of the elbow flexors. Upon force plateau, a high-frequency doublet (100 Hz; Db100) was delivered. Following the MVC, a Db100, low-frequency doublet (10 Hz; Db10), and single supramaximal stimulus (Pt) were delivered in 2-s increments. NM fatigability was assessed at baseline, after each bout of 330 pull-ups, upon completion of 1980 pull-ups, and following 24-, 48-, and 96-hr. Two assessments were measured and averaged at each timepoint. Grip strength (i.e., grip MVC) was also assessed twice at each timepoint using a Jamar Adjustable handheld dynamometer (FEI, Irvington NY) while standing with the right elbow fully extended. Two trials were performed and averaged.
+
+Maximal force output from the elbow flexors was considered as the average of the 2-s intervals of force plateau during sustained MVCs at each timepoint. Although the interpolated twitch technique was used to measure voluntary activation, during data analysis, the size of the superimposed twitch eventually became non-distinguishable in later stages; this was likely due to measurement error rather than full activation. Thus, voluntary activation was unable to be assessed in this study. Similarly, the size of Mmax during single twitch stimulus was not distinguishable and could not be analyzed.
+
+Rating of perceived effort (RPE) and arm muscle pain were assessed at baseline and at the end of each set (every 330 pull-ups) using the Borg 6-20 scale (10) and visual analog scale (19), respectively. HR was averaged during the exercise period within each set of 330 pull-ups.
+
+RESULTS
+
+Elbow flexor MVC force declined sharply following the first 330 pull-ups with FL resulting in the greatest decline among the three conditions (Figure 2A). While a plateau was reached for FL and FMS, SN continued to decline until MVC reached ~73-78% of baseline in all conditions upon completion of pull-ups. A rapid recovery in MVC was evident after 24 hrs, with FL showing the lowest value compared to baseline at 96 hrs.
+
+International Journal of Exercise Science
+
+1518
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+Grip strength declined similarly following 330 pull-ups in FL and FMS in contrast to SN (Figure 2B). While grip strength appeared to plateau after the first set during FMS, this variable did not plateau until after 1320 pull-ups during both FL and SN. After 24 hrs, grip strength appeared to recover more quickly during SN compared to FL and FMS; however, all conditions fully recovered by 48 hrs.
+Pt declined rapidly at 330 pull-ups in all conditions (Figure 2C). After this point, a lower Pt was maintained during FL and reached 5-20% of baseline upon task completion in all three conditions, after which a nearly complete recovery was observed following 24 hrs.
+At 330 pull-ups, the greatest Db100 decline was observed during FL (Figure 2D). All conditions then demonstrated gradual declines until 1980 pull-ups, wherein Db100 was the lowest during FL, while this variable was lower during SN than FMS (FL < SN < FMS). All conditions fully recovered by 24 hrs.
+Db10:100 declined slightly at 330 pull-ups, wherein this variable reached to a similar level during all three conditions (Figure 2E). During SN, Db10:100 declined slowly for the entirety of the protocol, while this variable showed inconsistent patterns during FMS and FL; by the end of the task, Db10:100 declined the most during FMS. After 24 hrs, Db10:100 returned to baseline in FMS and SN while this variable was nearly, but not fully, recovered in FL.
+From pre- to post-330 pull-ups, biceps rmsEMG during MVCs demonstrated a slight increase in SN, and continued to gradually increase and peak at 1650 pull-ups, before quickly declining at 1980 pull-ups to match values near the start of the task (Figure 3A). In contrast, rmsEMG remained similar to baseline values for the first half of the exercise in FMS, before sharply declining at 1650 pull-ups and increasing again at 1980 pull-ups. In FL, while a slight decline and plateau was demonstrated in the first half of the task, rmsEMG slowly increased in the last half to reach a peak at 1980 pull-ups, which reached a similar value (relative to baseline) in all conditions.
+Resting HR was similar in all conditions (FL: 46 bpm; FMS: 43 bpm; SN: 43 bpm). In FL, HR increased at 660 pull-ups before plateauing for the remainder of the task while in FMS and SN, HR displayed a slight incline to peak at 1650 pull-ups (Figure 3B). At the end of the task, HR was similar in all conditions.
+RPE steadily increased to reach an approximate peak at end-exercise (Figure 3C). Throughout the task, RPE was higher in FL compared to the other two strategies at all measurement points. Similarly, arm pain steadily inclined throughout the task, but demonstrated faster increase in FMS compared to SN (Figure 3D).
+
+International Journal of Exercise Science
+
+1519
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+
+Figure 2. Time course of neuromuscular fatigability variables relative to baseline during and after pull-up tasks using fast pace long recovery (FL), fast pace multiple short recoveries (FMS), and slow pace no recovery (SN) pacing strategies. A: maximal voluntary contraction (MVC) of the elbow flexors, B: grip strength, C: single pulse potentiated twitch (Pt), D: high frequency doublet (Db100; 100 Hz), and E: ratio between low frequency (10 Hz) and high frequency doublets (Db10:100). Neuromuscular fatigability was measured at baseline (PRE), every 330 pullups, and following 24 (+24), 48 (+48), and 96 (+96) hrs of recovery.
+
+International Journal of Exercise Science
+
+1520
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+
+Figure 3. Time course of neuromuscular, cardiovascular, and perceptual variables during pull-up tasks using fast pace long recovery (FL), fast pace multiple short recoveries (FMS), and slow pace no recovery (SN) pacing strategies. A: biceps root mean square electromyography (rmsEMG) signal expressed relative to baseline values, B: heart rate, C: rating of perceived effort (RPE), D: arm muscle pain. Variables were measured at baseline (PRE) and every 330 pull-ups.
+
+International Journal of Exercise Science
+
+1521
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+
+DISCUSSION
+
+This is the first study investigating ultra-endurance pull-up exercise. The main findings are that: a) MVC declined rapidly within the first part of the task (i.e., within 330 pull-ups) for all conditions, the greatest decline being evident during FL and b) at 24 hrs after the pull-up tasks, MVC and grip strength recovery were slowest after FL compared to the other two conditions, with lower grip strength recovery in FMS than SN. Based on these observations of NM fatigability kinetics and recovery, it appears that a pacing strategy involving continuous pullup repetitions with minimal rest is optimal for an ultra-endurance upper-body task.
+
+In all conditions, a steep MVC decline was observed within the first part of the task before a gradual decline occurred for the remainder. SN, the only condition with a continuous workload, can be comparable to a prior lower limb study by Lepers et al. (29), wherein a similar pattern was found within the first of a 5-hr moderate-intensity, constant-load cycling task and smaller declines continued throughout the remaining four hours. This pattern of decline was likely driven by impairments in muscle contractile properties, as evidenced by a similar pattern of potentiated twitch force decline. In contrast, a 5-hr running study conducted by Place et al. (41) did not observe MVC declines until after the fourth hour. In this study, the twitch force was actually potentiated by the end of the task; thus, the declined voluntary activation was implicated as the likely modulator of MVC factor output. Divergence between peripheral vs. central-driven force generating capacity are likely attributed to task specificities and the muscle of interest. The pattern of MVC decline in the present study is similar to that in Lepers et al. (29); however, considering the rest intervals between pull-up trials that could have altered exercise intensity during FL and FMS compared to a constant-level work rate in SN, only the latter condition may be compared. Notably, comparisons between the present study and prior lower limb ultra-endurance tasks are limited by the differences in muscle contraction patterns between pull-ups and running or cycling. This can elicit different mechanical and metabolic perturbations, leading to disparate central and peripheral fatigue impairments (11).
+
+Nonetheless, when examining Pt, the patterns of decline reflected that of MVC force in all conditions. In a long-duration, low-intensity task, diminished muscle contractile properties are likely determined by impairments in Ca2+ handling (13). In concert with this explanation, Davies et al. (14) demonstrated that intramuscular pH measured during bilateral knee extension exercises of different work:recovery durations declined to a greater extent, from a ~7 pH baseline level, when longer work:recovery periods of 64:128 s (pH = ~6.8) compared to 16:32 s (pH = ~6.9) was applied. These findings align with those in the present study, wherein a steeper decline in Pt and MVC force were observed within the first portion of the fastest pace with longer recovery strategy (FL) compared to the shorter and no recovery strategies (FMS and SN). Additionally, our results could help support the idea that despite longer rest periods, fast-paced exercise will result in higher exercise load which may require longer to recover between bouts and consequently exacerbate NM fatigability indices. However, it should be clarified that in the present study, NM fatigability was assessed after every 330 pull-ups, thereby missing recovery kinetics during pull-up trials.
+
+International Journal of Exercise Science
+
+1522
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+
+Alterations in MVC can be generally attributed to central and/or peripheral factors. Although the failure to calculate voluntary activation in the present study makes it difficult to determine the contribution of central fatigue, the declined Pt and Db10:100 during the first 330 pull-ups suggests that peripheral factors were likely the primary determinants of MVC patterns within these two conditions. Conversely, decreased rmsEMG recorded during MVCs in FL could indicate that reduced muscle activation may have contributed to the decrement in MVC in this condition (17); however, without normalization to Mmax in the present study, this interpretation should be taken with caution. Similarly, due to inadequate signal detection, the size of superimposed twitch upon MVC bouts could not be identified to accurately measure voluntary activation.
+
+Importantly, at 24 hrs post-exercise, while MVC force in FMS and SN recovered fully, FL only partially recovered. Similarly, grip strength was lowest in FL and highest in SN. Given that Pt was fully recovered at this timepoint in FL but Db10:100 was only 90% of baseline values, the prolonged low-frequency fatigue perhaps prevented the full recovery of force generating capacity (35). This `long-lasting low-frequency fatigue', which has been well-established in prior studies, is attributed to impaired mechanisms of excitation-contraction coupling stemming from disrupted Ca2+ release from the sarcoplasmic reticulum, compromised regulatory light chain phosphorylation, and potential interference in cross-bridge cycling (15, 23, 24). While increased metabolic perturbations within the exercise muscles (e.g., accumulation of Pi and ADP in the cytoplasm) can partially explain this observation, the role of muscle damage induced by mechanical stress should not be dismissed, especially given the high volume of eccentric contractions during pull-ups (44). Further evidence of a strong contribution of peripheral factors to MVC and grip strength recovery can be found in observations from a recent study by Besson et al. (8), wherein plantar flexor Pt force remained lower compared to baseline following a multistage vs. a single-stage ultramarathon after 2 (multi: -10% vs. single: +2%), 5 (multi: -21% vs. single: +6%), and 10 days (multi: -11% vs. single: +4%) of recovery. Similarly, Db100 force of the knee extensors and plantar flexors remained lower after multi-stage running after 5 (knee extensors: multi: -13% vs. single: -3%; plantar flexors: multi: -20% vs. single: +3%) and 10 days (knee extensors: multi: -6% vs. single: +3%; plantar flexors: multi: -12% vs. single: +5%) of recovery, though no differences between Db10:100 were reported. Another study by Millet et al. (35) also demonstrated that while knee extensor MVC force remained 10-15% below baseline values two days following an ultramarathon, voluntary activation returned completely, further strengthening the role of peripheral fatigue mechanisms in overall NM recovery following an ultra-endurance task.
+
+While NM fatigability is an important determinant of exercise performance, HR and perceptual factors are also key factors. HR showed a similar pattern of increase for FMS and SN, but a steeper incline was observed within the first 660 pull-ups in FL before plateauing and ending at similar values. Similarly, both RPE and pain were consistently higher in FL than the other two conditions. The increased HR, RPE, and pain in FL compared to the other two conditions is likely due to the higher power output in FL (i.e., higher volume within a shorter time frame), leading to higher exercise intensity and upregulated cardiovascular and perceptual responses. Greater
+
+International Journal of Exercise Science
+
+1523
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+
+metabolite accumulation was likely also present in FL (as indicated by higher Pt throughout), resulting in continued activation of nociceptors despite longer recovery periods. In this context, the necessity of a greater descending neural drive to accomplish higher exercise intensity can explain higher RPE (30); however, the contribution of higher pain on upregulation of RPE cannot be ruled out (2, 12, 50). Given that exercise performance is strongly determined by an individual's perceived responses ­ and RPE may be particularly important in ultra-endurance tasks (32) ­ the upregulated effort and pain during FL makes this pacing strategy suboptimal. Herein, perceptual responses can also be considered alongside our fatigue observations. While the rmsEMG patterns in FL and SN demonstrated an overall slow increase, in FMS, rmsEMG did not deviate from baseline for the first half of the exercise before sharply declining after 1650 pull-ups and rapidly increasing for the final set, after 1980 pull-ups. While reasons for these EMG patterns can only be speculated upon due to the impossibility of comparing the present data from a single participant with those in other studies, these interesting observations of muscle activation warrant further deliberation in combination with perceptual responses. Specifically, while rmsEMG declined in the first half of FL, RPE and pain were highest in this condition. Contrastingly, while rmsEMG slightly increased throughout SN, RPE and pain were lowest in this condition. Based on these observations, it could be postulated that stable rmsEMG during the first half of FMS might be associated with compensatory mechanisms (e.g., motor unit recruitment and firing frequency) that may have prevented the decline in central motor drive (18); however, towards the end of FMS exercise, rmsEMG and, consequently, central drive, then sharply declined as perceptual responses became exacerbated. Overall, future studies should consider a more integrative approach when investigating NM fatigability of upper limb exercise tasks.
+In conclusion, for the first time, NM fatigability of upper body ultra-endurance pull-up exercise was investigated. Given that a fast pace with longer recovery bouts resulted in rapid development of NM fatigability (i.e., decline in MVC force and potentiated muscle twitch) and delayed recovery of biceps force generating capacity and grip strength following 24 hrs of recovery, the latter of which was also not fully recovered when utilizing a fast pace with shorter recoveries, it is suggested that a slow, continuous pace should be adopted for the world record attempt.
+REFERENCES
+1. Aboodarda SJ, Fan S, Coates K, Millet GY. The short-term recovery of corticomotor responses in elbow flexors. BMC Neurosci 20: 9, 2019.
+2. Aboodarda SJ, Iannetta D, Emami N, Varesco G, Murias JM, Millet GY. Effects of pre-induced fatigue vs. concurrent pain on exercise tolerance, neuromuscular performance and corticospinal responses of locomotor muscles. J Physiol 598(2): 285­302, 2020.
+3. Allen DG, Lamb GD, Westerblad H. Skeletal muscle fatigue: Cellular mechanisms. Physiol Rev 88(1): 287­332, 2008.
+4. Azevedo R de A, Cruz R, Couto P, Silva-Cavalcante MD, Boari D, Lima-Silva AE, et al. Characterization of performance fatigability during a self-paced exercise. J Appl Physiol 127(3): 838­46, 2019.
+
+International Journal of Exercise Science
+
+1524
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+5. Azevedo R de A, Silva-Cavalcante MD, Cruz R, Couto P, Lima-Silva AE, Bertuzzi R. Distinct pacing profiles result in similar perceptual responses and neuromuscular fatigue development: Why different "roads" finish at the same line? Eur J Sport Sci 22(7): 1046-56, 2022.
+6. Azevedo R de A, Silva-Cavalcante MD, Lima-Silva AE, Bertuzzi R. Fatigue development and perceived response during self-paced endurance exercise: State-of-the-art review. Eur J Appl Physiol 121(3): 687­96, 2021.
+7. Baumgartner S, Sousa CV, Nikolaidis PT, Knechtle B. Can the performance gap between women and men be reduced in ultra-cycling? Int J Environ Res Public Health 17(7): 2521, 2020.
+8. Besson T, Rossi J, Le Roux Mallouf T, Marechal M, Doutreleau S, Verges S, et al. Fatigue and recovery after singlestage versus multistage ultramarathon running. Med Sci Sports Exerc 52(8): 1691­8, 2020.
+9. Black MI, Jones AM, Blackwell JR, Bailey SJ, Wylie LJ, McDonagh STJ, et al. Muscle metabolic and neuromuscular determinants of fatigue during cycling in different exercise intensity domains. J Appl Physiol 122(3): 446­59, 2017.
+10. Borg GA. Perceived exertion: A note on "history" and methods. Med Sci Sports 5(2): 90­3, 1973.
+11. Brownstein CG, Metra M, Pastor FS, Faricier R, Millet GY. Disparate mechanisms of fatigability in response to prolonged running versus cycling of matched intensity and duration. Med Sci Sports Exerc 54(5): 872-82, 2022.
+12. Broxterman RM, Layec G, Hureau TJ, Morgan DE, Bledsoe AD, Jessop JE, et al. Bioenergetics and ATP synthesis during exercise: Role of Group III/IV muscle afferents. Med Sci Sports Exerc 49(12): 2404­13, 2017.
+13. Cheng AJ, Place N, Westerblad H. Molecular basis for exercise-induced fatigue: The importance of strictly controlled cellular Ca2+ handling. Cold Spring Harb Perspect Med 8(2): a029710, 2018.
+14. Davies MJ, Benson AP, Cannon DT, Marwood S, Kemp GJ, Rossiter HB, et al. Dissociating external power from intramuscular exercise intensity during intermittent bilateral knee-extension in humans: Intramuscular bioenergetics during intermittent exercise. J Physiol 595(21): 6673­86, 2017.
+15. Edwards RH, Hill DK, Jones DA, Merton PA. Fatigue of long duration in human skeletal muscle after exercise. J Physiol 272(3): 769­78, 1977.
+16. Enoka RM, Duchateau J. Translating fatigue to human performance. Med Sci Sports Exerc 48(11): 2228­38, 2016.
+17. Gandevia SC. Spinal and supraspinal factors in human muscle fatigue. Physiol Rev 81(4): 1725­89, 2001.
+18. Graven-Nielsen T, Svensson P, Arendt-Nielsen L. Effects of experimental muscle pain on muscle activity and co-ordination during static and dynamic motor function. Electroencephalogr Clin Neurophysiol 105(2): 156­64, 1997.
+19. Hawker GA, Mian S, Kendzerska T, French M. Measures of adult pain: Visual Analog Scale for Pain (VAS Pain), Numeric Rating Scale for Pain (NRS Pain), McGill Pain Questionnaire (MPQ), Short-Form McGill Pain Questionnaire (SF-MPQ), Chronic Pain Grade Scale (CPGS), Short Form-36 Bodily Pain Scale (SF-36 BPS), and Measure of Intermittent and Constant Osteoarthritis Pain (ICOAP). Arthritis Care Res 63(S11): S240­52, 2011.
+20. Hoffman MD, Ong JC, Wang G. Historical analysis of participation in 161 km ultramarathons in North America. Int J Hist Sport 27(11): 1877­91, 2010.
+21. Hureau TJ, Broxterman RM, Weavil JC, Lewis MT, Layec G, Amann M. On the role of skeletal muscle acidosis and inorganic phosphates as determinants of central and peripheral fatigue: A 31 P-MRS study. J Physiol 600(13): 3069­81, 2022.
+22. Iannetta D, Zhang J, Murias JM, Aboodarda SJ. Neuromuscular and perceptual mechanisms of fatigue accompanying task failure in response to moderate-, heavy-, severe-, and extreme-intensity cycling. J Appl Physiol 133(2): 323-34, 2022.
+23. Jones DA. Muscle fatigue due to changes beyond the neuromuscular junction. Ciba Found Symp 82: 178­96, 1981.
+
+International Journal of Exercise Science
+
+1525
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+
+24.Jones DA. High- and low-frequency fatigue revisited. Acta Physiol Scand 156(3): 265­70, 1996.
+25. Keohane D, Woods T, McCarthy Y, O'Connor P, Underwood S, Molloy M. A repeated-measures case series of physiological responses to a transoceanic rowing race. Int J Sports Med 40(3): 152­7, 2019.
+26. Knechtle B, Abou Shoak, Knechtle, Rüst, Rosemann T, Lepers R. Participation and performance trends in ultracycling. Open Access J Sports Med 4: 41-51, 2013.
+27. Knechtle B, Baumann B, Knechtle P, Rosemann T. What influences race performance in male open-water ultraendurance swimmers: Anthropometry or training? Hum Mov 11(1): 5-10, 2010.
+28. Knechtle B, Valeri F, Nikolaidis PT, Zingg MA, Rosemann T, Rüst CA. Do women reduce the gap to men in ultra-marathon running? Springerplus 5(1): 672, 2016.
+29. Lepers R, Maffiuletti NA, Rochette L, Brugniaux J, Millet GY. Neuromuscular fatigue during a long-duration cycling exercise. J Appl Physiol 92(4): 1487­93, 2002.
+30. Marcora S. Perception of effort during exercise is independent of afferent feedback from skeletal muscles, heart, and lungs. J Appl Physiol 106(6): 2060­2, 2009.
+31. Martin V, Kerhervé H, Messonnier LA, Banfi J-C, Geyssant A, Bonnefoy R, et al. Central and peripheral contributions to neuromuscular fatigue induced by a 24-h treadmill run. J Appl Physiol 108(5): 1224­33, 2010.
+32. Millet GY. Can neuromuscular fatigue explain running strategies and performance in ultra-marathons?: The Flush Model. Sports Med 41(6): 489­506, 2011.
+33. Millet GY, Millet GP, Lattier G, Maffiuletti NA, Candau R. Alteration of neuromuscular function after a prolonged road cycling race. Int J Sports Med 24(3): 190­4, 2003.
+34. Millet GY, Morin J-B, Degache F, Edouard P, Feasson L, Verney J, et al. Running from Paris to Beijing: Biomechanical and physiological consequences. Eur J Appl Physiol 107(6): 731­8, 2009.
+35. Millet GY, Tomazin K, Verges S, Vincent C, Bonnefoy R, Boisson R-C, et al. Neuromuscular consequences of an extreme mountain ultra-marathon. PLoS One 6(2): e17059, 2011.
+36. Navalta JW, Stone WJ, Lyons TS. Ethical issues relating to scientific discovery in exercise science. Int J Exerc Sci 12(1): 1­8, 2019.
+37. Oldfield RC. The assessment and analysis of handedness: The Edinburgh inventory. Neuropsychologia 9(1): 97­ 113, 1971.
+38. Penichet-Tomás A, Jimenez-Olmedo JM, Pueo B, Fernández-Sáez J. Physiological analysis of the 100 km indoor rowing world record. J Phys Educ Sport 18(3): 1538­43, 2018.
+39. Peter L, Rust C, Knechtle B, Rosemann T, Lepers R. Sex differences in 24-hour ultra-marathon performance - A retrospective data analysis from 1977 to 2012. Clinics 69(1): 38­46, 2014.
+40. Petersen K, Hansen CB, Aagaard P, Madsen K. Muscle mechanical characteristics in fatigue and recovery from a marathon race in highly trained runners. Eur J Appl Physiol 101(3): 385­96, 2007.
+41. Place N, Lepers R, Deley G, Millet GY. Time course of neuromuscular alterations during a prolonged running exercise. Med Sci Sports Exerc 36(8): 1347­56, 2004.
+42. Robins AL, Davies DM, Jones GE. The effect of nutritional manipulation on ultra-endurance performance: A case study. Res Sports Med 13(3): 199­215, 2005.
+43. Santos J, Baptista JS, Monteiro PRR, Miguel AS, Santos R, Vaz MAP. The influence of task design on upper limb muscles fatigue during low-load repetitive work: A systematic review. Int J Ind Ergon 52: 78­91, 2016.
+44. Sargeant AJ, Dolan P. Human muscle function following prolonged eccentric exercise. Eur J Appl Physiol Occup Physiol 56(6): 704­11, 1987.
+45. Scheer V. Participation trends of ultra endurance events. Sports Med Arthrosc Rev 27(1): 3­7, 2019.
+
+International Journal of Exercise Science
+
+1526
+
+http://www.intjexersci.com
+
+Int J Exerc Sci 15(3): 1514-1527, 2022
+46. Senefeld J, Yoon T, Bement MH, Hunter SK. Fatigue and recovery from dynamic contractions in men and women differ for arm and leg muscles. Muscle Nerve 48(3): 436­9, 2013.
+47. Smith JL, Martin PG, Gandevia SC, Taylor JL. Sustained contraction at very low forces produces prominent supraspinal fatigue in human elbow flexor muscles. J Appl Physiol 103(2): 560­8, 2007.
+48. Thomas K, Goodall S, Stone M, Howatson G, Gibson ASC, Ansley L. Central and peripheral fatigue in male cyclists after 4-, 20-, and 40-km time trials. Med Sci Sports Exerc 47(3): 537­46, 2015.
+49. Vernillo G, Temesi J, Martin M, Millet GY. Mechanisms of fatigue and recovery in upper versus lower limbs in men. Med Sci Sports Exerc 50(2): 334­43, 2018.
+50. Zhang J, Iannetta D, Alzeeby M, MacInnis MJ, Aboodarda SJ. Exercising muscle mass influences neuromuscular, cardiorespiratory, and perceptual responses during and following ramp-incremental cycling to task failure. Am J Physiol Regul Integr Comp Physiol 321(2): R238­49, 2021.
+
+International Journal of Exercise Science
+
+1527
+
+http://www.intjexersci.com
+
+

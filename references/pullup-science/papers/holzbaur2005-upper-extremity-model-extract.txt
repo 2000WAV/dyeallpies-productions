@@ -1,0 +1,673 @@
+Annals of Biomedical Engineering, Vol. 33, No. 6, June 2005 (© 2005) pp. 829­840
+DOI: 10.1007/s10439-005-3320-7
+
+   A Model of the Upper Extremity for Simulating Musculoskeletal
+              Surgery and Analyzing Neuromuscular Control
+
+                   KATHERINE R. S. HOLZBAUR,1 WENDY M. MURRAY,2 and SCOTT L. DELP2,3
+
+1Mechanical Engineering Department, Stanford University, Stanford, California 94305; 2Bone and Joint Center, VA Palo Alto HCS,
+            Palo Alto, California 94304; and 3Bioengineering Department, Stanford University, Stanford, California 94305
+
+                                                        (Received 10 August 2004; accepted 4 February 2005)
+
+Abstract--Biomechanical models of the musculoskeletal system                              Computer models of the musculoskeletal system can
+are frequently used to study neuromuscular control and simulate                        also be used to analyze the biomechanical consequences of
+surgical procedures. To be broadly applicable, a model must be ac-                     surgical reconstructions, such as joint replacements41 and
+cessible to users, provide accurate representations of muscles and                     tendon transfers.18,33,34,45 Simulations of upper extremity
+joints, and capture important interactions between joints. We have                     surgeries have provided insights into postoperative function
+developed a model of the upper extremity that includes 15 degrees                      of the shoulder33 and fingers14 in isolation from the rest of
+of freedom representing the shoulder, elbow, forearm, wrist,                           the upper extremity. Because previous models have repre-
+thumb, and index finger, and 50 muscle compartments crossing                           sented individual regions, such as the shoulder,48 elbow,6,37
+these joints. The kinematics of each joint and the force-generating                    or wrist,16 they are most often used to analyze these joints
+parameters for each muscle were derived from experimental data.                        without consideration of the interactions between joints.
+The model estimates the muscle­tendon lengths and moment arms                          However, surgical interventions may amplify the coupling
+for each of the muscles over a wide range of postures. Given a pat-                    between joints.34,45 Since many muscles of the upper ex-
+tern of muscle activations, the model also estimates muscle forces                     tremity cross multiple joints, an integrated model of the
+and joint moments. The moment arms and maximum moment-                                 upper extremity is needed to better understand the coupling
+generating capacity of each muscle group (e.g., elbow flexors)                         between joints. A recent model of the shoulder, elbow, and
+were compared to experimental data to assess the accuracy of the                       wrist provides an excellent foundation for creating an in-
+model. These comparisons showed that moment arms and joint                             tegrated model,15 but this model excludes the hand and
+moments estimated using the model captured important features of                       several important muscles of the forearm.
+upper extremity geometry and mechanics. The model also revealed
+coupling between joints, such as increased passive finger flexion                         The purpose of this study was to develop and test a
+moment with wrist extension. The computer model is available to                        three-dimensional model of the upper extremity that (i) in-
+researchers at http://nmbl.stanford.edu.                                               cludes all the major muscles of the upper limb, (ii) provides
+                                                                                       accurate estimates of muscle moment arms, (iii) derives
+Keywords--Computer simulation, Upper limb, Muscle,                                     force-generating properties from experimental data, (iv)
+Shoulder, Elbow, Wrist.                                                                represents maximum moment-generating capacity of the
+                                                                                       muscles, (v) represents the coupling between joints, and
+                       INTRODUCTION                                                    (vi) is easily available to researchers.
+
+   Biomechanical models of the musculoskeletal system                                                MATERIALS AND METHODS
+provide a framework for integrating anatomical and phys-
+iological data, enabling a wide range of studies in neu-                                  The upper extremity model was developed using a gen-
+romuscular control. Computer models of the upper ex-                                   eral purpose musculoskeletal modeling package.11 The
+tremity, for example, have been used to characterize limb                              model includes graphical representations of the ribs, ster-
+impedance,42 analyze muscle coordination,7 and design                                  num, clavicle, scapula, humerus, radius, ulna, and bones of
+neuroprosthetic devices.27 Models that define the geometry                             the wrist and hand (Fig. 1). This model builds on earlier
+and force-generating properties of individual muscles al-                              models of the wrist,16 elbow,6,37 and forearm,37 and adds
+low researchers to study intermuscular coordination and to                             new representations of the shoulder, thumb, and index fin-
+examine the contributions of specific muscles to movement.                             ger. The humerus, radius, and ulna in this model were man-
+                                                                                       ually digitized from a cadaveric specimen;36 the lengths of
+    Address correspondence to Wendy M. Murray, Ph.D., The Bone and                     these bones are consistent with published data describing a
+Joint Center, VA Palo Alto Health Care System, 3801 Miranda Av-                        50th percentile male (170 cm tall).17,49 The representations
+enue (153), Palo Alto, CA 94304. Electronic mail: murray@rrdmail.
+stanford.edu
+
+                                                                                  829
+
+                                                                                       0090-6964/05/0600-0829/1 C 2005 Biomedical Engineering Society
+830  HOLZBAUR et al.
+
+FIGURE 1. Upper extremity model. The model is shown in (A) a lateral view, (B) an anterior view, (C) an anteriomedial view, and (D)
+a posteriolateral view, demonstrating the degrees of freedom, muscle paths, and selected wrapping surfaces of the model (blue
+ellipses). Part (A) shows the arm in 45 of flexion (90 elevation plane) and (B) shows the arm in 45 of abduction (0 elevation
+plane).
+
+of the other bones in the model came from outside sources    defined by elbow flexion and forearm rotation. The two
+(Primal Pictures, London, UK; Viewpoint Technologies,        degrees of freedom at the wrist are flexion and deviation.
+Orem, Utah), and were scaled in three-dimensions to pre-     The four degrees of freedom at the index finger are metacar-
+serve the anatomical proportions of the average male.        pophalangeal abduction and flexion, and flexion at the distal
+                                                             and proximal interphalangeal joints. The four degrees of
+                         Joint Kinematics                    freedom for the thumb are carpometacarpal abduction and
+                                                             flexion, metacarpophalangeal flexion, and interphalangeal
+   The model includes 15 degrees of freedom that define      flexion.
+the kinematics of the shoulder, elbow, wrist, index finger,
+and thumb. At the shoulder the three degrees of freedom         The overall motion of the shoulder joint is determined
+are elevation plane, thoracohumeral angle (also referred to  by the collective motion of the shoulder girdle (clavicle,
+as elevation angle), and shoulder rotation. The elbow is     scapula, and humerus) and is described using spherical
+                                                             coordinates. The articulation between the humerus and
+A Model of the Upper Extremity                                  831
+
+scapula is modeled as a ball-and-socket joint, and the move-    Muscle­tendon paths are defined by a set of points and sur-
+ment of the shoulder girdle is determined by the regression     faces, attached to the underlying segments, that characterize
+equations described by de Groot and Brand,9 simplified to       anatomical constraints (Fig. 1) and allow simulation of the
+vary only with thoracohumeral (shoulder elevation) angle.       muscle­tendon path over a broad range of joint motion.
+The axis descriptions, degrees of freedom, and order of         The path of each muscle in this model is designed to match
+rotations described by de Groot and Brand9 and used in this     experimentally measured moment arms3,4,21,30,32,37,39,46 for
+model are consistent with those recommended by the In-          the joints it crosses.
+ternational Society of Biomechanics for describing motion
+at the shoulder.52 The elevation plane degree of freedom           Experimental measurements of shoulder moment arms
+describes the orientation of the vertical plane in which the    in cadaveric specimens involve fixing the scapula, and
+arm elevates relative to the frontal plane. By definition, the  therefore measure the moment arm associated with
+0 elevation plane is the plane of shoulder abduction9 and       glenohumeral motion, as opposed to thoracohumeral
+shoulder flexion occurs in the 90 elevation plane.9 Neutral     motion.21,24,30,39 To compare equivalent values, we fixed
+elevation angle (0) for the shoulder is defined when the        the scapula in the model and estimated shoulder moment
+shaft of the humerus is parallel to the vertical (superior­     arms as a function of glenohumeral motion. It should be
+inferior) axis of the thorax. Neutral (0) axial rotation is     noted that the moment arms for the model with thoraco-
+defined by the orientation of the humerus when the shoul-       humeral motion (i.e., when the scapula is allowed to move)
+der is at neutral elevation angle, the elbow is flexed 90,      differ from the moment arms presented in this paper. Given
+and the forearm lies in the sagittal plane.                     the complexity of the shoulder mechanism, no experimen-
+                                                                tal source provides moment arm data for all muscles of the
+   The elbow joint rotates about a fixed axis that passes       shoulder or all degrees of freedom. To concisely present
+between the center of the trochlear sulcus and the center of    model results and experimental data for 10 muscles and
+the capitulum of the humerus.31 The forearm rotates about       3 degrees of freedom, we often needed to plot a muscle's
+an axis that passes through the center of the radial head and   moment arm for one degree of freedom against correspond-
+the center of the distal ulna. These anatomical points are      ing data for a second degree of freedom from a different
+determined from digitized bone surfaces.36 Elbow flexion        source. For example, the abduction moment arm of middle
+is defined from 0 (full extension) to 130 (flexion) and         deltoid was measured in three studies, while its flexion
+forearm rotation is defined from 90 (pronation) to -90          moment arm was only measured in one. To present all of
+(supination). Neutral position for forearm rotation (0) is      this data, we plotted the different abduction moment arms
+defined when the hand is in the sagittal plane when the         against the only flexion moment arm available.
+shoulder and the wrist are in neutral positions.
+                                                                                       Muscle Architecture
+   Wrist motion is distributed between the proximal and
+distal rows of carpal bones, about axes described by Ruby          The muscle force-generating characteristics are deter-
+et al.43 Wrist flexion ranges from -70 (extension) to 70        mined using a Hill-type muscle model53 requiring four
+(flexion), while deviation ranges from -10 (radial) and         muscle parameters: optimal fiber length, peak force, tendon
+25 (ulnar). Neutral flexion and deviation is defined when       slack length and pennation angle. Parameters are derived
+the third metacarpal is aligned with the long axis of the       from anatomical studies.2,22,25,28,29,35 The parameters im-
+forearm.                                                        plemented for the major elbow muscles are from the same
+                                                                cadaveric specimen as the digitized arm bones; parameters
+   The axes and center of rotation for the thumb joints are     for the other muscles reflect the average reported in the
+based on descriptions by Hollister et al.19,20 The axes of      appropriate study (see Table 1). Pennation angle is taken di-
+rotation of the joints in the index finger are determined       rectly from the literature.2,22,25,28,29,35 Optimal fiber length
+as the long axis of cylinders fit to the articular surfaces of  has been reported in the literature using a range of values
+the metacarpal and phalangeal bones. Neutral position for       for optimal sarcomere length (2.2­2.8 µm). For this model,
+the joints of the index finger and thumb are defined when the   the published optimal fiber lengths are renormalized to an
+long axes of the phalangeal bones of each digit are aligned     optimal sarcomere length of 2.7 µm, the optimal sarcomere
+with the long axis of the respective metacarpal bone.           length for mammalian muscle,51 for consistency.
+
+                           Muscle Paths                            Peak force is calculated as the product of physiological
+                                                                cross-sectional area (PCSA) and specific tension. PCSA
+   Fifty muscles and muscle compartments are included in        for each muscle is calculated by dividing muscle volume,
+this model (Table 1). Muscles are represented as multiple       as reported in the literature, by the renormalized optimal
+compartments when necessary to account for muscles with         fiber lengths. For this model, we use a specific tension of
+multiple tendons (e.g., the extensor digitorum communis),       45 N cm-2 for muscles of the forearm and hand22,28,29 and
+distinct heads (e.g., biceps), or wide attachments (e.g., del-  140 N cm-2 for muscles of the elbow2,35 and shoulder.25
+toid). Attachment sites of muscles are determined from          This approach is required in order to represent accurately
+digitized muscle insertions36 and anatomical descriptions.8
+                                    TABLE 1. Muscle modeling parameters.
+
+                 Muscle             Abbreviation  PCSAa      Peak Optimal fiber Tendon slack
+                                                   (cm2 )  force (N) lengtha (cm) length (cm) Pennation () maabve (cm)
+Shoulder
+   Deltoidc                         DELT1         8.2 1142.6      9.8     9.3   22  1.9
+
+      Anterior                      DELT2         8.2 1142.6      10.8    11.0  15  2.5
+
+      Middle                        DELT3         1.9      259.9  13.7    3.8   18  -0.8
+
+      Posterior                     SUPRA         3.5      487.8  6.8     4.0   7   -1.0
+   Supraspinatusc
+   Infraspinatusc                   INFRA         8.6 1210.8      7.6     3.1   19  -2.3
+   Subscapularisc
+   Teres minorc                     SUBSCAP       9.8 1377.8      8.7     3.3   20  1.9
+   Teres majorc
+   Pectoralis majorc                TMIN          2.5      354.3  7.4     7.1   24  -1.8
+
+      Clavicular                    TMAJ          3.0      425.4  16.2    2.0   16  -2.0
+
+      Sternal                       PMAJ1         2.6      364.4  14.4    0.3   17  0.2
+                                    PMAJ2
+      Ribs                          PMAJ3         3.7      515.4  13.8    8.9   25  -2.3
+   Latissimus dorsic
+                                                  2.8      390.5  13.8    13.2  25  -3.2
+      Thoracic
+                                    LAT1          2.8      389.1  25.4    12.0  25  -2.2
+      Lumbar                        LAT2
+                                    LAT3          2.8      389.1  23.2    17.7  19  -3.5
+      Iliac                         CORB
+   Coracobrachialisc                              2.0      281.7  27.9    14.0  21  -4.2
+
+Elbow                                             1.7      242.5  9.3     9.7   27  -2.0
+   Tricepsd
+                                    TRIlong       5.7      798.5  13.4    14.3  12  -2.1
+      Long                          TRIlat                                          -2.1
+                                    TRImed        4.5      624.3  11.4    9.8   9   -2.1
+      Lateral                       ANC                                             -1.2
+                                    SUP           4.5      624.3  11.4    9.1   9   -0.7
+      Medial
+   Anconeuse                                      2.5      350.0  2.7     1.8   0
+   Supinatore
+   Bicepsd                                        3.4      476.0  3.3     2.8   0
+
+      Long                          BIClong       4.5      624.3  11.6    27.2  0   3.6
+
+      Short                         BICshort      3.1      435.6  13.2    19.2  0   3.6
+   Brachialisd
+   Brachioradialisd                 BRA           7.1      987.3  8.6     5.4   0   1.8
+
+Major wrist or forearm              BRD           1.9      261.3  17.3    13.3  0   5.7
+   Extensor carpi radialis longusd
+   Extensor carpi radialis brevisf  ECRL          2.2      304.9  8.1     22.4  0   -1.8
+   Extensor carpi ulnarisf          ECRB
+   Flexor carpi radialisf           ECU           2.2      100.5  5.9     22.2  9   -0.9
+   Flexor carpi ulnarisf            FCR
+   Palmaris longusg                 FCU           2.1      93.2   6.2     22.8  4   2.3
+   Pronator teresd                  PL
+   Pronator quadratusg              PT            1.6      74.0   6.3     24.4  3   1.4
+                                    PQ
+Wrist/hand muscles                                2.9      128.9  5.1     26.5  12  1.9
+   Flexor digitorum superficialisg
+                                                  0.6      26.7   6.4     26.9  4   2.1
+      Digit 5
+                                                  4.0      566.2  4.9     9.8   10  0.8
+      Digit 4
+                                                  1.7      75.5   2.8     0.5   10  0.5
+      Digit 3
+                                    FDSL          0.4      16.5   5.2     33.8  5   1.6
+      Digit 2                       FDSR
+   Flexor digitorum profundusg      FDSM          1.3      57.9   7.4     32.8  4   1.5
+                                    FDSI
+      Digit 5                                     2.0      91.0   7.5     29.5  7   1.5
+                                    FDPL
+      Digit 4                       FDPR          1.4      61.2   8.4     27.5  6   1.5
+                                    FDPM
+      Digit 3                       FDPI          1.8      79.7   7.5     28.2  8   1.2
+
+      Digit 2                       EDCL          1.4      64.1   8.0     28.2  7   1.3
+   Extensor digitorum communisg     EDCR
+                                    EDCM          1.8      81.7   8.4     29.3  6   1.3
+      Digit 5                       EDCI
+                                    EDM           1.5      68.3   7.5     29.4  7   1.3
+      Digit 4                       EIP
+                                    EPL           0.3      13.1   6.5     29.7  2   -1.1
+      Digit 3                       EPB
+                                    FPL           0.8      34.0   6.3     32.7  3   -1.4
+      Digit 2                       APL
+   Extensor digiti minimig                        0.8      35.3   7.2     33.5  3   -1.5
+   Extensor indicis propiusg
+   Extensor pollicis longusg                      0.4      18.3   7.0     32.2  3   -1.6
+   Extensor pollicis brevish
+   Flexor pollicis longusg                        0.6      25.3   6.8     32.2  3   1.3
+   Abductor pollicis longush
+                                                  0.5      21.7   5.9     18.6  6   -1.4
+
+                                                  0.9      39.5   5.4     22.1  6   -0.9
+
+                                                  0.3      14.2   6.8     11.5  7   -2.2
+
+                                                  1.7      77.2   5.5     19.4  7   1.6
+
+                                                  1.3      59.5   7.1     13.0  8   -2.2
+
+aFiber lengths were normalized to an optimal sarcomere length of 2.7 µm. PCSAs were calculated as volume divided by normalized
+
+ optimal fiber length.
+bmaave is an average moment arm, and it is needed for calculating measures of the sensitivity of muscle­tendon actuator force
+
+ generation to a change in joint posture.
+cFiber length, PCSA, and pennation from Langenderfer et al.25 Experimental PCSA was summed for all compartments. Model
+
+ PCSA was distributed among muscle compartments to best match experimental values for maximum isometric moments.
+dFiber length, PCSA, and pennation from Murray et al.35
+eFiber length, PCSA, and pennation from An et al.2
+f Fiber length, PCSA, and pennation from Lieber et al.28
+gFiber length, PCSA, and pennation from Lieber et al.29
+hFiber length, PCSA, and pennation from Jacobson et al.22
+A Model of the Upper Extremity                                     833
+
+the magnitudes of experimental data for maximum isomet-            capability. Every muscle that was able to contribute to the
+ric moments measured for each of the joints modeled in             moment we were estimating was included in the estimate
+this study.1,6,10,13,15,40,50 We believe the increase in specific  (e.g., any muscle that could generate an elbow flexion
+tension relative to values commonly reported for individ-          moment was included in the calculation of total elbow
+ual muscle fibers or motor units (e.g., 22.5 N cm-2) is            flexion moment).
+associated with disuse atrophy, which is likely to occur
+in the elderly population from which cadaveric specimens                                     Joint Coupling
+are drawn. We postulate that the difference in specific ten-
+sion between muscles of the forearm and arm arises from               To test the ability of the model to predict results in con-
+patterns of inactivity that influence proximal muscles dif-        ditions that were not used for its design, we simulated two
+ferently from distal muscles. Buchanan et al.5 have shown          examples of coupling between joints. First, we simulated
+that it is often necessary to use different values of specific     the relationship between passive finger flexion moment and
+tension for different muscle groups when scaling muscle            wrist flexion angle. Second, we simulated the change in
+PCSA derived from cadaveric specimens.                             supination strength with elbow flexion. We then compared
+                                                                   our simulated results to experimental data.23,38
+   PCSAs for muscles of the shoulder were often reported
+for multiple compartments.25 In these cases, we sum the re-                                    RESULTS
+ported values across all compartments to estimate a single,
+total PCSA for each muscle. When it is necessary to use               Moment arms estimated using the model reflect the pri-
+multiple compartments for these muscles in the model, the          mary mechanical functions of the shoulder muscles, as
+total PCSA for a given muscle is distributed to best match         determined by comparisons with cadaveric experimental
+experimental values for maximum isometric moments.                 data.21,24,30,39 To demonstrate this, we compare model esti-
+                                                                   mates and experimental data of the rotator cuff muscles at a
+   Tendon slack length is not directly measurable, and was         joint configuration of 60 shoulder abduction and 0 of axial
+selected for each muscle to match operating lengths for            rotation (Fig. 2A). The rotation and abduction moment arms
+muscle fibers35 when available, and to otherwise match             of these muscles fall within the range of experimental mea-
+muscle active and passive moment measurements from hu-             surements, although magnitudes vary widely across studies.
+man subjects. Our choices for tendon slack lengths of the          The primary mechanical actions of the three compartments
+elbow and shoulder muscles are significantly correlated to         of the deltoid are not consistent across studies. This is illus-
+tendon lengths for these muscles estimated from cadaveric          trated in the neutral shoulder configuration (Fig. 2B). Our
+studies (r = 0.81, p < 0.01 for the elbow; and r = 0.625,          model distributes deltoid's function of abduction primarily
+p < 0.02 for the shoulder).25,35                                   to the middle compartment (cf., DELT2). The flexion and
+                                                                   extension moment arms for deltoid estimated in the model
+                 Moment-Generating Capacity                        were larger than the one source of experimental data24 for
+                                                                   this plane of action. The flexion and extension moment arms
+   The lengths, moment arms, and force-generating capac-           for the latissimus dorsi (LAT), pectoralis major (PEC), and
+ity of individual muscles are calculated as a function of          teres major (TMAJ) muscles (Fig. 2C) are also larger than
+all of the joints each muscle crosses. The maximum ac-             the one source of experimental data.24 Adduction moment
+tive force and the passive force a muscle produces in a            arms for these muscles are smaller in the model.
+given joint posture are determined based on its PCSA, fiber
+length, and tendon length. An individual muscle's moment-             The moment arms estimated using the model for the
+generating capability at a joint depends on joint posture and      elbow and the wrist are comparable to moment arms mea-
+is calculated as the product of its moment arm and the max-        sured experimentally. To demonstrate this, we compare
+imum force it can generate, both of which also vary with           model estimates and experimental data at a joint config-
+joint position. The total moment-generating capability of          uration of 90 elbow flexion, neutral forearm and neutral
+the muscles that cross a joint is the sum of the moments           wrist (Fig. 3). In these postures, the average difference was
+produced by the individual muscles.                                0.26 cm (SD = 0.45 cm). The largest difference between
+                                                                   measured and estimated moment arms was 3.18 cm for the
+   We compared experimentally measured                             brachioradialis (BRD) elbow flexion moment arm when
+moments1,6,10,13,15,40,50 at the joints of interest to the         compared to the measured moment arm for the female
+moments estimated by the model to evaluate the                     specimen in the Murray et al.37 study (Fig. 3A). However,
+performance of the model. The experimental studies                 the model estimate was only 0.35 cm smaller than the mo-
+measure joint moments using devices that restrain joint            ment arm measured in the cadaveric specimen from which
+motion. In these tests, subjects are instructed to maximally       the elbow model was developed.36 The smallest difference
+flex or extend against the resistance provided by the device,      observed was 0.0014 cm for the wrist deviation moment
+and the isometric moment they produce is recorded. We              arm for the fourth digit compartment of flexor digitorum
+assumed maximum activation for muscles in the model
+when determining maximum isometric moment-generating
+834  HOLZBAUR et al.
+
+     profundus (FDPR) when compared to the data from Brand
+     and Hollister4 (Fig. 3B).
+
+        The upper extremity model accurately reflects the rela-
+     tive moment-generating capacity of the muscles that cross
+     the shoulder, elbow, and wrist. At the shoulder, the total joint
+     moment-generating capability estimated using the model
+     corresponds with experimental measurements of maximum
+     isometric moments13,15,40,50 that indicate, on average, the
+     shoulder extensors are stronger than flexors, the adduc-
+     tors are stronger than the abductors, and internal rotators
+     are stronger than external rotators. Similarly, the model
+     reflects the trend in the data suggesting that average flex-
+     ion and extension moments are larger than abduction and
+     adduction moments and internal and external rotation mo-
+     ments. The total moment-generating capacity of the elbow
+     flexors is greater than the elbow extensors, as observed
+     experimentally.1,6 Also, isometric strength in elbow flex-
+     ion and extension exceeds forearm rotation.15 Finally, like
+     experimental data,10 the model generates greater wrist mo-
+     ments for flexion than extension, and for radial deviation
+     than ulnar deviation.
+
+        The maximum isometric joint moments estimated using
+     the model represent many features observed in experimen-
+     tal data. The steady decrease in shoulder flexion strength
+     and increase in shoulder extension strength with shoul-
+     der flexion is represented by the model (Fig. 4A). Flexion
+     moment-generating capacity in the model decreases with
+     shoulder flexion at the same rate as in the literature,15,40,50
+     decreasing 34 and 30 Nm, respectively, over 90 of shoulder
+     flexion (Fig. 4A). The model reproduces both the decrease
+     in shoulder abduction strength and increase in shoulder
+     adduction strength with increasing shoulder abduction an-
+     gle that has been observed experimentally15,40 (Fig. 4B).
+     Maximal isometric internal rotation moment estimated by
+     the model shows the steady decrease in internal rotation
+     moment found by Engin and Kaleps13 and Otis et al.40 Ex-
+     ternal rotation moment peaks at approximately 50 rotation,
+
+     
+
+     FIGURE 2. Muscle moment arms at the shoulder for (A) the
+     rotator cuff, (B) the three compartments of deltoid, and (C)
+     other shoulder muscles, including teres major (TMAJ), latis-
+     simus dorsi (LAT), and pectoralis major (PEC). The model
+     estimates are shown as the black diamonds and compared
+     to experimental data from Otis et al.,39 Liu et al.,30 Hughes
+     et al.,21 and Kuechle et al.24 In (A), rotation moment arms were
+     not available for the rotator cuff in the Liu et al.,30 Hughes
+     et al.,21 or Kuechle et al.24 studies. The abduction moment
+     arms for those data were plotted at the average of the rotation
+     moment arms from the Otis et al.,39 study. In (B), flexion mo-
+     ment arms were not available for the deltoid in the Otis et al.39
+     and Liu et al.30 studies. The abduction moment arms for those
+     data were plotted at the flexion moment arm values from the
+     Kuechle et al.24 study. In (A), shoulder rotation and abduction
+     moment arms were calculated with the shoulder in 60 of ab-
+     duction and 0 of axial rotation. In (B) and (C), shoulder flexion
+     and abduction moment arms were calculated with the arm in
+     a neutral configuration.
+A Model of the Upper Extremity                               835
+
+FIGURE 3. Muscle moment arms at the (A) elbow and (B) wrist. The model estimates are shown as the black diamonds and
+compared to experimental data from male and female specimens from Murray et al.,37 Murray et al.,36 Loren et al.,32 and Brand
+and Hollister.4 In (A), forearm rotation moment arms were not available for the Murray et al.36 study. The flexion moment arms for
+those data were plotted at the average of the forearm rotation moment arms from the Murray et al.37 study. All compartments of
+
+triceps (TRI) have the same moment arms at the elbow. All compartments of biceps (BIC) have the same moment arms at the elbow.
+Moment arms reported from Murray et al.36 are for the same cadaveric specimen as the digitized bones used in the model. Elbow
+flexion and forearm rotation moment arms were calculated with the elbow in 90 flexion and the forearm in neutral rotation. Wrist
+
+deviation and flexion moment arms were calculated with the wrist in a neutral configuration.
+
+similar to Engin and Kaleps,13 with a more pronounced        strength as the forearm is pronated, as well as capturing
+increase in external rotation moment at peak (Fig. 4C).
+                                                             the overall magnitude of forearm strength found in the ex-
+   The peak isometric elbow flexion moment estimated us-     perimental literature15 (Fig. 5B). The peak experimental
+ing the model (103 Nm) was larger than the peak moments
+reported in the literature (77 Nm)1,6 (Fig. 5A). The         wrist flexion and extension moments were 11 and 6.5 Nm,
+peak elbow extension moment estimated using the model        respectively,10 and the model estimates the peaks to be
+was approximately 43 Nm, lower than the 52 Nm in the
+literature.1,6 Moment estimates for the forearm capture the  10.7 and 7.3 Nm, respectively (Fig. 6A). Both experimental
+increase in supination strength and decrease in pronation    results10 and model predictions exhibit peak wrist flexion
+
+                                                             moment as the wrist moves into flexion (between 20 and
+                                                             40 of flexion) and relatively constant extension moments.
+
+FIGURE 4. Maximum isometric moments generated by (A) shoulder flexors and extensors versus shoulder flexion, (B) shoulder
+
+abductors and adductors versus shoulder abduction, and (C) shoulder internal and external rotators versus shoulder rotation. The
+model estimates are shown as the heavy solid curves and compared to experimental data from Otis et al.,40 Winters et al.,50 Garner
+and Pandy,15 and Engin and Kaleps.13 Shoulder flexion, extension, abduction, and adduction moments were calculated with the
+elbow in 60 flexion and all other degrees of freedom in a neutral position. Shoulder rotation moments were calculated with the
+elbow in 60 flexion, the shoulder in 60 of abduction, and all other degrees of freedom in a neutral position. Shoulder flexion,
+
+abduction, and internal rotation are positive values.
+836  HOLZBAUR et al.
+
+FIGURE 5. Maximum isometric moments generated by (A) elbow flexors and extensors versus elbow flexion angle, and (B) forearm
+
+pronators and supinators versus pronation angle. The model estimates are shown as the heavy solid curves and compared to
+experimental data from Buchanan et al.,6 Garner and Pandy,15 and Amis et al.1 Values for elbow flexion moment are calculated with
+
+the shoulder, forearm, and wrist in the neutral position (see text for details). Maximum pronation moments were calculated with
+the elbow in 90 of flexion, and all other degrees of freedom in a neutral position. Elbow flexion and forearm pronation are positive
+
+values.
+
+The model represents the decrease in both ulnar and radial       The model estimates a marked increase in the passive
+deviation strength as the wrist ulnarly deviates as seen in   flexion moment at the second metacarpophalangeal joint
+the experimental literature10 (Fig. 6B). The passive flexion  with extension of the wrist (Fig. 7A). The model esti-
+moment at the index finger increases substantially with       mates the moment-generating capacity of the supinators
+finger extension (Fig. 6C).                                   with the arm in neutral rotation to be 8 Nm at 0 elbow
+
+FIGURE 6. Maximum isometric moments generated by (A) wrist flexors and extensors versus wrist flexion angle, and (B) wrist
+
+radial and ulnar deviators versus deviation angle, and (C) passive moments generated by the extrinsic hand muscles at the second
+
+metacarpophalangeal joint versus second metacarpophalangeal joint flexion. The model estimates are shown as the heavy solid
+curves and compared to experimental data from Delp et al.10 (A and B) and Knutson et al.23 (C). Wrist moments were calculated
+with the elbow in 90 of flexion, and all other degrees of freedom in a neutral position. Finger moments were calculated with all
+
+degrees of freedom in a neutral position. Wrist flexion, ulnar deviation, and finger flexion are positive values.
+A Model of the Upper Extremity                                  837
+
+FIGURE 7. Joint coupling shown by (A) the passive moment about the second metacarpophalangeal (MCP) joint versus wrist
+
+flexion angle and (B) the maximum isometric moment generated by the forearm supinators versus elbow flexion angle. The model
+estimates are shown as the heavy solid curves and compared to experimental data from Knutson et al.23 and O'Sullivan and
+Gallwey.38 Standard deviations from the experimental data are shaded in grey. Wrist flexion, finger flexion, and pronation are
+
+positive values.
+
+flexion increasing to a peak of 17 Nm at 94 elbow flexion       chanics of a given joint in the upper extremity can depend
+(Fig. 7B).                                                      on the posture of adjacent joints. For example, we illustrated
+                                                                how this multi-joint model captures the increase in passive
+                          DISCUSSION                            finger flexion that occurs with wrist extension23 and the in-
+                                                                crease in supination strength with elbow flexion38 (Fig. 7).
+   The goal of this study was to produce a three-               The coupling effects demonstrate predictive capabilities of
+dimensional model of the upper extremity including mus-         the model, as joint coupling was not assessed during model
+cles and joints from the shoulder to fingertip and to evaluate  development.
+this model using comparisons to experimentally measured
+moment arms and maximum isometric joint moments. Our               Others have also created multi-joint models of the up-
+model characterizes the mechanical actions of the muscles       per extremity. Lemay and Crago26 presented an integrated
+of the upper extremity, as determined by comparisons with       model of the elbow, forearm, and wrist with muscle pa-
+experimentally measured moment arms. The magnitudes             rameters based on anatomical data from the literature. The
+of moment arms matched well with published literature           result was a model that met several of the criteria outlined
+at the elbow and wrist. While there were wide variations        in the introduction, including deriving muscle parameters
+in magnitudes in the experimental data at the shoulder, the     from experimental data, incorporating all of the muscles
+model captured the multi-faceted function of these complex      in the region of interest, and representing coupling. Subse-
+muscles. For each joint, the model demonstrated substantial     quently, more complete anatomical studies that describe the
+agreement with published data describing isometric joint        force-generating parameters of muscle and muscle moment
+moments.                                                        arms have become available.25,35 We incorporated these
+                                                                newly available anatomical data. Garner and Pandy15 cre-
+   Previous studies have described three-dimensional mus-       ated a model that incorporates the shoulder, elbow, forearm,
+culoskeletal models of the upper extremity. Excellent mod-      and wrist, contributing a model that accurately represents
+els of individual joints or segments of the upper extremity,    many of the features of experimentally measured maximal
+such as the shoulder,48 wrist,16 hand,44 or thumb,47 have       isometric moments and is able to capture joint coupling.
+been developed and are useful for examining the biome-          However, muscles of the hand were not included. We in-
+chanics of those joints in isolation. However, the biome-       cluded the extrinsic hand muscles (e.g., flexor digitorum
+838  HOLZBAUR et al.
+
+superficialis) in the current model because these muscles        parameters, moment arms, and joint moments, which were
+are capable of generating substantial moments about the          used to guide the selection of tendon slack length.
+wrist16 and are important to consider when evaluating wrist
+function.                                                           With regard to our choice to scale the PCSAs of muscles
+                                                                 of the forearm differently from muscles of the shoulder and
+   An important criterion for our modeling efforts was to        elbow, it is important to note that the relative strength of
+derive muscle force-generating parameters from experi-           the pronator teres and extensor carpi radialis longus may be
+mental studies. We believe that this approach ultimately         large relative to the strength of the other forearm muscles in
+strengthens the resulting model. For example, optimal fiber      the model. We chose to scale these muscles with the other
+length and moment arm are needed to understand muscle            elbow muscles from the same data set collected on the same
+excursion over the joint range of motion.16 By relying on        specimens.35
+optimal lengths determined by detailed studies of muscle
+architecture, we are confident that this parameter reflects the     Several limitations must be considered when using
+overall excursion capacity of each muscle. There are other       the musculoskeletal model we describe. We have simpli-
+approaches to muscle parameter selection. For example,           fied the motion of the shoulder girdle. We have constrained
+Garner and Pandy15 implemented an optimization algo-             the motion of the clavicle and the scapula to depend on
+rithm to choose muscle parameters from within pre-defined        the motion of the humerus. Measuring the motions of the
+physiological limits. While this approach may be effective       scapula and clavicle is challenging, but measuring the mo-
+and efficient, it also has the potential to introduce unknown    tion of the humerus relative to the thorax is not. We believe
+error into all of the parameters in the system. By focusing      that explicitly constraining the kinematics of the clavicle
+on experimentally derived parameters, we have identified         and scapula based on typical motion will be preferred for
+specific areas for which either quantitative measurements        most users. The motions of the clavicle and the scapula in
+essentially do not exist (e.g., tendon slack length), cur-       our model vary only with humeral elevation. The kinematic
+rent methods are not representative (e.g., scaling PCSA          data on which we based our model9 shows that motion
+from cadaveric specimens to isometric moment-generating          of the scapula and clavicle also varied with the plane of
+capacity of healthy adults), or anatomical data collection       elevation. This simplification will influence moment arms
+requires greater coordination with model design (e.g., how       of the muscles that cross from the torso to the humerus.
+to distribute PCSA for a multi-compartment muscle, or col-       Because there is no moment arm data for a shoulder with a
+lecting all of the muscle parameters in a single study). We      moving scapula, it is difficult to quantify the degree of this
+feel that our approach constrains uncertainty in parameter       effect. In addition, the de Groot and Brand9 model, which
+estimation to specific, defined areas, which can assist users    was the basis of our shoulder kinematics, was not tested for
+when interpreting simulation results as well as identify fu-     high-speed or high load motions and may be less accurate
+ture directions for experimental research.                       for such conditions.
+
+   We evaluated our parameter selection based on a sen-             We have provided tests of the model's accuracy in es-
+sitivity analysis performed previously for a model of the        timating the maximum active isometric moments at the
+lower extremity12 that incorporates the same type of mus-        shoulder, elbow, forearm, and wrist, and passive moments at
+cle model and moment calculation. We focused on ten-             the metacarpophalangeal joint of the index finger. We have
+don slack length because it was the parameter with the           not provided active tests for the index finger and thumb.
+most uncertainty and the least experimental data on which        This model does not include representations of the intrin-
+to base our choices. The previous analysis showed that           sic muscles of the hand; therefore, we would not expect
+muscles with high ratios between tendon slack length and         the moments at these joints to accurately reflect moment
+average moment arm (lst/maave) and low ratios between            magnitudes at these joints. Kinematic representations of
+optimal fiber length and average moment arm (lom/maave)          the joints of these fingers and inclusion of the extrinsic
+are most sensitive to the choice of tendon slack length.         muscles are important for a wrist model and for examining
+In the current upper extremity model, we observed that           how hand function changes in different wrist positions.
+the muscles whose primary function is at the wrist tend to
+have much higher lst/maave ratios (average = 17.4) than the         Muscles are assumed to consist of fibers of equal length.
+muscles that actuate the elbow (average = 4.4) and shoul-        However, muscles may contain fibers of varying length,
+der (average = 3.6). Similarly, lom/maave ratios tended to be    and these fibers have different paths due to the three-
+lowest for the wrist muscles. These observations indicate        dimensional nature of muscle. The assumption of equal
+that the force-generating capacity of the wrist muscles are      fiber length within a muscle could contribute to the greater
+the most sensitive of the upper extremity muscles to our pa-     change in moment with joint angle that can be seen in the
+rameter estimation approach. While we acknowledge this           model estimates of shoulder extension and external rotation,
+limitation, we are confident in our parameter selection of       and elbow flexion. In addition, muscles with wide attach-
+tendon slack length for the wrist muscles given the high         ments may have fibers with divergent paths. To address this
+quality of experimental data for the other force generating      issue, when necessary, several muscle paths were used to
+                                                                 model a single muscle (e.g., deltoid). We attempted to use
+                                                                 one path per muscle compartment. This was an attempt to
+A Model of the Upper Extremity                                      839
+
+limit the amount of error generated by simplifying muscle            7Buchanan, T. S., and D. A. Shreeve. An evaluation of optimiza-
+structure.                                                            tion techniques for the prediction of muscle activation patterns
+                                                                      during isometric tasks. J. Biomech. Eng. 118:565­574, 1996.
+   The model we have described represents an adult male of           8Dalley, A. F. I., and K. L. Moore. Clinically Oriented Anatomy.
+average size with muscle parameters based on the average              Baltimore, MD: Lippincott Williams and Wilkins, 1999.
+of data available from anatomical studies. Subject-specific          9de Groot, J. H., and R. Brand. A three-dimensional regres-
+models using an individual's muscle parameters and muscle             sion model of the shoulder rhythm. Clin. Biomech. 16:735­743,
+paths would be useful for designing subject-specific surgi-           2001.
+cal plans. A generic model such as the one we describe is           10Delp, S. L., A. E. Grierson, and T. S. Buchanan. Maximum
+useful for a broad range of studies, including simulations            isometric moments generated by the wrist muscles in flexion-
+of upper limb surgery, calculation of limb impedance, and             extension and radial-ulnar deviation. J. Biomech. 29:1371­1375,
+calculation of end-point forces at a fingertip generated by           1996.
+individual muscles. Future directions in the development of         11Delp, S. L., and J. P. Loan. A graphics-based software system
+this model will focus on defining scaling rules to tailor the         to develop and analyze models of musculoskeletal structures.
+model to more accurately represent individual subjects.               Comput. Biol. Med. 25:21­34, 1995.
+                                                                    12Delp, S. L., J. P. Loan, M. G. Hoy, F. E. Zajac, E. L. Topp, and
+   We realize that a single model is unlikely to be ideally           J. M. Rosen. An interactive graphics-based model of the lower
+suited to all studies of upper extremity biomechanics. How-           extremity to study orthopaedic surgical procedures. IEEE Trans.
+ever, we have integrated the best available experimental data         Biomed. Eng. 37:757­767, 1990.
+to create a model that can form the basis for a wide range          13Engin, A. E., and I. Kaleps. Active muscle torques about long-
+of studies. We intend for the model to be used not only in            bone axes of major human joints. Aviat. Space Environ. Med.
+its complete form, but also to be modified to use isolated            51:551­555, 1980.
+sections or specific muscles. Modification to represent in-         14Fowler, N. K., and A. C. Nicol. A biomechanical analysis of the
+dividual subjects, to represent different surgical conditions,        rheumatoid index finger after joint arthroplasty. Clin. Biomech.
+to include additional muscles (e.g. hand intrinsics), or to           17:400­405, 2002.
+represent pathological or more complex joint kinematics is          15Garner, B. A., and M. G. Pandy. Musculoskeletal model of the
+desirable.                                                            upper limb based on the visible human male dataset. Comput.
+                                                                      Methods Biomech. Biomed. Eng. 4:93­126, 2001.
+                  ACKNOWLEDGMENTS                                   16Gonzalez, R. V., T. S. Buchanan, and S. L. Delp. How mus-
+                                                                      cle architecture and moment arms affect wrist flexion-extension
+   We would like to acknowledge funding from the                      moments. J. Biomech. 30:705­712, 1997.
+Whitaker Foundation, Medtronic Foundation Stanford                  17Gordon, C. C., T. Churchill, C. E. Clauser, B. Bradtmiller, J. T.
+Graduate Fellowship, the NIH (#U54 GM072970), and the                 McConville, I. Tebbets, and R. A. Walker. 1988 Anthropomet-
+Rehabilitation Research and Development Service of the                ric Survey of U.S. Army Personnel: Methods and Summary
+Department of Veterans Affairs (#B2785R). We would also               Statistics. Natick, MA: United States Army Natick Research,
+like to acknowledge Richard Hughes, Joseph Langenderfer,              Development and Engineering Center, 1989.
+and Richard Lieber for their helpful discussion regarding           18Herrmann, A. M., and S. L. Delp. Moment arm and force-
+integrating muscle architecture data into a musculoskeletal           generating capacity of the extensor carpi ulnaris after transfer to
+model.                                                                the extensor carpi radialis brevis. J. Hand Surg. [Am.] 24:1083­
+                                                                      1090, 1999.
+                         REFERENCES                                 19Hollister, A., W. L. Buford, L. M. Myers, D. J. Giurintano, and
+                                                                      A. Novick. The axes of rotation of the thumb carpometacarpal
+ 1Amis, A. A., D. Dowson, and V. Wright. Analysis of el-              joint. J. Orthop. Res. 10:454­460, 1992.
+  bow forces due to high-speed forearm movements. J. Biomech.       20Hollister, A., D. J. Giurintano, W. L. Buford, L. M. Myers, and
+  13:825­831, 1980.                                                   A. Novick. The axes of rotation of the thumb interphalangeal
+ 2An, K. N., F. C. Hui, B. F. Morrey, R. L. Linscheid, and E. Y.      and metacarpophalangeal joints. Clin. Orthop. 188­193, 1995.
+  Chao. Muscles across the elbow joint: A biomechanical analysis.   21Hughes, R. E., G. Niebur, J. Liu, and K. N. An. Comparison
+  J. Biomech. 14:659­669, 1981.                                       of two methods for computing abduction moment arms of the
+ 3An, K. N., Y. Ueba, E. Y. Chao, W. P. Cooney, and R. L.             rotator cuff. J. Biomech. 31:157­160, 1998.
+  Linscheid Tendon excursion and moment arm of index finger         22Jacobson, M. D., R. Raab, B. M. Fazeli, R. A. Abrams, M. J.
+  muscles. J. Biomech. 16:419­425, 1983.                              Botte, and R. L. Lieber. Architectural design of the human in-
+ 4Brand, P. W., and A. Hollister. Clinical Mechanics of the Hand,     trinsic hand muscles. J. Hand Surg. [Am.] 17:804­809, 1992.
+  2nd ed. St. Louis, MO: Mosby-Year Book, 1993, p. 386.             23Knutson, J. S., K. L. Kilgore, J. M. Mansour, and P. E. Crago.
+ 5Buchanan, T. S. Evidence that maximum muscle stress is not          Intrinsic and extrinsic contributions to the passive moment at the
+  a constant: Differences in specific tension in elbow flexors and    metacarpophalangeal joint. J. Biomech. 33:1675­1681, 2000.
+  extensors. Med. Eng. Phys. 17:529­536, 1995.                      24Kuechle, D. K., S. R. Newman, E. Itoi, B. F. Morrey, and K. N.
+ 6Buchanan, T. S., S. L. Delp, and J. A. Solbeck. Muscular resis-     An. Shoulder muscle moment arms during horizontal flexion
+  tance to varus and valgus loads at the elbow. J. Biomech. Eng.      and elevation. J. Shoulder Elbow Surg. 6:429­439, 1997.
+  120:634­639, 1998.                                                25Langenderfer, J., S. A. Jerabek, V. B. Thangamani, J. E. Kuhn,
+                                                                      and R. E. Hughes. Musculoskeletal parameters of muscles
+                                                                      crossing the shoulder and elbow and the effect of sarcomere
+                                                                      length sample size on estimation of optimal muscle length. Clin.
+                                                                      Biomech. 19:664­670, 2004.
+                                                                    26Lemay, M. A., and P. E. Crago. A dynamic model for simu-
+                                                                      lating movements of the elbow, forearm, an wrist. J. Biomech.
+                                                                      29:1319­1330, 1996.
+840  HOLZBAUR et al.
+
+27Lemay, M. A., P. E. Crago, and M. W. Keith. Restoration of         40Otis, J. C., R. F. Warren, S. I. Backus, T. J. Santner, and
+  pronosupination control by FNS in tetraplegia--experimental          J. D. Mabrey. Torque production in the shoulder of the normal
+  and biomechanical evaluation of feasibility. J. Biomech. 29:435­     young adult male. The interaction of function, dominance, joint
+  442, 1996.                                                           angle, and angular velocity. Am. J. Sports Med. 18:119­123,
+                                                                       1990.
+28Lieber, R. L., B. M. Fazeli, and M. J. Botte. Architecture of
+  selected wrist flexor and extensor muscles. J. Hand Surg. [Am.]    41Piazza, S. J., and S. L. Delp. Three-dimensional dynamic sim-
+  15:244­250, 1990.                                                    ulation of total knee replacement motion during a step-up task.
+                                                                       J. Biomech. Eng. 123:599­606, 2001.
+29Lieber, R. L., M. D. Jacobson, B. M. Fazeli, R. A. Abrams, and
+  M. J. Botte. Architecture of selected muscles of the arm and       42Rancourt, D., and N. Hogan. Stability in force-production tasks.
+  forearm: Anatomy and implications for tendon transfer. J. Hand       J. Mot. Behav. 33:193­204, 2001.
+  Surg. [Am.] 17:787­798, 1992.
+                                                                     43Ruby, L. K., W. P. Cooney, 3rd, K. N. An, R. L. Linscheid,
+30Liu, J., R. E. Hughes, W. P. Smutz, G. Niebur, and K. Nan-An.        and E. Y. Chao. Relative motion of selected carpal bones: A
+  Roles of deltoid and rotator cuff muscles in shoulder elevation.     kinematic analysis of the normal wrist. J. Hand Surg. [Am.]
+  Clin. Biomech. 12:32­38, 1997.                                       13:1­10, 1988.
+
+31London, J. T. Kinematics of the elbow. J. Bone Joint Surg. Am.     44Sancho-Bru, J. L., A. Perez-Gonzalez, M. Vergara, and D. J.
+  63:529­535, 1981.                                                    Giurintano. A 3D biomechanical model of the hand for power
+                                                                       grip. J. Biomech. Eng. 125:78­83, 2003.
+32Loren, G. J., S. D. Shoemaker, T. J. Burkholder, M. D. Jacobson,
+  J. Friden, and R. L. Lieber. Human wrist motors: Biomechanical     45Saul, K. R., W. M. Murray, V. R. Hentz, and S. L. Delp. Biome-
+  design and application to tendon transfers. J. Biomech. 29:331­      chanics of the Steindler flexorplasty surgery: A computer simu-
+  342, 1996.                                                           lation study. J. Hand Surg. [Am.] 28:979­986, 2003.
+
+33Magermans, D. J., E. K. Chadwick, H. E. Veeger, P. M. Rozing,      46Smutz, W. P., A. Kongsayreepong, R. E. Hughes, G. Niebur,
+  and F. C. van der Helm. Effectiveness of tendon transfers for        W. P. Cooney, and K. N. An. Mechanical advantage of the thumb
+  massive rotator cuff tears: A simulation study. Clin. Biomech.       muscles. J. Biomech. 31:565­570, 1998.
+  19:116­122, 2004.
+                                                                     47Valero-Cuevas, F. J., M. E. Johanson, and J. D. Towles. Towards
+34Murray, W. M., A. M. Bryden, K. L. Kilgore, and M. W. Keith.         a realistic biomechanical model of the thumb: The choice of
+  The influence of elbow position on the range of motion of the        kinematic description may be more critical than the solution
+  wrist following transfer of the brachioradialis to the extensor      method or the variability/uncertainty of musculoskeletal param-
+  carpi radialis brevis tendon. J. Bone Joint Surg. Am. 84-A:2203­     eters. J. Biomech. 36:1019­1030, 2003.
+  2210, 2002.
+                                                                     48van der Helm, F. C. A finite element musculoskeletal model of
+35Murray, W. M., T. S. Buchanan, and S. L. Delp. The isometric         the shoulder mechanism. J. Biomech. 27:551­569, 1994.
+  functional capacity of muscles that cross the elbow. J. Biomech.
+  33:943­952, 2000.                                                  49Winter, D. Biomechanics and Motor Control of Human Move-
+                                                                       ment, 2nd ed. New York: Wiley, 1990.
+36Murray, W. M., T. S. Buchanan, and S. L. Delp. Scaling of
+  peak moment arms of elbow muscles with upper extremity bone        50Winters, J. M., and D. G. Kleweno. Effect of initial upper-limb
+  dimensions. J. Biomech. 35:19­26, 2002.                              alignment on muscle contributions to isometric strength curves.
+                                                                       J. Biomech. 26:143­153, 1993.
+37Murray, W. M., S. L. Delp, and T. S. Buchanan. Variation of mus-
+  cle moment arms with elbow and forearm position. J. Biomech.       51Woledge, R. C., N. A. Curtin, and E. Homsher. Energetic aspects
+  28:513­525, 1995.                                                    of muscle contraction. Monogr. Physiol. Soc. 41:1­357, 1985.
+
+38O'Sullivan, L. W., and T. J. Gallwey. Upper-limb surface electro-  52Wu, G., F. C. T. van der Helm, H. E. J. (DirkJan) Veeger, M.
+  myography at maximum supination and pronation torques: The           Makhsous, P. Van Roy, C. Anglin, J. Nagels, A. R. Karduna, K.
+  effect of elbow and forearm angle. J. Electromyogr. Kinesiol.        McQuade, and X. Wang. ISB recommendation on definitions of
+  12:275­285, 2002.                                                    joint coordinate systems of various joints for the reporting of
+                                                                       human joint motion. Part II. Shoulder, elbow, wrist and hand.
+39Otis, J. C., C. C. Jiang, T. L. Wickiewicz, M. G. Peterson, R. F.    J. Biomech. 38:981­992, 2005.
+  Warren, and T. J. Santner. Changes in the moment arms of the
+  rotator cuff and deltoid muscles with abduction and rotation. J.   53Zajac, F. E. Muscle and tendon: Properties, models, scaling,
+  Bone Joint Surg. Am. 76:667­676, 1994.                               and application to biomechanics and motor control. Crit. Rev.
+                                                                       Biomed. Eng. 17:359­411, 1989.
+

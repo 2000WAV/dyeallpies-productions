@@ -1,0 +1,70 @@
+1. Sports Med. 2020 Dec;50(12):2209-2236. doi: 10.1007/s40279-020-01344-2.
+
+Acute Effects of Cluster and Rest Redistribution Set Structures on Mechanical, 
+Metabolic, and Perceptual Fatigue During and After Resistance Training: A 
+Systematic Review and Meta-analysis.
+
+Jukic I(1), Ramos AG(2)(3), Helms ER(4), McGuigan MR(4), Tufano JJ(5).
+
+Author information:
+(1)Sport Performance Research Institute New Zealand (SPRINZ), Auckland 
+University of Technology, Auckland, New Zealand. ivan.jukic@aut.ac.nz.
+(2)Department of Physical Education and Sport, Faculty of Sport Sciences, 
+University of Granada, Granada, Spain.
+(3)Department of Sports Sciences and Physical Conditioning, Faculty of 
+Education, Universidad Católica de la Santísima Concepción, Concepción, Chile.
+(4)Sport Performance Research Institute New Zealand (SPRINZ), Auckland 
+University of Technology, Auckland, New Zealand.
+(5)Department of Physiology and Biochemistry, Faculty of Physical Education and 
+Sport, Charles University, Prague, Czech Republic.
+
+BACKGROUND: The alteration of individual sets during resistance training (RT) is 
+often used to allow for greater velocity and power outputs, reduce metabolite 
+accumulation such as lactate and also reduce perceived exertion which can 
+ultimately affect the resultant training adaptations. However, there are 
+inconsistencies in the current body of evidence regarding the magnitude of the 
+effects of alternative set structures (i.e., cluster sets and rest 
+redistribution) on these acute mechanical, metabolic, and perceptual responses 
+during and after RT.
+OBJECTIVE: This study aimed to systematically review and meta-analyse current 
+evidence on the differences between traditional and alternative (cluster and 
+rest redistribution) set structures on acute mechanical, metabolic, and 
+perceptual responses during and after RT, and to discuss potential reasons for 
+the disparities noted in the literature.
+METHODS: The Preferred Reporting Items for Systematic Reviews and Meta-Analyses 
+(PRISMA) guidelines were followed, and five databases were searched until June 
+2019. Studies were included when they were written in English and compared at 
+least one acute mechanical, metabolic, or perceptual response between 
+traditional, cluster or traditional and rest redistribution set structures in 
+healthy adults. Random-effects meta-analyses and meta-regressions were performed 
+where possible.
+RESULTS: Thirty-two studies were included. Pooled results revealed that 
+alternative set structures allowed for greater absolute mean [standardized mean 
+difference (SMD) = 0.60] and peak velocity (SMD = 0.41), and mean (SMD = 0.33) 
+and peak power (SMD = 0.38) during RT. In addition, alternative set structures 
+were also highly effective at mitigating a decline in velocity and power 
+variables during (SMD = 0.83-1.97) and after RT (SMD = 0.58) as well as reducing 
+lactate accumulation (SMD = 1.61) and perceived exertion (SMD = 0.81). These 
+effects of alternative set structures on velocity and power decline and 
+maintenance during RT were considerably larger than for absolute velocity and 
+power variables. Sub-group analyses controlling for each alternative set 
+structure independently showed that cluster sets were generally more effective 
+than rest redistribution in alleviating mechanical, metabolic, and perceptual 
+markers of fatigue.
+CONCLUSION: Alternative set structures can reduce mechanical fatigue, perceptual 
+exertion, and metabolic stress during and after RT. However, fundamental 
+differences in the amount of total rest time results in cluster sets generally 
+being more effective than rest redistribution in alleviating fatigue-induced 
+changes during RT, which highlights the importance of classifying them 
+independently in research and in practice. Additionally, absolute values (i.e., 
+mean session velocity or power), as well as decline and maintenance of the 
+mechanical outcomes during RT, and residual mechanical fatigue after RT, are all 
+affected differently by alternative set structures, suggesting that these 
+variables may provide distinct information that can inform future training 
+decisions.
+PROTOCOL REGISTRATION: The original protocol was prospectively registered 
+(CRD42019138954) with the PROSPERO (International Prospective Register of 
+Systematic Reviews).
+
+DOI: 10.1007/s40279-020-01344-2
+PMID: 32901442 [Indexed for MEDLINE]

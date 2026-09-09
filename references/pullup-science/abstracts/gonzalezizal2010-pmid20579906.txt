@@ -1,0 +1,35 @@
+1. J Electromyogr Kinesiol. 2010 Dec;20(6):1097-106. doi: 
+10.1016/j.jelekin.2010.05.010. Epub 2010 Jun 25.
+
+sEMG wavelet-based indices predicts muscle power loss during dynamic 
+contractions.
+
+González-Izal M(1), Rodríguez-Carreño I, Malanda A, Mallor-Giménez F, 
+Navarro-Amézqueta I, Gorostiaga EM, Izquierdo M.
+
+Author information:
+(1)Studies, Research and Sport Medicine Center, Government of Navarre, Spain.
+
+The purpose of this study was to investigate the sensitivity of new surface 
+electromyography (sEMG) indices based on the discrete wavelet transform to 
+estimate acute exercise-induced changes on muscle power output during a dynamic 
+fatiguing protocol. Fifteen trained subjects performed five sets consisting of 
+10 leg press, with 2 min rest between sets. sEMG was recorded from vastus 
+medialis (VM) muscle. Several surface electromyographic parameters were 
+computed. These were: mean rectified voltage (MRV), median spectral frequency 
+(F(med)), Dimitrov spectral index of muscle fatigue (FI(nsm5)), as well as five 
+other parameters obtained from the stationary wavelet transform (SWT) as ratios 
+between different scales. The new wavelet indices showed better accuracy to map 
+changes in muscle power output during the fatiguing protocol. Moreover, the new 
+wavelet indices as a single parameter predictor accounted for 46.6% of the 
+performance variance of changes in muscle power and the log-FI(nsm5) and MRV as 
+a two-factor combination predictor accounted for 49.8%. On the other hand, the 
+new wavelet indices proposed, showed the highest robustness in presence of 
+additive white Gaussian noise for different signal to noise ratios (SNRs). The 
+sEMG wavelet indices proposed may be a useful tool to map changes in muscle 
+power output during dynamic high-loading fatiguing task.
+
+Copyright © 2010 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jelekin.2010.05.010
+PMID: 20579906 [Indexed for MEDLINE]

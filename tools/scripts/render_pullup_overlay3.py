@@ -2,14 +2,18 @@
 Render the pull-up analysis, version 3 (set #3, floor camera, anatomy paint).
 
     python render_pullup_overlay3.py <video> <pose_mp.npz> <analysis.json> <out.mp4>
-        [heat=matte.npy] [bg=plate.jpg] [look=1] [grid=1] [cat=1] [lut=iron|blue]
+        [heat=matte.npy] [bg=plate.jpg] [look=1] [grid=1] [cat=1] [lut=bluered|iron|blue]
         [trim=f0,f1] [hold=4.0] [schedule=sched.json] [preview=i,i,..] [silent=1] [tscale=1.5]
 
 Differences from render_pullup_overlay2.py (kept for set #2):
-  * the body is painted by pullup_atlas3 (muscles with fibre direction, boundaries, belly
-    shade, the frame's own definition) coloured by pullup_thermal3 temperatures on an ironbow
-    scale; brightness pulses with activation;
-  * muscle NAMES appear once each, the first time that muscle passes LABEL_T degrees;
+  * the body is painted by pullup_atlas3 (muscles with fibre direction, one continuous colour
+    field with no boundary lines, the frame's own definition) coloured by the muscle model's EFFORT INDEX
+    (pullup_thermal4 v4.3: the non-resting share of the motor-unit pool, M_A + M_F, plus a
+    temperature floor) on a blue -> red scale, so a muscle lights up as it contracts and cools
+    as it relaxes inside every rep, the fatigued share M_F carries from rep to rep and clears
+    only after the release (v4.1 used the effective activation; v4 coloured by temperature,
+    which never falls in a set);
+  * muscle NAMES appear once each, the first time that muscle's effort passes LABEL_E;
   * the form grid is drawn in the rectified doorway plane and mapped back through the
     homography, so the rules converge exactly as the room does (the grid is honest about
     the perspective, and every rule is a true 10 cm in the bar plane);
@@ -43,8 +47,9 @@ GRID_BOTTOM = 1500
 STACK_Y0 = 536            # the live left stack starts under the phase pill (six rows, 76 px apart) ...
 LABEL_Y0 = 996            # ... and the one muscle-name slot sits under it, ending at 1042: the red
                           # monkey on the left lives at y 1060-1240 after the push-in, leave him be
-LABEL_T = 0.30            # a muscle is named the first time its modelled rise passes this (degrees C)
+LABEL_E = 0.55            # a muscle is named the first time its effort index passes this (0..1)
 LABEL_S = 1.4             # seconds the name stays (one at a time: the stagger below equals it)
+BLUERED_STOPS = AT._STOPS  # the default (v4.1): blue -> cyan -> green -> yellow -> orange -> red
 BLUE_STOPS = [(0.00, (110, 30, 15)), (0.18, (200, 70, 20)), (0.36, (220, 170, 0)), (0.52, (60, 210, 120)),
               (0.68, (0, 210, 240)), (0.82, (20, 90, 250)), (0.93, (60, 40, 235)), (1.00, (225, 235, 255))]
 IRON_STOPS = [(0.00, (40, 0, 20)), (0.15, (120, 0, 60)), (0.32, (170, 10, 120)), (0.50, (60, 20, 210)),
@@ -105,7 +110,7 @@ def cat_mask(frame_bgr, roi, prev=None):
 def main():
     video, npz, ajson, out = sys.argv[1:5]
     hold_s = 4.0; heat_path = None; preview = None; look_on = False; sched_path = None
-    silent = False; trim = None; bg_path = None; grid_on = False; cat_on = False; lut_name = "iron"; t_scale = 1.5
+    silent = False; trim = None; bg_path = None; grid_on = False; cat_on = False; lut_name = "bluered"; t_scale = 1.5
     model_v = 4
     for a in sys.argv[5:]:
         if a.startswith("heat="): heat_path = a[5:]
@@ -123,7 +128,7 @@ def main():
         elif a.startswith("model="): model_v = int(a[6:])
     global TH
     TH = TH3 if model_v == 3 else TH4
-    AT.LUT = make_lut(IRON_STOPS if lut_name == "iron" else BLUE_STOPS)
+    AT.LUT = make_lut({"iron": IRON_STOPS, "blue": BLUE_STOPS}.get(lut_name, BLUERED_STOPS))
     LUT = AT.LUT
 
     d = np.load(npz); img = d["img"]; ok = d["ok"]; fps = float(d["fps"])
@@ -137,6 +142,10 @@ def main():
     bar_a, bar_b = S["bar_slope"], S["bar_intercept"]
     hang0, hang1 = sig["hang0"], sig["hang1"]
     phase = list(sig["phase"])
+    # before the feet leave the floor he is holding the bar, not hanging (Dennis, 2026-09-09):
+    # the pill says HANDS ON BAR there and the model carries a reduced hand load
+    FEET_OFF = TH4.feet_off_frame(A)
+    print(f"feet leave the floor at frame {FEET_OFF} ({FEET_OFF / fps:.1f} s source)", flush=True)
     ppm = S["px_per_m"]
     hang_ref, top_ref = S["hang_ref_y"], S["top_ref_y"]
     height_pct = np.clip(np.array(sig["height_pct"]), -10, 115)
@@ -147,23 +156,25 @@ def main():
 
     # ---- muscle model: v4 = inverse dynamics + force sharing + activation dynamics + fatigue ----
     if TH is TH4:
-        Mo = TH4.model(A, P); Tm = Mo["T"]; Am = Mo["a_eff"]; masses = TH.muscle_masses()
+        Mo = TH4.model(A, P); Tm = Mo["T"]; Am = Mo["a_eff"]; Em = Mo["E"]; masses = TH.muscle_masses()
         tsum = TH4.summarise(A, Tm, P)
         fat_bic = Mo["MF"]["biceps brachii"]; fat_lat = Mo["MF"]["latissimus dorsi"]
-        print(f"model v4: elbow moment peak {Mo['M_el'].max():.0f} N m, shoulder {Mo['M_sh'].max():.0f} N m; "
+        print(f"model v4.1: elbow moment peak {Mo['M_el'].max():.0f} N m, shoulder {Mo['M_sh'].max():.0f} N m; "
               f"fatigued pool at the end: biceps {fat_bic[-1]*100:.0f} %, lats {fat_lat[-1]*100:.0f} %", flush=True)
     else:
-        Tm = TH.integrate(A); Am = TH.activation(A); masses = TH.muscle_masses()
+        Tm = TH.integrate(A); Am = TH.activation(A); Em = Am; masses = TH.muscle_masses()
         tsum = TH.summarise(A, Tm); fat_bic = fat_lat = np.zeros(len(img))
     lat_T = Tm["latissimus dorsi"]; lat_A = Am["latissimus dorsi"]
     heat_kj = np.cumsum(sum(Mo["q"][m] for m in Mo["q"])) / fps / 1000 if TH is TH4 else np.zeros(len(img))
-    reg_T_series = {r: np.zeros(N) for r in AT.REGIONS}
+    # per-region series: temperature (for the numbers) and the effort index (for the colour and the labels)
+    reg_T_series = {r: np.zeros(N) for r in AT.REGIONS}; reg_E_series = {r: np.zeros(N) for r in AT.REGIONS}
     for r, ms in AT.REGION_MUSCLES.items():
         w = sum(masses[m] for m in ms)
         reg_T_series[r] = sum(Tm[m] * masses[m] for m in ms) / w
+        reg_E_series[r] = sum(Em[m] * masses[m] for m in ms) / w
     label_at = {}
     for r in AT.REGIONS:
-        idx = np.where(reg_T_series[r] >= LABEL_T)[0]
+        idx = np.where(reg_E_series[r] >= LABEL_E)[0]
         if len(idx):
             label_at[r] = int(idx[0])
     # stagger labels that would fire on the same frame
@@ -324,6 +335,8 @@ def main():
         else:
             P_use, V_use = last_ok if last_ok is not None else (P[fi], V[fi])
         ph = phase[fi] if kind != "summary" else "DONE"
+        if ph == "HANG" and fi < FEET_OFF:
+            ph = "HANDS ON BAR"
         pc = PHASE_COL.get(ph, MUTED)
         fast = int(seg.get("step", 1)) if kind == "play" else 1
 
@@ -337,8 +350,9 @@ def main():
             f = np.clip(pl * (1 - keep) + f.astype(np.float32) * keep, 0, 255).astype(np.uint8)
         lab_full = None
         if masks is not None and last_ok is not None and ph not in ("SETUP",):
-            reg_T = AT.region_values(Tm, masses, fi); reg_A = AT.region_values(Am, masses, fi)
-            f, mf, lab_full = AT.paint(f, comp_now, P_use, reg_T, reg_A, t_scale, (bar_a, bar_b))
+            # colour = the effort index (0..1, scale 1.0); the brightness nudge = effective activation
+            reg_E = AT.region_values(Em, masses, fi); reg_A = AT.region_values(Am, masses, fi)
+            f, mf, lab_full = AT.paint(f, comp_now, P_use, reg_E, reg_A, 1.0, (bar_a, bar_b))
             if look is not None:
                 rim_v = float(np.clip(lat_T[fi] / t_scale, 0, 1))
                 rim = tuple(int(c) for c in LUT[int((0.15 + 0.7 * rim_v) * 255), 0])
@@ -410,7 +424,7 @@ def main():
                 if 0 <= age < LABEL_S and r_ in cents:
                     a_ = int(255 * min(1.0, age / 0.2, (LABEL_S - age) / 0.3))
                     cx, cy = zmap(cents[r_][0], cents[r_][1])
-                    txt = f"{AT.LABELS[r_]}  +{reg_T_series[r_][fi]:.1f} °C"
+                    txt = f"{AT.LABELS[r_]}  {reg_E_series[r_][fi] * 100:.0f} %"
                     fnt = fit(dr, txt, FONT_B, 30, 380); tw = dr.textlength(txt, font=fnt) + 28
                     lx, ly = 60, LABEL_Y0 + slot * 56
                     dr.line((cx, cy, lx + tw / 2, ly + 46), fill=(*WHITE, a_), width=2)
@@ -429,7 +443,7 @@ def main():
         elif ph == "SETUP":
             rounded(dr, (60, 240, 936, 520), 24, (*INK, 205))
             dr.text((84, 262), "PULL UP ANALYSIS", font=fit(dr, "PULL UP ANALYSIS", FONT_B, 76, 828), fill=WHITE)
-            dr.text((84, 352), "by Fable and DyeAllPies", font=fit(dr, "by Fable and DyeAllPies", FONT_S, 46, 828), fill=WHITE)
+            dr.text((84, 352), "by Fable", font=fit(dr, "by Fable", FONT_S, 46, 828), fill=WHITE)
             sub = "16 muscles · 3 trackers · judged to the USMC standard"
             dr.text((84, 430), sub, font=fit(dr, sub, FONT_S, 34, 828), fill=MUTED)
         elif kind != "summary":
@@ -451,7 +465,11 @@ def main():
                          (f"{peak_w[fi]:.0f} W", "PEAK POWER", WHITE),
                          (f"+{lat_T[fi]:.2f} °C", "LATS · MODELLED", ORANGE)]
                 if TH is TH4:
-                    rows_.append((f"{fat_bic[fi]*100:.0f} %", "BICEPS FATIGUED · MODEL", WHITE))
+                    # both prime movers' fatigued pools. v4.3: with Frey-Law 2012's real shoulder row
+                    # (F = 2.0 x the elbow's; v4.2 held the ankle's row from memory) the lats' pool
+                    # leads, as the muscle that works hardest should. Neither recovers under load;
+                    # both start to clear after the release (Looft 2018 rest multiplier).
+                    rows_.append((f"{fat_lat[fi]*100:.0f} % · {fat_bic[fi]*100:.0f} %", "LATS · BICEPS FATIGUED, MODEL", WHITE))
                 rows_.append((f"≈ {kcal[fi]:.1f} kcal", f"{heat_kj[fi]:.0f} kJ OF HEAT" if TH is TH4 else "ENERGY, A MODEL", MUTED))
                 y_ = STACK_Y0
                 bw = max(max(dr.textlength(b_, font=F["pill"]), dr.textlength(s_, font=F["pill_l"])) for b_, s_, _ in rows_) + 28
@@ -469,7 +487,7 @@ def main():
                     dr.text((x0p + 14, y + 4), big, font=F["pill"], fill=WHITE)
                     dr.text((x0p + 14, y + 52), small, font=F["pill_l"], fill=MUTED)
                 ex, ey = zmap(*P_use[13]); pill(ex - 150 if ex > 300 else 60, ey - 42, f"{(el_l[fi] + el_r[fi]) / 2:.0f}°", "ELBOW", anchor_right=ex > 300)
-                hx, hy_ = zmap(*P_use[24]); pill(min(hx + 60, W - 260), hy_ - 42, f"{abs(vy[fi]):.2f} m/s", "SPEED " + ("UP" if vy[fi] > 0.05 else "DOWN" if vy[fi] < -0.05 else ""))
+                hx, hy_ = zmap(*P_use[24]); pill(min(hx + 60, W - 260), min(hy_ - 42, 1192 - 8 - 84), f"{abs(vy[fi]):.2f} m/s", "SPEED " + ("UP" if vy[fi] > 0.05 else "DOWN" if vy[fi] < -0.05 else ""))   # stays above the card / GitHub box
                 if masks is not None and count[fi] == 0:
                     lx_, ly_ = zmap(*((P_use[11] + P_use[23]) / 2)); pill(lx_ + 40, ly_ - 42, f"+{lat_T[fi]:.2f} °C", "LATS, MODELLED")
 
@@ -506,6 +524,30 @@ def main():
                      f"speed loss {max(0, r.get('velocity_loss_pct', 0)):.0f} %   sway {r['hip_sway_cm']:.0f} cm"]
             for k, ln in enumerate(lines):
                 dr.text((x0 + 24, y0 + 146 + k * 44), ln, font=fit(dr, ln, FONT_S, 34, x1 - x0 - 380), fill=(*MUTED, a))
+        # ---- the GitHub box: the same slot as the rep card, shown whenever the card is not (Dennis,
+        # 2026-09-09: the cut start loses the title card, this carries the title and the repository) ----
+        if kind == "play" and ph != "SETUP":
+            gh_a = 1.0
+            if r is not None and fast == 1:
+                gh_a = 1.0 - a / 255
+            elif fast == 1:
+                # fade back in after a card window; only at real speed, where cards are drawn at
+                # all (at x3 the ramp is one or two frames and the box blinked once per rep)
+                prev_end = [rr["f_end"] for rr in atts if rr["f_end"] + int(2.0 * fps) <= fi]
+                if prev_end:
+                    gh_a = min(1.0, (fi - (max(prev_end) + int(2.0 * fps))) / (0.15 * fps))
+            if gh_a > 0.01:
+                ga = int(255 * gh_a)
+                x0, y0, x1, y1 = 60, 1192, 936, 1478
+                rounded(dr, (x0, y0, x1, y1), 24, (*INK, int(215 * gh_a)))
+                # Dennis, 2026-09-09 evening: the credit is "by Fable" only, the repository NAME sits on
+                # top with no slash, and the link line ends with one (the box said DyeAllPies three times)
+                dr.text((x0 + 24, y0 + 22), "PULL UP ANALYSIS · BY FABLE", font=fit(dr, "PULL UP ANALYSIS · BY FABLE", FONT_S, 30, 828), fill=(*MUTED, ga))
+                dr.text((x0 + 24, y0 + 64), "dyeallpies-productions", font=fit(dr, "dyeallpies-productions", FONT_B, 82, 828), fill=(*WHITE, ga))
+                gh_l1 = "github.com/DyeAllPies/dyeallpies-productions/"
+                dr.text((x0 + 24, y0 + 170), gh_l1, font=fit(dr, gh_l1, FONT_S, 40, 828), fill=(*ORANGE, ga))
+                gh_l2 = "the scripts, the muscle model and the papers, open"
+                dr.text((x0 + 24, y0 + 226), gh_l2, font=fit(dr, gh_l2, FONT_R, 30, 828), fill=(*MUTED, ga))
 
         rounded(dr, (PX0, PY0, PX1, PY1), 24, (*INK, 200))
         dr.text((PX0 + 24, PY0 + 14), "SHOULDER HEIGHT", font=F["small"], fill=MUTED)
@@ -513,8 +555,8 @@ def main():
             grad = Image.fromarray(cv2.cvtColor(cv2.LUT(cv2.merge([np.tile(np.arange(256, dtype=np.uint8), (10, 1))] * 3), LUT), cv2.COLOR_BGR2RGB)).resize((150, 12))
             gx = PX1 - 24 - 150
             ov.paste(grad.convert("RGBA"), (gx, PY0 + 24)); dr = ImageDraw.Draw(ov)
-            dr.text((gx - 12, PY0 + 16), "MODELLED TEMP  0", font=F["tiny"], fill=MUTED, anchor="ra")
-            dr.text((PX1 - 24, PY0 + 40), f"+{t_scale:g} °C · not a thermal camera", font=F["tiny"], fill=MUTED, anchor="ra")
+            dr.text((gx - 12, PY0 + 16), "MUSCLE EFFORT  rest", font=F["tiny"], fill=MUTED, anchor="ra")
+            dr.text((PX1 - 24, PY0 + 40), "max · a model, not a thermal camera", font=F["tiny"], fill=MUTED, anchor="ra")
         else:
             dr.text((PX0 + 24 + dr.textlength("SHOULDER HEIGHT", font=F["small"]) + 18, PY0 + 18), "0 = hang · 100 = best rep", font=F["tiny"], fill=MUTED)
         for pct, lab in ((0, "0"), (50, "50"), (100, "100")):
@@ -541,34 +583,35 @@ def main():
                     fill=INK if done else MUTED, anchor="mm")
 
         if kind == "summary":
-            a = 255; T2 = S["technique"]; AS = S["asymmetry"]
+            # The closing frame is a REFERENCES card (Dennis, 2026-09-09: the judge's card was a
+            # static screen people skip; the numbers live in the caption and the report, the papers
+            # go here, held for `hold` seconds). Grouped by what each one feeds.
+            a = 255
             rounded(dr, (60, 200, 936, 1170), 28, (*INK, 236))
-            dr.text((498, 224), "JUDGE'S CARD", font=F["sum_h"], fill=(*WHITE, a), anchor="ma")
-            dr.text((498, 292), "USMC pull-up standard · 188 cm · 79 kg", font=F["tiny"], fill=(*MUTED, a), anchor="ma")
-            cols = [(f"{S['reps']}", "reps", WHITE), (f"{T2['chin_at'] + T2['chin_above']}/{S['reps']}", "chin at the bar", YELLOW if T2['chin_above'] < S['reps'] else AQUA),
-                    (f"+{lat_T.max():.1f}°", "lats, modelled", ORANGE)]
-            for k, (big, lab, col) in enumerate(cols):
-                cx = 206 + k * 292
-                dr.text((cx, 336), big, font=fit(dr, big, FONT_B, 124, 270), fill=(*col, a), anchor="ma")
-                dr.text((cx, 480), lab, font=F["sum_l"], fill=(*MUTED, a), anchor="ma")
-            depth_lo = -S["mean_chin_cm"]
-            rows = [("chin, in the bar plane", f"{S['mean_chin_cm']:+.1f} cm mean, +{S.get('chin_depth_allowance_cm', 3):.0f} hidden by the camera"),
-                    ("full lock-out at the bottom", f"{T2['lockouts']} / {S['reps']}"),
-                    ("kipping", f"none — hips travel {T2['hip_sway_mean_cm']:.0f} cm"),
-                    ("range of motion", f"{S['mean_rom_cm']:.0f} cm in the plane, ≈{S['mean_rom_cm'] + 6:.0f} true"),
-                    ("tempo  up / hold / down", f"{S['mean_concentric']:.1f} / {S['mean_top_hold']:.1f} / {S['mean_eccentric']:.1f} s"),
-                    ("peak speed  rep 1 → last", f"{S['peak_v_first']:.2f} → {S['peak_v_last']:.2f} m/s  (−{max(0, S['velocity_loss_pct']):.0f} %)"),
-                    ("right shoulder rides low", f"{AS['sh_tilt_top_deg']:+.1f}° at the top, {AS['sh_tilt_standing_deg']:+.1f}° standing"),
-                    ("work · peak power", f"{S['set_work_kj']:.1f} kJ · {S['peak_power_w_max']:.0f} W"),
-                    ("energy, a model", f"≈ {S['set_kcal_total']:.0f} kcal · {tsum['total_heat_kj']:.0f} kJ of heat"),
-                    ("fatigued motor units, a model", f"biceps {fat_bic[-1]*100:.0f} % · lats {fat_lat[-1]*100:.0f} %")]
-            for k, (lab, val) in enumerate(rows):
-                yy = 560 + k * 56
-                dr.text((100, yy), lab, font=F["sum_l"], fill=(*MUTED, a))
-                room = 896 - 100 - dr.textlength(lab, font=F["sum_l"]) - 24
-                dr.text((896, yy), val, font=fit(dr, val, FONT_S, 34, room), fill=(*WHITE, a), anchor="ra")
-            foot = f"MediaPipe + YOLOv8 agree r={S.get('yolo_mp_shoulder_corr', 0):.3f} · plane-rectified · temp is a model"
-            dr.text((498, 1152), foot, font=fit(dr, foot, FONT_R, 24, 800), fill=(*MUTED, a), anchor="ms")
+            dr.text((498, 224), "REFERENCES", font=F["sum_h"], fill=(*WHITE, a), anchor="ma")
+            dr.text((498, 292), "the papers behind every number · full archive in the repository", font=F["tiny"], fill=(*MUTED, a), anchor="ma")
+            refs = [("EMG", "Youdas et al. 2010 · J Strength Cond Res · pull-up vs chin-up"),
+                    ("", "Dickie et al. 2017 · J Electromyogr Kinesiol · grips, concentric vs eccentric"),
+                    ("", "Snarr et al. 2017 · grip width · Prinold & Bull 2016 · scapula"),
+                    ("", "Dinunzio et al. 2018 · kipping vs strict · Tucker et al. 2011"),
+                    ("MODEL", "Crowninshield & Brand 1981 · J Biomech · force sharing"),
+                    ("", "Hill 1938 · force–velocity · Thelen 2003 · activation dynamics"),
+                    ("", "Xia & Frey-Law 2008 · fatigue · Frey-Law et al. 2012 · rates"),
+                    ("", "Murray, Delp & Buchanan 1995 · elbow arms · Ackland et al. 2008 · shoulder"),
+                    ("", "Holzbaur et al. 2005 · upper-limb model · de Leva 1996 · segments"),
+                    ("HEAT", "Umberger et al. 2003 · energetics · González-Alonso et al. 2000 · J Physiol"),
+                    ("", "Kenny et al. 2003 · Ducharme & Tikuisis 1991 · Jung et al. 2021"),
+                    ("SPEED", "Sánchez-Moreno et al. 2020 · velocity loss · Beckham et al. 2018"),
+                    ("VISION", "MediaPipe Pose · YOLOv8-pose · Lin et al. 2022 · Robust Video Matting"),
+                    ("STANDARD", "USMC PFT pull-up · chin above the bar, dead hang, no kip")]
+            for k, (tag, txt) in enumerate(refs):
+                yy = 340 + k * 54
+                if tag:
+                    dr.text((96, yy + 6), tag, font=F["pill_l"], fill=(*ORANGE, a))
+                dr.text((252, yy), txt, font=fit(dr, txt, FONT_S, 32, 896 - 252), fill=(*WHITE, a))
+            foot = "github.com/DyeAllPies/dyeallpies-productions/ · references/pullup-science · 70 papers, tables and full texts"
+            # measured 2026-09-09: 736 px wide at the 16 px floor (18 px would be 844, over the box)
+            dr.text((498, 1152), foot, font=fit(dr, foot, FONT_R, 24, 820), fill=(*MUTED, a), anchor="ms")
 
         im.alpha_composite(ov)
         if preview is not None:

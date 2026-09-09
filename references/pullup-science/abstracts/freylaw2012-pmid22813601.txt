@@ -1,0 +1,31 @@
+1. J Appl Biomech. 2012 Dec;28(6):726-37. doi: 10.1123/jab.28.6.726. Epub 2012
+Jul  6.
+
+Knee and elbow 3D strength surfaces: peak torque-angle-velocity relationships.
+
+Frey-Law LA(1), Laake A, Avin KG, Heitsman J, Marler T, Abdel-Malek K.
+
+Author information:
+(1)Physical Therapy & Rehabilitation Science Graduate Program, Carver College of 
+Medicine, University of Iowa, Iowa City, IA, USA.
+
+Recognizing the importance of both the torque-angle and torque-velocity 
+relations, three-dimensional (3D) human strength capabilities (i.e., peak torque 
+as a function of both joint angle and movement velocity) have been increasingly 
+reported. It is not clear, however, the degree to which these surfaces vary 
+between joints, particularly between joints with similar biomechanical 
+configurations. Thus, our goal was to compare 3D strength surfaces between the 
+muscles about the elbow and knee hinge joints in men and women. Peak isometric 
+and isokinetic strength was assessed in 54 participants (30 men) using the 
+Biodex System 3 isokinetic dynamometer. Normalized peak torque surfaces varied 
+significantly between flexion and extension (within each joint) and between 
+joints; however, the normalized 3D torque surfaces did not differ between men 
+and women. These findings suggest the underlying joint biomechanics are the 
+primary influences on these strength surface profiles. Therefore, in 
+applications such as digital human modeling, torque-velocity-angle relationships 
+for each joint and torque direction must be uniquely represented to most 
+accurately estimate human strength capability.
+
+DOI: 10.1123/jab.28.6.726
+PMCID: PMC7050840
+PMID: 22813601 [Indexed for MEDLINE]

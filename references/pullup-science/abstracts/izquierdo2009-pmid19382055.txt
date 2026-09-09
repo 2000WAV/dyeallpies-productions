@@ -1,0 +1,37 @@
+1. Int J Sports Med. 2009 Aug;30(8):614-23. doi: 10.1055/s-0029-1214379. Epub
+2009  Apr 20.
+
+Neuromuscular fatigue after resistance training.
+
+Izquierdo M(1), Ibañez J, Calbet JA, González-Izal M, Navarro-Amézqueta I, 
+Granados C, Malanda A, Idoate F, González-Badillo JJ, Häkkinen K, Kraemer WJ, 
+Tirapu I, Gorostiaga EM.
+
+Author information:
+(1)Studies, Research and Sport Medicine Center, Government of Navarre, Spain. 
+mikel.izquierdo@ceimd.org
+
+This study examined the effects of heavy resistance training on dynamic 
+exercise-induced fatigue task (5 x 10RM leg-press) after two loading protocols 
+with the same relative intensity (%) (5 x 10RM(Rel)) and the same absolute load 
+(kg) (5 x 10RM(Abs)) as in pretraining in men (n=12). Maximal strength and 
+muscle power, surface EMG changes [amplitude and spectral indices of muscle 
+fatigue], and metabolic responses (i.e.blood lactate and ammonia concentrations) 
+were measured before and after exercise. After training, when the relative 
+intensity of the fatiguing dynamic protocol was kept the same, the magnitude of 
+exercise-induced loss in maximal strength was greater than that observed before 
+training. The peak power lost after 5 x 10RM(Rel) (58-62%, pre-post training) 
+was greater than the corresponding exercise-induced decline observed in 
+isometric strength (12-17%). Similar neural adjustments, but higher accumulated 
+fatigue and metabolic demand were observed after 5 x 10RM(Rel). This study 
+therefore supports the notion that similar changes are observable in the EMG 
+signal pre- and post-training at fatigue when exercising with the same relative 
+load. However, after training the muscle is relatively able to work more and 
+accumulate more metabolites before task failure. This result may indicate that 
+rate of fatigue development (i.e. power and MVC) was faster and more profound 
+after training despite using the same relative intensity.
+
+Georg Thieme Verlag KG Stuttgart New York.
+
+DOI: 10.1055/s-0029-1214379
+PMID: 19382055 [Indexed for MEDLINE]

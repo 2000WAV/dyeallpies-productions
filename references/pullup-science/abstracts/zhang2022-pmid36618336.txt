@@ -1,0 +1,36 @@
+1. Int J Exerc Sci. 2022 Nov 1;15(3):1514-1527. doi: 10.70252/DYOL6987.
+eCollection  2022.
+
+Neuromuscular Fatigability Associated with Different Pacing Strategies During an 
+Ultra-Endurance Pull-Up Task: A Case Study.
+
+Zhang J(1), Khassetarash A(1), Millet GY(2), Aboodarda SJ(1).
+
+Author information:
+(1)Human Performance Laboratory, Faculty of Kinesiology, University of Calgary, 
+Calgary, AB, CANADA.
+(2)Inter-university Laboratory of Human Movement Biology, Université Jean 
+Monnet, Saint-Étienne, FRANCE.
+
+While neuromuscular fatigability has been previously characterized after running 
+and cycling, no study has investigated an ultra-endurance upper body task. In 
+preparation for a world record attempt, three pacing strategies to perform 1980 
+pull-ups in 6 hrs were compared during independent sessions: fast pace, long 
+recovery (FL), fast pace, multiple short recoveries (FMS), and slow pace, no 
+recovery (SN). Elbow flexion maximal voluntary contraction (MVC) force, grip 
+strength, peripheral fatigue, and biceps brachii electromyography were 
+quantified every 330 pull-ups and during recovery, alongside heart rate, 
+perceived effort, and arm muscle pain. In all conditions, MVC force decreased 
+rapidly within the first set of 330 pull-ups, with the greatest depression 
+observed in FL (-29.1%) and more gradual declines in FMS (-18.6%) and SN 
+(-8.6%). Similarly, FL displayed the greatest decline in potentiated single 
+twitch (FL: -75.0%; FMS: -53.9%; SN: -41.8%) and high-frequency doublet forces 
+(FL: -63.3%; FMS: -29.2%; SN: -41.8%) following the first set, as well as higher 
+heart rate, effort, and pain throughout the task. Following 24 hrs, MVC force 
+recovered slowest in FL and grip strength recovered fastest in SN. Therefore, 
+for the world record attempt, a strategy with a continuous workload at slower 
+pace should be used.
+
+DOI: 10.70252/DYOL6987
+PMCID: PMC9797014
+PMID: 36618336

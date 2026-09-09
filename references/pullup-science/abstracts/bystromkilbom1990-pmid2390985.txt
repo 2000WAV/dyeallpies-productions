@@ -1,0 +1,30 @@
+1. Eur J Appl Physiol Occup Physiol. 1990;60(6):457-66. doi: 10.1007/BF00705037.
+
+Physiological response in the forearm during and after isometric intermittent 
+handgrip.
+
+Byström SE(1), Kilbom A.
+
+Author information:
+(1)Division of Applied Work Physiology, National Institute of Occupational 
+Health, Solna, Sweden.
+
+The aim of the present paper was to study the development of fatigue during 
+isometric intermittent handgrip exercise. Using a handgrip dynamometer, four 
+combinations of contraction-relaxation periods were studied (10 + 10, 10 + 5, 10 
++ 2 s and continuous contraction) at three contraction intensities (10, 25 and 
+40% maximum voluntary contraction, MVC). Local blood flow (BF) in the forearm 
+(venous occlusion plethysmography) was followed before, during and after the 
+exercise period. Electromyography (EMG) (frequency analysis) and the perceived 
+effort and pain were recorded during the exercise period. Forearm BF is 
+insufficient even at isometric contractions of low intensity (10% MVC). The 
+results indicate that vasodilating metabolites play an active role for BF in 
+low-intensity isometric contractions. It is shown that maximal BF in the forearm 
+during relaxation periods (25-30 ml.min-1.100 ml-1) is already reached at 25% 
+MVC. Only intermittent exercise at 10% MVC and (10 + 5 s) and (10 + 10 s) at 25% 
+MVC was considered acceptable with regard to local fatigue, which was defined as 
+a switch of local BF to the post-exercise period, a decrease in the number of 
+zero-crossings (EMG) and marked increases in subjective ratings.
+
+DOI: 10.1007/BF00705037
+PMID: 2390985 [Indexed for MEDLINE]

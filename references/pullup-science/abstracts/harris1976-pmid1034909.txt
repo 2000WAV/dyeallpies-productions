@@ -1,0 +1,24 @@
+1. Pflugers Arch. 1976 Dec 28;367(2):137-42. doi: 10.1007/BF00585149.
+
+The time course of phosphorylcreatine resynthesis during recovery of the 
+quadriceps muscle in man.
+
+Harris RC, Edwards RH, Hultman E, Nordesjö LO, Nylind B, Sahlin K.
+
+The time course of phosphorylcreatine (PC) resynthesis in the human m. 
+quadriceps femoris was studied during recovery from exhaustive dynamic exercise 
+and from isometric contraction sustained to fatigue. The immediate postexercise 
+muscle PC content after either form of exercise was 15-16% of the resting muscle 
+content. The time course of PC resynthesis during recovery was biphasic 
+exhibiting a fast and slow recovery component. The half-time for the fast 
+component was 21-22s but this accounted for a smaller fraction of the total PC 
+restored during recovery from the isometric contraction than after the dynamic 
+exercise. The half-time for the slow component was in each case more than 170 s. 
+After 2 and 4 min recovery the total amount of PC resynthesized after the 
+isometric exercise were significantly lower than from the dynamic exercise. 
+Occlusion of the circulation of the quadriceps completely abolished the 
+resynthesis of PC. Restoration of resynthesis occurred only after release of 
+occlusion.
+
+DOI: 10.1007/BF00585149
+PMID: 1034909 [Indexed for MEDLINE]

@@ -1,0 +1,36 @@
+1. J Biomech. 2007;40(11):2442-9. doi: 10.1016/j.jbiomech.2006.11.013. Epub 2007 
+Jan 23.
+
+Moment-generating capacity of upper limb muscles in healthy adults.
+
+Holzbaur KR(1), Delp SL, Gold GE, Murray WM.
+
+Author information:
+(1)Bioengineering Department, Stanford University, Stanford, CA 94305, USA. 
+krsholzbaur@gmail.com
+
+Muscle strength and volume vary greatly among individuals. Maximum isometric 
+joint moment, a standard measurement of strength, has typically been assessed in 
+young, healthy subjects, whereas muscle volumes have generally been measured in 
+cadavers. This has made it difficult to characterize the relationship between 
+isometric strength and muscle size in humans. We measured maximum isometric 
+moments about the shoulder, elbow, and wrist in 10 young, healthy subjects, 
+ranging in size from a 20th percentile female to a 97th percentile male. The 
+volumes of 32 upper limb muscles were determined from magnetic resonance images 
+of these same subjects, and grouped according to their primary function. The 
+maximum moments produced using the shoulder adductors (67.9+/-28.4 Nm) were 
+largest, and were approximately 6.5(+/-1.2) times greater than those produced 
+using the wrist extensors (10.2+/-4.6 Nm), which were smallest. While there were 
+substantial differences in moment-generating capacity among these 10 subjects, 
+moment significantly covaried with muscle volume of the appropriate functional 
+group, explaining between 95% (p<0.0001; shoulder adductors) and 68% (p=0.004; 
+wrist flexors) of the variation in the maximum isometric joint moments among 
+subjects. While other factors, such as muscle moment arms or neural activation 
+and coordination, can contribute to variation in strength among subjects, they 
+either were relatively constant across these subjects compared to large 
+differences in muscle volumes or they covaried with muscle volume. We conclude 
+that differences in strength among healthy young adults are primarily a 
+consequence of variation in muscle volume, as opposed to other factors.
+
+DOI: 10.1016/j.jbiomech.2006.11.013
+PMID: 17250841 [Indexed for MEDLINE]

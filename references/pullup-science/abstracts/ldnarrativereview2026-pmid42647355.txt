@@ -1,0 +1,55 @@
+1. J Funct Morphol Kinesiol. 2026 Aug 12;11(3):315. doi: 10.3390/jfmk11030315.
+
+Electromyographic Analysis of Latissimus Dorsi Activation During Common 
+Resistance Training Exercises: A Narrative Review.
+
+Di Fonza D(1), Di Claudio G(1)(2), Colantuono G(1), Persichini L(3), Cerulo 
+N(1), Sangregorio B(1), Buonsenso A(4), Fiorilli G(1), Calcagno G(1), di Cagno 
+A(3)(5).
+
+Author information:
+(1)Department of Medicine and Health Sciences, University of Molise, 86100 
+Campobasso, Italy.
+(2)Department of Neurosciences, Biomedicine and Movement, University of Verona, 
+37129 Verona, Italy.
+(3)Department of Movement, Human and Health Sciences, University of Rome "Foro 
+Italico", 00135 Rome, Italy.
+(4)Department of Theoretical and Applied Sciences, eCampus University, 22060 
+Novedrate, Italy.
+(5)Department of Human Sciences, Guglielmo Marconi University, 00193 Rome, 
+Italy.
+
+Background: The latissimus dorsi (LD) is a primary muscle involved in pulling 
+exercises used in resistance training, contributing to shoulder extension, 
+adduction and internal rotation, with relevance to athletic performance, injury 
+prevention and rehabilitation as well as to upper-body aesthetics. Aim: to 
+identify which exercise configurations are most consistently associated with 
+greater latissimus dorsi electromyographic (EMG) amplitude. Methods: This 
+SANRA-informed narrative review synthesized surface and high-density EMG 
+evidence across major pulling exercises, for the lat pull-down, pullover, seated 
+row, barbell row, bent-over row and pull-up. Twenty-three eligible studies were 
+included and appraised using a six-criterion methodological checklist. Results: 
+In the lat pull-down, an anterior bar path was the configuration most 
+consistently associated with greater LD EMG amplitude, whereas the effects of 
+grip width were inconsistent. In the seated row, a narrower grip and a lower 
+shoulder-abduction angle were each associated with greater LD amplitude in 
+separate studies; these two variables have not been tested in combination and 
+should not be read as a single validated configuration. Among rowing variants, 
+the inverted row produced the highest LD amplitude in a single, small 
+preliminary study that requires replication. Pull-up variations showed broadly 
+similar LD activation across grip configurations, while the pullover appeared to 
+preferentially activate the pectoralis major rather than selectively target the 
+LD. Conclusions: Current evidence tentatively supports the anterior lat 
+pull-down and, within the seated row, a narrower grip and a lower 
+shoulder-abduction angle (evaluated independently) as the configurations most 
+consistently associated with greater LD EMG amplitude; these findings reflect 
+acute EMG amplitude rather than longitudinal training outcomes and should be 
+treated as an evidence-informed starting point rather than a definitive exercise 
+prescription. Across pulling exercises, the humerus-to-trunk relationship may be 
+a key biomechanical determinant of muscular load distribution.
+
+DOI: 10.3390/jfmk11030315
+PMCID: PMC13510307
+PMID: 42647355
+
+Conflict of interest statement: The authors declare no conflicts of interest.

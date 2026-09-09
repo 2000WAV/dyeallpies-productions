@@ -1,0 +1,53 @@
+1. J Biomech. 2018 Aug 22;77:16-25. doi: 10.1016/j.jbiomech.2018.06.005. Epub
+2018  Jun 18.
+
+Modification of a three-compartment muscle fatigue model to predict peak torque 
+decline during intermittent tasks.
+
+Looft JM(1), Herkert N(2), Frey-Law L(3).
+
+Author information:
+(1)Department of Physical Therapy, University of Minnesota, Minneapolis, MN 
+55455, USA; Department of Physical Therapy and Rehabilitation Science, 
+University of Iowa, Iowa City, IA 52242, USA.
+(2)Department of Physical Therapy and Rehabilitation Science, University of 
+Iowa, Iowa City, IA 52242, USA.
+(3)Department of Physical Therapy and Rehabilitation Science, University of 
+Iowa, Iowa City, IA 52242, USA. Electronic address: laura-freylaw@uiowa.edu.
+
+This study aimed to test whether adding a rest recovery parameter, r, to the 
+analytical three-compartment controller (3CC) fatigue model (Xia and Frey Law, 
+2008) will improve fatigue estimates during intermittent contractions. The 3CC 
+muscle fatigue model uses differential equations to predict the flow of muscle 
+between three muscle states: Resting (MR), Active (MA), and Fatigued (MF). This 
+model uses a feedback controller to match the active state to target loads and 
+two joint-specific parameters: F, fatigue rate controlling flow from active to 
+fatigued compartments) and R, the recovery rate controlling flow from the 
+fatigued to the resting compartments. This model does well to predict 
+intensity-endurance time curves for sustained isometric tasks. However, previous 
+studies find when rest intervals are present that the model over predicts 
+fatigue. Intermittent rest periods would allow for the occurrence of subsequent 
+reactive vasodilation and post-contraction hyperemia. We hypothesize a modified 
+3CC-r fatigue model will improve predictions of force decay during intermittent 
+contractions with the addition of a rest recovery parameter, r, to augment 
+recovery during rest intervals, representing muscle re-perfusion. A 
+meta-analysis compiling intermittent fatigue data from 63 publications reporting 
+decline in peak torque (% torque decline) were used for comparison. The original 
+model over-predicted fatigue development from 19 to 29% torque decline; the 
+addition of a rest multiplier significantly improved fatigue estimates to 6-10% 
+torque decline. We conclude the addition of a rest multiplier to the 
+three-compartment controller fatigue model provides a physiologically consistent 
+modification for tasks involving rest intervals, resulting in improved estimates 
+of muscle fatigue.
+
+Copyright © 2018 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jbiomech.2018.06.005
+PMCID: PMC6092960
+PMID: 29960732 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of Interest Statement: None of the 
+authors have any financial or personal conflicts of interest to report. The 
+authors were funded in part by the United States Council for Automotive Research 
+(USCAR), the National Institutes for Health, K01AR056134, and the University of 
+Iowa Heartland Center (graduate student stipend).

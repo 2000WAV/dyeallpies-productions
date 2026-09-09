@@ -1,0 +1,40 @@
+1. J Anat. 2008 Oct;213(4):383-90. doi: 10.1111/j.1469-7580.2008.00965.x. Epub
+2008  Aug 6.
+
+Moment arms of the muscles crossing the anatomical shoulder.
+
+Ackland DC(1), Pak P, Richardson M, Pandy MG.
+
+Author information:
+(1)Department of Mechanical Engineering, University of Melbourne, Australia. 
+ackland@pgrad.unimelb.edu.au
+
+The objective of the present study was to determine the instantaneous moment 
+arms of 18 major muscle sub-regions crossing the glenohumeral joint during 
+coronal-plane abduction and sagittal-plane flexion. Muscle moment-arm data for 
+sub-regions of the shoulder musculature during humeral elevation are currently 
+not available. The tendon-excursion method was used to measure instantaneous 
+muscle moment arms in eight entire upper-extremity cadaver specimens. 
+Significant differences in moment arms were reported across sub-regions of the 
+deltoid, pectoralis major, latissimus dorsi, subscapularis, infraspinatus and 
+supraspinatus (P < 0.01). The most effective abductors were the middle and 
+anterior deltoid, whereas the most effective adductors were the teres major, 
+middle and inferior latissimus dorsi (lumbar vertebrae and iliac crest fibers, 
+respectively), and middle and inferior pectoralis major (sternal and 
+lower-costal fibers, respectively). In flexion, the superior pectoralis major 
+(clavicular fibers), anterior and posterior supraspinatus, and anterior deltoid 
+were the most effective flexors, whereas the teres major and posterior deltoid 
+had the largest extensor moment arms. Division of multi-pennate shoulder muscles 
+of broad origins into sub-regions highlighted distinct functional differences 
+across those sub-regions. Most significantly, we found that the superior 
+sub-region of the pectoralis major had the capacity to exert substantial torque 
+in flexion, whereas the middle and inferior sub-regions tended to behave as a 
+stabilizer and extensor, respectively. Knowledge of moment arm differences 
+between muscle sub-regions may assist in identifying the functional effects of 
+muscle sub-region tears, assist surgeons in planning tendon reconstructive 
+surgery, and aid in the development and validation of biomechanical computer 
+models used in implant design.
+
+DOI: 10.1111/j.1469-7580.2008.00965.x
+PMCID: PMC2644775
+PMID: 18691376 [Indexed for MEDLINE]

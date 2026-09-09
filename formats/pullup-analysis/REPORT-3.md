@@ -132,35 +132,79 @@ force sharing between the muscles that cross the joint, Hill force–velocity (w
 pull costs more than the lowering), Thelen 2003 activation dynamics, and the three-compartment
 fatigue model of Xia & Frey-Law 2008 so that a late rep draws on a smaller pool of able motor
 units. Peak elbow moment 79 N·m, peak shoulder moment 76 N·m; the biceps reaches its limit in
-the middle of every pull, the lats peak at the top (0.84). The fatigued pool ends at 24 % for
-the biceps, 27 % for the grip, 16 % for the lats. End-of-set rise, painted muscles:
+the middle of every pull; the lats work at or above their isometric capacity through the pull,
+the top and the lowering (whole-rep 1.19, against Youdas' 124 %MVIC) and relax only in the hang.
+The fatigued pool ends at 41 % for the lats, 23 % for the grip, 20 % for the biceps (v4.3, with
+Frey-Law, Looft & Heitsman 2012's Table 1 read from the archived full text: the shoulder's
+fatigue rate is twice the elbow's. v4.2 had the biceps ahead, 22 / 26 / 19, because the
+shoulder's rates had been entered from memory and were the table's ankle row). Nothing
+recovers between reps: a contracting muscle occludes its own blood flow above 50–64 %MVC
+(Sadamoto 1983), the forearm's above ~25 % (Byström & Kilbom 1990), and the hang keeps the grip
+and the lats loaded, so each rep starts with the previous rep's fatigue in the pool, which is
+peripheral fatigue with incomplete recovery (Carroll, Taylor & Gandevia 2017). Recovery starts
+when the hands open, at 15× (grip 30×) the under-load rate (Looft, Herkert & Frey-Law 2018),
+and clears 6–11 % of the pool in five seconds, in line with phosphocreatine's 21–22 s
+half-time (Harris 1976). Before the feet leave the floor (14.2 s in the source, read from the
+knee angle) the hands carry only the fraction of the weight the shoulders' sinking implies, so
+the first seconds paint blue and the pill says HANDS ON BAR. End-of-set rise, painted muscles
+(v4.2):
 
 | muscle | Youdas %MVIC | ΔT at the end |
 |---|---|---|
-| biceps brachii | 78 | **+1.05 °C** |
-| forearm flexors (grip) | 60 | +1.03 °C |
-| latissimus dorsi | 124 | +1.00 °C |
-| pectoralis major | 44 | +0.82 °C |
-| brachialis | 78 | +0.79 °C |
-| brachioradialis | 62 | +0.72 °C |
-| infraspinatus | 75 | +0.62 °C |
-| forearm extensors (estimate) | 35 | +0.60 °C |
-| triceps | 15 | +0.58 °C |
-| teres major | 99 | +0.56 °C |
-| upper trapezius (Tucker 2011) | 62 | +0.55 °C |
-| trapezius, middle and lower | 52 | +0.48 °C |
-| middle / posterior deltoid | 45 / 60 | +0.37 / +0.33 °C |
-| external oblique | 33 | +0.33 °C |
-| rectus abdominis | 20 | +0.24 °C |
-| serratus anterior (Tucker 2011) | 26 | +0.22 °C |
-| hip flexors, quadriceps, calves | 18 / 8 / 4 | +0.31 / +0.14 / +0.07 °C |
+| latissimus dorsi | 124 | **+1.21 °C** |
+| infraspinatus | 75 | +0.93 °C |
+| forearm flexors (grip) | 60 | +0.92 °C |
+| biceps brachii | 78 | +0.89 °C |
+| upper trapezius (Tucker 2011) | 62 | +0.84 °C |
+| trapezius, middle and lower | 52 | +0.80 °C |
+| brachialis | 78 | +0.75 °C |
+| teres major | 99 | +0.73 °C |
+| brachioradialis | 62 | +0.68 °C |
+| pectoralis major | 44 | +0.61 °C |
+| middle / posterior deltoid | 45 / 60 | +0.59 / +0.43 °C |
+| forearm extensors (estimate) | 35 | +0.54 °C |
+| external oblique | 33 | +0.53 °C |
+| rectus abdominis | 20 | +0.40 °C |
+| serratus anterior (Tucker 2011) | 26 | +0.35 °C |
+| hip flexors, quadriceps, calves | 18 / 8 / 4 | +0.28 / +0.13 / +0.06 °C |
+| triceps | 15 | +0.11 °C |
 
-The colour is on an ironbow scale, 0 to +1.5 °C, with the muscle names shown once each the
-first time they pass +0.3 °C. Brightness is the effective activation, a / (1 − fatigued), so
-it contracts and relaxes with the levers of the rep and climbs through the set. Where the
-model and the EMG literature disagree (Youdas has the lats above the biceps over the whole
-rep; the model has them below) the cause is the shoulder depth the front camera cannot see.
-The legend says it on every frame: a model, not a thermal camera.
+**The review (v4.2).** Dennis saw the biceps' fatigue above the lats' and asked whether the model
+was a chin-up's. It was validated against Youdas' pronated pull-up column all along, but its lats
+sat barely above its biceps (whole-rep ratio 1.08) where the EMG has 1.6 (Youdas) to 1.8 (Snarr
+2017). Two causes, both fixed: the shoulder's depth behind the bar had been assumed at 20 cm and
+is now computed from the elbow angle and the measured segment lengths (26–31 cm at the tops,
+34–39 mid-pull), which raises the shoulder moment to 100–150 N·m; and the biceps carried a
+supinated-grip moment arm, now × 0.75 for the pronated grip (Murray 1995 direction, Kohn 2018
+magnitude). Capacities come from the Holzbaur 2007 strength norms with one athlete factor of 1.2
+at both joints; the pec's and the triceps' shoulder roles are calibrated to Youdas' ratios because
+Ackland 2008's moment arms are behind a paywall. Result: whole-rep lats / biceps 1.67. The whole
+argument, every constant with its source and the ranked assumptions, is in `MUSCLE-MODEL.md`
+and in the comments of `tools/scripts/pullup_thermal4.py`.
+
+**What the colour is (v4.1, 2026-09-09).** The first cut coloured the body by this temperature,
+and because a muscle's temperature never falls inside a set the map only ever got hotter, even
+though the model underneath was contracting and relaxing. The colour is now the *effort index*,
+0.9 × the share of the muscle's motor units that are not resting (active + fatigued, v4.3;
+v4.1–4.2 used the effective activation a / (1 − fatigued), which returned to the same hang
+colour between reps and hid the carry-over) plus 0.2 × the temperature over 1.5 °C, clipped at
+1, on a blue → red scale. The active share contracts and relaxes inside the rep; the fatigued
+share is the heat one rep leaves in the next: the lats' hang colour climbs 37 → 82 % from rep
+1 to rep 11, the grip's 57 → 89 %, and at the release the active share drops at once (lats
+100 → 54 % in five seconds) while the fatigued share only begins to clear. Per rep the v4.1
+model gave (mean effort, PULL / HOLD / LOWER /
+the hang after): biceps 0.66 / 0.42 / 0.56 / 0.26 at rep 5 (peak ≈ 1.0 mid-pull), lats 0.53 /
+0.78 / 0.62 / 0.35, grip 0.59 / 0.57 / 0.62 / 0.63, trapezius 0.35 / 0.49 / 0.28 / 0.15,
+hip flexors 0.16 throughout. So the biceps go red at the sticking point and cyan at the hang,
+the lats peak at the top and settle to green in the active hang, the grip stays orange, the legs
+stay blue, and rep 11's top is red where rep 5's was yellow-orange. The elbow flexors carry a
+×1.25 strength factor over the generic OpenSim strengths (otherwise their demand clipped at 1
+and the pull and the lowering both painted as max); the trapezius has its own drive at the start
+of the pull (scapular depression before the elbow bends); the legs scale with g + a_y. Muscle
+names appear the first time a muscle's effort passes 0.55. Where the model and the EMG
+literature disagree (Youdas has the lats above the biceps over the whole rep; the model has
+them below) the cause is the shoulder depth the front camera cannot see. The legend says it on
+every frame: a model, not a thermal camera.
 
 **What an infrared camera would show (04-thermal-skin-and-anatomy-assets.md):** less, and
 later. Skin over a working muscle *drops* in the first minute of a bout (Merla 2010,
@@ -235,8 +279,9 @@ chin carries ±3 cm.
 - The scale carries about ±5 % (two anchors agree within 0.5 %; the third is explained).
 - The temperature map is a model: the joint moments come from the video, the muscle
   forces are shared by an optimisation criterion, the shoulder's depth behind the bar is
-  assumed, the fatigue rates are from memory of Frey-Law 2012, most lower-body volumes are
-  estimates (`MUSCLE-MODEL.md` §5).
+  assumed, the fatigue and recovery rates are published per joint region, not per muscle
+  (Frey-Law 2012, Looft 2018; the shoulder's rest recovery extrapolated), most lower-body
+  volumes are estimates (`MUSCLE-MODEL.md` §5).
 - The flush index is eleven points on one person with a moving white balance and no valid
   baseline; the wall control is the only thing keeping it honest.
 

@@ -1,0 +1,40 @@
+1. J Strength Cond Res. 2012 Jul;26(7):1897-903. doi:
+10.1519/JSC.0b013e318239c38e.
+
+Muscle activation strategies during strength training with heavy loading vs. 
+repetitions to failure.
+
+Sundstrup E(1), Jakobsen MD, Andersen CH, Zebis MK, Mortensen OS, Andersen LL.
+
+Author information:
+(1)National Research Center for the Working Environment, Copenhagen, Denmark. 
+emilsundstrup@gmail.com
+
+Going to failure, or not, has probably been one of the most debated issues 
+during the history of strength training. However, few studies have directly 
+compared the physiological effect of failure vs. nonfailure strength training. 
+The purpose of this study was to evaluate muscle activation strategies with 
+electromyography (EMG) during heavy repetitions vs. repetitions to failure with 
+lighter resistance. Fifteen healthy untrained women performed a set with heavy 
+loading (3 repetition maximum [RM]) and a set of repetitions to failure with 
+lower resistance (∼15 RM) during lateral raise with elastic tubing. 
+Electromyographic amplitude and median power frequency of specific shoulder and 
+neck muscles were analyzed, and the BORG CR10 scale was used to rate perceived 
+loading immediately after each set of exercise. During the failure set, 
+normalized EMG was significantly lower during the first repetition and 
+significantly higher during the latter repetitions compared with the heavy 3-RM 
+set (p < 0.05). Normalized EMG for the examined muscles increased throughout the 
+set to failure in a curvilinear fashion--e.g., for the trapezius from 86 to 124% 
+maximal voluntary contraction (p < 0.001)--and reached a plateau during the 
+final 3-5 repetitions before failure. Median power frequency for all examined 
+muscles decreased throughout the set to failure in a linear fashion, indicating 
+progressively increasing fatigue. In conclusion, going to complete failure 
+during lateral raise is not necessary to recruit the entire motor unit pool in 
+untrained women--i.e., muscle activity reached a plateau 3-5 repetitions from 
+failure with an elastic resistance of approximately 15 RM. Furthermore, 
+strengthening exercises performed with elastic tubing seem to be an efficient 
+resistance exercise and a feasible and practical alternative to traditional 
+resistance equipment.
+
+DOI: 10.1519/JSC.0b013e318239c38e
+PMID: 21986694 [Indexed for MEDLINE]

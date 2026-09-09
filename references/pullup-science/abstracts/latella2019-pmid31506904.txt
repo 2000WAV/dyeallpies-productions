@@ -1,0 +1,63 @@
+1. Sports Med. 2019 Dec;49(12):1861-1877. doi: 10.1007/s40279-019-01172-z.
+
+The Acute Neuromuscular Responses to Cluster Set Resistance Training: A 
+Systematic Review and Meta-Analysis.
+
+Latella C(1)(2), Teo WP(3)(4), Drinkwater EJ(5)(6), Kendall K(5), Haff GG(5)(7).
+
+Author information:
+(1)Centre for Exercise and Sports Science Research (CESSR), School of Health and 
+Medical Sciences, Edith Cowan University, 270 Joondalup Drive, Joondalup, WA, 
+6027, Australia. c.latella@ecu.edu.au.
+(2)Neurophysiology Research Laboratory, School of Medical and Health Sciences, 
+Edith Cowan University, 270 Joondalup Drive, Joondalup, WA, 6027, Australia. 
+c.latella@ecu.edu.au.
+(3)Physical Education and Sports Science Academic Group, National Institute of 
+Education, Nanyang Technological University, Singapore, Singapore.
+(4)Institute for Physical Activity and Nutrition (IPAN), School of Exercise and 
+Nutrition Sciences (SENS), Deakin University, Geelong, VIC, Australia.
+(5)Centre for Exercise and Sports Science Research (CESSR), School of Health and 
+Medical Sciences, Edith Cowan University, 270 Joondalup Drive, Joondalup, WA, 
+6027, Australia.
+(6)Centre for Sport Research (CSR), School of Exercise and Nutrition Science, 
+Deakin University, Geelong, VIC, Australia.
+(7)Directorate of Sport, Exercise and Physiotherapy, University of Salford, 
+Greater Manchester, UK.
+
+BACKGROUND: Cluster sets (CSs) are a popular resistance training (RT) strategy 
+categorised by short rest periods implemented between single or groups of 
+repetitions. However, evidence supporting the effectiveness of CSs on acute 
+intra-session neuromuscular performance is still equivocal.
+OBJECTIVE: The objective of this investigation was to determine the efficacy of 
+a single session of CSs to attenuate losses in force, velocity and power 
+compared to traditional set (TS) training.
+METHODS: Screening consisted of a systematic search of EMBASE, Google Scholar, 
+PubMed, Scopus and SPORTDiscus. Inclusion criteria were (1) measured one or more 
+of mean/peak force, velocity or power; (2) implemented CSs in comparison to TSs; 
+(3) an acute design, or part thereof; and (4) published in an English-language, 
+peer-reviewed journal. Raw data (mean ± standard deviation) were extracted from 
+included studies and converted into standardised mean differences (SMDs) 
+and ± 95% confidence intervals (CIs).
+RESULTS: Twenty-five studies were used to calculate SMD ± 95% CI. Peak 
+(SMD = 0.815, 95% CI 0.105-1.524, p = 0.024) and mean (SMD = 0.863, 95% CI 
+0.319-1.406, p = 0.002) velocity, peak (SMD = 0.356, 95% CI 0.057-0.655, 
+p = 0.019) and mean (SMD = 0.692, 95% CI 0.395-0.990, p < 0.001) power, and peak 
+force (SMD = 0.306, 95% CI - 0.028 to 0.584, p = 0.031) favoured CS. Subgroup 
+analyses demonstrated an overall effect for CS across loads (SMD = 0.702, 95% CI 
+0.548-0.856, p < 0.001), included exercises (SMD = 0.664, 95% CI 0.413-0.916, 
+p < 0.001), experience levels (SMD = 0.790, 95% CI 0.500-1.080, p < 0.001) and 
+CS structures (SMD = 0.731, 95% CI 0.567-0.894, p < 0.001) with no difference 
+within subgroups.
+CONCLUSION: CSs are a useful strategy to attenuate the loss in velocity, power 
+and peak force during RT and should be used to maintain neuromuscular 
+performance, especially when kinetic outcomes are emphasised. However, it 
+remains unclear if the benefits translate to improved performance across all RT 
+exercises, between sexes and across the lifespan.
+
+DOI: 10.1007/s40279-019-01172-z
+PMCID: PMC6851217
+PMID: 31506904 [Indexed for MEDLINE]
+
+Conflict of interest statement: Christopher Latella, Wei-Peng Teo, Eric J. 
+Drinkwater, Kristina Kendall and G. Gregory Haff declare that they have no 
+conflict of interest.

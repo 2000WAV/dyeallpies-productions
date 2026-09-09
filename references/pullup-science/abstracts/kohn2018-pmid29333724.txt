@@ -1,0 +1,34 @@
+1. Physiol Rep. 2018 Jan;6(1):e13560. doi: 10.14814/phy2.13560.
+
+Voluntary activation and twitch potentiation of the elbow flexors across 
+supinated, neutral, and pronated forearm orientations.
+
+Kohn S(1), Smart RR(1), Jakobi JM(1).
+
+Author information:
+(1)School of Health and Exercise Sciences, Healthy Exercise and Aging Lab Group, 
+University of British Columbia Okanagan, Kelowna, British Columbia, Canada.
+
+Elbow flexion force depends on forearm orientation with supinated and neutral 
+being stronger than pronated. The purpose of this study was to assess the 
+influence of forearm orientation on voluntary activation (VA), postactivation 
+potentiation (PAP), and twitch properties. Eleven males (23 ± 3 years) performed 
+isometric elbow flexion maximal voluntary contractions (MVC) in supinated, 
+neutral, and pronated forearm orientations with supramaximal stimulation to the 
+biceps brachii muscle belly before, during, and after the MVC. MVC and VA were 
+higher in supinated (213.6 ± 49.6 N; 93.0 ± 5.2%) and neutral (243.6 ± 48.0 N; 
+96.1 ± 3.2%) compared with pronated (113.6 ± 21.3 N; 70.9 ± 20.4%) (P < 0.05), 
+while PAP did not differ across the three orientations (71.6 ± 42.2%) 
+(P > 0.05). In the rested state, pronated peak tension (PT) was less compared 
+with supinated (42%). In the potentiated state, pronated PT was less than 
+supinated (50%) and neutral (53%) (P < 0.05). Reduced strength in the pronated 
+orientation is partially attributed to reduced drive; however, reductions in 
+peak tension indicate that there also is a mechanical disadvantage when the 
+forearm is placed into a pronated orientation, and this does not alter PAP.
+
+© 2018 The Authors. Physiological Reports published by Wiley Periodicals, Inc. 
+on behalf of The Physiological Society and the American Physiological Society.
+
+DOI: 10.14814/phy2.13560
+PMCID: PMC5789656
+PMID: 29333724 [Indexed for MEDLINE]

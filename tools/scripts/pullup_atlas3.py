@@ -11,13 +11,19 @@ chart has:
   * a FIBRE DIRECTION FIELD per region: parallel muscles (biceps, forearm, rectus abdominis,
     quadriceps) run along their segment, fan-shaped muscles (pectoralis major, latissimus,
     deltoid, upper trapezius) converge on their tendon. Striations are drawn along the field;
-  * BOUNDARIES between muscles and the tendinous intersections of the rectus abdominis;
-  * a BELLY shade: the interior of each region is lifted toward its centre and darkened at
-    its edges, so every muscle reads as a rounded body;
-  * the frame's own luminance still modulates everything, so the real definition shows.
+  * ONE CONTINUOUS FIELD (Dennis, 2026-09-09 evening: "no delimitations, the colour transitions
+    smoothly and seamlessly to the neighbouring part"): every region's mask is feathered against
+    its neighbours and normalised to a partition of unity, and effort, activation and the
+    striation texture are sums of weight x region value, so nothing changes abruptly at a
+    boundary. The dark lines, the groove highlight, the rectus intersections and the per-region
+    belly shade of the earlier version are gone; the only shading left is the frame's own
+    luminance (the real definition), a gentle whole-body bulge and the striations;
+  * the region map is still returned sharp: the muscle NAMES anchor on its centroids.
 
-Colour = modelled temperature (pullup_thermal3.py) on a thermal scale; brightness pulses
-with modelled activation. Head, hair, shorts: natural. Everything is clipped by the matte.
+Colour = the muscle model's effort index (pullup_thermal4 v4.3: the non-resting share of the
+motor-unit pool, active + fatigued, with a temperature floor) on a blue -> red scale; brightness
+nudges with the effective activation. Head, hair,
+shorts: natural. Everything is clipped by the matte.
 
     python pullup_atlas3.py <video> <pose_mp.npz> <analysis.json> <matte.npy> <frame,frame,..> <out_prefix>
 """
@@ -227,7 +233,8 @@ def label_and_fibre(P, shape, div=1.0):
 
 
 def rectus_lines(P, shape, div=1.0):
-    """Tendinous intersections and the linea alba, as a line mask."""
+    """Tendinous intersections and the linea alba, as a line mask. Not drawn since 2026-09-09
+    (no delimitations on the body); kept for the debug atlas and set #2's renderer."""
     h, w = shape
     m = np.zeros((h, w), np.uint8)
     fr = _frames(P / div)
@@ -242,8 +249,10 @@ def rectus_lines(P, shape, div=1.0):
     return m
 
 
-_STOPS = [(0.00, (110, 30, 15)), (0.18, (200, 70, 20)), (0.36, (220, 170, 0)), (0.52, (60, 210, 120)),
-          (0.68, (0, 210, 240)), (0.82, (20, 90, 250)), (0.93, (60, 40, 235)), (1.00, (225, 235, 255))]   # BGR, cold -> hot
+# BGR, rest -> max effort. Blue -> cyan -> green -> yellow -> orange -> red (Dennis, 2026-09-09: the
+# ironbow's purple was too dark; the renderer can still swap the ironbow in with lut=iron).
+_STOPS = [(0.00, (130, 25, 15)), (0.12, (225, 70, 25)), (0.26, (250, 185, 0)), (0.40, (120, 220, 40)),
+          (0.54, (40, 235, 235)), (0.68, (0, 150, 255)), (0.82, (20, 40, 235)), (1.00, (90, 90, 255))]
 
 
 def make_lut():
@@ -302,38 +311,39 @@ def paint(frame_bgr, comp_small, P, reg_T, reg_A, t_scale, bar_line, alpha=0.93,
 
     lab, theta = label_and_fibre(P, (hs, ws), div=1 / s)
     lab = np.where(mask, lab, 0).astype(np.uint8)
-    # temperature and activation fields, region-wise, feathered inside the silhouette
-    sig = max(1.2, 0.012 * ws)
-    ms = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), sig)
+    # ---- one continuous field (Dennis, 2026-09-09 evening): feather every region's mask against
+    # its neighbours and normalise the set to a partition of unity inside the silhouette. Every
+    # per-region quantity below (effort, activation, the striation texture) is a sum of
+    # weight x region value, so it crosses a boundary as a smooth ramp about 2 x sig_f wide
+    # (~17 px on screen) instead of a step. The set #2/#3 renders drew a dark line on every
+    # boundary and shaded each region toward its edge; both are gone.
+    sig_f = max(2.0, 0.016 * ws)                 # 8.6 px in the half-res grid on a 1080-wide frame
+    present = [int(i) for i in np.unique(lab) if i > 0]
+    wts = {}; wsum = np.zeros((hs, ws), np.float32)
+    for idx in present:
+        wi = cv2.GaussianBlur((lab == idx).astype(np.float32), (0, 0), sig_f)
+        wts[idx] = wi; wsum += wi
+    inside = wsum > 0.05
+    for idx in present:
+        wts[idx] = np.where(inside, wts[idx] / np.maximum(wsum, 1e-3), 0).astype(np.float32)
 
     def field(vals, scale_by):
         f = np.zeros((hs, ws), np.float32)
         for key, idx in IDX.items():
-            f[lab == idx] = float(np.clip(vals.get(key, 0.0) / scale_by, 0, 1))
-        f = np.where(mask, f, 0).astype(np.float32)
-        fs = cv2.GaussianBlur(f, (0, 0), sig)
-        return np.clip(np.where(ms > 0.05, fs / np.maximum(ms, 1e-3), 0), 0, 1).astype(np.float32)
+            if idx in wts:
+                f += wts[idx] * float(np.clip(vals.get(key, 0.0) / scale_by, 0, 1))
+        return np.clip(f, 0, 1).astype(np.float32)
 
     temp = field(reg_T, t_scale)
     act = field(reg_A, 1.0)
 
     # ---- anatomy shading, at matte resolution ----
-    # 1. boundaries between regions (and the silhouette edge is NOT a boundary: the matte handles it)
-    lab_f = lab.astype(np.float32)
-    gx = cv2.Sobel(lab_f, cv2.CV_32F, 1, 0, ksize=3); gy = cv2.Sobel(lab_f, cv2.CV_32F, 0, 1, ksize=3)
-    edge = ((np.abs(gx) + np.abs(gy)) > 0) & mask & (lab > 0)
-    edge = cv2.GaussianBlur(edge.astype(np.float32), (0, 0), 0.8)
-    # 2. belly: distance to the region boundary, normalised per region
-    belly = np.zeros((hs, ws), np.float32)
-    for idx in np.unique(lab):
-        if idx == 0:
-            continue
-        rm = (lab == idx).astype(np.uint8)
-        dist = cv2.distanceTransform(rm, cv2.DIST_L2, 3)
-        dmax = float(dist.max()) if dist.max() > 0 else 1.0
-        belly[rm > 0] = np.clip(dist[rm > 0] / (0.55 * dmax), 0, 1)
-    belly = cv2.GaussianBlur(belly, (0, 0), 1.0)
-    # 3. striations along the fibre field: thin, irregular fibre bundles. The across-fibre
+    # 1. a gentle whole-body bulge: distance to the SILHOUETTE edge (never to a region boundary),
+    #    scaled on the shoulder width so a limb reaches ~0.5 and the trunk 1; amplitude 0.14 in
+    #    the shade below. The matte handles the silhouette edge itself; this only rounds the limbs.
+    dist = cv2.distanceTransform(mask.astype(np.uint8), cv2.DIST_L2, 3)
+    belly = cv2.GaussianBlur(np.clip(dist / (0.30 * sw), 0, 1).astype(np.float32), (0, 0), 3.0)
+    # 2. striations along the fibre field: thin, irregular fibre bundles. The across-fibre
     #    coordinate is warped by low-frequency noise so bundles wander and break like real
     #    fascicles instead of a knitted stripe; the profile is sharpened so lines stay thin.
     rng = np.random.default_rng(seed)
@@ -347,25 +357,30 @@ def paint(frame_bgr, comp_small, P, reg_T, reg_A, t_scale, bar_line, alpha=0.93,
     amp = 0.55 + 0.45 * np.clip(n2 * 0.8 + 0.5, 0, 1)      # bundles fade in and out
     stria = 0.5 + (stria - 0.35) * amp
     stria = np.where(lab > 0, stria, 0.5).astype(np.float32)
-    # groove between muscles: a dark line with a faint highlight just inside each region
-    inner = cv2.GaussianBlur(edge, (0, 0), 2.2) - edge
-    inner = np.clip(inner, 0, 1)
-    # 4. rectus lines
-    rl = rectus_lines(P, (hs, ws), div=1 / s).astype(np.float32)
-    rl = cv2.GaussianBlur(rl, (0, 0), 0.7)
+    #    Two fibre directions meet at every region boundary, and the hard pattern showed a grain
+    #    boundary there (a line by another name). Each region keeps its own sharp pattern inside
+    #    and is extended a few px past its edge by normalised convolution; the feathered weights
+    #    cross-fade the patterns across the seam, the same way the effort crosses it.
+    blend = np.zeros((hs, ws), np.float32)
+    for idx in present:
+        mi = (lab == idx).astype(np.float32)
+        num = cv2.GaussianBlur(stria * mi, (0, 0), sig_f); den = cv2.GaussianBlur(mi, (0, 0), sig_f)
+        ext = np.where(mi > 0, stria, np.where(den > 0.02, num / np.maximum(den, 1e-3), 0.5))
+        blend += wts[idx] * ext
+    stria = np.where(inside, blend, 0.5).astype(np.float32)
 
     # ---- compose at full resolution ----
     gray = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2GRAY).astype(np.float32) / 255
     up = lambda a: cv2.resize(a.astype(np.float32), (W, H), interpolation=cv2.INTER_LINEAR)
-    tempF, actF, bellyF, striaF, edgeF, rlF, innerF = map(up, (temp, act, belly, stria, edge, rl, inner))
-    idx = (np.clip(0.04 + 0.92 * tempF, 0, 1) * 255).astype(np.uint8)
+    tempF, actF, bellyF, striaF = map(up, (temp, act, belly, stria))
+    idx = (np.clip(0.10 + 0.86 * tempF, 0, 1) * 255).astype(np.uint8)
     col = cv2.LUT(cv2.merge([idx, idx, idx]), LUT).astype(np.float32)
-    # shading: real luminance (definition), belly bulge, striations, activation pulse
+    # shading: real luminance (definition), a gentle bulge, striations, activation pulse.
+    # No edge term of any kind (2026-09-09 evening): the colour is one continuous field.
     lum = 0.30 + 0.85 * gray                                    # the real definition, deeper shadows
-    shade = lum * (0.62 + 0.50 * bellyF) * (0.82 + 0.36 * (striaF - 0.5)) * (0.78 + 0.44 * actF)
-    shade = shade * (1 + 0.35 * innerF)                         # highlight inside the groove
+    # (v4.1: the colour now carries the activation, so the brightness pulse is only a nudge)
+    shade = lum * (0.84 + 0.14 * bellyF) * (0.82 + 0.36 * (striaF - 0.5)) * (0.90 + 0.20 * actF)
     col = col * shade[:, :, None]
-    col = col * (1 - 0.70 * edgeF)[:, :, None] * (1 - 0.50 * rlF)[:, :, None]
     col = np.clip(col, 0, 255)
     mf = np.clip(cv2.GaussianBlur(up(m), (0, 0), 1.0), 0, 1)
     aa = mf[:, :, None] * alpha

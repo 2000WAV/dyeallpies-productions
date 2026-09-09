@@ -1,0 +1,36 @@
+1. Ergonomics. 2016;59(1):85-98. doi: 10.1080/00140139.2015.1051597. Epub 2015
+Jun  24.
+
+A modified version of the three-compartment model to predict fatigue during 
+submaximal tasks with complex force-time histories.
+
+Sonne MW(1), Potvin JR(1).
+
+Author information:
+(1)a Department of Kinesiology , McMaster University, Ivor Wynne Centre , Room 
+219A, 1280 Main Street West, Hamilton , Ontario , Canada L8S 4K1.
+
+The three-compartment model (3CM) was validated previously for prediction of 
+endurance times by modifying its fatigue and recovery rates. However, endurance 
+times do not typically represent work demands, and it is unknown if the current 
+version of the 3CM is applicable for ergonomics analysis of all occupational 
+tasks. The purpose of this study was to add biological fidelity to the 3CM, and 
+validate the model against a series of submaximal force plateaus. The fatigue 
+and recovery rates were modified to represent graded physiological motor unit 
+characteristics (termed 3CM(GMU)). In nine experiments of submaximal efforts, 
+the 3CM(GMU) produced a root-mean squared difference (RMSD) of 4.1 ± 0.5% MVC 
+over experiments with an average strength loss (i.e., fatigue) of 31.0 ± 1.1% 
+MVC. The 3CM(GMU) model performed poorly for endurance tasks. The 3CM(GMU) model 
+is an improvement for evaluating submaximal force patterns consisting of 
+intermittent muscle contractions of the hand and forearm.
+PRACTITIONER SUMMARY: We modified an existing fatigue model using known 
+physiological properties in order to predict fatigue during nine different 
+submaximal force profiles; consistent with efforts seen in industrial work. We 
+expect this model to be included in digital human modelling software, for the 
+assessment of repetitive work and muscle fatigue in repetitive tasks. SOCIAL 
+MEDIA Summary: The proposed model has applications for estimating task fatigue 
+in proactive ergonomic analyses of complex force patterns using digital human 
+models.
+
+DOI: 10.1080/00140139.2015.1051597
+PMID: 26018327 [Indexed for MEDLINE]

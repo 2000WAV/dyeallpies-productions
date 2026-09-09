@@ -1,0 +1,28 @@
+1. Physiol Rev. 2008 Jan;88(1):287-332. doi: 10.1152/physrev.00015.2007.
+
+Skeletal muscle fatigue: cellular mechanisms.
+
+Allen DG(1), Lamb GD, Westerblad H.
+
+Author information:
+(1)School of Medical Sciences and Bosch Institute, University of Sydney, Sydney, 
+New South Wales, Australia. davida@physiol.usyd.edu.au
+
+Repeated, intense use of muscles leads to a decline in performance known as 
+muscle fatigue. Many muscle properties change during fatigue including the 
+action potential, extracellular and intracellular ions, and many intracellular 
+metabolites. A range of mechanisms have been identified that contribute to the 
+decline of performance. The traditional explanation, accumulation of 
+intracellular lactate and hydrogen ions causing impaired function of the 
+contractile proteins, is probably of limited importance in mammals. Alternative 
+explanations that will be considered are the effects of ionic changes on the 
+action potential, failure of SR Ca2+ release by various mechanisms, and the 
+effects of reactive oxygen species. Many different activities lead to fatigue, 
+and an important challenge is to identify the various mechanisms that contribute 
+under different circumstances. Most of the mechanistic studies of fatigue are on 
+isolated animal tissues, and another major challenge is to use the knowledge 
+generated in these studies to identify the mechanisms of fatigue in intact 
+animals and particularly in human diseases.
+
+DOI: 10.1152/physrev.00015.2007
+PMID: 18195089 [Indexed for MEDLINE]
