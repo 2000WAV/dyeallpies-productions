@@ -1,0 +1,72 @@
+Adams MM, Hatch SA, Winsor EG, Parmelee C (2022). Development of a Standard Push-up Scale for
+College-Aged Females. Int J Exerc Sci 15(4):820-833. PMID 35992503. PMCID PMC9362895. Open access.
+Full PDF fetched via europepmc.org/articles/PMC9362895?pdf=render (fullTextXML endpoint returned
+0 bytes; PDF route worked). pdftotext extraction; some numeric table cells were stripped of their
+row/column alignment by the extraction and are reconstructed by hand below from the surrounding
+prose, flagged where uncertain.
+
+=== TABLE 1 (reproduced primary source): ACSM/CSEP push-up fitness categories, 20-29-year-olds ===
+Provenance per the paper's own Introduction: ratings for the MODIFIED (knee) push-up were first
+published by Pollock et al. 1978; included in the 2nd edition of ACSM's Guidelines for Exercise
+Testing and Prescription (1993); the normative standards themselves were developed by the Canadian
+Association of Sport Sciences in 1987 and are (per this 2022 paper) "still used today" unchanged.
+
+  Female (standard/knee position per ACSM/CESP protocol):
+    Excellent:   >=30
+    Very Good:   21-29
+    Good:        15-20
+    Fair:        10-14
+    Poor:        <=9
+
+  Male (standard/toes position):
+    Excellent:   >=36
+    Very Good:   29-35
+    Good:        22-28
+    Fair:        17-21
+    Poor:        <=16
+
+=== KEY SECONDARY-SOURCED NUMBERS (cited by this paper from other authors, useful because the
+original papers' own abstracts do not state them) ===
+- Gouvali & Boudolos (2005) [ref 12]: 66.4% of body mass moved in the standard push-up position,
+  52.9% in the modified (knee) position. [MATCHES the primary abstract directly -- see
+  gouvaliboudolos2005-pmid15705025.txt]
+- Ebben et al. (2011) [ref 10]: "slightly lower loads relative to body weight; 64% for the standard
+  push-up and 49% for the modified push-up. Peak ground reaction forces did not vary by gender or
+  participant height but are reduced by 18% in the modified position." [NOT stated in Ebben's own
+  abstract -- see ebben2011-pmid21873902.txt for that gap]
+- Suprak et al. (2011) [ref 23]: "loads increased from up to down by 8.24% in the modified but only
+  by 5.88% in the standard [position]. The difference is not gender related." [NOT stated in
+  Suprak's own abstract]
+- Mier et al. (2016 in this paper's text, actually 2014 per the reference list -- Int J Exerc Sci
+  7:161-168) [ref 16]: "found no difference in load by gender for the static up position, however a
+  smaller range of motion was seen in the female participants."
+- "Since the modified position only reduces load by 12-18% (10, 12)" -- i.e. Ebben (ref 10) and
+  Gouvali (ref 12) together bracket the modified-vs-standard load reduction at 12-18%.
+
+=== THIS PAPER'S OWN NEW DATA (n=72 cis-female college students, 18-24y, mean age 20.38) ===
+Mean standard push-up reps: 9 (SD 8.87). Mean modified push-up reps: 17.5 (SD 11.76). 8/72 (11.1%)
+could not complete even 1 standard rep; 7/72 completed >20 standard reps.
+Resistance-trainers vs non-trainers: standard 12 (SD 10.37) vs 5.8 (SD 4.33), p=.001; modified 20
+(SD 13.76) vs 14.41 (SD 7.79), p=.02.
+Correlation modified-vs-standard reps: r=0.85, r^2=0.72 (p<.001). Regression:
+  standard_reps = -2.217 + 0.64 x modified_reps
+Applied to the existing modified-push-up category cut-points to derive a NEW predicted
+standard-push-up scale for college-age women (rounded):
+  Excellent:   >=18
+  Very Good:   12-17
+  Good:        8-11
+  Fair:        5-7
+  Needs Improvement: <=4
+Compared against Mozumdar et al. (2010)'s Revised Push-up percentiles: this study's predicted scale
+and Mozumdar's 80th/60th/40th percentile cut-points (16/10/6, respectively for the same 3
+categories) are broadly consistent -- closer to Mozumdar's numbers than to the (more demanding)
+Baumgartner et al. (2004) Revised Push-up percentiles or the FitnessGram Healthy Zone (which
+expects 18-35 reps at age 17 in the standard position -- notably higher than this study's
+"Excellent" threshold of 18 for college women).
+
+=== USE IN 03-pushup-norms-and-standards.md ===
+This is the primary vehicle for the actual ACSM/CSEP table (Table 1 above), and for Ebben 2011's and
+Suprak 2011's absolute numbers, none of which were recoverable from those papers' own closed-access
+abstracts this session. Treat every "Ebben 2011: 64%/49%" and "Suprak 2011: +8.24%/+5.88%" citation
+elsewhere in this archive as SECONDARY, sourced via this Adams et al. 2022 paper, not verified against
+Ebben's or Suprak's own full text (both closed access, no PMC copy located this session).

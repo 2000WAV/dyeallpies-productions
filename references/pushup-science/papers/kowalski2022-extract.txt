@@ -1,0 +1,1697 @@
+
+2892
+sel
+Shoulder &amp; Elbow
+Shoulder Elbow
+SAGE Publications
+PMC9121296
+9121296
+9121296
+35599715
+10.1177/17585732211019373
+Shoulder electromyography activity during push-up variations: a
+scoping review
+Kowalski
+Katie L
+1
+Connelly
+Denise M
+2
+✉
+Jakobi
+Jennifer M
+3
+Sadi
+Jackie
+2
+1
+School of Kinesiology, University of
+Western Ontario, London, Ontario, Canada
+2
+School of Physical Therapy, University
+of Western Ontario, London, Ontario, Canada
+3
+School of Health and Exercise Sciences,
+University of British Columbia Okanagan, Kelowna, British Columbia, Canada
+✉
+Denise M Connelly, School of Physical
+Therapy, University of Western Ontario, 1151 Richmond Street London, Ontario N6A
+3K7, Canada. Email: 
+dconnell@uwo.ca
+6
+6
+2021
+14
+3
+326
+326–340
+21
+5
+2022
+© 2021 The British Elbow &amp; Shoulder
+Society
+This article is distributed under the terms of the Creative Commons
+Attribution-NonCommercial 4.0 License (
+https://creativecommons.org/licenses/by-nc/4.0/
+) which
+permits non-commercial use, reproduction and distribution of the work
+without further permission provided the original work is attributed as
+specified on the SAGE and Open Access pages (
+https://us.sagepub.com/en-us/nam/open-access-at-sage
+).
+Abstract
+Background
+Push-ups (PU) are a common closed chain exercise used to enhance shoulder
+girdle stability, with variations that alter the difficulty or target
+specific muscles. To appropriately select and prescribe PU exercises, an
+understanding of muscle activity during variations of the PU is needed. The
+purpose of this scoping review was to identify common PU variations and
+describe their muscle activation levels.
+Methods
+Databases searched included PubMed, CINAHL, Scopus, and SPORTDiscus for
+articles published between January 2000 and November 2019.
+Results
+Three hundred three articles were screened for eligibility with 30 articles
+included in the analysis. Six PU types and five muscles met the criteria for
+analysis. Weighted mean electromyography (EMG) amplitude was calculated for
+each muscle across PU types and for each PU type as a measure of global
+muscle activity. Triceps and pectoralis major had the highest EMG amplitude
+during unstable, suspension, incline with hands on a ball and the standard
+PU. Serratus anterior had the highest EMG amplitude during PU plus and
+incline PU. The greatest global EMG amplitude occurred during unstable
+surface PU.
+Discussion
+These results provide clinicians with a framework for prescribing PU to
+target specific muscles and scale exercise difficulty to facilitate
+rehabilitation outcomes.
+Keywords:
+ Push-up, electromyography, rehabilitation, exercise
+status
+released
+display-pdf
+yes
+is-olf
+no
+is-manuscript
+no
+is-preprint
+no
+is-journal-matter
+no
+is-scanned
+no
+is-retracted
+no
+Received 2020 Jul 21; Accepted 2021 Apr 27; Issue date 2022 Jun.
+Introduction
+Neuromuscular control, endurance, and strength are key components of many shoulder
+rehabilitation programs.
+1
+,
+2
+Selection of appropriate exercises to address these components is an important
+determinant of successful rehabilitation outcomes.
+2
+–
+4
+ Axial loading during closed
+chain exercises enhances neuromuscular control through increased proprioceptive
+input and facilitates co-contraction to improve functional stability of the shoulder.
+5
+ Therefore, upper extremity closed chain exercises can be an important
+component of a shoulder rehabilitation program.
+The standard push-up (PU) is a common closed chain exercise used to improve dynamic
+stability of the upper extremity through enhancement of proprioception,
+neuromuscular control, and shoulder girdle strength.
+6
+ The starting position for the standard PU includes placing the hands directly
+below the glenohumeral joint, feet shoulder width apart, hips in a neutral position,
+and knees extended (
+Figure 1(a)
+and (c)
+). The body is then lowered to the ground until the elbows reach
+90° of flexion, followed by a return back to the starting position.
+7
+ The standard PU elicits high muscle activity in the serratus anterior (SA)
+and low activity in the upper fibers of the trapezius (UT), which may be helpful in
+restoring scapulothoracic muscle dysfunction seen in many shoulder
+pathologies.
+4
+,
+8
+The standard PU position can be modified to alter muscle activation levels, target
+specific muscles, and scale exercise difficulty to facilitate successful
+rehabilitation outcomes. 
+Figure 1.
+Standard push-up and push-up plus. (a) Starting position for standard
+push-up from lateral view. (b) Starting position for push-up plus from
+lateral view. (c) Starting position for standard push-up demonstrating
+scapulae in neutral position. (d) Starting position for push-up plus
+demonstrating scapular protraction.
+There are countless variations of the standard PU; however, common modifications
+include altering body position,
+9
+,
+10
+ joint angles
+11
+,
+12
+ or stability
+of the external environment.
+13
+,
+14
+ To date, there has been no
+attempt to summarize the impact of variations to the standard PU on muscle
+activation levels. An overview of muscle activity during standard PU variations is
+needed to provide a framework for improved clinical decision making when selecting
+and prescribing PU exercises. The purpose of this scoping review was to identify
+commonly used PU variations within the literature and describe their muscle
+activation levels in healthy adults. Given the need for rehabilitation exercises and
+return to sport testing to match the functional demands of sport and work-related
+activities, knowledge of muscle activity during PU variations will assist in
+designing progressive, functional rehabilitation programs for individuals with
+closed chain upper extremity demands.
+Materials and methods
+A scoping review was selected for this study to gain an overview of the common
+clinically relevant PU variations examined in the literature and describe their
+muscle activation levels. The methodological framework for this scoping review
+followed recommendations of Levac et al.
+15
+ and Colquhoun et al.
+16
+ with the PRISMA Extension for Scoping Reviews checklist to guide reporting.
+17
+Data sources and searches
+A database search was conducted in PubMed, CINAHL, Scopus, and SPORTDiscus to
+identify relevant peer-reviewed journal articles using the keywords [EMG OR
+electromyogra*] AND [“push up” OR “push-up”]. Reference lists of included
+studies and related systematic reviews were hand searched for additional
+relevant literature. The search was limited to full-text articles available in
+English and published between January 2000 and November 2019, to reflect
+contemporary exercise prescription practices.
+Study selection
+After identification of the relevant literature, each article was screened in
+duplicate by two study team members to ensure inclusion and exclusion criteria
+were met. Disagreement between reviewers was resolved through discussion to
+reach inclusion/exclusion consensus. Articles were included when the study
+population was young adults free of shoulder impairment and self-reported
+comorbidities, a PU variation was investigated in at least three articles and
+electromyography (EMG) values were expressed as a percent of maximum voluntary
+isometric contraction (%MVIC). If EMG values were not comparable or convertible
+to %MVIC from the reported values in the study, authors were contacted for their
+data. If there was no response after 3 weeks, the article was excluded. Articles
+were excluded from review if the study sample included subjects with
+neurological or musculoskeletal trauma or disease, PUs required expensive
+machinery or equipment (e.g. Stott Pilates® Reformer), or were deemed too
+difficult for the general population (e.g. clapping PU). Full texts were
+evaluated, using the same process as article screening, to identify articles for
+inclusion in the final analysis of PU variations and muscle activation levels.
+See 
+Figure 2
+ for the
+article search and selection process flow diagram. 
+Figure 2.
+Article search and selection flow diagram.
+EMG: electromyography; MVIC: maximum voluntary isometric
+contraction.
+Data extraction
+Data extraction was completed in duplicate by two study team members. Data
+extracted from each full-text evaluation included: authors, year of publication,
+number of participants, participant age and sex, type of PU, muscles examined,
+mean EMG and standard deviation values represented as %MVIC. Where standard
+error was presented, standard deviation was calculated using the sample
+size.
+Data synthesis and analysis
+Study participant demographic information is reported as mean ± standard
+deviation, as appropriate. To determine average muscle activation levels across
+PU variations while accounting for unequal sample sizes, the weighted mean EMG
+amplitude was calculated using sample size as the weighting factor and expressed
+as %MVIC. To provide an estimate of total muscle activity for each PU type, a
+global EMG value was calculated as the weighted mean of all muscles for each PU variation.
+14
+Results
+The literature search identified 303 articles to be screened (
+Figure 2
+). After removal of duplicates, 65
+articles met inclusion criteria for full-text evaluation. Their reference lists were
+hand searched, and 18 additional articles were identified, leading to 83 articles
+that underwent full-text assessment for eligibility. Thirty articles were included
+in the final analysis, with a total of 606 participants and an average age of
+23.1 ± 1.9 years. Females comprised 33.2% (n = 151) of study participants.
+Six PU variations met inclusion criteria and included: standard PU
+(n = 17),
+7
+,
+9
+,
+13
+,
+14
+,
+18
+–
+30
+ PU plus (n = 11),
+11
+,
+12
+,
+18
+,
+20
+,
+29
+,
+31
+–
+36
+ suspension system
+(n = 7),
+10
+,
+13
+,
+14
+,
+24
+,
+27
+,
+30
+,
+37
+, hands on an unstable surface (n = 6),
+7
+,
+13
+,
+18
+,
+21
+,
+22
+,
+29
+ incline (n = 3),
+25
+,
+38
+,
+39
+ and incline
+with hands on an exercise ball (n = 3).
+25
+,
+38
+,
+39
+Figures 1
+ and 
+3
+ provide representative
+images of these PU variations. Five muscles met inclusion criteria, including: SA
+(n = 17),
+9
+,
+11
+–
+13
+,
+18
+–
+24
+,
+28
+–
+30
+,
+34
+,
+35
+,
+38
+ UT (n = 17),
+10
+–
+12
+,
+14
+,
+18
+,
+19
+,
+21
+–
+23
+,
+29
+,
+30
+,
+32
+–
+34
+,
+36
+–
+38
+ pectoralis major (PM;
+n = 13),
+7
+,
+10
+–
+12
+,
+24
+–
+27
+,
+30
+,
+31
+,
+34
+,
+37
+,
+39
+ middle and lower fibers of
+trapezius (M/LT; n = 11),
+11
+,
+12
+,
+18
+,
+20
+–
+23
+,
+28
+,
+29
+,
+35
+,
+38
+ and triceps brachii
+(n = 11).
+7
+,
+10
+,
+11
+,
+14
+,
+19
+,
+24
+,
+26
+,
+27
+,
+30
+,
+37
+,
+39
+ MT and LT were grouped together as their scapular stabilization
+role is similar during the PU motion.
+40
+ While other muscle groups (e.g. rotator cuff, deltoid, trunk stabilizers) are
+important for rehabilitation of the upper extremity, many did not meet inclusion
+criteria because they were not studied across all positions; the standard PU was the
+most common position for these muscles. A summary of all articles, including PU
+types, muscles assessed, and EMG values can be found in 
+Table 1
+. 
+Figure 3.
+Unstable, suspension, incline, incline on ball push-ups. (a) Unstable
+push-up on BOSU® ball. (b) Suspension push-up on TRX® with handles 10 cm
+from floor. (c) Incline push-up with hands elevated 65 cm. (d) Incline
+push-up on 65 cm ball.
+Table 1.
+Summary of push-up types, muscles assessed, and EMG amplitude.
+Author (year)
+# participants
+Age (years)
+Type of PU
+Muscles assessed
+EMG (% MVIC)
+Ashnagar (2016)
+0 M, 40 F
+23.9 ± 1.9
+Standard
+Serratus anterior
+15.3 ± 16.7
+Standard
+Upper trapezius
+4.3 ± 4.6
+Standard
+Triceps
+23.7 ± 14.0
+Batbayar (2015)
+9 M, 0 F
+25 ± 2.7
+PU plus
+Serratus anterior
+90.9 ± 40.5
+PU plus
+Upper trapezius
+6.5 ± 3.3
+PU plus
+Middle trapezius
+7.6 ± 7.9
+PU plus
+Lower trapezius
+3.5 ± 1.5
+PU plus
+Triceps
+48.1 ± 16.2
+PU plus
+Pectoralis major
+13.3 ± 9.8
+Borreani (2015a)
+30 M, 0 F
+23 ± 1.1
+Standard
+Serratus anterior
+29.1 ± 20.6
+Suspension
+Serratus anterior
+75.5 ± 51.6
+Unstable
+Serratus anterior
+95.8 ± 72.5
+Borreani (2015b)
+29 M, 0 F
+23.5 ± 3.1
+Suspension
+Upper trapezius
+14.7 ± 10.3
+Suspension
+Triceps
+37.0 ± 9.7
+Suspension
+Pectoralis major
+30.8 ± 13.3
+Calatayud (2014a)
+29 M, 0 F
+23.5 ± 3.1
+Suspension
+Upper trapezius
+20.4 ± 14.3
+Suspension
+Triceps
+49.3 ± 15.5
+Suspension
+Pectoralis major
+27.7 ± 13.0
+Calatayud (2014b)
+29 M, 0 F
+23.5 ± 3.1
+Standard
+Upper trapezius
+5.9 ± 3.0
+Standard
+Triceps
+17.1 ± 7.05
+Suspension
+Upper trapezius
+15.7 ± 11.3
+Suspension
+Triceps
+37.0 ± 9.7
+Calatayud (2014c)
+29 M, 0 F
+22.6 ± 2.6
+Standard
+Serratus anterior
+24.4 ± 12.3
+Standard
+Upper trapezius
+5.3 ± 3.2
+Standard
+Triceps
+14.0 ± 8.3
+Standard
+Pectoralis major
+23.6 ± 9.4
+Suspension
+Serratus anterior
+13.1 ± 7.1
+Suspension
+Upper trapezius
+9.4 ± 7.3
+Suspension
+Triceps
+33.0 ± 18.4
+Suspension
+Pectoralis major
+29.5 ± 9.2
+Cho (2014)
+5 M, 10 F
+22.1 ± 2.9
+PU plus
+Serratus anterior
+22.9 ± 17.5
+PU plus
+Upper trapezius
+9.9 ± 5.0
+PU plus
+Lower trapezius
+7.2 ± 5.1
+PU plus
+Pectoralis major
+24.9 ± 17.2
+Cogley (2005)
+11 M, 29 F
+24.3 ± 13.2
+Standard
+Triceps
+101.3 ± 85.4
+de Araujo (2018)
+18 M, 0 F
+21.5 ± 2.6
+Standard
+Serratus anterior
+27.5 ± 12.9
+Standard
+Upper trapezius
+17.0 ± 13.4
+Standard
+Lower trapezius
+23.9 ± 11.9
+Unstable
+Serratus anterior
+27.7 ± 11.9
+Unstable
+Upper trapezius
+22.5 ± 18.4
+Unstable
+Lower trapezius
+24.8 ± 12.1
+de Araujo (2019)
+23 M, 0 F
+21.7 ± 3.0
+Standard
+Serratus anterior
+92.3 ± 67.2
+Standard
+Upper trapezius
+51.2 ± 43.6
+Standard
+Middle trapezius
+21.9 ± 13.0
+Standard
+Lower trapezius
+58.7 ± 48.4
+Unstable
+Serratus anterior
+76.9 ± 20.7
+Unstable
+Upper trapezius
+56.6 ± 37.3
+Unstable
+Middle trapezius
+44.1 ± 29.5
+Unstable
+Lower trapezius
+59.3 ± 34.6
+Decker (2003)
+9 M, 6 F
+26.8 ± 4.0
+PU plus
+Pectoralis major
+94.3 ± 27.2
+Freeman (2006)
+9 M, 1 F
+24, SD not given
+Standard
+Triceps
+66.0 ± 17.6
+Standard
+Pectoralis major
+61.2 ± 38.3
+Unstable
+Triceps
+68.9 ± 16.2
+Unstable
+Pectoralis major
+68.7 ± 39.9
+Gioftsos (2016)
+13 M, 0 F
+20.5 ± 1.0
+Standard
+Serratus anterior
+49.0 ± 20.5
+Standard
+Upper trapezius
+35.9 ± 14.0
+Standard
+Lower trapezius
+12.8 ± 10.1
+PU plus
+Serratus anterior
+60.7 ± 17.1
+PU plus
+Upper trapezius
+28.6 ± 9.2
+PU plus
+Lower trapezius
+9.1 ± 8.7
+Unstable
+Serratus anterior
+45.7 ± 14.0
+Unstable
+Upper trapezius
+35.8 ± 16.4
+Unstable
+Lower trapezius
+12.6 ± 15.1
+Hwang (2015)
+29 M, 0 F
+24.7 ± 2.5
+PU plus
+Serratus anterior
+59.2 ± 13.9
+PU plus
+Upper trapezius
+9.9 ± 7.1
+PU plus
+Pectoralis major
+10.7 ± 7.6
+Kang (2014)
+15 M, 0 F
+21.2 ± 2.4
+Standard
+Serratus anterior
+45.5 ± 19.4
+Lehman (2006)
+13 M, 0 F
+26.3 ± 1.5
+Incline
+Triceps
+22.2 ± 8.8
+Incline
+Pectoralis major
+21.4 ± 11.8
+Incline, hands on ball
+Triceps
+43.1 ± 17.3
+Incline, hands on ball
+Pectoralis major
+26.7 ± 14.5
+Lehman (2008)
+10 M, 0 F
+26.1 ± 1.1
+Incline
+Serratus anterior
+24.2 ± 14.5
+Incline
+Upper trapezius
+5.2 ± 6.4
+Incline
+Lower trapezius
+10.5 ± 12.2
+Incline, hands on ball
+Serratus anterior
+19.7 ± 11.5
+Incline, hands on ball
+Upper trapezius
+10.5 ± 6.9
+Incline, hands on ball
+Lower trapezius
+9.5 ± 11.9
+Ludewig (2004)
+7 M, 12 F
+25.2 ± 3.7
+PU plus
+Upper trapezius
+14.5 ± 11.8
+Marshall (2006)
+8 M, 4 F
+22.1 ± 2.4
+Standard
+Pectoralis major
+34.1 ± 25.5
+Incline
+Pectoralis major
+25.5 ± 13.6
+Incline, hands on ball
+Pectoralis major
+39.2 ± 27.2
+McGill (2014)
+14 M, 0 F
+21.1 ± 2.0
+Standard
+Serratus anterior
+72.1 ± 60.2
+Standard
+Triceps
+23.0 ± 22.7
+Standard
+Pectoralis major
+46.6 ± 40.6
+Suspension
+Serratus anterior
+55.6 ± 60.3
+Suspension
+Triceps
+29.6 ± 19.4
+Suspension
+Pectoralis major
+42.3 ± 32.8
+Park (2013)
+20 M, 0 F
+21–26, no mean given
+PU plus
+Upper trapezius
+3.6 ± 1.9
+Park (2015)
+10 M, 0 F
+23.9 ± 1.8
+PU plus
+Upper trapezius
+8.0 ± 3.5
+Santos (2018)
+18 M, 0 F
+22.0 ± 2.0
+Standard
+Serratus anterior
+49.7 ± 38.0
+Standard
+Upper trapezius
+3.4 ± 2.6
+Standard
+Middle trapezius
+6.3 ± 11.4
+Standard
+Lower trapezius
+10.0 ± 6.5
+Snarr (2013)
+15 M, 6 F
+25.2 ± 3.4
+Standard
+Triceps
+74.3 ± 16.9
+Standard
+Pectoralis major
+63.6 ± 16.4
+Suspension
+Triceps
+105.8 ± 18.5
+Suspension
+Pectoralis major
+69.5 ± 27.6
+Stoelting (2008)
+0 M, 19 F
+20.7 ± 2.3
+Standard
+Serratus anterior
+91.9 ± 52.2
+Standard
+Middle trapezius
+32.6 ± 16.2
+Standard
+Lower trapezius
+28.2 ± 15.0
+PU plus
+Serratus anterior
+83.0 ± 44.6
+PU plus
+Middle trapezius
+34.8 ± 18.8
+PU plus
+Lower trapezius
+26.8 ± 9.8
+Tucker (2008)
+15 M, 13 F
+20.9 ± 2.8
+Standard
+Serratus anterior
+68.5 ± 32.8
+Standard
+Middle trapezius
+27.0 ± 20.4
+Standard
+Lower trapezius
+36.1 ± 19.0
+Tucker (2009)
+19 M, 0 F
+20.7 ± 2.9
+PU plus
+Serratus anterior
+48.6 ± 16.8
+PU plus
+Lower trapezius
+29.4 ± 12.8
+Tucker (2010)
+4 M, 11 F
+20.4 ± 3.8
+Standard
+Serratus anterior
+56.2 ± 24.4
+Standard
+Upper trapezius
+44.7 ± 30.2
+Standard
+Middle trapezius
+18.0 ± 7.3
+Standard
+Lower trapezius
+27.0 ± 13.1
+Unstable
+Serratus anterior
+48.3 ± 21.7
+Unstable
+Upper trapezius
+61.6 ± 47.4
+Unstable
+Middle trapezius
+19.5 ± 7.3
+Unstable
+Lower trapezius
+27.5 ± 11.2
+EMG values are weighted mean ± SD. Unstable push-up includes BOSU®
+balls, stability discs, balance boards, foam mats, and unstable
+push-up bars.
+EMG: electromyography; MVIC: maximum voluntary isometric contraction;
+PU: push-up.
+The weighted mean EMG amplitude for each muscle across PU variations is presented
+graphically in 
+Figure 4
+,
+and numerical data are available as a supplemental appendix. PM and triceps
+demonstrated the highest EMG amplitude in four of the six PU types. SA had the
+highest EMG amplitude during the PU plus and incline PU. UT demonstrated the lowest
+EMG amplitude in four of the six PU types. There were no studies assessing M/LT
+activation during suspension PUs. 
+Figure 4.
+EMG amplitude across muscles and push-up type. Weighted mean EMG
+amplitude for each muscle group during identified push-up variations.
+Data are presented as weighted mean ± SE.
+EMG: electromyography; M/LT: middle/lower trapezius; MVIC: maximum
+voluntary isometric contraction; n: number of studies evaluated for each
+muscle; PM: pectoralis major; SA: serratus anterior; UT: upper
+trapezius.
+The greatest global EMG activity occurred during PU on an unstable surface
+(49.6 ± 40.5 %MVIC). The standard PU had the next highest global EMG activity
+(38.2 ± 41.8 %MVIC), followed by suspension systems (36.7 ± 31.9 %MVIC), PU plus
+(30.1 ± 30.6 %MVIC), incline on a ball (26.1 ± 20.7 %MVIC) and incline on a stable
+surface (15.8 ± 13.4 %MVIC). Global EMG activity for each PU type is presented in
+Figure 5
+. 
+Figure 5.
+Global EMG amplitude for each push-up type. Combined weighted mean EMG
+amplitude of pectoralis major, serratus anterior, middle/lower
+trapezius, upper trapezius, and triceps for each push-up movement. Data
+are presented as weighted mean ± SE.
+EMG: electromyography; MVIC: maximum voluntary isometric contraction; n:
+number of studies evaluated per push-up movement; PU: push-up.
+Discussion
+Multiple variations of the standard PU exist in rehabilitation and strengthening of
+the upper quadrant in weight bearing. The purpose of this scoping review was to
+identify commonly researched PU variations and describe their muscle activation
+levels. Six PU variations were identified (standard, unstable, suspension, PU plus,
+incline, incline on a ball) with muscle activity in five muscles (SA, PM, triceps,
+UT, M/LT) described during the PU variations. This EMG-based review of PU variations
+can assist in developing rehabilitation programs for individuals with closed chain
+upper extremity work or sport demands. This could include progressively challenging
+the shoulder girdle to prepare for return to sport testing, such as the Upper
+Quarter Y Balance Test.
+41
+ Further, this review advances the existing framework for upper extremity
+weight bearing exercise prescription which may be implemented within the context of
+the Derby Shoulder Instability Rehabilitation Program for atraumatic recurrent
+shoulder instability
+42
+ or late to end-stage rehabilitation in individuals who have work or
+sport-related upper extremity weight bearing demands. However, clinical reasoning
+regarding exercise prescription should always include an analysis of the functional
+capacities of the patient, which includes assessment for other musculoskeletal
+impairments which may become exacerbated by high-level exercises, especially those
+performed on unstable surfaces.
+To facilitate contextualization of normalized EMG amplitude, categories of muscle
+activity intensity have been developed and include: low ( &lt; 20% MVIC), moderate
+(21%–40% MVIC), high (41%–60% MVIC), and very high ( &gt; 60% MVIC).
+43
+,
+44
+ Low levels of
+muscle activity are generally recommended for early rehabilitation or when minimal
+muscle activity is desired, while high levels of activity are reserved for later
+rehabilitation exercises and general strengthening.
+43
+,
+45
+ This convention will be used
+in the following discussion of muscle activity during each PU variations.
+Standard push-up
+The standard PU (
+Figure 1(a)
+and (c)
+) led to high activity levels in the prime movers of the PU
+movement (i.e. triceps, PM) and the SA. While the scapula demonstrates some
+three-dimensional movement during the standard PU,
+46
+ there is less scapular movement during a PU compared to open chain upper
+extremity elevation, for a similar degree of humeral elevation.
+47
+ Thus, high SA activity during the standard PU can be presumed to
+facilitate scapular stabilization, allowing for dynamic control of the
+glenohumeral joint. Given the high muscle activity in the triceps, PM, and SA,
+the standard PU could be considered an appropriate end-stage rehabilitation
+exercise, particularly if triceps, PM or SA strengthening is desired.
+SA also functions as a force couple with the trapezius to assist with scapular
+positioning and movement.
+48
+,
+49
+ The standard PU led to
+moderate activity in M/LT and low activity in UT. Low UT activity relative to
+higher M/LT and SA activity can be a desirable muscle activity combination as
+individuals with scapular and shoulder dysfunction often demonstrate weak or
+underactive SA and M/LT with overactive UT.
+4
+,
+50
+ Thus, the standard PU may
+be an effective exercise for patients with scapulothoracic muscle imbalance.
+The global EMG amplitude of the standard PU was nearly 40% MVIC, bordering on
+high activity. This activity level is consistent with the recommendation that PU
+progressions are added to end-stage rehabilitation programs when muscles are
+able to tolerate higher loads
+2
+,
+51
+ or prescribed to
+individuals interested in building general upper extremity strength.
+Unstable push-up
+EMG activity during unstable PU (
+Figure 3(a)
+) was higher in all muscles
+compared to other PU variations with global EMG in the high activity category.
+In comparison to the standard PU, PM, triceps, and SA activity increased from
+the high to very high activity category, UT activity more than doubled and moved
+from the low to high activity category, while M/LT had a modest increase in EMG
+activity but stayed in the moderate category. Given these high and very high
+levels of muscle activity, PU on an unstable surface should be reserved for
+end-stage rehabilitation or for individuals seeking to enhance upper extremity
+strength.
+The increase in EMG activity during an unstable PU could be due to increased
+co-contraction to control the upper limb and scapular position, improve joint
+stiffness and stability.
+52
+,
+53
+ Indeed, long-term
+training on an unstable surface leads to improved coordination between
+synergists and antagonists as well as faster activation of stabilizing muscles,
+further enhancing joint stability and reducing the risk of injury.
+52
+,
+53
+Therefore, the unstable PU may be an effective exercise to enhance joint
+proprioception and neuromuscular control of the shoulder joint complex.
+The unstable PU was one of two PU variations (unstable and incline, hands on
+ball) in which UT EMG activity was not the lowest of the muscles reviewed. This
+is consistent with a systematic review in which all unstable pushing exercises
+had high UT to SA activity ratios.
+54
+ As many individuals with shoulder pathology demonstrate increased UT
+activity and SA weakness or underactivity during arm elevation, unstable PU are
+not the preferred PU variation. The standard PU or PU plus, as noted below, may
+be more appropriate due to their low UT and high SA activity.
+Studies in this review which investigated an unstable PU used a variety of
+equipment to create an unstable surface, such as BOSU® balls, stability discs,
+balance boards, foam mats, and unstable PU bars. While different unstable
+surfaces could introduce variability into the EMG results, this equipment likely
+reflects that which is available within a clinical environment and allows the
+results to be more generalizable. Additionally, when the hands are placed on an
+unstable surface while the feet are kept on the ground, there is an increase in
+the body inclination angle. As this angle is increased, there is a reduction in
+body weight placed through the upper extremities, leading to a decline in muscle activity.
+55
+ Not all studies accounted for this change in body angle which could
+impact the results. However, given most muscle activity levels were in the high
+or very high categories, the influence of body inclination angle was likely
+minimal.
+Suspension push-up
+Most studies investigating a suspension PU used a TRX
+®
+ (
+Figure 3(b)
+). During this
+PU variant, SA and triceps activity remained high while UT remained low, in
+comparison to the standard PU. This indicates that the suspension PU is a good
+option to target triceps and SA, particularly if one is looking to keep UT
+activity low.
+While a suspension device is an unstable surface, which generally leads to
+increased muscle activity, individual muscle and global EMG in the suspension PU
+were less than the unstable PU. During a suspension PU, the body is often in a
+more inclined position than a standard PU, leading to less body weight placed
+through the upper extremities and consequently less muscle demand.
+56
+ Therefore, it is possible the greater body inclination angle in the
+suspension PU mitigated an increase in muscle activity due to the unstable
+surface created by the suspension system.
+Alternatively, previous work has demonstrated that moderately unstable surfaces
+increase muscle activity while highly unstable surfaces decrease muscle
+activity,
+52
+,
+53
+ suggesting unstable surfaces, such as rocker boards and
+BOSU® balls, may serve as moderately unstable surfaces while suspension devices
+are highly unstable surfaces. The authors of this previous work interpret these
+findings to suggest that highly unstable environments lead to a decline in
+muscle activity of the primary movers of a motion with transfer of activity to
+greater stabilizing functions.
+52
+ Under this framework, the suspension PU would lead to lower activation of
+the PM and triceps with greater activation of the shoulder and trunk
+stabilizers, and lower extremity posterior chain musculature compared to
+unstable PU. In alignment with this theory, we identified lower muscle activity
+in the PM and triceps during the suspension PU compared to the unstable PU.
+However, we also noted a decline in SA and UT activity, which would likely be
+functioning as stabilizers. We were unable to assess M/LT activity during
+suspension PU as this investigation was notably absent from the literature.
+Muscle activity of the trunk and lower extremities during PU variations was also
+not included in this review, because there were too few studies from the body of
+literature considering muscle activity. Trunk and lower extremity muscle
+activation during exercises targeting the upper extremity is an important area
+for future study as much of the upper extremity torque is generated in the lower
+quadrant and transferred to the upper extremity through the trunk and shoulder
+girdle. Future research should incorporate more scapular, trunk, and lower
+extremity muscles, such as the M/LT, erector spine, and gluteals, into
+investigations of EMG activity during upper extremity exercise. This will
+facilitate a better understanding of optimal exercise prescription for upper
+extremity athletes in preparation for return to sport.
+In addition, while the body inclination angle was not reported in most suspension
+PU studies, those that did, set the suspension handles 10 cm from the floor.
+Strap height is an important consideration when prescribing suspension PU as it
+is an easily modifiable variable to scale the exercise difficulty and modulate
+EMG activity. Future research should ensure to account for and report suspension
+strap height to assist in determining the differential influence of changes in
+body inclination angle and the unstable surface created by the suspension system
+in muscle activity.
+Push-up plus
+The PU plus is performed similar to the standard PU, with the addition of
+scapular protraction at full elbow extension (
+Figure 1(b) and (d)
+). During this PU
+variation, SA is not only providing scapular stabilization, but is also working
+dynamically to produce scapular protraction. Indeed, SA activity increased
+during the PU plus in comparison to the standard PU, with activity levels
+bordering on very high. This occurred in conjunction with a slight decline in UT
+activity in comparison to the standard PU, highlighting the low UT to SA
+activity ratio of the PU plus. Therefore, the PU plus is an effective exercise
+to target the SA and may be a more ideal PU variation than the standard PU for
+individuals who have overactive UT.
+M/LT activity declined during the PU plus in comparison to the standard PU, with
+activity levels bordering on low to moderate. This could have occurred as a
+result of M/LT acting as antagonists to scapular protraction during the ‘plus’
+phase of the PU or due to scapular protraction placing the M/LT in a lengthened
+position, thereby decreasing the available active force generation and EMG
+activity of the M/LT. Thus, for individuals with weak, underactive M/LT, the PU
+plus is not a recommended exercise due to low activity levels. However, it is
+interesting to note that LT activity can be increased during a PU plus by using
+a narrow hand placement, which alters scapular positioning and creates a more
+favorable LT length-tension relationship.
+35
+ Therefore, to facilitate LT activity, it may be worthwhile to consider a
+narrow hand placement.
+During PU plus, PM activity declined from the high to moderate category, in
+comparison to the standard PU. As scapular protraction occurs through
+protraction of the clavicle, the clavicular head of the PM may act as a
+synergist to SA through facilitating clavicular protraction.
+57
+,
+58
+Therefore, if PM and SA are acting synergistically, it is possible PM activity
+declined due to the increase in SA activity during the PU plus. If PM is the
+muscle of interest for strengthening, then the standard PU or PU on an unstable
+surface is a better choice than the PU plus.
+PU plus global EMG activity declined slightly compared to the standard PU, though
+remained in the moderate muscle activity category. However, given the high
+levels of activity in SA and triceps, PU plus should still be considered an
+advanced exercise and reserved for end-stage rehabilitation and general upper
+extremity strengthening.
+Incline push-up
+Incline PU consisted of a standard PU performed with hands placed on a stable box
+or bench (
+Figure 3(c)
+).
+In comparison to the standard PU, incline PU led to a reduction in muscle
+activity in all muscles included in this review. PM, SA, and triceps activity
+declined from the high to low category, M/LT activity declined from the moderate
+to low category while UT activity declined and remained in the low category.
+These changes led incline PU global EMG amplitude to be the lowest of all PU
+variations. These results suggest that performing an incline PU may be
+incorporated earlier in the rehabilitation process if low grade muscle activity
+is desired in a closed chain position. However, compared to other PU variations
+examined in this review, there were fewer studies investigating muscle activity
+during an incline PU with fewer muscles assessed. This could limit the
+interpretation and application of these findings. Future studies should ensure
+that there is a broad, comprehensive, and consistent examination of muscle
+activity when analyzing PU variations for rehabilitation.
+Lower levels of muscle activity during the incline PU likely reflects a reduction
+in weight bearing through the upper extremities as the body inclination angle is
+increased and less muscle activity is required to support the body.
+55
+ Therefore, the height of the inclined surface can therefore be
+manipulated to modulate muscle activity. Of the studies investigating incline
+PU, two used boxes 65 cm tall while height was not mentioned in the third study.
+Future research should ensure reporting of elevation height to facilitate
+comparison between studies and application to clinical environments.
+Incline on ball
+All studies that examined an incline PU on an unstable surface used an exercise
+ball (
+Figure 3(d)
+). In
+comparison to the stable incline PU, incline PU on a ball increased EMG activity
+in muscles acting as prime movers. PM had a small increase in activity and
+remained in the moderate category while triceps had a large increase in activity
+and moved into the high category. This pattern is similar to that observed when
+comparing the standard to the unstable PU. Thus, it appears that adding
+instability to the PU, no matter what the position, increases activity in the
+prime movers, and particularly the triceps.
+This contrasts with the activity of the scapular stabilizers during unstable
+incline PU, which demonstrated minimal changes in comparison to the stable
+incline PU. SA activity declined slightly and fell into the low category while
+M/LT and LT activity remained unchanged in the low category. Therefore, it
+appears that incline PU on a ball is not an effective exercise to strengthen the
+scapular stabilizers. However, if low levels of muscle activity in the scapular
+stabilizers are desired in combination with a dynamic surface to train
+proprioception and neuromuscular control, then incline PU on a ball may be an
+effective exercise.
+Incline PU on a ball demonstrated moderate global EMG activity and was greater
+than global EMG during the stable incline PU. This further demonstrates the
+impact of an unstable surface on increasing global muscle activity. PU on an
+unstable surface, such as an exercise ball, may be an appropriate progression
+from a stable incline PU prior to lowering the inclination of the body to a
+standard PU position. However, similar to incline PU on a stable surface, the
+number of studies we identified examining muscle activity during PU on a ball
+was limited, as was the number of muscle groups assessed within this PU
+variation. Therefore, caution should be exercised with implementation of these
+findings, and future research should ensure muscles assessed during PU variation
+exercises are thorough and align with those previously reported within the
+literature.
+Limitations
+While EMG studies assist in guiding clinical decision making regarding
+therapeutic exercise prescription, there are limitations in interpreting EMG
+studies. To allow for comparisons between studies, we selected articles which
+normalized EMG values to an isolated MVIC. Informed by the methodology within
+each paper, we assumed participants were able to perform a true isolated MVIC,
+PU modifications were performed in a similar manner and comparable placement of
+EMG electrodes. The phase of the PU motion in which EMG data was reported was
+not always consistent or mentioned, which could impact the results of each
+study. To enhance the ability to compare EMG results across studies,
+improvements in reporting of EMG methodology are warranted.
+Of the 606 participants in this review, only 151 (33%) were female, representing
+a large disparity between male and female participants in EMG-based research.
+More work is required to ensure females are adequately represented in EMG-based
+research studies. This becomes important as physiological sex-specific
+differences, such as muscle fiber type composition,
+59
+ force steadiness
+60
+ and fatigue,
+61
+ can impact EMG assessments of muscle activity and are related to neck and
+shoulder musculoskeletal disorders.
+62
+We only included studies which obtained data from young, healthy participants who
+were free of shoulder impairments and may have different muscle activation
+levels than individuals with shoulder pain, weakness, or other pathology. This
+should be considered when extrapolating our results to a patient population.
+Further, studies included in this review only assessed muscle activity in a
+non-fatigued state. As muscle activation levels can change with fatigue
+63
+ and key priorities for return to sport rehabilitation include addressing
+fatigability and enhancing endurance capacity, caution should be used when
+applying our results to exercises performed in a fatigued state. However, this
+review is a necessary first step in understanding the expected muscle activation
+levels during variations of the standard PU, from which future research with
+patient populations can be compared. Further, this review highlights the need
+for future research to investigate rotator cuff, deltoid, and trunk stabilizer
+muscle activity during variations of the standard PU, as these muscle groups can
+play an important role in upper extremity rehabilitation.
+Conclusion
+This scoping review provides clinicians and other exercise or sport performance
+professionals with an EMG-based framework from which PU variations can be prescribed
+to target specific muscles. Prescribing PU variations with progressively greater
+muscle activation levels will prepare individuals for the upper extremity control
+and strength demands of safe return to work or sport. This review advances the
+existing framework for upper extremity weight bearing exercise prescription, which
+may be incorporated into established rehabilitation protocols, such as the Derby
+Shoulder Instability Rehabilitation Program for atraumatic recurrent shoulder instability
+42
+ or late to end-stage rehabilitation in individuals with work or sport-related
+upper extremity weight bearing demands. However, further investigation is required
+to determine if these muscle activation levels during PU variations are similar in
+individuals with shoulder pain or pathology.
+Supplementary Material
+Supplementary material
+Acknowledgements
+The authors thank A Dib, N Dua, S Hasan and A Younes for their efforts in the
+literature search, selection and data extraction process, as well as J Mistry for
+being a model in the PU figures. This paper is not based on a previous communication
+to a society or meeting.
+Contributorship:
+ JS and DC conceived the study; KK, DC, JS and JJ reviewed the literature and
+extracted data; KK performed the analysis; KK, JS, DC and JJ interpreted the
+data; KK drafted the manuscript and created figures; JS, DC and JJ critically
+reviewed and edited the manuscript; all authors approved the final version of
+the manuscript.
+Declaration of Conflicting Interests:
+ The author(s) declared no potential conflicts of interest with respect to the
+research, authorship, and/or publication of this article.
+Funding:
+ The author(s) received no financial support for the research, authorship, and/or
+publication of this article.
+Guarantor:
+ DC
+ORCID iD:
+ Denise M Connelly 
+https://orcid.org/0000-0001-8138-1746
+Supplemental material:
+ Supplemental material for this article is available online.
+Ethical Review and Patient Consent
+N/A for this scoping review.
+References
+1.
+Reinold MM, Escamilla R, Wilk KE. Current concepts in the scientific and clinical
+rationale behind exercises for glenohumeral and scapulothoracic
+musculature. J Orthop Sports Phys Ther
+2009; 39:
+105–117.
+2.
+Bleichert S, Renaud G, MacDermid J, et al. 
+Rehabilitation of symptomatic atraumatic degenerative rotator
+cuff tears: a clinical commentary on assessment and
+management. J Hand Ther
+2017; 30:
+125–135.
+3.
+Steuri R, Sattelmayer M, Elsig S, et al. 
+Effectiveness of conservative interventions including exercise,
+manual therapy and medical management in adults with shoulder impingement: a
+systematic review and meta-analysis of RCTs. Br J
+Sport Med
+2017; 51:
+1340–1347.
+4.
+Castelein B, Cagnie B, Cools A. Scapular muscle dysfunction associated with
+subacromial pain syndrome. J Hand Ther
+2017; 30:
+136–146.
+5.
+Lephart SM, Pincivero DM, Giraldo JL, et al. 
+The role of proprioception in the management and rehabilitation
+of athletic injuries. Am J Sports Med
+1997; 25:
+130–137.
+6.
+Wright AA, Hegedus EJ, Tarara DT, et al. 
+Exercise prescription for overhead athletes with shoulder
+pathology: a systematic review with best evidence synthesis.
+Br J Sport Med
+2018; 52:
+231–237.
+7.
+Freeman S, Karpowicz A, Gray J, et al. 
+Quantifying muscle patterns and spine load during various forms
+of the push-up. Med Sci Sports Exerc
+2006; 38:
+570–577.
+8.
+Cricchio M, Frazer C. Scapulothoracic and scapulohumeral exercises: a
+narrative review of electromyographic studies. J
+Hand Ther
+2011; 24:
+322–334.
+9.
+Kang DH, Jung SY, Nam DH, et al. 
+The effects of push-ups with the trunk flexed on the shoulder and
+trunk muscles. J Phys Ther Sci
+2014; 26:
+909–910.
+10.
+Borreani S, Calatayud J, Colado JC, et al. 
+Shoulder muscle activation during stable and suspended push-ups
+at different heights in healthy subjects. Phys Ther
+Sport
+2015; 16:
+248–254.
+11.
+Batbayar Y, Uga D, Nakazawa R, et al. 
+Effect of various hand position widths on scapular stabilizing
+muscles during the push-up plus exercise in healthy people.
+J Phys Ther Sci
+2015; 27:
+2573–2576.
+12.
+Cho SH, Baek IH, Cheon JY, et al. 
+Effect of the push-up plus (PUP) exercise at different shoulder
+rotation angles on shoulder muscle activities. J
+Phys Ther Sci
+2014; 26:
+1737–1740.
+13.
+Borreani S, Calatayud J, Colado JC, et al. 
+Muscle activation during push-ups performed under stable and
+unstable conditions. J Exerc Sci Fit
+2015; 13:
+94–98.
+14.
+Calatayud J, Borreani S, Colado JC, et al. 
+Muscle activation during push-ups with different suspension
+training systems. J Sport Sci Med
+2014; 13:
+502–510.
+15.
+Levac D, Colquhoun H, O’Brien KK. Scoping studies: advancing the
+methodology. Implement Sci
+2010; 5:
+1–9.
+16.
+Colquhoun HL, Levac D, O’Brien KK, et al. 
+Scoping reviews: time for clarity in definition, methods, and
+reporting. J Clin Epidemiol
+2014; 67:
+1291–1294.
+17.
+Tricco AC, Lillie E, Zarin W, et al. 
+PRISMA extension for scoping reviews (PRISMA-ScR): checklist and
+explanation. Ann Intern Med
+2018; 169:
+467–473.
+18.
+Tucker WS, Armstrong CW, Gribble PA, et al. 
+Scapular muscle activity in overhead athletes with symptoms of
+secondary shoulder impingement during closed chain
+exercises. Arch Phys Med Rehabil
+2010; 91:
+550–556.
+19.
+Ashnagar Z, Shadmehr A, Hadian M, et al. 
+The effects of whole body vibration on EMG activity of the upper
+extremity muscles in static modified push up position.
+J Back Musculoskelet Rehabil
+2016; 29:
+557–563.
+20.
+Stoelting KJ. The effects of hand placement on muscle activation
+during a closed kinetic chain exercise in physically active
+females, Toledo:
+University of Toledo,
+2008.
+21.
+de Araújo RC, Pirauá ALT, Beltrão NB, et al. 
+Activity of periscapular muscles and its correlation with
+external oblique during push-up: does scapular dyskinesis change the
+electromyographic response?
+J Sports Sci
+2018; 36:
+571–577.
+22.
+de Araújo RC, Nascimento VYS, Torres RJB, et al. 
+Can the use of unstable surfaces and instruction for conscious
+abdominal contraction increase the EMG activity of the periscapular muscles
+during the dynamic push-up?
+J Sport Rehabil
+2019; 29:
+225–230.
+23.
+Santos MR, Cavalcante BR, Ferreira FLS, et al. 
+Effects of conscious abdominal contraction on periscapular muscle
+activity. Clin Kinesiol
+2018; 72:
+23–28.
+24.
+McGill SM, Cannon J, Andersen JT. Analysis of pushing exercises: muscle activity
+and spine load while contrasting techniques on stable surfaces with a labile
+suspension strap training system. J Strength Cond
+Res
+2014; 28:
+105–116.
+25.
+Marshall P, Murphy B. Changes in muscle activity and perceived
+exertion during exercises performed on a Swiss ball.
+Appl Physiol Nutr Metab
+2006; 31:
+376–383.
+26.
+Cogley RM, Archambault TA, Fibeger JF, et al. 
+Comparison of muscle activation using various hand positions
+during the push-up exercise. J Strength Cond
+Res
+2005; 19:
+628–633.
+27.
+Snarr RL, Esco MR. Electromyographic comparison of traditional and
+suspension push-ups. J Hum Kinet
+2013; 39:
+75–83.
+28.
+Tucker WS, Campbell BM, Swartz EE, et al. 
+Electromyography of 3 scapular muscles: a comparative analysis of
+the cuff link device and a standard push-up. J Athl
+Train
+2008; 43:
+464–469.
+29.
+Gioftsos G, Arvanitidis M, Tsimouris D, et al. 
+EMG activity of the serratus anterior and trapezius muscles
+during the different phases of the push-up plus exercise on different
+support surfaces and different hand positions. J
+Phys Ther Sci
+2016; 28:
+2114–2118.
+30.
+Calatayud J, Borreani S, Colado JC, et al. 
+Muscle activity levels in upper-body push exercises with
+different loads and stability conditions. Phys
+Sportsmed
+2014; 42:
+106–118.
+31.
+Decker MJ, Tokish JM, Ellis HB, et al. 
+Subscapularis muscle activity during selected rehabilitation
+exercises. Am J Sports Med
+2003; 31:
+126–134.
+32.
+Park SY, Yoo WG. Activation of the serratus anterior and upper
+trapezius in a population with winged and tipped scapulae during
+push-up-plus and diagonal shoulder-elevation. J Back
+Musculoskelet Rehabil
+2015; 28:
+7–12.
+33.
+Park S, Yoo W, Kim M, et al. 
+Differences in EMG activity during exercises targeting the
+scapulothoracic region: a preliminary study. Man
+Ther
+2013; 18:
+512–518.
+34.
+Hwang U-J, Kwon O-Y, Jeon I-C, et al. 
+Effect of humeral elevation angle on electromyographic activity
+in the serratus anterior during the push-up plus exercise.
+J Sport Rehabil
+2015; 26:
+57–64.
+35.
+Tucker WS, Gilbert ML, Gribble PA, et al. 
+Effects of hand placement on scapular muscle activation during
+the push-up plus exercise. Athl Train Sport Heal
+Care
+2009; 1:
+107–113.
+36.
+Ludewig PM, Hoff MS, Osowski EE, et al. 
+Relative balance of serratus anterior and upper trapezius muscle
+activity during push-up exercises. Am J Sports
+Med
+2004; 32:
+484–493.
+37.
+Calatayud J, Borreani S, Colado JC, et al. 
+Muscle activation differences between stable push-ups and
+push-ups with a unilateral v-shaped suspension system at different
+heights. Motricidade
+2014; 10:
+84–93.
+38.
+Lehman GJ, Gilas D, Patel U. An unstable support surface does not increase
+scapulothoracic stabilizing muscle activity during push up and push up plus
+exercises. Man Ther
+2008; 13:
+500–506.
+39.
+Lehman GJ, MacMillan B, MacIntyre I, et al. 
+Shoulder muscle EMG activity during push up variations on and off
+a Swiss ball. Dyn Med
+2006; 5:
+11–16.
+40.
+Torres RJB, Piraua ALT, Nascimento VYS, et al. 
+Shoulder muscle activation levels during the push-up-plus
+exercise on stable and unstable surfaces. J Sport
+Rehabil
+2017; 26:
+281–286.
+41.
+Westrick RB, Miller JM, Carow SD, et al. 
+Exploration of the Y-balance test for assessment of upper quarter
+closed kinetic chain performance. Int J Sports Phys
+Ther
+2012; 7:
+139–147.
+42.
+Bateman M, Osborne SE, Smith BE. Physiotherapy treatment for atraumatic recurrent
+shoulder instability: updated results of the Derby Shoulder Instability
+Rehabilitation Programme. J Arthrosc Jt
+Surg
+2019; 6:
+35–41.
+43.
+Escamilla RF, Yamashiro K, Paulos L, et al. 
+Shoulder muscle activity and function in common shoulder
+rehabilitation exercises. Sport Med
+2009; 39:
+663–685.
+44.
+DiGiovine NM, Jobe FW, Marilyn P, et al. 
+An electromyographic analysis of the upper extremity in
+pitching. J Shoulder Elbow Surg
+1992; 1:
+15–25.
+45.
+Uhl TL, Muir TA, Lawson L. Electromyographical assessment of passive,
+active assistive, and active shoulder rehabilitation
+exercises. PM R
+2010; 2:
+132–141.
+46.
+Suprak DN, Bohannon J, Morales G, et al. 
+Scapular kinematics and shoulder elevation in a traditional
+push-up. J Athl Train
+2013; 48:
+826–835.
+47.
+Lunden JB, Braman JP, Laprade RF, et al. 
+Shoulder kinematics during the push-up plus
+exercise. J Shoulder Elbow Surg
+2010; 19:
+216–223.
+48.
+Johnson G, Bogduk N, Nowitzke A, et al. 
+Anatomy and actions of the trapezius muscle.
+Clin Biomech
+1994; 9:
+44–50.
+49.
+Kibler BW, Sciascia A, Wilkes T. Scapular dyskinesis and its relation to shoulder
+injury. J Am Acad Orthop Surg
+2012; 20:
+364–372.
+50.
+Cools AM, Dewitte V, Lanszweert F, et al. 
+Rehabilitation of scapular muscle balance: which exercises to
+prescribe?
+Am J Sports Med
+2007; 35:
+1744–1751.
+51.
+Uhl TL, Carver TJ, Mattacola CG, et al. 
+Shoulder muscle activation during upper extremity weight-bearing
+exercise. J Orthop Sport Phys Ther
+2003; 33:
+109–117.
+52.
+Behm D, Colado JC. The effectiveness of resistance training using
+unstable surfaces and devices for rehabilitation.
+Int J Sports Phys Ther
+2012; 7:
+226–241.
+53.
+Behm DG, Colado Sanchez JC. Instability resistance training across the
+exercise continuum. Sports Health
+2013; 5:
+500–503.
+54.
+Karabay D, Emük Y, Özer Kaya D. Muscle activity ratios of scapular stabilizers
+during closed kinetic chain exercises in healthy shoulders: a systematic
+review. J Sport Rehabil
+2019; 29:
+1001–1018.
+55.
+Ebben WP, Wurm B, Vanderzanden TL, et al. 
+Kinetic analysis of several variations of
+push-ups. J Strength Cond Res
+2011; 25:
+2891–2894.
+56.
+Giancotti GF, Fusco A, Varalda C, et al. 
+Biomechanical analysis of suspension training
+push-up. J Strength Cond Res
+2018; 32:
+602–609.
+57.
+Decker MJ, Hintermeister RA, Faber KJ, et al. 
+Serratus anterior muscle activity during selected rehabilitation
+exercises. Am J Sports Med
+1999; 27:
+784–791.
+58.
+Park K-M, Cynn H-S, Kwon O-Y, et al. 
+Comparison of pectoralis major and serratus anterior muscle
+activities during different push-up plus exercises in subjects with and
+without scapular winging. J Strength Cond
+Res
+2014; 28:
+2546–2551.
+59.
+Simoneau JA, Lortie G, Boulay MR, et al. 
+Skeletal muscle histochemical and biochemical characteristics in
+sedentary male and female subjects. Can J Physiol
+Pharmacol
+1985; 63:
+30–35.
+60.
+Jakobi JM, Haynes EMK, Smart RR. Is there sufficient evidence to explain the
+cause of sexually dimorphic behaviour in force steadiness?
+Appl Physiol Nutr Metab
+2018; 43:
+1207–1214.
+61.
+Hunter SK. Sex differences in human fatigability:
+mechanisms and insight to physiological responses.
+Acta Physiol (Oxf)
+2014; 210:
+768–789.
+62.
+Côté JN. A critical review on physical factors and
+functional characteristics that may explain a sex/gender difference in
+work-related neck/shoulder disorders.
+Ergonomics
+2012; 55:
+173–182.
+63.
+Enoka RM, Duchateau J. Muscle fatigue: what, why and how it influences
+muscle function. J Physiol
+2008; 586:
+11–23.
+Associated Data
+Supplementary Materials
+Supplementary material

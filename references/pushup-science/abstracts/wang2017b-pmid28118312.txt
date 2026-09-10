@@ -1,0 +1,43 @@
+1. J Strength Cond Res. 2017 Dec;31(12):3411-3416. doi: 
+10.1519/JSC.0000000000001784.
+
+Effects of Different Relative Loads on Power Performance During the Ballistic 
+Push-up.
+
+Wang R(1), Hoffman JR(1), Sadres E(1)(2), Bartolomei S(1), Muddle TWD(1), Fukuda 
+DH(1), Stout JR(1).
+
+Author information:
+(1)Institute of Exercise Physiology and Wellness, University of Central Florida, 
+Orlando, Florida.
+(2)The Nat Holman School for Coaches and Instructors, Wingate Institute for 
+Physical Education and Sport, Netanya, Israel.
+
+Wang, R, Hoffman, JR, Sadres, E, Bartolomei, S, Muddle, TWD, Fukuda, DH, and 
+Stout, JR. Effects of different relative loads on power performance during the 
+ballistic push-up. J Strength Cond Res 31(12): 3411-3416, 2017-The purpose of 
+this investigation was to examine the effect of load on force and power 
+performance during a ballistic push-up. Sixty (24.5 ± 4.3 years, 1.75 ± 0.07 m, 
+and 80.8 ± 13.5 kg) recreationally active men who participated in this 
+investigation completed all testing and were included in the data analysis. All 
+participants were required to perform a 1 repetition maximum bench press, and 
+ballistic push-ups without external load (T1), with 10% (T2) and 20% (T3) of 
+their body mass. Ballistic push-ups during T2 and T3 were performed using a 
+weight loaded vest. Peak and mean force, power, as well as net impulse and 
+flight time were determined for each ballistic push-up. Peak and mean force were 
+both significantly greater (p < 0.01) during T3 (1,062 ± 202 and 901 ± 154 N, 
+respectively), than both T2 (1,017 ± 202 and 842 ± 151 N, respectively) and T1 
+(960 ± 188 and 792 ± 140 N, respectively). Peak and mean power were 
+significantly greater (p < 0.01) during T1 (950 ± 257 and 521 ± 148 W, 
+respectively), than both T2 (872 ± 246 and 485 ± 143 W, respectively) and T3 
+(814 ± 275 and 485 ± 162 W, respectively). Peak and mean power were greatest 
+during T1, regardless of participants' strength levels. Significant (p < 0.01) 
+greater net impulse and smaller peak velocity and flight time were also noted 
+from T1 to T3. Results of this investigation indicated that maximal power 
+outputs were achieved without the use of an external load when performing the 
+ballistic push-up, regardless of the participants' level of strength.
+
+DOI: 10.1519/JSC.0000000000001784
+PMID: 28118312 [Indexed for MEDLINE]
+
+Notes for this project: companion paper to wang2017a, same 60-man cohort (24.5+/-4.3y, 1.75+/-0.07m, 80.8+/-13.5kg), ballistic push-up under 3 loads (T1 bodyweight-only, T2 +10%BM vest, T3 +20%BM vest). DIRECT MEASURED FORCE NUMBERS (this is a genuine peak-force-including-acceleration-term dataset): peak/mean force T1 960+/-188 / 792+/-140 N; T2 1017+/-202 / 842+/-151 N; T3 1062+/-202 / 901+/-154 N (all T3>T2>T1, p<.01). Peak/mean power highest at T1 (bodyweight only, no external load): 950+/-257 / 521+/-148 W, decreasing at T2 (872+/-246 / 485+/-143 W) and T3 (814+/-275 / 485+/-162 W) -- i.e. loading the ballistic push-up increases force but decreases power, mirroring the classic force-velocity power-optimum finding from ballistic barbell training. Closed access (JSCR/LWW); no PMC copy found.

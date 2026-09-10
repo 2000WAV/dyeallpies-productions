@@ -1,0 +1,53 @@
+1. J Back Musculoskelet Rehabil. 2021;34(1):3-16. doi: 10.3233/BMR-191771.
+
+Optimal activation ratio of the scapular muscles in closed kinetic chain 
+shoulder exercises: A systematic review.
+
+Mendez-Rebolledo G(1)(2), Morales-Verdugo J(3), Orozco-Chavez I(4), Habechian 
+FAP(5), Padilla EL(6), de la Rosa FJB(2).
+
+Author information:
+(1)Escuela de Kinesiología, Facultad de Salud, Universidad Santo Tomás, Chile.
+(2)Universidad Pablo de Olavide, Seville, Spain.
+(3)Departamento de Ciencias Preclínicas, Facultad de Medicina, Universidad 
+Católica del Maule, Talca, Chile.
+(4)Departamento de Ciencias del Movimiento Humano, Facultad de Ciencias de la 
+Salud, Universidad de Talca, Talca, Chile.
+(5)Laboratorio de Investigación Clínica en Kinesiología, Departamento de 
+Kinesiología, Facultad de Ciencias de la Salud, Universidad Católica del Maule, 
+Talca, Chile.
+(6)Postgrado en Ciencias del Ejercicio y del Deporte, Universidad Estatal del 
+Valle de Ecatepec, México.
+
+BACKGROUND: Muscle synergies contribute to scapular position during arm 
+movement. The trapezius and serratus anterior (SA) muscles are the main 
+stabilizers and are therefore the main target muscles of therapeutic exercises.
+OBJECTIVE: To systematically review the current literature investigating the 
+optimal activation ratio of the scapular muscles during a range of closed 
+kinetic chain exercises.
+METHODS: A systematic review search was conducted to identify studies reporting 
+shoulder electromyography (EMG) activity during rehabilitation exercises in 
+healthy participants. The search was conducted in PubMed, Cochrane Library, 
+MEDLINE, CINAHL, Scopus, SPORTDiscus, and ScienceDirect. The included studies 
+reported closed kinetic chain exercises and the muscle activity as a percentage 
+of maximum voluntary isometric contraction (%MVIC) or muscle ratios of the lower 
+trapezius (LT), middle trapezius (MT), and SA with respect to the upper 
+trapezius (UT). Muscle ratios were classified as optimal if they were equal to 
+or lower than 0.6, and the adapted Newcastle-Ottawa Scale (NOS) was used to 
+evaluate the methodological quality of the selected studies.
+RESULTS: Twenty-nine studies were included in this review; 7 main exercises and 
+30 variations of these were reported. The average electromyographic activity of 
+the concentric and eccentric phase was considered. Half Push Up, Push Up Plus, 
+and Scap Protraction exercises showed optimal SA activity (UT/SA < 0.6), while 
+Press Up, Half Push Up, and One Hand Plank exercises showed optimal LT activity 
+(UT/LT < 0.6). According to the NOS, 15 studies were classified as moderate 
+methodological quality.
+CONCLUSIONS: The exercises in higher positions (e.g. exercises with the trunk 
+closest to the vertical line) or unstable surfaces tend to favor UT activity 
+over the MT, LT and SA. The exercises including scapular retraction showed 
+optimal UT/MT and UT/LT ratios, while those including scapular protraction 
+showed optimal UT/SA ratios. This will assist therapists in the correct 
+selection of exercises for shoulder rehabilitation.
+
+DOI: 10.3233/BMR-191771
+PMID: 32831190 [Indexed for MEDLINE]

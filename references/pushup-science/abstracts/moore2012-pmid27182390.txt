@@ -1,0 +1,38 @@
+1. Int J Exerc Sci. 2012 Oct 15;5(4):334-343. doi: 10.70252/ILNL1678. eCollection
+ 2012.
+
+Kinematic Analysis of Four Plyometric Push-Up Variations.
+
+Moore LH(1), Tankovich MJ(1), Riemann BL(1), Davies GJ(1).
+
+Author information:
+(1)Biodynamics and Human Performance Center, Armstrong Atlantic State 
+University, Savannah, GA, USA.
+
+Plyometric research in the upper extremity is limited, with the effects of 
+open-chain plyometric exercises being studied most. Kinematic and ground 
+reaction force data concerning closed-chain upper extremity plyometrics has yet 
+to be examined. Twenty-one recreationally active male subjects performed four 
+variations of plyometric push-ups in a counterbalanced order. These included box 
+drop push-ups from 3.8 cm, 7.6 cm, 11.4 cm heights, and clap push-ups. 
+Kinematics of the trunk, dominant extremity and both hands were collected to 
+examine peak flight, elbow flexion at ground contact, elbow displacement, and 
+hand separation. Additionally peak vertical ground reaction force was measured 
+under the dominant extremity. The 11.4 cm and clap push-ups had significantly 
+higher peak flight than the other variations (P<.001). At ground contact, the 
+elbow was in significantly greater flexion for the 3.8 cm and clap push-up 
+compared to the other variations (P<.001). The clap push-up had significantly 
+more elbow displacement than the other variations (P<.001) while hand separation 
+was not significantly different between variations (P=.129). Peak vertical 
+ground reaction force was significantly greater for the clap push-ups than for 
+all other variations (P< .001). Despite similar flight heights between the 11.4 
+cm and clap push-ups, the greater peak vertical ground reaction force and elbow 
+displacement of the clap push-ups indicates the clap push-up is the most intense 
+of the variations examined. Understanding the kinematic variables involved will 
+aid in the creation of a closed chain upper-extremity plyometric progression.
+
+DOI: 10.70252/ILNL1678
+PMCID: PMC4738879
+PMID: 27182390
+
+Notes for this project: OPEN ACCESS (PMCID PMC4738879), full text fetched -- see papers/moore2012-plyometric-pushup-kinematics.xml and -extract.txt. Table 2 gives peak vGRF at landing (BW-normalized) for 3 box-drop heights (3.8/7.6/11.4cm) and clap push-up: 0.69+/-.11, 0.71+/-.12, 0.71+/-.12, 0.78+/-.15 BW respectively; elbow flexion at ground contact -19.4 to -29.9 degrees (more flexed at the lowest box and the clap condition).

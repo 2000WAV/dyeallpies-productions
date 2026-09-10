@@ -1,0 +1,59 @@
+1. Front Physiol. 2023 Dec 5;14:1296279. doi: 10.3389/fphys.2023.1296279. 
+eCollection 2023.
+
+Electromyography of scapular stabilizers in people without scapular dyskinesis 
+during push-ups: a systematic review and meta-analysis.
+
+Arghadeh R(1), Alizadeh MH(#)(1), Minoonejad H(#)(1), Sheikhhoseini R(#)(2), 
+Asgari M(#)(3), Jaitner T(#)(3).
+
+Author information:
+(1)Department of Sports Injury and Biomechanics, Faculty of Sport Sciences and 
+Health, University of Tehran, Tehran, Iran.
+(2)Department of Corrective Exercises and Sports Injury, Faculty of Physical 
+Education and Sport Sciences, Allameh Tabataba'i University, Tehran, Iran.
+(3)Institute for Sport and Sport Science, TU Dortmund University, Dortmund, 
+Germany.
+(#)Contributed equally
+
+Background: Push-up (PU) is widely considered an effective exercise to stabilize 
+the scapular, especially if performed on unstable surfaces. However, available 
+studies cover a wide range of exercise variations and differ according to 
+exercise prescription, muscle selection and study design. Therefore, findings 
+are contradictory, and conclusions for a proper application of the PU are 
+difficult to draw. Objective: To synthesize the available literature on the 
+changes in the activity of the periscapular muscles in individuals without 
+scapular dyskinesis while performing different types of PU on unstable surfaces. 
+Search procedure: Four online databases were searched from the earliest 
+publications to 9 August 2023, using predefined keywords. Out of the 2,850 
+potential references identified in the primary search, 92 studies were reviewed 
+in detail, of which 38 met the inclusion criteria and were included. 
+Methodological quality was evaluated using a standardized form based on the 
+Newcastle‒Ottawa scale for observational studies. Data combination was performed 
+using CMA (v3), and the random-effects model was used to calculate the 
+standardized mean difference (SMD) with a 95% confidence interval (CI). Results: 
+The use of unstable surfaces in people without scapular dyskinesis led to 
+increased activity of the upper trapezius during the PU (p = 0.017; I2 = 84.95%; 
+SMD = 0.425 [95% CI 0.077, 0.773]) and knee PU (p = 0.023; I2 = 70.23%; SMD = 
+0.474 [95% CI 0.066, 0.882]) exercises and increased activity of the middle 
+trapezius (MT) (p = 0.003; I2 = 64.50%; SMD = 0.672 [95% CI 0.225, 1.119]) and 
+serratus anterior (SA) (p = 0.039; I2 = 4.25%; SMD = 0.216 [95% CI 0.011, 
+0.420]) muscles during the push-up plus (PUP) exercise. Conclusion: Using an 
+unstable support base during PU does not necessarily increase the activity of 
+all scapular stabilizers. The amount of muscle activity depends on the type of 
+PU other than the type of support base. If an unstable surface is used, PUP 
+exercise appears to be the most effective modality to increase the quality of 
+training, improve performance, and prevent the occurrence of scapular dyskinesis 
+due to the increase in the activity of the MT and SA muscles. Systematic Review 
+Registration: http://www.crd.york.ac.uk/PROSPERO, CRD42021268465.
+
+Copyright © 2023 Arghadeh, Alizadeh, Minoonejad, Sheikhhoseini, Asgari and 
+Jaitner.
+
+DOI: 10.3389/fphys.2023.1296279
+PMCID: PMC10728295
+PMID: 38116582
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.

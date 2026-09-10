@@ -1,0 +1,39 @@
+Moore LH, Tankovich MJ, Riemann BL, Davies GJ (2012). Kinematic Analysis of Four Plyometric
+Push-Up Variations. Int J Exerc Sci 5(4):334-343. PMID 27182390. PMCID PMC4738879. Open access.
+
+21 recreationally active men. Four plyometric push-up variants: box drop from 3.8 cm (BD1),
+7.6 cm (BD2), 11.4 cm (BD3), and clap push-up (CPU). Kinematics of trunk/dominant-arm/both hands
+via electromagnetic tracking; peak vertical GRF under the dominant hand via force plate (1000 Hz).
+
+TABLE (mean +/- SD; body-weight-normalized Peak vGRF):
+
+                    BD1            BD2            BD3            CPU
+Peak Flight (m)     .76 +/- .05    .82 +/- .04 b  .85 +/- .05 a  .87 +/- .06 a
+EF at GC (deg) *    -27.03+/-8.92c -20.79+/-9.33  -19.49+/-8.98  -29.91+/-9.40 c
+EF Displacement(deg)* -10.17+/-5.50 -8.02+/-4.76  -10.20+/-4.53  -20.79+/-7.77 d
+Hand Separation (m) .55 +/- .09    .53 +/- .06    .52 +/- .08    .55 +/- .08
+Peak vGRF (BW)      .69 +/- .11    .71 +/- .12    .71 +/- .12    .78 +/- .15 d
+
+* negative = elbow flexion (i.e. more negative = MORE flexed at ground contact)
+a = sig. greater than BD1; b = sig. greater than BD1; c = sig. greater than BD2 and BD3;
+d = sig. greater than BD3, BD2 and BD1.
+
+NOTE ON "Peak Flight (m)" UNITS: defined in Methods as "the maximal vertical trunk position during
+flight" -- i.e. an ABSOLUTE marker height (trunk marker height off the floor at flight apex), NOT a
+displacement/jump-height delta. Do not read .76-.87 m as "how high the hands left the floor" (that
+would be physically implausible for a push-up) -- it is the trunk marker's height above the floor,
+consistent with an inclined prone-launch body position.
+
+KEY NUMBER for 02-pushup-hand-force-and-joint-moments.md: peak landing vGRF on the (dominant) hand
+during a plyometric push-up ranges ~0.69-0.78x bodyweight across box-drop heights 3.8-11.4 cm and
+the clap variant, with the clap push-up producing significantly higher landing force (0.78 BW) than
+all three box-drop heights despite similar peak-flight height to BD3 -- the paper's own stated
+conclusion is that the CLAP push-up is the most mechanically intense of the four variants tested,
+combining high landing force with the greatest elbow-flexion displacement (most eccentric control
+required).
+
+Cites Freeman S, Karpowicz A, Gray J, McGill S (2006). "Quantifying muscle patterns and spine loading
+during various forms of the push-up." Med Sci Sports Exerc 38(3):570-577. PMID 16540847 -- a McGill-
+lab push-up biomechanics paper (spine loading focus); not separately re-fetched this session (outside
+this file's elbow/shoulder/hand-force scope; see the EMG/anatomy-focused companion sweep for spine-
+loading numbers if archived there).

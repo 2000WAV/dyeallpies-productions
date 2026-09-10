@@ -1,0 +1,313 @@
+Available online at www.sciencedirect.com
+
+      ScienceDirect
+
+Journal of Exercise Science & Fitness 13 (2015) 94e98
+
+                                                                          www.elsevier.com/locate/jesf
+
+Original article
+
+Muscle activation during push-ups performed under
+             stable and unstable conditions
+
+Sebastien Borreani a, Joaquin Calatayud a, Juan Carlos Colado a,*, Diego Moya-Najera a,
+                               N. Travis Triplett b, Fernando Martin a
+
+        a Research Group in Sport and Health, Laboratory of Physical Activity and Health, Department of Physical Education and Sports,
+                                                                 University of Valencia, Valencia, Spain
+
+                         b Department of Health, Leisure, and Exercise Science, Appalachian State University, Boone, NC, USA
+
+                                             Received 17 June 2013; revised 13 May 2015; accepted 14 July 2015
+                                                                   Available online 2 September 2015
+
+Abstract
+
+Background/Objective: The purpose of this study was to analyze muscle activation when performing push-ups under different stability
+conditions.
+Methods: Physically fit young male university students (N ¼ 30) performed five push-ups under stable conditions (on the floor) and using four
+unstable devices (wobble board, stability disc, fitness dome, and the TRX Suspension Trainer). The push-up speed was controlled using a
+metronome, and the testing order was randomized. The average amplitudes of the electromyographic (EMG) root mean square of the anterior
+deltoid (DELT), serratus anterior (SERRA), lumbar multifidus (LUMB), and rectus femoris (FEM) were recorded. The electromyographic
+signals were normalized to the maximum voluntary isometric contraction (MVIC).
+Results: No significant differences were found for the DELT [F(4,112) ¼ 1.978; p ¼ 0.130] among the conditions. However, statistically
+significant differences were found among the different conditions for the SERRA [F(4,60) ¼ 17.649; p < 0.001], LUMB [F(4,76) ¼ 12.334;
+p < 0.001], and FEM [F(4,104) ¼ 24.676; p < 0.001] muscle activation. The suspended device was the only condition that elicited higher LUMB
+and FEM activation compared to the other conditions. Push-ups performed on the floor showed lower SERRA activation than those performed
+with all unstable devices.
+Conclusion: Not all unstable devices enhance muscle activation compared to traditional push-ups.
+Copyright © 2015, The Society of Chinese Scholars on Exercise Physiology and Fitness. Published by Elsevier (Singapore) Pte Ltd. This is an
+open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+Keywords: Core; EMG; Instability
+
+Introduction                                                              few years, various unstable devices, such as stability balls or
+                                                                          Swiss balls,2 suspended devices,3 and basketball balls,1 have
+   Push-up exercise is normally used to strengthen the torso or
+upper body.1 In contrast to the classic push-up performed on              been used to perform the push-up exercise. However, only a
+the floor, the use of unstable devices during exercise may lead
+to the recruitment of different muscle patterns. During the past          few studies have compared the muscle activation using sus-
+
+ * Corresponding author. Universidad de Valencia (FCAFE), Aulario Multi-  pension equipment with other typical unstable bases.
+usos, road Gasco Oliag, 3, 46010 Valencia, Spain.
+                                                                             The use of unstable devices has been reported to increase
+    E-mail address: juan.colado@uv.es (J.C. Colado).
+                                                                          the activation of specific muscles compared to a push-up
+                                                                          performed on a stable surface.1e3 Concretely, a significant
+
+                                                                          increase has been reported in the activation of muscles in the
+
+                                                                          abdominal wall during suspended push-ups in comparison
+                                                                          with those performed under stable conditions.3 Furthermore,
+
+http://dx.doi.org/10.1016/j.jesf.2015.07.002
+1728-869X/Copyright © 2015, The Society of Chinese Scholars on Exercise Physiology and Fitness. Published by Elsevier (Singapore) Pte Ltd. This is an open access article under the
+CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+S. Borreani et al. / Journal of Exercise Science & Fitness 13 (2015) 94e98  95
+
+greater triceps brachii activation during push-ups on a Swiss     study had musculoskeletal pain, neuromuscular disorders, or
+ball and greater upper trapezius activation during a one-arm      any form of joint or bone disease. The present study was
+maintained push-up on a medicine ball have also been re-          performed during the spring. All participants signed an insti-
+ported.2,4 On the contrary, for the deltoid, push-ups on the      tutional informed consent form before starting the protocol,
+floor showed similar or significantly higher activation in        and the institutions' review board of the University of Valencia
+comparison with those performed on unstable surfaces.2            (Spain) approved the study. All procedures described in this
+                                                                  section comply with the requirements listed in the 1975
+   Some unstable devices have been investigated during push-      Declaration of Helsinki and its amendment in 2008.
+ups and were shown to induce higher muscle activation of core
+stabilizers, prime movers, and lower body stabilizers.1e5 In      Procedures
+addition, dual instability provoked greater muscle activation
+than single instability or the stable condition.5 However, it is     Each participant took part in two types of sessions: (1)
+unknown if suspension equipment leads to greater or smaller       familiarization and (2) experimental sessions, both at the same
+muscle activation in comparison to other commonly used            time in the morning. The first session occurred 48e72 hours
+unstable devices that can be selected to perform push-ups with    before the data collection in the experimental session. Several
+unstable bases, such as the stability disc, wobble board, and     restrictions were imposed on the volunteers: no food, drinks,
+fitness dome.                                                     or stimulants (e.g., caffeine) to be consumed 3e4 hours before
+                                                                  the sessions and no physical activity more intense than daily
+   Push-up studies usually consider the primary muscles           activities 12 hours before the exercises. They were instructed
+involved in the action as the pectoralis major,1,2 anterior       to sleep >8 hours the night before data collection.
+deltoid,1,4 and triceps brachii,1,2,5 although the first two
+muscles do not seem to be greatly affected by an unstable            During the familiarization session, participants were
+condition.1,2 Less is known regarding the effects of perform-     familiarized with the push-up exercise, unstable devices,
+ing push-ups with these devices on the recruitment of other       movement amplitude, body positioning, and the cadence of
+stabilizer muscles, such as the rectus femoris and the anterior   movement that would later be used during data collection.
+serratus, or core muscles, such as the lumbar multifidus.         Participants practiced the exercises one to three times each.
+Unstable conditions seem to enhance the activation of core        The participants' height (IP0955, Invicta Plastics Limited,
+muscles, especially when dual instability is compared to sin-     Leicester, England), body mass, body fat percentage (Tanita
+gle instability.5 It has been demonstrated that unstable devices  model BF-350; Tanita Corp., Tokyo, Japan), and biacromial
+can increase muscle activation and that efficient exercises are   width were obtained according to the protocols used in pre-
+needed for rehabilitation and athletic conditioning pro-          vious studies.10
+grams,2,4,6 therefore, the purpose of the present study was to
+compare the activity levels of the aforementioned muscles            The protocol started with the preparation of the partici-
+during stable push-ups on the floor with push-ups performed       pants' skin and was followed by electrode placement, deter-
+using different types of unstable devices (i.e., the stability    mination of the maximum voluntary isometric contraction
+disc, wobble board, fitness dome and TRX Suspension               (MVIC), and exercise performance. Hair was removed from
+Trainer).                                                         the skin overlying the muscles of interest, and the skin was
+                                                                  then cleaned by rubbing with cotton wool dipped in alcohol
+   Increases in the muscle electromyographic (EMG) signal         for the subsequent electrode placement. The electrodes were
+are associated with increases in muscle force or strength         positioned according to the recommendations of Cram et al11
+output.6,7 Exercises that produce higher EMG signal ampli-        on the anterior deltoid (DELT), serratus anterior (SERRA),
+tudes are assumed to yield greater strengthening effects.8,9      rectus femoris (FEM), and lumbar multifidus (LUMB), on the
+Hence, changes in muscle activation would be associated           dominant side of the body.
+with changes in muscle force output. We hypothesized that the
+use of unstable devices would significantly increase the acti-       In detail, distal and proximal pregelled bipolar silver/silver
+vation of all muscles, except for the anterior deltoid muscles,   chloride surface electrodes (Blue Sensor M-00-S, Medicotest,
+which were expected to show similar muscle activation under       Olstykke, Denmark) were placed with an interelectrode dis-
+both unstable and stable conditions.                              tance of 25 mm on the following muscle groups: (1) DELT (on
+                                                                  the anterior aspect of the arm, ~4 cm below the clavicle,
+Methods                                                           parallel to the muscle fibers); (2) SERRA (horizontally, just
+                                                                  below the axillary area, at the level of the inferior tip of the
+Participants                                                      scapula, and just medial and anterior to the latissimus dorsi;
+                                                                  the electrodes were anterior to the latissimus dorsi muscle); (3)
+   Young fit male university students (n ¼ 30; age: 23 ± 1.13     LUMB (parallel to the spine, ~2 cm from the L-3 vertebra over
+years; height: 178.87 ± 8.21 cm; body mass: 78.01 ± 8.5 kg;       the muscle mass); and (4) FEM (on the center of the anterior
+body fat percentage: 11.48 ± 3.18%; and biacromial (shoul-        surface of the thigh, approximately half the distance between
+der) width: 42.22 ± 12.81 cm) voluntarily participated in this    the knee and the iliac spine, parallel to the muscle fibers). A
+study. Participants had a minimum of 1 year of resistance         reference electrode was placed 10 cm away from the midpoint
+training experience, performing at least two sessions/wk at       of the two electrodes of each muscle, according to the man-
+moderate to vigorous intensity. No participant included in this   ufacturer's specifications. All signals were acquired at a
+96  S. Borreani et al. / Journal of Exercise Science & Fitness 13 (2015) 94e98
+
+sampling frequency of 1 kHz and were amplified and con-               The push-ups were performed under five conditions, on the
+verted from analog to digital. All records of myoelectrical        floor and using four unstable devices (Figure 1): a wobble
+activity (in microvolts) were stored on a hard drive for later     board (Theraband, Akron, OH, USA), stability disc (Thera-
+analysis. To acquire the surface EMG signals produced during       band), fitness dome (SportWorld Research Ltd., Moncada,
+exercise, a ME6000P8 (Mega Electronics, Ltd., Kuopio,              Valencia, Spain), and a TRX Suspension Trainer (TRX, San
+Finland) biosignal conditioner was used.                           Francisco, CA, USA). The TRX Suspension Trainer was
+                                                                   suspended from a support and comprised a main band, which
+   The MVIC was determined using fixed immovable resis-            had the main carabineer on the bottom, and a stabilizing loop,
+tance for all muscle groups before the exercises. A 5 second       where another band was locked, forming a V with handles on
+MVIC was performed for each muscle in order to estimate the        the bottom. The wobble board is a round plastic surface with a
+maximum surface electromyographic amplitude according to           hemisphere that provides multiple planes of instability. The
+the recommendations of Kendall et al12 and Konrad.13 Verbal        stability disc is an inflatable polyvinyl chloride (PVC) disc,
+encouragement was provided to motivate all participants to         which also provides multiple planes of instability. The fitness
+achieve their maximum.                                             dome is an inflatable device, which is a combination of a PVC
+                                                                   dome and rigid molded plastic (similar to a BOSU ball), and
+   The participants started the push-ups in an extended arm        the flat side was positioned on the floor. The participants' feet
+(up) position with forearms and wrists pronated and feet at the    were placed on an adjustable platform in order to maintain a
+biacromial (shoulder) width. In the down position, the forearm     horizontal body position. The order of conditions was per-
+and wrists were kept pronated, whereas the elbow was flexed        formed randomly, with a 2-minute interval between them.
+at ~90 and the shoulder was abducted at ~45. These posi-
+tions were always confirmed using a goniometer (Standard           Data analysis
+silver finger goniometer. Smith & Nephew Inc., Germantown,
+WI). The hip and spine were maintained neutral during all             All surface EMG signal analyses were performed using
+repetitions; this was verified using a laser device during the     the MATLAB 7.0 software program (Mathworks Inc.,
+execution of the repetitions (Black & Decker, series               Natick, MA, USA). Surface EMG signals related to isometric
+LZR6TP9). Each participant performed five consecutive rep-         exercises were analyzed by using the middle 3 seconds of the
+etitions under all conditions. A 2-second rate for descent and     5-second isometric contraction. The average EMG values
+ascent of an individual push-up cycle was maintained by a 30-      during the middle three repetitions of a total of five per-
+Hz metronome (Ableton Live 6, Ableton AG, Berlin, Ger-             formed push-ups were analyzed. All signals were bandpass
+many) to standardize the speed of movement.1 Each partici-         filtered at a 20- to 400-Hz cutoff frequency with a fourth-
+pant used a standardized grip at biacromial width (based on        order Butterworth filter. The surface EMG amplitude in the
+the distance in centimeters between the tips of the right and      time domain was quantified using the root mean square
+left third digits). Visual feedback was given to the participants  (RMS) and was processed every 100 ms. The mean RMS
+in order to maintain the range of movement and hand distance
+during the data collection.
+
+    Figure 1. The unstable devices used in the present study: (A) wobble board, (B) stability disc, (C) fitness dome, and (D) TRX Suspension Trainer.
+                               S. Borreani et al. / Journal of Exercise Science & Fitness 13 (2015) 94e98                                  97
+
+values were selected for every trial. The data obtained were                where all unstable devices provoked a significant increase in
+normalized by using the maximum RMS values obtained                         muscle activation compared with push-ups on the floor. Inter-
+during the MVIC and were expressed as a percentage of the                   estingly, several previous studies did not find any increases in
+maximum EMG (% MVIC).                                                       the activation of the SERRA with the addition of unstable de-
+                                                                            vices.4,15 However, in those studies, de Oliveira et al4 per-
+Statistical analysis                                                        formed a different exercise: a one-arm isometric push-up on a
+                                                                            medicine ball, and Lehman et al15 only used an exercise ball as
+   Statistical analysis was carried out using the SPSS version              the unstable equipment. Therefore, it is possible that the
+17 software program (SPSS Inc., Chicago, IL, USA). All                      different degrees of instability may have led to the differences
+variables were confirmed to be normally distributed (Shapiro-               in SERRA muscle activation. Moreover, different electrode
+Wilk's normality test) before data analysis. The results are                placements may lead to different results,16 as was established in
+reported as the means ± standard error (SE). Statistical com-               the study conducted by Park and Yoo16 who showed that the
+parisons for each muscle among the conditions were per-                     lower SERRA fibers exhibited greater activation values than the
+formed using a repeated measures analysis of variance                       upper SERRA fibers during unstable push-ups.
+(ANOVA). GreenhouseeGeisser correction was used when the
+assumption of sphericity (Mauchly's test) was violated. A post                 The LUMB is associated with the segmental stability of the
+hoc analysis with the Bonferroni correction was used in cases               lumbar spine.5,17 In the current study, only the push-ups per-
+where there were significant effects. Significance was accepted             formed with the TRX Suspension Trainer enhanced the LUMB
+for values of p  0.05.                                                      activation more than stable push-ups, although the activity
+                                                                            levels were relatively low during all five types of exercise.
+Results                                                                     Similar to our results with the wobble board, Anderson et al5
+                                                                            showed similar erector spinae muscle activation in partici-
+   No significant differences were found for the DELT                       pants performing push-ups in a stable condition and with hands
+[F(4,112) ¼ 1.978; p ¼ 0.130] among the conditions. How-                    on a balance board.5 In addition, they also found that dual
+ever, statistically significant differences were found for muscle           (hands and feet) instability generated greater lumbar activation
+activation among the different conditions for the SERRA                     than the stable condition.5 In a study conducted by Imai et al,18
+[F(4,60) ¼ 17.649; p < 0.001], LUMB [F(4,76) ¼ 12.334;                      a similar body position, the elbow-toe exercise, showed greater
+p < 0.001], and FEM [F(4,104) ¼ 24.676; p < 0.001]. The                     LUMB activation during the unstable condition in comparison
+TRX Suspension Trainer provided the highest FEM and                         with the stable condition. However, in that study, the partici-
+LUMB EMG values among the conditions. All unstable con-                     pants placed their feet on a raised balance disk, which may
+ditions provided higher EMG signals than push-ups on the                    have increased the disturbances and coactivations of the
+floor. The complete mean differences between statistically                  muscles.18 Other studies of exercises performed in a standing
+significant conditions are shown in Table 1.                                bipedal position showed that greater stability conditions pro-
+                                                                            voked greater LUMB activation than performing the same
+Discussion                                                                  exercise on an unstable surface.19,20
+
+   As we hypothesized, the DELT showed similar activation                      Similar recruitment results were found for the FEM muscle,
+during push-ups performed under both stable and unstable                    where suspended push-ups provoked greater activation than
+conditions. This result is in accordance with a previous study              the other devices and the stable condition. Push-ups performed
+that reported a similar amount of activity in this muscle during            with the TRX Suspension Trainer may require a greater extent
+push-ups with hands on two balls compared with push-ups on                  of effort to control and maintain the posture due to the nature
+the floor.1 The literature suggests that the addition of unstable           of the device, where the hands are suspended during the ex-
+devices does not increase the DELT activation.14 By contrast, a             ercise. As a hip flexor, higher FEM activation levels are known
+different level of muscle recruitment was shown in the SERRA,               to be related to a greater anterior pelvic tilt.21 Additionally,
+                                                                            suspended push-ups were shown to induce higher compressive
+                                                                            loads on the intervertebral joint than standard push-ups.3
+
+Table 1
+Mean and standard error (SE) electromyographic signal for each muscle and exercise expressed as a percent of each muscle's MVIC (n ¼ 30).
+
+                   Floor       Wobble board                         Stability disc  Fitness dome           TRX Suspension Trainer          p
+
+                   Mean   SE   Mean    SE                           Mean    SE      Mean    SE     Mean          SE                          0.130
+                                                                                                                                           <0.001
+Anterior deltoid   78.54  4.39 91.17   5.25 84.58                           6.66 83.19      4.56 83.74           5.96                      <0.001
+                                                                                                                                           <0.001
+Serratus anterior  29.07  3.76 95.83a  13.24                        84.22a  10.39   95.12a  11.68  75.48a        9.42
+
+Lumbar multifidus  3.97b 0.43  5.03b   0.59                         4.70b   0.52    4.40b   0.51           7.35  0.66
+
+Rectus femoris     20.55b 1.69 19.86b  1.71                         25.41b  0.18 24.76b     0.27 37.86           3.65
+
+MVIC ¼ maximum voluntary isometric contraction.
+  a Significant differences compared to the floor.
+ b Significant differences compared to the TRX Suspension Trainer.
+98  S. Borreani et al. / Journal of Exercise Science & Fitness 13 (2015) 94e98
+
+Therefore, inexperienced practitioners and/or those with low               2. Lehman G, MacMillan B, MacIntyre I, et al. Shoulder muscle EMG ac-
+back problems should be cautious when performing suspended                    tivity during push up variations on and off a Swissball. Dyn Med.
+push-ups.                                                                     2006;9:5e7.
+
+   In the study by Anderson et al,5 other muscles were                     3. Beach T, Howarth S, Callaghan J. Muscular contribution to low-back
+measured during the performance of push-ups under stable and                  loading and stiffness during standard and suspended push-ups. Hum Mov
+unstable conditions. The authors found that push-ups per-                     Sci. 2008;27:457e472.
+formed with the hands on a balance board generated signifi-
+cantly greater muscle activation in triceps brachii than stable            4. de Oliveira A, de Morais Carvalho M, de Brum D. Activation of the
+push-ups. However, for the soleus, rectus abdominus, and in-                  shoulder and arm muscles during axial load exercises on a stable base of
+ternal oblique muscles, no significant differences were found                 support and on a medicine ball. J Electromyogr Kinesiol.
+between these two conditions.                                                 2008;18:472e479.
+
+Conclusion                                                                 5. Anderson GS, Gaetz M, Holzmann M, et al. Comparison of EMG activity
+                                                                              during stable and unstable push-ups protocols. Eur J Apll Physiol.
+   Practitioners may use different devices to add variation in                2013;13:42e48.
+their training programs, although they should be aware that not
+all unstable devices enhance muscle activation compared to                 6. Behm D, Colado JC. The effectiveness of resistance training using unstable
+traditional exercises. Devices that provide an unstable base,                 surfaces and devices for rehabilitation. Int J Sports Phys Ther.
+such as the stability disc, fitness dome, and wobble board,                   2012;7:226e241.
+showed similar muscle activity levels and did not show addi-
+tional benefits in comparison with a stable push-up, except for            7. Bigland B, Lippold OC. The relation between force, velocity and integrated
+the activation of the SERRA. Moreover, the addition of an un-                 electrical activity in human muscles. J Physiol. 1954;123:214e224.
+stable device did not increase the DELT muscle activation, and
+thus, this muscle may respond positively to a traditional stable           8. Ayotte N, Stetts D, Keenan G, et al. Electromyographical analysis of
+push-up. The use of a suspension device provides higher muscle                selected lower extremity muscles during 5 unilateral weight-bearing exer-
+activation in the SERRA, LUMB, and FEM than stable push-ups                   cises. J Orthop Sports Phys Ther. 2007;37:48e55.
+and also provides higher LUMB and FEM activation levels than
+all of the other unstable bases. Professionals and practitioners           9. Distefano L, Blackburn J, Marshall S, et al. Gluteal muscle activation
+should select different unstable devices based on their objective             during common therapeutic exercises. J Orthop Sports Phys Ther.
+and following an adequate progression of training.                            2009;39:532e540.
+
+Conflicts of interest                                                      10. García-Masso X, Colado JC, Gonzalez L, et al. Myoelectric activation and
+                                                                                kinetics of different plyometric push-up exercises. J Strength Cond Res.
+   The authors declare no conflicts of interest.                                2011;25:2040e2047.
+
+Funding/support                                                            11. Cram JR, Kasman G, Holtz J. Introduction to Surface Electromyography.
+                                                                                Gaithersburg: Aspen Publishers; 1998.
+   No financial or grant support was received for this study.
+                                                                           12. Kendall F, McCreary E, Provance P, et al. Muscles: Testing and Function
+Acknowledgments                                                                 with Posture and Pain. 5th ed. Baltimore: Lippincott Williams & Wilkins;
+                                                                                2005.
+   The authors wish to thank the participants for their
+contribution to this study.                                                13. Konrad P. The ABC of EMG, A Practical Introduction to Kinesiological
+                                                                                Electromyography. Scottsdale: Noraxon INC; 2005.
+References
+                                                                           14. Moseley J, Jobe F, Pink M, et al. EMG analysis of the scapular muscles
+1. Freeman S, Karpowicz A, Gray J, et al. Quantifying muscle patterns and       during a shoulder rehabilitation program. Am J Sports Med.
+   spine load during various forms of the push-up. Med Sci Sports Exerc.        1992;20:128e134.
+   2006;38:570e577.
+                                                                           15. Lehman G, Gilas D, Patel U. An unstable support surface does not in-
+                                                                                crease scapulothoracic stabilizing muscle activity during push up and push
+                                                                                up plus exercises. Man Ther. 2008;13:500e506.
+
+                                                                           16. Park S, Yoo W. Differential activation of parts of the serratus anterior
+                                                                                muscle during push-up variations on stable and unstable bases of support.
+                                                                                J Electromyogr Kinesiol. 2011;21:861e867.
+
+                                                                           17. McGill S. Low back stability: from formal description to issues for per-
+                                                                                formance and rehabilitation. Exerc Sport Sci Rev. 2001;29:26e31.
+
+                                                                           18. Imai A, Kaneoka K, Okubo Y, et al. Trunk muscle activity during lumbar
+                                                                                stabilization exercises on both a stable and unstable surface. J Orthop
+                                                                                Sports Phys Ther. 2010;40:69e75.
+
+                                                                           19. Chulvi-Medrano I, Garcia-Masso X, Colado JC, et al. Deadlift muscle
+                                                                                force and activation under stable and unstable conditions. J Strength Cond
+                                                                                Res. 2010;24:2723e2730.
+
+                                                                           20. Nuzzo J, McCaulley G, Cormie P, et al. Trunk muscle activity during
+                                                                                stability ball and free weight exercises. J Strength Cond Res.
+                                                                                2008;22:95e102.
+
+                                                                           21. Sundstrup E, Jakobsen M, Andersen C, et al. Swiss ball abdominal crunch
+                                                                                with added elastic resistance is an effective alternative to training ma-
+                                                                                chines. Int J Sports Phys Ther. 2012;7:372e380.
+

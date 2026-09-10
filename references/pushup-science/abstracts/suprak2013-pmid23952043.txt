@@ -1,0 +1,50 @@
+1. J Athl Train. 2013 Nov-Dec;48(6):826-35. doi: 10.4085/1062-6050-48.5.08. Epub 
+2013 Aug 16.
+
+Scapular kinematics and shoulder elevation in a traditional push-up.
+
+Suprak DN(1), Bohannon J, Morales G, Stroschein J, San Juan JG.
+
+Author information:
+(1)Western Washington University, Bellingham.
+
+CONTEXT: Proper scapulothoracic motion is critical for the health and function 
+of the shoulder and represents a principal focus in the rehabilitation setting. 
+Variants of the traditional push-up are used frequently to help restore proper 
+scapular kinematics. To date, substantial research has focused on muscle 
+activation levels of rotator cuff and scapular-stabilizing musculature, whereas 
+a dearth of literature exists regarding scapular kinematics during push-up 
+variants.
+OBJECTIVE: To examine the effect of shoulder position on scapular kinematics 
+across the range of motion (ROM) of a traditional push-up.
+DESIGN: Cross-sectional study.
+SETTING: University laboratory.
+PATIENTS OR OTHER PARTICIPANTS: Sixteen healthy participants without a history 
+of upper extremity or spine injury requiring rehabilitation or surgery.
+INTERVENTION(S): Participants performed a traditional push-up while kinematic 
+measurements were acquired from multiple upper extremity segments. The 3 
+shoulder position conditions were (1) self-selected position, (2) shoulder 
+adducted upon ascent (at side), and (3) shoulder elevated to approximately 90°.
+MAIN OUTCOME MEASURE(S): Scapular posterior tilt, upward rotation, and external 
+rotation were examined across elbow-extension ROM and compared across 
+conditions.
+RESULTS: Posterior tilt was greater in the self-selected and at-side conditions 
+than in the elevated condition and increased linearly with elbow extension. 
+External rotation was greater in the self-selected and at-side conditions 
+compared with that in the elevated condition. In the at-side condition, upward 
+rotation began lower than in the other conditions at the start of the concentric 
+phase but increased above the others soon after the elbow started to extend.
+CONCLUSIONS: Performing a traditional push-up with the shoulders elevated may 
+place the scapula in a position of impingement. Clinicians should be cognizant 
+of shoulder elevation when prescribing and monitoring exercise progression. The 
+results of this study will provide further direction for clinicians in 
+prescribing rehabilitation exercises for the upper extremity, especially closed 
+chain exercises for shoulder conditions.
+
+DOI: 10.4085/1062-6050-48.5.08
+PMCID: PMC3867095
+PMID: 23952043 [Indexed for MEDLINE]
+
+Notes for this project: 16 participants, 3D scapular kinematics across push-up elbow-extension ROM under 3 shoulder-position conditions (self-selected / at-side / elevated ~90 degrees). Confirms elevated-shoulder push-up variant risks scapular impingement position. No absolute elbow-ROM degree number or %BW figure in the abstract. PMCID PMC3867095 listed but fullTextXML returned empty (embargoed/closed) this session.
+
+[Shared-file note added 2026-09-09: this exact filename was also written independently by a concurrent session building 01-pushup-emg-by-variant-and-phase.md (see DOWNLOADS.md, "Push-up surface EMG evidence base sweep" section) -- that session's own editorial notes on this abstract, if any were saved here before this file was rewritten, could not be recovered (no git history existed for this untracked directory at the time of the collision). The underlying PubMed abstract text above is unaffected either way. See the EMG-focused file for that session's own treatment of this paper.]

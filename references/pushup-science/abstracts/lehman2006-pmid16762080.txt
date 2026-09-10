@@ -1,0 +1,39 @@
+1. Dyn Med. 2006 Jun 9;5:7. doi: 10.1186/1476-5918-5-7.
+
+Shoulder muscle EMG activity during push up variations on and off a Swiss ball.
+
+Lehman GJ(1), MacMillan B, MacIntyre I, Chivers M, Fluter M.
+
+Author information:
+(1)Department of Graduate Studies, Canadian Memorial Chiropractic College, 
+Toronto, ON, Canada. glehman@cmcc.ca
+
+BACKGROUND: Surface instability is a common addition to traditional 
+rehabilitation and strength exercises with the aim of increasing muscle 
+activity, increasing exercise difficulty and improving joint proprioception. The 
+aim of the current study was to determine if performing upper body closed 
+kinetic chain exercises on a labile surface (Swiss ball) influences myoelectric 
+amplitude when compared with a stable surface.
+METHODS: Thirteen males were recruited from a convenience sample of college 
+students. Surface electromyograms were recorded from the triceps, pectoralis 
+major, latissimus dorsi, rectus abdominis and external oblique while performing 
+push up exercises with the feet or hands placed on a bench and separately on a 
+Swiss ball. A push up plus exercise was also evaluated with hands on the support 
+surface.
+RESULTS AND DISCUSSION: Not all muscles responded with an increase in muscle 
+activity. The pectoralis major muscle was not influenced by surface stability. 
+The triceps and rectus abdominis muscles showed increases in muscle activity 
+only when the hands were on the unstable surface. The external oblique muscle 
+was only influenced by surface stability during the performance of the push up 
+plus exercise. No muscle showed a change in activation level when the legs were 
+supported by the Swiss ball instead of the bench.
+CONCLUSION: Muscle activity can be influenced by the addition of surface 
+instability however an increase in muscle activity does not influence all 
+muscles in all conditions. The relationship between the participant's center of 
+mass, the location of the unstable surface and the body part contacting the 
+Swiss ball may be important factors in determining the muscle activation changes 
+following changes in surface stability.
+
+DOI: 10.1186/1476-5918-5-7
+PMCID: PMC1508143
+PMID: 16762080

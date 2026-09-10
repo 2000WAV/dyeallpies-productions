@@ -1,0 +1,38 @@
+1. J Bodyw Mov Ther. 2022 Apr;30:82-88. doi: 10.1016/j.jbmt.2022.02.018. Epub
+2022  Feb 10.
+
+Core musculature co-contraction during suspension training exercises.
+
+Jordan SL(1), Brinkman B(2), Harris S(3), Cole T(3), Ortiz A(4).
+
+Author information:
+(1)Department of Health & Kinesiology, Lamar University, Beaumont, TX, USA.
+(2)Department of Physical Therapy, UT Health San Antonio, San Antonio, TX, USA.
+(3)Memorial Hermann Health Care System, Houston, TX, USA.
+(4)Physical Therapy Department, Augustana University, Sioux Falls, SD, USA. 
+Electronic address: alexis.ortiz@augie.edu.
+
+Suspension training reportedly enhances core musculature co-contraction. This 
+study investigated whether the use of a suspension trainer increases core 
+musculature co-activation during exercises vs. its floor counterpart. 
+Participants were 25 healthy volunteers (16 men, 9 women; age: 27.24 ± 4.02 
+years). Wireless electromyography electrodes were placed bilaterally at the 
+rectus abdominis (RA), erector spinae (ES), and abdominal obliques (OB). Test 
+order (push-up, bridge, and prone plank) was randomized (exercise and condition) 
+with a 3-min rest period between tests. Co-contraction ratios between muscle 
+groups were estimated by root mean square. Ratios (RA/ES, RA/OB, ES/OB) were 
+analyzed using paired t-tests (P ≤ .05). For all floor exercises, co-contraction 
+of core musculature was significantly higher than suspension trainer. During 
+suspension training, perturbations due to increased agonist activation without 
+similar increases in antagonists may be too intense for untrained or injured 
+individuals. Individuals lacking muscle control to recruit muscles concurrently 
+may benefit from mastering traditional floor exercises to promote joint 
+stiffness and stability before suspension trainer exercises.
+
+Copyright © 2022 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jbmt.2022.02.018
+PMID: 35500983 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare no conflict of interest.

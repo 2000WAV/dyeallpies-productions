@@ -1,0 +1,1641 @@
+
+pmc
+Muscles
+Muscles
+4752
+muscles
+9918786986506676
+muscles
+Muscles
+2813-0413
+Multidisciplinary Digital Publishing Institute  (MDPI)
+PMC13029269
+PMC13029269.1
+13029269
+13029269
+41892990
+10.3390/muscles5010018
+muscles-05-00018
+1
+Article
+Electromyographic Activation of the Pectoralis Major and Triceps Brachii Muscles During Standard, Diamond, and Wide Hand Position Push-Ups
+https://orcid.org/0000-0002-7546-6767
+Intziegianni
+Konstantina
+Conceptualization
+Methodology
+Formal analysis
+Investigation
+Writing – original draft
+Writing – review &amp; editing
+Data curation
+Visualization
+*
+Katsamis
+Epifanios
+Conceptualization
+Methodology
+Investigation
+Writing – original draft
+https://orcid.org/0000-0002-9226-4657
+Michaelides
+Marcos
+Conceptualization
+Formal analysis
+Investigation
+Resources
+Project administration
+Writing – original draft
+Validation
+https://orcid.org/0000-0002-1139-7731
+Parpa
+Koulla
+Conceptualization
+Methodology
+Formal analysis
+Investigation
+Data curation
+Writing – original draft
+Writing – review &amp; editing
+Supervision
+School of Science, University of Central Lancashire Cyprus (UCLan Cyprus), Pyla 7080, Cyprus; 
+epifanios10@hotmail.com
+ (E.K.); 
+mmichaelides@uclan.ac.uk
+ (M.M.); 
+kparpa@uclan.ac.uk
+ (K.P.)
+*
+Correspondence: 
+kintziegianni@uclan.ac.uk
+27
+2
+2026
+3
+2026
+5
+1
+505743
+18
+29
+10
+2025
+05
+1
+2026
+25
+2
+2026
+27
+02
+2026
+28
+03
+2026
+28
+03
+2026
+© 2026 by the authors.
+2026
+https://creativecommons.org/licenses/by/4.0/
+Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the 
+Creative Commons Attribution (CC BY) license
+.
+Studies examining the electromyographic activation of pectoralis major (PM) and triceps brachii (TB) muscles during push-ups of varied hand positions are limited, and findings are inconsistent. The aim was to investigate the electromyographic activation of PM and TB during standard, diamond, and wide hand position push-ups. Twenty young males performed six repetitions of each push-up variation while the electrical activity of PM and TB was recorded, averaged, and normalized to the peak root mean square (RMS) across repetitions for each push-up. RMS (mV) and normalized RMS (%) were calculated for each muscle, push-up variation, and contraction phase (eccentric/concentric). Two separate three-way ANOVAs with Bonferroni post hoc correction were used (
+α
+ = 0.05). TB demonstrated statistically significantly higher RMS (mV) and normalized RMS (%) than PM (
+p
+ &lt; 0.05), in diamond, followed by standard and wide push-ups. A statistically significant higher activation of RMS (mV) was observed in concentric compared to eccentric (
+p
+ &lt; 0.05); however, after normalizing RMS (%), contraction phase had no effect (
+p
+ &gt; 0.05) and there was no significant three-way interaction (
+p
+ &gt; 0.05). Diamond push-ups elicited the highest relative activation for both the PM and TB. Normalized RMS revealed the consistency of muscle effort in both contraction phases, sustaining near-maximal activation regardless of hand position. These findings support adaptable training strategies, with potential applications in rehabilitation and strength training contexts.
+root mean square
+consistency
+concentric
+eccentric
+closed kinetic chain
+normalization
+neuromuscular activation
+This research received no external funding.
+pmc-status-qastatus
+0
+pmc-status-live
+yes
+pmc-status-embargo
+no
+pmc-status-released
+yes
+pmc-prop-open-access
+yes
+pmc-prop-olf
+no
+pmc-prop-manuscript
+no
+pmc-prop-legally-suppressed
+no
+pmc-prop-has-pdf
+yes
+pmc-prop-has-supplement
+no
+pmc-prop-pdf-only
+no
+pmc-prop-suppress-copyright
+no
+pmc-prop-is-real-version
+no
+pmc-prop-is-scanned-article
+no
+pmc-prop-preprint
+no
+pmc-prop-in-epmc
+yes
+pmc-license-ref
+CC BY
+1. Introduction
+One of the most popular upper body strength exercises are push-ups which are used in rehabilitation [
+1
+] and strength training [
+2
+] contexts with the purpose of enhancing upper extremity muscular strength [
+3
+], neuromuscular control [
+4
+,
+5
+], and endurance [
+6
+]. Push-ups are closed kinetic chain exercises which involve movements of shoulder horizontal adduction/abduction and elbow flexion/extension [
+7
+]. The primary acting muscles are the pectoralis major and triceps brachii, while other muscles such as anterior deltoid, serratus anterior, trapezius and biceps brachii are also involved [
+3
+,
+7
+,
+8
+,
+9
+]. Traditionally, push-ups are performed on a flat stable surface at the width of the shoulders [
+10
+]; however, nowadays countless variations exist, aiming to isolate and produce different levels of impact on the muscles of interest [
+4
+,
+11
+]. Such variations include differences in hand position from standard to narrow or wide positions [
+12
+,
+13
+,
+14
+], suspension training systems [
+10
+,
+15
+], unstable surfaces [
+5
+,
+16
+] and different rotating handgrip devices [
+8
+,
+17
+]. Studies which have investigated and compared the electromyographic activation of the involved muscles found that their activation is much higher in more challenging conditions, such as on unstable surfaces and with the use of suspension devices compared to the traditional form of push-ups [
+5
+,
+10
+,
+15
+,
+16
+]. Even though the traditional form of push-ups is widely used, due to its simplicity [
+7
+], coaches, trainers and physical health practitioners are more interested in exercises that can induce higher muscle activation as this is associated with greater adaptation to strength, endurance and neuromuscular control over time [
+8
+,
+18
+].
+An alternative and more practical variation of push-ups, challenging and capable of increasing muscle activation, is different hand positioning [
+9
+,
+13
+,
+14
+]. Different hand positioning on stable surfaces offers biomechanical advantages such as the ability to isolate specific muscles of interest and reduce variability from multidirectional instability from unstable surfaces and suspension systems, which often leads to misinterpretation of the results [
+19
+]. The most common variations in hand positions are the standard push-up with hands placed at shoulder width, the narrow base, also known as the diamond push-up, with hands placed under the chest forming a triangular shape on the floor with the fingertips and thumbs, and the wide push-up with hands placed wider than shoulder width, typically at 150% of the biacromial distance [
+7
+,
+14
+].
+Several studies have investigated the influence of different hand position push-ups on the muscle activation of both the pectoralis major and triceps brachii; however, the findings are inconsistent. In the studies by Cogley et al. [
+14
+] and Kim et al. [
+13
+], both muscles had greater activation in the narrow compared to the wide hand placement push-up. Another study by Marcolin et al. [
+9
+] found that the narrow hand position provided the highest activation for both the pectoralis major and triceps brachii muscle, followed by the standard push-up, whereas the wide hand position provided the lowest activation. In contrast to the above studies, Allen et al. [
+17
+] found that during the wide push-up (in both conditions, with handgrip device and without), pectoralis major had the highest activity compared to triceps brachii, serratus anterior and posterior deltoid. Similarly, a study by Youdas et al. [
+8
+] found that during narrow hand placement the triceps brachii had the highest activation, while hand position (narrow, wide and standard) lacked a differentiating effect for pectoralis muscle. In the same study, the authors also found no significant differences between the traditional push-ups and push-ups performed with the use of handgrip devices, concluding that such devices should not be preferred when the goal is to strengthen the shoulder and arm muscles [
+8
+]. Furthermore, Nadzalan et al. [
+12
+] found that the pectoralis major had the highest activity during standard push-ups and the lowest during diamond push-ups, with the triceps muscle having the highest activity during the diamond push-ups and the lowest during the standard push-ups.
+The controversy found in the literature on the electromyographic activation across push-ups with hand placement variations could be due to methodological aspects [
+11
+] which strongly influence the electromyographic (EMG) signal derived from the muscles. Such methodological aspects include self-selected [
+7
+] or controlled speed [
+8
+,
+9
+,
+14
+], the technique of performing the push-up [
+7
+,
+14
+], self-selected vs. standardized hand positioning [
+7
+,
+13
+,
+14
+], and normalization methods of the EMG signal [
+20
+] such as normalizing to maximal voluntary isometric contraction (MVIC) [
+8
+,
+9
+,
+14
+] versus using a task-specific EMG normalization technique [
+7
+,
+13
+]. In addition to the above, there is also limited information regarding the eccentric phase [
+9
+] of the push-up, as most of the studies are only focusing on the concentric phase (push-off) of the push-up.
+Considering the controversy in the research and the inconsistency of the findings, the present study implemented a targeted methodological approach taking into account the possible anatomical variation between participants by allowing self-selected hand placement to minimize compensatory movement strategies and task-specific normalization techniques for the EMG signal to provide a more accurate representation of the muscle activation under the exact mechanical and neural demands of the task in both the concentric and eccentric phases. Thus, the aim of the present study was to investigate the electromyographic activation of the pectoralis major and triceps brachii muscles during the standard, diamond and wide hand position push-ups during both the eccentric and concentric phases of the movement. The hypotheses are that (a) triceps brachii will demonstrate the highest activation compared to pectoralis major, (b) push-ups from a narrow base will have higher muscle activation in both muscles and (c) the concentric phase will demonstrate the highest activation across push-up variations in both muscles.
+2. Materials and Methods
+2.1. Participants
+Twenty healthy recreationally active males with 8 ± 2 h of training per week volunteered to participate in the present study (age: 22 ± 4 years, 176 ± 7 cm, 77 ± 12 kg). Participants were randomly recruited throughout the university via advertisements on social media and posters. Additionally, contact lists of participants from previous unrelated projects were utilized, along with snowball sampling, for further recruitment. The inclusion criteria for the participants were to be males, aged 18–35 years old, healthy based on their medical history, pain-free and able to perform push-up variants with proper technique. Participants who did not meet the inclusion criteria or had an injury and/or surgery on their shoulders, elbows, and wrists in the last five years were excluded from this study. Prior to the recruitment process, ethical approval was obtained from the Cyprus National Committee of Bioethics (CNBC, ΕΕΒΚ ΕΠ 2022.01.290). The study was conducted according to the international standards for the use of human subjects, as described within the Declaration of Helsinki [
+21
+]. All participants completed an informed consent form and the Physical Activity Readiness Questionnaire (PAR-Q) [
+22
+]. A post hoc analysis was performed in G*Power software (version 3.1.9.7) to compute the achieved power based on the given sample size of the group (N = 20), the number of measurements (3), and the calculated effect size (main effect of push-up variation) from partial 
+η
+2
+ of 0.399, based on the formula provided by Cohen [
+23
+], where 
+η
+2
+ is converted into Cohen’s 
+f
+ as 
+f
+=
+η
+2
+1
+−
+η
+2
+ resulting in an effect size 
+f(U)
+ of 0.82 and an achieved power (1 − 
+β
+ error probability) of 1.00.
+2.2. Study Design
+A within-subject repeated-measures experimental design was used in the present study. Participants visited the laboratory once and performed the three push-up variations in a random order, while, simultaneously, their muscle electrical activity was recorded. The randomization order for the push-ups was generated for each participant using a free online tool (Randomizer.org; 
+https://www.randomizer.org
+, accessed on 20 November 2024) prior to the measurements.
+2.3. Instruments and Protocol
+Participants performed a standardized warm-up using two multi-joint machine-based exercises (chest-press and pec-deck) of 12 repetitions each with light weights, with 2 min rest in between. After the warm-up, participants’ skin over the muscle belly of pectoralis major (sternal head) and triceps brachii (lateral head) on the dominant side was cleaned with alcohol and shaved. An electromyography sensor (Delsys Inc., Boston, MA, USA, Trigno Avanti Sensor) was placed parallel to the direction of the muscle fiber arrangement according to the SENIAM guidelines [
+24
+] and carefully secured to the skin with additional tape to prevent the sensors from falling off (
+Figure 1
+). To ensure consistency and accurate sensor placement, the operator was always the same. Participants were then instructed to perform the three push-ups (standard, diamond, wide) in a randomized order with 2 min of rest in between. The tempo was slow, resulting in 3 s of eccentric phase (elbow flexion) and 3 s of concentric phase (elbow extension) using verbal cues and controlled with a timer [
+14
+]. A test trial before each push-up variation was performed to evaluate the technique and correct it if necessary, and for the participants to get accustomed to the tempo of the movement. During the push-ups, the electrical activity of the muscles was recorded simultaneously. All push-ups started with the participants in a high plank position, forming a straight line from head to heel and with a verbal cue, the eccentric phase of the push-up (elbow flexion) was initiated. In all variations of push-ups, participants were instructed to maintain a straight body line by tightening their core with feet positioned together and lowering their body slightly above the floor and push-up to full extension with eyes focus ahead (
+Figure 1
+). For the standard push-up, participants were instructed to place their hands at shoulder width with their middle finger pointing forward and wrist aligned with their elbows at approximately 90°. For the diamond push-up, the specific instructions given were to place their hands under their chest in the midline of their sternum, with their thumbs and index finger forming a diamond shape on the floor and slowly lowering their chest by flexing their elbows while keeping them close to their torso avoiding also shrugging of the shoulders. For the wide push-up, participants were asked to place their hands in a self-selected, wider-than-shoulder-width position, that was comfortable for them and in which they were able to perform it in a correct form while avoiding compensatory movements.
+2.4. Outcome Variables and Data Analysis
+The EMG data were collected during the measurement using the Delsys EMG Trigno Wireless system (Delsys Inc., Boston, MA, USA), which was connected to a PC running Delsys EMGworks Acquisition software (version 4.8.0) and processed for further analysis using the software Delsys EMGworks Analysis (version 4.7.3.0) with an analog band-pass Butterworth fourth-order filter at 20–450 Hz and a sampling frequency of 1259.26 Hz [
+25
+]. The system also features a common mode rejection ratio &gt; 80 dB and an input noise level &lt; 0.75 µV RMS, providing a high signal-to-noise ratio and ensuring reliable EMG acquisition. The root mean square (RMS, mV) computations were performed for each repetition using a window length of 0.125 s with 0.0625 s of overlap. The specific window length, which corresponds to the default configuration of Delsys software, is further supported by the study of Burden et al. [
+26
+], where they found that window lengths between 0.1 and 0.25 s with 50% overlap produce stable and reliable mean EMG values. To assess the consistency of the root mean square (RMS, mV) across repetitions in the present study, additional reliability analyses were performed [
+27
+,
+28
+,
+29
+]. As the evaluation of consistency was not the primary focus of this study, the specific results are reported in the Methods section to support the methodological approach used.
+In the present study, a task-specific EMG normalization technique was used [
+20
+,
+30
+,
+31
+,
+32
+]. For each push-up variation, the repetition that had the highest RMS value out of the six repetitions was used for normalization purposes and the other five repetitions were averaged into one value representing the RMS value of a push-up. To calculate the normalized to peak RMS (%), the average RMS value was normalized to the highest RMS value with the following equation: 
+Normalised
+to
+peak
+RMS
+ 
+%
+=
+Mean
+RMS
+ 
+Reps
+ 
+1
+–
+5
+Max
+RMS
+ 
+Reps
+ 
+1
+–
+6
+×
+ 
+100
+. The main outcome variables were the RMS (mV) and normalized to peak RMS (%) of each muscle during the concentric phase (elbow flexion) and eccentric phase (elbow extension) of the push-ups.
+Figure 1
+Standard push-up (
+a
+), diamond push-up (
+b
+), wide push-up (
+c
+); left figures: starting position, right pictures: end position. The EMG sensors were placed on the triceps brachii (lateral head) and on the pectoralis major (sternal head) and secured with additional tape to prevent them from falling off.
+2.5. Consistency Between Repetitions
+Participants performed six repetitions for each push-up variation, where the repetition exhibiting the highest RMS value was used as a reference for normalization, and the other five were averaged into one value representing the RMS of the specific push-up. For the evaluation of the consistency, only the five repetitions were used, excluding the repetition with the highest RMS value. The consistency of the repetitions between each variation in push-up, muscle and contraction phase was evaluated by means of intra-class coefficient analysis (ICC, 3,1) with a 95% confidence interval (CI: 95%). The specific ICC (3,1) model was selected because all measurements were obtained using the same fixed EMG setup within a single session, and consistency was evaluated only for individual repetitions and not for averaged values [
+33
+]. An ICC value of ≤0.50 was considered low, an ICC value of 0.50 to 0.75 was considered moderate, an ICC value of ≥0.75 was considered good, and an ICC value of ≥0.90 was considered excellent [
+28
+]. Coefficient of variation (CV, %) was calculated for each participant to quantify the variability relative to the mean with the equation 
+CV
+=
+SD
+(
+5
+rep
+.
+)
+Mean
+(
+5
+rep
+.
+)
+×
+100
+, and was expressed as a percentage [
+27
+]. The individual values of CV (%) were then averaged and reported as mean and standard deviation (SD). Additionally, to provide an estimate of the precision of measurement, the standard error of measurement (SEM, mV) was calculated using the following equation: SEM = SD × √(1 − ICC) [
+27
+]. SEM was further used to calculate the minimal detectable change (MDC, mV), which is the minimal amount of change that a measurement must show to be greater than the within-subject variability and measurement error, calculated according to the following equation: MDC = 1.96 × SEM × √2 [
+29
+]. Both SEM and MDC are expressed in the units of measurements of the variable assessed. The outcome values are presented in 
+Table 1
+, demonstrating excellent consistency based on the ICC values, for both the pectoralis major and triceps brachii muscles in both eccentric and concentric phases. However, during the concentric phase, the pectoralis major showed slightly higher variability compared to the triceps brachii muscle. The triceps brachii demonstrated higher consistency than the pectoralis major muscle, with lower CV (%), SEM (mV), and MDC (mV) values, reflecting a greater measurement precision. Among the three push-up variations, the diamond push-up yielded the lowest CV (%) values, especially for the triceps brachii muscle. Overall, the findings demonstrated a strong consistency of RMS (mV) measurements within individuals across repetitions, confirming consistent muscle activation patterns for each participant under each push-up variation. These reliability metrics were used solely to characterize within-condition measurement consistency and to support the methodological approach of the study.
+2.6. Statistics
+The data were initially tested for normal distribution with the use of the Shapiro–Wilk test. All variables met the assumption of normality (
+p
+ &gt; 0.05) and descriptive statistics were used to calculate mean and standard deviation for each dependent variable. To evaluate the difference in RMS (mV) and normalized to peak RMS (%) between the pectoralis major and triceps brachii muscles, and the two contraction phases (eccentric: elbow flexion, concentric: elbow extension) during the three variations of push-ups (diamond, standard, wide), two separate three-way ANOVA tests (for each dependent variable) were used with a Bonferroni post hoc correction. Mauchly’s test was used to evaluate the assumption of sphericity; when this assumption was not met, the Greenhouse–Geisser correction was applied. The main effects of muscle, contraction phase, push-up variation, and their interaction from the three-way ANOVAs were interpreted using an alpha level of 0.05. In addition, effect sizes for post hoc pairwise comparisons were calculated using Cohen’s 
+d
+ [
+23
+]. Cohen’s 
+d
+ was calculated from the 
+t
+-value, which was computed as the mean difference divided by the standard error of each comparison (
+t
+ = mean diff/SE) and adjusted by dividing it by the square root of the sample size (n = 20) [
+34
+]. According to Cohen, a size of 0.2 to 0.49 indicates a small effect, 0.5 to 0.79 indicates a moderate effect, and above 0.80 a large effect [
+23
+]. All statistical analyses were performed using SPSS (SPSS Statistics 26, IBM, Armonk, NY, USA) and Microsoft Excel 365 (version 2506, Microsoft Corporation, Redmond, WA, USA).
+3. Results
+The descriptive data are presented in 
+Figure 2
+ and 
+Figure 3
+ as mean ± standard deviation for both variables, RMS (mV) and normalized to peak RMS (%) for pectoralis major and triceps brachii muscle, across the three variations in push-ups during both the eccentric (elbow flexion) and concentric phases (elbow extension).
+3.1. Root Mean Square (RMS, mV)
+There was a violation of sphericity for the main effect of push-up variation (
+p
+ = 0.023) as indicated by Mauchly’s test and, thus, the Greenhouse–Geisser corrections (
+ε
+ = 0.745) were applied. No other violation of sphericity was observed for muscles, contraction phase, and their interaction (
+p
+ &gt; 0.05).
+A statistically significant main effect of muscle was observed, 
+F
+(1,19)
+ = 86.015, 
+p
+ &lt; 0.001, 
+η
+2
+ = 0.819, with the triceps brachii muscle demonstrating a higher RMS than the pectoralis major across all three push-up variations (
+p
+ &lt; 0.001, Cohen’s 
+d
+ = 2.08; very large effect). The contraction phase was also found to have a statistically significant effect, 
+F
+(1,19)
+ = 96.308, 
+p
+ &lt; 0.001, 
+η
+2
+ = 0.835, with the concentric phase producing a greater RMS than the eccentric phase (
+p
+ &lt; 0.001, Cohen’s 
+d
+ = 2.18; very large effect). A statistically significant main effect of push-up variation was also observed (Greenhouse–Geisser corrected), 
+F
+(1.489,28.297)
+ = 12.599, 
+p
+ &lt; 0.001, 
+η
+2
+ = 0.399. Pairwise comparisons revealed that both the diamond and standard push-up had higher RMS values than the wide push-up (
+p
+ = 0.002 and 
+p
+ = 0.002, Cohen’s 
+d
+ = 0.86 and 
+d
+ = 0.92, respectively; large effect). However, no statistically significant difference was found between the diamond and standard push-ups (
+p
+ = 0.146, Cohen’s 
+d
+ = 0.34; small effect).
+A statistically significant interaction between muscle and contraction phase was observed, 
+F
+(1,19)
+ = 29.224, 
+p
+ &lt; 0.001, 
+η
+2
+ = 0.606. Post hoc analysis indicated that both muscles showed increased RMS during the concentric phase, with a greater relative increase in the triceps brachii compared to the pectoralis major muscle, highlighting the triceps brachii’s primary contribution to force generation during the concentric phase. Furthermore, no statistically significant interactions were found for muscle × push-up (
+p
+ = 0.211) or contraction phase × push-up (
+p
+ = 0.407), suggesting that the effects of push-up variation were consistent across muscles and contraction phases. The three-way interaction of muscle × contraction phase × push-up was not statistically significant (Greenhouse–Geisser corrected), 
+F
+(1.804,34.276)
+ = 2.930, 
+p
+ = 0.072, 
+η
+2
+ = 0.134, indicating that contraction activation patterns (concentric/eccentric) were consistent across all push-up variations.
+Figure 2
+Root mean square (RMS, mV) of the pectoralis major (PM) and triceps brachii (TB) muscles presented as mean ± standard deviation (error bars) during the eccentric phase (elbow flexion) and concentric phase (elbow extension) across the three push-up variations (standard (S), diamond (D), and wide (W)).
+3.2. Normalized to Peak RMS (%)
+No significant violation of sphericity according to Mauchly’s test was found for muscles, contraction phase, push-up variations and their interactions (
+p
+ &gt; 0.05), and thus no further corrections were applied for the normalized to peak RMS (%).
+A statistically significant main effect was found for muscle (
+F
+(1,19)
+ = 56.26, 
+p
+ &lt; 0.001, 
+η
+2
+ = 0.748) with the pairwise comparison indicating a statistically significantly higher normalized to peak RMS (%) in triceps brachii compared to the pectoralis major muscle (
+p
+ &lt; 0.001, Cohen’s 
+d
+ = 1.68; very large effect size). The main effect of contraction phase (eccentric, concentric) was found to be not statistically significant (
+F
+(1,19)
+ = 1.729, 
+p
+ = 0.204, 
+η
+2
+ = 0.083, Cohen’s 
+d
+ = 0.28; small effect size), indicating that in both concentric and eccentric phases a similar proportion of maximal activation is required within each muscle. A statistically significant main effect of push-up variations was observed (
+F
+(2,38)
+ = 5.23, 
+p
+ = 0.010, 
+η
+2
+ = 0.216). Pairwise comparisons with Bonferroni adjustment showed statistically significantly higher normalized to peak RMS (%) in diamond push-ups compared to wide push-ups (
+p
+ = 0.015, Cohen’s 
+d
+ = 0.71; moderate effect size). Standard push-ups also had statistically significantly higher normalized to peak RMS (%) compared to wide push-ups (
+p
+ = 0.015, Cohen’s 
+d
+ = 0.44; small-to-moderate effect size). However, no statistically significant difference was found in normalized to peak RMS (%) when comparing diamond to standard push-up (
+p
+ = 0.513, Cohen’s 
+d
+ = 0.32; small effect size). Thus, the above findings indicate that the narrower the hand position, the higher the muscle activation, especially for the triceps brachii muscle.
+No statistically significant interactions (
+p
+ &gt; 0.05) were observed for muscle × contraction phase (
+F
+(1,19)
+ = 0.935, 
+p
+ = 0.346, 
+η
+2
+ = 0.047), muscle × push-up (
+F
+(2,38)
+ = 0.609, 
+p
+ = 0.549, 
+η
+2
+ = 0.031), contraction phase × push-up (
+F
+(2,38)
+ = 0.050, 
+p
+ = 0.951, 
+η
+2
+ = 0.003), and muscle × contraction phase × push-up (
+F
+(2,38)
+ = 2.638, 
+p
+ = 0.085, 
+η
+2
+ = 0.122). These findings suggest that while push-up variations can influence the level of normalized muscle activation, the pattern of relative muscle recruitment remained consistent across contraction phases as both muscles maintained a similar proportion of activation during concentric and eccentric phases.
+Figure 3
+Normalized to peak RMS (%) of the pectoralis major (PM) and triceps brachii (TB) muscles presented as mean ± standard deviation (error bars) during the eccentric phase (elbow flexion) and concentric phase (elbow extension) across the three push-up variations (standard (S), diamond (D), and wide (W)).
+4. Discussion
+The aim of the present study was to investigate and compare the electromyographic activation of the pectoralis major and triceps brachii muscles during the three hand position variations in push-ups: the standard, the diamond, and the wide. The main outcome variables were the RMS (mV) and the normalized to peak RMS (%) of pectoralis major and triceps brachii muscles calculated in both contraction phases (eccentric and concentric) of each push-up. The main findings revealed that the triceps brachii indeed had the highest activation compared to the pectoralis major especially during the diamond push-up, followed by the standard and then the wide with the least of activation, thus confirming the initial hypothesis. In addition, the concentric phase demonstrated the highest RMS (mV) activation in both muscles in all three variations, confirming the hypothesis. However, when normalizing to peak RMS (%), no differences were observed between eccentric and concentric phases, indicating a consistency of muscle effort, reflecting a similar ability to sustain near-maximal activation regardless of hand position push-up variation.
+In the present study, the two muscles were chosen specifically as the pectoralis major is responsible for horizontal and diagonal adduction, along with internal rotation of the humerus, and the triceps brachii is responsible for elbow extension. Both are considered as primary acting muscles during the push-up exercise [
+7
+,
+8
+]. However, due to the anatomical function of the pectoralis muscle, one would expect higher activation in the wide and less in diamond [
+14
+]. Some authors have indeed made such a hypothesis before [
+14
+], with their findings, however, being aligned with the findings of the present study and that of others, with the pectoralis muscle being more activated in the diamond push-up and the least activated during the wide push-up [
+9
+,
+13
+,
+14
+]. A possible explanation is the influence of elbow positioning during the specific push-ups [
+35
+,
+36
+]. In the diamond push-up, the elbow remains tucked close to the torso, increasing shoulder horizontal adduction while keeping the humerus close to midline. This position not only activates the triceps brachii more; it also causes the pectoralis, especially its sternal fibers, to work even harder, assisting in moving the arms towards the midline under the load. Meanwhile, during the wide push-ups, the elbow flares outwards, placing the humerus in greater abduction and reducing the range and torque demands of horizontal adduction, and thus the pectoralis works in a more shortened position, reducing its mechanical efficiency and shifting the activation toward anterior deltoid and shoulder stabilizer muscles [
+35
+,
+36
+].
+Conversely, there are studies in which their findings are not in agreement with the above, leading to a controversy in the literature [
+8
+,
+12
+,
+17
+]. Allen et al. [
+17
+] found that during the wide push-ups the pectoralis exhibited a significantly higher activation compared to the triceps, whereas, in our findings, even in the wide push-up, the triceps brachii had statistically significantly higher activation compared to the pectoralis muscle. Youdas et al. [
+8
+] partially agree with the findings of the present study, as they have found higher activation of the triceps brachii in the narrow hand position; however, they lacked a differentiating effect for hand position (narrow, wide and standard) for pectoralis major muscle, suggesting that its activation remained constant through the three push-up variations. Another study which adds to the controversy in the literature and disagrees to a great extent with the present study is the study by Nadzalan et al. [
+12
+]. In that specific study, they found pectoralis major to have the highest activity during standard push-ups and the lowest during diamond push-ups, whereas the triceps brachii muscle was found to have the highest activation in diamond and the lowest in standard push-ups [
+12
+].
+Previous studies have standardized the hand position during wide push-ups based on the biacromial distance to set a defined width position at 150% of the shoulder width [
+7
+,
+13
+]. In this study, the width of the hands, for the wide push-ups, was not standardized as fixed positions may place participants with different anatomical structures into mechanically disadvantageous joint angles leading to compensatory movements, altering the electrical activation of the muscles [
+37
+]. Thus, by allowing self-selected hand width [
+38
+], variability associated with anatomical differences can be reduced and movement execution can reflect more closely real training and rehabilitation settings. While this approach may limit direct comparison between studies and might be perceived as a possible study limitation, it enhances the relevance and applicability of the findings, as coaches and health professionals commonly allow individuals to adopt a comfortable, self-selected hand position that aligns with functional training and rehabilitation practices [
+39
+,
+40
+].
+In the present study, both contraction phases of the push-ups, eccentric (elbow flexion) and concentric (elbow extension), were investigated. When comparing the RMS (mV), the concentric phase produced the highest activation in both muscles in all three push-up variations compared to the eccentric phase. This finding agrees with the study by Marcolin et al. [
+9
+] where they found that during the ascendant phase (concentric, elbow extension), the electrical activity of the muscles, including also the pectoralis major and triceps brachii, was statistically significantly higher compared to the descendant phase (eccentric, elbow flexion). However, when the RMS signal was normalized to the peak activation within each condition (%), no significant differences were found, indicating that the effort produced by the muscles in both contraction phases was consistent and stable, reflecting a similar ability to sustain near-maximal activation throughout the set. This finding might be of great interest to trainers and coaches, as both concentric as well as eccentric training produce specific neuromuscular adaptations that enhance shoulder performance, joint stability, and injury prevention with important implications in rehabilitation as well [
+4
+,
+41
+,
+42
+]. Eccentric exercises are characterized by greater mechanical tension, inducing specific neuromuscular adaptations, promoting muscle hypertrophy [
+43
+] and enhancing tendon adaptation [
+44
+,
+45
+], while concentric exercises contribute to force production and functional movement capacity [
+46
+]. Comparable muscle activation across both phases of push-ups may enhance joint stability, aiding in the risk reduction for overuse injuries, which is a possible implication for rehabilitation and exercise [
+1
+,
+4
+].
+Normalization of the EMG involves rescaling the data from microvolts (mV) to a percentage of a reference value obtained [
+31
+]. The gold-standard technique is using the RMS (mV) derived from MVIC as a reference value [
+20
+]. However, when it comes to dynamic movements, aspects such as differences in muscle action, load, and velocity of the dynamic activity versus MVIC raise concerns about its appropriateness [
+31
+]. Thus, task-specific normalization methods for dynamic activities using the maximal value recorded during the actual task under the same biomechanical and neural conditions have been proposed but are rarely used [
+20
+,
+30
+,
+31
+,
+32
+]. Most previous relevant studies [
+8
+,
+10
+,
+12
+,
+14
+,
+17
+] have used MVIC for normalization purposes, and only a couple of studies have used task-specific normalization techniques, considering as a reference for normalization the RMS from the standard push-up [
+7
+,
+13
+]. In this study, the normalization technique used was also task-specific, with the exception that the repetition with the highest RMS value from each push-up variation, in each contraction phase and in each muscle was normalized to its average value. This approach also allowed the investigation of the within-phase consistency by expressing each repetition RMS relative to its peak, providing deeper insights, especially into the contraction phases, eccentric and concentric, of the push-up. In addition, the influence of muscle velocity, changes in length and contraction regimen are inherently accounted for by using this specific approach, whereas with the MVIC normalization approach, this is not possible [
+31
+].
+A possible limitation of the present study is the fact that the range of motion, an aspect that influences muscle activation, was not recorded. Even though participants were instructed on how to perform each push-up in terms of technique and speed, small variations probably existed between participants, which the authors were unable to evaluate. In addition, only male recreationally active participants were included, and thereby generalizing the findings in untrained or especially in highly trained male individuals [
+47
+] might not be applicable as elite athletes exhibit greater neuromuscular efficiency and different muscle activation strategies. Furthermore, the inclusion of only males restricts also its applicability to females, as sex-specific neuromuscular differences such as muscle fiber composition, hormonal influences and fatigue resistance may have a different impact on muscle activation patterns [
+48
+,
+49
+]. Another possible limitation is the number of muscles assessed. In the present study, the authors had the capacity to include only two muscles and based on the literature the pectoralis major and triceps brachii are the prime muscles during push-ups [
+7
+,
+8
+]. However, for a more comprehensive investigation, adding also the synergist and stabilizer muscles such as the anterior deltoid, trapezius and serratus anterior would have provided a more complete understanding of the electromyographic activation patterns and muscular demands during push-ups with varied hand positioning.
+5. Conclusions
+Push-ups of varied hand positions can strategically target specific muscles, thus enhancing strength and functional performance. The diamond push-up elicited the highest activation for both the triceps brachii and pectoralis major muscles followed by the standard, while the wide push-up produced comparatively the lowest activation. The triceps brachii muscle was activated the most in all three push-up variations. The concentric phase produced the highest RMS activation in both muscles across the three push-up variations. However, when RMS values were normalized to their task-specific peak RMS, a consistent ability to sustain a near-maximal activation was observed in both muscles, contraction phases and push-up variations. These findings suggest that although a specific hand position can influence the amount of muscle activation, all three hand position variations of push-ups are equally effective at sustaining a high muscle activation across repetitions. This has important applications in strength training and rehabilitation contexts as it provides trainers and healthcare practitioners with flexibility when selecting push-up variations while maintaining high levels of muscle activation.
+Disclaimer/Publisher’s Note:
+ The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+Author Contributions
+Conceptualization, K.I., E.K., M.M., and K.P.; methodology, K.I., E.K., and K.P.; formal analysis, K.I., M.M., and K.P.; investigation, E.K., K.P., M.M., and K.I.; resources, M.M.; data curation, K.P., and K.I.; writing—original draft preparation, K.I., E.K., M.M., and K.P.; writing—review and editing, K.I., and K.P.; project administration, M.M. All authors have read and agreed to the published version of the manuscript.
+Institutional Review Board Statement
+The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (CNBC, ΕΕΒΚ ΕΠ 2022.01.290, approved 29 January 2022).
+Informed Consent Statement
+Written informed consent has been obtained from the participants to participate in the research study.
+Data Availability Statement
+The data are available from the corresponding author upon reasonable request.
+Conflicts of Interest
+The authors declare no conflicts of interest.
+References
+1.
+Ramírez-Pérez
+L.
+Kerr
+G.K.
+Cuesta-Vargas
+A.I.
+In Vivo Assessment of Shoulder Stability in Dynamic Rehabilitation Exercises: A Scoping Review
+Gait Posture
+2025
+116
+30
+39
+10.1016/j.gaitpost.2024.11.010
+39608198
+2.
+Winslow
+B.
+Natarajan
+A.
+Mravca
+S.
+Duong
+J.J.
+Choudhary
+S.
+Norman Giest
+T.
+Active Assessment of Fitness and Performance in a General Population
+Front. Sports Act. Living
+2025
+7
+1552365
+10.3389/fspor.2025.1552365
+40672648
+PMC12263959
+3.
+Uhl
+T.L.
+Carver
+T.J.
+Mattacola
+C.G.
+Mair
+S.D.
+Nitz
+A.J.
+Shoulder Musculature Activation during Upper Extremity Weight-Bearing Exercise
+J. Orthop. Sports Phys. Ther.
+2003
+33
+109
+117
+10.2519/jospt.2003.33.3.109
+12683686
+4.
+Kowalski
+K.L.
+Connelly
+D.M.
+Jakobi
+J.M.
+Sadi
+J.
+Shoulder Electromyography Activity during Push-up Variations: A Scoping Review
+Shoulder Elb.
+2022
+14
+326
+340
+10.1177/17585732211019373
+PMC9121296
+35599715
+5.
+Borreani
+S.
+Calatayud
+J.
+Colado
+J.C.
+Moya-Nájera
+D.
+Triplett
+N.T.
+Martin
+F.
+Muscle Activation during Push-Ups Performed under Stable and Unstable Conditions
+J. Exerc. Sci. Fit.
+2015
+13
+94
+98
+10.1016/j.jesf.2015.07.002
+29541105
+PMC5812863
+6.
+Liu
+C.-H.
+Lin
+Y.-C.
+Huang
+W.-C.
+Sui
+X.
+Lavie
+C.J.
+Lin
+G.-M.
+Associations of Cardiorespiratory Fitness and Muscular Endurance Fitness With Pulmonary Function in Physically Active Young Adults
+Arch. Bronconeumol.
+2025
+61
+5
+12
+10.1016/j.arbres.2024.06.005
+39013727
+7.
+Gouvali
+M.K.
+Boudolos
+K.
+Dynamic and Electromyographical Analysis in Variants of Push-up Exercise
+J. Strength Cond. Res.
+2005
+19
+146
+151
+10.1519/14733.1
+15705025
+8.
+Youdas
+J.W.
+Budach
+B.D.
+Ellerbusch
+J.V.
+Stucky
+C.M.
+Wait
+K.R.
+Hollman
+J.H.
+Comparison of Muscle-Activation Patterns during the Conventional Push-up and Perfect·pushupTMexercises
+J. Strength Cond. Res.
+2010
+24
+3352
+3362
+10.1519/JSC.0b013e3181cc23b0
+20664364
+9.
+Marcolin
+G.
+Petrone
+N.
+Moro
+T.
+Battaglia
+G.
+Bianco
+A.
+Paoli
+A.
+Selective Activation of Shoulder, Trunk, and Arm Muscles: A Comparative Analysis of Different Push-up Variants
+J. Athl. Train.
+2015
+50
+1126
+1132
+10.4085/1062-6050-50.9.09
+26488636
+PMC4732391
+10.
+Snarr
+R.L.
+Esco
+M.R.
+Electromyographic Comparison of Traditional and Suspension Push-Ups
+J. Hum. Kinet.
+2013
+39
+75
+83
+10.2478/hukin-2013-0070
+24511343
+PMC3916913
+11.
+Dhahbi
+W.
+Chaabene
+H.
+Chaouachi
+A.
+Padulo
+J.
+G Behm
+D.
+Cochrane
+J.
+Burnett
+A.
+Chamari
+K.
+Kinetic Analysis of Push-up Exercises: A Systematic Review with Practical Recommendations
+Sports Biomech.
+2022
+21
+1
+40
+10.1080/14763141.2018.1512149
+30284496
+12.
+Nadzalan
+A.M.
+Mohd Latif
+A.A.
+Hamdan
+A.S.
+Yen Lee
+E.L.
+Tan
+K.
+Mohamad Jahizi
+A.A.
+Pratama
+R.S.
+Comparison of Muscle Activation between Traditional, Clap and Power Push up among Trained Men
+J. Phys. Conf. Ser.
+2021
+1874
+012015
+10.1088/1742-6596/1874/1/012015
+13.
+Kim
+Y.S.
+Kim
+D.Y.
+Ha
+M.S.
+Effect of the Push-up Exercise at Different Palmar Width on Muscle Activities
+J. Phys. Ther. Sci.
+2016
+28
+446
+449
+10.1589/jpts.28.446
+27064571
+PMC4792988
+14.
+Cogley
+R.M.
+Archambault
+T.A.
+Fibeger
+J.F.
+Koverman
+M.M.
+Youdas
+J.W.
+Hollman
+J.H.
+Comparison of Muscle Activation Using Various Hand Positions during the Push-up Exercise
+J. Strength Cond. Res.
+2005
+19
+628
+633
+10.1519/15094.1
+16095413
+15.
+Calatayud
+J.
+Borreani
+S.
+Colado
+J.C.
+Martín
+F.F.
+Rogers
+M.E.
+Behm
+D.G.
+Andersen
+L.L.
+Muscle Activation during Push-Ups with Different Suspension Training Systems
+J. Sports Sci. Med.
+2014
+13
+502
+510
+25177174
+PMC4126284
+16.
+Freeman
+S.
+Karpowicz
+A.
+Gray
+J.
+McGill
+S.
+Quantifying Muscle Patterns and Spine Load during Various Forms of the Push-Up
+Med. Sci. Sports Exerc.
+2006
+38
+570
+577
+10.1249/01.mss.0000189317.08635.1b
+16540847
+17.
+Allen
+C.C.
+Dean
+K.A.
+Jung
+A.P.
+Petrella
+J.K.
+Upper Body Muscular Activation during Variations of Push-Ups in Healthy Men
+Int. J. Exerc. Sci.
+2013
+6
+278
+288
+10.70252/MHGT5804
+18.
+Hughes
+D.C.
+Ellefsen
+S.
+Baar
+K.
+Adaptations to Endurance and Strength Training
+Cold Spring Harb. Perspect. Med.
+2018
+8
+a029769
+10.1101/cshperspect.a029769
+28490537
+PMC5983157
+19.
+Batista
+G.d.A.
+Beltrán
+S.P.
+Passos
+M.H.P.d.
+Calixtre
+L.B.
+Santos
+L.R.d.H.
+de Araújo
+R.C.
+Comparison of the Electromyography Activity during Exercises with Stable and Unstable Surfaces: A Systematic Review and Meta-Analysis
+Sports
+2024
+12
+111
+10.3390/sports12040111
+38668579
+PMC11055131
+20.
+Halaki
+M.
+Gi
+K.
+Normalization of EMG Signals: To Normalize or Not to Normalize and What to Normalize To?
+Computational Intelligence in Electromyography Analysis—A Perspective on Current Applications and Future Challenges
+Naik
+G.R.
+InTech
+Rijeka, Croatia
+2012
+175
+194
+21.
+World Medical Association
+World Medical Association Declaration of Helsinki: Ethical Principles for Medical Research Involving Human Subjects
+JAMA
+2013
+310
+2191
+2194
+10.1001/jama.2013.281053
+24141714
+22.
+Thomas
+S.
+Reading
+J.
+Shephard
+R.J.
+Revision of the Physical Activity Readiness Questionnaire (PAR-Q)
+Can. J. Sport. Sci.
+1992
+17
+338
+345
+1330274
+23.
+Cohen
+J.
+Statistical Power Analysis for the Behavioural Sciences
+2nd ed.
+Lawrence Erlbaum Associates
+New York, NY, USA
+1988
+0-8058-0283-5
+24.
+Hermens
+H.J.
+Freriks
+B.
+Disselhorst-Klug
+C.
+Rau
+G.
+Development of Recommendations for SEMG Sensors and Sensor Placement Procedures
+J. Electromyogr. Kinesiol.
+2000
+10
+361
+374
+10.1016/S1050-6411(00)00027-4
+11018445
+25.
+Intziegianni
+K.
+Sarens
+M.
+Tsivitanidou
+O.
+Nisiotis
+L.
+Kovacs
+K.
+Nagy
+E.
+Christodoulides
+E.
+Investigation of Neuromuscular Activation in Older Female Adults during a Dynamic and Challenging Virtual Reality Activity: A Cross-Sectional Study
+J. Funct. Morphol. Kinesiol.
+2024
+9
+143
+10.3390/jfmk9030143
+39311251
+PMC11417879
+26.
+Burden
+A.M.
+Lewis
+S.E.
+Willcox
+E.
+The Effect of Manipulating Root Mean Square Window Length and Overlap on Reliability, Inter-Individual Variability, Statistical Significance and Clinical Relevance of Electromyograms
+Man. Ther.
+2014
+19
+595
+601
+10.1016/j.math.2014.06.003
+24985956
+27.
+Atkinson
+G.
+Nevill
+A.M.
+Statistical Methods for Assessing Measurement Error (Reliability) in Variables Relevant to Sports Medicine
+Sports Med.
+1998
+26
+217
+238
+10.2165/00007256-199826040-00002
+9820922
+28.
+Portney
+L.G.
+Watkins
+M.P.
+Foundations of Clinical Research: Applications to Practice
+3rd ed.
+Prentice Hall
+Upper Saddle River, NJ, USA
+2009
+978-0131716407
+29.
+Weir
+J.P.
+Quantifying Test-Retest Reliability Using the Intraclass Correlation Coefficient and the SEM
+J. Strength Cond. Res.
+2005
+19
+231
+240
+15705040
+10.1519/15184.1
+30.
+Balshaw
+T.G.
+Hunter
+A.M.
+Evaluation of Electromyography Normalisation Methods for the Back Squat
+J. Electromyogr. Kinesiol.
+2012
+22
+308
+319
+10.1016/j.jelekin.2011.11.009
+22155060
+31.
+Rota
+S.
+Rogowski
+I.
+Champely
+S.
+Hautier
+C.
+Reliability of EMG Normalisation Methods for Upper-Limb Muscles
+J. Sports Sci.
+2013
+31
+1696
+1704
+10.1080/02640414.2013.796063
+23697512
+32.
+Chuang
+T.D.
+Acker
+S.M.
+Comparing Functional Dynamic Normalization Methods to Maximal Voluntary Isometric Contractions for Lower Limb EMG from Walking, Cycling and Running
+J. Electromyogr. Kinesiol.
+2019
+44
+86
+93
+10.1016/j.jelekin.2018.11.014
+30551007
+33.
+Koo
+T.K.
+Li
+M.Y.
+A Guideline of Selecting and Reporting Intraclass Correlation Coefficients for Reliability Research
+J. Chiropr. Med.
+2016
+15
+155
+163
+10.1016/j.jcm.2016.02.012
+27330520
+PMC4913118
+34.
+Lakens
+D.
+Calculating and Reporting Effect Sizes to Facilitate Cumulative Science: A Practical Primer for t-Tests and ANOVAs
+Front. Psychol.
+2013
+4
+62627
+10.3389/fpsyg.2013.00863
+PMC3840331
+24324449
+35.
+Contreras
+B.
+Schoenfeld
+B.
+Mike
+J.
+Tiryaki-Sonmez
+G.
+Cronin
+J.
+Vaino
+E.
+The Biomechanics of the Push-up: Implications for Resistance Training Programs
+Strength Cond. J.
+2012
+34
+41
+46
+10.1519/SSC.0b013e31826d877b
+36.
+Donkers
+M.J.
+An
+K.-N.
+Chao
+E.Y.S.
+Morrey
+B.F.
+Hand Position Affects Elbow Joint Load during Push-up Exercise
+J. Biomech.
+1993
+26
+625
+632
+10.1016/0021-9290(93)90026-B
+8514808
+37.
+Lee
+S.
+Lee
+D.
+Park
+J.
+The Effect of Hand Position Changes on Electromyographic Activity of Shoulder Stabilizers during Push-up plus Exercise on Stable and Unstable Surfaces
+J. Phys. Ther. Sci.
+2013
+25
+981
+984
+10.1589/jpts.25.981
+24259898
+PMC3820220
+38.
+Moore
+L.
+Tankovich
+M.
+Riemann
+B.L.
+Davies
+G.J.
+Kinematic Analysis of Four Plyometric Push Up Variations
+Med. Sci. Sports Exerc.
+2011
+43
+334
+343
+10.1249/01.MSS.0000402317.48479.a7
+PMC4738879
+27182390
+39.
+Otte
+F.W.
+Davids
+K.
+Millar
+S.K.
+Klatt
+S.
+When and How to Provide Feedback and Instructions to Athletes?—How Sport Psychology and Pedagogy Insights Can Improve Coaching Interventions to Enhance Self-Regulation in Training
+Front. Psychol.
+2020
+11
+1444
+10.3389/fpsyg.2020.01444
+32760314
+PMC7371850
+40.
+Kibler
+W.B.
+McMullen
+J.
+Scapular Dyskinesis and Its Relation to Shoulder Pain
+J. Am. Acad. Orthop. Surg.
+2003
+11
+142
+151
+10.5435/00124635-200303000-00008
+12670140
+41.
+Häkkinen
+K.
+Newton
+R.U.
+Walker
+S.
+Häkkinen
+A.
+Krapi
+S.
+Rekola
+R.
+Koponen
+P.
+Kraemer
+W.J.
+Haff
+G.G.
+Blazevich
+A.J.
+Effects of Upper Body Eccentric versus Concentric Strength Training and Detraining on Maximal Force, Muscle Activation, Hypertrophy and Serum Hormones in Women
+J. Sports Sci. Med.
+2022
+21
+200
+213
+10.52082/jssm.2022.200
+35719226
+PMC9157521
+42.
+Tucker
+W.S.
+Gilbert
+M.L.
+Gribble
+P.A.
+Campbell
+B.M.
+Effects of Hand Placement on Scapular Muscle Activation During the Push-Up Plus Exercise
+Athl. Train. Sports Health Care
+2009
+1
+107
+113
+10.3928/19425864-20090427-05
+43.
+Hedayatpour
+N.
+Falla
+D.
+Physiological and Neural Adaptations to Eccentric Exercise: Mechanisms and Considerations for Training
+Biomed. Res. Int.
+2015
+2015
+193741
+10.1155/2015/193741
+26543850
+PMC4620252
+44.
+Harris-Love
+M.O.
+Gollie
+J.M.
+Keogh
+J.W.L.
+Eccentric Exercise: Adaptations and Applications for Health and Performance
+J. Funct. Morphol. Kinesiol.
+2021
+6
+96
+10.3390/jfmk6040096
+34842737
+PMC8628948
+45.
+Quinlan
+J.I.
+Narici
+M.V.
+Reeves
+N.D.
+Franchi
+M.V.
+Tendon Adaptations to Eccentric Exercise and the Implications for Older Adults
+J. Funct. Morphol. Kinesiol.
+2019
+4
+60
+10.3390/jfmk4030060
+33467375
+PMC7739434
+46.
+Mc Dermott
+E.J.
+Balshaw
+T.G.
+Brooke-Wavell
+K.
+Maden-Wilkinson
+T.M.
+Folland
+J.P.
+Fast and Ballistic Contractions Involve Greater Neuromuscular Power Production in Older Adults during Resistance Exercise
+Eur. J. Appl. Physiol.
+2022
+122
+1639
+1655
+10.1007/s00421-022-04947-x
+35429294
+PMC9197913
+47.
+Balshaw
+T.G.
+Massey
+G.J.
+Maden-Wilkinson
+T.M.
+Lanza
+M.B.
+Folland
+J.P.
+Neural Adaptations after 4 Years vs 12 Weeks of Resistance Training vs Untrained
+Scand. J. Med. Sci. Sports
+2019
+29
+348
+359
+10.1111/sms.13331
+30387185
+48.
+Fedorowich
+L.
+Emery
+K.
+Gervasi
+B.
+Côté
+J.N.
+Gender Differences in Neck/Shoulder Muscular Patterns in Response to Repetitive Motion Induced Fatigue
+J. Electromyogr. Kinesiol.
+2013
+23
+1183
+1189
+10.1016/j.jelekin.2013.06.005
+23837930
+49.
+Maier
+S.
+Rudisill
+S.
+Wright
+C.
+Daniell
+H.
+Lydston
+M.
+O’Donnell
+E.
+Sex Differences in Shoulder Anatomy and Biomechanics: A Systematic Review and Meta-Analysis
+J. Womens Sports Med.
+2022
+2
+5
+17
+10.53646/jwsm.v2i1.19
+muscles-05-00018-t001_Table 1
+Table 1
+Consistency of root mean square (RMS, mV) between repetitions for each contraction phase, muscle and push-up.
+Contraction Phase
+Muscles
+Push-Up
+ICC (3,1)
+CV (%)
+SEM (mV)
+MDC (mV)
+Eccentric 
+(elbow flexion)
+Pectoralis
+Standard
+0.976
+16 ± 8
+0.003
+0.009
+Diamond
+0.965
+13 ± 4
+0.004
+0.011
+Wide
+0.979
+15 ± 8
+0.003
+0.008
+Triceps Brachii
+Standard
+0.988
+11 ± 5
+0.004
+0.011
+Diamond
+0.991
+9 ± 3
+0.003
+0.009
+Wide
+0.986
+11 ± 5
+0.004
+0.011
+Concentric 
+(elbow extension)
+Pectoralis
+Standard
+0.978
+15 ± 6
+0.005
+0.014
+Diamond
+0.964
+16 ± 6
+0.007
+0.020
+Wide
+0.976
+17 ± 8
+0.005
+0.015
+Triceps Brachii
+Standard
+0.988
+11 ± 5
+0.006
+0.016
+Diamond
+0.988
+9 ± 4
+0.005
+0.014
+Wide
+0.990
+10 ± 4
+0.004
+0.012
+Measures of consistency: ICC = intra-class correlation coefficient, CV = coefficient of variation (mean ± SD); SEM = standard error of measurement; MDC = minimal detectable change.

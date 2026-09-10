@@ -1,0 +1,468 @@
+©Journal of Sports Science and Medicine (2014) 13, 502-510
+http://www.jssm.org
+
+  Research article
+
+Muscle Activation during Push-Ups with Different Suspension Training Systems
+
+Joaquin Calatayud 1, Sebastien Borreani 1, Juan C. Colado 1, Fernando Martín F1, Michael E. Rogers
+2, David G. Behm 3 and Lars L. Andersen 4
+1 Research Group in Sport and Health, Laboratory of Physical Activity and Health, Department of Physical Education
+and Sports, University of Valencia, Valencia, Spain; 2 Department of Human Performance Studies, Wichita State Uni-
+versity, Wichita, Kansas, USA; 3 School of Human Kinetics and Recreation, Memorial University of Newfoundland, St.
+John's, Newfoundland, Canada; 4 National Research Centre for the Working Environment, Copenhagen, Denmark
+
+Abstract                                                           upper and lower limbs and the core. Although suspension
+The purpose of this study was to analyze upper extremity and       training is portrayed as an innovative training technique,
+core muscle activation when performing push-ups with different     the historical use of these devices is related to the classic
+suspension devices. Young fit male university students (n = 29)    gymnastics rings (Beach et al., 2008).
+performed 3 push-ups each with 4 different suspension systems.
+Push-up speed was controlled using a metronome and testing                 One of the functional exercises that can be per-
+order was randomized. Average amplitude of the electromyog-        formed with suspension devices is the push-up which is a
+raphic root mean square of Triceps Brachii, Upper Trapezius,       traditional exercise that has been used to train trunk, arm
+Anterior Deltoid, Clavicular Pectoralis, Rectus Abdominis,         and shoulder musculature (Youdas et al., 2010). The
+Rectus Femoris, and Lumbar Erector Spinae was recorded.            push-up is also recommended in upper extremity rehabili-
+Electromyographic signals were normalized to the maximum           tation programs for advanced training of the scapular
+voluntary isometric contraction (MVIC). Electromyographic          stabilizers (Lear and Gross, 1998).
+data were analyzed with repeated-measures analysis of variance
+with a Bonferroni post hoc. Based upon global arithmetic mean              While muscle activation comparing push-ups using
+of all muscles analyzed, the suspended push-up with a pulley       stable and unstable platforms or surfaces has been inves-
+system provided the greatest activity (37.76% of MVIC; p <         tigated (Behm et al., 2002, Freeman et al., 2006; Lehman
+0.001). Individually, the suspended push-up with a pulley sys-     et al., 2006), there are only two articles (Beach et al.,
+tem also provided the greatest triceps brachii, upper trapezius,   2008; McGill et al., 2014) using suspension training sys-
+rectus femoris and erector lumbar spinae muscle activation. In     tems. Beach et al. (2008) reported greater activation of the
+contrast, more stable conditions seem more appropriate for         abdominal muscles with suspended push-ups in compari-
+pectoralis major and anterior deltoid muscles. Independent of      son with standard push-ups. Nevertheless, while this
+the type of design, all suspension systems were especially effec-  study compared a single suspension system with parallel
+tive training tools for reaching high levels of rectus abdominis   bands to a stable position, no previous studies have com-
+activation.                                                        pared different types of suspension systems with different
+                                                                   anchors and characteristics which may possess varying
+Key words: EMG, unstable, core, trunk, exercise.                   degrees of stability and muscle activation. Further, no
+                                                                   data are available in regard to the muscle activity differ-
+Introduction                                                       ences for the primary muscles involved in the suspended
+                                                                   push-up exercise. It is also important to know whether
+The use of unstable devices is a popular option in the             differences in muscle activation with these devices are
+fitness world (Behm and Colado, 2012). This training               different between core/trunk and limbs.
+modality is recommended for individuals aiming to
+achieve functional resistance training and health benefits                 Despite the wide variety of suspension training
+(Behm et al., 2010). It is well established that use of un-        systems that are available and the increasing use of these
+stable devices can increase core activation (Behm et al.,          devices, there is a lack of scientific evidence about the
+2010). Since decreased core muscle strength is associated          muscle activity that may be induced by the different sys-
+with low back pain, there is a large emphasis on strength-         tem characteristics, hindering an optimal training tool
+ening the trunk muscles (McGill, 2001). Instability resis-         selection. Thus, the purpose of this study was to compare
+tance training can also increase limb muscle activation            the muscle activation while performing a push-up with
+(Anderson and Behm, 2005) and co-contractions (Behm                four different conditions/suspension training systems such
+et al., 2002). In addition, a recent review found that insta-      as V configuration systems (i.e., V-Shaped) with one
+bility resistance training programs achieved on average            anchor (i.e., TRX Suspension Trainer and Flying), one-
+22% gains in functional performance measures (Behm                 anchor V-Shaped system with a pulley (i.e., AirFit Train-
+and Colado, 2012).                                                 er Pro) and a parallel band system with two independent
+                                                                   anchors (i.e., Jungle Gym XT). It was hypothesized that
+        Whereas many unstable devices (e.g., Swiss balls,          the highest core and upper extremities muscle activation
+BOSU balls, rocker boards) provide an unstable base,               would be induced by the suspension system with the pul-
+suspension training can provide alternative instability to         ley, except for the pectoralis major and anterior deltoid,
+                                                                   which were expected to show similar muscle activation in
+                                                                   stable and unstable conditions.
+
+Received: 28 February 2014 / Accepted: 22 March 2014 / Published (online): 01 September 2014
+Calatayud et al.                                               503
+
+Methods                                                        (PEC), Rectus Abdominis (ABS), Rectus Femoris (FEM),
+                                                               and Lumbar Erector Spinae (LUMB) on the dominant
+Subjects                                                       side of the body. Pre-gelled bipolar silver/silver chloride
+Young fit male university students (n = 29; age: 23.5 ±        surface electrodes (Blue Sensor M-00-S, Medicotest,
+3.1 years; height: 1.78 ± 0.06 m; body mass: 75.2 ± 8.5        Olstykke, DNK) were placed with an interelectrode dis-
+kg; body fat percentage: 10.0 ± 2.5 % and biacromial           tance of 25 mm. The reference electrode was placed be-
+(shoulder) width: 39.1 ± 1.5cm) voluntarily participated       tween the active electrodes, approximately 10 cm away
+in this study. The number of participants chosen was           from each muscle, according to the manufacturer's speci-
+calculated and based on effect size 0.25 SD with an            fications. Once the electrodes were placed, participants
+level of 0.05 and power at 0.80. Participants had a mini-      performed 2 standard push-ups on the floor in order to
+mum of 1 year of resistance training experience, perform-      check signal saturation. All signals were acquired at a
+ing at least 2 sessions per week and a minimum of 4            sampling frequency of 1kHz, amplified and converted
+months of suspension training experience, using this kind      from analog to digital. All records of myoelectrical activ-
+of training at least 1 time per week. No participant in-       ity (in microvolts) were stored on a hard drive for later
+cluded in this study had musculoskeletal pain, neuromus-       analysis. To acquire the surface EMG signals produced
+cular disorders, or any form of joint or bone disease. All     during exercise, an ME6000P8 (Mega Electronics, Ltd.,
+participants signed an institutional informed consent form     Kuopio, Finland) biosignal conditioner was used.
+before starting the protocol, and the institution's review
+board approved the study. All procedures described in this             Prior to the dynamic exercises described below,
+section comply with the requirements listed in the 1975        two 5 s MVICs were performed for each muscle and the
+Declaration of Helsinki and its amendment in 2008.             trial with the highest EMG was selected (Jakobsen et al.,
+                                                               2013). Participants performed 1 practice trial to ensure
+Experiment procedures                                          that they understood the task, 1-minute rest was given
+Each participant took part in 2 sessions: familiarization      between each MVIC and standardized verbal encourage-
+and experimental sessions both at the same hour during         ment was provided to motivate all participants to achieve
+the morning. The first session occurred 48-72 h before the     maximal muscle activation. Positions for the MVICs were
+data collection in the experimental session. Several re-       performed according to standardized procedures, chosen
+strictions were imposed on the volunteers: no food, drinks     based on commonly used muscle testing positions for the
+or stimulants (e.g., caffeine) to be consumed 3-4 h before     (1) TRICEP (Kendall et al., 2005) , (2) PEC (Snyder and
+the sessions and no physical activity more intense than        Fry, 2012), (3) DELT (Ekstrom et al., 2005), (4) TRAPS
+daily activities 12 h before the exercises. They were in-      (Ekstrom et al., 2005), (5) ABS (Vera-García et al.,
+structed to sleep more than 8 hours the night before data      2010), (6) LUMB (Jakobsen et al., 2013), (7) FEM (Ja-
+collection. All measurements were made by the same             kobsen et al., 2013) and were performed against a fixed
+investigators during the morning and the procedures were       immovable resistance (i.e., Smith machine). Specifically:
+always conducted in the same sportive facility (with tem-      (1) forearm extension with elbows at 90º in a seated posi-
+perature at 20º C). The study was conducted during April.      tion an erect posture with no back support (2) bench press
+                                                               with a grip at 150% of biacromial width, the shoulder
+Familiarization session                                        abducted at 45º and feet flat on the bench (3) deltoid flex-
+During the familiarization session, the participants were      ion at 90º in a seated position with an erect posture with
+familiarized with the push-up exercise, suspension train-      no back support (4) deltoid abduction at 90º in a seated
+ing equipment, movement amplitude, body position and           position with an erect posture with no back support (5)
+cadence of movement that would later be used during data       curl up at 40º with arms on chest and pressing against the
+collection. Participants practiced the exercises typically 1-  bar with the participant lying on the bench and feet flat on
+3 times each until the participant felt confident and the      the bench, (6) trunk extension with the participant lying
+researcher was satisfied that the form had been achieved.      on the bench and pelvis fixated, the trunk was extended
+Moreover, height (IP0955, Invicta Plastics Limited,            against the bar, and (7) static knee extension with the
+Leicester, England), body mass, body fat percentages           participant positioned in a Biodex dynamometer: knee
+(Tanita model BF- 350) and biacromial width were ob-           angle: 70º and hip angle: 110º.
+tained according to the protocols used in previous studies
+(García-Massó et al., 2011).                                           The participants started the push-ups in an ex-
+                                                               tended arm (up) position with forearms and wrists pro-
+Experimental session                                           nated, feet at biacromial (shoulder) width, and fingers
+The protocol started with the preparation of participants'     flexed. In the down position, the forearm and wrists were
+skin, followed by electrode placement, MVIC collection         kept pronated, whereas the elbow was flexed 90º and the
+and exercise performance. Hair was removed with a razor        shoulder abducted 45º. A cross line auto laser level was
+from the skin overlying the muscles of interest, and the       fixated with a tripod (Black & Decker LZR6TP, New
+skin was then cleaned by rubbing with cotton wool dipped       Britain, CT, USA) and used as a visual feedback for re-
+in alcohol for the subsequent electrode placement (posi-       searchers in connection to requested elbow and shoulder
+tioned according to the recommendations of Cram et al.,        joint positioning during exercises. Hip and spine were
+1998) on the Triceps Brachii (TRICEP), Upper Trapezius         maintained neutral and hands grasping the handles at 10
+(TRAPS), Anterior Deltoid (DELT), Clavicular Pectoralis        cm from the floor during all the repetitions. Each partici-
+                                                               pant performed three consecutive repetitions in all condi-
+                                                               tions to avoid the influence of fatigue on the subsequent
+504                                                            EMG analysis of suspended push-ups
+
+condition (Jakobsen et al., 2013). A 2:2 ratio (i.e., 2-       equipment is very similar to the TRX Suspension Trainer,
+second rate for descent and 2-second rate for ascent) was      except that there are two V bands instead of one band
+maintained by a 30-Hz metronome (Ableton Live 6, Able-         with a stabilizing loop in the middle. AirFit Trainer Pro
+ton AG, Berlin, Germany) to standardize speed of move-         has a main band supported by a spring and a V cable with
+ment (Freeman et al., 2006). Each participant used a stan-     a pulley in the middle. Therefore, friction is reduced and
+dardized grip width of 150% of biacromial width (dis-          it allows greater unilateral motion. Greater unilateral
+tance in centimeters between the tips of right and left third  movements provide disruptive torques that contribute to
+digits). Visual feedback was given to the participants in      instability (Behm and Colado, 2012) and thus this equip-
+order to maintain the range of movement and hand dis-          ment is considered the most unstable. Finally, Jungle
+tance during the data collection. A trial was discarded and    Gym XT provides a more stable condition than the other
+repeated if participants were unable to perform the exer-      suspension devices due to a neutral suspension system
+cise with the correct technique.                               with two parallel bands (similar to Olympic rings) and
+                                                               two independent anchors, in contrast to traditional V-
+Exercise equipment                                             shaped suspension systems.The band length for all de-
+The suspended push-ups were performed with 4 different         vices was adjusted for the hands to be at 10 cm from the
+suspension training systems: TRX Suspension Trainer TM         floor during all repetitions. The order of conditions was
+(TRX®, San Francisco, CA, USA), Jungle Gym XT                  performed randomly with a 2-min interval rest time be-
+(LifelineUSA®, Madison, WI, USA), Flying (Sidea,               tween them.
+Cesea, Italy), AirFit Trainer Pro (PurMotionTM, Pelham,
+AL, USA). The main characteristic of the suspension            Data analysis
+equipment is that two bands or cables are suspended from       All surface EMG signal analyses were performed using
+the ceiling or other support. Each device has unique char-     Matlab 7.0 (Mathworks Inc., Natick, MA, USA). Surface
+acteristics (see Figure 1). TRX Suspension Trainer TM is       EMG signals related to isometric exercises were analyzed
+quite common in fitness centers. This equipment has a          by using the 3 middle seconds of the 5-second isometric
+main band and on the bottom of this band there is a main       contraction. The EMG signals of the dynamic exercises
+carabineer and a stabilizing loop where another band is        were analyzed by taking the average of the entire three
+locked, forming a V with handles on the bottom. Flying         repetitions. All signals were bandpass filtered at a 20- to
+
+Figure 1. Suspension training equipments: (a) TRX Suspension Trainer, (b) Jungle Gym XT, (c) Flying and (d) AirFit Train-
+er Pro.
+Table 1. Mean ( standard error) EMG for each muscle and exercise expressed as percent of each muscle's MVIC (n = 29).
+Calatayud et al.                                                                                 505
+
+                  Floor             TRX Suspension Jungle Gym     Flying         AirFit Trainer
+
+                                    trainer                  XT                  Pro
+
+Triceps           17.14 (1.31)§|| 37.04 (180)|| 24.40 (1.68)*§|| 34.93 (1.78)*|| 47.82 (2.54)*§ F(4,108)=114.212
+
+Brachii                                                                                          p<0.001
+
+Upper             5.90 (.56)§|| 15.73 (2.10)*§|| 6.35 (.77)§|| 10.97 (1.54)*|| 20.39 (2.65)*§ F(4,92)=27.184
+
+Trapezius                                                                                        p<0.001
+
+Anterior          26.22 (1.46)§|| 19.08 (.91)*     22.18 (1.41)§  17.70 (.95)*   18.46 (1.24)* F(4,96)=14.125
+
+Deltoid                                                                                          p<0.001
+
+Clavicular        29.60 (1.88)      31.68 (2.53) 41.60 (2.88)*§|| 30.59 (2.28)   27.69 (2.41) F(4,112)=16.504
+
+Pectoralis                                                                                       p<0.001
+
+Rectus            23.85 (2.80)§|| 87.98 (8.98)*|| 87.13 (9.27)*|| 97.11 (10.54)* 105.53 (9.84)* F(4,100)=51.771
+
+Abdominis                                                                                        p<0.001
+
+Rectus            7.45 (.72)§|| 11.86 (1.28)*|| 13.43 (1.43)*|| 12.36 (1.21)*|| 19.23 (2.20)*§ F(4,100)=22.013
+
+Femoris                                                                                          p<0.001
+
+Erector           2.03 (.14)§||     3.21 (.24)*||  3.26 (.23)*||  3.31 (.24)*||  4.32 (.32)*§ F(4,112)=50.535
+
+Lumbar Spinae                                                                                    p<0.001
+
+Global            16.75 (.67)§|| 30.50 (1.75)*|| 29.03 (1.72)*|| 30.62 (1.91)*|| 37.76 (2.27)*§ F(4,108)=51.007
+
+                                                                                                 p<0.001
+
+Global = mean of the 7 muscles. * =Significant differences compared to the Floor; = Significant differences compared to the TRX Suspension
+
+trainer; =Significant differences compared to the Jungle Gym XT; § =Significant differences compared to the Flying; || =Significant differences
+
+compared to the AirFit Trainer Pro
+
+400-Hz cutoff frequency with a fourth-order Butterworth          all muscles. TRICEP and TRAPS EMG signal was sig-
+filter. Surface EMG amplitude in the time domain was             nificantly greater during the suspended push-up with the
+quantified by using RMS and processed every 100 ms.              pulley system compared to all other conditions. DELT
+Mean RMS values were selected for every trial and nor-           EMG signal was significantly greater with the standard
+malized to the maximum EMG (%MVIC). Global mean                  push-up compared to all conditions except the two-anchor
+of all muscles (i.e., TRICEP, TRAPS, DELT, PEC, ABS,             suspended push-up. PEC muscle activation was signifi-
+FEM and LUMB) was also calculated (arithmetic mean)              cantly greater with the two-anchor suspended push-up
+and analyzed.                                                    compared to all other conditions. LUMB, FEM and ABS
+                                                                 muscle activation was significantly greater during the
+Statistical analyses                                             suspended push-up with the pulley system compared to all
+Statistical analysis was accomplished using SPSS version         other conditions. Complete differences among conditions
+17 (SPSS inc., Chicago, IL, USA). All variables were             are represented in Table 1. Graphical representations of
+found to be normally distributed (Shapiro-Wilk's normal-         the EMG signals for each muscle, ranked from highest to
+ity test) before data analysis. Results are reported as          lowest among all exercises, are shown in Figures 2 to 9.
+mean±SE. Statistical comparisons for each muscle among
+the conditions were performed using Analysis of Variance         Discussion
+(ANOVA) with repeated measures. Greenhouse­Geisser
+correction was used when the assumption of sphericity            In accordance with the hypothesis, the greatest core mus-
+(Mauchly's test) was violated. Post hoc analysis with            cle activation was achieved with the suspension device
+Bonferroni correction was used in the case of significant-       with a pulley system (i.e., AirFit Trainer Pro), which was
+main effects. Significance was accepted when p  0.05.            considered the most unstable device. However, partly in
+                                                                 accordance with the hypothesis, the stable condition only
+Results                                                          provided the highest muscle activation for the DELT.
+                                                                 Suspended push-ups induced greatest activation than
+Statistically significant differences were found for muscle      standard push-up on the floor, which presented the lowest
+activation (%MVIC) among the different conditions for            TRICEP activation, while individually, the suspended
+
+Figure 2. Percentage of maximum voluntary isometric contraction (%MVIC) of triceps brachii under different conditions.
+506  EMG analysis of suspended push-ups
+
+Figure 3. Percentage of maximum voluntary isometric contraction (%MVIC) of upper trapezius under different conditions.
+
+Figure 4. Percentage of maximum voluntary isometric contraction (%MVIC) of anterior deltoid under different conditions.
+
+                 Figure 5. Percentage of maximum voluntary isometric contraction (%MVIC) of clavicular pec-
+                 toralis under different conditions.
+
+Figure 6. Percentage of maximum voluntary isometric contraction (%MVIC) of rectus abdominis under different conditions.
+Calatayud et al.                                                                                             507
+
+Figure 7. Percentage of maximum voluntary isometric contraction (%MVIC) of rectus femoris under different conditions.
+
+                  Figure 8. Percentage of maximum voluntary isometric contraction (%MVIC) of erector lumbar
+                  spinae under different conditions.
+
+Figure 9. Percentage of maximum voluntary isometric contraction (%MVIC) of global mean of all muscles (i.e. triceps bra-
+chii, upper trapezius, anterior deltoid, clavicular pectoralis, rectus abdominis, rectus femoris and lumbar erector spinae)
+
+device with a pulley system induced the greatest TRICEP     TRAPS where it seems that unstable conditions may
+activation. In this line, Lehman et al. (2006) and Ander-   provide a greater challenge than stable conditions. The
+son et al. (2013) found that TRICEP activation during       suspended device with a pulley system elicited over triple
+unstable push-ups was superior to the stable condition. On  TRAPS activation compared with the two parallel band
+the other hand, Freeman et al. (2006) showed that per-      system with independent anchors and the standard push-
+forming the push-up with two hands on two balls pro-        up on the floor, probably due to the greater unilateral
+voked the same activation levels as a stable push-up.       movement allowed and the scapular synergist stabilizer
+However, it is possible that extent of instability in that  role of this muscle (Lear and Gross, 1998). In accordance,
+study was insufficient to elicit significant differences.   unilateral maintained push-up on a medicine ball showed
+                                                            greater activation of the TRAPS compared to a stable
+        Similar activation patterns were apparent for
+508                                                            EMG analysis of suspended push-ups
+
+surface (de Oliveira et al., 2008).                            nique. Although it is unknown how much FEM muscle
+        Despite there being no significant DELT activation     activity is related to greater anterior tilt and an increased
+                                                               lumbar lordosis, caution should be used with some indi-
+differences between the standard push-up on the floor and      viduals because of the increased low-back injury risk with
+the two-anchor suspended push-up, the condition pro-           suspended push-ups (Beach et al., 2008; McGill et al.,
+vided by the stable push-up was the only one that caused       2014).
+greater activation than the condition induced by the one-
+anchor devices (i.e., Flying, TRX Suspension Trainer and               The greatest muscle activity of all muscles was
+the Airfit Trainer Pro). Thus, results suggest that for        achieved for the ABS muscle. The suspended device with
+DELT, a more stable condition may provide a greater or         the pulley system showed greater activation levels than all
+similar extent of activation as more unstable conditions.      conditions but did not differ from Flying. Nevertheless,
+Consistent with this affirmation, Freeman et al. (2006)        ABS activation levels were very high during all sus-
+found that push-ups on the ground provide similar DELT         pended conditions according to DiGiovine´s (1992) clas-
+activation as the same exercise performed with hands on        sification. Similarly, Beach et al. (2008) reported greater
+two balls.                                                     ABS activation during the suspended push-ups compared
+                                                               with regular push-ups. Likewise, results showing instabil-
+        The PEC muscle showed significantly increased          ity-induced higher activation were demonstrated when
+activation with the two-anchor suspended push-up in            performing push-ups (Freeman et al., 2006; Anderson et
+comparison with the other conditions. A 20% of MVIC            al., 2013), push-up variations such as a press up on top
+higher activation has been reported for a two ball push-up     (Marshall and Murphy, 2005) or a push-up plus (Lehman
+versus a standard version (Freeman et al., 2006). In con-      et al., 2006), and a different exercise with similar position
+trast, no significant differences were found in favour of      to a prone bridge (Lehman et al., 2005, Kang et al., 2012).
+pectoralis major activation during push-up exercises on a
+Swiss ball compared with a stable condition (Lehman et         Conclusion
+al., 2006). Authors stated that absence of changes in mus-
+cle activation of the pectoralis major may be due to its       Coaches, athletes and fitness enthusiasts can use the pre-
+role as prime mover and to a less extent as stabilizer         sent information to select the optimal suspension training
+(Lehman et al., 2006), and suggested that moderate, rather     device and to establish an intensity push-up progression
+than excessive levels of instability, are required to in-      based on the reported extent of muscle activation. It
+crease activation in pectoralis major muscle (Behm and         should be noted that greater activation of the TRICEP,
+Colado, 2012; Behm et al., 2010). Other reasons that may       TRAPS, LUMB and FEM can be achieved with more
+lead to different muscle activity is the height of the feet    unstable suspension devices as a one-anchor system with
+during the exercise and the use of shoulder width or wider     a pulley. However, if greater activation is sought for the
+hand positions, although recent research does not show         DELT and PEC, it can be achieved with more stable con-
+any difference in pectoralis major activation during a         ditions. In fact, a parallel band system with two anchors is
+push-up with these hand positions (Youdas et al., 2010).       the best option to increase PEC muscle activation whereas
+In addition, it is noteworthy that participants' characteris-  the suspended push-ups do not suppose an additional
+tics such as training experience may play an important         advantage to increase DELT muscle activity. All the test-
+role in muscle activation levels (Wahl and Behm, 2008).        ed push-up suspension systems effectively enhance ABS
+                                                               activation.
+        If we take into consideration the DiGiovine´s
+scheme (DiGiovine et al., 1992), LUMB and FEM activa-          Acknowledgements
+tion levels are classified as low (i.e., <20% of MVIC).
+Previous studies reported low LUMB activation rates            The authors thank the participants for their contribution. The authors did
+during push-ups on unstable conditions (Freeman et al.,        not receive financial support for this study, they have no professional
+2006; Beach et al., 2008; Anderson et al., 2013) and dur-      relationship with the equipment used during this study and there are no
+ing similar exercise positions such as a press-up (Marshall    known conflicts of interest associated with this publication that could
+and Murphy, 2005) or prone bridge (Lehman et al., 2005,        have influenced its outcome.
+Kang et al., 2012). These findings suggest that suspended
+devices provoke a safe amount of muscle activation for         References
+the lumbar spine (Escamilla et al., 2010) since excessive
+muscle activity in the lumbar paraspinals has been related     Anderson, K. and Behm, D.G. (2005) Trunk muscle activity increases
+to high compressive and shear forces in this zone (Juker et              with unstable squat movements. Canadian Journal of Applied
+al., 1998). Low activation levels may be appropriate for                 Physiology 30, 33-45.
+LUMB muscle (Behm and Colado, 2012) due to their
+high type I fiber proportion (Behm et al., 2010) and the       Anderson, G.S, Gaetz, M., Holzmann, M. and Twist, P. (2013) Com-
+prevalent role of muscular endurance for daily functional                parison of EMG activity during stable and unstable push-up
+tasks (McGill, 2001). Higher FEM activation has been                     protocols. European Journal of Sport Science 13, 42-48.
+suggested to cause greater lumbar lordosis (Sundstrup et
+al., 2012) and may increase the risk of low back pain          Beach, T.A., Howarth, S.J. and Callaghan, J.P. (2008) Muscular contri-
+(Youdas et al., 2008). In our study, the suspended device                bution to low-back loading and stiffness during standard and
+with the pulley system achieved the greater FEM activa-                  suspended push-ups. Human Movement Science 27, 457-472.
+tion, perhaps due to greater strength requirements to avoid
+falling and maintain adequate posture and exercise tech-       Behm, D.G., Anderson, K. and Curnew, R. S. (2002) Muscle force and
+                                                                         activation under stable and unstable conditions. Journal of
+                                                                         Strength and Conditioning Research 16, 416-422.
+
+                                                               Behm, D.G. and Colado, J.C. (2012) The effectiveness of resistance
+                                                                         training using unstable surfaces and devices for rehabilitation.
+                                                                         International Journal of Sports Physical Therapy 7, 226-241.
+
+                                                               Behm, D.G., Drinkwater, E.J., Willardson, J.M. a nd Cowley, P.M.
+Calatayud et al.                                                                509
+
+          (2010) Canadian Society for Exercise Phytsiology Position                        niques to normalize trunk muscle EMG in healthy women.
+          Stand: The use of instability to train the core in athletic and                 Journal of Electromyography and Kinesiology 20, 10-16.
+          non-athletic conditioning. Applied Physiology, Nutrition, and         Wahl, M.J. and Behm, D.G. (2008) Not all instability training devices
+          Metabolism 35, 11-14.                                                           enhance muscle activation in highly resistance-trained individu-
+Cram, J.R., Kasman, G.S. and Holtz, J. (1998) Introduction to surface                     als. Journal of Strength and Conditioning Research 22, 1360-
+          electromyography. Gaithersburg: Aspen Publishers.                               1370.
+de Oliveira, A.S., de Morais Carvalho, M. and de Brum, D.P. (2008)              Youdas, J.W., Budach, B.D., Ellerbusch, J.V., Stucky, C.M., Wait, K. R.
+          Activation of the shoulder and arm muscles during axial load                    and Hollman, J.H. (2010) Comparison of muscle-activation pat-
+          exercises on a stable base of support and on a medicine ball.                   terns during the conventional push-up and perfect pushupTM ex-
+          Journal of Electromyography and Kinesiology 18, 472-479.                        ercises. Journal of Strength and Conditioning Research 24,
+DiGiovine, N.M., Jobe, F.W., Pink, M. and Perry, J. (1992) An electro-                    3352-3362.
+          myographic analysis of the upper extremity in pitching. Journal       Youdas, J.W., Guck, B.R., Hebrink, R.C., Rugotzke, J.D., Madson, T.J.
+          of Shoulder and Elbow Surgery 1, 15-25.                                         and Hollman, J.H. (2008) An electromyographic analysis of the
+Ekstrom, R.A., Soderberg, G.L. and Donatelli, R.A. (2005) Normaliza-                      Ab-Slide exercise, abdominal crunch, supine double leg thrust,
+          tion procedures using maximum voluntary isometric contrac-                      and side bridge in healthy young adults: implications for reha-
+          tions for the serratus anterior and trapezius muscles during sur-               bilitation professionals. Journal of Strength and Conditioning
+          face EMG analysis. Journal of Electromyography and Kinesiol-                    Research 22, 1939-1946.
+          ogy 15, 418-428.
+Escamilla, R.F., Lewis, C., Bell, D., Bramblet, G., Daffron, J., Lambert,        Key points
+          S., Pecson, A., Imamura, R., Paulos, L. and Andrews, J.R.
+          (2010) Core muscle activation during Swiss ball and traditional         · Compared with standard push-ups on the floor, sus-
+          abdominal exercises. Journal of Orthopaedic & Sports Physical              pended push-ups increase core muscle activation.
+          Therapy 40, 265-276.
+Freeman, S., Karpowicz, A, Gray, J. and McGill, S. (2006) Quantifying             · A one-anchor system with a pulley is the best option
+          muscle patterns and spine load during various forms of the                 to increase TRICEP, TRAPS, LUMB and FEM
+          push-up. Medicine and Science in Sports and Exercise 38, 570-              muscle activity.
+          577.
+García-Massó, X., Colado, J.C., González, L.M., Salvá, P., Alves J.,              · More stable conditions such as the standard push-up
+          Tella, V. and Triplett, N.T. (2011) Myoelectric activation and             or a parallel band system provide greater increases
+          kinetics of different plyometric push-up exercises. Journal of             in DELT and PEC muscle activation.
+          Strength and Conditioning Research 25, 2040-2047.
+Jakobsen, M.D., Sundstrup, E., Andersen, C.H., Aagaard, P. and Ander-             · A suspended push-up is an effective method to
+          sen, L.L. (2013) Muscle activity during leg strengthening exer-            achieve high muscle activity levels in the ABS.
+          cise using free weights and elastic resistance: effects of ballistic
+          vs controlled contractions. Human Movement Science 32, 65-            AUTHORS BIOGRAPHY
+          78.
+Juker, D., McGill, S., Kropf, P. and Steffen, T. (1998) Quantitative                                      Joaquin CALATAYUD
+          intramuscular myoelectric activity of lumbar portions of psoas                                  Employment
+          and the abdominal wall during a wide variety of tasks. Medicine                                 Research Fellow, Department of Physical
+          and Science in Sports and Exercise 30, 301-310.                                                 Education and Sport, University of
+Kang, H., Jung, J. and Yu, J. (2012) Comparison of trunk muscle activ-                                    Valencia, Spain.
+          ity during bridging exercises using a sling in patients with low                                Degree
+          back pain. Journal of Sports Science and Medicine 11, 510-515.                                  PhD student
+Kendall, F.P., Kendall, E.., Geise, P.., McIntyre, M. and Romani, W.A.                                    Research interests
+          (2005) Muscles: Testing and function with posture and pain 5th                                  Strength and conditioning, measurement
+          Edition. Baltimore: Lippincott Williams & Wilkins.                                              and evaluation.
+Lear, L.J. and Gross, M.T. (1998) An electromyographical analysis of                                      E-mail: ximo86@hotmail.com
+          the scapular stabilizing synergists during a push-up progression.                               Sebastien BORREANI
+          Journal of Orthopaedic & Sports Physical Therapy 28, 146-                                       Employment
+          157.                                                                                            Research Fellow, Department of Physical
+Lehman, G.J., Hoda, W. and Oliver, S. (2005) Trunk muscle activity                                        Education and Sport, University of
+          during bridging exercises on and off a Swiss ball. Chiropractic                                 Valencia, Spain.
+          & Osteopathy 13, 14.                                                                            Degree
+Lehman, G.J., MacMillan, B., MacIntyre, I., Chivers, M. and Fluter, M.                                    PhD student
+          (2006) Shoulder muscle EMG activity during push up variations                                   Research interests
+          on and off a Swiss ball. Dynamic Medicine 5, 7.                                                 Strength and conditioning, measurement
+Marshall, P.W. and Murphy B.A. (2005) Core stability exercises on and                                     and evaluation.
+          off a Swiss ball. Archives of Physical Medicine and Rehabilita-                                 E-mail: sborreani@yahoo.es
+          tion 86, 242-249.                                                                               Juan C. COLADO
+McGill, S. M. (2001) Low back stability: from formal description to                                       Employment
+          issues for performance and rehabilitation. Exercise and Sport                                   Tenured Professor, Department of
+          Sciences Reviews 29, 26-31.                                                                     Physical Education and Sport, University
+McGill, S.M., Cannon, J. and Andersen, J. (2014) Analysis of pushing                                      of Valencia, Spain.
+          exercises: Muscle activity and spine load while contrasting                                     Degree
+          techniques on stable surfaces with a labile suspension strap                                    PhD
+          training system. Journal of Strength and Conditioning Research                                  Research interests
+          28, 105-116.                                                                                    Strength and conditioning, measurement
+Snyder, B.J. and Fry, W.R. (2012) Effect of verbal instruction on muscle                                  and evaluation.
+          activity during the bench press exercise. Journal of Strength                                   E-mail: juan.colado@uv.es
+          and Conditioning Research 26, 2394-2400.
+Sundstrup, E., Jakobsen, M.D., Andersen, C.H., Jay, K. and Andersen,
+          L.L. (2012) Swiss ball abdominal crunch with added elastic re-
+          sistance is an effective alternative to training machines. Interna-
+          tional Journal of Sports Physical Therapy 7, 372-380.
+Vera-García, F.J., Moreside, J.M. and McGill, S.M. (2010) MVC tech-
+510                                                                 EMG analysis of suspended push-ups
+
+                          Fernando MARTÍN
+                          Employment
+                          Assistant Professor, Department of
+                          Physical Education and Sport, University
+                          of Valencia, Spain.
+                          Degree
+                          PhD
+                          Research interests
+                          Strength and conditioning, measurement
+                          and evaluation.
+                          E-mail: f_martin_r@yahoo.es
+                          Michael E. ROGERS
+                          Employment
+                          Professor and Chair, Department of
+                          Human Performance Studies, Wichita
+                          State University, Wichita, Kansas, USA.
+                          Degree
+                          PhD
+                          Research interests
+                          Strength and balance training.
+                          E-mail: michael.rogers@wichita.edu
+                          David G. BEHM
+                          Employment
+                          Associate Dean; School of Human Kinet-
+                          ics and Recreation, Memorial University
+                          of Newfoundland, St. John's Newfound-
+                          land, Canada
+                          Degree
+                          PhD
+                          Research interests
+                          Neuromuscular responses to exercise
+                          E-mail: dbehm@mun.ca
+                          Lars L. ANDERSEN
+                          Employment
+                          Professor, National Research Centre for
+                          the Working Environment, Copenhagen,
+                          Denmark
+                          Degree
+                          PhD
+                          Research interests
+                          Musculoskeletal disorders, health promo-
+                          tion
+                          E-mail: lla@nrcwe.dk
+
+ Michael E. Rogers
+Department of Human Performance Studies, Wichita State
+University, Wichita, Kansas, USA
+

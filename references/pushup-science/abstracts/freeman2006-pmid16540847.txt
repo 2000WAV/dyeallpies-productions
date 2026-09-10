@@ -1,0 +1,38 @@
+1. Med Sci Sports Exerc. 2006 Mar;38(3):570-7. doi: 
+10.1249/01.mss.0000189317.08635.1b.
+
+Quantifying muscle patterns and spine load during various forms of the push-up.
+
+Freeman S(1), Karpowicz A, Gray J, McGill S.
+
+Author information:
+(1)Faculty of Applied Health Sciences, Department of Kinesiology, University of 
+Waterloo, Waterloo, Ontario, Canada.
+
+PURPOSE: This study was conducted to quantify the normalized amplitudes of the 
+abdominal wall and back extensor musculature during a variety of push-up styles. 
+We also sought to quantify their impact on spinal loading by calculating spinal 
+compression and torque generation in the L4-5 area.
+METHODS: Ten university-age participants, nine males and one female, in good to 
+excellent condition, volunteered to participate in this study. All participants 
+were requested to perform a maximum of 12 different push-up exercises, three 
+trials per exercise. Surface electromyographic data (EMG) were collected 
+bilaterally on rectus abdominis, external oblique, internal oblique, latissimus 
+dorsi, and erector spinae muscles, and unilaterally (right side) on pectoralis 
+major, triceps brachii, biceps brachii, and anterior deltoid muscles. Spine 
+kinetics were obtained using an anatomically detailed model of the torso/spine.
+RESULTS: This study revealed that more dynamic push-ups (i.e., ballistic, with 
+hand movement) required more muscle activation and higher spine load, whereas 
+placing labile balls under the hands only resulted in modest increases in spine 
+load. Right rectus abdominis (RA) activation was significantly higher than left 
+RA activation during the left hand forward push-up and vice versa for the right 
+hand forward push-up (P < 0.001). External oblique (EO) demonstrated the same 
+switch in dominance during staggered hand push-ups (P < 0.01). The one-arm 
+push-up resulted in the highest spine compression. Skilled participants showed 
+greater synchronicity with peak muscle activation (plyometric type of 
+contractions) during ballistic push-ups.
+CONCLUSION: These data will help guide exercise selection for individuals with 
+differing training objectives and injury history.
+
+DOI: 10.1249/01.mss.0000189317.08635.1b
+PMID: 16540847 [Indexed for MEDLINE]

@@ -1,0 +1,44 @@
+Mier CM, Amasay T, Capehart S, Garner HH (2014). Differences between Men and Women in Percentage of
+Body Weight Supported during Push-up Exercise. International Journal of Exercise Science
+7(2):161-169 [also cited elsewhere as 7:161-168 -- see note below]. Department of Sport and
+Exercise Sciences, Barry University.
+
+STATUS: full text NOT obtained this session despite repeated attempts. digitalcommons.wku.edu
+(the IJES host) returned HTTP 403 to both `curl -A "Mozilla/5.0"` and the WebFetch tool for the
+direct PDF (cgi/viewcontent.cgi?article=1582&context=ijes) and for the abstract landing page
+(ijes/vol7/iss2/7). No PMC mirror exists (IJES is not PMC-archived for this volume/issue). No
+Unpaywall/Europe PMC OA record found under this PMID-less citation. This paper is NOT PubMed-
+indexed (esearch under Mier/Amasay/Capehart + push-up, 0 hits).
+
+NUMBERS BELOW ARE SECONDHAND ONLY (via a WebSearch summary of Semantic Scholar/ResearchGate listing
+pages, not the primary text itself -- treat with the same caution as any other un-verified secondary
+citation in this archive, flagged accordingly wherever used):
+  Study design (as reported by the citing summary): 37 men and women, 5 push-ups in the standard and
+  modified position, plus 5-second isometric holds in the up and down positions of each; vertical
+  GRF via force platform, expressed as %BW.
+  Maximal relative load (standard push-up): men 97.7 +/- 8.1% BW; women 80.0 +/- 3.9% BW.
+  Maximal relative load (modified/knee push-up): men 79.7 +/- 7.4% BW; women 68.2 +/- 3.0% BW.
+  %ROM (full range of motion): standard men 67.7 +/- 6.1%, women 50.1 +/- 11.4%; modified men
+  66.6 +/- 6.9%, women 60.1 +/- 8.9%.
+  Conclusion (as summarized): women perform the push-up with less relative load and less range of
+  motion than men, a difference the authors attribute to movement-pattern differences that may
+  change with fatigue.
+
+CAUTION ON THE ~97.7% FIGURE: this is notably higher than every other %BW push-up figure in this
+archive (Gouvali 2005: 66.4%; Eckel 2017 men: 72-77%; Ebben 2011 via secondary citation: 64%) --
+possibly because it reflects a MAXIMAL/near-full dynamic load during active pushing rather than a
+static isometric hold, or a different definition of "% body weight supported" (e.g. peak vs mean,
+or including the acceleration/impact component of an active push-up rather than a quasi-static
+value). Do not average this number in with the other studies' figures without first confirming the
+methodological difference from the primary text -- flag this as an open question for a future
+session with access to the full PDF (try: an institutional VPN/library proxy, a different search
+engine cache of the WKU digitalcommons PDF, or emailing the corresponding author).
+
+Also cited (secondhand, via Eckel et al. 2017's Discussion, itself in eckel2017-...-extract.txt in
+this folder): "percentage of body mass supported is ~75% in the down position and ~69% in the up
+position" -- attributed there to Mier 2014 combined with a second, unresolved reference (Eckel's
+own ref 20). This 69-75% figure is much closer to the rest of the literature than the 97.7%/80.0%
+figures above, suggesting the WebSearch-summarized numbers above may reflect a different measure
+(e.g. peak dynamic vs a position-held static average) than the "up/down position" numbers Eckel
+quotes -- another reason not to treat the ~97.7% figure as directly comparable to this archive's
+other top/bottom %BW numbers without the primary text in hand.

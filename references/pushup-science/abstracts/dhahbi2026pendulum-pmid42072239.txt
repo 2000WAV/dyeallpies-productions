@@ -1,0 +1,48 @@
+1. Bioengineering (Basel). 2026 Apr 11;13(4):445. doi: 
+10.3390/bioengineering13040445.
+
+A Rigid-Body Pendulum Model for Plyometric Push-Up Biomechanics: Analytical 
+Derivation and Numerical Quantification of Flight Time, Arc Displacement, 
+Maximum Height, and Mechanical Power Output.
+
+Dhahbi W(1).
+
+Author information:
+(1)Research Unit "Sport Sciences, Health and Movement" (UR22JS01), High 
+Institute of Sport and Physical Education of Kef, University of Jendouba, Kef 
+7100, Tunisia.
+
+AIM: Conventional free-fall kinematic models applied to plyometric push-up 
+assessment treat the upper body as a vertically translating point mass, ignoring 
+the curvilinear trajectory imposed by the ankle pivot and systematically biasing 
+flight-time and height estimates.
+METHODS: A planar rigid-body pendulum pivoting about the ankle axis was 
+formulated via two independent derivation pathways (static moment equilibrium 
+and a gravitational-torque coordinate approach), yielding effective pendulum 
+length L = (MW/M) × LOS. Closed-form expressions for flight time, arc 
+displacement, maximum height, and mean mechanical power were derived 
+analytically from energy conservation and compared against free-fall predictions 
+across seven pendulum arm lengths (LOW = 0.50-2.00 m) and 500 initial hand 
+velocities per length, using adaptive Gauss-Kronrod quadrature (relative 
+tolerance 10-10) with ODE cross-validation (maximum discrepancy < 2.5 × 10-7 s).
+RESULTS: Flight time equivalence (tH = tG) was formally established. The 
+free-fall model overestimated flight time by up to 18.82% (Δt = 0.096 s; LOW = 
+0.50 m, VH,0 = 2.50 m/s) and maximum height by up to 28.43% (Δh = 0.087 m; LOW = 
+0.50 m, tflight = 0.50 s), with both errors growing nonlinearly with initial 
+velocity. Overestimation in height was proportionally larger at shorter pendulum 
+arm lengths (18.18% at tflight = 0.30 s for LOW = 0.50 m vs. 10.91% for LOW = 
+1.00 m).
+CONCLUSIONS: The pendulum model provides a physically consistent, analytically 
+tractable framework for geometry-adjusted upper-body power assessment from four 
+field-obtainable anthropometric inputs. These results reflect computational 
+self-consistency; prospective experimental validation against force-plate 
+kinematics is required before applied deployment. Prospective empirical 
+validation against dual force-plate and motion-capture reference data is 
+required to establish the model's accuracy boundaries under real push-up 
+kinematics.
+
+DOI: 10.3390/bioengineering13040445
+PMCID: PMC13113941
+PMID: 42072239
+
+Conflict of interest statement: The author declares no conflicts of interest.

@@ -1,0 +1,39 @@
+1. J Hum Kinet. 2013 Dec 31;39:75-83. doi: 10.2478/hukin-2013-0070. eCollection 
+2013 Dec 18.
+
+Electromyographic comparison of traditional and suspension push-ups.
+
+Snarr RL(1), Esco MR(2).
+
+Author information:
+(1)School of Nutrition and Health Promotion, Arizona State University, Phoenix, 
+AZ.
+(2)Human Performance Laboratory, Department of Physical Education and Exercise 
+Science, Auburn University at Montgomery, Montgomery, AL.
+
+There is very limited scientific data concerning suspension training. The 
+purpose of this investigation was to compare the electromyographic activity of 
+the pectoralis major, anterior deltoid, and triceps brachii between a suspension 
+push-up and traditional push-up. Twenty-one apparently healthy men (n = 15, age 
+= 25.93 ± 3.67 years) and women (n = 6, age = 23.5 ± 1.97 years) volunteered to 
+participate in this study. All subjects performed four repetitions of a 
+suspension push-up and a traditional push-up where the order of the exercises 
+was randomized. The mean peak and normalized electromyography of the pectoralis 
+major, anterior deltoid, and triceps brachii were compared across the two 
+exercises. Suspension push-ups elicited the following electromyographic values: 
+pectoralis major (3.08 ± 1.13 mV, 69.54 ± 27.6 %MVC), anterior deltoid (5.08 ± 
+1.55 mV, 81.13 ± 17.77 %MVC), and triceps brachii (5.11 ± 1.97 mV, 105.83 ± 
+18.54 %MVC). The electromyographic activities during the traditional push-up 
+were as follows: pectoralis major (2.66 ± 1.05 mV, 63.62 ± 16.4 %MVC), anterior 
+deltoid (4.01 ± 1.27 mV, 58.91 ± 20.3 %MVC), and triceps brachii (3.91 ± 1.36 
+mV, 74.32 ± 16.9 %MVC). The mean peak and normalized electromyographic values 
+were significantly higher for all 3 muscles during the suspension push-up 
+compared to the traditional push-up (p < 0.05). This study suggests that the 
+suspension push-up elicited a greater activation of pectoralis major, anterior 
+deltoid, and triceps brachii when compared to a traditional push-up. Therefore, 
+suspension push-ups may be considered an advanced variation of a traditional 
+push-up when a greater challenge is warranted.
+
+DOI: 10.2478/hukin-2013-0070
+PMCID: PMC3916913
+PMID: 24511343

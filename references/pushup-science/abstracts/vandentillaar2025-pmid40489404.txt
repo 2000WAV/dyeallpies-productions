@@ -1,0 +1,42 @@
+1. J Strength Cond Res. 2025 Jun 10;39(9):919-923. doi: 
+10.1519/JSC.0000000000005160.
+
+A Comparison of Maximal Push-Up and Bench Press Performance and Their Prediction 
+Based on Load-Velocity Relationships.
+
+van den Tillaar R(1), Falch HN, Larsen S.
+
+Author information:
+(1)Department of Sports Science and Physical Education, Nord University, 
+Levanger, Norway.
+
+van den Tillaar, R, Falch, HN, and Larsen, S. A comparison of maximal push-up 
+and bench press performance and their prediction based on load-velocity 
+relationships. J Strength Cond Res 39(9): 919-923, 2025-This study aimed to 
+compare maximal push-up and bench press performance, and their prediction based 
+on the load-velocity relationships. Eleven resistance-trained men (age 25.3 ± 
+4.0 years, body mass 84.2 ± 6.1 kg, and body height 1.80 ± 0.06 m) performed 
+push-ups and bench presses with 4 different loads randomly. Push-ups were 
+performed with and without a 10-20-30 kg weight vest. Bench press was performed 
+with similar weights as in the push-ups, followed by finding 1RM in each 
+exercise. A linear encoder measured barbell and push-up velocities during the 
+exercises, and force plates were used to measure the average force on the arms 
+during the push-ups. A load-velocity relationship was established between the 
+load and velocity for the push-up and bench press per subject and the equation 
+used to establish a predicted 1RM. The main findings of this study demonstrate 
+that 1RM for push-ups was significantly higher than with bench press (112.4 ± 
+18.9 vs. 106.4 ± 20.4 kg); meanwhile, there were no differences in the predicted 
+1RM. Furthermore, an extremely strong association was observed between the 
+actual 1RM loads performed with the push-up and bench press ( r = 0.92). Even 
+with different load-velocity relationships for the 2 exercises, it was possible 
+to predict a cross-over 1RM between them, which was not significantly different 
+from the actual 1RM loads. For coaches and athletes, this method is an easy, 
+cost, and time-effective option for standard 1RM bench press testing to predict 
+maximal upper body strength.
+
+Copyright © 2025 National Strength and Conditioning Association.
+
+DOI: 10.1519/JSC.0000000000005160
+PMID: 40489404 [Indexed for MEDLINE]
+
+Notes for this project: most recent (2025) load-velocity push-up paper found this session. 11 resistance-trained men, push-up (0/10/20/30kg vest) vs bench press, linear encoder + force plates on the hands. Actual 1RM: push-up 112.4+/-18.9 kg SIGNIFICANTLY HIGHER than bench press 106.4+/-20.4 kg (i.e. weighted-vest push-up 1RM exceeds barbell bench 1RM in this sample) but no difference in the two exercises' load-velocity-PREDICTED 1RM; actual-1RM cross-exercise r=.92. Closed access (JSCR/LWW); no PMC copy found this session (published too recently to be indexed in Europe PMC's OA table at time of search).

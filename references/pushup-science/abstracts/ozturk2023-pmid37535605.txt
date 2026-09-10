@@ -1,0 +1,56 @@
+1. PLoS One. 2023 Aug 3;18(8):e0289573. doi: 10.1371/journal.pone.0289573. 
+eCollection 2023.
+
+Countermovement push-up test to assess the upper extremity force-time 
+characteristics in swimmers during a macrocycle.
+
+Öztürk F(1), Ünver E(2), Özçadırcı A(1), Cinemre ŞA(2), Kınıklı Gİ(1).
+
+Author information:
+(1)Faculty of Physical Therapy and Rehabilitation, Hacettepe University, Ankara, 
+Türkiye.
+(2)Faculty of Sport Sciences, Hacettepe University, Ankara, Türkiye.
+
+Erratum in
+    PLoS One. 2024 Sep 5;19(9):e0310032. doi: 10.1371/journal.pone.0310032.
+
+Although it is known that swimming training can improve upper extremity 
+performance, the force-time characteristics of the upper extremity during 
+different training periods are not well understood. The objective of this study 
+was to measure changes in the force-time characteristics of the upper extremity 
+of young swimmers during different training periods within a season. Seventeen 
+young swimmers, comprising 5 males (age: 15.4 ± 0.54 years); 12 females (16.4 ± 
+2.6 years) participated in this study. They were tested at four experimental 
+test time points: baseline (E1), post-general preparation (E2), post-specific 
+preparation (E3), and taper season (E4). The countermovement push-up test was 
+performed using a force plate to measure force time parameters. Differences in 
+force, time, velocity and impulse parameters were evaluated between the 
+different periods. The study found that vertical take off velocity significantly 
+increased across the assessed periods (F = 11.79; p = .001; η2 = .424), with 
+significant increases from E1 to E2 (p < .001) and from E3 to E4 (p = .016). 
+Flight Time also significantly increased across the assessed periods (F = 11.79; 
+p = .001; η2 = .424), with significant increases from E1 to E2 (p < .001), from 
+E1 to E4(p = .001), and from E3 to E4 (p = .005). The Force Impulse 
+significantly increased throughout the assessed periods (F = 5.84; p = .012; η2 
+= .267), with significant increases from E1 to E2, (p = .006), from E1 to E3 (p 
+= .016), and from E1 to E4 (p = .003). As this study shows, periods of increased 
+training intensity can affect athletic progression, even though training aims to 
+improve strength, speed, and performance. While some practical aspects such as 
+strength, flight time, and impulse parameters may change during a macrocycle, 
+the countermovement push-up test can provide trainers with an alternative and 
+convenient way to monitor anaerobic force, speed, and performance, as well as 
+measure explosive force-time performance in the upper body.
+
+Copyright: © 2023 Öztürk et al. This is an open access article distributed under 
+the terms of the Creative Commons Attribution License, which permits 
+unrestricted use, distribution, and reproduction in any medium, provided the 
+original author and source are credited.
+
+DOI: 10.1371/journal.pone.0289573
+PMCID: PMC10399821
+PMID: 37535605 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.
+
+Notes for this project: OPEN ACCESS (PMCID PMC10399821). 17 young swimmers (5M/12F, 15-16y), countermovement push-up on a force plate at 4 points across a training macrocycle. Force-TIME characteristics (not just peak values) tracked longitudinally: takeoff velocity, flight time and force impulse all increased significantly from baseline through the taper period -- demonstrates the countermovement push-up test is sensitive to training-induced changes in explosive force-time output, supporting its use as a monitoring tool (not push-up-specific fatigue-within-a-set, but relevant force-time-curve evidence for 02-pushup-hand-force-and-joint-moments.md).

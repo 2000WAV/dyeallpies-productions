@@ -1,0 +1,45 @@
+1. J Strength Cond Res. 2017 May;31(5):1338-1345. doi: 
+10.1519/JSC.0000000000001832.
+
+Evaluating Upper-Body Strength and Power From a Single Test: The Ballistic 
+Push-up.
+
+Wang R(1), Hoffman JR, Sadres E, Bartolomei S, Muddle TWD, Fukuda DH, Stout JR.
+
+Author information:
+(1)1Institute of Exercise Physiology and Wellness, University of Central 
+Florida, Orlando, Florida; and 2The Nat Holman School for Coaches and 
+Instructors, Wingate Institute for Physical Education and Sport, Netanya, 
+Israel.
+
+Wang, R, Hoffman, JR, Sadres, E, Bartolomei, S, Muddle, TWD, Fukuda, DH, and 
+Stout, JR. Evaluating upper-body strength and power from a single test: the 
+ballistic push-up. J Strength Cond Res 31(5): 1338-1345, 2017-The purpose of 
+this study was to examine the reliability of the ballistic push-up (BPU) 
+exercise and to develop a prediction model for both maximal strength (1 
+repetition maximum [1RM]) in the bench press exercise and upper-body power. 
+Sixty recreationally active men completed a 1RM bench press and 2 BPU 
+assessments in 3 separate testing sessions. Peak and mean force, peak and mean 
+rate of force development, net impulse, peak velocity, flight time, and peak and 
+mean power were determined. Intraclass correlation coefficients were used to 
+examine the reliability of the BPU. Stepwise linear regression was used to 
+develop 1RM bench press and power prediction equations. Intraclass correlation 
+coefficient's ranged from 0.849 to 0.971 for the BPU measurements. Multiple 
+regression analysis provided the following 1RM bench press prediction equation: 
+1RM = 0.31 × Mean Force - 1.64 × Body Mass + 0.70 (R = 0.837, standard error of 
+the estimate [SEE] = 11 kg); time-based power prediction equation: Peak Power = 
+11.0 × Body Mass + 2012.3 × Flight Time - 338.0 (R = 0.658, SEE = 150 W), Mean 
+Power = 6.7 × Body Mass + 1004.4 × Flight Time - 224.6 (R = 0.664, SEE = 82 W); 
+and velocity-based power prediction equation: Peak Power = 8.1 × Body Mass + 
+818.6 × Peak Velocity - 762.0 (R = 0.797, SEE = 115 W); Mean Power = 5.2 × Body 
+Mass + 435.9 × Peak Velocity - 467.7 (R = 0.838, SEE = 57 W). The BPU is a 
+reliable test for both upper-body strength and power. Results indicate that the 
+mean force generated from the BPU can be used to predict 1RM bench press, 
+whereas peak velocity and flight time measured during the BPU can be used to 
+predict upper-body power. These findings support the potential use of the BPU as 
+a valid method to evaluate upper-body strength and power.
+
+DOI: 10.1519/JSC.0000000000001832
+PMID: 28166187 [Indexed for MEDLINE]
+
+Notes for this project: task brief guessed "Wang et al. 2013?" for a push-up shoulder/power paper -- this is that paper, correctly dated 2017 (confirmed via its citation inside dhahbi2026pendulum-pmid42072239.txt, ref 8). 60 recreationally active men, ballistic push-up (BPU) on a force plate. Reliability ICC 0.849-0.971. Prediction equations (mean force in N, body mass in kg, peak velocity in m/s, flight time in s): 1RM bench (kg) = 0.31 x Mean Force - 1.64 x Body Mass + 0.70 (R=.837, SEE=11 kg); Peak Power (W, time-based) = 11.0 x BM + 2012.3 x FlightTime - 338.0 (R=.658); Mean Power (W, time-based) = 6.7 x BM + 1004.4 x FlightTime - 224.6 (R=.664); Peak Power (W, velocity-based) = 8.1 x BM + 818.6 x PeakVelocity - 762.0 (R=.797); Mean Power (W, velocity-based) = 5.2 x BM + 435.9 x PeakVelocity - 467.7 (R=.838). Closed access (JSCR/LWW); no PMC copy found.

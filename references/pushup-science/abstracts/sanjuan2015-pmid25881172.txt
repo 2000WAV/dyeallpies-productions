@@ -1,0 +1,49 @@
+1. BMC Musculoskelet Disord. 2015 Feb 10;16(1):23. doi:
+10.1186/s12891-015-0486-5.
+
+The effects of exercise type and elbow angle on vertical ground reaction force 
+and muscle activity during a push-up plus exercise.
+
+San Juan JG(1), Suprak DN(2), Roach SM(3), Lyda M(4).
+
+Author information:
+(1)Department of Physical Education, Health and Recreation, Western Washington 
+University, Bellingham, WA, USA. jun.sanjuan@gmail.com.
+(2)Department of Physical Education, Health and Recreation, Western Washington 
+University, Bellingham, WA, USA. dave.suprak@wwu.edu.
+(3)Western Institute of Neuromechanics, Eugene, OR, USA. tensegrity1@msn.com.
+(4)Western Institute of Neuromechanics, Eugene, OR, USA. mhlyda@msn.com.
+
+BACKGROUND: Proper alignment of the scapula during upper extremity motion is 
+important in maintaining shoulder joint function and health. Push-up plus 
+exercise is considered as one of the best exercise to strengthen the muscles 
+that stabilize the scapula. The purpose of the study is to examine the effects 
+of push-up plus variants and elbow position on vertical ground reaction force 
+and electromyographical activity of four shoulder muscles during concentric 
+contraction.
+METHODS: A total of 22 healthy subjects volunteered for the study. Each of the 
+subjects performed both modified and traditional push-up plus. Modified push-up 
+plus was performed with both knees and hands touching the ground while the 
+traditional push-up plus was executed with hands and feet contacting the ground. 
+Electromyography (EMG) of the upper trapezius (UT), lower trapezius (LT), 
+infraspinatus (INFRA), and serratus anterior (SA), and vertical ground reaction 
+forces (vGRF) were collected.
+RESULTS: The traditional push-up plus exhibited higher EMG activity in all 
+muscles tested (P < .05) and vertical ground reaction force (P < .001) compared 
+to modified push-up plus. The highest difference in EMG activity between the two 
+exercises was observed with the Serratus Anterior muscle (22%). Additionally, 
+the traditional push-up plus presented a higher vGRF compared to the modified 
+push-up plus (P < .001) by 17%. The SA had the greatest EMG activity compared to 
+the other muscles tested during the concentric phase of the traditional push-up 
+plus, and this did not occur during the plus phase of the exercise.
+CONCLUSION: The highest activity of the serratus anterior occurred at 55° of 
+elbow extension during the concentric phase of the traditional PUP and not at 
+the plus phase of the exercise. This suggests that when prescribing an exercise 
+to target the serratus anterior, a traditional push-up is adequate and the 
+plus-phase is not necessary. However, for patients that cannot perform a 
+traditional push-up, the modified push-up plus would be a great alternative to 
+strengthen their serratus anterior.
+
+DOI: 10.1186/s12891-015-0486-5
+PMCID: PMC4327800
+PMID: 25881172 [Indexed for MEDLINE]

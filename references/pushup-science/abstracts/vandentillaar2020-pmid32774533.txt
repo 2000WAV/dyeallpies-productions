@@ -1,0 +1,45 @@
+1. J Hum Kinet. 2020 Jul 21;73:7-18. doi: 10.2478/hukin-2019-0133. eCollection
+2020  Jul.
+
+Push-Ups are Able to Predict the Bench Press 1-RM and Constitute an Alternative 
+for Measuring Maximum Upper Body Strength Based on Load-Velocity Relationships.
+
+van den Tillaar R(1), Ball N(2).
+
+Author information:
+(1)Department of Sport Sciences and Physical Education, Nord University, 
+Levanger, Norway.
+(2)Faculty of Health, Research Institute for Sport and Exercise Science, 
+University of Canberra, Canberra, Australia.
+
+The aims of this study were firstly to compare the similarity in upper-body 
+muscle activation between the bench press and push-up at similar loads, and 
+secondly to establish a 1-RM prediction equation between the two exercises based 
+upon the load-velocity relationship. Twenty resistance-trained male athletes 
+(age 22.5 ± 5.24 years, body mass 83.7 ± 10.7 kg, body height 1.80 ± 0.06 m) 
+performed push-ups and bench presses with four different loads. Push-ups were 
+performed without a weight vest and with a 10-20-30 kg weight vest. Bench 
+presses were performed at 50-80% of athletes' assumed 1 repetition max (1-RM) in 
+10 kg steps, while a linear encoder measured performance during the exercises. A 
+load-velocity relationship was established as a product of the load and velocity 
+for the push-up and bench press per participant and the equation was used to 
+establish a predicted 1-RM. Mean muscle activation of eight upper body muscles 
+was recorded for each exercise and each load. The main findings of this study 
+demonstrate an extremely large association between the predicted 1-RM loads 
+performed with the push-up and bench press (r = 0.93) in experienced resistance 
+trained men. Furthermore, most muscles showed similar activations between the 
+two exercises with the different loads except the deltoid and biceps brachii 
+muscles. It may be concluded that it is possible to predict a cross-over 1-RM 
+between the two exercises based upon the load-velocity relationship in each 
+exercise, and that training push-ups largely targets the same muscles as the 
+bench press except the deltoid and biceps muscles. For coaches and athletes, the 
+use of this method is a low cost and time-effective alternative for standard 
+1-RM bench press testing to predict maximal upper body strength.
+
+© 2020 Roland van den Tillaar, Nick Ball, published by Sciendo.
+
+DOI: 10.2478/hukin-2019-0133
+PMCID: PMC7386139
+PMID: 32774533
+
+Notes for this project: OPEN ACCESS (PMCID PMC7386139), full text fetched -- see papers/vandentillaar2020-pushup-predicts-bench-1rm.xml and -extract.txt. 20 resistance-trained men, push-up with 0/10/20/30 kg weight vest vs bench press 50-80%1RM, linear encoder. Push-up %BM(+vest) at the 4 loads: 62.6+/-4.3, 63.7+/-3.6, 64.4+/-3.4, 65.1+/-3.4%; matched mean velocities 0.86+/-0.19, 0.71+/-0.15, 0.57+/-0.15, 0.43+/-0.15 m/s. Predicted push-up 1RM 93.1+/-14 kg vs bench 93.5+/-15.7 kg (bias 0.31+/-5.7 kg, n.s.), cross-exercise r=.93. Velocity at theoretical 1RM (from Gonzalez-Badillo) = 0.18 m/s. Velocity vs %1RM(push-up): r=-.90, SEE=0.1%.

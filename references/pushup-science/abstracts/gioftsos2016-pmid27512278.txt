@@ -1,0 +1,37 @@
+1. J Phys Ther Sci. 2016 Jul;28(7):2114-8. doi: 10.1589/jpts.28.2114. Epub 2016
+Jul  29.
+
+EMG activity of the serratus anterior and trapezius muscles during the different 
+phases of the push-up plus exercise on different support surfaces and different 
+hand positions.
+
+Gioftsos G(1), Arvanitidis M(1), Tsimouris D(1), Kanellopoulos A(1), Paras G(1), 
+Trigkas P(1), Sakellari V(1).
+
+Author information:
+(1)Department of Physiotherapy, School of Health and Caring Professions, 
+Technological Educational Institute (TEI) of Sterea Ellada, Greece.
+
+[Purpose] The appropriate exercise prescription is crucial for achieving 
+scapular stability and providing successful rehabilitation, and the Push-up Plus 
+(PuP) exercise has an important role in shoulder rehabilitation. Consequently, 
+this study examined the effect of support surface stability, hand positioning, 
+and phase of exercise, on the trapezius and serratus anterior muscle 
+contractions as well as on the EMG ratio of the upper/lower trapezius. [Subjects 
+and Methods] Thirteen healthy male volunteers participated in this study. The 
+subjects performed the PuP exercise on stable and unstable supporting surfaces 
+with three different hand orientations. During the PuP exercise, the muscle 
+activities of the upper (UT) and lower (LT) trapezius, as well as the serratus 
+anterior (SA) were measured and expressed as percentages of maximum voluntary 
+isometric contraction (%MVIC). [Results] The EMG activities of UT and LT were 
+statistically greater during the push-up phase compared to the plus phase of the 
+exercise. The contrary was recorded for the activity of the SA. SA was affected 
+by the support surface as well as by the hand positioning. [Conclusion] The 
+results suggest that different phases of the PuP exercise require different 
+muscle stability actions with corresponding activations of appropriate muscle 
+fibers. A detailed prescription of the required phase of the exercise can more 
+effectively activate the scapula-thoracic musculature.
+
+DOI: 10.1589/jpts.28.2114
+PMCID: PMC4968519
+PMID: 27512278

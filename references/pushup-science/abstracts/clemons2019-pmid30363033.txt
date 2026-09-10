@@ -1,0 +1,39 @@
+1. J Strength Cond Res. 2019 Nov;33(11):2971-2980. doi: 
+10.1519/JSC.0000000000002843.
+
+Construct Validity of Two Different Methods of Scoring and Performing Push-ups.
+
+Clemons J(1).
+
+Author information:
+(1)School of Kinesiology, University of Louisiana at Lafayette, Lafayette, 
+Louisiana.
+
+Clemons, J. Construct validity of two different methods of scoring and 
+performing push-ups. J Strength Cond Res 33(11): 2971-2980, 2019-The purpose of 
+this investigation was to determine the construct validity of the standard 
+push-ups (STPUs) and hand-release push-ups (HRPUs) by comparing them to the 
+criterion measures of absolute strength (i.e., 1 repetition maximum [RM] bench 
+press [BP]) and relative strength (1RM·body mass). Thirty-one, college-age males 
+were recruited for the study. The HRPU was performed by lifting the palms from 
+the floor between each push-up (PU), whereas the STPU only required chest 
+contact at the bottom before returning to the support position. Push-up rate was 
+controlled by metronome. A counter-balanced, cross-over design was used with 1 
+week between each test. Correlations were conducted on push-up scores and 
+criterion measures. In addition, STPU and HRPU scores were compared to determine 
+whether there was a difference in the maximum number of push-ups executed. 
+Multiple regression analysis was used to determine whether 1RM BP (i.e., 
+absolute strength) might be predicted from push-up performance: 1RM Bench Press 
+kg = 48.675 + (0.8832·body mass) + (1.318·# of standard push-ups executed) + 
+(-157.82·PU distance m). Results indicated significantly more HRPUs than STPUs 
+were executed. Push-up raw scores were found to be unrelated to absolute 
+strength. Standard push-up raw scores were found to be significantly correlated 
+with relative strength (r = 0.71, prob. = 0.0001). Multiple regression analysis 
+also indicated that absolute strength may be reasonably estimated if the 
+predictor variables of body mass and vertical push-up distance are considered 
+along with push-up score (R = 0.791, R = 0.62.5%).
+
+DOI: 10.1519/JSC.0000000000002843
+PMID: 30363033 [Indexed for MEDLINE]
+
+Notes for this project: task brief named "Hinshaw 2018, JSCR, Push-up and bench press: 1RM prediction" -- searched PubMed under Hinshaw+push-up+1RM/bench-press/repetition-maximum in several combinations, 0 hits; no such paper located this session (may be a misremembered author or an unindexed source). Clemons 2019 (JSCR) is the closest available substitute: 31 college men, standard vs hand-release push-up scoring, multiple regression predicts 1RM bench press from push-up count + body mass + vertical push-up distance (R=0.791); push-up raw score alone NOT correlated with absolute 1RM bench press strength, but IS correlated with RELATIVE strength (1RM/BM, r=0.71, p=.0001). Closed access (JSCR/LWW); no PMC copy found.

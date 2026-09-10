@@ -1,0 +1,24 @@
+1. Biomed Sci Instrum. 1990;26:53-7.
+
+Kinematic and kinetic analysis of push-up exercise.
+
+An KN(1), Korinek SL, Kilpela T, Edis S.
+
+Author information:
+(1)Orthopedic Biomechanics Laboratory, Mayo Clinic, Rochester, Minnesota.
+
+The purpose of this study was to experimentally measure and analytically 
+determine the load across the wrist, elbow, and shoulder joints during push-ups 
+to better understand the nature of this exercise. A piezoelectric force platform 
+was used to measure the vertical and two shear forces as well as the moment and 
+the location of the center of pressure on the hand during a push-up. The 
+electromagnetic tracking system was utilized to associate the force and moment 
+measurement on the hand to the joints of the upper limbs. Factors which affect 
+the intersegmental loads on the joints during push-ups include the location of 
+the palm relative to the shoulder joint, the plane of arm movement, and the 
+relative foot positions. In addition, the speed of push-ups also affects the 
+amount of inertial load on top of the base static load.
+
+PMID: 2334780 [Indexed for MEDLINE]
+
+Notes for this project: earlier Mayo Clinic push-up kinetics paper (wrist/elbow/shoulder loads via piezoelectric force platform + electromagnetic tracking). Abstract is qualitative only -- confirms palm-shoulder relative location, plane of arm movement, foot position, and push-up SPEED (inertial load) as factors, but gives NO numeric shoulder or wrist torque in the abstract text. Treat any shoulder-joint-moment number as NOT FOUND from this source; only the 1993 elbow-specific follow-up (donkers1993) gives numbers. Closed access, pre-PMC era.

@@ -1,0 +1,39 @@
+1. Phys Sportsmed. 2014 Nov;42(4):106-19. doi: 10.3810/psm.2014.11.2097.
+
+Muscle activity levels in upper-body push exercises with different loads and 
+stability conditions.
+
+Calatayud J(1), Borreani S, Colado JC, Martin F, Rogers ME.
+
+Author information:
+(1)Research Group in Sport and Health, Laboratory of Physical Activity and 
+Health, Department of Physical Education and Sports, University of Valencia, 
+Valencia, Spain.
+
+BACKGROUND: Exercises that aim to stimulate muscular hypertrophy and increase 
+neural drive to the muscle fibers should be used during rehabilitation. Thus, it 
+is of interest to identify optimal exercises that efficiently achieve high 
+muscle activation levels.
+OBJECTIVE: The purpose of this study was to compare the muscle activation levels 
+during push-up variations (ie, suspended push-ups with/without visual input on 
+different suspension systems, and push-ups on the floor with/without additional 
+elastic resistance) with the bench press exercise and the standing cable press 
+exercise both performed at 50%, 70%, and 85% of the 1-repetition maximum.
+METHODS: Young fit male university students (N = 29) performed 3 repetitions in 
+all conditions under the same standardized procedures. Average amplitude of the 
+electromyogram (EMG) root mean square for the rectus abdominis, external 
+oblique, sternocostal head of the pectoralis major, anterior deltoid, long head 
+of the triceps brachii, upper trapezius, anterior serratus, and posterior 
+deltoid was recorded. The EMG signals were normalized to the maximum voluntary 
+isometric contraction. The EMG data were analyzed with repeated-measures 
+analysis of variance with a Bonferroni post hoc.
+RESULTS AND CONCLUSIONS: Elastic-resisted push-ups induce similar EMG stimulus 
+in the prime movers as the bench press at high loads while also providing a 
+greater core challenge. Suspended push-ups are a highly effective way to 
+stimulate abdominal muscles. Pectoralis major, anterior deltoid, and anterior 
+serratus are highly elicited during more stable pushing conditions, whereas 
+abdominal muscles, triceps brachii, posterior deltoid, and upper trapezius are 
+affected in the opposite manner.
+
+DOI: 10.3810/psm.2014.11.2097
+PMID: 25419894 [Indexed for MEDLINE]

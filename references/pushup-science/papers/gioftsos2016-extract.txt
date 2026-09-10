@@ -1,0 +1,834 @@
+
+J Phys Ther Sci
+J Phys Ther Sci
+2193
+jpts
+JPTS
+Journal of Physical Therapy Science
+0915-5287
+2187-5626
+Society of Physical Therapy Science
+PMC4968519
+PMC4968519.1
+4968519
+4968519
+27512278
+10.1589/jpts.28.2114
+jpts-2016-191
+1
+Original Article
+EMG activity of the serratus anterior and trapezius muscles during the
+different phases of the push-up plus exercise on different support surfaces and different
+hand positions
+Gioftsos
+George
+PhD
+1
+*
+Arvanitidis
+Michail
+BSc
+1
+Tsimouris
+Dimitrios
+BSc
+1
+Kanellopoulos
+Assimakis
+PhD
+1
+Paras
+George
+PhD
+1
+Trigkas
+Panagiotis
+PhD
+1
+Sakellari
+Vasiliki
+PhD
+1
+1)
+ Department of Physiotherapy, School of Health and Caring
+Professions, Technological Educational Institute (TEI) of Sterea Ellada, Greece
+*
+Corresponding author. George Gioftsos, Department of Physiotherapy, School of Health and Caring
+Professions, Technological Educational Institute (TEI) of Sterea Ellada: 3rd km Old
+National Road Lamia-Athens, 35100 Lamia, Greece. (E-mail: 
+gioftsos@teilam.gr
+)
+29
+7
+2016
+7
+2016
+28
+7
+273479
+2114
+2118
+17
+2
+2016
+07
+4
+2016
+01
+07
+2016
+10
+08
+2016
+14
+02
+2026
+2016©by the Society of Physical Therapy Science. Published by IPEC
+Inc.
+2016
+https://creativecommons.org/licenses/by-nc-nd/4.0/
+This is an open-access article distributed under the terms of the Creative
+Commons Attribution Non-Commercial No Derivatives (by-nc-nd) License. 
+[Purpose] The appropriate exercise prescription is crucial for achieving scapular
+stability and providing successful rehabilitation, and the Push-up Plus (PuP) exercise has
+an important role in shoulder rehabilitation. Consequently, this study examined the effect
+of support surface stability, hand positioning, and phase of exercise, on the trapezius
+and serratus anterior muscle contractions as well as on the EMG ratio of the upper/lower
+trapezius. [Subjects and Methods] Thirteen healthy male volunteers participated in this
+study. The subjects performed the PuP exercise on stable and unstable supporting surfaces
+with three different hand orientations. During the PuP exercise, the muscle activities of
+the upper (UT) and lower (LT) trapezius, as well as the serratus anterior (SA) were
+measured and expressed as percentages of maximum voluntary isometric contraction (%MVIC).
+[Results] The EMG activities of UT and LT were statistically greater during the push-up
+phase compared to the plus phase of the exercise. The contrary was recorded for the
+activity of the SA. SA was affected by the support surface as well as by the hand
+positioning. [Conclusion] The results suggest that different phases of the PuP exercise
+require different muscle stability actions with corresponding activations of appropriate
+muscle fibers. A detailed prescription of the required phase of the exercise can more
+effectively activate the scapula-thoracic musculature.
+Key words
+Electromyography
+Push-up plus
+Scapular stabilizers
+pmc-status-qastatus
+0
+pmc-status-live
+yes
+pmc-status-embargo
+no
+pmc-status-released
+yes
+pmc-prop-open-access
+yes
+pmc-prop-olf
+no
+pmc-prop-manuscript
+no
+pmc-prop-legally-suppressed
+no
+pmc-prop-has-pdf
+yes
+pmc-prop-has-supplement
+no
+pmc-prop-pdf-only
+no
+pmc-prop-suppress-copyright
+no
+pmc-prop-is-real-version
+no
+pmc-prop-is-scanned-article
+no
+pmc-prop-preprint
+no
+pmc-prop-in-epmc
+yes
+pmc-license-ref
+CC BY-NC-ND
+INTRODUCTION
+Human ability to independently move the upper extremity is the result of the combined
+movement of many musculoskeletal structures and of the increased freedom of movement allowed
+by the necessary decreased stability
+1
+, 
+2
+)
+. The shoulder girdle is the main link of the
+upper extremity to the trunk, and it plays an important role in the movement quality, while
+providing anatomical and functional cooperation of the shoulder and scapula-thoracic joints
+as necessary.
+Scapular upward rotation is an essential component of any lifting of the upper extremity,
+in combination with humeral elevation at the glenohumeral joint. Requisite scapular control
+and upward rotation are simultaneously obtained by muscle activation patterns. These involve
+force couples formed by the Upper (UT) and Lower (LT) Trapezius with the Serratus Anterior
+(SA) muscles. The result of these combined contractions is upward scapular rotation without
+any displacement of the scapula in the superior or inferior directions due to cooperation of
+the UT and LT muscles. At the same time, combined action of the whole trapezius muscle and
+the SA prevents any displacement of the scapula in the side-to-side direction
+3
+, 
+4
+)
+. As
+a result, a variety of dysfunctions with pathological or clinical symptoms might develop and
+need to be assessed and addressed by therapists
+1
+,
+5
+)
+. Consequently, rehabilitation
+protocols aim for the activation or improvement of muscular cooperation, balance,
+proprioception, power and strength of the main muscle stabilizers of the scapula
+3
+, 
+5
+)
+.
+Exercises contributing to the achievement of therapeutic targets are closed kinetic, and
+they force the whole upper extremity to function as a unit and in a more harmonic manner
+during daily life
+6
+)
+. These exercises are
+recognized as therapeutic tools and have great variety and many levels of difficulty during
+their performance
+6
+, 
+7
+)
+. One of the exercises that is used by therapists, and thus, is an
+object of study, is the Push-up Plus (PuP). In the PuP exercise, the subject’s palms and
+toes are the supporting parts of the body. The rest of the body forms a straight line from
+the head to the ankles and with the torso lying near the floor but without touching it. From
+this starting position, where the elbows are almost in the fully flexed position, the
+subject raises the body upwards as far as possible by extending the elbows and protracting
+the scapulae. Thus, PuP includes two phases: (1) the Push-up (Pu) phase that involves the
+first part of the PuP which ends at the point of completion of elbow extension without
+scapular protraction, and (2) the Plus (P) phase that is the remaining part of the PuP which
+starts with completion of elbow movement and continues until the end of the scapular
+protraction.
+PuP is performed in a closed kinetic chain presupposing muscle cooperation without
+requiring special equipment. It elicits high activation of the trapezius and serratus
+anterior muscles which varies even with small performance alterations
+7
+)
+. Characteristically, during the PuP exercise, muscle
+activation and force response increase significantly with increasing levels of exercise
+difficulty within safe limits
+3
+, 
+7
+)
+.
+Different studies have examined the effect of single factors, such as the support
+surface
+7
+, 
+9
+)
+ or the hand orientation on muscular activity during the PuP
+10
+,
+11
+,
+12
+,
+13
+)
+.
+Due to the complexity of the exercise performance, it is a closed-kinetic activity of the
+whole body, the effect of different parameters acting simultaneously on the muscle activity
+must be investigated. Consequently, this study examined the effect of stable and unstable
+support surfaces, using three different hand positions, on the activities of the trapezius
+and serratus anterior muscles during the different phases of the push-up plus exercise (Pu
+and P).
+SUBJECTS AND METHODS
+Thirteen healthy male right-handed subjects who led a sedentary life (aged 20.5 ±
+1.0 years, body weight 79.2 ± 12.3 Kgr and height 178.8 ± 7.2 cm) participated in this
+study. The tested population was recruited from the Department of Physiotherapy through
+requests for volunteers and represented a population of young students. None of the subjects
+were professional athletes or were exercising more than five hours per week. The selection
+criteria for the sample were to be healthy without a history of neck, back or shoulder pain,
+injury or operation in these areas (determined by a self-completed questionnaire). The study
+was conducted in accordance with the principles of the Declaration of Helsinki and approved
+by the Department of Physiotherapy Human Ethics Committee (approval number 124/2013).
+Confidentiality and anonymity of the participants were maintained at all times, and written
+informed consent was obtained from all the participants prior to their participation.
+The experimental set-up was developed at the Human Performance &amp; Rehabilitation
+Laboratory of the Physiotherapy Department where the whole procedure was carried out. Data
+were collected from the dominant arm and all measurements were recorded in a single session.
+Initially, the subjects were familiarized with the experimental set-up and the protocol
+while all exercises were completed in a slow, controlled manner with the aid of a metronome
+set at a tempo of 60 beats/min.
+Activities of the UT, LT and SA muscles were recorded using surface electromyography. A
+laboratory system, the dataLINK (type NOSDLK900 with software version 7.5, Biometrics Ltd,
+UK), was used. Three active EMG sensors SX230 and a twin axis goniometer (Biometrics Ltd)
+were employed for the measurements. EMG electrodes were placed on the appropriate locations,
+using double-sided die-cut tapes provided by the manufacturer, in order to record the
+activities of the UT, LT and SA muscles according to the recommendations of SENIAM
+14
+)
+. A goniometer was placed on the elbow
+joint following the manufacturer’s guidelines to record the motion of the joint at the same
+time as the EMG recording. A custom-made stop switch was used to determine the end of the
+exercise. This was triggered when the maximum distance from the floor was reached by the
+posterior part of the subject’s thoracic spine. All EMG signals were amplified and sampled
+at 1,000 Hz.
+Before testing, anthropometric characteristics were measured and a standardized warm-up
+procedure
+13
+)
+ was used including movement
+of both arms, such as circumduction and oscillation in the sagittal plane, as well as
+stretching exercises of the rotator muscles. Subjects then adopted the push-up position by
+supporting their weight on both hands and feet. The distance between both hands was equal to
+120% of the distance between both the acromions, and the hands were placed at the level of
+the shoulder joints. The distance between the hands and feet was equal to that measured in
+the upright position with the shoulders flexed at 90°.
+The measured task was performed on a surface that was parallel to the floor. The hands and
+feet were always in contact with the support surface while the body formed a straight line
+from the head to the ankles. The subjects performed the PuP exercise by placing their hands
+on a stable wooden surface or on an unstable one that was constructed by adding a wobble
+board (rocking side-to-side at a maximum of 16°) under the stable wooden surface. They had
+to balance on those surfaces and not to rock side-to-side during the measured exercise. The
+feet of the participants were always placed on a stable wooden surface adjusted to the level
+of the surface used for the hand placement.
+Subjects were also asked to perform the exercise with the upper limbs in three different
+orientations, as follows:
+• Position 1 (P1): the index fingers were placed parallel to each other on the support
+surface and each arm was allowed to adopt a self-selected position;
+• Position 2 (P2): the index fingers were placed parallel to each other on the support
+surface while each arm was kept in contact with the trunk of the subject; and
+• Position 3 (P3): the index fingers were placed at 45° of internal rotation compared to P1
+and each arm was kept at 90° of abduction at the shoulder joint.
+Participants were asked to perform 3 successful repetitions of the tested trials while a
+rest period of 1 min was allowed between repetitions to avoid fatigue. The order of the
+performance of the conditions was randomly allocated. Each volunteer performed 18 successful
+repetitions of PuP exercises, that is: [3 trials] × [2 surfaces (stable vs unstable)] × [3
+hand positions (P1, P2 &amp; P3)]. Finally, three successful trials of the Maximum Voluntary
+Isometric Contraction (MVIC) of each measured muscle were recorded following a muscle
+testing procedure suggested by previous research
+15
+)
+.
+During data collection, the raw EMG recordings were the monitored, full-wave rectified and
+processed using a root mean square (RMS) algorithm with a 3-ms moving window. Measurements
+were expressed in millivolts and the mean value of the three trials for each muscle was used
+for the estimation of the activation of each tested muscle. Finally, the EMG activity values
+of each measured muscle during the PuP exercise were expressed as a percentage of the EMG
+values produced by the muscle during the muscle testing performance, % MVIC.
+The signal of the goniometer was used to monitor the start and the end of the elbow
+movement and at the same time to mark the start and the end of the push-up phase of the PuP
+exercise. The signal of the back-stop was used to monitor the end of the PuP exercise.
+Consequently, those two signals were the discriminating landmarks of the two phases of the
+measured PuP exercise, that is the Pu and the P phase.
+The intraclass correlation coefficient (ICC) was used to determine the same day test-retest
+reliability of the three EMG recordings. In order to determine if there were significant
+differences in the EMG activities of UT, LT, SA, as well as in the UT/LT activity rations
+among the different phases of the exercise, hand positioning and support surfaces, analysis
+of variance (ANOVA) was performed. A least squares difference (LSD) pairwise multiple
+comparison analysis was performed to determine the significance of the differences between
+pairs of means. Statistical analysis was performed using SPSS 20.00 software and
+significance was accepted in all statistical tests for values of p&lt;0.05.
+RESULTS
+The mean value (± SD) of EMG activities the three trials of the muscle testing, with the
+ICC values between these recordings for each tested muscle, were as follows: UT, 1.78 ±
+0.21 mV (ICC=0.80–0.87); LT, 1.75 ± 0.36 mV (ICC=0.96–0.97) and UT, 1.38 ± 0.5 mV
+(ICC=0.98–0.98).
+The overall activation of the UT showed statistically significant difference with regard to
+the phase of the exercise (p&lt;0.05 and F=8.3) and the position of the hands (p&lt;0.05 and
+F=4.7), but it was not affected by the stability of the support surface (p&gt;0.05 and
+F=1.2). More specifically, the differences between the Pu phase (30.2 ± 13.6%MVIC) and P
+phase (24.1 ± 8.5%MVIC), as well as between the hand positions of P1 (25.1 ± 8.8%MVIC) and
+P2 (29.5 ± 12.6%MVIC) were statistically significant. Similar to the UT, the overall
+activation of LT was also significantly altered by the phase of the exercise (p&lt;0.05 and
+F=7.1) and the position of the hands (p&lt;0.05 and F=5.2). The P phase (4.1 ± 3.8%MVIC) was
+significantly different from the Pu phase (9.8 ± 11.1%MVIC), while hand position P1 (6.6 ±
+%MVIC) was significantly different from hand position P2 (8.7 ± %MVIC).
+The overall activation of the SA showed statistically significant differences with regard
+to all tested parameters, such as exercise phase (p&lt;0.001 and F=72.9), position of the
+hands (p&lt;0.05 and F=3.9), and the stable or unstable support surface (p&gt;0.05 and
+F=6.4). More specifically, the differences between the Pu phase (49.2 ± 17.9%MVIC) and P
+phase (75.9 ± 16.1%MVIC) as well as between the hand positions of P2 (59.6 ± 17.6%MVIC) and
+P3 (66.3 ± 22.3%MVIC), and finally between the stable (65.9 ± 21.8%MVIC) and unstable (59.9
+± 17.3%MVIC) support surfaces, were statistically significant.
+Finally, the UT/LT activity ratio was significantly affected by the phase of the exercise
+(p&lt;0.05 and F=5.7), and the P phase (8.1 ± 4.3) was significantly different from the Pu
+phase (6.0 ± 4.5). 
+Table 1
+Table 1.
+The EMG activities (mean values ± SD) of the measured muscles (UT, LT and SA) as
+a percent of maximum voluntary isometric contraction (%MVIC) and the UT/LT ratio
+during the phases of the push-up plus exercise (Push-up and Plus) on stable and
+unstable supporting surfaces with three different hand positions (P1, P2 and
+P3)
+ shows the EMG activities (mean ± SD) of the measured muscles (UT, LT &amp; SA)
+under the tested experimental conditions with the statistical significance of the
+differences.
+DISCUSSION
+The PuP exercise is an important tool for therapists, aiming to deal with problems of the
+upper extremity and specifically to improve the stability of the scapula-thoracic joint by
+increasing muscular cooperation
+1
+, 
+13
+)
+. Such a demanding task requires
+well-documented supervision and guidance during its performance resulting from the extensive
+study of the effect of different parameters on muscle activation
+8
+)
+. So, the study of the muscle performance, during PuP and the
+simultaneous effect of different conditions to overcome them can be crucial. In the present
+study an effort was made to identify the effects elicited by the support surface, hand
+positions, and phase of the PuP exercise.
+Different phases of the exercise require different muscle activation with a variety of
+activation levels, due to different movements taking place and the different ranges of
+movement used
+8
+)
+. The Pu phase mainly
+involves elevation of the upper arm with associated movement of the scapula resulting from
+the activation of the UT and LT. In contrast, the P phase only involves movement of the
+scapula leading to activation mainly of the SA. At the same time, cooperation of UT and LT
+expressed by the UT/LT ratio, increases. This muscle cooperation can be explained by the
+present findings which are in agreement with the results of similar studies
+4
+, 
+6
+)
+.
+Statistically significant differences were recorded for UT, LT and the UT/LT ratio during
+the Pu phase and for SA during the P phase.
+The stability of the supporting surface alters the stability of the human body and it is an
+important factor demanding different patterns of muscular cooperation
+5
+, 
+6
+)
+. Consequently,
+stable and unstable supports were used in an attempt to identify their effects on muscular
+activity and the resulting movement patterns. When subjects tried to avoid rocking
+side-to-side on the unstable surface, they introduced abduction-adduction to the shoulder
+joints leading to abduction-adduction of the scapula, altering the muscle involvement. The
+present results suggest that an unstable support surface only has a significant effect on
+the activity of SA, with the stable surface increasing SA muscular activity. These findings
+can be explained by the fact that abduction-adduction of the scapula is involved; therefor
+the SA must be activated. Why is the SA activity on an unstable supporting surface less than
+that on a stable one? One possible explanation is that there is a decrease in the Pu phase
+of the task resulting from a fear of falling or the mobilization of other muscles such as
+the horizontal adductors of the shoulder. PuP is a demanding task that requires activation
+of the whole body and is difficult to supervise and consequently perform properly. A
+possible solution to this problem might be the use of optoelectronic techniques to record
+movement in 3D. Not surprisingly, our present findings are in conflict with previously
+published results
+7
+)
+. PuP on unstable
+surfaces has been found to increase SA muscle activity
+4
+, 
+7
+, 
+9
+)
+, or SA in combination with UT, and to increase the activity of the
+trapezius while decrease the activity of SA
+16
+)
+. Considering that the unstable surface had a low level of
+instability (rocking of 16°), and only in one direction (side-to-side), the effect of
+instability on muscular activity needs to be investigated further.
+The hand position in Pup changes the degree of arm elevation in the frontal plane, altering
+the range of arm movement as well as the movement itsself
+10
+,
+11
+,
+12
+)
+. Flexion, abduction or horizontal abduction is required at the
+shoulder joint, leading respectively, to upward rotation with retraction, or adduction of
+the scapula. UT and LT demonstrated the same activity patterns in response to hand
+positioning, and axially showed statistically significant increased involvement in hand
+position P2. As this position elicits shoulder flexion during the PuP, and consequently
+upward rotation and protraction of the scapular, increased movement and stability of the
+scapula was needed in the frontal plane. In contrast, SA showed significant increase in
+activity in hand position P3, that is when scapular adduction occurred, replacing scapular
+movement in the frontal plane. Nevertheless, scapular stability in this plane wasn’t
+necessary.
+The present findings suggest that different phases of the PuP exercise require different
+muscle activities and co-operation. Similarly, the type of supporting surface and the
+positioning of the hands affect muscle activities in a manner that is dependent on the phase
+of the exercise making its prescription a highly demanding therapeutic task.
+The present study had some limitations. The data was obtained from a small group of young,
+healthy male adults and only their dominant right hand was measured. Therefore, the
+extrapolation of the findings to patients or to the general population should be performed
+with caution.
+The authors wish to thank Katie Somerscales for her help in proofreading the
+manuscript.
+REFERENCES
+1
+Kibler
+WB
+McMullen
+J
+: 
+Scapular dyskinesis and its relation to shoulder
+pain
+. 
+J Am Acad Orthop Surg
+, 
+2003
+,
+11
+: 
+142
+–
+151
+. 
+12670140
+10.5435/00124635-200303000-00008
+2
+Neumann
+DA
+: Kinesiology of the musculoskeletal system: foundation for physical
+rehabilitation. St. Louis: Mosby, 
+2002
+, pp 123–144.
+3
+Yoo
+WG
+: 
+Effect of exercise speed and isokinetic feedback on the
+Middle and Lower Serratus Anterior muscles during push-up exercises
+.
+J Phys Ther Sci
+, 
+2014
+, 
+26
+:
+645
+–
+646
+. 
+24926123
+10.1589/jpts.26.645
+PMC4047223
+4
+Ekstrom
+RA
+Donatelli
+RA
+Soderberg
+GL
+: 
+Surface electromyographic analysis of exercises for the
+trapezius and serratus anterior muscles
+. 
+J Orthop Sports Phys
+Ther
+, 
+2003
+, 
+33
+:
+247
+–
+258
+. 
+12774999
+10.2519/jospt.2003.33.5.247
+5
+Seo
+SH
+Jeon
+IH
+Cho
+YH
+et al.
+: 
+Surface EMG during push-up plus exercise on a stable
+support or swiss ball: scapular stabilizer muscle exercise
+. 
+J
+Phys Ther Sci
+, 
+2013
+, 
+25
+:
+833
+–
+837
+. 
+24259864
+10.1589/jpts.25.833
+PMC3820383
+6
+McMullen
+J
+Uhl
+TL
+: 
+A kinetic chain approach for shoulder
+rehabilitation
+. 
+J Athl Train
+, 
+2000
+,
+35
+: 
+329
+–
+337
+. 
+16558646
+PMC1323395
+7
+Ludewig
+PM
+Hoff
+MS
+Osowski
+EE
+et al.
+: 
+Relative balance of serratus anterior and upper trapezius
+muscle activity during push-up exercises
+. 
+Am J Sports
+Med
+, 
+2004
+, 
+32
+:
+484
+–
+493
+. 
+14977678
+10.1177/0363546503258911
+8
+Park
+SY
+Yoo
+WG
+: 
+Differential activation of parts of the serratus anterior
+muscle during push-up variations on stable and unstable bases of
+support
+. 
+J Electromyogr Kinesiol
+, 
+2011
+,
+21
+: 
+861
+–
+867
+. 
+21807535
+10.1016/j.jelekin.2011.07.001
+9
+Kim
+SH
+Kwon
+OY
+Kim
+SJ
+et al.
+: 
+Serratus anterior muscle activation during knee push-up
+plus exercise performed on static stable, static unstable, and oscillating unstable
+surfaces in healthy subjects
+. 
+Phys Ther Sport
+,
+2014
+, 
+15
+: 
+20
+–
+25
+.
+23972504
+10.1016/j.ptsp.2013.01.001
+10
+Lee
+SY
+Lee
+DH
+Park
+JS
+: 
+The effects of changes in hand position on the
+electromyographic activities of the shoulder stabilizer muscles during push-up plus
+exercises on unstable surfaces
+. 
+J Phys Ther Sci
+,
+2013
+, 
+25
+: 
+125
+–
+128
+.
+10.1589/jpts.25.981
+PMC3820220
+24259898
+11
+Cogley
+RM
+Archambault
+TA
+Fibeger
+JF
+et al.
+: 
+Comparison of muscle activation using various hand
+positions during the push-up exercise
+. 
+J Strength Cond
+Res
+, 
+2005
+, 
+19
+:
+628
+–
+633
+. 
+16095413
+10.1519/15094.1
+12
+Cho
+SH
+Baek
+IH
+Cheon
+JY
+et al.
+: 
+Effect of the push-up plus (PUP) exercise at different
+shoulder rotation angles on shoulder muscle activities
+. 
+J Phys
+Ther Sci
+, 
+2014
+, 
+26
+:
+1737
+–
+1740
+. 
+25435689
+10.1589/jpts.26.1737
+PMC4242944
+13
+Suprak
+DN
+Bohannon
+J
+Morales
+G
+et al.
+: 
+Scapular kinematics and shoulder elevation in a
+traditional push-up
+. 
+J Athl Train
+, 
+2013
+,
+48
+: 
+826
+–
+835
+. 
+23952043
+10.4085/1062-6050-48.5.08
+PMC3867095
+14
+Hermens
+HJ
+Freriks
+B
+Disselhorst-Klug
+C
+et al.
+: 
+Development of recommendations for SEMG sensors and sensor
+placement procedures
+. 
+J Electromyogr Kinesiol
+,
+2000
+, 
+10
+: 
+361
+–
+374
+.
+11018445
+10.1016/s1050-6411(00)00027-4
+15
+Ekstrom
+RA
+Soderberg
+GL
+Donatelli
+RA
+: 
+Normalization procedures using maximum voluntary isometric
+contractions for the serratus anterior and trapezius muscles during surface EMG
+analysis
+. 
+J Electromyogr Kinesiol
+, 
+2005
+,
+15
+: 
+418
+–
+428
+. 
+15811612
+10.1016/j.jelekin.2004.09.006
+16
+Pirauá
+AL
+Pitangui
+AC
+Silva
+JP
+et al.
+: 
+Electromyographic analysis of the serratus anterior and
+trapezius muscles during push-ups on stable and unstable bases in subjects with scapular
+dyskinesis
+. 
+J Electromyogr Kinesiol
+, 
+2014
+,
+24
+: 
+675
+–
+681
+. 
+24997890
+10.1016/j.jelekin.2014.05.009

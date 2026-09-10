@@ -1,0 +1,41 @@
+1. J Strength Cond Res. 2011 Feb;25(2):497-503. doi:
+10.1519/JSC.0b013e3181bde2cf.
+
+The effect of position on the percentage of body mass supported during 
+traditional and modified push-up variants.
+
+Suprak DN(1), Dawes J, Stephenson MD.
+
+Author information:
+(1)Department of Physical Education, Health, and Recreation, Western Washington 
+University, Bellingham, Washington, USA. David.Suprak@wwu.edu
+
+The push-up is a popular upper-extremity weight-bearing exercise. However, 
+limited information is available regarding its effectiveness. Much of the past 
+research has focused on muscle activation levels, whereas very little has 
+examined the forces encountered during push-up variants. The purpose of the 
+present study was to examine the effect of position within the range of motion 
+on the percentage of body mass (BM) supported by the upper extremities during 
+the traditional and modified (knees-down) push-up. Twenty-eight highly 
+strength-trained male subjects were positioned with their hands on a force 
+platform in 4 static positions, consisting of the up and down position in both 
+the traditional and modified push-up exercise. The performance measures included 
+the average vertical ground reaction force (GRF), expressed as a percentage of 
+BM, supported in each of the 4 static positions and the percentage of change 
+between the up and down positions in each push-up exercise. In both the 
+traditional and modified push-ups, subjects supported less weight in the up vs. 
+the down position. The percentage change in % BM from the up to the down 
+position was greater in the modified push-up variant. The pattern of resistances 
+to the push-up exercises observed in this study may be a result of differing 
+moment arms between the support surface contact point (knees or feet) and the 
+hands. These results may be useful in prescribing programs for strengthening 
+and/or rehabilitation for both the prime movers and stabilizers of the upper 
+extremity. Further, range of motion may need to be altered to accommodate 
+strength differences in beginners and clients rehabilitating from injury.
+
+DOI: 10.1519/JSC.0b013e3181bde2cf
+PMID: 20179649 [Indexed for MEDLINE]
+
+Notes for this project: primary source for "up position supports less %BM than down position" in both traditional and modified push-up. Exact %BM values are NOT in this abstract (28 highly strength-trained men, static force-platform holds). The %-change up-to-down (modified +8.24%, standard +5.88%) is cited secondhand in adams2022-pmid35992503.txt. Closed access (JSCR/LWW); no PMC copy found.
+
+[Shared-file note added 2026-09-09: this exact filename was also written independently by a concurrent session building 01-pushup-emg-by-variant-and-phase.md (see DOWNLOADS.md, "Push-up surface EMG evidence base sweep" section) -- that session's own editorial notes on this abstract, if any were saved here before this file was rewritten, could not be recovered (no git history existed for this untracked directory at the time of the collision). The underlying PubMed abstract text above is unaffected either way. See the EMG-focused file for that session's own treatment of this paper.]

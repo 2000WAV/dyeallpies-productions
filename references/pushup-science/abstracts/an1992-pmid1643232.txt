@@ -1,0 +1,22 @@
+1. Biomed Sci Instrum. 1992;28:69-74.
+
+Intersegmental elbow joint load during pushup.
+
+An KN(1), Chao EY, Morrey BF, Donkers MJ.
+
+Author information:
+(1)Orthopedic Biomechanics Laboratory, Mayo Clinic/Mayo Foundation, Rochester, 
+MN 55905.
+
+Intersegmental loading pattern on the elbow joint during a push-up exercise was 
+investigated. Electromagnetic motion sensors and a piezoelectric force plate 
+were used to simultaneously record upper extremity motion and forces on nine 
+healthy male subjects during push-ups in six different hand positions. Peak 
+axial forces exerted on the elbow joint averaged 45 percent of the body weight. 
+Peak torque to produce elbow flexion was 2305.9 N-cm, or 56 percent of maximal 
+isometric extensor torque. The results of this analysis give insight to the 
+biomechanics of a normal elbow and to its load carrying capacity.
+
+PMID: 1643232 [Indexed for MEDLINE]
+
+Notes for this project: companion/conference-proceedings version of donkers1993-pmid8514808.txt (same Mayo Clinic dataset, same 45% BW peak axial elbow force, same 2305.9 N-cm / 56% MVIC peak flexion torque). Biomed Sci Instrum is a symposium-proceedings journal, pre-PMC era; closed access, no full text found this session.

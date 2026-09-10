@@ -1,0 +1,28 @@
+1. J Strength Cond Res. 2005 Aug;19(3):628-33. doi: 10.1519/15094.1.
+
+Comparison of muscle activation using various hand positions during the push-up 
+exercise.
+
+Cogley RM(1), Archambault TA, Fibeger JF, Koverman MM, Youdas JW, Hollman JH.
+
+Author information:
+(1)Program in Physical Therapy, Mayo Clinic College of Medicine, Rochester, 
+Minnesota 55905, USA.
+
+Popular fitness literature suggests that varied hand placements during push-ups 
+may isolate different muscles. Scientific literature, however, offers scant 
+evidence that varied hand placements elicit different muscle responses. This 
+study examined whether different levels of electromyographic (EMG) activity in 
+the pectoralis major and triceps brachii muscles are required to perform 
+push-ups from each of 3 different hand positions: shoulder width base, wide 
+base, and narrow base hand placements. Forty subjects, 11 men and 29 women, 
+performed 1 repetition of each push-up. The EMG activity for subjects' dominant 
+arm pectoralis major and triceps brachii was recorded using surface electrodes. 
+The EMG activity was greater in both muscle groups during push-ups performed 
+from the narrow base hand position compared with the wide base position (p < 
+0.05). This study suggests that, if a goal is to induce greater muscle 
+activation during exercise, then push-ups should be performed with hands in a 
+narrow base position compared with a wide base position.
+
+DOI: 10.1519/15094.1
+PMID: 16095413 [Indexed for MEDLINE]

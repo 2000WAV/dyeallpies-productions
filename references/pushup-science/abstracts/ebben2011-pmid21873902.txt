@@ -1,0 +1,39 @@
+1. J Strength Cond Res. 2011 Oct;25(10):2891-4. doi:
+10.1519/JSC.0b013e31820c8587.
+
+Kinetic analysis of several variations of push-ups.
+
+Ebben WP(1), Wurm B, VanderZanden TL, Spadavecchia ML, Durocher JJ, Bickham CT, 
+Petushek EJ.
+
+Author information:
+(1)Department of Health, Exercise Science and Sport Management, University of 
+Wisconsin-Parkside, Kenosha, Wisconsin, USA. webben70@hotmail.com
+
+Push-ups are a common and practical exercise that is used to enhance fitness, 
+including upper body strength or endurance. The kinetic characteristics of 
+push-ups and its variations are yet to be quantified. Kinetic quantification is 
+necessary to accurately evaluate the training load, and thus the nature of the 
+training stimulus, for these exercise variations. This study assessed the peak 
+vertical ground reaction forces (GRFs) of push-up variations including the 
+regular push-up and those performed with flexed knee, feet elevated on a 
+30.48-cm box, and a 60.96-cm box, and hands elevated on a 30.48-cm box and a 
+60.96-cm box. Twenty-three recreationally fit individuals (14 men, 9 women) 
+performed each of the 6 push-up variations in a randomized order. Peak GRF and 
+peak GRF expressed as a coefficient of subject body mass were obtained with a 
+force platform. Push-ups with the feet elevated produced a higher GRF than all 
+other push-up variations (p ≤ 0.05). Push-ups with hands elevated and push-ups 
+from the flexed knee position produced a lower GRF than all other push-up 
+variations (p ≤ 0.05). No gender differences in response to these push-up 
+variations were found (p > 0.05). Additionally, subject height was not related 
+to the GRF for any of the push-up conditions (p > 0.05) other than the condition 
+where hands were elevated on a 60.96-cm box (p ≤ 0.05; r = 0.63). These data can 
+be used to progress the intensity of push-ups in a program and to quantify the 
+training load as a percentage of body mass.
+
+DOI: 10.1519/JSC.0b013e31820c8587
+PMID: 21873902 [Indexed for MEDLINE]
+
+Notes for this project: abstract reports only relative GRF comparisons among push-up variants (feet-elevated > others; hands-elevated and knee-flexed < others), no gender/height effect except hands-elevated-60.96cm. This paper's own abstract does NOT state absolute %BW figures. The commonly cited numbers (64% standard top, 49% knee) are not in this abstract -- see adams2022-pmid35992503.txt (secondary citation of Ebben's results table) and papers/adams2022-pushup-scale-females-extract.txt for the number with its secondary source. Closed access (JSCR/LWW); no PMC copy found this session.
+
+[Shared-file note added 2026-09-09: this exact filename was also written independently by a concurrent session building 01-pushup-emg-by-variant-and-phase.md (see DOWNLOADS.md, "Push-up surface EMG evidence base sweep" section) -- that session's own editorial notes on this abstract, if any were saved here before this file was rewritten, could not be recovered (no git history existed for this untracked directory at the time of the collision). The underlying PubMed abstract text above is unaffected either way. See the EMG-focused file for that session's own treatment of this paper.]

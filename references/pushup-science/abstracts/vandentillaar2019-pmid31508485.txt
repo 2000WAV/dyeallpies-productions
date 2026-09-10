@@ -1,0 +1,37 @@
+1. Sports Med Int Open. 2019 Sep 5;3(3):E74-E81. doi: 10.1055/a-1001-2526. 
+eCollection 2019 Dec.
+
+Comparison of Kinematics and Muscle Activation between Push-up and Bench Press.
+
+Tillaar RVD(1).
+
+Author information:
+(1)Department of Sports Sciences and Physical Education, Nord University, 
+Levanger, Norway.
+
+The purpose of this study was to compare the similarity in kinematics and 
+upper-body muscle activation between push-up and bench press exercises over a 
+range of loads. Twenty resistance-trained subjects (age 22.5±5.24 yrs, body mass 
+83.7±10.7 kg, height 1.80±0.06 m) executed bench presses and push-ups with 4 
+different loads. Bench press was executed at 50-80% of their assumed 1 
+repetition max in steps of 10 kg, while push-ups were executed without a weight 
+vest and with a 10-20-30 kg weight vest. A linear encoder measured kinematics 
+(displacement, time, average and peak velocity) during the exercises at each 
+load, together with mean and maximal muscle activation of 8 upper body muscles 
+and their timing for each exercise and each load. The main findings of this 
+study demonstrate no differences in kinematics and muscle activation between the 
+two exercises and that the different loads had the same effect upon both push-up 
+and bench press in experienced resistance-trained men. For coaches and athletes, 
+push-ups and bench presses for strength training can be used interchangeably. By 
+using a weight vest, push-ups can mimic different loads that are similar to 
+different intensities in the bench press that can be used to train strength 
+demands.
+
+DOI: 10.1055/a-1001-2526
+PMCID: PMC6728153
+PMID: 31508485
+
+Conflict of interest statement: Conflict of Interest The authors declare that 
+they have no conflict of interest.
+
+Notes for this project: OPEN ACCESS (PMCID PMC6728153). Same 20-man cohort as vandentillaar2020-pmid32774533.txt (companion paper, kinematics/EMG side vs that paper's load-velocity/1RM-prediction side). No differences in kinematics (displacement, time, avg/peak velocity) or muscle activation between push-up and bench press at matched relative loads -- supports treating a weighted push-up as mechanically equivalent to a bench press for training purposes. Full text not separately re-fetched this session (same underlying dataset already captured via the companion paper); PMCID noted for a future session if EMG numbers are needed.

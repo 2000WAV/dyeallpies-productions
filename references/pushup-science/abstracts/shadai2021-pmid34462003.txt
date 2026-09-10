@@ -1,0 +1,53 @@
+1. BMC Sports Sci Med Rehabil. 2021 Aug 30;13(1):103. doi: 
+10.1186/s13102-021-00330-z.
+
+The validity of using one force platform to quantify whole-body forces, 
+velocities, and power during a plyometric push-up.
+
+Sha Z(1), Dai B(2).
+
+Author information:
+(1)School of Kinesiology and Nutrition, College of Education and Human Sciences, 
+The University of Southern Mississippi, Hattiesburg, MS, USA. 
+zhanxin.sha@usm.edu.
+(2)Division of Kinesiology and Health, University of Wyoming, Laramie, WY, USA.
+
+BACKGROUND: Previous studies have typically measured velocity and power 
+parameters during the push-up, either using one or two force platforms. The 
+purpose of the study was to compare the force, velocity, and power parameters 
+between the one-force-platform method and the two-force-platform method during 
+plyometric push-ups.
+METHODS: Thirty-four physically active young adults participated in the study to 
+perform the plyometric push-up. For the two-force-platform calculation method, 
+the forces applied to the feet and hands were both measured. For the 
+one-force-platform calculation method, the forces applied to the feet were 
+assumed to be constant, while the forces applied to hands were measured by one 
+force platform. Whole-body linear velocities were calculated based on the 
+impulse and momentum theorem. Whole-body power was calculated as the product of 
+the whole-body forces and velocities.
+RESULTS: The one-force-platform method overestimated the whole-body velocities 
+and power compared with the two-force-platform method (1.39 ± 0.37 m/s vs. 
+0.90 ± 0.23 m/s, Cohen's d = 1.59, p < 0.05; 1.63 ± 0.47 W/body weight vs. 
+1.03 ± 0.29 W/body weight, Cohen's d = 1.49, p < 0.05). These differences were 
+caused by the decreased forces applied to the feet compared to the initial value 
+throughout most of the push-up phase. Large to perfect correlations (r = 0.55 - 
+0.99) were found for most variables between the two-force-platform and 
+one-force-platform methods. Previous findings of push-up velocities and power 
+using the two-force-platform and one-force-platform methods should be compared 
+with caution. While the two-force-platform method is recommended, linear 
+regression equations may be used to predict velocities and power parameters 
+obtained from one force platform.
+CONCLUSIONS: For those professionals who need to accurately quantify kinetic 
+variables during the plyometric push-up, the two-force-platform method should be 
+considered.
+
+© 2021. The Author(s).
+
+DOI: 10.1186/s13102-021-00330-z
+PMCID: PMC8406610
+PMID: 34462003
+
+Conflict of interest statement: The authors declare that they have no competing 
+interests.
+
+Notes for this project: OPEN ACCESS (PMCID PMC8406610). 34 physically active adults, plyometric push-up, comparing one-force-platform (feet-force assumed constant) vs two-force-platform (feet+hands both measured) methods for whole-body velocity/power. One-platform method systematically OVERESTIMATES: velocity 1.39+/-0.37 m/s vs 0.90+/-0.23 m/s (two-platform reference), Cohen's d=1.59; power 1.63+/-0.47 vs 1.03+/-0.29 W/bodyweight, d=1.49 (both p<.05). Cause: feet-force actually decreases from its initial (static) value through most of the push-off phase, violating the one-platform method's constant-feet-force assumption. Methodological caution flagged directly by dhahbi2026pendulum-pmid42072239.txt (cites this as supporting its own free-fall-model-bias finding).

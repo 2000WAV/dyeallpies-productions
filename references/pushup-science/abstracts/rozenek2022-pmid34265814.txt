@@ -1,0 +1,39 @@
+1. J Strength Cond Res. 2022 Dec 1;36(12):3324-3329. doi: 
+10.1519/JSC.0000000000004091. Epub 2021 Jul 13.
+
+Male-Female Differences in Push-up Test Performance at Various Cadences.
+
+Rozenek R(1), Byrne JJ, Crussemeyer J, Garhammer J.
+
+Author information:
+(1)Department of Kinesiology, California State University Long Beach, Long 
+Beach, California.
+
+Rozenek, R, Byrne, JJ, Crussemeyer, J, and Garhammer, J. Male-Female Differences 
+in Push-up Test Performance at Various Cadences. J Strength Cond Res 36(12): 
+3324-3329, 2022-Push-up (PU) testing is widely used to assess upper-extremity 
+muscular endurance. However, little information exists regarding the influence 
+of cadence on PU performance. Forty-four healthy men and women (age range = 
+21-36 years) completed 4 PU test sessions on separate days in a randomized order 
+using standard PUs. Cadences of 30, 45, and 60 PU·min -1 were used for 3 tests, 
+whereas a fourth test was performed at a self-selected (SS) cadence. The total 
+number of PUs completed, vertical ground reaction forces (vGRFs) acting on each 
+hand and the feet, and the sum of the vGRFs were determined for each test. 
+Results showed men performed more PU than women at any cadence ( p ≤ 0.05) and 
+had a faster mean SS cadence (49.9 ± 11.4 PU·min -1 vs 42.8 ± 8.4 PU·min -1 ) ( 
+p ≤ 0.05). The maximum number of PU were performed when using either the SS 
+cadence or 60 PU·min -1 , with little difference observed between them ( p ≤ 
+0.05). The sum of vGRFs was greatest at 60 PU·min -1 and when scaled to body 
+mass (BM) represented 1.58 ± 0.14x and 1.33 ± 0.08x BM for men and women, 
+respectively. As cadence increased, men shifted more weight to the hand contact 
+points compared with women ( p ≤ 0.05). Distinct differences in SS cadence and 
+distribution of forces were observed between the sexes suggesting different 
+strategies while performing the PU test. These differences should be considered 
+when selecting a protocol for PU testing.
+
+Copyright © 2021 National Strength and Conditioning Association.
+
+DOI: 10.1519/JSC.0000000000004091
+PMID: 34265814 [Indexed for MEDLINE]
+
+Notes for this project: PRIMARY source for peak dynamic (acceleration-inclusive) total system force during a standard push-up. 44 healthy men and women (21-36y), standard push-up at 3 fixed cadences (30/45/60 reps/min) + self-selected (SS) cadence, vGRF measured under BOTH hands and feet. SS cadence: men 49.9+/-11.4 reps/min, women 42.8+/-8.4 reps/min (men faster, p<=.05). Max reps completed at SS cadence or 60/min, little difference between them. SUM of vGRF (hands+feet, i.e. the whole closed-kinetic-chain system, scaled to body mass) was GREATEST at 60 reps/min: 1.58+/-0.14x BM (men) and 1.33+/-0.08x BM (women) -- this is a real total-system peak load ABOVE 1x bodyweight, driven by the acceleration term at the fast cadence (a static/isometric hold cannot exceed ~1x BM total). As cadence increased, men shifted proportionally MORE force to the hands than women did (p<=.05), i.e. a sex difference in how the extra dynamic load is distributed between the hand and foot contact points. Closed access (JSCR/LWW); no PMC copy found.

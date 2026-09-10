@@ -1,0 +1,469 @@
+Table 1
+. 
+Figure 3.
+Unstable, suspension, incline, incline on ball push-ups. (a) Unstable
+push-up on BOSU® ball. (b) Suspension push-up on TRX® with handles 10 cm
+from floor. (c) Incline push-up with hands elevated 65 cm. (d) Incline
+push-up on 65 cm ball.
+Table 1.
+Summary of push-up types, muscles assessed, and EMG amplitude.
+Author (year)
+# participants
+Age (years)
+Type of PU
+Muscles assessed
+EMG (% MVIC)
+Ashnagar (2016)
+0 M, 40 F
+23.9 ± 1.9
+Standard
+Serratus anterior
+15.3 ± 16.7
+Standard
+Upper trapezius
+4.3 ± 4.6
+Standard
+Triceps
+23.7 ± 14.0
+Batbayar (2015)
+9 M, 0 F
+25 ± 2.7
+PU plus
+Serratus anterior
+90.9 ± 40.5
+PU plus
+Upper trapezius
+6.5 ± 3.3
+PU plus
+Middle trapezius
+7.6 ± 7.9
+PU plus
+Lower trapezius
+3.5 ± 1.5
+PU plus
+Triceps
+48.1 ± 16.2
+PU plus
+Pectoralis major
+13.3 ± 9.8
+Borreani (2015a)
+30 M, 0 F
+23 ± 1.1
+Standard
+Serratus anterior
+29.1 ± 20.6
+Suspension
+Serratus anterior
+75.5 ± 51.6
+Unstable
+Serratus anterior
+95.8 ± 72.5
+Borreani (2015b)
+29 M, 0 F
+23.5 ± 3.1
+Suspension
+Upper trapezius
+14.7 ± 10.3
+Suspension
+Triceps
+37.0 ± 9.7
+Suspension
+Pectoralis major
+30.8 ± 13.3
+Calatayud (2014a)
+29 M, 0 F
+23.5 ± 3.1
+Suspension
+Upper trapezius
+20.4 ± 14.3
+Suspension
+Triceps
+49.3 ± 15.5
+Suspension
+Pectoralis major
+27.7 ± 13.0
+Calatayud (2014b)
+29 M, 0 F
+23.5 ± 3.1
+Standard
+Upper trapezius
+5.9 ± 3.0
+Standard
+Triceps
+17.1 ± 7.05
+Suspension
+Upper trapezius
+15.7 ± 11.3
+Suspension
+Triceps
+37.0 ± 9.7
+Calatayud (2014c)
+29 M, 0 F
+22.6 ± 2.6
+Standard
+Serratus anterior
+24.4 ± 12.3
+Standard
+Upper trapezius
+5.3 ± 3.2
+Standard
+Triceps
+14.0 ± 8.3
+Standard
+Pectoralis major
+23.6 ± 9.4
+Suspension
+Serratus anterior
+13.1 ± 7.1
+Suspension
+Upper trapezius
+9.4 ± 7.3
+Suspension
+Triceps
+33.0 ± 18.4
+Suspension
+Pectoralis major
+29.5 ± 9.2
+Cho (2014)
+5 M, 10 F
+22.1 ± 2.9
+PU plus
+Serratus anterior
+22.9 ± 17.5
+PU plus
+Upper trapezius
+9.9 ± 5.0
+PU plus
+Lower trapezius
+7.2 ± 5.1
+PU plus
+Pectoralis major
+24.9 ± 17.2
+Cogley (2005)
+11 M, 29 F
+24.3 ± 13.2
+Standard
+Triceps
+101.3 ± 85.4
+de Araujo (2018)
+18 M, 0 F
+21.5 ± 2.6
+Standard
+Serratus anterior
+27.5 ± 12.9
+Standard
+Upper trapezius
+17.0 ± 13.4
+Standard
+Lower trapezius
+23.9 ± 11.9
+Unstable
+Serratus anterior
+27.7 ± 11.9
+Unstable
+Upper trapezius
+22.5 ± 18.4
+Unstable
+Lower trapezius
+24.8 ± 12.1
+de Araujo (2019)
+23 M, 0 F
+21.7 ± 3.0
+Standard
+Serratus anterior
+92.3 ± 67.2
+Standard
+Upper trapezius
+51.2 ± 43.6
+Standard
+Middle trapezius
+21.9 ± 13.0
+Standard
+Lower trapezius
+58.7 ± 48.4
+Unstable
+Serratus anterior
+76.9 ± 20.7
+Unstable
+Upper trapezius
+56.6 ± 37.3
+Unstable
+Middle trapezius
+44.1 ± 29.5
+Unstable
+Lower trapezius
+59.3 ± 34.6
+Decker (2003)
+9 M, 6 F
+26.8 ± 4.0
+PU plus
+Pectoralis major
+94.3 ± 27.2
+Freeman (2006)
+9 M, 1 F
+24, SD not given
+Standard
+Triceps
+66.0 ± 17.6
+Standard
+Pectoralis major
+61.2 ± 38.3
+Unstable
+Triceps
+68.9 ± 16.2
+Unstable
+Pectoralis major
+68.7 ± 39.9
+Gioftsos (2016)
+13 M, 0 F
+20.5 ± 1.0
+Standard
+Serratus anterior
+49.0 ± 20.5
+Standard
+Upper trapezius
+35.9 ± 14.0
+Standard
+Lower trapezius
+12.8 ± 10.1
+PU plus
+Serratus anterior
+60.7 ± 17.1
+PU plus
+Upper trapezius
+28.6 ± 9.2
+PU plus
+Lower trapezius
+9.1 ± 8.7
+Unstable
+Serratus anterior
+45.7 ± 14.0
+Unstable
+Upper trapezius
+35.8 ± 16.4
+Unstable
+Lower trapezius
+12.6 ± 15.1
+Hwang (2015)
+29 M, 0 F
+24.7 ± 2.5
+PU plus
+Serratus anterior
+59.2 ± 13.9
+PU plus
+Upper trapezius
+9.9 ± 7.1
+PU plus
+Pectoralis major
+10.7 ± 7.6
+Kang (2014)
+15 M, 0 F
+21.2 ± 2.4
+Standard
+Serratus anterior
+45.5 ± 19.4
+Lehman (2006)
+13 M, 0 F
+26.3 ± 1.5
+Incline
+Triceps
+22.2 ± 8.8
+Incline
+Pectoralis major
+21.4 ± 11.8
+Incline, hands on ball
+Triceps
+43.1 ± 17.3
+Incline, hands on ball
+Pectoralis major
+26.7 ± 14.5
+Lehman (2008)
+10 M, 0 F
+26.1 ± 1.1
+Incline
+Serratus anterior
+24.2 ± 14.5
+Incline
+Upper trapezius
+5.2 ± 6.4
+Incline
+Lower trapezius
+10.5 ± 12.2
+Incline, hands on ball
+Serratus anterior
+19.7 ± 11.5
+Incline, hands on ball
+Upper trapezius
+10.5 ± 6.9
+Incline, hands on ball
+Lower trapezius
+9.5 ± 11.9
+Ludewig (2004)
+7 M, 12 F
+25.2 ± 3.7
+PU plus
+Upper trapezius
+14.5 ± 11.8
+Marshall (2006)
+8 M, 4 F
+22.1 ± 2.4
+Standard
+Pectoralis major
+34.1 ± 25.5
+Incline
+Pectoralis major
+25.5 ± 13.6
+Incline, hands on ball
+Pectoralis major
+39.2 ± 27.2
+McGill (2014)
+14 M, 0 F
+21.1 ± 2.0
+Standard
+Serratus anterior
+72.1 ± 60.2
+Standard
+Triceps
+23.0 ± 22.7
+Standard
+Pectoralis major
+46.6 ± 40.6
+Suspension
+Serratus anterior
+55.6 ± 60.3
+Suspension
+Triceps
+29.6 ± 19.4
+Suspension
+Pectoralis major
+42.3 ± 32.8
+Park (2013)
+20 M, 0 F
+21–26, no mean given
+PU plus
+Upper trapezius
+3.6 ± 1.9
+Park (2015)
+10 M, 0 F
+23.9 ± 1.8
+PU plus
+Upper trapezius
+8.0 ± 3.5
+Santos (2018)
+18 M, 0 F
+22.0 ± 2.0
+Standard
+Serratus anterior
+49.7 ± 38.0
+Standard
+Upper trapezius
+3.4 ± 2.6
+Standard
+Middle trapezius
+6.3 ± 11.4
+Standard
+Lower trapezius
+10.0 ± 6.5
+Snarr (2013)
+15 M, 6 F
+25.2 ± 3.4
+Standard
+Triceps
+74.3 ± 16.9
+Standard
+Pectoralis major
+63.6 ± 16.4
+Suspension
+Triceps
+105.8 ± 18.5
+Suspension
+Pectoralis major
+69.5 ± 27.6
+Stoelting (2008)
+0 M, 19 F
+20.7 ± 2.3
+Standard
+Serratus anterior
+91.9 ± 52.2
+Standard
+Middle trapezius
+32.6 ± 16.2
+Standard
+Lower trapezius
+28.2 ± 15.0
+PU plus
+Serratus anterior
+83.0 ± 44.6
+PU plus
+Middle trapezius
+34.8 ± 18.8
+PU plus
+Lower trapezius
+26.8 ± 9.8
+Tucker (2008)
+15 M, 13 F
+20.9 ± 2.8
+Standard
+Serratus anterior
+68.5 ± 32.8
+Standard
+Middle trapezius
+27.0 ± 20.4
+Standard
+Lower trapezius
+36.1 ± 19.0
+Tucker (2009)
+19 M, 0 F
+20.7 ± 2.9
+PU plus
+Serratus anterior
+48.6 ± 16.8
+PU plus
+Lower trapezius
+29.4 ± 12.8
+Tucker (2010)
+4 M, 11 F
+20.4 ± 3.8
+Standard
+Serratus anterior
+56.2 ± 24.4
+Standard
+Upper trapezius
+44.7 ± 30.2
+Standard
+Middle trapezius
+18.0 ± 7.3
+Standard
+Lower trapezius
+27.0 ± 13.1
+Unstable
+Serratus anterior
+48.3 ± 21.7
+Unstable
+Upper trapezius
+61.6 ± 47.4
+Unstable
+Middle trapezius
+19.5 ± 7.3
+Unstable
+Lower trapezius
+27.5 ± 11.2
+EMG values are weighted mean ± SD. Unstable push-up includes BOSU®
+balls, stability discs, balance boards, foam mats, and unstable
+push-up bars.
+EMG: electromyography; MVIC: maximum voluntary isometric contraction;
+PU: push-up.
+The weighted mean EMG amplitude for each muscle across PU variations is presented
+graphically in 
+Figure 4
+,
+and numerical data are available as a supplemental appendix. PM and triceps
+demonstrated the highest EMG amplitude in four of the six PU types. SA had the
+highest EMG amplitude during the PU plus and incline PU. UT demonstrated the lowest
+EMG amplitude in four of the six PU types. There were no studies assessing M/LT
+activation during suspension PUs. 
+Figure 4.
+EMG amplitude across muscles and push-up type. Weighted mean EMG
+amplitude for each muscle group during identified push-up variations.
+Data are presented as weighted mean ± SE.
+EMG: electromyography; M/LT: middle/lower trapezius; MVIC: maximum

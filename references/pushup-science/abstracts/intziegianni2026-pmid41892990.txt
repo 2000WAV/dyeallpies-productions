@@ -1,0 +1,38 @@
+1. Muscles. 2026 Feb 27;5(1):18. doi: 10.3390/muscles5010018.
+
+Electromyographic Activation of the Pectoralis Major and Triceps Brachii Muscles 
+During Standard, Diamond, and Wide Hand Position Push-Ups.
+
+Intziegianni K(1), Katsamis E(1), Michaelides M(1), Parpa K(1).
+
+Author information:
+(1)School of Science, University of Central Lancashire Cyprus (UCLan Cyprus), 
+Pyla 7080, Cyprus.
+
+Studies examining the electromyographic activation of pectoralis major (PM) and 
+triceps brachii (TB) muscles during push-ups of varied hand positions are 
+limited, and findings are inconsistent. The aim was to investigate the 
+electromyographic activation of PM and TB during standard, diamond, and wide 
+hand position push-ups. Twenty young males performed six repetitions of each 
+push-up variation while the electrical activity of PM and TB was recorded, 
+averaged, and normalized to the peak root mean square (RMS) across repetitions 
+for each push-up. RMS (mV) and normalized RMS (%) were calculated for each 
+muscle, push-up variation, and contraction phase (eccentric/concentric). Two 
+separate three-way ANOVAs with Bonferroni post hoc correction were used (α = 
+0.05). TB demonstrated statistically significantly higher RMS (mV) and 
+normalized RMS (%) than PM (p < 0.05), in diamond, followed by standard and wide 
+push-ups. A statistically significant higher activation of RMS (mV) was observed 
+in concentric compared to eccentric (p < 0.05); however, after normalizing RMS 
+(%), contraction phase had no effect (p > 0.05) and there was no significant 
+three-way interaction (p > 0.05). Diamond push-ups elicited the highest relative 
+activation for both the PM and TB. Normalized RMS revealed the consistency of 
+muscle effort in both contraction phases, sustaining near-maximal activation 
+regardless of hand position. These findings support adaptable training 
+strategies, with potential applications in rehabilitation and strength training 
+contexts.
+
+DOI: 10.3390/muscles5010018
+PMCID: PMC13029269
+PMID: 41892990
+
+Conflict of interest statement: The authors declare no conflicts of interest.

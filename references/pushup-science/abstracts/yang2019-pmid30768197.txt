@@ -1,0 +1,68 @@
+1. JAMA Netw Open. 2019 Feb 1;2(2):e188341. doi:
+10.1001/jamanetworkopen.2018.8341.
+
+Association Between Push-up Exercise Capacity and Future Cardiovascular Events 
+Among Active Adult Men.
+
+Yang J(1)(2), Christophi CA(1)(3), Farioli A(4), Baur DM(1), Moffatt S(5), 
+Zollinger TW(6), Kales SN(1)(2).
+
+Author information:
+(1)Harvard T.H. Chan School of Public Health, Boston, Massachusetts.
+(2)Cambridge Health Alliance, Harvard Medical School, Cambridge, Massachusetts.
+(3)Cyprus International Institute for Environmental and Public Health, Cyprus 
+University of Technology, Limassol, Cyprus.
+(4)Department of Medical and Surgical Sciences (DIMEC), University of Bologna, 
+Bologna, Italy.
+(5)Public Safety Medical, Indianapolis, Indiana.
+(6)Department of Epidemiology, Richard M. Fairbanks School of Public Health, 
+Indiana University, Indianapolis.
+
+IMPORTANCE: Cardiovascular disease (CVD) remains the leading cause of mortality 
+worldwide. Robust evidence indicates an association of increased physical 
+fitness with a lower risk of CVD events and improved longevity; however, few 
+have studied simple, low-cost measures of functional status.
+OBJECTIVE: To evaluate the association between push-up capacity and subsequent 
+CVD event incidence in a cohort of active adult men.
+DESIGN, SETTING, AND PARTICIPANTS: Retrospective longitudinal cohort study 
+conducted between January 1, 2000, and December 31, 2010, in 1 outpatient 
+clinics in Indiana of male firefighters aged 18 years or older. Baseline and 
+periodic physical examinations, including tests of push-up capacity and exercise 
+tolerance, were performed between February 2, 2000, and November 12, 2007. 
+Participants were stratified into 5 groups based on number of push-ups completed 
+and were followed up for 10 years. Final statistical analyses were completed on 
+August 11, 2018.
+MAIN OUTCOMES AND MEASURES: Cardiovascular disease-related outcomes through 2010 
+included incident diagnoses of coronary artery disease and other major CVD 
+events. Incidence rate ratios (IRRs) were computed, and logistic regression 
+models were used to model the time to each outcome from baseline, adjusting for 
+age and body mass index (BMI) (calculated as weight in kilograms divided by 
+height in meters squared). Kaplan-Meier estimates for cumulative risk were 
+computed for the push-up categories.
+RESULTS: A total of 1562 participants underwent baseline examination, and 1104 
+with available push-up data were included in the final analyses. Mean (SD) age 
+of the cohort at baseline was 39.6 (9.2) years, and mean (SD) BMI was 28.7 
+(4.3). During the 10-year follow up, 37 CVD-related outcomes (8601 person-years) 
+were reported in participants with available push-up data. Significant negative 
+associations were found between increasing push-up capacity and CVD events. 
+Participants able to complete more than 40 push-ups were associated with a 
+significantly lower risk of incident CVD event risk compared with those 
+completing fewer than 10 push-ups (IRR, 0.04; 95% CI, 0.01-0.36).
+CONCLUSIONS AND RELEVANCE: The findings suggest that higher baseline push-up 
+capacity is associated with a lower incidence of CVD events. Although larger 
+studies in more diverse cohorts are needed, push-up capacity may be a simple, 
+no-cost measure to estimate functional status.
+
+DOI: 10.1001/jamanetworkopen.2018.8341
+PMCID: PMC6484614
+PMID: 30768197 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of Interest Disclosures: Dr Zollinger 
+reported being a research consultant with the National Institute of Public 
+Safety Health. Dr Kales reported serving as an expert witness in firefighter 
+cases; and receiving personal fees from Bichler, Kelley, Oliver & Longo, PLLC; 
+McCarthy, Callas & Feeney PC; Macadam, Jury, PA; Sena Polk & Stacy, LLP; and 
+Lichten & Liss-Riordan, PC outside the submitted work. No other disclosures were 
+reported.
+
+Notes for this project: OPEN ACCESS (PMCID PMC6484614), full text fetched -- see papers/yang2019-pushup-cvd-cohort.xml and the -extract.txt. 1104 male firefighters, push-up capacity in 5 categories (0-10/11-20/21-30/31-40/>=41), 10-y follow-up, IRR for CVD events vs 0-10 reference: 11-20 IRR 0.36 (0.14-0.92); 21-30 IRR 0.16 (0.06-0.42); 31-40 IRR 0.25 (0.10-0.62); >=41 IRR 0.04 (0.01-0.36).

@@ -1,0 +1,33 @@
+1. Man Ther. 2008 Dec;13(6):500-6. doi: 10.1016/j.math.2007.05.016. Epub 2007 Jul
+ 20.
+
+An unstable support surface does not increase scapulothoracic stabilizing muscle 
+activity during push up and push up plus exercises.
+
+Lehman GJ(1), Gilas D, Patel U.
+
+Author information:
+(1)Department of Graduate Studies, Canadian Memorial Chiropractic College, 
+Toronto, Ont., Canada. glehman@cmcc.ca
+
+BACKGROUND: The aim of the current study is to determine if performing push up 
+exercise variations on an unstable surface (Swiss ball) influences EMG amplitude 
+of the scapulothoracic muscles when compared with a stable surface (Bench).
+METHODS: Ten males were recruited from a convenience sample of college students. 
+Surface electromyograms were recorded from the upper trapezius, lower trapezius, 
+serratus anterior and biceps brachii while performing push up exercises with the 
+feet or hands placed on a bench and separately on a Swiss ball. A push up plus 
+exercise was also evaluated with hands on the different support surfaces.
+RESULTS: There was no statistically significant (p<0.05) difference in mean EMG 
+amplitude on a Swiss ball when compared with the same exercise performed on a 
+bench. Significant differences in muscle activity were seen in the upper 
+trapezius and serratus anterior as a result of changes in foot position relative 
+to hand position irrespective of surface stability.
+INTERPRETATION: The unstable surface used in this study is not a sufficient 
+condition to generate an increase in muscle activity in select scapulothoracic 
+and glenohumeral muscles during push up exercise variations. Elevating the feet 
+above the hands appeared to have a greater influence on shoulder stabilizing 
+musculature amplitude than the addition of a Swiss ball.
+
+DOI: 10.1016/j.math.2007.05.016
+PMID: 17643339 [Indexed for MEDLINE]

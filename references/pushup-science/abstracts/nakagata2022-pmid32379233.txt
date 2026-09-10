@@ -1,0 +1,46 @@
+1. J Strength Cond Res. 2022 May 1;36(5):1290-1296. doi: 
+10.1519/JSC.0000000000003622. Epub 2020 May 5.
+
+Estimating Energy Cost of Body Weight Resistance Exercise Using a Multistage 
+Exercise Test.
+
+Nakagata T(1)(2)(3), Yamada Y(3), Naito H(1).
+
+Author information:
+(1)Graduate School of Health and Sports Science, Juntendo University, Inzai, 
+Chiba, Japan.
+(2)Sportology Center, Juntendo University Graduate School of Medicine, 
+Bunkyo-ku, Tokyo, Japan; and.
+(3)Section of Healthy Longevity Research, National Institute of Health and 
+Nutrition, NIBIOHN, Shinjuku-ku, Tokyo, Japan.
+
+Nakagata, T, Yamada, Y, and Naito, H. Estimating energy cost of body weight 
+resistance exercise using a multistage exercise test. J Strength Cond Res 36(5): 
+1290-1296, 2022-The purpose of this study was to examine energy cost of body 
+weight resistance exercises with slow movement in young men using a multistage 
+exercise test. Fifteen men aged 21-29 years performed 3 exercises (heel-raise, 
+squat, and push-up) at different frequencies (1, 2, 3, 4, 5, and 6 
+repetitions·min-1). Oxygen consumption was measured using indirect calorimetry; 
+we then computed a simple linear regression between aerobic energy expenditure 
+(EE) and repetition frequency. The slope coefficient in the regression 
+represents the energy cost of those exercises; we compared the extrapolated EE 
+for a frequency of 10 repetitions·min-1. Gross EE increased linearly with 
+repetition frequency in all subjects (y = ax + b). Energy cost was significantly 
+greater in the case of the push-up than in the case of the squat {squat: 0.50 ± 
+0.14 (95% confidence interval [CI], 0.42-0.58); push-up: 0.77 ± 0.20 kcal (95% 
+CI, 0.66-0.88); and the heel-raise elicited the lowest energy cost: 0.13 ± 0.04 
+kcal (95% CI, 0.11-0.15)}. Extrapolated EE at 10 repetitions·min-1 was 2.7 ± 0.5 
+kcal (2.3 metabolic equivalents [METs]), 6.3 ± 1.4 kcal (5.4 METs), and 9.2 ± 
+2.1 kcal (7.8 METs), respectively, according to the regression based on aerobic 
+EE. These results will be useful for health professionals in prescribing 
+resistance exercise programs improving muscle fitness and considering for weight 
+management.
+
+Copyright © 2020 The Author(s). Published by Wolters Kluwer Health, Inc. on 
+behalf of the National Strength and Conditioning Association.
+
+DOI: 10.1519/JSC.0000000000003622
+PMCID: PMC9042340
+PMID: 32379233 [Indexed for MEDLINE]
+
+Notes for this project: OPEN ACCESS (PMCID PMC9042340), full text fetched -- see papers/nakagata2022-energy-cost-bwre.xml and -extract.txt. Directly MEASURED (indirect calorimetry) energy cost per push-up repetition = 0.77 +/- 0.20 kcal (95% CI 0.66-0.88), extrapolated to 9.2 +/- 2.1 kcal (7.8 METs) at 10 reps/min; 15 young Japanese men, 21-29y. This is a primary measured number, stronger evidence than the Compendium's consensus-rated MET class.

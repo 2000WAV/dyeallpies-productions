@@ -1,0 +1,49 @@
+1. J Athl Train. 2019 Nov;54(11):1156-1164. doi: 10.4085/1062-6050-237-18. Epub 
+2019 Oct 4.
+
+Serratus Anterior and Upper Trapezius Electromyographic Analysis of the Push-Up 
+Plus Exercise: A Systematic Review and Meta-Analysis.
+
+Kang FJ(1), Ou HL(2), Lin KY(3), Lin JJ(1)(4).
+
+Author information:
+(1)School & Graduate Institute of Physical Therapy, College of Medicine, 
+National Taiwan University, Taipei.
+(2)Taipei Medical University Hospital, Taiwan.
+(3)Department of Rehabilitation, Kaohsiung Veterans General Hospital, Kaohsiung 
+City, Ziguan District, Taiwan.
+(4)Department of Physical Medicine and Rehabilitation, National Taiwan 
+University Hospital, Taipei.
+
+CONTEXT: Whereas the serratus anterior (SA) and the upper trapezius (UT) work as 
+a force couple for scapular motion, weakness of the SA and overactivation of the 
+UT are often present in overhead athletes with shoulder dysfunction. Therefore, 
+researchers addressing an intramuscular imbalance between the SA and UT have 
+focused on finding exercises that target the weak SA and minimally activate the 
+UT.
+OBJECTIVE: To compare the effectiveness of push-up plus (PUP) exercise variants 
+based on the electromyographic (EMG) activity of the SA and UT.
+DATA SOURCES: A systematic search of PubMed and Scopus between January 1, 2000, 
+and March 31, 2008.
+STUDY SELECTION: Studies of PUP exercises that involved EMG analysis.
+DATA EXTRACTION: We assessed study quality using the Critical Appraisal Skills 
+Program. For the systematic analysis, the following data were extracted: (1) 
+author, year, and study design; (2) participant characteristics; (3) type of PUP 
+intervention; (4) EMG outcome measures; and (5) main results. For the 
+meta-analysis, the EMG data of the SA and UT were calculated using the mean 
+difference of EMG activity with a 95% confidence interval.
+DATA SYNTHESIS: Based on 19 studies with 356 participants, different hand 
+positions (the distance between the hands, shoulder-flexion angle, and 
+elbow-flexion angle) and different lower extremity positions variably affected 
+the activation of the SA and UT during the PUP exercise. Also, when participants 
+performed the PUP on an unstable surface compared with a stable surface, UT 
+activity increased 2.74% (95% confidence interval = 0.07%, 5.41%).
+CONCLUSIONS: The standard PUP exercise elicited high EMG activity of the SA. 
+Participants generated higher SA and lower UT EMG activity when they performed 
+the PUP exercise on a stable surface in full elbow extension, with the hands 
+placed shoulder-width apart, shoulder-flexion angles of 110° or 120°, and the 
+ipsilateral lower extremity lifted.
+
+DOI: 10.4085/1062-6050-237-18
+PMCID: PMC6863690
+PMID: 31584855 [Indexed for MEDLINE]

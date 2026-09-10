@@ -1,0 +1,36 @@
+1. Hum Mov Sci. 2009 Dec;28(6):738-51. doi: 10.1016/j.humov.2009.05.002. Epub
+2009  Aug 15.
+
+Scapula kinematic alterations following a modified push-up plus task.
+
+Borstad JD(1), Szucs K, Navalgund A.
+
+Author information:
+(1)The Ohio State University, Atwell Hall, Columbus, OH 43210-1234, USA. 
+borstad.1@osu.edu
+
+Scapular kinematic and muscle activity alterations have been identified in 
+individuals with subacromial impingement syndrome of the shoulder, including 
+workers and athletes who regularly perform overhead activities. Serratus 
+anterior fatigue is a proposed mechanism for these kinematic alterations, 
+although no direct evidence supports such a relationship. The purpose of this 
+study was to examine three-dimensional scapula kinematics in asymptomatic 
+participants before and after a task intended to preferentially fatigue serratus 
+anterior. Twenty-eight participants completed the study. The experimental task 
+consisted of five repetitions of scapular plane arm elevation and the fatigue 
+task was the isometric hold of scapular protraction in the push-up position. 
+Electromyography of four shoulder muscles was collected during the task to 
+determine level of muscle fatigue, and the Borg CR10 scale was used to assess 
+subjective fatigue. The fatigue task resulted in decreased median power 
+frequency in all four muscles and significantly increased Borg scores. Scapula 
+posterior tilting and internal rotation were most impacted by muscle fatigue, 
+with decreased posterior tilting and increased internal rotation after the task. 
+There was no effect on scapular upward rotation. Effect sizes were low to 
+moderate (.13-.51) where these kinematic alterations reached statistical 
+significance. Shoulder muscle fatigue contributes to scapular kinematic 
+alterations and is a plausible risk factor for subacromial impingement syndrome.
+
+2009 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.humov.2009.05.002
+PMID: 19683822 [Indexed for MEDLINE]

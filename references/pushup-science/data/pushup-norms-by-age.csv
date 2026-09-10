@@ -1,0 +1,33 @@
+source,sex,age_bracket,category,rep_range,test_position,note
+ACSM/CSEP (via Adams et al. 2022 Table 1),male,20-29,Excellent,>=36,standard (toes),"reproduced primary source: Pollock et al. 1978 (modified push-up norms) + ACSM Guidelines 2nd ed. 1993 + Canadian Association of Sport Sciences 1987 data"
+ACSM/CSEP (via Adams et al. 2022 Table 1),male,20-29,Very Good,29-35,standard,as above
+ACSM/CSEP (via Adams et al. 2022 Table 1),male,20-29,Good,22-28,standard,as above
+ACSM/CSEP (via Adams et al. 2022 Table 1),male,20-29,Fair,17-21,standard,as above
+ACSM/CSEP (via Adams et al. 2022 Table 1),male,20-29,Poor,<=16,standard,as above
+ACSM/CSEP (via Adams et al. 2022 Table 1),female,20-29,Excellent,>=30,modified (knee),as above
+ACSM/CSEP (via Adams et al. 2022 Table 1),female,20-29,Very Good,21-29,modified (knee),as above
+ACSM/CSEP (via Adams et al. 2022 Table 1),female,20-29,Good,15-20,modified (knee),as above
+ACSM/CSEP (via Adams et al. 2022 Table 1),female,20-29,Fair,10-14,modified (knee),as above
+ACSM/CSEP (via Adams et al. 2022 Table 1),female,20-29,Poor,<=9,modified (knee),as above
+Adams et al. 2022 predicted standard-push-up scale,female,18-24 (college),Excellent,>=18,standard (predicted from modified via regression),"n=72; standard = -2.217 + 0.64 x modified, r=.85, r2=.72"
+Adams et al. 2022 predicted standard-push-up scale,female,18-24 (college),Very Good,12-17,standard (predicted),as above
+Adams et al. 2022 predicted standard-push-up scale,female,18-24 (college),Good,8-11,standard (predicted),as above
+Adams et al. 2022 predicted standard-push-up scale,female,18-24 (college),Fair,5-7,standard (predicted),as above
+Adams et al. 2022 predicted standard-push-up scale,female,18-24 (college),Needs Improvement,<=4,standard (predicted),as above
+Adams et al. 2022 sample mean (this study's own n=72),female,18-24 (college; mean age 20.38),sample mean,9 (SD 8.87),standard,"eight of 72 could not complete 1 rep; 7 completed >20"
+Adams et al. 2022 sample mean,female,18-24 (college),sample mean,17.5 (SD 11.76),modified (knee),
+"trainrboost.com (secondary, cites ACSM Guidelines 10th ed.)",male,20-29,Excellent,>=36,standard,"5-tier ACSM-attributed table, edition/year not independently verified against a primary text this session"
+trainrboost.com (secondary),male,20-29,Good,22-28,standard,as above
+trainrboost.com (secondary),male,20-29,Average,17-21,standard,as above
+trainrboost.com (secondary),male,20-29,Below Avg,0-16,standard,"note: this secondary source's 'below average' band absorbs what the primary ACSM/CSEP table (Adams 2022 Table 1) calls 'Poor'; the two secondary/primary tables broadly agree on the 20-29 male bracket despite different tier labels"
+trainrboost.com (secondary),male,30-39,Average,17-21,standard,
+trainrboost.com (secondary),male,40-49,Excellent,>=25,standard,
+trainrboost.com (secondary),female,20-29,Excellent,>=30,standard,"note: matches the primary ACSM/CSEP modified-position Excellent cutoff exactly even though this secondary table appears to use the standard position label -- flag as a possible position-label inconsistency in the secondary source, not independently resolved this session"
+"topendsports.com (secondary; 7-tier; ""original source unknown"" per the page itself)",male,17-19,Excellent,>56,"standard (""military style"")","cites Baumgartner/Golding/Heyward fitness-measurement literature generally, no single traceable primary source per the page's own disclosure"
+topendsports.com (secondary),male,20-29,Average,17-29,standard,
+topendsports.com (secondary),male,30-39,Average,13-24,standard,
+topendsports.com (secondary),male,60-65,Average,6-16,standard,
+topendsports.com (secondary),female,20-29,Average,9-13,standard,
+topendsports.com (secondary),female,20-29,Average (modified/knee),12-22,modified (knee),"knee-position table is a separate column on the same page; roughly 1.4-1.7x the standard-position count at the same tier, consistent with the ~12-18% load-reduction figure documented in 02-pushup-hand-force-and-joint-moments.md"
+strengthlevel.com-equivalent crowd-sourced data,NOT FOUND this session,--,--,--,--,"unlike the pull-up archive (which used strengthlevel.com's crowd-sourced pull-up percentiles), no equivalent crowd-sourced push-up percentile table was pulled this session -- a gap, not an ESTIMATE; strengthlevel.com does publish a push-up page but it was not fetched this session (time-budget decision, prioritized the primary/near-primary sources above)"
+"Yang et al. 2019 firefighter cohort (not a fitness-category norm, but a population distribution)",male,mean 39.6y (SD 9.2),category boundary,0-10 / 11-20 / 21-30 / 31-40 / >=41,standard (protocol not detailed in the extract obtained),"1104 male firefighters; this is health-outcome data, not an energy or fitness-category norm; full IRR table in 03-pushup-norms-and-standards.md section 2"

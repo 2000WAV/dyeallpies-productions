@@ -1,0 +1,30 @@
+1. Healthcare (Basel). 2021 Nov 26;9(12):1636. doi: 10.3390/healthcare9121636.
+
+Comparison of Activity in Scapular Stabilizing Muscles during Knee Push-Up Plus 
+and Modified Vojta's 3-Point Support Exercises.
+
+Lim H(1).
+
+Author information:
+(1)Department of Physical Therapy, Dankook University, Cheonan 31116, Korea.
+
+Selective serratus anterior (SA) strengthening without compensatory movement of 
+the shoulder stabilizers is essential for shoulder stability and functional 
+movement without causing shoulder injury and dysfunction. The purpose of this 
+study was to compare electromyographic (EMG) activity between the SA, upper 
+trapezius (UT), lower trapezius (LT), and pectoralis major (PM) during the knee 
+push-up plus (KPUP) and modified Vojta's 3-point support (MV3PS) exercises. 
+Scapular stabilizer muscle activity (UT, LT, SA, and PM) was investigated during 
+the KPUP and MV3PS exercises in 40 healthy adults (19 males, 21 females) using 
+surface EMG. Muscle activity of the SA was significantly higher during the MV3PS 
+exercise than during the KPUP (p < 0.05). However, muscle activity in the PM was 
+significantly lower during the MV3PS exercise (p < 0.05). In addition, the LT 
+and UT showed less muscle activity during the MV3PS exercise, although the 
+difference was not statistically significant (p > 0.05). These findings suggest 
+that the MV3PS exercise better activates the SA than KPUP.
+
+DOI: 10.3390/healthcare9121636
+PMCID: PMC8701807
+PMID: 34946362
+
+Conflict of interest statement: The author declares no conflict of interest.

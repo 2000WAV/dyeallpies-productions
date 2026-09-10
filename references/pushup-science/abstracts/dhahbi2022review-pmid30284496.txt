@@ -1,0 +1,51 @@
+1. Sports Biomech. 2022 Jan;21(1):1-40. doi: 10.1080/14763141.2018.1512149. Epub 
+2018 Oct 4.
+
+Kinetic analysis of push-up exercises: a systematic review with practical 
+recommendations.
+
+Dhahbi W(1)(2)(3), Chaabene H(4), Chaouachi A(1)(5)(6), Padulo J(7)(8), G Behm 
+D(9), Cochrane J(10), Burnett A(10)(11), Chamari K(11).
+
+Author information:
+(1)Tunisian Research Laboratory, Sport Performance Optimization, National Center 
+of Medicine and Science in Sports, Tunis, Tunisia.
+(2)Training Department, Qatar Police College, Doha, Qatar.
+(3)Sport Science Program, College of Arts and Sciences, University of Qatar, 
+Doha, Qatar.
+(4)Division of Training and Movement Sciences, Research Focus Cognition 
+Sciences, University of Potsdam, Germany.
+(5)Sports Performance Research Institute, AUT University, Auckland, New Zealand.
+(6)PVF Football Academy, Hang Yen, Vietnam.
+(7)Sport Performance Laboratory, Faculty of Kinesiology, University of Split, 
+Split, Croatia.
+(8)Department of Psychology, University of eCampus, Novedate, Italy.
+(9)School of Human Kinetics and Recreation, Memorial University of Newfoundland, 
+Newfoundland, Canada.
+(10)Centre for Exercise and Sport Science Research, School of Medical and Health 
+Sciences, Joondalup Campus, Edith Cowan University, Perth, Australia.
+(11)Athlete Health and Performance Research Centre, Aspetar, QATAR Orthopaedic 
+and Sports Medicine Hospital, Doha, Qatar.
+
+Push-ups represent one of the simplest and most popular strengthening exercise. 
+The aim of this study was to systematically review and critically appraise the 
+literature on the kinetics-related characteristics of different types of 
+push-ups, with the objective of optimising training prescription and 
+exercise-related load. A systematic search was conducted in the electronic 
+databases PubMed, Google Scholar and Science Direct up to April 2018. Studies 
+that reported kinetic data (e.g. initial and peak-force supported by the 
+upper-limbs, impact-force, peak-flexion-moment of the elbow-joint, rate of 
+propulsive- and impact-, and vertebral-joint compressive-forces) related to 
+push-ups and included trained, recreational and untrained participants, were 
+considered. The risk of bias in the included studies was assessed using the 
+Critical Appraisal Skills Programme scale. From 5290 articles retrieved in the 
+initial search, only 26 studies were included in this review. Kinetic data for 
+46 push-up variants were assessed. A limitation of the current review is that 
+the relationship between our findings and actual clinical or practical 
+consequences is not statistically proven but can only be inferred from our 
+critical descriptive approach. Overall, this review provides detailed data on 
+specific characteristics and intensities of push-up variations, in order to 
+optimise exercise prescription for training and rehabilitation purposes.
+
+DOI: 10.1080/14763141.2018.1512149
+PMID: 30284496 [Indexed for MEDLINE]

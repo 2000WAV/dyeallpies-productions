@@ -1,0 +1,602 @@
+Journal of Athletic Training 2019;54(11):1156­1164                  Shoulder
+doi: 10.4085/1062-6050-237-18
+Ó by the National Athletic Trainers' Association, Inc
+www.natajournals.org
+
+Serratus Anterior and Upper Trapezius
+Electromyographic Analysis of the Push-Up Plus
+Exercise: A Systematic Review and Meta-Analysis
+
+Fu-Jie Kang, MS*; Hsiang-Ling Ou, MS; Kun-Ying Lin, PT, BS;
+Jiu-Jenq Lin, PhD*§
+
+*School & Graduate Institute of Physical Therapy, College of Medicine, National Taiwan University, Taipei; Taipei Medical
+University Hospital, Taiwan; Department of Rehabilitation, Kaohsiung Veterans General Hospital, Kaohsiung City, Ziguan
+District, Taiwan; §Department of Physical Medicine and Rehabilitation, National Taiwan University Hospital, Taipei
+
+   Context: Whereas the serratus anterior (SA) and the upper        using the mean difference of EMG activity with a 95%
+trapezius (UT) work as a force couple for scapular motion,          confidence interval.
+weakness of the SA and overactivation of the UT are often
+present in overhead athletes with shoulder dysfunction. There-         Data Synthesis: Based on 19 studies with 356 participants,
+fore, researchers addressing an intramuscular imbalance             different hand positions (the distance between the hands,
+between the SA and UT have focused on finding exercises that        shoulder-flexion angle, and elbow-flexion angle) and different
+target the weak SA and minimally activate the UT.                   lower extremity positions variably affected the activation of the
+                                                                    SA and UT during the PUP exercise. Also, when participants
+   Objective: To compare the effectiveness of push-up plus          performed the PUP on an unstable surface compared with a
+(PUP) exercise variants based on the electromyographic (EMG)        stable surface, UT activity increased 2.74% (95% confidence
+activity of the SA and UT.                                          interval ¼ 0.07%, 5.41%).
+
+   Data Sources: A systematic search of PubMed and Scopus              Conclusions: The standard PUP exercise elicited high
+between January 1, 2000, and March 31, 2008.                        EMG activity of the SA. Participants generated higher SA and
+                                                                    lower UT EMG activity when they performed the PUP exercise
+   Study Selection: Studies of PUP exercises that involved          on a stable surface in full elbow extension, with the hands
+EMG analysis.                                                       placed shoulder-width apart, shoulder-flexion angles of 1108 or
+                                                                    1208, and the ipsilateral lower extremity lifted.
+   Data Extraction: We assessed study quality using the
+Critical Appraisal Skills Program. For the systematic analysis,        Key Words: healthy participants, stable and unstable
+the following data were extracted: (1) author, year, and study      surfaces, scapular motion
+design; (2) participant characteristics; (3) type of PUP interven-
+tion; (4) EMG outcome measures; and (5) main results. For the
+meta-analysis, the EMG data of the SA and UT were calculated
+
+                                                                             Key Points
+
+ The serratus anterior (SA) and upper trapezius (UT) work as a force couple for scapular motion. Weakness of the SA
+  and overactivation of the UT are frequently present in overhead athletes with shoulder dysfunction.
+
+ The push-up plus (PUP) exercise is often prescribed to strengthen the SA.
+ Participants generated higher SA and lower UT electromyographic activity when performing the PUP exercise on a
+
+  stable surface in full elbow extension, with the hands shoulder-width apart, in 1108 to 1208 of shoulder flexion, and
+  with the ipsilateral lower extremity lifted.
+ Compared with a stable surface, performing the PUP exercise on an unstable surface induced higher levels of UT
+  activation but not SA activation.
+ During the PUP exercise, serratus anterior activity did not differ between the stable and unstable surfaces.
+
+T he transfer of kinetic energy through the shoulder at             athletes. Therefore, to regain a stable base for the optimal
+         rapid speeds with large ranges of motion and high          throwing motion, scapular-muscle training is an important
+         precision is evident in the increased prevalence of        part of injury prevention in and rehabilitation of overhead
+shoulder injuries among overhead athletes.1,2 Scapular              athletes.5­7
+dyskinesis, defined as altered position and motion of the
+scapula, has been associated with shoulder impingement                The serratus anterior (SA) and trapezius play important
+syndrome, rotator cuff tendinopathy, and multidirectional           roles in moving and stabilizing the scapula during upper
+impairments.1,3,4 Reviewing 5 studies of 419 athletes,              extremity motion.8,9 Whereas the SA protracts and
+Hickey et al4 indicated that scapular dyskinesis increased          upwardly rotates the scapula as the mover, it also stabilizes
+the risk of future shoulder pain by 43% in asymptomatic             the middle border and inferior angle of the scapula to
+                                                                    prevent winging and anterior tilt during upper extremity
+
+1156 Volume 54  Number 11  November 2019
+movements.10 Serratus anterior weakness is often present in    Lehman et al18 suggested that push-ups with the feet on
+overhead athletes and can result in shoulder dysfunction       an exercise bench and the hands on the floor had a greater
+due to altered scapular kinematics, such as winging and        influence on SA muscle activity. However, despite these
+tipping.8,11 Researchers11 who addressed an intramuscular      influential factors, no standard exists for how the PUP
+imbalance between the SA and upper trapezius (UT)              exercise should be performed.
+focused on finding exercises to target the weak SA and
+minimally activate the UT. The lower activation level of         Considering the closed kinetic chain of the whole body
+the SA with compensation via hyperactivity of the UT           during PUP exercise performance, we analyzed the effects
+during upper extremity motion could result in a shoulder-      of different factors acting concurrently on SA and UT
+shrugging motion with excessive superior translation, less     muscle activity in this review. Therefore, the purpose of our
+efficient upward rotation, and posterior tipping of the        study was to (1) analyze the effectiveness of varied PUP
+scapula, which can lead to shoulder impingement.8,11           exercises on SA and UT muscle activity and (2) conduct a
+                                                               meta-analysis to verify the effects on SA and UT muscle
+  Practically, the push-up plus (PUP) exercise is often        activity of performing the PUP exercise on different
+prescribed for strengthening the SA.8,12­14 During the PUP     surfaces (eg, a Swiss ball, wobble ball, or suspension sling).
+exercise, full scapular protraction (the plus) is added after
+full elbow extension at the end of the usual exercise.8 The    METHODS
+plus phase during the PUP exercise elicits the highest
+average SA electromyographic (EMG) activity compared           Search Strategy
+with other SA-activating and closed kinetic chain
+exercises.12­14 After finding that the standard PUP (SPP)        This review followed the Preferred Reporting Items for
+and knee PUP exercises induced the highest SA and              Systematic Reviews and Meta-Analyses (PRISMA) guide-
+lowest UT : SA EMG measures, Ludewig et al8 recom-             lines.35 Using PROSPERO, we confirmed that our research
+mended these exercises for selective SA strengthening.         did not duplicate a review being conducted by another team
+Researchers5,9,15­26 have investigated whether the PUP         and had not been registered. A systematic search was
+exercise performed on different unstable bases stimulated      conducted on 2 databases, PubMed and Scopus, using 2
+mechanoreceptors and increased SA EMG activity,                search strategies, with 1 related to each purpose. For the
+thereby enhancing shoulder-joint stabilization. The use        first purpose, published articles related to PUP variation
+of unstable or stable surfaces during the PUP exercise is      exercises were included. Key words were push-up plus and
+under debate. Some authors9,19 have suggested that             electromyography. For the second purpose, studies com-
+performing the PUP exercise on an unstable base can            paring SA and UT activity during the PUP exercise
+lead to greater recruitment of related muscles, whereas        performed on stable and unstable surfaces were selected.
+others14,18 have indicated that performing the exercise on     Key words were healthy subject, push-up plus, electromy-
+an unstable surface did not increase SA activity.              ography, and stable/unstable surface. Full search syntaxes
+Moreover, the PUP exercise performed on an unstable            can be found in the Supplemental Table (available online at
+surface could generate higher UT activity.27 However, no       http://dx.doi.org/10.4085/1062-6050-237-18.S1). Second-
+difference in UT activation has been reported.28 To our        ary searches were performed by (1) scanning the reference
+knowledge, no investigators have published systematic          list of each full text that was evaluated and (2) performing
+reviews with meta-analyses in which they examined how          citation tracking of the included studies. This search was
+PUP exercises performed on stable and unstable surfaces        limited to articles published between January 1, 2000, and
+affected SA and UT EMG activity.                               March 31, 2018.
+
+  Other PUP modifications have been examined. One              Inclusion Criteria and Outcome Measurement
+modification that may increase SA activity is performing
+the exercise on 1 hand.29,30 The influence of lower              To be included in our study, articles had to be written in
+extremity extension on scapular-muscle activity during         English. Studies were included in the systematic review if
+the PUP exercise has also been studied.29 Maenhout et al29     the authors examined different PUP exercises by analyzing
+proposed that tightening the thoracolumbar fascia using a      SA and UT EMG activity. For the meta-analysis, we
+gluteus maximus muscle contraction during extension of         included studies that were conducted of SA and UT EMG
+the lower extremity in the PUP exercise may alter              activity during the PUP exercise on stable and unstable
+scapular-muscle activity. The functional length of the         surfaces and excluded those that did not provide means and
+SA can change the contraction distance of the muscle,          standard deviations.
+which affects muscle activity. Researchers16,31­34 have
+examined muscle activity using different hand orientations       To reduce selection bias, 2 authors (F.J.K., H.L.O.)
+and at shoulder-flexion angles of 1108, 908, and 708 during    independently conducted the search processes. Studies were
+the PUP exercise. Lee et al16 reported larger SA EMG           excluded based on the title, abstract, or full text.
+activity during the PUP exercise with the shoulder             Disagreements were resolved by discussion and consensus
+externally rotated than with it in neutral or internally       with a third author (J.J.L.).
+rotated. Kim et al17 found that SA activity during the PUP
+exercise was higher when the ipsilateral lower extremity       Data Extraction and Assessment of Risk of Bias
+was raised than when the base of support (stable or
+unstable surface) was changed. Furthermore, performing           Two investigators (F.J.K., H.L.O.) separately extracted
+the PUP exercise on an unstable surface would only             data from each trial. The data extracted from the selected
+challenge the external oblique and internal oblique            studies were participant characteristics, information on
+muscles, which could facilitate lumbar stabilization.          exercise protocols, and details of the outcome measure-
+                                                               ments. When conflicts occurred in study qualifications
+
+                                                               Journal of Athletic Training 1157
+Figure 1. Flow chart showing article selection.
+
+between the data extractions, they were resolved by a third     erable heterogeneity (76%­100%), as recommended by
+author (J.J.L.).                                                Higgins and Green.37 Publication bias was examined using
+                                                                funnel plots. The a level was set at .05. We used Review
+  All included studies were assessed by 2 reviewers using       Manager (version 5.3; The Cochrane Collaboration,
+the Critical Appraisal Skills Program, an evaluation tool for   Copenhagen, Denmark) to analyze the statistics.
+observational studies.36 The 6 criteria for evaluation were
+matching of participants and controls, a power calculation      RESULTS
+justifying the sample size, reproducibility of the electrode
+positions, reliability of the EMG equipment, the tester         Study Selection
+being blinded to group allocation, and sufficient results in
+the text or supplied by the authors. If information about any     The full search strategy and selection process are outlined
+of the 6 criteria was not found in the article, a score of 0    in Figure 1. The initial database search was completed on
+was given. A third author (J.J.L.) settled any conflicts in     March 31, 2018. We identified 30 study titles that
+study assessments.                                              potentially met the inclusion criteria. Of the 11 excluded
+                                                                studies, 3 examined different exercise types,12,38 and 8 used
+Statistical Analysis                                            outcome measures other than EMG activity.39­46 Nineteen
+                                                                articles were included in the final analysis. Seven articles
+  For the systematic analysis, the following data were          examined the effects of PUP variations (eg, performing the
+extracted from the included articles: (1) author, year, and     exercise in a standing or lying position8 or using different
+study design; (2) participant characteristics; (3) type of PUP  upper or lower extremity positions29,31,47­50) on SA and UT
+intervention; (4) EMG outcome measures; and (5) main            muscle activity. Twelve articles focused on the effects of
+results. If data were missing, 2 researchers (F.J.K., H.L.O.)   the base of support during PUP exercises.9,15­23,51,52 After
+attempted to contact the authors to request the required        further checking for the meta-analysis, 1 article was
+information. A meta-analysis was deemed unfeasible for          excluded due to insufficient data for the means and
+this part because of the small number of studies.               standard deviations.51 Therefore, 11 articles were included
+                                                                in this meta-analysis for analyzing the differences in SA
+  For the meta-analysis, the EMG data of the SA and UT          and UT muscle activity during the PUP performed on stable
+were calculated using the mean difference (MD) with a           and unstable surfaces.9,15­23,52
+95% confidence interval (CI). During the PUP exercise, a
+positive effect size implied favorable outcomes on an           Quality Assessment
+unstable surface. All data were pooled using a random
+model of meta-analysis. Statistical heterogeneity across          The assessment of study quality is presented in Table 1.
+studies was quantified using I2 statistics: likely not          We did not include studies in which the testers were
+important (0%­30%), moderate heterogeneity (31%­                blinded to group allocation. Also, only data from healthy
+50%), substantial heterogeneity (51%­75%), and consid-
+
+1158 Volume 54  Number 11  November 2019
+Table 1. Study Design and Methodologic Evaluation
+
+                                                                 Criteriona
+
+Study                    Participant  Control           Justify  Electrode   Reliability   Tester     Sufficient                Score
+                         Selection?   Match?       Sample Size?  Position?     Test?      Blinded?    Results?
+                                                                                                                                   5
+Ludewig et al8 (2004)    Yes          Yes          Yes           Yes         Not stated Not stated    Yes                          3
+                                                                                                                                   3
+Lehman et al18 (2008)    Yes          No           Not stated    Yes         Not stated Not stated    Yes                          3
+                                                                                                                                   3
+Maenhout et al29 (2010)  Yes          No           Not stated    Yes         Not stated Not stated    Yes                          3
+                                                                                                                                   3
+Park and Yoo9 (2011)     Yes          No           Not stated    Yes         Not stated Not stated    Yes                          3
+                                                                                                                                   3
+Kim et al17 (2011)       Yes          No           Not stated    Yes         Not stated Not stated    Yes                          4
+                                                                                                                                   3
+Lee et al16 (2013)       Yes          No           Not stated    Yes         Not stated Not stated    Yes                          3
+                                                                                                                                   3
+Yoon and Lee23 (2013)    Yes          No           Not stated    Yes         Not stated Not stated    Yes                          3
+                                                                                                                                   4
+Seo et al22 (2013)       Yes          No           Not stated    Yes         Not stated Not stated    Yes                          3
+                                                                                                                                   3
+De Mey et al21 (2014)    Yes          No           Not stated    Yes         Not stated Not stated    Yes                          3
+
+Kim et al20 (2014)       Yes          No           Yes           Yes         Not stated Not stated    Yes
+
+Piraua´ et al19 (2014)   Yes          No           Not stated    Yes         Not stated Not stated    Yes
+
+Lee et al31 (2014)       Yes          No           Not stated    Yes         Not stated Not stated    Yes
+
+San Juan et al47 (2015)  Yes          No           Not stated    Yes         Not stated Not stated    Yes
+
+Batbayar et al48 (2015)  Yes          No           Not stated    Yes         Not stated Not stated    Yes
+
+Gioftsos et al15 (2016)  Yes          No           Not stated    Yes         Yes          Not stated  Yes
+
+Kim et al49 (2017)       Yes          No           Not stated    Yes         Not stated Not stated    Yes
+
+Hwang et al50 (2017)     Yes          No           Not stated    Yes         Not stated Not stated    Yes
+
+Torres et al52 (2017)    Yes          No           Not stated    Yes         Not stated Not stated    Yes
+
+a Each item was scored as 1 (yes) or 0 (no or not stated) based on whether the study included information about the criterion.
+
+participants were included. All studies provided data from       extremity,29,49 and PUP8 positions) on training the SA and
+the electrode positions.                                         UT. Eleven articles9,15­23,52 focused on the effects of the
+                                                                 base of support for PUP exercises. From our systematic
+Synthesis of Results and Meta-Analysis                           review, we determined a suitable exercise prescription for
+                                                                 training the SA and UT using PUP variations. During the
+  For the systematic review, we included the 7 articles in       PUP exercise, participants generated higher SA EMG
+which the authors examined the effects of PUP variations         activity and lower UT EMG activity with full elbow
+on SA and UT muscle activity. The characteristics of the         extension at normal shoulder width (hand placement
+participants, interventions, outcome measures, and main          equal to the participant's shoulder width) and shoulder-
+results of the included studies are presented in Table 2. The    flexion angles of 1108 or 1208 while lifting the ipsilateral
+sample sizes of the included studies ranged from 9 to 47         lower extremity. Moreover, according to the 11 articles,
+participants.                                                    no difference in SA activity between stable and unstable
+                                                                 surfaces was found during the PUP exercises. Yet more
+  For the meta-analysis, 11 articles were included.9,15­23,52    UT activity was generated on an unstable than a stable
+These articles involved a total of 213 participants, and all     surface while performing. Activation of the UT likely
+addressed PUP exercise programs on stable and unstable           increased during the PUP exercise when participants used
+surfaces (Table 3). For the EMG outcome measures, we             an unstable surface because the hands were off the
+extracted data for the SA and UT (Table 2). The forest plot      ground; if the feet maintained the same normalized
+of the mean difference in SA EMG activity revealed no            position, raising the hands off the ground moved the
+difference (0.01% maximal voluntary isometric contrac-           glenohumeral joint into increased flexion, causing scap-
+tion; 95% CI ¼ À4.90, 4.92) between stable and unstable          ular elevation.
+surfaces (Figure 2A). However, the forest plot of the mean
+difference in UT EMG activity (À2.85% maximal voluntary            Whereas the SPP is an optimal exercise prescription for
+isometric contraction; 95% CI ¼ À5.51, À0.19) revealed a         scapular-muscle training, the hand position, elbow flexion,
+difference between stable and unstable surfaces, with more       shoulder flexion, and lower extremity extension all affect
+UT activity elicited by unstable than stable surfaces (Figure    SA activation. Researchers8,47 have found that the SPP
+2B).                                                             elicited higher SA EMG activity and a lower UT : SA ratio
+                                                                 than the knee or elbow PUP. Batbayar et al48 reported that
+  Despite using different methods to evaluate SA and UT          different hand positions induced differences in SA EMG
+EMG activity, we observed no heterogeneity among the             activity. During the SPP, hand placement at normal
+analyzed studies (SA: P ¼ .10, I2 ¼ 37%; UT: P ¼ .80, I2 ¼       shoulder width resulted in better SA EMG activity and a
+0%). As determined by the Begg test, all P values were           better UT : lower trapezius ratio than hand placement at a
+more than .05 without obvious funnel-plot asymmetry,             narrower or wider shoulder width.48 Lee et al31 noted that
+revealing no publication bias for the effect sizes of SA and     during the PUP exercise, the greatest SA muscle activity
+UT EMG activity (Figure 3).                                      occurred at 1108 of shoulder flexion. Hwang et al50 also
+                                                                 observed that 1208 of shoulder flexion should be used
+DISCUSSION                                                       during the PUP exercise because it produces greater SA
+                                                                 activation than 608 or 908 of shoulder flexion. Investiga-
+  Based on the database search, we included 18 articles in       tors29,49 have also demonstrated that lower extremity
+this review. Seven articles discussed the effects of PUP
+variations (eg, different upper extremity,31,47,48,50 lower
+
+                                                                                  Journal of Athletic Training 1159
+Table 2. Study Characteristics of Selected Articles Continued on Next Page
+
+Study               Participants          Intervention(s)                           Outcome Measure:                      Results or Comment
+                                                                                Electromyographic Activity
+                                                                                                                The UT : SA ratio for both groups:
+Ludewig et al8      19 Healthy, 11 with   Standard PUP exercise, knee           UT and SA                          SPP exercise , knee PUP
+   (2004)              shoulder pain or      PUP exercise, elbow PUP                                               exercise , elbow PUP exercise
+                       dysfunction           exercise, and wall PUP             UT, SA, LT, and biceps             , wall PUP exercise
+Lehman et al18                               exercise                              brachii
+   (2008)           10 Healthy                                                                                  No differences between stable and
+                    32 Healthy            SPP exercise on stable and            UT, SA, LT, and MT                 unstable surfaces
+Maenhout et al29                             unstable surfaces
+   (2010)           14 Healthy                                                  UT and SA                       Higher SA muscle activity and
+                    14 Healthy            Knee PUP exercise in 7                UT, SA, external oblique,          lower UT : SA ratio: knee PUP
+Park and Yoo9       20 Healthy               positions: standard knee PUP                                          exercise with ipsilateral lower
+   (2011)                                    exercise, knee PUP exercise           and internal oblique            extremity extension
+                                             with heterolateral lower           UT, SA, LT, and pectoralis
+Kim et al17 (2011)                           extremity extension, knee PUP                                      Higher LT muscle activity: knee
+Lee et al16 (2013)                           exercise with homolateral lower       major                           PUP exercise with contralateral
+                                             extremity extension, knee PUP                                         lower extremity extension
+                                             exercise with a wobble board,
+                                             knee PUP exercise with                                             SA muscle activity: unstable .
+                                             heterolateral lower extremity                                         stable surface
+
+                                          SPP exercise on stable and                                            No differences between stable and
+                                             unstable surfaces                                                     unstable surfaces
+
+                                          Knee PUP exercise on stable                                           No differences between stable and
+                                             and unstable surfaces                                                 unstable surfaces
+
+                                          Knee PUP exercise on stable                                           SA muscle activity: hands
+                                             and unstable surfaces                                                 positioned at 908 of external
+                                                                                                                   rotation . hands positioned at
+Yoon and Lee23      20 Healthy            SPP exercise on stable and            UT, SA, latissimus dorsi,          neutral or 908 of internal rotation
+   (2013)           10 Healthy               unstable surfaces                     and infraspinatus
+                    47 Healthy                                                                                  SA muscle activity: unstable .
+Seo et al22 (2013)                        SPP exercise on stable and            UT, SA, LT, MT, and                stable surface
+De Mey et al21                               unstable surfaces                     latissimus dorsi
+                                                                                                                No differences between stable and
+   (2014)                                 Knee PUP exercise on stable           UT, SA, LT, MT, anterior           unstable surfaces
+                                             and unstable surfaces                 deltoid, posterior deltoid,
+Kim et al20 (2014)                                                                 pectoralis major, and        SA muscle activity: stable .
+Piraua´ et al19     15 Healthy            Knee PUP exercise on stable              latissimus dorsi                unstable surface
+                                             and unstable surfaces
+   (2014)           30 With scapular                                            SA                              SA muscle activity: unstable .
+                       dyskinesis (types  SPP exercise on stable and                                               stable surface
+Lee et al31 (2014)     1 and 2 scapular      unstable surfaces                  UT, SA, and LT
+                       winging)                                                                                 UT : SA ratio: unstable . stable
+San Juan et al47                          Knee PUP exercise on an               UT, SA, and pectoralis             surface
+   (2015)           15 Healthy               unstable surface during 3             major
+                                             different shoulder-flexion                                         SA muscle activity: shoulder flexion
+                    22 Healthy               angles: 708, 908, and 1108         UT, SA, LT, and                    of 1108 . 908 . 708
+                                                                                   infraspinatus
+                                          SPP exercise and knee PUP                                             SA muscle activity: SPP exercise
+                                             exercise at different elbow                                           . knee PUP exercise
+                                             positions: 58 increments from
+                                             1008 of flexion to full extension                                  Increasing elbow flexion during the
+                                                                                                                   PUP exercise elicited higher UT
+Batbayar et al48    9 Healthy             SPP exercise at different             UT, SA, LT,MT, anterior            activity, lower SA activity, and a
+   (2015)                                    shoulder widths: shoulder             deltoid, pectoralis major,      higher UT : SA ratio
+                                             width, narrower shoulder width,       latissimus dorsi, and
+                                             wider shoulder width                  triceps brachii              SA muscle activity decreased in
+                                                                                                                   narrower and wider shoulder
+Gioftsos et al15    13 Healthy            SPP exercise on stable and            UT, SA, and LT                     widths
+   (2016)                                    unstable surfaces
+                                                                                                                30% narrower shoulder width:
+                                                                                                                   higher pectoralis major and
+                                                                                                                   triceps activity
+
+                                                                                                                30% wider shoulder width: higher
+                                                                                                                   UT : LT ratio
+
+                                                                                                                SA muscle activity: stable .
+                                                                                                                   unstable surface
+
+                                                                                                                SA muscle activity was affected by
+                                                                                                                   the exercise phase and hand
+                                                                                                                   position but not by the support
+                                                                                                                   surface
+
+1160 Volume 54  Number 11  November 2019
+Table 2. Study Characteristics of Selected Articles Continued From Previous Page
+
+Study                  Participants           Intervention(s)              Outcome Measure:               Results or Comment
+                                                                       Electromyographic Activity
+
+Kim et al49 (2017)     20 Healthy    Knee PUP exercise with            UT, SA, external oblique,       Higher SA muscle activity: knee
+                       29 Healthy       dominant lower extremity          and internal oblique            PUP exercise with the lower
+Hwang et al50          20 Healthy       extended: apply to resistance                                     extremity lifted was maintained
+   (2017)                               in abduction, adduction,       UT, SA, and pectoralis             against extension
+                                        extension, and flexion            major
+Torres et al52                                                                                         SA muscle activity: shoulder flexion
+   (2017)                            SPP exercise on a stable surface  UT, SA, MT, LT, anterior           of 1208 . 908 . 608
+                                        during 3 different shoulder-      deltoid, posterior deltoid,
+                                        flexion angles: 608, 908, and     biceps brachii, triceps      SA muscle activity: unstable .
+                                        1208                              brachii, and pectoralis         stable surface
+                                                                          major
+                                     SPP exercise on stable and
+                                        unstable surfaces
+
+Abbreviations: LT, lower trapezius; MT, middle trapezius; PUP, push-up plus; SA, serratus anterior; SPP, standard push-up plus; UT, upper
+trapezius.
+
+extension also influences SA EMG activity during the PUP       determined that the SA and UT activations during the
+exercise. When the ipsilateral lower extremity is extended,    PUP exercise were not affected by the support surface but
+the contralateral extremity bears more weight, resulting in    were affected by the phase of the exercise and the hand
+greater hip stabilization. This activates the contralateral    position. Lee et al16 also reported that positioning the
+internal oblique muscle, which in turn stimulates the          hands at 908 of external rotation during the PUP exercise
+ipsilateral external oblique muscle, possibly resulting in     elicited more SA EMG activity than positioning the hands
+greater SA muscle recruitment.                                 at neutral or 908 of internal rotation. Moreover, a high
+                                                               correlation (r ¼ 0.97, P , .01) existed between increasing
+  Interestingly, we found no difference in SA EMG              weight-bearing posture and muscular activity during the
+activity when the PUP exercise was performed on stable         PUP.30
+and unstable surfaces. As a closed kinetic chain exercise,
+the PUP would presumably stimulate the mechanorecep-             The various parts of the SA muscle are activated
+tors and enhance shoulder-joint and scapular stabilization.    differently during the PUP exercise. Park and Yoo9 studied
+This stimulus is suggested to increase on an unstable          the upper and lower portions of the SA using surface EMG.
+base, possibly challenging neuromuscular control.53            In healthy participants, the lower fibers of the SA showed
+However, from our review, it appears that using different      increased activation on an unstable surface, which required
+kinds of base support was not the major factor affecting       more joint stability than a stable base; however, the upper
+SA EMG activity during the PUP exercise. Other factors,        fibers showed no difference between the stable and unstable
+such as hand position,15,16 neuromuscular control,53 or        surfaces. Inman et al54 indicated that the lower portions of
+upper extremity weight-bearing status,18,30 may overcome       the SA and trapezius were crucially important in stabilizing
+the effects of the base of support. Gioftsos et al15           the inferior angle of the scapula during upper extremity
+
+Table 3. Differences in Upper Trapezius and Serratus Anterior Electromyographic Muscle Activity During Push-Up Plus Exercise on
+Stable and Unstable Surfaces, Mean 6 SD
+
+                                                                       Electromyographic Muscle Activity
+
+                                              Upper Trapezius                                          Serratus Anterior
+
+Study (Year), Measure                         Stable Surface           Unstable Surface  Stable Surface   Unstable Surface
+
+Lehman et al18 (2008), % MVIC                    5.2 6 6.4              10.5 6 6.9          24.2 6 14.5      19.7 6 11.5
+Park and Yoo9 (2011), % reference voluntary
+                                              14.48 6 17.91            15.49 6 17.84     102.65 6 45.15   119.04 6 51.08
+   isometric contraction                       18.6 6 16.7              20.1 6 17.3         78.6 6 11.9      83.5 6 12.0
+Kim et al17 (2011), % MVIC                     15.8 6 10.2              19.5 6 28.6         39.5 6 12.2      43.2 6 12.1
+Lee et al16 (2013), % MVIC                        25 6 11.55                                24.8 6 10.3      28.7 6 12.25
+Yoon and Lee23 (2013), % MVIC                  4.61 6 3.33             21.75 6 10.5
+Seo et al22 (2013), % MVIC                                              6.91 6 7.10       29.84 6 10.36    39.37 6 24.92
+De Mey et al21 (2014), % MVIC                 12.80 6 11.91                                   57 6 27.24   46.27 6 22.79
+Kim et al20 (2014), % MVIC                           NA                17.91 6 45.57                       34.17 6 15.86
+Piraua´ et al19 (2014), % MVIC                                                NA          37.79 6 14.41    61.71 6 29.38
+Gioftsos et al15 (2016), % MVIC                36.4 6 22.01                               76.34 6 33.82
+Torres et al52 (2017), % reference voluntary   23.8 6 8.0               47.9 6 26.57                         60.6 6 13.7
+                                                                        27.0 6 7.36         66.7 6 17.5
+   isometric contraction                      73.05 6 58.78                                               103.02 6 53.55
+                                                                       67.58 6 48.73          74 6 37.52
+
+Abbreviations: MVIC, maximal voluntary isometric contraction; NA, not available.
+
+                                                                                         Journal of Athletic Training 1161
+Figure 2. Forest plots demonstrating the individual point estimates and overall effect sizes for the questions, A, ``Does the push-up plus
+exercise on an unstable surface elicit higher serratus anterior electromyographic muscle activity?'' and, B, ``Does the push-up plus
+exercise on an unstable surface elicit higher upper trapezius electromyographic muscle activity?'' Abbreviation: CI, confidence interval.
+
+movement. Taking this point of view, the lower part of the     during the PUP exercise and to investigate other shoulder
+SA would seem to demonstrate greater activity in               and scapular muscles, such as the lower trapezius, middle
+stabilizing the scapula on an unstable surface; however,       trapezius, and rotator cuff. Moreover, it would be
+many researchers who used surface EMG to detect muscle         worthwhile to study kinematic motion during the PUP to
+activity focused only on the lower part of the SA.             understand the relationships between muscle activity and
+Therefore, in the future, investigators should focus on        the movements of humeral internal and external rotation
+other parts of the SA during the PUP exercise.                 and scapular upward and downward rotation.
+
+  To our knowledge, this review is the first to systemat-      CONCLUSIONS
+ically summarize the activity of the SA and UT during the
+PUP variation exercise and our meta-analysis is the first to     Participants can generate higher SA and lower UT EMG
+summarize the activity of the SA and UT during the PUP on      activity if they perform the PUP exercise in full elbow
+a stable or unstable surface. However, our study had some      extension, at normal shoulder width, at shoulder-flexion
+methodologic limitations. Few authors of the included          angles of 1108 or 1208, and while lifting the ipsilateral
+studies justified their sample sizes or performed reliability  lower extremity. Performing the PUP exercise on an
+tests.                                                         unstable surface may induce higher levels of UT activation
+                                                               but will not increase SA activation. If the goal of the
+  Motor control during the different PUP exercises is          exercise program is to strengthen the SA muscle with less
+unclear. More research is needed to address motor control
+of variables such as muscle timing or recruitment patterns
+
+1162 Volume 54  Number 11  November 2019
+Figure 3. Funnel plots demonstrating that publication bias was             7. Meyer KE, Saether EE, Soiney EK, Shebeck MS, Paddock KL,
+unlikely for electromyographic muscle activity during the push-up               Ludewig PM. Three-dimensional scapular kinematics during the
+plus exercise on stable and unstable surfaces for the, A, serratus              throwing motion. J Appl Biomech. 2008;24(1):24­34.
+anterior and, B, upper trapezius.
+                                                                           8. Ludewig PM, Hoff MS, Osowski EE, Meschke SA, Rundquist PJ.
+UT activity, the PUP exercise should be performed on a                          Relative balance of serratus anterior and upper trapezius muscle
+stable surface.                                                                 activity during push-up exercises. Am J Sports Med. 2004;32(2):484­
+                                                                                493.
+ACKNOWLEDGMENTS
+                                                                           9. Park SY, Yoo WG. Differential activation of parts of the serratus
+  This review was supported by award 104-2314-B-002-026-                        anterior muscle during push-up variations on stable and unstable
+MY13 from the Ministry of Science and Technology, Taiwan.                       bases of support. J Electromyogr Kinesiol. 2011;21(5):861­867.
+
+REFERENCES                                                                10. Escamilla RF, Yamashiro K, Paulos L, Andrews JR. Shoulder
+                                                                                muscle activity and function in common shoulder rehabilitation
+ 1. Almekinders LC. Impingement syndrome. Clin Sports Med.                      exercises. Sports Med. 2009;39(8):663­685.
+      2001;20(3):491­504.
+                                                                          11. Ludewig PM, Cook TM. Alterations in shoulder kinematics and
+ 2. McMaster WC, Troup J. A survey of interfering shoulder pain in              associated muscle activity in people with symptoms of shoulder
+      United States competitive swimmers. Am J Sports Med.                      impingement. Phys Ther. 2000;80(3):276­291.
+      1993;21(1):67­70.
+                                                                          12. Hardwick DH, Beebe JA, McDonnell MK, Lang CE. A comparison
+ 3. Timmons MK, Thigpen CA, Seitz AL, Karduna AR, Arnold BL,                    of serratus anterior muscle activation during a wall slide exercise
+      Michener LA. Scapular kinematics and subacromial impingement              and other traditional exercises. J Orthop Sports Phys Ther.
+      syndrome: a meta-analysis. J Sport Rehabil. 2012;21(4):354­370.           2006;36(12):903­910.
+
+ 4. Hickey D, Solvig V, Cavalheri V, Harrold M, Mckenna L. Scapular       13. Lehman GJ, MacMillan B, MacIntyre I, Chivers M, Fluter M.
+      dyskinesis increases the risk of future shoulder pain by 43% in           Shoulder muscle EMG activity during push up variations on and off
+      asymptomatic athletes: a systematic review and meta-analysis. Br J        a Swiss ball. Dyn Med. 2006;5:7.
+      Sports Med. 2018;52(2):102­110.
+                                                                          14. Sandhu JS, Mahajan S, Shenoy S. An electromyographic analysis of
+ 5. Kibler WB. The role of the scapula in athletic shoulder function. Am        shoulder muscle activation during push-up variations on stable and
+      J Sports Med. 1998;26(2):325­337.                                         labile surfaces. Int J Shoulder Surg. 2008;2(2):30­35.
+
+ 6. Cools AM, Dewitte V, Lanszweert F, et al. Rehabilitation of           15. Gioftsos G, Arvanitidis M, Tsimouris D, et al. EMG activity of the
+      scapular muscle balance: which exercises to prescribe? Am J Sports        serratus anterior and trapezius muscles during the different phases
+      Med. 2007;35(10):1744­1751.                                               of the push-up plus exercise on different support surfaces and
+                                                                                different hand positions. J Phys Ther Sci. 2016;28(7):2114­2118.
+
+                                                                          16. Lee S, Lee D, Park J. The effect of hand position changes on
+                                                                                electromyographic activity of shoulder stabilizers during push-up
+                                                                                plus exercise on stable and unstable surfaces. J Phys Ther Sci.
+                                                                                2013;25(8):981­984.
+
+                                                                          17. Kim JB, Choi IR, Yoo WG. A comparison of scapulothoracic and
+                                                                                trunk muscle activities among three variations of knee push-up-plus
+                                                                                exercises. J Phys Ther Sci. 2011;23(3):365­367.
+
+                                                                          18. Lehman GJ, Gilas D, Patel U. An unstable support surface does not
+                                                                                increase scapulothoracic stabilizing muscle activity during push up
+                                                                                and push up plus exercises. Man Ther. 2008;13(6):500­506.
+
+                                                                          19. Piraua´ ALT, Pitangui ACR, Silva JP, et al. Electromyographic
+                                                                                analysis of the serratus anterior and trapezius muscles during push-
+                                                                                ups on stable and unstable bases in subjects with scapular
+                                                                                dyskinesis. J Electromyogr Kinesiol. 2014;24(5):675­681.
+
+                                                                          20. Kim SH, Kwon OY, Kim SJ, Park KN, Choung SD, Weon JH.
+                                                                                Serratus anterior muscle activation during knee push-up plus exercise
+                                                                                performed on static stable, static unstable, and oscillating unstable
+                                                                                surfaces in healthy subjects. Phys Ther Sport. 2014;15(1):20­25.
+
+                                                                          21. De Mey K, Danneels L, Cagnie B, et al. Shoulder muscle activation
+                                                                                levels during four closed kinetic chain exercises with and without
+                                                                                Redcord slings. J Strength Cond Res. 2014;28(6):1626­1635.
+
+                                                                          22. Seo SH, Jeon IH, Cho YH, Lee HG, Hwang YT, Jang JH. Surface
+                                                                                EMG during the push-up plus exercise on a stable support or
+                                                                                Swiss ball: scapular stabilizer muscle exercise. J Phys Ther Sci.
+                                                                                2013;25(7):833­837.
+
+                                                                          23. Yoon JG, Lee HY. Periscapular muscle activities and kinematic
+                                                                                analysis of the performed on different supporting surfaces for the lower
+                                                                                limbs push-up plus exercise. J Phys Ther Sci. 2013;25(3):259­262.
+
+                                                                          24. Andrews JR, Dennison JM, Wilk KE. The significance of closed
+                                                                                chain kinetics in upper extremity injuries from a physician's
+                                                                                perspective. J Sport Rehabil. 1996;5(1):64­70.
+
+                                                                          25. Kibler WB. Closed kinetic chain rehabilitation for sports injuries.
+                                                                                Phys Med Rehabil Clin N Am. 2000;11(2):369­384.
+
+                                                                          26. Ubinger ME, Prentice WE, Guskiewicz KM. Effect of closed
+                                                                                kinetic chain training on neuromuscular control in the upper
+                                                                                extremity. J Sport Rehabil. 1999;8(3):184­194.
+
+                                                                          Journal of Athletic Training 1163
+27. de Arau´jo RC, De Andrade R, Tucci HT, Martins J, de Oliveira AS.           42. Andersen CH, Zebis MK, Saervoll C, et al. Scapular muscle activity
+      Shoulder muscular activity during isometric three-point kneeling                from selected strengthening exercises performed at low and high
+      exercise on stable and unstable surfaces. J Appl Biomech.                       intensities. J Strength Cond Res. 2012;26(9):2408­2416.
+      2011;27(3):192­196.
+                                                                                43. Swanik KA, Huxel Bliven K, Swanik CB. Rotator-cuff muscle
+28. de Oliveira AS, de Morais Carvalho M, de Brum DP. Activation of                   recruitment strategies during shoulder rehabilitation exercises. J
+      the shoulder and arm muscles during axial load exercises on a stable            Sport Rehabil. 2011;20(4):471­486.
+      base of support and on a medicine ball. J Electromyogr Kinesiol.
+      2008;18(3):472­479.                                                       44. Decker MJ, Tokish JM, Ellis HB, Torry MR, Hawkins RJ.
+                                                                                      Subscapularis muscle activity during selected rehabilitation exer-
+29. Maenhout A, Van Praet K, Pizzi L, Van Herzeele M, Cools A.                        cises. Am J Sports Med. 2003;31(1):126­134.
+      Electromyographic analysis of knee push up plus variations: what is
+      the influence of the kinetic chain on scapular muscle activity? Br J      45. Ho KT, Woo KK. The effect of the push-up plus on shoulder muscle
+      Sports Med. 2010;44(14):1010­1015.                                              activation while using a sling with a pulley. J Phys Ther Sci.
+                                                                                      2017;29(6):1032­1035.
+30. Uhl TL, Carver TJ, Mattacola CG, Mair SD, Nitz AJ. Shoulder
+      musculature activation during upper extremity weight-bearing              46. Castelein B, Cagnie B, Parlevliet T, Cools A. Serratus anterior or
+      exercise. J Orthop Sports Phys Ther. 2003;33(3):109­117.                        pectoralis minor: which muscle has the upper hand during
+                                                                                      protraction exercises? Man Ther. 2016;22:158­164.
+31. Lee S, Lee D, Park J. Effect of the shoulder flexion angle in the
+      sagittal plane on the muscle activities of the upper extremities when     47. San Juan JG, Suprak DN, Roach SM, Lyda M. The effects of
+      performing push-up plus exercises on an unstable surface. J Phys                exercise type and elbow angle on vertical ground reaction force and
+      Ther Sci. 2014;26(10):1589­1591.                                                muscle activity during a push-up plus exercise. BMC Musculoskelet
+                                                                                      Disord. 2015;16:23.
+32. Cogley RM, Archambault TA, Fibeger JF, Koverman MM, Youdas
+      JW, Hollman JH. Comparison of muscle activation using various             48. Batbayar Y, Uga D, Nakazawa R, Sakamoto M. Effect of various
+      hand positions during the push-up exercise. J Strength Cond Res.                hand position widths on scapular stabilizing muscles during the
+      2005;19(3):628­633.                                                             push-up plus exercise in healthy people. J Phys Ther Sci.
+                                                                                      2015;27(8):2573­2576.
+33. Cho SH, Baek IH, Cheon JY, Cho MJ, Choi MY, Jung DH. Effect of
+      the push-up plus (PUP) exercise at different shoulder rotation angles on  49. Kim JB, Yun CK, Lee MH. A comparison of the shoulder and trunk
+      shoulder muscle activities. J Phys Ther Sci. 2014;26(11):1737­1740.             muscle activity according to the various resistance condition during
+                                                                                      push up plus in four point kneeling. J Phys Ther Sci. 2017;29(1):35­
+34. Suprak DN, Bohannon J, Morales G, Stroschein J, San Juan JG.                      37.
+      Scapular kinematics and shoulder elevation in a traditional push-up.
+      J Athl Train. 2013;48(6):826­835.                                         50. Hwang UJ, Kwon OY, Jeon IC, Kim SH, Weon JH. Effect of
+                                                                                      humeral-elevation angle on electromyographic activity in the
+35. Moher D, Liberati A, Tetzlaff J, Altman DG; PRISMA Group.                         serratus anterior during the push-up-plus exercise. J Sport Rehabil.
+      Preferred Reporting Items for Systematic Reviews and Meta-Analyses:             2017;26(1):57­64.
+      the PRISMA statement. J Clin Epidemiol. 2009;62(10):1006­1012.
+                                                                                51. Horsak B, Kiener M, Po¨tzelsberger A, Siragy T. Serratus anterior
+36. CASP: Critical Appraisal Skills Programme. CASP Web site.                         and trapezius muscle activity during knee push-up plus and knee-
+      https://casp-uk.net/. Accessed March 18, 2019.                                  plus exercises performed on a stable, an unstable surface and during
+                                                                                      sling-suspension. Phys Ther Sport. 2017;23:86­92.
+37. Higgins JPT, Green S, eds. Cochrane handbook for systematic
+      reviews of interventions version 5.1.0. The Cochrane Collaboration        52. Torres RJB, Piraua´ ALT, Nascimento VYS, et al. Shoulder muscle
+      Web site. http://handbook.cochrane.org. Accessed January 23, 2019.              activation levels during the push-up-plus exercise on stable and
+                                                                                      unstable surfaces. J Sport Rehabil. 2017;26(4):281­286.
+38. Kim ER, Oh JS, Yoo WG. Effect of vibration frequency on serratus
+      anterior muscle activity during performance of the push-up plus           53. Park SY, Yoo WG. Activation of the serratus anterior and upper
+      with a Redcord sling. J Phys Ther Sci. 2014;26(8):1275­1276.                    trapezius in a population with winged and tipped scapulae during
+                                                                                      push-up-plus and diagonal shoulder-elevation. J Back Musculoskel-
+39. Cools AM, Borms D, Cottens S, Himpe M, Meersdom S, Cagnie B.                      et Rehabil. 2015;28(1):7­12.
+      Rehabilitation exercises for athletes with biceps disorders and SLAP
+      lesions: a continuum of exercises with increasing loads on the            54. Inman VT, Saunders JB, Abbott LC. Observations of the function of
+      biceps. Am J Sports Med. 2014;42(6):1315­1322.                                  the shoulder joint, 1944. Clin Orthop Relat Res. 1996;330:3­12.
+
+40. Park KM, Cynn HS, Kwon OY, Yi CH, Yoon TL, Lee JH.                          SUPPLEMENTAL MATERIAL
+      Comparison of pectoralis major and serratus anterior muscle activities
+      during different push-up plus exercises in subjects with and without        Supplemental Table. Searching strategy using Scopus
+      scapular winging. J Strength Cond Res. 2014;28(9):2546­2551.              and PubMed.
+
+41. Park KM, Cynn HS, Yi CH, Kwon OY. Effect of isometric                         Found at DOI: http://dx.doi.org/10.4085/1062-6050-237-
+      horizontal abduction on pectoralis major and serratus anterior EMG        18.S1
+      activity during three exercises in subjects with scapular winging. J
+      Electromyogr Kinesiol. 2013;23(2):462­468.
+
+Address correspondence to Jiu-Jenq Lin, PhD, Department of Physical Medicine and Rehabilitation, National Taiwan University
+Hospital, No. 1 Changde Street, Zhongzheng District, Taipei, Taiwan, 100. Address e-mail to jiujlin@ntu.edu.tw.
+
+1164 Volume 54  Number 11  November 2019
+

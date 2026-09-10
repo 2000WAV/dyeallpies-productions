@@ -1,0 +1,54 @@
+1. Sci Rep. 2026 May 30;16(1):24808. doi: 10.1038/s41598-026-56082-8.
+
+Comparison of endurance and electromyographic activity of core muscles in 
+overhead athletes with and without scapular dyskinesis.
+
+Tahani HS(1), Minoonejad H(2), Zandi S(1), Ebrahimi E(3).
+
+Author information:
+(1)Department of Sports Injury and Biomechanics, Faculty of Sport Sciences and 
+health, University of Tehran, Tehran, Iran.
+(2)Department of Sports Injury and Biomechanics, Faculty of Sport Sciences and 
+health, University of Tehran, Tehran, Iran. H.minoonejad@ut.ac.ir.
+(3)Department of Sport Injuries and Biomechanics, Faculty of Sport Sciences and 
+Health, University of Tehran, Tehran, Iran. ebrahimi.79@ut.ac.ir.
+
+BACKGROUND: Scapular dyskinesis (SD) is a prevalent dysfunction among overhead 
+athletes. Although the kinetic chain emphasizes the functional linkage of the 
+core and shoulder musculature, limited evidence exists regarding the endurance 
+and electromyographic (EMG) characteristics of core muscles in athletes with SD. 
+This study aimed to compare core muscle endurance and EMG activity during closed 
+kinetic chain tasks between overhead athletes with and without SD.
+METHODS: Thirty female overhead athletes were divided into two groups: SD 
+(n = 15) and without SD (n = 15), diagnosed using the Kibler lateral scapular 
+slide test. Core endurance was assessed using the McGill Core Endurance Test, 
+including the trunk flexor test, the trunk extensor test, and the right and left 
+lateral plank. Surface EMG (ME6000, Finland) was used to record muscle activity 
+of the erector spinae, multifidus, gluteus medius, transversus 
+abdominis/internal oblique, external oblique, rectus abdominis, and serratus 
+anterior during plank and push-up tasks. Independent t-tests and Cohen's d were 
+used to compare groups (α ≤ 0.05).
+RESULTS: Athletes with SD demonstrated significantly lower endurance across all 
+McGill tests (p ≤ 0.05, d = 0.81-0.88). EMG data showed reduced activation of 
+the erector spinae, multifidus, gluteus medius, rectus abdominis, transversus 
+abdominis/internal oblique, and serratus anterior muscles in the SD group during 
+both tasks (p ≤ 0.05). No significant differences were observed in the external 
+oblique activity.
+CONCLUSION: These findings highlight the importance of integrating targeted core 
+stabilization and scapular control exercises into training and rehabilitation 
+programs to optimize performance and prevent shoulder injuries in overhead 
+athletes.
+
+© 2026. The Author(s).
+
+DOI: 10.1038/s41598-026-56082-8
+PMCID: PMC13457960
+PMID: 42218292 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: Before starting the investigation, study approval was obtained from 
+the Biomedical Research Ethics Committee of the University of Tehran (Ethics 
+code: IR.UT.SPORT.REC.1402.062), and all participants gave written informed 
+consent. The authors confirm that all methods followed the relevant guidelines 
+and regulations. Consent for publication: Not applicable. Competing interests: 
+There is no conflict of interest.

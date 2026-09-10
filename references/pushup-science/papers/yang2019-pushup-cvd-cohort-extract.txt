@@ -1,0 +1,39 @@
+Yang J, Christophi CA, Farioli A, Baur DM, Moffatt S, Zollinger TW, Kales SN (2019). Association
+Between Push-up Exercise Capacity and Future Cardiovascular Events Among Active Adult Men. JAMA
+Netw Open 2(2):e188341. PMID 30768197. PMCID PMC6484614. Open access.
+
+Retrospective longitudinal cohort, male firefighters (Indiana), baseline exams 2000-2007,
+followed through 2010. 1562 enrolled, 1104 with usable push-up data, mean age 39.6 (SD 9.2), mean
+BMI 28.7 (SD 4.3). Push-up capacity split into 5 categories (arbitrary, 10-rep bins):
+  category 1: 0-10 push-ups
+  category 2: 11-20 push-ups
+  category 3: 21-30 push-ups
+  category 4: 31-40 push-ups
+  category 5: >=41 push-ups
+
+37 CVD-related outcomes over 8601 person-years, 10-y follow-up. Incidence rate ratio (IRR) table,
+category 1 (0-10 push-ups) as reference:
+
+  category            events   rate per 100,000 person-yr   IRR (95% CI)
+  0-10  (ref)            8              1757                 1 [Reference]
+  11-20                  9               625                 0.36 (0.14-0.92)
+  21-30                  9               288                 0.16 (0.06-0.42)
+  31-40                 10               433                 0.25 (0.10-0.62)
+  >=41                   1                79                 0.04 (0.01-0.36)
+
+Headline comparison (also in the abstract): participants completing >40 push-ups had significantly
+lower CVD-event risk than those completing <10 push-ups (IRR 0.04, 95% CI 0.01-0.36).
+
+Cox proportional-hazards models (age+BMI adjusted) partially attenuated but did not eliminate the
+association; hazard ratios for push-up category 5 vs 1 in the adjusted model: HR 0.13 (0.01-1.14,
+unadjusted-for-VO2max) / 0.11 (0.01-1.07, VO2max-adjusted too) -- both borderline (p=.06-.07),
+category 3 (21-30) remained significant after full adjustment (HR 0.25, 0.08-0.76, p=.01).
+
+CAVEATS for use in the pipeline: (1) this is an OBSERVATIONAL cohort of a physically active,
+occupationally-selected population (career firefighters, not the general public) -- do not
+generalize the exact IRR magnitudes to a general/untrained population; (2) push-up TEST PROTOCOL
+(cadence, rest, form standard) is not detailed in the extract obtained this session -- a future
+session should pull the Methods section in full if the exact test protocol matters; (3) this is an
+association, not a causal claim -- higher push-up capacity is very likely a marker of general
+fitness/leanness/younger relative age within the cohort rather than a proof that push-ups themselves
+prevent CVD events.

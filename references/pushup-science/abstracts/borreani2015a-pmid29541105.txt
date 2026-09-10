@@ -1,0 +1,40 @@
+1. J Exerc Sci Fit. 2015 Dec;13(2):94-98. doi: 10.1016/j.jesf.2015.07.002. Epub 
+2015 Sep 2.
+
+Muscle activation during push-ups performed under stable and unstable 
+conditions.
+
+Borreani S(1), Calatayud J(1), Colado JC(1), Moya-Nájera D(1), Triplett NT(2), 
+Martin F(1).
+
+Author information:
+(1)Research Group in Sport and Health, Laboratory of Physical Activity and 
+Health, Department of Physical Education and Sports, University of Valencia, 
+Valencia, Spain.
+(2)Department of Health, Leisure, and Exercise Science, Appalachian State 
+University, Boone, NC, USA.
+
+BACKGROUND/OBJECTIVE: The purpose of this study was to analyze muscle activation 
+when performing push-ups under different stability conditions.
+METHODS: Physically fit young male university students (N = 30) performed five 
+push-ups under stable conditions (on the floor) and using four unstable devices 
+(wobble board, stability disc, fitness dome, and the TRX Suspension Trainer). 
+The push-up speed was controlled using a metronome, and the testing order was 
+randomized. The average amplitudes of the electromyographic (EMG) root mean 
+square of the anterior deltoid (DELT), serratus anterior (SERRA), lumbar 
+multifidus (LUMB), and rectus femoris (FEM) were recorded. The electromyographic 
+signals were normalized to the maximum voluntary isometric contraction (MVIC).
+RESULTS: No significant differences were found for the DELT [F(4,112) = 1.978; 
+p = 0.130] among the conditions. However, statistically significant differences 
+were found among the different conditions for the SERRA [F(4,60) = 17.649; 
+p < 0.001], LUMB [F(4,76) = 12.334; p < 0.001], and FEM [F(4,104) = 24.676; 
+p < 0.001] muscle activation. The suspended device was the only condition that 
+elicited higher LUMB and FEM activation compared to the other conditions. 
+Push-ups performed on the floor showed lower SERRA activation than those 
+performed with all unstable devices.
+CONCLUSION: Not all unstable devices enhance muscle activation compared to 
+traditional push-ups.
+
+DOI: 10.1016/j.jesf.2015.07.002
+PMCID: PMC5812863
+PMID: 29541105

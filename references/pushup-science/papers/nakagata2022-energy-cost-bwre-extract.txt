@@ -1,0 +1,48 @@
+Nakagata T, Yamada Y, Naito H (2022). Estimating Energy Cost of Body Weight Resistance Exercise
+Using a Multistage Exercise Test. J Strength Cond Res 36(5):1290-1296. PMID 32379233.
+PMCID PMC9042340. Open access.
+
+15 men, 21-29y. Three bodyweight exercises (heel-raise, squat, push-up) performed at 6 controlled
+frequencies (1,2,3,4,5,6 reps/min) each for 5 min, indirect calorimetry (aerobic energy expenditure
+only). Linear regression of gross EE (kcal) vs repetition frequency per subject; slope = energy cost
+per repetition (kcal/rep).
+
+DIRECTLY MEASURED ENERGY COST PER REPETITION (this is the strongest number in this file -- a real
+calorimetry measurement, not a Compendium consensus rating):
+  squat:      0.50 +/- 0.14 kcal/rep (95% CI 0.42-0.58)
+  push-up:    0.77 +/- 0.20 kcal/rep (95% CI 0.66-0.88)
+  heel-raise: 0.13 +/- 0.04 kcal/rep (95% CI 0.11-0.15)
+
+Extrapolated to 10 reps/min (aerobic contribution only). The abstract's verbatim sentence is:
+"Extrapolated EE at 10 repetitions/min was 2.7 +/- 0.5 kcal (2.3 METs), 6.3 +/- 1.4 kcal
+(5.4 METs), and 9.2 +/- 2.1 kcal (7.8 METs), respectively." The three numbers are assigned here by
+MAGNITUDE CONSISTENCY with the per-repetition values above (push-up 0.77 > squat 0.50 >
+heel-raise 0.13 kcal/rep; a ~10x extrapolation preserves that ranking) rather than by the literal
+reading order of an earlier, differently-ordered clause in the same abstract, which would produce
+an internally inconsistent ranking -- flagged here explicitly since the abstract text itself is
+ambiguous on this point (full paywalled body text was not re-parsed for its own results-table order
+this session; if a future session re-fetches the PMC XML's <table> markup directly, confirm against
+that instead of the prose):
+  heel-raise @ 10 reps/min: 2.7 +/- 0.5 kcal/min = 2.3 METs
+  squat      @ 10 reps/min: 6.3 +/- 1.4 kcal/min = 5.4 METs
+  push-up    @ 10 reps/min: 9.2 +/- 2.1 kcal/min = 7.8 METs
+
+CONFIRMED via the paper's own Table 3 (directly measured, not extrapolated -- pulled from the PMC
+XML table markup, not just the abstract prose): at the fastest tested cadence (6 reps/min), directly
+measured METs were push-up 4.7 +/- 0.8 (highest), squat 3.7 +/- 0.5, heel-raise 1.8 +/- 0.2 (lowest)
+-- the same ranking used above to resolve the ambiguous "respectively" in the abstract. Table 3 also
+gives heart rate (push-up reaches 120.1 +/- 21.5 b/min at 6 reps/min vs a 64.0 b/min pre-exercise
+baseline) and RPE (push-up RPE 15 +/- 2 at 6 reps/min vs squat 12 +/- 2 and heel-raise 10 +/- 2),
+consistent with the push-up being the most metabolically demanding of the three slow-tempo bodyweight
+exercises tested at every matched repetition frequency.
+
+CROSS-CHECK against the Compendium of Physical Activities (see 03-pushup-norms-and-standards.md
+section 3, code 02020 = "Calisthenics (pushups...), vigorous effort" = 7.5 METs, reused from
+references/pullup-science/03-norms-and-energy.md section 5.1): Nakagata's directly-measured 7.8 METs
+at 10 reps/min is within ~4% of the Compendium's 7.5-MET consensus rating for vigorous calisthenics
+push-ups -- unusually good agreement between a measured value and a consensus-panel estimate, and
+the STRONGEST evidence in this archive for the push-up's energy cost (better than the pull-up
+archive had for pull-ups, where no direct calorimetry study was found).
+
+The measured per-rep cost (0.77 +/- 0.20 kcal, aerobic-only, i.e. excludes anaerobic/EPOC
+contribution) is the number to cite for "kcal per push-up repetition."

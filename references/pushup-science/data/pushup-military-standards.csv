@@ -1,0 +1,25 @@
+branch,age_bracket,sex,min_passing_reps,min_passing_points,max_reps,max_points,notes,source
+USMC PFT,17-20,male,42,40,82,70,push-up is capped at 70 points max (pull-up is the only upper-body event that can reach 100),thebattlebunker.com (secondary; official MCO 6100.13A PDF blocked 403 this session)
+USMC PFT,21-25,male,40,40,87,70,,"thebattlebunker.com / operationmilitarykids.org (secondary; cross-checked, 75pt intermediate value 64 reps)"
+USMC PFT,26-30,male,39,40,84,70,,thebattlebunker.com (secondary)
+USMC PFT,31-35,male,36,40,80,70,,thebattlebunker.com (secondary)
+USMC PFT,36-40,male,34,40,76,70,,thebattlebunker.com (secondary)
+USMC PFT,41-45,male,30,40,72,70,,thebattlebunker.com (secondary; not cross-checked against a second full table for this age band)
+USMC PFT,46-50,male,25,40,68,70,,thebattlebunker.com (secondary; not cross-checked)
+USMC PFT,51+,male,20,40,64,70,,thebattlebunker.com (secondary; not cross-checked)
+USMC PFT,17-20,female,19,40,42,70,,thebattlebunker.com (secondary)
+USMC PFT,21-25,female,18,40,48,70,,thebattlebunker.com (secondary)
+USMC PFT,26-30,female,18,40,50,70,,thebattlebunker.com (secondary)
+USMC PFT,31-35,female,16,40,46,70,,thebattlebunker.com (secondary)
+USMC PFT,36-40,female,14,40,43,70,,thebattlebunker.com (secondary)
+USMC PFT,41-45,female,12,40,41,70,,thebattlebunker.com (secondary; not cross-checked)
+USMC PFT,46-50,female,11,40,40,70,,thebattlebunker.com (secondary; not cross-checked)
+USMC PFT,51+,female,10,40,38,70,,thebattlebunker.com (secondary; not cross-checked)
+US Army ACFT (original~2020),all,sex-neutral,10,60,57,100,"gender-neutral scoring era; superseded per source 2 below -- treat as historical, not current",topendsports.com (secondary)
+US Army AFT (current 2025-2026),22-26,male,14,60,61,100,"AFT renamed from ACFT ~June 2025 with age/sex-normed scoring restored; 350-pt total across 5 events, 60min/event to pass","gymnasetips.com / militaryfitnesscalc.com WebSearch summary (secondary, not independently verified against an official Army source this session)"
+US Army AFT (current 2025-2026),22-26,female,11,50,not found,not found,only the 50-point anchor was retrieved for women in this age band this session,gymnasetips.com / militaryfitnesscalc.com WebSearch summary (secondary)
+US Army AFT/ACFT hand-release push-up technique,all,both,n/a,n/a,n/a,n/a,"requires full chest+hips+thighs-to-ground contact, both hands lifted clear and arms extended out to the sides at the bottom of EVERY rep -- NOT the same movement as the USMC standard push-up; do not compare rep counts across branches","goarmy.com (official page; direct curl blocked 403, content obtained via WebFetch paraphrase)"
+US Navy PRT,all,both,not found,not found,not found,not found,"per references/pullup-science/data/pullup-military-standards.csv, the standard Navy PRT (push-ups/curl-ups/plank + 1.5mi run or swim) DOES include a push-up event (unlike the pull-up side, which the Navy does not test in the general-fleet PRT) -- but no push-up-specific numeric rep/score table was independently fetched or verified this session","NOT independently re-fetched this session -- carried over context only, not a verified number"
+US Air Force fitness assessment,all,both,not found,not found,not found,not found,"per references/pullup-science/data/pullup-military-standards.csv, the Air Force fitness assessment DOES include a push-up event (along with the 1.5-mile run, sit-ups and waist circumference; total score >=75/100 to pass; no pull-up event) -- but no push-up-specific numeric rep/score table was independently fetched or verified this session","NOT independently re-fetched this session -- see references/pullup-science/data/pullup-military-standards.csv (militaryonesource.mil, secondary)"
+Royal Marines PJFT (recruiting),all,male,30,pass/fail only,n/a,n/a,minimum 30 press-ups alongside 4 pull-ups and 40 sit-ups to enter CPC,"royalnavy.mod.uk / bestronger.co.uk (secondary; carried over from the pull-up archive's citation, not independently re-fetched this session)"
+FBI Physical Fitness Test,all,male,not found,not found,not found,not found,"the pull-up archive documents a PULL-UP event for the FBI PFT (1-min max, min 4 men/1 women); the FBI PFT is known to also include a 1-min timed sit-up event and a 1.5-mile run, but this session did not verify whether push-ups (as opposed to pull-ups) are part of the FBI PFT at all -- marked NOT FOUND rather than assumed",NOT independently verified this session

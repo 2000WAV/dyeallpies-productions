@@ -1,0 +1,64 @@
+1. J Strength Cond Res. 2020 Oct;34(10):2877-2885. doi: 
+10.1519/JSC.0000000000002774.
+
+Explosive Push-ups: From Popular Simple Exercises to Valid Tests for Upper-Body 
+Power.
+
+Zalleg D(1), Ben Dhahbi A(2)(3), Dhahbi W(4)(5)(6), Sellami M(7), Padulo 
+J(7)(8), Souaifi M(5), Bešlija T(7), Chamari K(9).
+
+Author information:
+(1)Research Unit, Sportive Performance and Physical Rehabilitation, High 
+Institute of Sports and Physical Education of Kef, University of Jendouba, Kef, 
+Tunisia.
+(2)Faculty of Sciences, Department of Physics, University Tunis El Manar, Tunis, 
+Tunisia.
+(3)Physics Department, College of Science and Arts at ArRass, Qassim University, 
+ArRass, Saudi Arabia.
+(4)Tunisian Research Laboratory "Sport Performance Optimisation," National 
+Center of Medicine and Science in Sports (CNMSS), Tunis, Tunisia.
+(5)Training Department, Qatar Police College, Doha, Qatar.
+(6)Tunisian National Guard Commandos School, Oued Zarga, Tunisia.
+(7)Faculty of Kinesiology, University of Split, Split, Croatia.
+(8)University eCampus, Novedrate, Italy; and.
+(9)Athlete Health and Performance Research Center, ASPETAR, Qatar Orthopaedic 
+and Sports Medicine Hospital, Doha, Qatar.
+
+Zalleg, D, Ben Dhahbi, A, Dhahbi, W, Sellami, M, Padulo, J, Souaifi, M, Bešlija, 
+T, and Chamari, K. Explosive push-ups: From popular simple exercises to valid 
+tests for upper-body power. J Strength Cond Res 34(10): 2877-2885, 2020-The 
+purpose of this study was to assess the logical and ecological validity of 5 
+explosive push-up variations as a means of upper-body power assessment, using 
+the factorial characterization of ground reaction force-based (GRF-based) 
+parameter outputs. Thirty-seven highly active commando soldiers (age: 23.3 ± 1.5 
+years; body mass: 78.7 ± 9.7 kg; body height: 179.7 ± 4.3 cm) performed 3 trials 
+of 5 variations of the explosive push-up in a randomized-counterbalanced order: 
+(a) standard countermovement push-up, (b) standard squat push-up, (c) kneeling 
+countermovement push-up, (d) kneeling squat push-up, and (e) drop-fall push-up. 
+Vertical GRF was measured during these exercises using a portable force plate. 
+The initial force-supported, peak-GRF and rate of force development during 
+takeoff, flight time, impact force, and rate of force development impact on 
+landing were measured. A significant relationship between initial 
+force-supported and peak-GRF takeoff was observed for the countermovement 
+push-up (CMP) exercises (standard countermovement push-up, kneeling 
+countermovement push-up, and drop-fall push-up) and squat push-up (SP) exercises 
+(standard squat push-up and kneeling squat push-up) (r = 0.58 and r = 0.80, 
+respectively; p < 0.01). Furthermore, initial force supported was also 
+negatively correlated to a significant degree with flight time for both CMP and 
+SP (r = -0.74 and r = -0.80; p < 0.01, respectively). Principal component 
+analysis (PCA) showed that the abovementioned 6 GRF-based variables resulted in 
+the extraction of 3 significant components, which explained 88.9% of the total 
+variance for CMP, and 2 significant components, which explained 71.0% of the 
+total variance for SP exercises. In summary, the PCA model demonstrated a great 
+predictive power in accounting for GRF-based parameters of explosive push-up 
+exercises, allowing for stronger logical and ecological validity as tests of 
+upper-body power. Furthermore, it is possible to adjust the intensity level of 
+the push-up exercise by altering the starting position (i.e., standard vs. 
+kneeling).
+
+DOI: 10.1519/JSC.0000000000002774
+PMID: 30095736 [Indexed for MEDLINE]
+
+Notes for this project: same commando-soldier dataset family as dhahbi2017 (37 highly active commando soldiers), 5 explosive/plyometric push-up variants, PCA validity study of GRF-based power-test parameters. Reports correlations and % variance explained (88.9% CMP, 71.0% SP) but no absolute force numbers in the abstract. Closed access (JSCR/LWW); no PMC copy found.
+
+[Shared-file note added 2026-09-09: this exact filename was also written independently by a concurrent session building 01-pushup-emg-by-variant-and-phase.md (see DOWNLOADS.md, "Push-up surface EMG evidence base sweep" section) -- that session's own editorial notes on this abstract, if any were saved here before this file was rewritten, could not be recovered (no git history existed for this untracked directory at the time of the collision). The underlying PubMed abstract text above is unaffected either way. See the EMG-focused file for that session's own treatment of this paper.]

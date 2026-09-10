@@ -1,0 +1,35 @@
+1. J Strength Cond Res. 2015 Jan;29(1):246-53. doi: 10.1519/JSC.0000000000000589.
+
+Bench press and push-up at comparable levels of muscle activity results in 
+similar strength gains.
+
+Calatayud J(1), Borreani S, Colado JC, Martin F, Tella V, Andersen LL.
+
+Author information:
+(1)1Laboratory of Physical Activity and Health, Department of Physical Education 
+and Sports, University of Valencia, Valencia, Spain; and 2National Research 
+Centre for the Working Environment, Copenhagen, Denmark.
+
+Electromyography (EMG) exercise evaluation is commonly used to measure the 
+intensity of muscle contraction. Although researchers assume that 
+biomechanically comparable resistance exercises with similar high EMG levels 
+will produce similar strength gains over the long term, no studies have actually 
+corroborated this hypothesis. This study evaluated EMG levels during 6 
+repetition maximum (6RM) bench press and push-up, and subsequently performed a 
+5-week training period where subjects were randomly divided into 3 groups (i.e., 
+6RM bench press group, 6RM elastic band push-up group, or control group) to 
+evaluate muscle strength gains. Thirty university students with advanced 
+resistance training experience participated in the 2-part study. During the 
+training period, exercises were performed using the same loads and variables 
+that were used during the EMG data collection. At baseline, EMG amplitude showed 
+no significant difference between 6RM bench press and band push-up. Significant 
+differences among the groups were found for percent change (Δ) between pretest 
+and posttest for 6RM (p = 0.017) and for 1 repetition maximum (1RM) (p < 0.001). 
+Six repetition maximum bench press group and 6RM elastic band push-up group 
+improved their 1RM and 6RM (Δ ranging from 13.65 to 22.21) tests significantly 
+with similar gains, whereas control group remains unchanged. Thus, when the EMG 
+values are comparable and the same conditions are reproduced, the aforementioned 
+exercises can provide similar muscle strength gains.
+
+DOI: 10.1519/JSC.0000000000000589
+PMID: 24983847 [Indexed for MEDLINE]

@@ -1,0 +1,493 @@
+
+46
+bmcmudis
+BMC Musculoskeletal Disorders
+BMC Musculoskelet Disord
+BMC
+PMC4327800
+4327800
+4327800
+25881172
+10.1186/s12891-015-0486-5
+The effects of exercise type and elbow angle on vertical ground reaction force and muscle activity during a push-up plus exercise
+San Juan
+Jun G
+1
+✉
+#
+Suprak
+David N
+1
+#
+Roach
+Sean M
+2
+#
+Lyda
+Marc
+2
+#
+1
+Department of Physical Education, Health and Recreation, Western Washington University, Bellingham, WA USA 
+2
+Western Institute of Neuromechanics, Eugene, OR USA 
+✉
+Corresponding author.
+#
+Contributed equally.
+10
+2
+2015
+16
+1
+23
+23
+14
+2
+2015
+© San Juan et al.; licensee BioMed Central. 2015
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (
+http://creativecommons.org/licenses/by/4.0
+), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly credited. The Creative Commons Public Domain Dedication waiver (
+http://creativecommons.org/publicdomain/zero/1.0/
+) applies to the data made available in this article, unless otherwise stated.
+Abstract
+Background
+Proper alignment of the scapula during upper extremity motion is important in maintaining shoulder joint function and health. Push-up plus exercise is considered as one of the best exercise to strengthen the muscles that stabilize the scapula. The purpose of the study is to examine the effects of push-up plus variants and elbow position on vertical ground reaction force and electromyographical activity of four shoulder muscles during concentric contraction.
+Methods
+A total of 22 healthy subjects volunteered for the study. Each of the subjects performed both modified and traditional push-up plus. Modified push-up plus was performed with both knees and hands touching the ground while the traditional push-up plus was executed with hands and feet contacting the ground. Electromyography (EMG) of the upper trapezius (UT), lower trapezius (LT), infraspinatus (INFRA), and serratus anterior (SA), and vertical ground reaction forces (vGRF) were collected.
+Results
+The traditional push-up plus exhibited higher EMG activity in all muscles tested (
+P
+ &lt; .05) and vertical ground reaction force (
+P
+ &lt; .001) compared to modified push-up plus. The highest difference in EMG activity between the two exercises was observed with the Serratus Anterior muscle (22%). Additionally, the traditional push-up plus presented a higher vGRF compared to the modified push-up plus (
+P
+ &lt; .001) by 17%. The SA had the greatest EMG activity compared to the other muscles tested during the concentric phase of the traditional push-up plus, and this did not occur during the plus phase of the exercise.
+Conclusion
+The highest activity of the serratus anterior occurred at 55° of elbow extension during the concentric phase of the traditional PUP and not at the plus phase of the exercise. This suggests that when prescribing an exercise to target the serratus anterior, a traditional push-up is adequate and the plus-phase is not necessary. However, for patients that cannot perform a traditional push-up, the modified push-up plus would be a great alternative to strengthen their serratus anterior.
+Keywords:
+ Scapula, Rehabilitation, Muscle recruitment, Shoulder
+status
+released
+display-pdf
+yes
+is-olf
+no
+is-manuscript
+no
+is-preprint
+no
+is-journal-matter
+no
+is-scanned
+no
+is-retracted
+no
+Received 2014 Oct 17; Accepted 2015 Jan 30; Collection date 2015.
+Background
+Proper positioning of the scapula during upper extremity movement is crucial for the maintenance of joint function and health, optimal muscle lengths, force production, and bony and soft tissue alignment [
+1
+]. This positioning is afforded by the coordinated actions of muscles that both anchor the scapula to the trunk, and work to rotate it in three dimensions during dynamic movements. Substantial research has focused on the normal motions of the scapula and corresponding actions of healthy stabilizing muscles during movement, as well as how these characteristics differ with acute and chronic injury [
+2
+-
+4
+]. In a healthy shoulder, overhead motion involves rotation of the scapula in such a way that soft tissues in the subacromial space are not impinged upon. In the case of many acute and chronic injuries, authors have consistently reported positioning of the scapula that increases the impingement of soft tissues, and results in pain [
+5
+-
+7
+]. For this reason, one of the chief objectives in the rehabilitation of shoulder injuries is re-establishing proper scapular positioning during movement. This is often done using several variants of the push-up exercise [
+8
+]. The push-up plus (PUP) exercise, a commonly prescribed push-up variant to target scapular muscle stabilizers, is characterized by a standard push-up motion with a protraction of the scapula upon completion of the push-up repetition [
+8
+]. Additionally, the PUP has been shown to result in substantial activation of the scapular stabilizer muscle [
+9
+].
+Many authors have reported that the forces encountered and the activation levels of muscles primarily involved in many push-up variants increase with the intensity of the push-up exercise (i.e., on knees, traditional push-up, feet on exercise ball, slings) [
+10
+-
+13
+], while the activation of the scapular stabilizing muscles seems to depend on a combination of the weight-bearing demand and degree of arm elevation during the movement [
+8
+,
+14
+,
+15
+]. Both traditional and modified push-up plus variants have been shown to elicit greater activation of the serratus anterior muscle compared to that of the upper trapezius. In fact, Decker et al. [
+14
+] reported that SA activation in the modified push-up plus was equivalent to that in the traditional variant, with a lower arm elevation and, even with the lower weight-bearing demand [
+14
+,
+16
+]. However, the wall push-up elicited a high upper trapezius/serratus anterior ratio [
+17
+]. The literature suggests that proper activation of the stabilizing musculature is a major contributor to optimal performance during upper extremity movements, and helps to prevent excessive stresses on associated soft tissues [
+18
+]. Therefore, prevention and treatment of shoulder injuries has traditionally included the prescription of many variations of the push-up exercise [
+14
+,
+19
+]. Although a substantial body of research is available regarding muscle activation levels during various push-up exercises, these studies have used only static postures or differences in the overall muscle activity, and have not incorporated measures of the forces required, in order to support and accelerate the body weight [
+13
+,
+15
+,
+20
+-
+24
+]. Similarly, studies examining force output during these variants have focused either on peak and/or average forces across the range of motion (ROM) during a dynamic motion [
+25
+,
+26
+] or forces exerted at discrete positions within the ROM [
+16
+]. These are two areas that need further study, given that muscle lengths and external torques are altered throughout the push-up ROM, leading to changes in scapular kinematics [
+27
+]. As a result, the purpose of this study was to examine the effect of push-up plus variant type (traditional vs. modified) and elbow position (5° increments across the range of motion from 100° to full extension) on electromyographical activity of four stabilizer muscles (upper trapezius, lower trapezius, serratus anterior, and infraspinatus) and vertical ground reaction force during concentric phase of the motion. We hypothesized that the traditional PUP would result in higher EMG activity and vertical ground reaction forces compared to the modified PUP.
+Methods
+Participants
+A total of 22 healthy subjects, 18 males and 4 females, (28.4 ± 10.1 y/o, 176.9 ± 7.9 cm, 75.3 ± 10.3 kg) volunteered for the study. All of the subjects had previous experience in performing the traditional push-up and resistance training. Subjects were included only if they have no history of injury to the shoulder requiring surgery or rehabilitation and if they did not have any documented neurological disorders. The research study was approved by the Western Washington University institutional review board. Each subject signed a consent form and the rights of the subjects were protected. In addition, consent for use of images for publication was obtained from each subject (Figure 
+1
+).
+Figure 1
+Push-up plus exercise during (A) Traditional and (B) Modified.
+All testing was completed in a single session and performed on the dominant upper extremity. The dominant upper extremity was defined as the arm that the subject will use to throw a ball. Subjects performed a standardized warm-up procedure including Codman’s pendulums and stretches for the rotator cuff muscles on both arms. Codman’s pendulum exercises were performed with subjects bent over with the non-dominant hand on a table, and holding a 1.13 kg weight in their dominant hand, letting the weight hang down at arm’s length. Subjects performed one set of 15 repetitions of arm circles, both clockwise and counterclockwise, followed by one set of 15 repetitions of a back and forth movement in the sagittal plane. Stretches consisted of holding a static external and then internal rotation position, both with the shoulder abducted to approximately 90°, for two sets of 15 seconds each.
+Kinematic and kinetic data
+The kinematic measurement (Simi Motion, Unterschleissheim, Germany) was utilized to track two-dimensional elbow kinematics across the range of motion of the exercise (Figure 
+1
+). A single high speed camera (Basler, Ahrensburg, Germany) set at 120 Hz, was used to collect elbow kinematics. This system consists of tracking active markers that were placed on the lateral acromion, lateral epicondyle and ulnar styloid process. The camera was positioned 3.8 m away from the subject at an angle of approximately 55° from parallel to each subject’s body so that the field of view would remain perpendicular the arm throughout the ROM [
+27
+]. Vertical ground reaction force (vGRF) was measured using a force plate (Bertec, Columbus, OH) across the range of motion during execution of each exercise. vGRF data were collected at a frequency of 1000 Hz.
+Electromyography
+The Telemyo DTS telemetry (Noraxon, Scottsdale, AZ) EMG system was used to collect muscle activity data. EMG data were collected at 1500 Hz. The unit provided signal amplification, band pass filtering (10 – 1000 Hz), common mode rejection ratio of 100 dB and a final gain of 500. All data were ECG reduced, full-wave rectified, and smoothed using root mean square (10 ms window) through MyoResearch XP Master Ed 1.08 software (Noraxon, Scottsdale, AZ). Disposable Trace 1 (NIKOMED, Huntington Valley, PA) Ag/AgCl surface electrodes were placed on the subject’s dominant arm over the upper trapezius, infraspinatus, lower trapezius and serratus anterior along their primary muscle fiber directions (Figure 
+1
+). All muscle locations were determined based on the recommendations by Cram et al. [
+28
+]. The pair of electrodes were positioned so that the edges were touching with an inter-electrode distance of 2.5 cm [
+14
+]. Before the electrodes were placed on the subject, an alcohol wipe pad was used to clean the skin to help reduce skin impedance.
+Experimental procedures
+Kinematic measurements, EMG and ground reaction force data were all internally synchronized. Maximum voluntary isometric contractions (MVC) were collected to normalize EMG amplitude using previously documented procedures [
+29
+]. All MVC was done with the subject in a seated position. For the upper trapezius, subjects were asked to position their arm at 90° of abduction and elbow flexed at 90° while the investigator resisted forceful shoulder abduction with a hand positioned at the elbow. For the infraspinatus, subjects were asked to flex their elbow at 90° while arm at the side. A towel was positioned between the elbow and the side of the body to prevent abduction during maximal exertion. Then the subject was instructed to maximally externally rotate the shoulder while resistance was applied at the wrist. For the lower trapezius, a combination of adduction and extension of the shoulder was resisted by the investigator on the elbow while the elbow was flexed at 90° and the shoulder was elevated at 20°. For the serratus anterior, the subject was positioned at 90° of shoulder and elbow flexion and 90° of shoulder internal rotation. The subject was then asked to horizontally adduct the shoulder while resistance was applied on the subject’s fist. All normalization procedures were performed by the same examiner.
+During execution of the PUP variants, subjects were instructed to position their hands on the force plate, aligning their index finger lateral to their acromion. While maintaining an angle of approximately 180° between the upper and lower body, subjects were asked to perform two variations of the PUP exercise (Figure 
+1
+), consisting of both a traditional PUP (supported on hands and feet) and modified PUP (supported on hands and knees). Subjects practiced these two conditions, attempting to lower and raise the body during task execution at a pace of four seconds per repetition (two seconds down, two seconds up). Subjects were asked to perform three continuous repetitions in each of the two conditions. During the execution of the push-up plus, the investigator made sure that the subject’s posterior thorax was rounded or curved at the end of the push phase. Subjects were afforded a rest period of at least one minute after each trial to minimize the effects of fatigue. The PUP conditions (modified vs. traditional) were randomized between subjects. A block of wood with a height of 10 cm was positioned in the middle of the force plate to standardized the depth of the eccentric phase of the PUP across subjects. The block was positioned so that the subjects would touch it by their sternum along their nipple line. The base of the hand and the index finger were marked with a tape on the force plate to ensure consistency with hand placement between trials.
+Statistical analysis
+SPSS, version 20.0, was used for statistical analysis. Two-way repeated measures analysis of variance (ANOVA) were conducted to determine the effect of the exercise variant (traditional vs. modified) and elbow position (5° increments from 100° flexion to full extension) on the normalized EMG activity of each muscle of interest (upper trapezius, lower trapezius, serratus anterior, and infraspinatus) and on vGRF normalized to body weight (BW). Greenhouse-Geisser correction was implemented if Mauchly’s test revealed that the data violated the assumption of sphericity. Simple effects analyses were conducted for significant interaction effects using multivariate ANOVA. Bonferroni post-hoc procedures were conducted in the case of significant main effects. The criterion for statistical significance was set at the 
+P
+ = .05 level.
+Results
+No significant interaction effect was found between exercise variant and elbow angle on UT EMG level (
+F
+[1.84, 38.53] = .97, 
+P
+ = .382) (Figure 
+2
+A). UT activation was significantly greater in the traditional versus the modified variant (
+F
+[
+1
+,
+21
+] = 17.15, 
+P
+ &lt; .001), with a mean difference of 8%. UT activation was significantly affected by elbow angle (
+F
+[2.17, 45.65] = 7.81, 
+P
+ = .001), with a significant quadratic decrease in UT activation with elbow extension, as indicated by polynomial contrast (
+F
+[
+1
+,
+21
+] = 9.29, 
+P
+ = .006).
+Figure 2
+EMG activity of the (A) Upper Trapezius and (B) Lower Trapezius during the concentric phase of the push-up plus variants.
+There was a significant exercise variant by elbow angle interaction effect on LT activation (
+F
+[2.64, 55.52] = 3.57, 
+P
+ = .024). Simple effects analyses revealed a significant effect of elbow angle on LT activation in both traditional (
+F
+[
+1
+,
+21
+] = 49.41, 
+P
+ &lt; .001) and modified (
+F
+[
+1
+,
+21
+] = 34.30, 
+P
+ &lt; .001) push-up variants. Graphical examination of the data (Figure 
+2
+B) indicates that LT activation increased sharply in both conditions until approximately 70° of elbow extension, with a more pronounced increase noted in the traditional condition. LT activation began to decrease again at approximately 50° and 40° elbow extension in the modified and traditional conditions, respectively. Simple main effects analyses also showed that traditional PUP had significantly higher LT EMG activity than modified PUP (
+P
+ &lt; .001) across all elbow positions, with a mean difference of 9.5%.
+There was a significant exercise variant by elbow angle interaction effect on SA activation (
+F
+[2.62, 54.93] = 3.52, 
+P
+ = .026). Simple effects analyses revealed a significant effect of elbow angle on SA activation in both traditional (
+F
+[
+1
+,
+21
+] = 28.59, 
+P
+ &lt; .001) and modified (
+F
+[
+1
+,
+21
+] = 62.68, 
+P
+ &lt; .001) push-up variants. Graphical examination of the data indicates that SA activation exhibited a greater increase across the elbow extension ROM in the traditional, compared to the modified, condition (Figure 
+3
+A).
+Figure 3
+EMG activity of the (A) Serratus Anterior and (B) Infraspinatus during the concentric phase of the push-up plus variants.
+There was a significant condition by elbow angle interaction effect on INF activation (
+F
+[2.69, 56.45] = 6.13, 
+P
+ = .002). Simple effects analyses revealed a significant effect of elbow angle on INF activation in both traditional (
+F
+[
+1
+,
+21
+] = 125.62, 
+P
+ &lt; .001) and modified (
+F
+[
+1
+,
+21
+] = 130.08, 
+P
+ &lt; .001) push-up conditions. Graphical examination of the data indicates that INF activation increased to a greater extent with elbow extension in the traditional condition, as compared to that in the modified condition. In addition, infraspinatus (INF) activation appeared to increase in both conditions until the elbow was extended to approximately 50°, after which, activation appeared to level off (Figure 
+3
+B). In addition, simple effects analyses also showed that traditional PUP exhibited significantly higher INF EMG activity than modified PUP (
+P
+ &lt; .001) across all elbow positions, with a mean difference of 12.6%.
+Vertical ground reaction force was normalized to the subject’s body weight. There was no significant interaction effect between the exercise variant and elbow position for the UT, (
+F
+ [4.1, 85.4] = 1.34, 
+P
+ = .26) (Figure 
+4
+). vGRF was significantly affected by exercise variant, (
+F
+ [
+1
+,
+21
+] = 52.15, 
+P
+ &lt; .001) and elbow position, (
+F
+ [3.2, 68.09] = 14.31, 
+P
+ &lt; .001). vGRF was significantly higher during the traditional compared to modified PUP (
+p
+ &lt; 0.001), with a mean difference of 17%. vGRF was highest during the traditional PUP at 90° (76% BW) of elbow flexion and lowest at 20° (70% BW) of elbow flexion (
+P
+ = .001). vGRF displayed a significant linear decrease across the ROM for both variants (
+p
+ &lt; .001).
+Figure 4
+Vertical ground reaction force normalized to subject’s weight during push-up plus variants.
+Discussion
+The present study examined the effect of PUP variant and elbow position on EMG activity of four scapular stabilizer muscles and vertical ground reaction force during concentric contraction. To our knowledge, this is the first study that looked at EMG activity of shoulder muscle stabilizer and vGRF at various elbow position during push-up plus. The current data demonstrated that traditional PUP was characterized with greater EMG muscle activity in all the muscles tested during the entire elbow range of motion compared to modified PUP. In addition, the traditional PUP resulted in larger vGRF compared to modified PUP.
+The push-up plus exercise is considered to be the best exercise to activate the Serratus Anterior [
+8
+,
+14
+]. It has been shown that SA EMG activity ranged from 69% to 120% maximum voluntary isometric contraction (MVIC) during some variants of push-up exercise [
+8
+,
+14
+,
+19
+,
+20
+,
+23
+,
+30
+,
+31
+]. In the current study, the SA EMG activity ranged from 45% to 57% MVC, which is below the value reported in the literature. The difference between the EMG values may be due to the fact that the current study performed the MVIC in a different method. However, in a recent study by Sciascia et al., they reported similar SA EMG activity to the present study during the push-up plus exercise [
+32
+]. Although, their results were from subjects with multi-directional instability and isolated anterior instability of the shoulder, they reported no significant differences between healthy and shoulder instability patients in SA EMG activity during the PUP exercise.
+The present data also showed increased SA activity during elbow extension. During the modified PUP, there was only a 3% change in the entire concentric phase of the PUP. This shows that when performing the modified version of the PUP, the added motion of protracting the shoulder blade upon completion of the push-up repetition is not necessitated. The highest SA EMG activity during the concentric phase of the modified PUP happened at 55° of elbow extension, while in the traditional PUP, the highest SA EMG activity occurred at 20° of concentric elbow extension, which is during the plus phase of the exercise.
+The UT and LT are considered to be two of the main scapular stabilizers [
+33
+]. Both the UT and LT contribute to scapular upward rotation during humeral elevation [
+34
+]. However, the UT also contributes to anterior tilting by drawing the clavicle medially and upwards [
+34
+], which could decrease the subacromial space and can increase the risk of subacromial impingement [
+5
+]. The LT also assists in posterior tilting during humeral elevation [
+35
+]. Thus, the goal in most shoulder impingement rehabilitation protocol is to decrease the activity of the UT compared to the LT during arm elevation. Consequently, the scapula will be in a more posteriorly tilted position, which increases the subacromial space. In the current study, both variants of PUP started with the UT (24% MVC) having an increased muscle activity compared to the LT (19% MVC). However, during the mid-range of the concentric phase of the PUP, there was a shift in activation pattern. The UT (20% MVC) decreased and the LT (24.8% MVC) increased its EMG activation starting at 70° of elbow extension up to the plus phase (i.e. 20° of elbow extension) of the traditional PUP exercise. These results are in accordance with previous studies that examined different variance of push-up plus exercise with the UT ranging from 20.5% - 25.2% MVC [
+15
+,
+31
+]. For the LT, Park et al. [
+15
+] examined the LT during wall push-up plus and wall slide device and reported a range of 11.6% - 16.1% MVC [
+15
+]. The current study had a higher LT EMG activity. This difference can be attributed to the position that the push-up plus was implemented. The PUP exercise performed in Park et al. [
+15
+] study was accomplished standing up against the wall while the current study had the subjects complete the PUP on the ground. The wall PUP is considered to be less demanding than the traditional on the ground PUP [
+8
+]. The modified PUP did not change muscle activation patterns until the elbow was at 55° of elbow extension. The shift of muscle activity into a more LT than UT during the PUP is important to avoid impingement of soft tissues under the subacromial space.
+The infraspinatus is one of the rotator cuff muscles. Its main function is to externally rotate the humerus [
+36
+]. It also serves to assist in centralizing the humeral head into the glenoid during shoulder motion [
+37
+]. In the current study, the infraspinatus was activated during both PUP variants. The traditional PUP had the greatest EMG activity (30% MVC) when the elbow was less than 50° of elbow flexion. This result is in accordance with Sciascia et al. [
+32
+] while subjects performed the PUP exercise. During humeral elevation in the scapular plane, infraspinatus activity has been reported to be between 10% - 25% MVC [
+29
+,
+38
+]. Conversely, it has been shown that sidelying external rotation exercise and prone external rotation can elicit a great amount of EMG activity equal to 62% and 63% MVIC, respectively [
+32
+,
+39
+]. However, these exercises were designed to isolate the INF. The result of the present study demonstrates that PUP exercise is not an ideal exercise to strengthen the INF. Even with the increased demand or complexity to maintain stability in the shoulder musculature during the PUP exercise, the INF had the same amount of activation with scapular plane elevation.
+Our results indicated greater vGRF across the ROM in the traditional versus the modified PUP variant. This finding confirms those of previous studies examining ground reaction forces in these variants in both static positions [
+16
+] and dynamic movement [
+25
+,
+40
+]. In the traditional variant, vGRF ranged from 70.18% - 75.99% body weight, while in the modified variant, vGRF ranged from 52.95% - 57.95%. These ranges compare well to the percentage of body weight supported in the “up” and “down” positions of the traditional and modified variants reported by Suprak, Dawes, and Stephenson [
+16
+]. Ebben et al. reported similar findings with respect to the peak GRF in various push-up exercises, which included traditional and modified variants, as well as those with feet elevated, and those with hands elevated on boxes of increasing height [
+40
+]. These investigators reported increasing peak vGRFs as the push-up variant was altered from hands elevated 60.96 cm to modified to hands elevated 30.48 cm to traditional to feet elevated 30.48 cm and 60.98 cm. These results are in support of the present data in that they confirm the pattern of greater vGRF in the traditional versus the modified push-up. Gouvali and Boudolos also reported greater vGRF in the traditional variant, as compared to the modified [
+25
+]. However, they reported peak vGRFs of 66% and 53% in the traditional and modified push-up ROM, respectively. This difference between their findings and those in the present study may be related to the different subjects included in the two studies. In their study, Gouvali and Boudolos included only male subjects, while the present study included both males and females. This difference may have impacted the distribution of body mass in subjects in the two studies, leading to a greater percentage observed in the present data [
+25
+].
+The second important finding with regards to the vGRF in this study was the significant linear decrease in vGRF with elbow extension in the concentric portion of both variants. We hypothesize that the increase in vGRF with elbow extension is the result of the whole-body center of mass location moving further from the point of contact (feet or knees) with the support surface (floor) in the horizontal direction, resulting in greater gravitational torque that must be overcome by the vGRF in order to perform the exercise. This finding, again, supports those of Suprak, Dawes, and Stephenson, who reported greater vGRF in the “down” versus the “up” position of both variants [
+16
+].
+Lastly, one of the more surprising finding in the current study was that the subjects did not lock their elbows at the end of the concentric phase of the push-up plus. The minimum elbow extension angle was 20° during the concentric phase of the PUP exercise. The investigators made sure that all the subjects were performing the exercises correctly, and they were protracting their shoulders at the end of the concentric phase of the PUP. To our knowledge, this is the first study that examined the entire elbow angle range of motion during the concentric phase of the PUP. The usual direction to subject performing the PUP is to extend their elbow to a standard push-up position and continued rise up by protracting the scapula [
+14
+]. There are no studies that reported the specific elbow angle position throughout the entire concentric phase of the push-up plus exercise.
+There were limitations that needed to be acknowledged and addressed regarding the present study. The first limitation concerns the elbow kinematics in 2D during the PUP. In order to avoid error in projection angle of the elbow, the investigator made sure that the camera was directly perpendicular to the elbow motion. Additionally, the hand placement of each subject was clearly marked on the force plate to maintain consistent subject location between trials. The second limitation is EMG cross talk between adjacent muscles. This limitation is inherent in every surface EMG study. In order to address this limitation, the investigator did a specific manual muscle test for every muscle tested before the normalization of the signal and during each trial.
+Conclusion
+This current study demonstrated that traditional PUP resulted in increased EMG activity of the LT, SA, UT and INF compared to the modified PUP during the concentric phase. The highest activity of the serratus anterior occurred at 55° of elbow extension during the concentric phase of the traditional PUP. This suggests that the plus phase of the PUP is not necessary to attain greater activity of the SA when performing traditional PUP. However, during the modified PUP, the highest activity of the SA occurred at the plus-phase. Additionally, the traditional PUP resulted in increased vGRF in the entire elbow ROM during the concentric phase of the exercise compared to modified PUP. These results can be helpful in clinical application when prescribing PUP exercises to patients with shoulder pathology (i.e. subacromial impingement syndrome). However, care should be taken when considering these exercises for patient population, since the current study utilized healthy subjects. It should be noted that progression is important when recommending PUP variants. It is beneficial to start with the modified PUP variant earlier in the shoulder rehabilitation phase since it demands lesser internal torque in the upper extremity.
+Acknowledgements
+We would like to thank Ken Scoggins for providing invaluable contributions to the collection of data and maintenance of the database.
+Footnotes
+Jun G San Juan, David N Suprak, Sean M Roach and Marc Lyda contributed equally to this work.
+Competing interests
+All the authors declare that they have no competing interests.
+Authors’ contributions
+All the requirements for authorship have been met. JSJ and ML performed the data collection. DS participated in the design of the study and performed statistical analysis. SR participated in the design and conceptualization of the study. JSJ was responsible for writing the manuscript. All authors read and approved the final manuscript.
+Authors’ information
+Jun G. San Juan, PhD, ATC, is an Assistant Professor of Kinesiology at Western Washington University, Bellingham, WA, USA and is a certified athletic trainer. David N. Suprak, PhD, ATC, CSCS is an Associate Professor at Western Washington University in the Kinesiology program and is a certified athletic trainer and strength and conditioning specialist. Sean M. Roach, PhD, DPT, ATC, is a research associate at Western Institute of Neuromechanics which is a non-profit research organization based in Eugene, OR, USA. He is also a practicing physical therapist. Marc Lyda, MA, is a research assistant at Western Institute of Neuromechanics.
+Contributor Information
+Jun G San Juan, Email: jun.sanjuan@gmail.com.
+David N Suprak, Email: dave.suprak@wwu.edu.
+Sean M Roach, Email: tensegrity1@msn.com.
+Marc Lyda, Email: mhlyda@msn.com.
+References
+1.
+Tsai NT, McClure PW, Karduna AR. Effects of muscle fatigue on 3-dimensional scapular kinematics. Arch Phys Med Rehabil. 2003;84:1000–5. doi: 10.1016/S0003-9993(03)00127-8.
+2.
+Borstad JD, Ludewig PM. Comparison of scapular kinematics between elevation and lowering of the arm in the scapular plane. Clin Biomech (Bristol, Avon) 2002;17:650–9. doi: 10.1016/S0268-0033(02)00136-5.
+3.
+Yano Y, Hamada J, Tamai K, Yoshizaki K, Sahara R, Fujiwara T, Nohara Y. Different scapular kinematics in healthy subjects during arm elevation and lowering: glenohumeral and scapulothoracic patterns. J Shoulder Elbow Surg. 2010;19:209–15. doi: 10.1016/j.jse.2009.09.007.
+4.
+Amasay T, Karduna AR. Scapular kinematics in constrained and functional upper extremity movements. J Orthop Sports Phys Ther. 2009;39:618–27. doi: 10.2519/jospt.2009.2788.
+5.
+Ludewig PM, Cook TM. Alterations in shoulder kinematics and associated muscle activity in people with symptoms of shoulder impingement. Phys Ther. 2000;80:276–91.
+6.
+Royer PJ, Kane EJ, Parks KE, Morrow JC, Moravec RR, Christie DS, Teyhen DS. Fluoroscopic assessment of rotator cuff fatigue on glenohumeral arthrokinematics in shoulder impingement syndrome. J Shoulder Elbow Surg. 2009;18:968–75. doi: 10.1016/j.jse.2009.03.002.
+7.
+Ludewig PM, Reynolds JF. The association of scapular kinematics and glenohumeral joint pathologies. J Orthop Sports Phys Ther. 2009;39:90–104. doi: 10.2519/jospt.2009.2808.
+8.
+Ludewig PM, Hoff MS, Osowski EE, Meschke SA, Rundquist PJ. Relative balance of serratus anterior and upper trapezius muscle activity during push-up exercises. Am J Sports Med. 2004;32:484–93. doi: 10.1177/0363546503258911.
+9.
+Park SY, Yoo WG, Kim MH, Oh JS, An DH. Differences in EMG activity during exercises targeting the scapulothoracic region: a preliminary study. Man Ther. 2013;18:512–8. doi: 10.1016/j.math.2013.04.002.
+10.
+Lehman GJ, MacMillan B, MacIntyre I, Chivers M, Fluter M. Shoulder muscle EMG activity during push up variations on and off a Swiss ball. Dyn Med. 2006;5:7. doi: 10.1186/1476-5918-5-7.
+11.
+Marshall P, Murphy B. Changes in muscle activity and perceived exertion during exercises performed on a swiss ball. Appl Physiol Nutr Metab. 2006;31:376–83. doi: 10.1139/h06-006.
+12.
+Sandhu JS, Mahajan S, Shenoy S. An electromyographic analysis of shoulder muscle activation during push-up variations on stable and labile surfaces. Int J Shoulder Surg. 2008;2:30–5. doi: 10.4103/0973-6042.40456.
+13.
+Jeong SY, Chung SH, Shim JH. Comparison of Upper Trapezius, Anterior Deltoid, and Serratus Anterior Muscle Activity during Push-up plus Exercise on Slings and a Stable Surface. J Phys Ther Sci. 2014;26:937–9. doi: 10.1589/jpts.26.937.
+14.
+Decker MJ, Hintermeister RA, Faber KJ, Hawkins RJ. Serratus anterior muscle activity during selected rehabilitation exercises. Am J Sports Med. 1999;27:784–91. doi: 10.1177/03635465990270061601.
+15.
+Park SY, Ahn TK, Eom JH, Youn HJ, Kim IK, Yoo WG. Scapulothoracic Muscle Activity during Use of a Wall Slide Device (WSD), a Comparison with the General Wall Push up Plus. J Phys Ther Sci. 2014;26:805–6. doi: 10.1589/jpts.26.805.
+16.
+Suprak DN, Dawes J, Stephenson MD. The effect of position on the percentage of body mass supported during traditional and modified push-up variants. J Strength Cond Res. 2011;25:497–503. doi: 10.1519/JSC.0b013e3181bde2cf.
+17.
+de Oliveira AS, de Morais CM, de Brum DP. Activation of the shoulder and arm muscles during axial load exercises on a stable base of support and on a medicine ball. J Electromyogr Kinesiol. 2008;18:472–9. doi: 10.1016/j.jelekin.2006.09.009.
+18.
+Michener LA, McClure PW, Karduna AR. Anatomical and biomechanical mechanisms of subacromial impingement syndrome. Clin Biomech (Bristol, Avon) 2003;18:369–79. doi: 10.1016/S0268-0033(03)00047-0.
+19.
+Moseley JB, Jr, Jobe FW, Pink M, Perry J, Tibone J. EMG analysis of the scapular muscles during a shoulder rehabilitation program. Am J Sports Med. 1992;20:128–34. doi: 10.1177/036354659202000206.
+20.
+Andersen CH, Zebis MK, Saervoll C, Sundstrup E, Jakobsen MD, Sjogaard G, Andersen LL. Scapular muscle activity from selected strengthening exercises performed at low and high intensities. J Strength Cond Res. 2012;26:2408–16. doi: 10.1519/JSC.0b013e31823f8d24.
+21.
+Lunden JB, Braman JP, Laprade RF, Ludewig PM. Shoulder kinematics during the wall push-up plus exercise. J Shoulder Elbow Surg. 2010;19:216–23. doi: 10.1016/j.jse.2009.06.003.
+22.
+Park SY, Yoo WG. Differential activation of parts of the serratus anterior muscle during push-up variations on stable and unstable bases of support. J Electromyogr Kinesiol. 2011;21:861–7. doi: 10.1016/j.jelekin.2011.07.001.
+23.
+Youdas JW, Budach BD, Ellerbusch JV, Stucky CM, Wait KR, Hollman JH. Comparison of muscle-activation patterns during the conventional push-up and perfect push-up exercises. J Strength Cond Res. 2010;24:3352–62. doi: 10.1519/JSC.0b013e3181cc23b0.
+24.
+Kim ER, Oh JS, Yoo WG. Effect of Vibration Frequency on Serratus Anterior Muscle Activity during Performance of the Push-up Plus with a Redcord Sling. J Phys Ther Sci. 2014;26:1275–6. doi: 10.1589/jpts.26.1275.
+25.
+Gouvali MK, Boudolos K. Dynamic and electromyographical analysis in variants of push-up exercise. J Strength Cond Res. 2005;19:146–51. doi: 10.1519/14733.1.
+26.
+Lou S, Lin CJ, Chou PH, Chou YL, Su FC. Elbow load during pushup at various forearm rotations. Clin Biomech (Bristol, Avon) 2001;16:408–14. doi: 10.1016/S0268-0033(01)00008-0.
+27.
+Suprak DN, Bohannon J, Morales G, Stroschein J, San Juan JG. Scapular kinematics and shoulder elevation in a traditional push-up. J Athl Train. 2013;48:826–35. doi: 10.4085/1062-6050-48.5.08.
+28.
+Cram JR, Kasman GS, Holtz J.  Introduction to surface electromyography. Gaithersburg, Md: Aspen Publishers; 1998. 
+29.
+McCully SP, Suprak DN, Kosek P, Karduna AR. Suprascapular nerve block results in a compensatory increase in deltoid muscle activity. J Biomech. 2007;40:1839–46. doi: 10.1016/j.jbiomech.2006.07.010.
+30.
+Tucker WS, Campbell BM, Swartz EE, Armstrong CW. Electromyography of 3 scapular muscles: a comparative analysis of the cuff link device and a standard push-up. J Athl Train. 2008;43:464–9. doi: 10.4085/1062-6050-43.5.464.
+31.
+Kim JB, Choi IR, Yoo WG. A comparison of scapulothoracic and trunk muscle activities among three variations of knee push-up-plus exercise. J Phys Ther Sci. 2011;23:365–7. doi: 10.1589/jpts.23.365.
+32.
+Sciascia A, Kuschinsky N, Nitz AJ, Mair SD, Uhl TL. Electromyographical comparison of four common shoulder exercises in unstable and stable shoulders. Rehabil Res Pract. 2012;2012:783824. doi: 10.1155/2012/783824.
+33.
+Johnson GR, Pandyan AD. The activity in the three regions of the trapezius under controlled loading conditions--an experimental and modelling study. Clin Biomech (Bristol, Avon) 2005;20:155–61. doi: 10.1016/j.clinbiomech.2004.10.005.
+34.
+Johnson G, Bogduk N, Nowitzke A, House D. Anatomy and actions of the trapezius muscle. Clinical Biomechanics. 1994;9:44–50. doi: 10.1016/0268-0033(94)90057-4.
+35.
+Ebaugh DD, McClure PW, Karduna AR. Three-dimensional scapulothoracic motion during active and passive arm elevation. Clin Biomech (Bristol, Avon) 2005;20:700–9. doi: 10.1016/j.clinbiomech.2005.03.008.
+36.
+Tardo DT, Halaki M, Cathers I, Ginn KA. Rotator cuff muscles perform different functional roles during shoulder external rotation exercises. Clin Anat. 2012;26:236–43. doi: 10.1002/ca.22128.
+37.
+Lee SB, Kim KJ, O’Driscoll SW, Morrey BF, An KN. Dynamic glenohumeral stability provided by the rotator cuff muscles in the mid-range and end-range of motion. A study in cadavera. J Bone Joint Surg Am. 2000;82:849–57. doi: 10.2106/00004623-200006000-00012.
+38.
+San Juan JG, Kosek P, Karduna AR. Humeral head translation after a suprascapular nerve block. J Appl Biomech. 2013;29:371–9. doi: 10.1123/jab.29.4.371.
+39.
+Reinold MM, Wilk KE, Fleisig GS, Zheng N, Barrentine SW, Chmielewski T, Cody RC, Jameson GG, Andrews JR. Electromyographic analysis of the rotator cuff and deltoid musculature during common shoulder external rotation exercises. J Orthop Sports Phys Ther. 2004;34:385–94. doi: 10.2519/jospt.2004.34.7.385.
+40.
+Ebben WP, Wurm B, VanderZanden TL, Spadavecchia ML, Durocher JJ, Bickham CT, Petushek EJ. Kinetic analysis of several variations of push-ups. J Strength Cond Res. 2011;25:2891–4. doi: 10.1519/JSC.0b013e31820c8587.

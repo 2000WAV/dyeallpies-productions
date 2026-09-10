@@ -1,0 +1,38 @@
+1. J Sport Rehabil. 2019 Dec 19;29(7):1001-1018. doi: 10.1123/jsr.2018-0449.
+Print  2020 Sep 1.
+
+Muscle Activity Ratios of Scapular Stabilizers During Closed Kinetic Chain 
+Exercises in Healthy Shoulders: A Systematic Review.
+
+Karabay D, Emük Y, Özer Kaya D.
+
+CONTEXT: Selective strengthening of scapular stabilizers is one of the emphases 
+of the recent literature. Closed kinetic chain (CKC) exercises are used 
+extensively in shoulder rehabilitation. However, a limited number of studies 
+have reported scapular muscle ratios during CKC exercises.
+OBJECTIVES: To determine the CKC exercises producing the optimal ratios of the 
+scapular stabilizer muscles in healthy shoulders.
+EVIDENCE ACQUISITION: A systematic search within PubMed, Embase, CINAHL Plus, 
+and SPORTDiscus with Full Text and ULAKBIM National Medical Database was 
+performed up to January 2018. Studies were selected according to the 
+predetermined criteria. If the pooled mean ratios (upper trapezius [UT]/middle 
+trapezius [MT], UT/lower trapezius [LT], and UT/serratus anterior [SA]), which 
+were calculated from the percentage of maximum voluntary contractions of 
+muscles, were <0.60, these exercises were considered as ideal for higher 
+activation of the MT, LT, and SA than the UT.
+EVIDENCE SYNTHESIS: The search identified 1284 studies, and 29 observational 
+studies were included for review. Seventy-nine CKC exercises were determined. 
+Four exercises for the MT, 9 for the LT, and 59 for the SA were identified from 
+the articles as being optimal exercises to activate the specified muscle more 
+than the UT.
+CONCLUSIONS: This review identified optimal CKC exercises that provide good 
+ratios between the MT, LT, and SA with the UT. Most exercises have optimal UT/SA 
+ratios, but some exercises performed on unstable surfaces may lead to excessive 
+activation of the UT relative to the SA. For the UT/MT, the isometric low row, 
+inferior glide, and half supine pull-up with slings are the ideal exercises. 
+Isometric one-hand knee push-up variations seem to be the best choice for the 
+UT/LT. The results suggest that many CKC exercises may be utilized to enhance 
+scapular muscle balance when rehabilitating shoulder pathology.
+
+DOI: 10.1123/jsr.2018-0449
+PMID: 31860828 [Indexed for MEDLINE]

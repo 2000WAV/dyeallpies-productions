@@ -1,0 +1,37 @@
+militaryspot.com/marines/marine-fitness-test -- "Marine Corps Physical Fitness Test (PFT)."
+Secondary/fitness-blog compilation quoting apparently near-verbatim MCO 6100.13A push-up technique
+language (not confirmed against the primary Order itself this session -- official fitness.marines.mil
+and marines.mil/mcieast.marines.mil PDF and HTML endpoints all returned HTTP 403 to curl -A
+"Mozilla/5.0" and to WebFetch, same block pattern already documented in
+references/pullup-science/03-norms-and-energy.md for the pull-up side). Fetched via curl 2026-09-09,
+HTTP 200, saved as militaryspot-usmc-pft.html. Text extracted via WebFetch (raw curl'd HTML also
+retained in this folder for a future session's direct re-parse).
+
+=== USMC PFT push-up technique, as quoted by this secondary source ===
+Starting position: "The Marine will assume the front-leaning rest position by placing the hands
+where comfortable. The feet may be together or 12 inches apart (measured between the feet). When
+viewed from the side, the body should form a generally straight line from the shoulders to the
+ankles."
+
+Depth requirement (bottom of the rep): "the entire body as a single unit until the upper arms are
+at least parallel to the ground." Marines may not rest their chest on the deck except as required
+to confirm proper arm positioning.
+
+Top of the rep (lockout): "raising the entire body until the arms are fully extended."
+
+No-rep / disqualifying-rep criteria: a repetition does NOT count if the Marine fails to (1) maintain
+a generally straight body line, (2) lower until the upper arms reach parallel to the ground, or (3)
+fully extend the arms at the top. Additionally, incorrectly-performed push-ups after the first 10
+are not counted (i.e. some early-rep form leniency, then a stricter count).
+
+Time limit: "a timed event to perform as many push-ups as possible in two minutes."
+
+Rest rule: an ALTERED front-leaning rest position (sagging in the middle, back flexed) is the only
+authorized way to pause without penalty. If the Marine rests on the ground, or lifts either hand or
+foot off the ground, the performance is terminated (the set ends there).
+
+=== Cross-check against the ACFT hand-release push-up (Army) wording, for contrast ===
+See goarmy-acft-hrp-CITATION-ONLY.txt in this folder for the Army's hand-release variant, which adds
+an explicit hand-release-and-arm-extension requirement at the bottom of every rep (not required by
+the USMC standard push-up above) -- the two services' events are NOT the same movement despite both
+being called "push-ups" in casual usage, and should not be scored on the same table.

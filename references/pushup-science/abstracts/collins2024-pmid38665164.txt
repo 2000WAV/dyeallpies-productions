@@ -1,0 +1,45 @@
+1. Int J Exerc Sci. 2024 Jan 1;17(1):38-53. doi: 10.70252/USAK1758. eCollection 
+2024.
+
+Bench Press Range-of-Motion and Velocity-based Repetition Control: Effects on 
+Ballistic Push-up Performance in Males.
+
+Collins KS(1), Bradley AP(1), Christensen BK(1), Waldera RW(2), Klawitter LA(3), 
+Ogren L(1), Salatto RW(4).
+
+Author information:
+(1)Department of Health, Nutrition, and Exercise Sciences, North Dakota State 
+University, Fargo, ND, USA.
+(2)School of Health and Consumer Sciences, South Dakota State University, 
+Brookings, SD, USA.
+(3)School of Health and Human Performance, Northern Michigan University, 
+Marquette, MI, USA.
+(4)Department of Kinesiology, Vanguard University, Costa Mesa, CA, USA.
+
+The purpose of this study was to investigate whether the ballistic push-up (BPU) 
+is responsive to post-activation performance enhancement (PAPE) after a bench 
+press conditioning exercise using velocity-based repetition control. 
+Additionally, we aimed to evaluate the effects of range of motion (ROM) 
+conditions on subsequent BPU performance. In a randomized crossover design, 18 
+males performed two conditions (full ROM and self-selected partial ROM) of bench 
+press at 80% of their 1RM until mean concentric velocity dropped 10%. Each 
+participant performed two pre- and six post-test BPUs to assess the PAPE effect. 
+Paired sample t-tests assessed bench press performance measures. Multiple 
+two-way repeated measures ANOVAs assessed differences in flight time, impulse, 
+and peak power for the pre- and post-test BPUs. No significant differences 
+existed between ROM conditions for total repetitions, volume load, or peak 
+velocity. Compared to partial ROM, full ROM showed greater displacement (0.42 ± 
+0.05 vs. 0.34 ± 0.05 m), work (331.99 ± 67.72 vs. 270.92 ± 61.42 J), and mean 
+velocity (0.46 ± 0.09 vs. 0.44 ± 0.08 m/s). Neither bench press ROM condition 
+enhanced the BPU and were detrimental in some cases. Several time points showed 
+partial ROM (flight time: 2 min post, impulse: 12 min post, peak power: 12 min 
+post) significantly greater than full ROM, possibly indicating less fatigue 
+accumulation. The BPU may require a different stimulus or may not be practical 
+for PAPE effects in college-aged males. Partial ROM can be an alternative that 
+achieves similar peak velocities while requiring less overall work.
+
+DOI: 10.70252/USAK1758
+PMCID: PMC11042900
+PMID: 38665164
+
+Notes for this project: OPEN ACCESS (PMCID PMC11042900). 18 men, ballistic push-up (BPU) post-activation-performance-enhancement (PAPE) study using bench press conditioning at 80%1RM to 10% velocity loss, full vs partial ROM. Full-ROM bench: displacement 0.42+/-0.05 m, work 331.99+/-67.72 J, mean velocity 0.46+/-0.09 m/s vs partial-ROM 0.34+/-0.05 m / 270.92+/-61.42 J / 0.44+/-0.08 m/s. Neither ROM condition produced a PAPE effect on the subsequent BPU (some BPU measures were actually higher after partial ROM, suggesting less fatigue accumulation from the conditioning set) -- relevant fatigue-adjacent evidence for 04-pushup-fatigue-within-set.md even though it is a between-exercise (bench->push-up) rather than within-push-up-set fatigue design.

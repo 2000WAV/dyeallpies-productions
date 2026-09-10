@@ -1,0 +1,41 @@
+van den Tillaar R, Ball N (2020). Push-Ups are Able to Predict the Bench Press 1-RM and Constitute
+an Alternative for Measuring Maximum Upper Body Strength Based on Load-Velocity Relationships.
+J Hum Kinet 73:7-18. PMID 32774533. PMCID PMC7386139. Open access (CC BY, Sciendo).
+
+20 resistance-trained male athletes (age 22.5+/-5.24y, mass 83.7+/-10.7kg, height 1.80+/-0.06m).
+Push-ups without vest and with 10/20/30 kg weight vest; bench press at 50-80%1RM in 10kg steps.
+Linear encoder for velocity. Strain-gauge force plate under the push-up handles.
+
+TABLE (push-up, % of body mass [+weight vest] supported through the arms, by load condition):
+  0 kg vest:  62.6 +/- 4.3 %BM,  mean velocity 0.86 +/- 0.19 m/s
+  10 kg vest: 63.7 +/- 3.6 %BM,  mean velocity 0.71 +/- 0.15 m/s
+  20 kg vest: 64.4 +/- 3.4 %BM,  mean velocity 0.57 +/- 0.15 m/s
+  30 kg vest: 65.1 +/- 3.4 %BM,  mean velocity 0.43 +/- 0.15 m/s
+  (bench press comparison loads: 50/60/70/80 kg, i.e. 50+14.9/60+14.9/70+14.9/80+14.9 -- see raw
+  text; matched-velocity pairing between the two exercises is the paper's core method)
+
+Velocity at theoretical 1RM (x-intercept convention from Gonzalez-Badillo & Sanchez-Medina 2010,
+applied here to the push-up): V0 = 0.18 m/s -- i.e. the push-up's own "1RM = 0.18 m/s" threshold is
+taken directly from the general (barbell) resistance-training literature, not independently
+re-derived for the push-up in this paper.
+
+Predicted 1RM (from each exercise's own load-velocity line, extrapolated to 0.18 m/s):
+  bench press: 93.5 +/- 15.7 kg
+  push-up:     93.1 +/- 14.0 kg
+  bias (push-up minus bench): 0.31 +/- 5.7 kg, n.s. -- i.e. no systematic difference between the
+  two exercises' predicted 1RM.
+  cross-exercise correlation of predicted 1RM: r = 0.93 (extremely large).
+  velocity vs %1RM (push-up only): r = -0.90, SEE = 0.1%.
+
+No actual push-up 1RM was tested directly (injury-risk/practicality reasons stated in Methods) --
+the "93.1 kg" push-up 1RM is a LOAD-VELOCITY EXTRAPOLATION (weight-vest load equivalent), not a
+directly-lifted single maximal repetition. Compare against vandentillaar2025-pmid40489404.txt, which
+DID test an actual 1RM in both exercises (11 men) and found the push-up's ACTUAL 1RM (112.4+/-18.9kg
+vest-equivalent) significantly exceeds the bench press's actual 1RM (106.4+/-20.4kg) even though the
+two exercises' LOAD-VELOCITY-PREDICTED 1RM values did not differ -- i.e. the load-velocity
+extrapolation method itself may not fully capture the true ceiling of push-up loading capacity.
+
+Cites (in its own literature review): Mayhew et al. 1991 (60-s push-up count did NOT predict bench
+1RM); Invergo et al. 1991 (same conclusion, different mechanism types); Bartolomei et al. 2018 (r=.87
+mean-power-based push-up-to-bench-1RM correlation, force-plate method -- matches
+bartolomei2018-pmid29528954.txt in this archive).

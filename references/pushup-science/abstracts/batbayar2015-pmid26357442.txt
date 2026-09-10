@@ -1,0 +1,32 @@
+1. J Phys Ther Sci. 2015 Aug;27(8):2573-6. doi: 10.1589/jpts.27.2573. Epub 2015
+Aug  21.
+
+Effect of various hand position widths on scapular stabilizing muscles during 
+the push-up plus exercise in healthy people.
+
+Batbayar Y(1), Uga D(2), Nakazawa R(2), Sakamoto M(2).
+
+Author information:
+(1)Mongolian National University of Medical Sciences, Mongolia.
+(2)Graduate School of Health Sciences, Gunma University, Japan.
+
+[Purpose] The purpose of this study was to determine the effect of various hand 
+position widths during the push-up plus (PUP) exercise on the activity of the 
+scapular stabilizing muscles and other upper-extremity muscles involved in the 
+exercise. [Subjects and Methods] Nine healthy men participated in our study. The 
+PUP exercise was performed on a stable surface in seven different hand 
+positions, namely shoulder width (SW), and narrower SW (NSW) and wider SW (WSW) 
+at 10%, 20%, and 30%. Surface electromyography was used to measure the muscle 
+activities and muscle ratio of the upper trapezius (UT), middle trapezius, lower 
+trapezius (LT), serratus anterior (SA), pectoralis major, deltoid anterior, 
+latissimus dorsi (LD), and triceps muscles. [Results] The SA and LD muscle 
+activities significantly decreased in the 30% NSW and 20% WSW hand positions, 
+respectively. The UT/LT muscle ratio significantly increased in the 30% WSW hand 
+position. [Conclusion] The results of this study suggest that during the PUP 
+exercise, the SW hand position should be used. In the 30% NSW hand position, the 
+SA muscle activity decreased, and the UT/ LT ratio increased in the 30% WSW hand 
+position.
+
+DOI: 10.1589/jpts.27.2573
+PMCID: PMC4563317
+PMID: 26357442

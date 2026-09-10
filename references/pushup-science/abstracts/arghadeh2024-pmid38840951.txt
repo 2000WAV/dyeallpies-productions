@@ -1,0 +1,66 @@
+1. Front Sports Act Living. 2024 May 22;6:1385693. doi:
+10.3389/fspor.2024.1385693.  eCollection 2024.
+
+Electromyography of shoulder muscles in individuals without scapular dyskinesis 
+during closed kinetic chain exercises on stable and unstable surfaces: a 
+systematic review and meta-analysis.
+
+Arghadeh R(1), Alizadeh MH(#)(1), Minoonejad H(#)(1), Sheikhhoseini R(#)(2), 
+Asgari M(#)(3), Jaitner T(#)(3).
+
+Author information:
+(1)Department of Sports Injury and Biomechanics, Faculty of Sport Sciences and 
+Health, University of Tehran, Tehran, Iran.
+(2)Department of Corrective Exercises and Sports Injury, Faculty of Physical 
+Education and Sport Sciences, Allameh Tabataba'i University, Tehran, Iran.
+(3)Institute for Sport and Sport Science, TU Dortmund University, Dortmund, 
+Germany.
+(#)Contributed equally
+
+INTRODUCTION: Unstable surfaces are commonly utilized to enhance the flexibility 
+of the musculoskeletal system for achieving training or rehabilitation goals. 
+However, their effects on shoulder muscle activation during various push-up (PU) 
+exercises have not been thoroughly investigated. Therefore, the purpose of this 
+study was to synthesize electromyography (EMG) data of shoulder muscles in 
+individuals without scapular dyskinesis performing different PU exercises on 
+both stable and unstable surfaces.
+METHODS: A systematic online search was conducted in electronic databases, 
+including Web of Science, PubMed, Scopus, and Google Scholar, up to January 16, 
+2024, using predefined sets of keywords. Out of the 1,971 titles and abstracts 
+screened, 80 articles were reviewed in detail by two independent researchers to 
+check the eligibility, of which 28 eligible studies were ultimately included. 
+Following assessment of the quality and risk of bias, the studies were 
+categorized based on exercises and muscle groups, and a meta-analysis using a 
+random-effects model was performed to estimate the overall effect size.
+RESULTS: The use of unstable surfaces led to a decrease in anterior deltoid 
+activity during PU [P = 0.032; I2 = 91.34%; SMD = -0.630 (95% CI -1.205, 
+-0.055)], an increase in pectoralis major activity during PU [P = 0.006; 
+I2 = 63.72%; SMD = 0.282 (95% CI 0.079, 0.484)], as well as during knee PU 
+[P = 0.018; I2 = 32.29%; SMD = 0.309 (95% CI 0.052, 0.565)], and an increase in 
+triceps brachii activity during PU [P = 0.000; I2 = 85.05%; SMD = 0.813 (95% CI 
+0.457, 1.168)], knee PU [P = 0.000; I2 = 0.00%; SMD = 0.589 (95% CI 0.288, 
+0.891)], as well as during push-up plus [P = 0.006; I2 = 13.16%; SMD = 0.563 
+(95% CI 0.161, 0.965)]. However, the use of unstable surfaces did not show a 
+significant effect on the EMG activity of the pectoralis major during push-up 
+plus [P = 0.312; I2 = 22.82%; SMD = 0.207 (95% CI -0.194, 0.609)].
+CONCLUSIONS: Unstable surfaces can modulate muscle activity in different PU 
+exercises, while the effects on the targeted muscles depend on the type of 
+exercise. The findings of this review provide a framework based on the level of 
+activity of each shoulder muscle during different PU exercises, which can help 
+coaches, trainers, and sports therapists select the most suitable type of PU for 
+designing training or rehabilitation programs. Particularly, the most suitable 
+exercise for increasing anterior deltoid activity is PU on a stable surface. To 
+concurrently increase activity of the pectoralis major and triceps brachii, 
+adding unstable surfaces under hands during knee PU and standard PU is 
+recommended.
+SYSTEMATIC REVIEW REGISTRATION: PROSPERO, identifier CRD42021268465.
+
+© 2024 Arghadeh, Alizadeh, Minoonejad, Sheikhhoseini, Asgari and Jaitner.
+
+DOI: 10.3389/fspor.2024.1385693
+PMCID: PMC11150595
+PMID: 38840951
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.

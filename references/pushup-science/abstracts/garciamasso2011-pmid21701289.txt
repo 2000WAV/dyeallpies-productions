@@ -1,0 +1,38 @@
+1. J Strength Cond Res. 2011 Jul;25(7):2040-7. doi: 10.1519/JSC.0b013e3181e4f7ce.
+
+Myoelectric activation and kinetics of different plyometric push-up exercises.
+
+García-Massó X(1), Colado JC, González LM, Salvá P, Alves J, Tella V, Triplett 
+NT.
+
+Author information:
+(1)Department of Physical Education and Sports, University of Valencia, 
+Valencia, Spain.
+
+The kinetic and myoelectric differences between 3 types of plyometric push-ups 
+were investigated. Twenty-seven healthy, physically active men served as 
+subjects and completed both familiarization and testing sessions. During these 
+sessions, subjects performed 2 series of 3 plyometric push-up variations in a 
+counterbalanced order according to the following techniques: Countermovement 
+push-ups (CPUs) were push-ups performed with the maximum speed of movement; jump 
+push-ups (JPUs) were similar to clapping push-ups; and fall push-ups (FPUs) 
+required kneeling subjects to drop and then attempt to return to their initial 
+position. Vertical ground reaction forces were determined by using a force 
+plate. Myoelectric activity was recorded by means of electromyography. Impact 
+force and impact rate of force development were significantly (p < 0.05) higher 
+for FPUs than for JPUs. The maximum rate of force development was higher for 
+CPUs (p < 0.05) than for JPUs, and the maximum force was higher for the CPUs 
+than for the FPUs (p < 0.05). There were differences among exercises for the 
+mean muscle activation of the pectoralis major (PM; p < 0.001), triceps brachii 
+(p < 0.001), external oblique (p < 0.005) and anterior deltoid (p < 0.001), and 
+in the maximum muscle activation of the PM (p < 0.001). Plyometric push-ups with 
+countermovement achieved a higher maximum force and rate of force and did not 
+cause impact forces. Thus, this type of push-up exercise may be regarded as the 
+best for improving explosive force. The FPU exercise achieved higher levels of 
+muscular activation in the agonist and synergist muscle groups, and greater 
+impact forces and impact force development rates.
+
+DOI: 10.1519/JSC.0b013e3181e4f7ce
+PMID: 21701289 [Indexed for MEDLINE]
+
+Notes for this project: 27 men, 3 plyometric push-up types (countermovement/CPU, jump-clap/JPU, kneeling-fall/FPU). Qualitative kinetic ranking only in the abstract (impact force + impact RFD: FPU > JPU; max RFD: CPU > JPU; max force: CPU > FPU) plus EMG differences; no absolute %BW or N numbers given. Closed access (JSCR/LWW); no PMC copy found.

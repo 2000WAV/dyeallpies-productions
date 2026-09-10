@@ -1,0 +1,41 @@
+1. Int J Exerc Sci. 2022 Jun 1;15(4):820-833. doi: 10.70252/XIJI4089. eCollection
+ 2022.
+
+Development of a Standard Push-up Scale for College-Aged Females.
+
+Adams MM(1), Hatch SA(1), Winsor EG(1), Parmelee C(2).
+
+Author information:
+(1)Department of Human Performance & Movement Sciences, Keene State College, 
+Keene, NH, USA.
+(2)Department of Mathematics, Keene State College, Keene, NH, USA.
+
+The ACSM/CESP push-up test exemplifies the limiting nature of the gender binary 
+in fitness. Males perform the standard push-up (from toes) while females perform 
+the modified push-up (from knees), even if capable of multiple standard 
+push-ups. Differences in upper body strength are used to justify the test 
+protocol. Though the load difference between modified and standard positions is 
+substantially less than the gender strength gap. Additionally, current fitness 
+ratings are over 30 years old. The purpose of this study was to develop a new 
+standard push-up rating scale for college-age females. Cis-female college 
+students (n = 72) were recruited to perform maximal repetitions in the modified 
+and standard positions. Health history and physical activity information was 
+gathered prior to the test. Trained research assistants provided standardized 
+warm-up, modelled correct form, and administered the tests. Order of the tests 
+was randomized and there was at least 48 hours between test days. Mean push-ups 
+in the standard position was 9 (8.87) and 17.5 (11.76) in the modified position. 
+Participants who resistance train did significantly more repetitions of each. 
+Linear regression was used to develop an equation to predict standard push-up 
+repetitions from modified repetitions. The equation was applied to the current 
+repetition ranges for each fitness category, and a new standard scale was 
+developed. The new scale ratings are similar to the Revised Push-up but lower 
+than the Fitnessgram® Healthy Zone. The modified or "girl" push-up contributes 
+to gender stereotypes about muscular fitness. Providing females with the option 
+to be graded on the standard push-up is a step to reducing gender bias in 
+fitness. Future research is needed to validate this scale.
+
+DOI: 10.70252/XIJI4089
+PMCID: PMC9362895
+PMID: 35992503
+
+Notes for this project: OPEN ACCESS (PMCID PMC9362895), full text fetched -- see papers/adams2022-pushup-scale-females.pdf and -extract.txt. THE key norms-file source: (1) reproduces the actual ACSM/CSEP push-up fitness-category table for 20-29-year-olds (5 tiers, male + female standard positions) -- originally Canadian Association of Sport Sciences 1987, published in ACSM Guidelines 2nd ed. 1993 (via Pollock et al. 1978's modified-push-up norms); (2) cites Ebben et al. 2011's ABSOLUTE %BW numbers (64% standard / 49% knee push-up, peak GRF 18% lower in modified) which are not stated in Ebben's own abstract; (3) cites Gouvali & Boudolos 2005's 66.4%/52.9% numbers directly; (4) cites Suprak et al. 2011's up-to-down %-increase (8.24% modified, 5.88% standard); (5) develops its own new predicted standard-push-up scale for college-age women (n=72, 18-24y) via regression from modified-push-up performance: standard_reps = -2.217 + 0.64 x modified_reps (r=.85, r^2=.72); mean standard reps 9 (SD 8.87), modified 17.5 (SD 11.76).

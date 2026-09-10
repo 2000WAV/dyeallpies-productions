@@ -1,0 +1,34 @@
+1. J Biomech. 1993 Jun;26(6):625-32. doi: 10.1016/0021-9290(93)90026-b.
+
+Hand position affects elbow joint load during push-up exercise.
+
+Donkers MJ(1), An KN, Chao EY, Morrey BF.
+
+Author information:
+(1)Department of Orthopedics, Mayo Clinic/Mayo Foundation, Rochester, MN 55905.
+
+Electromagnetic motion sensors and a piezoelectric force plate were used to 
+record simultaneously upper-extremity motion and forces in nine healthy male 
+subjects during push-ups in six different hand positions. The intersegmental 
+loading pattern on the elbow joint during a push-up exercise was investigated. 
+The importance of hand position on these loads was examined. Peak forces exerted 
+on the elbow joint along the forearm axis averaged 45% of the body weight for 
+the 'normal' hand position and were significantly decreased if hands were 
+positioned either 'apart' or 'superior' from 'normal'. The peak torque in the 
+'normal' position tended to produce elbow flexion and was 2305.9 N cm, or 56% of 
+the maximal isometric extensor torque, which was significantly different from 
+hands 'apart' and hand 'together' at 29 and 71% of the maximal isometric torque, 
+respectively. The maximum torque about the forearm axis tended to produce 
+forearm pronation with a mean value of 315.4 N cm (35% of the maximal isometric 
+supinator torque). The maximum valgus torque at the elbow opposed by the medial 
+ligamentous structure was 1241 N cm and was significantly increased if the hand 
+was positioned superiorly. The valgus torque increased by 42% for the one-handed 
+push-up under simulated fall condition. The results of this analysis give an 
+insight into the biomechanics of a normal elbow and to its load-carrying 
+capacity. The data may be extrapolated to the design of rehabilitation programs 
+and possibly to the mechanisms of forearm injury during a fall.
+
+DOI: 10.1016/0021-9290(93)90026-b
+PMID: 8514808 [Indexed for MEDLINE]
+
+Notes for this project: primary elbow-joint inverse-dynamics source. Peak axial (forearm-long-axis) force at elbow = 45% BW in the "normal" hand position (9 healthy men, electromagnetic motion sensors + piezoelectric force plate), significantly lower for "apart"/"superior" hand positions. Peak elbow-flexion torque 2305.9 N-cm = 56% of MVIC extensor torque (29%/71% for apart/together hand positions). Forearm pronation torque 315.4 N-cm = 35% of MVIC supinator torque. Peak valgus torque 1241 N-cm, +42% under simulated one-handed-fall loading. Closed access (J Biomech/Elsevier); no PMC copy found (pre-1997, predates PMC).

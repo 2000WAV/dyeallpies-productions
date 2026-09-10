@@ -1,0 +1,39 @@
+operationmilitarykids.org/marine-corps-pft-standards/ -- "Marine Corps PFT Standards Chart Updated
+For 2026." Secondary/fitness-blog compilation (not the official Marine Corps Order); credits the
+image source as "Marines.mil". Fetched via curl -A "Mozilla/5.0" 2026-09-09, HTTP 200, saved as
+operationmilitarykids-usmc-pft-2026.html. Same site already used and trusted in
+references/pullup-science/03-norms-and-energy.md section 1.1 for the pull-up side.
+
+Site uses a coarser 6-point-level "quick reference" table (100/90/75/60/50/40 points only, not
+every rep count) with separate tables per age bracket and sex (5 age brackets x 2 sexes = 10 tables
+total on the page, ages 17-20 through 36-40 only -- does not cover 41-45/46-50/51+ the way
+thebattlebunker.com's table does).
+
+=== MALE 21-25 (age bracket matching the task's requested example) ===
+  Points | Pull-Ups | Push-Ups | Plank    | 3-Mile Run | High-Altitude Run | Rowing
+  100    |    23    |   N/A    | 3:45     | 18:00      | 19:30             | 18:15
+  90     |    20    |   N/A    | 3:20     | 19:40      | 21:10             | 19:10
+  75     |    16    |    64    | 2:38     | 22:00      | 23:30             | 20:35
+  60     |    11    |    53    | 2:02     | 24:30      | 26:00             | 22:00
+  50     |     8    |    46    | 1:36     | 26:00      | 27:30             | 22:55
+  40     |     5    |    40    | 1:10     | 27:40      | 29:10             | 23:50
+
+Push-ups show "N/A" at 90 and 100 points -- CONSISTENT with the 70-point push-up cap documented in
+thebattlebunker-usmc-standards-2026-extract.txt (a Marine cannot score above 70 points on push-ups
+at all, so the 90- and 100-point cells for push-ups are structurally empty in this table, not
+missing data). The 75-point push-up value (64 reps) sits between thebattlebunker's own min(40pts,
+40 reps)/max(70pts, 87 reps) anchors for the same age bracket, consistent with a roughly monotonic
+(not necessarily linear) scoring curve between 40 and 70 points.
+
+=== MALE 17-20 ===
+  Points | Pull-Ups | Push-Ups | Plank | 3-Mile Run | High-Altitude Run | Rowing
+  100    |    20    |   N/A    | 3:45  | 18:00      | 19:30             | 18:00
+  90     |    17    |   N/A    | 3:20  | 19:40      | 21:10             | 18:55
+  75     |    13    |    65    | 2:41  | 22:00      | 23:30             | 20:15
+  60     |    10    |    59    | 2:02  | 24:30      | 26:00             | 21:40
+  50     |     7    |    55    | 1:36  | 26:00      | 27:30             | 22:35
+  40     |     4    |    42    | 1:10  | 27:40      | 29:10             | 23:30
+
+(Male 26-30, 31-35, 36-40 tables also captured, matching thebattlebunker's min/max anchors; not
+reproduced in full here since the min(40pt)/max(70pt) anchors already appear in
+thebattlebunker-usmc-standards-2026-extract.txt and data/pushup-military-standards.csv.)

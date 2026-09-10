@@ -1,0 +1,55 @@
+Eckel TL, Watkins CM, Archer DC, Wong MA, Arevalo JA, Lin A, Coburn JW, Galpin AJ, Brown LE (2017).
+Bench press and pushup repetitions to failure with equated load. International Journal of Sports
+Science & Coaching 12(5):647-652. doi:10.1177/1747954117733879. NOT PubMed-indexed (searched
+PubMed under Eckel/Watkins/push-up/bench-press/failure, 0 hits -- IJSSC/SAGE is not consistently
+MEDLINE-indexed). Full PDF obtained directly from a California State University Fullerton
+institutional lab-page mirror (hhd.fullerton.edu/knes/.../Eckel Bench press and push-up reps.pdf),
+saved as eckel2017-pushup-benchpress-failure.pdf in this folder; text below extracted via pdftotext.
+
+25 recreationally trained subjects (16 men: age 23.00+/-2.36y, height 178.19+/-9.61cm, mass
+74.80+/-13.44kg; 9 women: age 23.11+/-2.71y, height 160.78+/-5.95cm, mass 53.63+/-5.60kg).
+
+METHOD: Day 1 -- isometric push-up held on a force plate in the UP position (elbows fully extended,
+triceps perpendicular to floor) and the DOWN position (triceps parallel to floor, confirmed with a
+safety-squat-bar cue device on the triceps) for 3s each, measuring %BW supported through the hands;
+also a bench press 1RM test. Days 2-3 (48h apart) -- repetitions to failure at a fixed 60
+beats/min (30 reps/min) metronome cadence, for (a) push-up and (b) bench press loaded to match the
+average of the individual's own up+down isometric push-up force.
+
+=== KEY TABLE (Table 2 of the paper; mean +/- SD) ===
+                          Men (n=16)              Women (n=9)
+Bench 1RM (kg)            99.29 +/- 23.98 *        42.17 +/- 8.88
+Bench 1RM rel. to BM      1.32 +/- 0.22 *          0.79 +/- 0.13
+Bench reps-to-failure     16.38 +/- 6.05 *         11.00 +/- 9.25
+Push-up reps-to-failure   24.06 +/- 10.35          30.18 +/- 19.15
+AVG %BM (up+down avg)     74.33 +/- 2.57 %BM *     69.70 +/- 2.63 %BM
+UP position %BM           71.95 +/- 3.09 %BM *     66.26 +/- 2.63 %BM
+DOWN position %BM         76.70 +/- 2.56 %BM *     73.14 +/- 3.14 %BM
+* = significantly different from the other sex, P<0.05
+
+Combined (both sexes, from the abstract): push-up reps-to-failure 19.36+/-11.68 vs bench press
+11.40+/-8.38 (main effect of exercise, P<0.001, more reps in push-up); main effect of sex (men
+20.22+/-8.20 vs women 6.78+/-5.69 reps-to-failure, pooling both exercises, P<0.001). Strong
+correlation between bench-press and push-up reps-to-failure at the equated relative load: combined
+r=0.82; men r=0.81; women r=0.76 (all P<0.05).
+
+=== KEY NUMBER for 02-pushup-hand-force-and-joint-moments.md: TOP vs BOTTOM %BW ===
+This is the archive's most directly comparable ISOMETRIC (static-hold, force-plate) top-vs-bottom
+measurement, with separate male and female values:
+  men:   UP (top, elbows locked)  71.95 +/- 3.09 %BM;  DOWN (bottom) 76.70 +/- 2.56 %BM
+  women: UP (top)                 66.26 +/- 2.63 %BM;  DOWN (bottom) 73.14 +/- 3.14 %BM
+i.e. roughly 72% BW at the top and 77% BW at the bottom for men in a standard (static) push-up hold
+-- close to, but somewhat higher than, the Gouvali & Boudolos (2005) figure of 66.4% (their "initial
+load," a single value not split top/bottom) and noticeably higher than the secondhand Ebben 2011
+figure of 64% (standard, unspecified position) cited via adams2022-pmid35992503.txt. The three
+studies used different methods (Eckel: isometric hold with a device cueing exact upper-arm angle;
+Gouvali: dynamic push-up with force plate; Ebben: dynamic push-up, GRF coefficient) and different
+populations -- report the RANGE (roughly 64-77% BW at the top, 73-77% at the bottom, across studies)
+rather than a single number, and note Eckel's is the only one of the three with a clean top/bottom
+split by sex.
+
+Also: this paper's own Discussion (citing Mier, Amasay, Capehart et al. 2014, Int J Exerc Sci
+7:161-168 -- see mier2014-CITATION-ONLY.txt) states: "the percentage of body mass supported is
+~75% body mass in the down position and ~69% in the up position" as a synthesis of Mier 2014 and
+another citation (ref 20 in Eckel's own numbering, not independently resolved this session) --
+close to, but not identical to, Eckel's own measured 76.70%/71.95% (men) figures above.

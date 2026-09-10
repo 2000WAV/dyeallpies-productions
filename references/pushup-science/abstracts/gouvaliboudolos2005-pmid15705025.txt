@@ -1,0 +1,31 @@
+1. J Strength Cond Res. 2005 Feb;19(1):146-51. doi: 10.1519/14733.1.
+
+Dynamic and electromyographical analysis in variants of push-up exercise.
+
+Gouvali MK(1), Boudolos K.
+
+Author information:
+(1)Sport Biomechanics Laboratory, Department of Sport Medicine, Faculty of 
+Physical Education and Sport Science, University of Athens, Athens, Greece. 
+mgouvali@phed.uoa.gr
+
+The purpose of the study was to record dynamic and muscular modifications during 
+push-up exercise variants (EV). Eight healthy men performed 6 EV of push-ups: 
+normal, abducted, adducted, posterior, anterior, and on knees. Ground-reaction 
+forces were recorded with a force plate while surface muscular activity with 
+electrodes on triceps and pectoralis major. Significant differences (p < 0.05) 
+existed for most vertical force variables but not for anteroposterior force and 
+time variables. The initial load relative to body weight was 66.4% at the normal 
+position, while only 52.9% at the on-knees EV. Muscle activity was less during 
+the on-knees EV for both muscles. At the posterior EV, pectoralis major was 
+activated higher than normal; however, triceps were activated lower than normal. 
+Dynamic behavior and muscle activity were significantly altered between push-up 
+EV. Instructions for push-up exercises should be followed carefully because 
+dynamic and muscular challenge is altered when hands are differently positioned.
+
+DOI: 10.1519/14733.1
+PMID: 15705025 [Indexed for MEDLINE]
+
+Notes for this project: PRIMARY source with an absolute number in its own abstract -- initial load relative to body weight 66.4% at normal position vs 52.9% on-knees (8 healthy men, force plate + EMG on triceps/pectoralis). Closed access (JSCR/LWW); no PMC copy found.
+
+[Shared-file note added 2026-09-09: this exact filename was also written independently by a concurrent session building 01-pushup-emg-by-variant-and-phase.md (see DOWNLOADS.md, "Push-up surface EMG evidence base sweep" section) -- that session's own editorial notes on this abstract, if any were saved here before this file was rewritten, could not be recovered (no git history existed for this untracked directory at the time of the collision). The underlying PubMed abstract text above is unaffected either way. See the EMG-focused file for that session's own treatment of this paper.]

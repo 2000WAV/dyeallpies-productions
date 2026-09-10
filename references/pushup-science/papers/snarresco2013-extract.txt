@@ -1,0 +1,299 @@
+
+1985
+jhumkin
+Journal of Human Kinetics
+J Hum Kinet
+Academy of Physical Education in Katowice, Poland
+PMC3916913
+3916913
+3916913
+24511343
+10.2478/hukin-2013-0070
+Electromyographic Comparison of Traditional and Suspension Push-Ups
+Snarr
+Ronald L
+1
+✉
+Esco
+Michael R
+2
+1
+School of Nutrition and Health Promotion, Arizona State University, Phoenix, AZ.
+2
+Human Performance Laboratory, Department of Physical Education and Exercise Science, Auburn University at Montgomery, Montgomery, AL.
+✉
+Corresponding author: 
+Ronald L. Snarr
+, Arizona State University, School of Nursing and Health Promotion, 500 N. 3
+rd
+ Street, Phoenix, AZ 85004, Phone: (602) 496-1873, E-mail: 
+Ronald.Snarr@asu.edu
+Authors submitted their contribution of the article to the editorial board.
+31
+12
+2013
+39
+75
+75–83
+7
+2
+2014
+© Editorial Committee of Journal of Human Kinetics
+This article is an open-access article distributed under the terms and conditions of the Creative Commons Attribution license (
+http://creativecommons.org/licenses/by/3.0/
+).
+Abstract
+There is very limited scientific data concerning suspension training. The purpose of this investigation was to compare the electromyographic activity of the pectoralis major, anterior deltoid, and triceps brachii between a suspension push-up and traditional push-up. Twenty-one apparently healthy men (n = 15, age = 25.93 ± 3.67 years) and women (n = 6, age = 23.5 ± 1.97 years) volunteered to participate in this study. All subjects performed four repetitions of a suspension push-up and a traditional push-up where the order of the exercises was randomized. The mean peak and normalized electromyography of the pectoralis major, anterior deltoid, and triceps brachii were compared across the two exercises. Suspension push-ups elicited the following electromyographic values: pectoralis major (3.08 ± 1.13 mV, 69.54 ± 27.6 %MVC), anterior deltoid (5.08 ± 1.55 mV, 81.13 ± 17.77 %MVC), and triceps brachii (5.11 ± 1.97 mV, 105.83 ± 18.54 %MVC). The electromyographic activities during the traditional push-up were as follows: pectoralis major (2.66 ± 1.05 mV, 63.62 ± 16.4 %MVC), anterior deltoid (4.01 ± 1.27 mV, 58.91 ± 20.3 %MVC), and triceps brachii (3.91 ± 1.36 mV, 74.32 ± 16.9 %MVC). The mean peak and normalized electromyographic values were significantly higher for all 3 muscles during the suspension push-up compared to the traditional push-up (p &lt; 0.05). This study suggests that the suspension push-up elicited a greater activation of pectoralis major, anterior deltoid, and triceps brachii when compared to a traditional push-up. Therefore, suspension push-ups may be considered an advanced variation of a traditional push-up when a greater challenge is warranted.
+Keywords:
+ EMG, instability devices, resistance training, TRX
+status
+released
+display-pdf
+yes
+is-olf
+no
+is-manuscript
+no
+is-preprint
+no
+is-journal-matter
+no
+is-scanned
+no
+is-retracted
+no
+Accepted 2013 Dec; Collection date 2013 Dec 18.
+Introduction
+The push-up (PU) is a popular exercise that is performed with the purpose of increasing strength and hypertrophy of upper extremity musculature (
+Dillman et al., 1994
+; 
+Rogol et al., 1998
+; 
+Ubinger et al., 1999
+; 
+Uhl et al., 2003
+). It is also considered the standard measurement of upper-body muscular endurance (ACSM, 2008). Though the PU serves as an exercise to primarily target the pectoralis major (PM); it also activates the anterior deltoid (AD) and triceps brachii (TB) (
+Uhl et al., 2003
+; 
+Youdas et al., 2010
+).
+This exercise is traditionally performed on a flat, stable surface with hand placement at slightly wider than shoulder width. However, common variations exist involving changes in hand position from standard (e.g., wide or narrow) and modifying body posture by elevating the feet. A change in surface stability has recently been shown to also add variation and increased intensity of the PU. Most research in this area that has suggested that performing PU with instability devices such as Swiss balls, inflated discs, BOSUs and wobble boards may increase the activity of shoulder girdle and upper arm muscular compared to the traditional approach (
+Cogley et al., 2005
+; 
+Contreras et al., 2012
+; 
+Gouvali and Boudolos, 2005
+; 
+Lehman et al., 2008
+; 
+Youdas et al., 2010
+).
+Suspension training (ST) is one of the newest forms of stability training that utilizes hanging ropes and straps that are anchored to a fixed point from above (e.g., ceiling or pull-up bar) allowing the user to work against their own body weight from a suspended position. Hypothetically, the greater disruption in stabilization from ST elicits increased motor unit recruitment, essentially causing the muscle to “work harder” to perform a particular movement (
+Beach et al., 2008
+; 
+Marshall and Murphy, 2006
+). Unfortunately, limited scientific data exist regarding the effectiveness of this newer form of exercise. Two recent studies demonstrated that the PU performed on a suspension device elicited a greater activation of the rectus abdominis (
+Snarr et al., 2013
+) and latissimus dorsi (
+Beach et al., 2008
+) compared to a traditional stable PU. However, neither study examined the activity of the prime movers of the glenohumeral (e.g., PM and AD) and humeroulnar (e.g., TB) joints. Therefore, the purpose of this investigation was to determine the extent of electromyographic (EMG) activity of the PM, AD, and TB while performing push-ups with (SPUs) and without (PUs) a suspension device. As mentioned above, previous research has shown a greater EMG output of the selected muscles when performing the PU on common instability devices such as the Swiss ball (
+Cogley et al., 2005
+; 
+Contreras et al., 2012
+; 
+Gouvali and Boudolos, 2005
+; 
+Lehman et al., 2008
+; 
+Marshall and Murphy, 2006
+; 
+Youdas et al., 2010
+). Therefore, it was hypothesized in the current study that SPUs would elicit a greater activation of the studied musculature compared to PUs.
+Material and Methods
+There is increasing public interest on ST, yet limited scientific published data. Research is needed to determine the effectiveness of this newer form of exercise. This investigation was performed to compare the EMG activity of PM, AD, and TM between the SPU and PU. A group of subjects performed SPUs and PUs in randomized order. The EMG activity of the selected musculature was compared between the two trials. All measurements were taken on the same day. The complete details of the study are described in the following sections.
+Participants
+Subjects were recruited through flyers and word of mouth. Subjects (n = 21) consisted of 15 men and 6 women who volunteered to participate in this study. Descriptive statistics for the participants are shown in 
+Table 1
+. Participants were informed of all risks and discomforts that could occur and were asked to complete a health history questionnaire and informed consent. Only those who were classified as low risk, according to the American College of Sports Medicine guidelines were used in this study. Individuals with any previous chest, shoulder, or arm injuries were excluded from this investigation. All subjects were currently physically active with at least six months of resistance training experience. Concerning familiarity with ST, 18 subjects had no previous exposure, while 3 subjects were accustomed to regular exercise with an ST device. This study was approved by the Auburn University at Montgomery Institutional Review Board.
+Table 1
+Descriptive statistics of the study participants
+Men (n = 15)
+Women (n = 6)
+All (n = 21)
+Age (yr)
+25.93 ± 3.67
+23.50 ± 1.97
+25.24 ± 3.42
+Height (cm)
+180.78 ± 8.54
+174.05 ± 4.96
+179.01 ± 8.21
+Body mass (kg)
+83.65 ± 7.72
+68.04 ± 6.56
+79.54 ± 10.12
+Procedures: Electromyography
+All EMG values were collected using a Biopac MP150 BioNomadix Wireless Physiology Monitoring system at a sampling rate of 1.000 kHz, and analyzed using Acqknowledge 4.2 software (BIOPAC System, Inc., Goleta, CA). Disposable Ag-AgCl surface electrodes (Biopac EL504) were used for this study. Before placing the surface electrodes, all skin sites were prepared with shaving, abasing, and alcohol cleansing in order to reduce impedance. All electrodes were placed on the right side of the subjects. Researchers assumed that bilateral symmetry was occurring throughout each exercise performed; therefore, electrodes were not placed on both sides of the subject. Pectoralis major electrodes were positioned halfway between the sternal notch and anterior axillary line, approximately 2 cm apart in-line with muscle fibers. Anterior deltoid electrodes were placed two finger-breadths below the acromio-clavicular joint and angled towards the deltoid tuberosity. The electrodes for the triceps brachii were positioned mid-way between the acromion and olecranon processes on the posterior portion of the upper arm on the long head of the tricep, approximately 2 cm apart following the muscle fibers. A ground electrode was placed directly over the right anterior-superior iliac spine. This method of electrode placement is similar to that of 
+Cram and Kasman (1998)
+.
+Exercise Trials
+After all electrodes were placed, a maximum voluntary contraction (MVC) of each muscle group was determined to allow normalizations of the EMG data. To obtain normalization for the pectoralis major, subjects laid prone on a mat with elbows flexed to 90 degrees. A matched resistance was placed on the subjects’ upper back as they attempted to perform a push-up, resulting in a static maximal contraction. Next, the MVC for the triceps brachii was obtained by instructing the subject to assume a kneeling position with the upper arm resting on a bench and elbow flexed to 90 degrees. The subject then attempted to extend the elbow against a matched resistance. Lastly, the anterior deltoid EMG was normalized with the subject in a seated position with the shoulder flexed anteriorly to approximately 45 degrees. The subject then attempted to flex the shoulder against a matched resistance. This method of EMG normalization was performed in accordance with the standards set by 
+Konrad (2005)
+.
+Once the EMG data was normalized, subjects drew numbers in order to randomize the exercises performed. All subjects were instructed on proper technique of the traditional and suspended push-up by a Certified Strength and Conditioning Specialist. If subjects were unable to complete the push-ups with proper technique, they were not used in the data collection process. The techniques for the exercises are as follows:
+Suspension push-up (
+Picture 1
+)
+Picture 1
+Starting and ending position for the suspension push-up (SPU)
+Prior to performing the SPU, the suspension device was securely attached overhead to the top portion of a Smith Machine. In order to mimic the traditional PU, the handles of the suspension device were set to match the level of the feet when placed on a fitness step. The TRX® Suspension Trainer® was used for this investigation. Participants assumed a standard push-up position with hands placed in the handles of the suspension device (starting position). The hands were placed slightly wider than shoulder-width apart. Next, while maintaining a neutral spine and feet together position, subjects began the eccentric portion (descent) of the push-up. Suspension push-ups were only recorded when the correct depth was reached (chest reached the level of the hands) for each repetition. Push-ups were performed at a rate of 1 push-up every three seconds. Timing was measured by a metronome.
+Eight jumps were removed prior to recalculating the correlation (data not shown).
+Standard push-up (
+Picture 2
+)
+Picture 2
+Starting and ending position for the traditional push-up (PU)
+Standard push-ups were performed on a flat, stable surface, hands placed slightly wider than shoulder-width apart, and fingers pointed forward. Subjects were instructed to maintain a neutral spine and feet together position throughout the entire movement. Once again, in order for the repetition to be recorded the correct depth needed to be met. Participants were instructed to lower the body until the chest was within 2 inches from the floor. All repetitions were repeated if the correct depth was not acquired. The same repetition timing was applied for all push-ups (1 push-up every 3 seconds).
+Statistical Analysis
+Data was analyzed using SPSS/PASW Statistics version 18.0 (Somers, NY). Means and standard deviations were calculated for the studied variables (PM, AD, TB). Paired samples T-tests were used to determine if the mean peak (mV) and normalized (%MVC) EMG values for the PM, AD, and TB were significantly different between the PU and SPU. A priori statistical significance was set to a value of p &lt; 0.05.
+Results
+All of the subjects completed each exercise trial successfully and were included in the data collection process. The PM activity during the SPU and PU was 3.08 ± 1.13 mV and 2.66 ± 1.05 mV, respectively (
+Figure 1
+). The %MVC for the PM was 69.54 ± 27.6% during the SPU and 63.62 ± 16.4% during the PU. Activity for the AD during the SPU and PU was 5.08 ± 1.55 mV and 4.01 ± 1.27 mV, respectively (
+Figure 2
+). Normalized values for the AD were 81.13 ± 17.77% (SPU) and 58.91 ± 20.3% (PU). While, the TB activity for the SPU was 5.11 ± 1.97 mV and the PU was 3.91 ± 1.36 mV (
+Figure 3
+). The %MVC values during the SPU and PU were 105.83 ± 18.54% and 74.32 ± 16.9%, respectively. The EMG values (raw and normalized) for each muscle were all significantly higher during the SPU compared to the PU (p &lt; 0.05).
+Figure 1
+Comparison of Electromyographic Activity (mV) of the Pectoralis Major between Suspension Push-ups (SPU) and Traditional Push-ups (PU)
+*PU was significantly lower than SPU (p&lt;0.05)
+Figure 2
+Comparison of Electromyographic Activity (mV) of the Anterior Deltoid between Suspension Push-ups (SPU) and Traditional Push-ups (PU)
+*PU was significantly lower than SPU (p&lt;0.05)
+Figure 3
+Comparison of Electromyographic Activity (mV) of the Triceps Brachii between Suspension Push-ups (SPU) and Traditional Push-ups (PU)
+*PU was significantly lower than SPU (p&lt;0.05)
+Discussion
+The purpose of this study was to compare the EMG activity of the PM, AD, and TB between the SPU and PU. The major finding of this study was that the SPU resulted in significantly greater EMG activity (raw and normalized) of the selected muscles compared to the traditional PU. These results indicate that ST may be an effective method to increase the intensity of the standard PU when targeting the PM, AD, and TB.
+The three muscles were chosen in this study because of their particular roles on glenohumeral and humeroulnar joint movement during the push-up. The PM is a uni-articulate muscle responsible for horizontal and diagonal adduction, along with internal rotation of the humerus. Various fibers of the PM (i.e., clavicular head) are also responsible for humeral flexion, while the sternocostal portion provides humeral extension (
+Floyd, 2009
+). While the entire deltoid provides-, multiple roles during the PU, the AD was chosen primarily for its role of humeral flexion, which is distinct to the anterior fibers (
+Floyd, 2009
+). The AD also provides horizontal and diagonal adduction, along with internal rotation of the humerus (
+Floyd, 2009
+). In addition, the TB is the primary concentric elbow extender during the PU (
+Floyd, 2009
+).
+An abundance of research has examined the EMG activity of selected musculature while performing different exercises on various instability devices (
+Beach et al., 2008
+; 
+Freeman et al., 2006
+; 
+Marshall and Murphy, 2005
+; 
+Marshall and Murphy, 2006
+; 
+Marshall and Murphy, 2006
+). For example, the Swiss Ball has been shown to be an effective device for eliciting an increased level of muscular activity when used with exercises designed to target the PM, AD, and TB (
+Lehman et al., 2006
+; 
+Marshall and Murphy, 2006
+; 
+Marshall and Murphy, 2006
+). Our findings are consistent with previous research about the global topic of instability exercise; i.e., increased muscular activation during body weight exercise when stability is challenged (
+Anderson et al., 2011
+; 
+Freeman et al., 2006
+; 
+Lehman et al., 2006
+; 
+Marshall and Murphy, 2005
+; 
+Marshall and Murphy, 2006
+; 
+Snarr et al., 2013
+). However, the current study is one of the first to suggest ST may be a superior method for increasing EMG activity of PM, AD, and TB. Several theories are available to help explain our findings, which are detailed within the following two paragraphs.
+During a typical PU, each dynamically active joint has only one degree of freedom in which to function (i.e., a vertical, up-and-down movement). However, the ST decreases the base of support for the upper body, as it is suspended above the floor. This unstable kinetic chain results in additional degrees of freedom as the limbs work to prevent unnecessary horizontal and diagonal movements. This creates a “multiple-role” within the active musculature as they not only serve as PU agonists, but also as joint stabilizers (
+Lander et al., 1985
+; 
+Marshall and Murphy, 2006
+; 
+McCaw and Friday, 1994
+). The hands being placed in the handles of the suspension trainer provides additional degrees of freedom compared to the standard [fixed] floor placement. With additional ranges of freedom, a greater number of motor units is recruited to execute a particular exercise resulting in an increased EMG output (
+Beach et al., 2008
+; 
+Behm, 1995
+; 
+Marshall and Murphy, 2005
+; 
+Marshall and Murphy, 2006
+; 
+Vera-Garcia et al., 2000
+; 
+Wahl and Behm, 2008
+). This characteristic is similar when performing dumbbell versus barbell chest presses, as the former has been shown to provide an increased level of instability (
+Behm, 1995
+; 
+Saeterbakken et al., 2011
+). Furthermore, 
+Saeterbakken et al. (2011)
+ showed that with a shift from a one degree to a multiple degree of freedom bench press exercise (i.e., comparing barbells to dumbbells), EMG activation levels remained consistent in the primary musculature. However, the average load of the barbell bench press was 17% greater compared to the dumbbell bench press (
+Saeterbakken et al., 2011
+). In the current study, the participants performed both exercises while using the same load (i.e., their personal body weight) even though the degrees of freedom were greater with SPUs. Therefore, EMG output was higher.
+In addition, previous research has shown that varying the position of the hands while performing a PU can lead to an increased EMG output of targeted musculature (
+Cogley et al., 2005
+; 
+Youdas et al., 2010
+). 
+Cogley et al. (2005)
+ showed that when hands are placed narrower compared to wider than shoulder width, EMG output of the PM and TB is higher primarily due to a greater range of motion with the former. With the SPU, the hands are wider at the start and move to a more narrow position at the end of a concentric action. In contrast, the hands remained slightly wider than shoulder width throughout the PU movement. Therefore, the SPU resulted in a greater range of humeral motion compared to the PU, resulting in a greater EMG output of the selected glenohumeral musculature (i.e., PM and AD). Furthermore, narrow hand placement with PU has been shown to increase humeroulnar torque by 71% compared to a wider base (
+Donkers et al., 1993
+). Since the base of support is narrowed at the end of a concentric action with SPU, a greater EMG output of TB is also elicited, which is consistent with previous studies (
+Cogley et al., 2005
+; 
+Donkers et al., 1993
+).
+This study is not without possible limitations. First, the sample size had a diverse background with ST, with some subjects more familiar with this form of exercise compared to others. The EMG output of the selected muscular may decrease as familiarity with ST increases. A study performed by 
+Wahl and Behm (2008)
+ demonstrated that with highly resistance-trained individuals, not all instability devices were able to elicit significantly greater muscular activations during training. It may be warranted that future studies examine if EMG activation is different between individuals of various ST background levels. Second, only one device was used in this investigation (i.e., suspension device). A cross-comparison of multiple instability devices (e.g., swiss ball, wobble boards, etc.) may provide further insight into the overall effectiveness of ST. Third, a constant hand position (i.e., slightly wider that shoulder-width) was not maintained throughout a typical repetition of the SPU. Subjects began with a wider hand placement, but moved to a narrower placement at the end of the concentric action. This action is typical when performing a SPU due to the free-moving handles. Future study is warranted to determine the effect of various hand position widths on muscular activity during the SPU. Last, the group of subjects was not analyzed across a chronic training period. Longitudinal investigation is certainly needed before determining the effectiveness of ST on muscular hypertrophy and strength. However, the novel findings of the current study provide an important first step for future studies on ST.
+Based on EMG values alone, our study indicates that the SPU exercise elicits greater muscular activation of PM, AD, and TB compared to the traditional PU. The traditional PU, when performed on a stable surface can provide a sufficient stimulus to increase upper body muscular strength and endurance (ACSM, 2008). However, when an increased challenge is warranted, a suspension training device may be incorporated to increase muscular activation and possibly enhance neuromuscular adaptations with the push-up. Therefore, practitioners should consider using ST for advancing the traditional push-up movement.
+Acknowledgments
+The authors would like to thank TRX® (Fitness Anywhere, LLC, San Francisco, CA) and POWER SYSTEMS®, Inc. for supplying the TRX® Suspension Trainer® systems for this investigation. The results of this study do not constitute endorsement of the product by the authors or the NSCA.
+References
+American College of Sports Medicine  . ACSM’S Health-Related Physical Fitness Assessment Manual. 4th ed. Philadelphia, PA: Wolters Kluwer/Lippincott Williams &amp; Wilkins; 2013. pp. 76–91.
+Alpert SW, Pink MM, Jobe FW, McMahon PJ, Mathiyakom W. Electromyographic analysis of deltoid and rotator cuff function under varying loads and speeds. J Shoulder Elb Surg. 2000;9(1):47–58. doi: 10.1016/s1058-2746(00)90009-0.
+Anderson KG, Behm DG. Maintenance of EMG activity and loss of force output with instability. J Strength Cond Res. 2004;18:637–640. doi: 10.1519/1533-4287(2004)18&lt;637:MOEAAL&gt;2.0.CO;2.
+Anderson GS, Gaetz M, Holzmann M, Twist P. Comparison of EMG activity during stable and unstable push-up protocols. Euro J Sport Sci. 2011;13(1):42–48.
+Barnett C, Kippers V, Turner P. Effects of variations of the bench press exercise on the EMG activity of five shoulder muscles. J Strength Cond Res. 1995;9(4):222–227.
+Beach TAC, Howarth SJ, Callaghan JP. Muscular contribution to low-back loading and stiffness during standard and suspended push-ups. Hum Movement Sci. 2008;27:457–472. doi: 10.1016/j.humov.2007.12.002.
+Behm DG. Neuromuscular implications and applications of resistance training. J Strength Cond Res. 1995;9(4):264–274.
+Behm DG, Anderson KG, Curnew RS. Muscle force and activation under stable and unstable conditions. J Strength Cond Res. 2002;16:416–422.
+Bernasconi SM, Tordi NR, Parratte BM, Rouillon JDR, Monnier GG. Effects of two devices on the surface electromyography responses of eleven shoulder muscles during azarian in gymnastics. J Strength Cond Res. 2006;20(1):53–57. doi: 10.1519/R-16174.1.
+Bernasconi SM, Tordi NR, Parratte BM, Rouillon JR. Can shoulder muscle coordination during the support scale at ring height be replicated during training exercises in gymnastics? J Strength Cond Res. 2009;23(8):2381–2388. doi: 10.1519/JSC.0b013e3181bac69f.
+Cogley RM, Archambault TA, Fibeger JF, Koverman MM, Youdas JW, Hollman JH. Comparison of muscle activation using various hand positions during the push-up exercise. J Strength Cond Res. 2005;19(3):628–633. doi: 10.1519/15094.1.
+Contreras B, Schoenfeld B, Mike J, Tiryaki-Sonmez G, Cronin J, Vaino E. The Biomechanics of the Push-up: Implications for resistance training programs. Strength Cond J. 2012;34(5):41–46.
+Cram JR, Kasman GS.  Introduction to Surface Electromyography. Gaithersburg, MD: Aspen Publishers, Inc; 1998. pp. 289–293.pp. 306pp. 315pp. 341
+Dillman CJ, Murray TA, Hintermeister RA. Biomechanical differences of open and close chain exercises with respect to the shoulder. J Sports Rehab. 1994;3:228–238.
+Donkers MJ, An KN, Chao EY, Morrey BF. Hand position affects elbow joint load during push-up exercise. J Biomech. 1993;26(6):625–632. doi: 10.1016/0021-9290(93)90026-b.
+Floyd RT.  Manual of Structural Kinesiology. 17th ed. New York, NY: McGraw Hill; 2009. 
+Freeman S, Karpowicz A, Gray J, McGill S. Quantifying muscle patterns and spine load during various forms of the push-up. Med Sci Sports Ex. 2006;38:570–577. doi: 10.1249/01.mss.0000189317.08635.1b.
+Gouvali M, Boudolos K. Dynamic and electromyographical analysis in variants of push-up exercise. J Strength Cond Res. 2005;19:146–151. doi: 10.1519/14733.1.
+Hubbard D. Is unstable surface training advisable for healthy adults? Strength Cond J. 2010;32(3):64–66.
+Konrad P.  The ABC of EMG: A practical introduction to kinesiological electromyography. Version 1.0. Noraxon INC.; USA: 2005. pp. 29–33.
+Lander JE, Bates BT, Sawhill JA, Hamill J. A comparison between free-weight and isokinetic bench pressing. Med Sci Sports Exer. 1985;17:344–353.
+Lehman GJ, MacMillan B, MacIntyre I, Chivers M, Fluter M. Shoulder muscle EMG activity during push up variations on and off a Swiss ball. Dynamic Medicine. 2006;5:7. doi: 10.1186/1476-5918-5-7.
+Lehman GJ, Gilas D, Patel U. An unstable surface does not increase scapulothoracic stabilizing muscle activity during push up and push up plus exercises. Manual Ther. 2008;13:500–506. doi: 10.1016/j.math.2007.05.016.
+Marshall PWM, Murphy BA. Core stability exercises on and off a swiss ball. Arch Phys Med Rehab. 2005;86:242–249. doi: 10.1016/j.apmr.2004.05.004.
+Marshall P, Murphy B. Changes in muscle activity and perceived exertion during exercises performed on a swiss ball. Appl Physiol Nutr Metab. 2006;31:376–383. doi: 10.1139/h06-006.
+Marshall PWM, Murphy BA. Increased deltoid and abdominal muscle activity during swiss ball bench press. J Strength Cond Res. 2006;20(4):745–750. doi: 10.1519/R-18085.1.
+McBride JM, Cormie P, Deane R. Isometric squat force output and muscle activity in stable and unstable conditions. J Strength Cond Res. 2006;20:915–918. doi: 10.1519/R-19305.1.
+McCaw ST, Friday JJ. A comparison of muscle activity between a free weight and machine bench press. J Strength Cond Res. 1994;8:259–264.
+Rogol IM, Ernst G, Perrin DH. Open and closed kinetic chain exercises improve shoulder joint reposition sense equally in health subjects. J Athletic Training. 1998;33:315–318.
+Saeterbakken AH, Van Den Tillaar R, Fimland MS. A comparison of muscle activity and 1-RM strength of three chest-press exercises with different stability requirements. J Sports Sci. 2011;29(5):533–538. doi: 10.1080/02640414.2010.543916.
+Snarr RL, Esco MR, Witte EV, Jenkins CT, Brannan RM. Electromyographic activity of rectus abdominis during a suspension push-up compared to traditional exercises. J Exer Phys online. 2013;16(3):1–8.
+Ubinger ME, Prentice WE, Guskiewicz KM. Effect of closed kinetic chain training on neuromuscular control in the upper extremity. J Sports Rehab. 1999;8:184–194.
+Uhl TL, Carver TJ, Mattacola CG, Mair SD, Nitz AJ. Shoulder musculature activation during upper extremity weight-bearing exercise. J Orthop Sport Phys. 2003;33(3):109–117. doi: 10.2519/jospt.2003.33.3.109.
+Vera-Garcia FJ, Grenier SG, McGill SM. Abdominal muscle response during curl-ups on both stable and labile surfaces. Phys Ther. 2000;80:564–569.
+Wahl MJ, Behm DG. Not all instability training devices enhance muscle activation in highly resistance-trained individuals. J Strength Cond Res. 2008;22(4):1360–1370. doi: 10.1519/JSC.0b013e318175ca3c.
+Warner JJ, Bowen MK, Deng X, Torzilli PA, Warren RF. Effect of joint compression on inferior stability of the glenohumeral joint. J Shoulder Elb Surg. 1998;8(1):31–36. doi: 10.1016/s1058-2746(99)90051-4.
+Youdas JW, Budach BD, Ellerbusch JV, Stucky CM, Wait KR, Hollman JH. Comparison of muscle-activation patterns during the conventional push-up and Perfect Pushup™ exercises. J Strength Cond Res. 2010;24(12):3352–3362. doi: 10.1519/JSC.0b013e3181cc23b0.

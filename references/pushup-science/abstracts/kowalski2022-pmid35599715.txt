@@ -1,0 +1,45 @@
+1. Shoulder Elbow. 2022 Jun;14(3):326-340. doi: 10.1177/17585732211019373. Epub 
+2021 Jun 6.
+
+Shoulder electromyography activity during push-up variations: a scoping review.
+
+Kowalski KL(1), Connelly DM(2), Jakobi JM(3), Sadi J(2).
+
+Author information:
+(1)School of Kinesiology, University of Western Ontario, London, Ontario, 
+Canada.
+(2)School of Physical Therapy, University of Western Ontario, London, Ontario, 
+Canada.
+(3)School of Health and Exercise Sciences, University of British Columbia 
+Okanagan, Kelowna, British Columbia, Canada.
+
+BACKGROUND: Push-ups (PU) are a common closed chain exercise used to enhance 
+shoulder girdle stability, with variations that alter the difficulty or target 
+specific muscles. To appropriately select and prescribe PU exercises, an 
+understanding of muscle activity during variations of the PU is needed. The 
+purpose of this scoping review was to identify common PU variations and describe 
+their muscle activation levels.
+METHODS: Databases searched included PubMed, CINAHL, Scopus, and SPORTDiscus for 
+articles published between January 2000 and November 2019.
+RESULTS: Three hundred three articles were screened for eligibility with 30 
+articles included in the analysis. Six PU types and five muscles met the 
+criteria for analysis. Weighted mean electromyography (EMG) amplitude was 
+calculated for each muscle across PU types and for each PU type as a measure of 
+global muscle activity. Triceps and pectoralis major had the highest EMG 
+amplitude during unstable, suspension, incline with hands on a ball and the 
+standard PU. Serratus anterior had the highest EMG amplitude during PU plus and 
+incline PU. The greatest global EMG amplitude occurred during unstable surface 
+PU.
+DISCUSSION: These results provide clinicians with a framework for prescribing PU 
+to target specific muscles and scale exercise difficulty to facilitate 
+rehabilitation outcomes.
+
+© 2021 The British Elbow & Shoulder Society.
+
+DOI: 10.1177/17585732211019373
+PMCID: PMC9121296
+PMID: 35599715
+
+Conflict of interest statement: Declaration of Conflicting Interests: The 
+author(s) declared no potential conflicts of interest with respect to the 
+research, authorship, and/or publication of this article.

@@ -1,0 +1,44 @@
+1. Int J Sports Physiol Perform. 2017 Feb;12(2):190-197. doi: 
+10.1123/ijspp.2016-0063. Epub 2016 Aug 24.
+
+The Effect of Variation of Plyometric Push-Ups on Force-Application Kinetics and 
+Perception of Intensity.
+
+Dhahbi W, Chaouachi A, Dhahbi AB, Cochrane J, Chèze L, Burnett A, Chamari K.
+
+PURPOSE: To examine differences between ground-reaction-force (GRF)-based 
+parameters collected from 5 types of plyometric push-ups. Between-trials 
+reliability and the relationships between parameters were also assessed.
+METHODS: Thirty-seven highly active commando soldiers performed 3 trials of 5 
+variations of the plyometric push-up in a counterbalanced order: standard 
+countermovement push-up (SCPu), standard squat push-up (SSPu), kneeling 
+countermovement push-up (KCPu), kneeling squat push-up (KSPu), and drop-fall 
+push-up (DFPu). Vertical GRF was measured during these exercises using a 
+portable Kistler force plate. The GRF applied by the hands in the starting 
+position (initial force supported), peak GRF and rate of force development 
+during takeoff, flight time, impact force, and rate of force development impact 
+on landing were determined.
+RESULTS: During standard-position exercises (SCPu and SSPu) the initial force 
+supported and impact force were higher (P < .001) than with kneeling exercises 
+(KCPu, KSPu, and DFPu). The peak GRF and rate of force development during 
+takeoff were higher (P < .001) in the countermovement push-up exercises ([CMP] 
+SCPu, KCPu, and DFPu) than squat push-up exercises ([SP] SSPu and KSPu). 
+Furthermore, the flight time was greater (P < .001) during kneeling exercises 
+than during standard-position exercises. A significant relationship (P < .01) 
+between impact force and the rate of force development impact was observed for 
+CMP and SP exercises (r = .83 and r = .62, respectively). The initial force 
+supported was also negatively related (P < .01) to the flight time for both CMP 
+and SP (r = -.74 and r = -.80, respectively). It was revealed that the initial 
+force supported and the peak GRF during takeoff had excellent reliability; 
+however, other parameters had poor absolute reliability.
+CONCLUSIONS: It is possible to adjust the intensity of plyometric push-up 
+exercises and train athletes' muscle power by correctly interpreting GRF-based 
+parameters. However, caution is required as some parameters had marginal 
+absolute reliability.
+
+DOI: 10.1123/ijspp.2016-0063
+PMID: 27193045 [Indexed for MEDLINE]
+
+Notes for this project: 37 commando soldiers, 5 plyometric push-up variants (standard/kneeling x countermovement/squat, + drop-fall), portable Kistler force plate. Reports RELATIONSHIPS (initial-force-supported vs peak-GRF-takeoff r=.58-.80; initial-force-supported vs flight-time r=-.74/-.80) and reliability, but no absolute %BW numbers in the abstract itself. Closed access (IJSPP/Human Kinetics); no PMC copy found.
+
+[Shared-file note added 2026-09-09: this exact filename was also written independently by a concurrent session building 01-pushup-emg-by-variant-and-phase.md (see DOWNLOADS.md, "Push-up surface EMG evidence base sweep" section) -- that session's own editorial notes on this abstract, if any were saved here before this file was rewritten, could not be recovered (no git history existed for this untracked directory at the time of the collision). The underlying PubMed abstract text above is unaffected either way. See the EMG-focused file for that session's own treatment of this paper.]

@@ -1,0 +1,64 @@
+thebattlebunker.com/blogs/logbook/usmc-fitness-standards-2026-what-is-new -- "USMC PFT and CFT
+Standards 2026: Scoring Charts, Classes, and What Changed." Secondary/fitness-blog compilation
+(not the official Marine Corps Order). Fetched via curl -A "Mozilla/5.0" 2026-09-09, HTTP 200,
+saved as thebattlebunker-usmc-standards-2026.html. Same site/table family already used and trusted
+by references/pullup-science/03-norms-and-energy.md section 1.1 for the pull-up side of this exact
+table -- reused here for consistency and because the official fitness.marines.mil and marines.mil
+PDF/HTML endpoints all returned HTTP 403 to curl (same block pattern documented in the pull-up
+archive's 03-norms-and-energy.md, "Two official .mil PDFs ... refused both curl and WebFetch with
+HTTP 403 this session").
+
+=== MALE table (raw <table> extracted, columns: Age | Pull-ups min(40pts) | Pull-ups max(100pts) |
+Push-ups min(40pts) | Push-ups max(70pts)) ===
+
+  Age      Pull-up min  Pull-up max  Push-up min  Push-up max
+  17-20         4            20          42            82
+  21-25         5            23          40            87
+  26-30         5            23          39            84
+  31-35         5            23          36            80
+  36-40         5            21          34            76
+  41-45         5            20          30            72
+  46-50         5            19          25            68
+  51+           3            18          20            64
+
+NOTE: push-ups cap at 70 POINTS (not 100) even though the max-rep column (e.g. 87 reps at age
+21-25) is labelled "Push-ups max (70 pts)" -- i.e. 87 reps earns the maximum 70 points a Marine can
+get from the push-up event, NOT 100 points. This matters because the task brief describing this
+sweep mis-stated the 21-25 max as "87 reps for 100 points" -- the 87-rep figure is correct, but it
+maps to 70 points, not 100. Pull-ups (max 100 points) remain the only upper-body PFT event that can
+reach the full 100-point ceiling; a Marine who elects push-ups over pull-ups gives up the
+possibility of a perfect 300-point PFT even with a maxed push-up score. (Same fact already
+documented from the pull-up side in references/pullup-science/03-norms-and-energy.md section 1.1:
+"pull-ups (unlike push-ups, capped at 70 points) are the only upper-body event that can reach the
+full 100.")
+
+=== FEMALE table (same page, second <table>) ===
+
+  Age      Pull-up min  Pull-up max  Push-up min  Push-up max
+  17-20         1             7          19            42
+  21-25         3            11          18            48
+  26-30         4            12          18            50
+  31-35         3            11          16            46
+  36-40         3            10          14            43
+  41-45         2             8          12            41
+  46-50         2             6          11            40
+  51+           2             4          10            38
+
+=== PLANK (replaced crunches as the 3rd PFT event) ===
+Maximum (100 pts): hold time 3:45. Minimum passing (40 pts): hold time 1:10. (Single pass/fail-style
+row on the page, not broken out by age in this table; age-adjusted hold-time targets given
+separately for the 3-mile run, not reproduced here as out of scope for this push-up-focused file.)
+
+=== PFT Class thresholds (male+female, all ages, 3-event total score) ===
+1st Class: 235-300 (40pts min every event). 2nd Class: 200-234. 3rd Class: 150-199. Fail: <150 OR
+<40 in any single event.
+
+CONFIDENCE: matches the same secondary-source pattern already used and flagged in
+references/pullup-science/03-norms-and-energy.md (two independent secondary compilations,
+operationmilitarykids.org and thebattlebunker.com, cross-checked against each other for the pull-up
+numbers there). For push-ups, operationmilitarykids.org's own table (see
+operationmilitarykids-usmc-pft-2026-extract.txt) is a coarser 6-point-level table (100/90/75/60/50/40
+only) that is broadly consistent with but does not fully replicate this finer table -- see that file
+for the cross-check and a discrepancy note at the very top point levels (push-ups show "N/A" at 90
+and 100 points in operationmilitarykids' abbreviated table, consistent with the 70-point cap
+documented here).

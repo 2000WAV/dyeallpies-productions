@@ -1,0 +1,48 @@
+1. J Athl Train. 2015 Nov;50(11):1126-32. doi: 10.4085/1062-6050-50.9.09. Epub
+2015  Oct 21.
+
+Selective Activation of Shoulder, Trunk, and Arm Muscles: A Comparative Analysis 
+of Different Push-Up Variants.
+
+Marcolin G(1), Petrone N(1)(2), Moro T(1), Battaglia G(1)(3), Bianco A(1)(3), 
+Paoli A(1).
+
+Author information:
+(1)Department of Biomedical Sciences and.
+(2)Department of Industrial Engineering, University of Padova, Italy;
+(3)Sport and Exercise Sciences Research Unit, University of Palermo, Italy.
+
+CONTEXT: The push-up is a widely used exercise for upper limb strengthening that 
+can be performed with many variants. A comprehensive analysis of muscle 
+activation during the ascendant phase (AP) and descendant phase (DP) in 
+different variants could be useful for trainers and rehabilitators.
+OBJECTIVE: To obtain information on the effect of different push-up variants on 
+the electromyography (EMG) of a large sample of upper limb muscles and to 
+investigate the role of the trunk and abdomen muscles during the AP and DP.
+DESIGN: Cross-sectional study.
+SETTING: University laboratory.
+PATIENTS OR OTHER PARTICIPANTS: Eight healthy, young volunteers without a 
+history of upper extremity or spine injury.
+INTERVENTION(S): Participants performed a set of 10 repetitions for each push-up 
+variant: standard, wide, narrow, forward (FP), and backward (BP). Surface EMG of 
+12 selected muscles and kinematics data were synchronously recorded to describe 
+the AP and DP.
+MAIN OUTCOME MEASURE(S): Mean EMG activity of the following muscles was 
+analyzed: serratus anterior, deltoideus anterior, erector spinae, latissimus 
+dorsi, rectus abdominis, triceps brachii caput longus, triceps brachii caput 
+lateralis, obliquus externus abdominis, pectoralis major sternal head, 
+pectoralis major clavicular head, trapezius transversalis, and biceps brachii.
+RESULTS: The triceps brachii and pectoralis major exhibited greater activation 
+during the narrow-base variant. The highest activation of abdomen and back 
+muscles was recorded for the FP and BP variants. The DP demonstrated the least 
+electrical activity across all muscles, with less marked differences for the 
+abdominal and erector spinae muscles because of their role as stabilizers.
+CONCLUSIONS: Based on these findings, we suggest the narrow-base variant to 
+emphasize triceps and pectoralis activity and the BP variant for total upper 
+body strength conditioning. The FP and BP variants should be implemented 
+carefully in participants with low back pain because of the greater activation 
+of abdominal and back muscles.
+
+DOI: 10.4085/1062-6050-50.9.09
+PMCID: PMC4732391
+PMID: 26488636 [Indexed for MEDLINE]

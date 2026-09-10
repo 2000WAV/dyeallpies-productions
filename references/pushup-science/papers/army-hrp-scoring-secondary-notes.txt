@@ -1,0 +1,41 @@
+US Army hand-release push-up (HRP) scoring -- secondary sources only, collected 2026-09-09. No
+official Army scoring table (DA PAM 7-22, armypubs.army.mil) was fetched this session; see
+goarmy-acft-hrp-CITATION-ONLY.txt for the technique description (from the official goarmy.com page,
+via WebFetch since direct curl was 403'd) and army-hrp-scoring-secondary-notes.txt (this file) for
+the numeric scoring attempts, which disagree across sources for a documented, real reason: the
+Army's own test and scoring scheme changed name and structure between 2020 and 2025.
+
+=== Source 1: topendsports.com/testing/tests/push-up-hand-release.htm (fetched via WebFetch) ===
+Describes the ORIGINAL Army Combat Fitness Test (ACFT), gender-NEUTRAL scoring, "as of 2020" per the
+page's own framing:
+  100 pts: 57+ reps
+  90 pts:  47 reps
+  80 pts:  37 reps
+  70 pts:  27 reps
+  60 pts:  10 reps (minimum passing)
+  <60 pts: <10 reps (failing)
+Applies to ages 17-80, no age-bracket or sex differentiation stated on this page.
+
+=== Source 2: WebSearch summary (gymnasetips.com / militaryfitnesscalc.com / aftcalculator.com,
+2026 pages) describing the CURRENT "AFT" (Army Fitness Test) ===
+States that the ACFT was renamed/restructured into the AFT (Army Fitness Test) in June 2025, now
+with SEX- and AGE-NORMED standards (a reversal from the original gender-neutral ACFT design), a
+60-point-per-event minimum to pass, and a 350-point total-score structure across 5 events. Example
+given: male soldier aged 22-26 needs 14 HRP reps for 60 points (pass) and 61 reps for the maximum
+100 points; a female soldier in the same age band needs 11 reps for 50 points (not stated whether
+50 or 60 is her passing threshold in the summary obtained). Combat-arms soldiers (regardless of sex)
+are held to the male/sex-neutral column per this summary.
+
+=== Why these two disagree, and how to use them ===
+This is NOT a data-quality problem in the individual sources -- it reflects real policy history:
+the Army launched the ACFT with gender-neutral scoring around 2019-2022, faced significant
+controversy and multiple score-table revisions, and (per source 2) renamed/restructured the test to
+the "AFT" with age/sex-normed scoring effective June 2025. Source 1's table (gender-neutral, 57 reps
+for 100 pts) almost certainly reflects an EARLIER iteration of the standard; source 2's numbers
+(sex/age-specific, only 61 reps for 100 pts in the cited age band) reflect the CURRENT (2025-2026)
+AFT. Neither was independently verified against the official Army source this session (both are
+third-party calculator/blog pages). If the pipeline needs a defensible current number, prefer
+source 2's framing (age/sex-normed, current AFT) over source 1's (gender-neutral, likely superseded
+ACFT), but flag the whole Army HRP scoring table as ESTIMATE-grade pending a primary-source fetch.
+Do NOT average or otherwise combine the two tables' numbers -- they describe two different scoring
+regimes, not two measurements of the same standard.

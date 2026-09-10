@@ -1,0 +1,41 @@
+1. J Sports Sci Med. 2020 May 1;19(2):289-297. eCollection 2020 Jun.
+
+Push-Ups vs. Bench Press Differences in Repetitions and Muscle Activation 
+between Sexes.
+
+Alizadeh S(1), Rayner M(1), Mahmoud MMI(1), Behm DG(1).
+
+Author information:
+(1)School of Human Kinetics and Recreation, Memorial University of Newfoundland, 
+St. John's, Newfoundland and Labrador, Canada.
+
+Push-ups are an ubiquitous resistance training exercise. While exhibiting a 
+relatively similar upper body motion to the bench press, there are substantial 
+differences in repetitions when employing similar relative loads. The objective 
+was to examine sex-related differences in repetitions and muscle activation 
+associated with push-ups and bench press exercises. Twenty resistance-trained 
+participants (10 men [22 ± 6.1 years] and 10 [24 ± 5.7 years] women) performed 
+maximum push-up and bench press repetitions with loads relative to the body mass 
+during a push-up. Electromyographic (EMG) electrodes were positioned on the 
+middle and anterior deltoids, triceps and biceps brachii, and pectoralis major 
+muscles and their relative (normalized to a maximum voluntary contraction) 
+activity was compared between the two exercises performed to task failure. Both 
+females (3.5 ± 3.9 vs.15.5 ± 8.0 repetitions; p = 0.0008) and males (12.0 ± 6.3 
+vs. 25.6 ± 5.2 repetitions; p < 0.0001) performed 77.4% and 53.1% less bench 
+press than push-up repetitions respectively. Males significantly exceeded 
+females with both push-ups (p = 0.01) and bench press (p = 0.004) repetitions. 
+Significant linear regression equations were found for females (r2 = 0.55; p = 
+0.03), and males (r2 = 0.66; p < 0.0001) indicating that bench press repetitions 
+increased 0.36 and 0.97 for each push-up repetition for females and males 
+respectively. Triceps (p = 0.002) and biceps brachii (p = 0.03) EMG mean 
+amplitude was significantly lower during the push-up concentric phase, while the 
+anterior deltoid (p = 0.03) exhibited less activity during the bench press 
+eccentric phase. The sex disparity in repetitions during these exercises 
+indicates that a push-up provides a greater challenge for women than men and 
+regression equations may be helpful for both sexes when formulating training 
+programs.
+
+© Journal of Sports Science and Medicine.
+
+PMCID: PMC7196742
+PMID: 32390722 [Indexed for MEDLINE]

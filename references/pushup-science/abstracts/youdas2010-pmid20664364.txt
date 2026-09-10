@@ -1,0 +1,39 @@
+1. J Strength Cond Res. 2010 Dec;24(12):3352-62. doi:
+10.1519/JSC.0b013e3181cc23b0.
+
+Comparison of muscle-activation patterns during the conventional push-up and 
+perfect· pushup™ exercises.
+
+Youdas JW(1), Budach BD, Ellerbusch JV, Stucky CM, Wait KR, Hollman JH.
+
+Author information:
+(1)Program in Physical Therapy, Mayo School of Health Sciences, College of 
+Medicine, Mayo Clinic, Rochester, Minnesota, USA. youdas.james@mayo.edu
+
+Manufacturers of Perfect·Pushup™ handgrips claim enhanced muscular recruitment 
+when compared with the conventional hand-on-floor push-up exercise. 
+Electromyographic (EMG) data were recorded using surface electrodes from the 
+right-sided triceps brachii, pectoralis major, serratus anterior (SA), and 
+posterior deltoid muscles during push-ups performed from 3 different hand 
+positions: (a) shoulder width, (b) wide base, and (c) narrow base (NB). Push-ups 
+were performed under 2 conditions: (a) standard push-up and (b) Perfect·Pushup™ 
+handgrips. We recruited 20 healthy subjects, 11 men (24.9 ± 2.6 years) and 9 
+women (23.8 ± 1 years). Subjects completed 3 consecutive push-ups for each hand 
+position under both conditions. Push-up speed was controlled using a metronome, 
+and testing order was randomized. We recorded peak EMG activity for each muscle 
+during each of the push-ups and normalized EMG values by maximum muscle 
+contractions (% maximum voluntary isometric contraction [MVIC]). 
+Electromyographic data were analyzed with 3 (hand position) × 2 (condition) 
+repeated-measures analysis of variance with a post hoc Bonferroni-adjusted 
+simple effects test to detect significant position effects for position by 
+condition interactions (α = 0.05). A push-up required considerable muscle 
+activation of the triceps brachii (73-109% MVIC), pectoralis major (95-105% 
+MVIC), SA (67-87% MVIC), and posterior deltoid (11-21% MVIC) whether performed 
+using the conventional hand-on-floor position or the Perfect·Pushup™ handgrips. 
+The NB hand position was most effective for preferentially activating the 
+triceps brachii and posterior deltoid muscles. Based upon EMG activation from 4 
+muscles, the Perfect·Pushup™ handgrips do not appear to preferentially enhance 
+muscular recruitment when compared with the conventional push-up method.
+
+DOI: 10.1519/JSC.0b013e3181cc23b0
+PMID: 20664364 [Indexed for MEDLINE]

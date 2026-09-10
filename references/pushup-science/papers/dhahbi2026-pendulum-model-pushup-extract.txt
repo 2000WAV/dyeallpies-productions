@@ -1,0 +1,47 @@
+Dhahbi W (2026). A Rigid-Body Pendulum Model for Plyometric Push-Up Biomechanics: Analytical
+Derivation and Numerical Quantification of Flight Time, Arc Displacement, Maximum Height, and
+Mechanical Power Output. Bioengineering (Basel) 13(4):445. doi:10.3390/bioengineering13040445.
+PMID 42072239. PMCID PMC13113941. CC BY 4.0, open access (MDPI). Single-author analytical/
+numerical-simulation paper (no human subjects) -- the "recent (2019-2026) inverse-dynamics-style
+push-up model" requested for this file.
+
+WHAT IT DOES: models the plyometric (clap/box-drop) push-up's flight phase as a single-link rigid
+body pivoting about the ankle (planar pendulum), instead of the conventional simplification that
+treats the whole body as a point mass in free-fall (used by essentially every prior GRF-based
+plyometric push-up study, including moore2012, dhahbi2017, garciamasso2011, zalleg2020 in this
+same folder -- none of which correct for this). Derives the "effective pendulum length"
+L = (M_W / M) x L_OS from two independent routes (static moment equilibrium; gravitational-torque
+coordinate approach) and shows they agree (deviation from the naive M_W-to-CoM distance is
+< 4% for takeoff angles theta_0 <= 16 degrees, which covers most adult push-up configurations).
+
+KEY QUANTITATIVE RESULT (source of the number used in 02-pushup-hand-force-and-joint-moments.md):
+- The conventional free-fall model systematically OVERESTIMATES flight time by up to 18.82%
+  (delta t = 0.096 s at pendulum-arm length L_OW = 0.50 m, initial hand velocity V_H,0 = 2.50 m/s)
+  and OVERESTIMATES maximum height by up to 28.43% (delta h = 0.087 m), relative to the mechanically
+  correct pendulum model.
+- Over the physiologically reported plyometric push-up flight-time range (0.25-0.55 s), this
+  translates to errors of up to 18.82% in flight-time-based estimates -- directly relevant because
+  flight-time is the input several other studies in this folder (dhahbi2017, zalleg2020,
+  garciamasso2011) use to back out peak force/power via free-fall kinematics.
+- The overestimation grows nonlinearly and is proportionally LARGER at shorter pendulum-arm
+  (i.e. shorter-limbed / more crouched) configurations: 18.18% error at t_flight = 0.30 s for
+  L_OW = 0.50 m vs 10.91% at the same flight time for L_OW = 1.00 m.
+- g = 9.81 m/s^2 used throughout; simulation implemented in R, adaptive Gauss-Kronrod quadrature
+  (rel. tolerance 1e-10) cross-checked against ODE integration (max inter-method discrepancy
+  2.5e-7 s).
+
+CITES IN ITS OWN REFERENCE LIST (confirms/corrects author-guesses from the task brief):
+- Ref 8 = Wang R, Hoffman JR, Sadres E, Bartolomei S, Muddle TWD, Fukuda DH, Stout JR (2017).
+  "Evaluating Upper-Body Strength and Power From a Single Test: The Ballistic Push-up." J Strength
+  Cond Res 31(5):1338-1345. PMID 28166187. -- this is the "Wang et al." paper the task brief was
+  unsure of the year for (it is 2017, not 2013), and confirms Bartolomei is a co-author on it.
+- Ref 10 = Bartolomei S, Nigro F, Ruggeri S, Malagoli Lanzoni I, Ciacci S, Merni F, Sadres E,
+  Hoffman JR, Semprini G (2018). "Comparison Between Bench Press Throw and Ballistic Push-up Tests
+  to Assess Upper-Body Power in Trained Individuals." J Strength Cond Res 32(6):1503-1511. PMID
+  29528954. -- this appears to be the real "Bartolomei" push-up paper (2018, not "2022" as named in
+  the task brief); no separate Bartolomei-2022-specific push-up load-velocity paper was located
+  this session under any author/title search tried (see abstracts/bartolomei2018-pmid29528954.txt).
+  Dhahbi (2026) cites Bartolomei's finding of large-to-extremely-large correlations (r=.70-.89)
+  between ballistic-push-up-derived and bench-press-throw-derived power, and Bartolomei's own
+  caution against flight-time-based power indices -- which this 2026 paper says its pendulum model
+  now gives the formal mechanical basis for.

@@ -1,0 +1,43 @@
+goarmy.com/how-to-join/requirements/fitness/aft-push-up -- "Hand-Release Push-Up (HRP) | AFT Event 2
+| U.S. Army." Official U.S. Army recruiting-site page describing the Hand-Release Push-Up-Arm
+Extension event of the Army Fitness Test (AFT, the successor to the ACFT naming). This is as close
+to a PRIMARY official source as this session obtained for the Army side (goarmy.com is an official
+Army-run domain, unlike the secondary blog compilations used for the USMC table).
+
+STATUS: direct curl -A "Mozilla/5.0" fetch returned HTTP 403 (10 bytes, blocked) -- same bot-wall
+pattern as the .mil domains. WebFetch's summarizer WAS able to retrieve and paraphrase the page
+content (unlike the .mil PDFs, which WebFetch also could not reach), so this file preserves that
+paraphrase; it is NOT a verbatim quote, but is closer to primary than the USMC secondary-blog pages
+in this folder, since the AI summarizer read the actual official page rather than a third party's
+retelling. A future session should retry the direct curl fetch (403s can be intermittent/UA-
+sensitive) if a verbatim primary quote is required.
+
+=== Hand-Release Push-Up (HRP), as paraphrased from the official page ===
+Starting position (on "GET SET"): prone, facing the start line, hands flat on the ground with index
+fingers inside the outer edges of the shoulders, chest and the front of the hips and thighs on the
+ground, toes touching the ground, feet together or up to a boot's width apart (feet stay within a
+boot's width of each other throughout the event).
+
+Up position (on "GO"): push the whole body up as a single unit to the front-leaning-rest position by
+fully extending the elbows.
+
+The distinguishing HRP mechanic (not required by the USMC standard push-up): lower all the way down
+until the chest, hips AND thighs touch the ground; then lift BOTH hands completely off the floor,
+extend the arms out to the sides, replace the hands, and press back up to full elbow lockout. This
+hand-release-and-arm-extension step must happen at the bottom of EVERY repetition.
+
+Body line: fairly straight line from head to heel throughout; front-leaning rest is the ONLY
+authorized rest position (same rule as the USMC standard push-up).
+
+=== Why this matters for the pipeline ===
+The HRP's full chest-hips-thighs-to-ground contact plus mandatory hand-release is a substantially
+different (and generally slower, more strictly bottom-out) movement than the USMC standard push-up,
+which only requires upper-arms-parallel-to-ground at the bottom and never requires the hands to
+leave the floor. Do NOT use USMC push-up rep-count norms as a stand-in for Army HRP rep counts, or
+vice versa -- they are different exercises with different ROM and different pacing (the HRP's
+release-and-reset step adds real time per rep that a standard push-up does not have). No numeric
+AFT/ACFT HRP scoring table (rep counts by age/sex/points) was retrieved this session -- a future
+session should try goarmy.com's own scoring-standards page and the official Army Training
+Publications site (armypubs.army.mil, DA PAM 7-22) for a primary numeric table; this session
+prioritized the kinetics/norms/fatigue scope in the task brief and did not chase the ACFT/AFT
+scoring table itself down to a primary source, so it is marked NOT FOUND rather than estimated.

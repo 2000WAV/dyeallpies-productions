@@ -1,0 +1,45 @@
+1. J Strength Cond Res. 2018 Jun;32(6):1503-1510. doi: 
+10.1519/JSC.0000000000002571.
+
+Comparison Between Bench Press Throw and Ballistic Push-up Tests to Assess 
+Upper-Body Power in Trained Individuals.
+
+Bartolomei S(1), Nigro F(1), Ruggeri S(1), Malagoli Lanzoni I(1), Ciacci S(2), 
+Merni F(2), Sadres E(3), Hoffman JR(4), Semprini G(2).
+
+Author information:
+(1)School of Pharmacy, Biotechnology, and Motor Sciences, University of Bologna, 
+Bologna, Italy.
+(2)Department of Biomedical and Neuromotor Sciences, University of Bologna, 
+Bologna, Italy.
+(3)The Nat Holman School for Coaches and Instructors, Wingate Institute for 
+Physical Education and Sport, Netanya, Israel.
+(4)Sport and Exercise Science, University of Central Florida, Orlando, Florida.
+
+Bartolomei, S, Nigro, F, Ruggeri, S, Malagoli Lanzoni, I, Ciacci, S, Merni, F, 
+Sadres, E, Hoffman, JR, and Semprini, G. Comparison between bench press throw 
+and ballistic push-up tests to assess upper-body power in trained individuals. J 
+Strength Cond Res 32(6): 1503-1510, 2018-The purpose of this study was to 
+validate the ballistic push-up (BPU) test performed with hands on a force plate 
+as a method to measure upper-body power. Twenty-eight experienced 
+resistance-trained men (age = 25.4 ± 5.2 years; body mass = 78.5 ± 9.0 kg; body 
+height = 179.6 ± 7.8 cm) performed, 2 days apart, a bench press 1 repetition 
+maximum (1RM) test and upper-body power tests. Mean power (MP) and peak power 
+(PP) were assessed using the bench press throw (BT) test and the BPU test 
+performed in randomized order. The area under the force/power curve (AUC) 
+obtained at BT was also calculated. Power expressed at BPU was estimated using a 
+time-based prediction equation. Mean force and the participant's body weight 
+were used to predict the bench press 1RM. Pearson product-moment correlations 
+were used to examine relationships between the power assessment methods and 
+between the predicted 1RM bench and the actual value. Large correlations (0.79; 
+p < 0.001) were found between AUC and MP expressed at BPU. Large correlations 
+were also detected between MP and PP expressed at BT and BPU (0.75; p < 0.001 
+and 0.74; p < 0.001, respectively). Very large correlations (0.87; p < 0.001) 
+were found between the 1RM bench and the 1RM predicted by the BPU. Results of 
+this study indicate that BPU represents a valid and reliable method to estimate 
+the upper-body power in resistance-trained individuals.
+
+DOI: 10.1519/JSC.0000000000002571
+PMID: 29528954 [Indexed for MEDLINE]
+
+Notes for this project: task brief named "Bartolomei 2022" for push-up load-velocity work -- no 2022 Bartolomei push-up paper was located under any search this session (PubMed, Europe PMC). This 2018 paper is the real Bartolomei ballistic-push-up (BPU) validation study and is the closest match: 28 resistance-trained men, BPU on a force plate vs bench press throw (BT). Large correlations AUC-vs-MP(BPU) r=.79; MP/PP BT-vs-BPU r=.75/.74; very large correlation predicted-1RM (from BPU mean force) vs actual 1RM bench r=.87 (all p<.001). Closed access (JSCR/LWW); no PMC copy found. See also dhahbi2026pendulum-pmid42072239.txt, which cites this paper directly (as its own ref 10) and confirms 2018 as the correct year.
