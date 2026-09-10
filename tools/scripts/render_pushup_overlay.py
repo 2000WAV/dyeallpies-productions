@@ -241,6 +241,31 @@ def main():
                 f = look.apply(f, mf, (0, 0, 0), 0.8, gi, keep_colour=plate is not None, rim=0.0)
         return f, lab_full
 
+    # ---- after the set: one uniform field (Dennis, 2026-09-10: keep the map on while he stands up, "even if
+    # artificially"). MediaPipe's landmarks jump on the close-up body and the polygons jumped with them (the
+    # flicker gate caught it at 110-112 s), so every region gets the same value, the mass-weighted mean effort,
+    # and the mask is the matte alone. Computed live for the ~190 frames after set1; the baked frames stay valid. ----
+    mtot = sum(masses[m] for m in TH.PAINTED)
+    E_mean = np.array([sum(Em[m][i_] * masses[m] for m in TH.PAINTED) / mtot for i_ in range(N)])
+    A_mean = np.array([sum(Am[m][i_] * masses[m] for m in TH.PAINTED) / mtot for i_ in range(N)])
+
+    def body_layer_done(f, fi, P_use, zprog, gi):
+        comp_now = np.asarray(masks[fi]) if masks is not None else None
+        if plate is not None and comp_now is not None:
+            alpha_full = cv2.resize(comp_now[..., 0], (W, H), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255
+            z = 1.0 + 0.05 * zprog
+            cw, ch = int(W / z), int(H / z); px0 = (W - cw) // 2; py0 = (H - ch) // 2
+            pl = cv2.resize(plate[py0:py0 + ch, px0:px0 + cw], (W, H), interpolation=cv2.INTER_LINEAR)
+            pa = cv2.resize(plate_a[py0:py0 + ch, px0:px0 + cw, 0], (W, H), interpolation=cv2.INTER_LINEAR)[:, :, None]
+            keep = np.clip(alpha_full[:, :, None] + (1 - pa), 0, 1)
+            f = np.clip(pl * (1 - keep) + f.astype(np.float32) * keep, 0, 255).astype(np.uint8)
+        if masks is not None and P_use is not None:
+            reg_E = {r: float(E_mean[fi]) for r in AT.REGIONS}; reg_A = {r: float(A_mean[fi]) for r in AT.REGIONS}
+            f, mf, _ = AT.paint(f, comp_now, P_use, reg_E, reg_A, 1.0, None)
+            if look is not None:
+                f = look.apply(f, mf, (0, 0, 0), 0.8, gi, keep_colour=plate is not None, rim=0.0)
+        return f, None
+
     def _fstat(p):
         st = os.stat(p); return [os.path.basename(p), st.st_size, st.st_mtime_ns]
 
@@ -341,7 +366,10 @@ def main():
         fast = int(seg.get("step", 1)) if kind == "play" else 1
         title_on = (kind == "play" and count[fi] == 0 and fi < first_rep) or (kind == "freeze" and seg.get("title") is None and seg.get("hook") is None)
 
-        if cache_cap is not None:
+        if fi > set1:
+            f, lab_full = body_layer_done(f, fi, P_use if last_ok is not None else None, i / max(1, total - 1), i)
+            cents_now = {}
+        elif cache_cap is not None:
             if fi != cur_cache:
                 if cur_cache >= 0 and 0 < fi - cur_cache <= 12:
                     for _ in range(fi - cur_cache):
@@ -442,7 +470,7 @@ def main():
                     dr.text((74, y_ + 44), small, font=F["pill_l"], fill=MUTED)
                     y_ += 76
             # diegetic pills at real speed: the elbow angle at the elbow, the speed beside the shoulders
-            if last_ok is not None and fast == 1 and ph not in ("SETUP",):
+            if last_ok is not None and fast == 1 and ph not in ("SETUP", "DONE") and fi <= set1:   # no readouts once the hands leave the floor: the speed and the elbow mean nothing while he stands up
                 def pill(x, y, big, small, anchor_right=False):
                     bw = max(dr.textlength(big, font=F["pill"]), dr.textlength(small, font=F["pill_l"])) + 28
                     x0p = x - bw if anchor_right else x
