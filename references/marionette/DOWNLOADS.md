@@ -382,3 +382,20 @@ checkpoint) — its facts are used via WebSearch's extracted summary only, flagg
 Numbers are in `data/10-rendering-numbers.csv`; the findings are in
 `10-rendering-routes-and-mannequin-assets.md`; downloaded files are listed a second time,
 with licence text, in `assets/LICENCES.md`.
+
+## Item 12 — neon on black and the isolated hand — 2026-09-12
+
+See `downloads-12.md` for the full table: Spencer et al. 1995's physically-based ocular
+glare PSF (fetched via a Wayback Machine mirror after Cornell's own pubs URL moved),
+Ritschel et al. 2009's temporal-glare abstract (via the DTU Orbit institutional record,
+after the author's own project page and personal PDF link both failed), Wikipedia's
+Helmholtz-Kohlrausch effect, Violet (color), Shades of violet, Argon, Neon lighting, Day
+for night and Lux articles, Nestmeyer et al. 2020's face-relighting paper (arXiv), the
+Einabadi et al. 2021 illumination/relighting survey's abstract (via the Semantic Scholar
+API, after its claimed open-access PDF returned an HTML interstitial), and two photography
+sources on the inverse-square law in practice (PetaPixel, scantips.com). Smith & Blinn
+1996's blue-screen matting relation and the Levin/He/Yao matting papers already archived
+under items 5/9 are reused unchanged, not re-fetched. Numbers (including this session's own
+sRGB-luminance computations for the violet approximations and the illustrative inverse-
+square/lux worked example) are in `data/12-neon-black-numbers.csv`; the findings are in
+`12-neon-on-black-and-the-isolated-hand.md`.

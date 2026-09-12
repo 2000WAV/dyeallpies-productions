@@ -74,6 +74,52 @@ void main() {
 }
 """
 
+# Jump-flood distance field (Rong & Tan 2006) on the g-buffer's ID channel: every figure pixel gets the
+# position of the nearest pixel whose body ID differs from a 4-neighbour (a silhouette or a body-to-body
+# edge). Feeds the neon style's "lit from inside" thickness gradient (item 06 section 1.4), which the
+# CPU path computed with cv2.distanceTransform per body (0.19 s a frame). Passes start at `max_step`
+# (the largest thickness of interest in px); farther pixels get an undefined seed, which is fine
+# because every figure pixel is closer than that to its own edge.
+JFA_INIT_FS = """
+#version 330
+uniform sampler2D g;
+uniform ivec2 size;
+out vec2 o;                    // the seed's own coordinates, or (-1, -1)
+void main() {
+    ivec2 p = ivec2(gl_FragCoord.xy);
+    float id = texelFetch(g, p, 0).g;
+    bool edge = false;
+    for (int k = 0; k < 4; k++) {
+        ivec2 d = (k == 0) ? ivec2(1, 0) : (k == 1) ? ivec2(-1, 0) : (k == 2) ? ivec2(0, 1) : ivec2(0, -1);
+        ivec2 q = p + d;
+        float idq = (q.x < 0 || q.y < 0 || q.x >= size.x || q.y >= size.y) ? -1.0 : texelFetch(g, q, 0).g;
+        if (idq != id) edge = true;
+    }
+    o = edge ? vec2(p) + 0.5 : vec2(-1.0);
+}
+"""
+
+JFA_STEP_FS = """
+#version 330
+uniform sampler2D src;
+uniform ivec2 size;
+uniform int step;
+out vec2 o;
+void main() {
+    ivec2 p = ivec2(gl_FragCoord.xy); vec2 pc = vec2(p) + 0.5;
+    vec2 best = texelFetch(src, p, 0).rg; float bd = (best.x < 0.0) ? 1e20 : dot(pc - best, pc - best);
+    for (int dy = -1; dy <= 1; dy++) for (int dx = -1; dx <= 1; dx++) {
+        ivec2 q = p + ivec2(dx, dy) * step;
+        if (q.x < 0 || q.y < 0 || q.x >= size.x || q.y >= size.y) continue;
+        vec2 s = texelFetch(src, q, 0).rg;
+        if (s.x < 0.0) continue;
+        float d = dot(pc - s, pc - s);
+        if (d < bd) { bd = d; best = s; }
+    }
+    o = best;
+}
+"""
+
 
 def pinhole_clip_matrix(f, cx, cy, W, H, near=0.05, far=2.0, half_pixel=True):
     """4x4 P with clip = P (X, Y, Z, 1), X right, Y depth (forward), Z up, so that the NDC lands on
@@ -163,6 +209,9 @@ class GL:
         self.geom_prog = self.program(GEOM_VS, GEOM_FS)
         self.acc_prog = self.program(FULLSCREEN_VS, ACC_FS)
         self._acc_vao = self.fullscreen_vao(self.acc_prog)
+        self.jfa_init = self.program(FULLSCREEN_VS, JFA_INIT_FS); self._jfa_init_vao = self.fullscreen_vao(self.jfa_init)
+        self.jfa_step = self.program(FULLSCREEN_VS, JFA_STEP_FS); self._jfa_step_vao = self.fullscreen_vao(self.jfa_step)
+        self._jfa = {}
 
     def make_current(self):
         """Re-assert this context. Another GL user in the process (mujoco.Renderer's GLFW context, for
@@ -211,6 +260,26 @@ class GL:
         self.acc_prog["w"].value = float(w)
         self._acc_vao.render(moderngl.TRIANGLES)
         self.ctx.disable(moderngl.BLEND)
+
+    def distance_field(self, g_tex, max_step=128):
+        """Jump flood on the g-buffer's ID channel -> an RG32F texture holding, per pixel, the coordinates
+        (pixel centres) of the nearest ID-edge pixel; distance = length(p + 0.5 - value). max_step: the
+        first jump (a power of two >= the largest thickness that must be exact)."""
+        self.make_current()
+        W, H = g_tex.size
+        if (W, H) not in self._jfa:
+            t = [self.tex(W, H, 2), self.tex(W, H, 2)]
+            self._jfa[(W, H)] = (t, [self.fbo([t[0]]), self.fbo([t[1]])])
+        texs, fbos = self._jfa[(W, H)]
+        self.ctx.disable(moderngl.DEPTH_TEST); self.ctx.disable(moderngl.BLEND)
+        fbos[0].use(); g_tex.use(0); self.jfa_init["g"].value = 0; self.jfa_init["size"].value = (W, H); self._jfa_init_vao.render(moderngl.TRIANGLES)
+        cur = 0; step = max_step
+        self.jfa_step["size"].value = (W, H)
+        while step >= 1:
+            fbos[1 - cur].use(); texs[cur].use(0); self.jfa_step["src"].value = 0; self.jfa_step["step"].value = int(step)
+            self._jfa_step_vao.render(moderngl.TRIANGLES)
+            cur = 1 - cur; step //= 2
+        return texs[cur]
 
     def read(self, fbo, components=4, dtype="f2"):
         """Read a framebuffer back as (H, W, components), image row order (row 0 = top, see the module doc)."""

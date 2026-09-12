@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Inverse Square Law for camera, with calculator for distance and intensity</title>
+<meta name="description" content="Inverse Square Law for photo flash, with calculator for distance and intensity">
+<meta name="keywords" content="photography, photo, flash, speedlight, calculator, camera, image, tips, basics">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- NM /lights/flashbasics1.html"> -->
+<link href="../styles.css" rel="stylesheet">
+<style>
+input, select {font-size:100%}
+input {max-width:3em}
+td, th {padding:3px}
+.tb1 {margin:0 auto}
+.tb1 td {text-align:right; padding:3px}
+.tb2 {float:right; margin:0 0 4px 15px; background:#fff}
+.tb2 td {padding:3px; text-align:center}
+.tb4 {margin:0 auto; border:1px solid #eb4}
+.tb4 td, th {padding:2px; border-right:1px solid #eb4}
+.sel option:nth-child(4n+1)  {background-color:#ffa}
+.btn {background:#eee; font-weight:bold; color:red; text-align:center; max-width:none; margin:4px; padding:4px 12px 6px 12px; color:#a02; border:2px solid #a70; border-radius:16px}
+.btn textarea:focus, input:focus{ outline: none}
+.form {margin:0 auto; padding:0 4px 0 8px; background:#fff; border:2px solid #eb4; border-radius:18px}
+.form p {margin:0.5em 0}
+.form hr {margin:2px -4px 0 -7px; border-color:#eb4}
+.form input {width:3.2em}
+.er {color:#d02; font-weight:bold}
+</style>
+<body>
+<div class="hd1">www.scantips.com</div>
+<h1>Basics of Flash Photography<br>four Fundamentals we must know</h1>
+<div class="body">
+<h1 id="1">Inverse Square Law</h1>
+<p>Light intensity falls off rapidly with distance from its source. This is called the <a href="https://en.wikipedia.org/wiki/Inverse-square_law">Inverse Square Law</a>, which says the intensity varies inversely with the square of the flash-to-subject distance. There’s a <a href="#calc">calculator below</a>, but for example this way:
+
+<div class="form" style="display:table; padding:0 12px 4px 12px">
+<h2 style="margin:9px 0">Inverse Square Law</h2>
+Light at 2x the distance is 1/4 as bright. &nbsp;Light at 1/2 the distance is 4x brighter (2 EV)
+<p>Light at 3x the distance is 1/9 as bright. &ensp;Light at 1/3 the distance is 9x brighter (3.17 EV)
+<p>Light at 4x the distance is 1/16 as bright. &nbsp;Light at 1/4 the distance is 16x brighter (4 EV)
+<p>Light at 5x the distance is 1/25 as bright. &nbsp;Light at 1/5 the distance is 25x brighter (4.64 EV)
+</div>
+<p>Inverse Square Law is just a fancy name for a rather simple concept. Think of a handheld flashlight, same thing &mdash; as the beam travels farther away from the source, the beam spreads out to illuminate a larger area, but becoming more dim with distance. All light spreads and weakens this way, your flashlight, the street light, your table lamp, and your photo flash, all spread and weaken in this way too, with distance. We might imagine that if the light were twice as far away, it would be half as bright, but the correct answer is only 1/4 as bright. Our eye sees an area, and so <b>Luminance is light per unit area</b>. At twice the distance, each of the width and height dimensions do become doubled, but the area is width x height, which is 4x, and the same light is 1/4 brightness in it. The drawing explains why it falls off so fast. And at triple the distance, the coverage dimensions triple, both width and height, so the lighted area becomes 9x larger (the square of 3), and the same light there is 1/9 as bright. The Inverse Square Law is only saying that the light spreads to cover a larger area as it travels further, which dilutes it, so to speak.
+<p><img style="float:right; margin-left:20px;" src="images/inverse_square_law.png" width="500" height="333" alt="Inverse Square Law">
+<p>Our light remains the same as it travels (the photons don't lose energy), but as it spreads out, the light <b>density per unit area</b> is diluted.
+<p>This drawing is from the <a href="https://en.wikipedia.org/wiki/Inverse-square_law">Wikipedia topic</a>. The light beam is larger than the area at “r”, which is just the area where intensity is being considered (“r” could actually be the radius of a sphere of light, like from a star, but it could also be any other light beam). It simply shows that when an angle spreads in space, and travels twice as far (2r vs. r in the drawing), the Width and Height of this area spreads to be twice as large (Similar Triangles). That 2W x 2H expands to 4x times the first Area, which still contains the same light, but which is therefore diluted to be only 1/4 as strong at 2x distance (and same answer if we compute a circular beam). <b>The light intensity varies with the square of the distance</b> (varies inversely, more distance is a weaker light).
+<p>We can suppose the red lines are the paths of a few photons of light traveling from the source.
+Photons don't become weaker with distance &mdash; the angle of the beam just spreads out. The greater area dilutes the light intensity. The same photons in a greater area, so less light per unit of area, simply because the light is the same energy distributed over a larger increasing area. Nine photons at 1x, distance dilutes density to about two per area at 2x, which is 1/4, and one per area at 3x, which is 1/9. Impressive little drawing!
+<p>It really is that simple, that's all there is to it. The Inverse Square Law is only about the spread of any angle, and is not about any property of light at all. The effect is the same on light, gravity, sound, and radio waves, because it is only about the angle and distance. Angles just spread out with distance, and any light just fills that larger area, and thus is weaker intensity (metered at any one spot). You already know this; a flashlight beam becomes dim with distance because it spreads out with distance, becoming more dim. We might imagine twice as far is half as bright, but the big deal is that in fact, it is only 1/4 as bright there, explained above. So the point is, light falls off <b>fast</b> with distance, more so up close, but the amount varies inversely with the square of the distance. Your photo flash is a light, and it does this too. A flash exposure can only be correct at one distance. Behind that distance will be underexposed, and in front of it will be overexposed. It is good to realize this.
+<p>The Inverse Square Law is NOT calculating the width of this light beam. A bare bulb spreads light in every direction. A typical speedlight flash may zoom from maybe 25 to 80 degrees width. A flashlight or car headlight has a narrow beam. A searchlight beam (spot light) might be very narrow, but it is not quite zero degrees. But whatever the angle, they all spread with distance. Even a coherent laser beam a mm or two diameter on Earth might be 7 km diameter on the moon, and if it traveled twice as far, it would spread twice as wide. They all lose intensity at distance, due to this angular spread. Whatever the angular beam might be, the Inverse Square Law is only calculating how much the intensity falls off as it spreads with distance (due to the greater area it will cover then). Twice as far is 1/4 the intensity, -2 EV, which is the Inverse Square Law.
+<p>We may not care exactly why, but it definitely matters to photographers that this does happen. All you really need to realize is that subject distance from the flash is a huge factor, like shown in the Inverse Square Law chart above. However, a confusion is that sunshine seems to be a major exception &mdash; direct bright sun appears to be constant brightness no matter where we stand, independent of distance to the subject.
+<p><b>Sunshine is quite special</b> (due only to our own local situation). Sure, sunshine does work exactly according to the Inverse Square Law too, there can be no exceptions. Yet sunshine seems very different, since what we see actually appears NOT to work that way, and instead appears the same everywhere. However, it is the distance to the light source that matters, NOT the distance to the camera. Sunshine seems to have a constant brightness anywhere we look, which is only because we are 93 million miles from the Sun, and another few miles to yonder mountain we see here on Earth is a totally insignificant difference. Even the 240,000 miles to the Moon is insignificant (1/4 of 1% of Sun distance), so the astronauts could use the same <a href="sunny16.html">Sunny 16 rule of exposure</a> there that we use here. On Mars someday however (about half again farther from the Sun than the Earth), they will have open up about one full stop (Inverse Square Law). But then, everything they see there will again seem to have a constant illumination. Since we cannot vary our distance from the sun source here on Earth, sunlight does in fact appear uniquely constant to us &mdash; only because the sun is always same great distance from any subject here on Earth. This can give photographers false notions about how other light ought to work, but it is the Sun's distance that is the exception. But the flash is in the same room with us, only a few feet from the subject, so we WILL see the Inverse Square Law in action. It is the overwhelmingly huge and major factor for our flash use. Camera TTL automation and Guide Number for manual flash can handle it for us, so we have some good tools, and we might work with it without knowing exact details, but we absolutely must recognize it exists.
+<p>If you imagine your camera metering should always get the exposure right, you're in for occasional disappointment. <b>Ways to deal with this</b> include actually metering the Manual mode flash directly at the subjects location (incident metering), which should be accurate. Or TTL flash automation in the camera (reflected metering) often gets close, but can easily be fooled (just watch your results then, and use Flash Compensation as needed). Or the Guide Number method on the next page helps with Manual flash mode. Or even a few trial and error tries of proper exposure (Manual level or TTL Compensation) is not difficult if you have a minute. If you want it right, give it a little thought.
+<p>The exposure does not depend on where the camera is, or how far the camera is from the subject (unless the flash is on the camera). <b>What matters is how far the flash is from the subject.</b>
+<p>This is yet another confusion, another classic paradox, about how flash distance greatly affects exposure, but camera distance does not. It is enough to know it is true. Frankly, this topic may better be omitted for beginners, and instruction sources always do skip it. Yet, we may be puzzled about <b>why camera distance does not affect exposure?</b> Harder to explain, and it is <a href="flashbasics1b.html">covered here</a>, if you must, but that explanation seems an advanced topic, not essential. Don't let it distract the pursuit of flash basics. What we need to know is that flash intensity falls off fast with distance, according to the Inverse Square Law.
+<p><h2>Exposure variation due to flash-to-subject distance</h2>
+<p>Since intensity at the subject varies with distance from the light source, an implication is that <b>any flash exposure can only be "correct" at one distance from the light source.</b> Stop and think about that a second, it is an essential to know, a biggie. This Inverse Square Law (light falloff with the square of the distance) is true of all light, any light, a table lamp or a campfire at night, etc, but using flash for photos is commonly where this becomes more important to us to know. We cannot "fix" this Inverse Square Law situation, nor can we ignore it. We can only learn to work with it.
+<p>The Inverse Square law explains why the <b>room is seen to be darker behind nearby people</b> in a snapshot using direct flash. The distant background obviously has to be darker, it is farther from the flash (just how life is). There are ways to help this situation. Flash pictures are double exposures, of flash and ambient. Using a <a href="flashbasics2.html">slow shutter speed</a> will aid bringing the low room light level up, at risk of motion blurring the image. Or using high ISO will aid bringing the low room light level up to match the flash. Both methods are at risk of the incandescent light causing a strong orange cast (high ISO flash pictures often will require a <a href="flashbasics5b.html">CTO filter on the flash</a>, so Incandescent white balance can be used with flash). Often far best, simply using ceiling <a href="flashbasics1d.html">bounce flash</a> greatly helps to minimize this distance difference, since most parts of the (small) room are more equal-distant from the ceiling. Or in studio situations, another light is commonly used to illuminate the background area.
+<br><img class="imgr" style="background:inherit;" src="images/three.gif" width="274" height="340" alt="">
+<p>It is quite important to expect and plan on this distance variation for flash. Again, it does not matter to lighting where the camera is, but pay attention to distance between flash and subject. <b>Arrange your subject, or look for a lighting angle for the flash, so that all parts of your subject are near the same distance from the flash</b>.
+<p>I'm just saying, if your picture and subject has a camera angle something like this sketch, then a frontal flash will be different illumination levels at the three subject distances into the scene's depth. If using only one flash, then consider a flash arrangement like shown here, to illuminate the subjects evenly. Off-camera flash will surely be better lighting than flat frontal on-camera flash anyway. And bounce from the ceiling comes to mind too (or maybe bounce from the left wall, aimed at a spot about where this flash is shown now). The three subjects will be more evenly illuminated when equal distant from the flash, regardless of where the camera is. Or if multiple distances are necessarily involved, consider more flash units to illuminate each area, for example, another light on the background for portraits. Otherwise, that is why a white background half again farther than the subject will be underexposed about one stop, and will appear gray, not white. White backgrounds pretty much require their own light, to show as white.
+<p><b>If Manual flash</b>, we just adjust the flash power level to produce what we want, for the best photo exposure result. For one flash, this can easily be trial and error, judged in the camera's rear LCD, or aided by the histogram. Or we can use a handheld flash meter to meter and set the power level of multiple lights, each set to known ratio values relative to each other. Metering is much faster for multiple lights, instead of guessing at trial and error multiple times. Each light can be set precisely, so we actually know what each light is doing, and then we can easily repeat the same setup exactly next time.
+<p><b>For TTL flash</b>, exposure is automatically metered, but when we discover we need a bit more or less flash than the automation provides, then <i>Flash Compensation</i> is the way we control TTL flash. Which is very large part of any success, and is easily the best single tip about using flash. If you don't get the result you want, don't just bemoan your fate, that never helps. Do something &mdash; Fix it, then and there. Simply adjust it until you see what you want. Flash Compensation is the tool to adjust what TTL automation does. However, flash does have some different basic properties (discussed here), which are good to know to use it.
+<h2 id="calc">Inverse Square Law Calculator</h2>
+<p>This calculator computes the stops of light falloff between any two distances from direct flash or continuous light. This includes changing the distance from one light source, or the two distances of two lights of equal brightness. However beware, measuring from the fabric of a softbox or umbrella is not accurate for Inverse Square Law (ISL). If that is the case, at least instead measure distance path from the actual flash tube source (see <a href="#sb">below</a>).
+<p>Enter two distances to compare light intensity in EV. Or one distance and an EV difference to compute the second distance. Distances can be any units (feet or meters, miles or cubits), but all distances must be the same units (it is a ratio).
+<form NAME="f01" class="form" style="display:table">
+<h3 style="background:#fc5; margin:-1px -4px -2px -8px; padding:6px; border-radius:16px 16px 0 0">ISL, &nbsp; Inverse Square Law Calculator</h3>
+<p>1. Difference of distances: <INPUT TYPE="text" NAME="in1" VALUE="4.0"> to <INPUT TYPE="text" NAME="in2" VALUE="11"><br>Feet or meters, but use same units
+<div id="rs1"></div>
+<hr>
+<p>2. Same using exact distances represented<br>by precise f/stop numbers used by camera
+<p>Distance:
+<SELECT class="sel" id="fs1">
+<OPTION value="-2/0">f/0.5
+<OPTION value="-1/7">f/0.56
+<OPTION value="-1/5">f/0.59 *½
+<OPTION value="-1/3">f/0.63
+<OPTION value="-1/0">f/0.71
+<OPTION value="-0/7">f/0.79
+<OPTION value="-0/5">f/0.84 *½
+<OPTION value="-0/3">f/0.89
+<OPTION value="0/0">f/1
+<OPTION value="0/3">f/1.1
+<OPTION value="0/5">f/1.2 *½
+<OPTION value="0/7">f/1.3
+<OPTION value="1/0">f/1.4
+<OPTION value="1/3">f/1.6
+<OPTION value="1/5">f/1.7 *½
+<OPTION value="1/7">f/1.8
+<OPTION value="2/0">f/2
+<OPTION value="2/3">f/2.2
+<OPTION value="2/5">f/2.4 *½
+<OPTION value="2/7">f/2.5
+<OPTION value="3/0">f/2.8
+<OPTION value="3/3">f/3.2
+<OPTION value="3/5">f/3.3 *½
+<OPTION value="3/7">f/3.5
+<OPTION value="4/0" selected>f/4
+<OPTION value="4/3">f/4.5
+<OPTION value="4/5">f/4.8 *½
+<OPTION value="4/7">f/5.0
+<OPTION value="5/0">f/5.6
+<OPTION value="5/3">f/6.3
+<OPTION value="5/5">f/6.7 *½
+<OPTION value="5/7">f/7.1
+<OPTION value="6/0">f/8
+<OPTION value="6/3">f/9
+<OPTION value="6/5">f/9.5 *½
+<OPTION value="6/7">f/10
+<OPTION value="7/0">f/11
+<OPTION value="7/3">f/13
+<OPTION value="7/5">f/13 *½
+<OPTION value="7/7">f/14
+<OPTION value="8/0">f/16
+<OPTION value="8/3">f/18
+<OPTION value="8/5">f/19 *½
+<OPTION value="8/7">f/20
+<OPTION value="9/0">f/22
+<OPTION value="9/3">f/25
+<OPTION value="9/5">f/27 *½
+<OPTION value="9/7">f/28
+<OPTION value="10/0">f/32
+<OPTION value="10/3">f/36
+<OPTION value="10/5">f/38 *½
+<OPTION value="10/7">f/40
+<OPTION value="11/0">f/45
+<OPTION value="11/3">f/50
+<OPTION value="11/5">f/54 *½
+<OPTION value="11/7">f/57
+<OPTION value="12/0">f/64
+<OPTION value="12/3">f/72
+<OPTION value="12/5">f/76 *½
+<OPTION value="12/7">f/80
+<OPTION value="13/0">f/90
+<OPTION value="13/3">f/100
+<OPTION value="13/5">f/108 *½
+<OPTION value="13/7">f/114
+<OPTION value="14/0">f/128
+<OPTION value="14/3">f/145
+<OPTION value="14/5">f/150 *½
+<OPTION value="14/7">f/160
+<OPTION value="15/0">f/180
+<OPTION value="15/3">f/200
+<OPTION value="15/5">f/220 *½
+<OPTION value="15/7">f/230
+<OPTION value="16/0">f/256
+</SELECT> to <SELECT class="sel" id="fs2"></select>
+<div id="rs2"></div>
+<hr>
+<p>3. Main light at distance <INPUT TYPE="text" NAME="in3" VALUE="8.0">
+<p>Equal Fill light desired to be <INPUT TYPE="text" NAME="in4" VALUE="-1.0"> EV ratio
+<p>EV format can be ± 1, 1/3, 1.333 or 1 1/3
+<p>Show range span all within &plusmn; <SELECT id="sp" onChange="c1(this.form)">
+<OPTION value="0.05">1/20 EV
+<OPTION value="0.1">1/10 EV
+<OPTION value="1/6">1/6 EV
+<OPTION value="0.25">1/4 EV
+<OPTION value="1/3" selected>1/3 EV
+<OPTION value="0.5">1/2 EV
+<OPTION value="2/3">2/3 EV
+<OPTION value="1">1 EV
+<OPTION value="4/3">1.33 EV
+<OPTION value="1/5">1.5 EV
+<OPTION value="5/3">1.67 EV
+<OPTION value="2">2 EV
+<OPTION value="7/3">2.33 EV
+<OPTION value="8/3">2.67 EV
+<OPTION value="3">3 EV
+</SELECT>
+<div id="rs3"></div>
+<!--<hr><p>4. Light level at <INPUT TYPE="text" NAME="in5" SIZE="4" VALUE="25">% of Full<div id="rs4"></div>-->
+<hr>
+<p style="text-align:center"><INPUT class="btn" style="width:12em;" TYPE="button" NAME="btn2" Value="Compute All 3 above" onClick="c1(this.form)">
+</FORM>
+
+<noscript>
+<h3>This Calculator requires JavaScript be enabled in your browser.</h3>
+</noscript>
+<p><b>You can use either feet or meters, it doesn't matter to ISL.</b> The distance units just make a ratio, so any consistent units can be used, feet, meters, miles, kilometers, light years, cubits, etc., so long as you're consistent. The Inverse Square Law is NOT about exposure, it is about the ratio of exposure difference between two distances, so the units cancel out.
+<p><b>Very Important:</b> &nbsp; The Inverse Square Law distance must NOT be measured from the fabric of the umbrella or softbox because that won't be accurate. The measured distance must be the length of the actual light path, from the flash tube itself (the actual source of the light), possibly through the fabric or reflected from it, to the subject. The loss at the fabric is just a step function, affecting exposure, but not affecting the Inverse Square Law math, because that is the light path. Nonbelievers just need to actually set that up and carefully measure it themselves. See <a href="#sb">more about that softbox subject below</a>.
+<p>The results shown in calculator option 1 and 2 are similar, and both are accurate, but use slightly different distance number concepts. <b>If you are measuring two distances from one light, use Option 1</b> for the difference between the two distances, because Option 1 uses actual real distance measurements, like your tape measure shows.
+<p>But Option 2 is also handy to easily determine where to place two equal power lights (without a light meter) for a specified ratio of Main and Fill, because the idea here is that full stops (like f/ 1.4, 2, 2.8, 4, 5.6, 8, 11) are 1 EV apart, but these NUMBERS are &radic;2 apart. So then the Inverse Square Law causes equal lights placed at distances corresponding to the <a href="fstop2.html">"precise" number goals</a> the camera actually uses (like distances 1.414, 2, 2.828, 4, 5.657, 8, 11.314 feet or meters) are also 1.0 EV apart in intensity (this is the "Easiest Handy Guide" just below). You can do that in your head. If the distances are 3 f/stop numbers apart (like f/4 to f/11.314), then the difference is 3 EV.
+<p>Again, the Nominal f/stop numbers should be adequately accurate for the fill light, but the Precise Goal numbers will be precise.
+<p>Or place equal lights at 4 and 5.657 feet (or meters), and you will have a 1 EV lighting ratio (or maybe 1 and 1.414 meter). And you can use third stop NUMBERS too. This is true because both systems of numbering use full stop 2x intervals of &radic;2 NUMBERING steps, which can be very convenient; we know those numbers. The &radic;2 intervals of either distance or f/stop NUMBERS compute stop steps of 2x brightness levels, which is 1 EV steps. More next below at Easiest Handy Guide.
+<p>In explanation of the <b>use of Option 3 with two equal lights but no light meter</b> (for an example referencing the initial default numbers here), assume the portrait session Main light distance to subject to be the 4 feet (path length between actual light bulb and the subject). Use any numbers, either like real feet or meters, or like f/stop numbers (and it will mimic either the numbers in Option 1 or 2). It will compute the distance either way. And say you desire a lighting ratio difference of the -1 EV for an equally powered Fill light, then place it at the 5.657 feet, where it will be the -1 EV down from Main. Decide your acceptable limit of deviation in the span of the Fill light (the &plusmn; 1/3 EV). That computed span range of Fill of the ± 1/3 EV limits is from 5.04 to 6.35 (span is 1.31 feet for the &plusmn; 1/3 EV limit). If you want the limits of the span range of the Main light instead, just specify 0 EV for lighting ratio, and the Main and Fill will be computed at the same distance.
+<p>If you are using flash and have a light meter, it is easier to instead just simply meter the lights individually (at the subject). A whatever distances, set their power levels for Fill to meter 1 EV lower (or whatever) than the Main. Then you know that each light is doing exactly what you planned. See "more <a href="setup.html">detail about portrait lighting setup</a>. And you could meter the span distances too. The meter lets you duplicate the same setup repeatedly in many portrait sessions. You can do that setup even before the subject person arrives.
+<p>The Inverse Square Law (ISL) doesn't tell us a correct exposure at one specific distance. That exposure also depends on the light source intensity, for which we could determine exposure with a light meter, or with direct flash <a href="flashbasics1c.html">guide number</a>, or just trial and error. But lighting ratio is important too, and based on knowing that exposure at the first distance, the Inverse Square Law calculator tells us the relative EV exposure at the second distance... the difference of the two, the effect of the distance from the light source.
+<p>This intensity falloff with distance will happen, so it's good to be aware. The &plusmn; EV range span is shown in the calculator option 3 to emphasize this. The direct flash intensity can only be the "correct" exposure at one distance. If using flash on a subject with some depth, for example, the multiple rows of a large group picture, it could be very important that you consider this span. Of course, in Option 3, lighting ratio is not applicable to groups, because groups should be evenly lighted. Lighting ratio is about the gradient shadow tones on a one face portrait. Even if only two faces, one will be closer to the Main light. The Inverse Square Law is generally about direct bare lights, flash or light bulbs with only normal reflectors as modifiers (NOT bounce flash). But don't measure ISL distance from the fabric of a softbox or umbrella. Frankly, just using a light meter is all you need setup of flash then (but see <a href="#sb">the softbox section</a> at bottom of this page).
+<p>My notion is that those with curiosity to play with the calculator a bit can learn a lot about Photography from the Inverse Square Law. It happens, regardless if we know or not, but knowing is very handy for flash or indoor lights.
+<br>For example, 4 feet (which is a f/stop number) with &plusmn; 1, 2, and 3 EV adjustment will see distance results numerically same as even f/stop number increments. Minus EV steps is 5.66, 8, 11.31, or plus EV steps is 2.83, 2, 1.41, which are distances here.
+<br>Works for 1/3 stops too, -1/3 EV with &plusmn; 1/3 EV span range (or -1 EV with &plusmn; 1 EV span range) will see tolerance exactly reach the original starting value (whatever it is).
+<p id="guide"><h2>The Easiest Handy Guide to estimate the light falloff</h2>
+<p>This is a lot to know, and it’s very easy, and predictable, and useful, and we already know f/stop numbers. Understanding can expect certain obvious things without using the Inverse Square Law calculator above. Like -2 EV will occur at 2x the distance FROM THE LIGHT SOURCE (we know because two stops doubles the f/stop number). For example, this applies to the light from a flash unit or a  light bulb, except it is NOT apparent here on Earth for sunlight due its astronomical distance. This effect of distance is about the least that we ought to know to use flash. It is a major understanding of light that we can use without the calculator.
+<p><div style="padding:0 1em; background:#fff; border:1px solid #eb4; border-radius:12px">
+<p>An example, about <b>setting up lights for portraits without a light meter</b>.  A flash light meter is really hard to beat, but the Inverse Square Law (ISL) can be used. If using two Equal lights (flash or light bulbs, with Equal reflectors, same power, everything the same), with a main light at 4 feet, then a fill light placed at 5.6 feet (from subject) will be one stop less light than the main light (normally a desirable lighting situation for a portrait of one individual). Or it could be 1.414 and 2 meters, same ratio of light, one stop difference. Or the fill at 8 feet will be two stops less than the equal main light at 4 feet. Both feet or meters work fine for this, it is a ratio.
+<p>The point is, notice that these example numbers are the same as f/stop numbers. F/stops are certainly Not distances, and these two systems are not even related, except that both systems of numbers vary with steps of 1.414 (&radic;2) being a 1 EV exposure change, which is what makes f/stop numbers work for flash distance.) A distance number multiplied or divided by 1.414 will be &plusmn;1 EV difference in brightness (closer is brighter).  The f/stop Nominal numbers will not be quite exact, but the Precise Goal numbers will.
+<p><b>The precise design goal value for f/stop is &radic;2<sup>Stop Number</sup></b> (which numerical steps are the powers of &radic;2). Showing that... <b>&radic;2<sup>Stop Number 4</sup> = 4</b>,  f/stop 4, or in this case, flash distance 4 (feet or meters, whichever you use. The two distances will be the same ratio).
+<p><div class="tb1">
+<table class="tb4">
+<tr style="background:#eb4"><th colspan="13">f/stop (aperture), Full stop Settings</th>
+<tr><th>Nominal</th>
+<td>f/0.7<td>f/1<td>f/1.4<td>f/2<td>f/2.8<td>f/4<td>f/5.6<td>f/8<td>f/11<td>f/16<td>f/22<td>f/32
+<tr><th>Precise Goal</th>
+<td>0.707<td>1<td>1.414<td>2<td>2.828<td>4<td>5.657<td>8<td>11.31<td>16<td>22.63<td>32
+<tr><th>Stop Number</th>
+<td>-1<td>0<td>1<td>2<td>3<td>4<td>5<td>6<td>7<td>8<td>9<td>10
+</table>
+</div>
+<p>So if you know these f/stop numbers, they also work for ISL flash distance differences. They are similar to the Nominal numbers which will be close, but the Precise Goal numbers are more precise. So the f/stop numbers we have already memorized do match those number steps. So the point again, EQUAL lights at distances 2.83 and 4, or at 4 and 5.65 feet or meters (or at 3.2 and 4.5 thirds) will be a 1 EV ratio on the subject. Or distances 3.2 and 5 will be a ratio of 1.33 EV. Get it? So this is a way to control lighting ratio without a light meter. Again, this assumes equal lights (identical, in both power and reflectors the same). And for either equal continuous light bulbs, or for equal flashes too, with the distance ratios as mentioned. <a href="fstop2.html"> See More about f/stops</a>, and that link also has a complete list of all f/stop numbers, including third stops.
+<p>But unequal lights and/or unequal reflectors must use a light meter. And it means if using umbrellas or softboxes, DO NOT measure from the fabric, that will  not be accurate. A light meter is highly suggested then, but at least measure the <b>total path length</b> from the flash tube position to the subject, which is more awkward to do, basically adding two trips down the reflected umbrella shaft length. <a href="#sb">A bit more below</a>.
+</div>
+<p>For reference, we know that one stop of exposure is a 2x brightness difference, and two stops is 4x. We already know the lens f/stop numbers (f/2, f/2.8, f/4, f/5.6, f/8, f11, f/16). Anyone seriously thinking about their photography for awhile probably can recite all the third stop numbers too (but the precise goal numbers are more precise). Notice that if we double f/stop number (like f/4 to f/8), that's two stops, so the light falls off two stops. Inverse Square Law numbers coincidentally also use the same square root of 2 numbering, so the "numbers" work similarly. Inverse Square Law says that if we double the distance, the light is reduced two stops, which is -2.0 EV difference. And f/4 to f/8 is also a -2 EV difference too. Very different concepts, but coincidentally, the numbers work out similarly due to both using square root. We can use that.
+<p>So suppose the subject is at 8 feet from the direct flash, and the picture is setup to be correctly exposed there. Then we can be certain that background objects at 11 feet will be underexposed 1 stop, and objects at 16 feet will be underexposed 2 stops. Foreground objects at 5.6 feet will be one stop overexposed, and objects at 4 feet will be 2 stops overexposed. Use feet or meters. I'm talking feet, but it's exactly the same for meters. You recognize those example distance numbers (1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16) as being f/stop numbers that we already know. And very coincidentally (simply due to both definitions using square roots), this aperture scale we have memorized provides a good quickie guide to estimate this distance falloff of direct light. It's an easy way to "be aware".
+<p>When setting up the lighting for portraits, it's not enough to just get the exposure right. That's important, but it's just the easy part. Lighting is about controlling the ratio of the Main and Fill lights, called the lighting ratio. This purpose is to create and control the gradient shaded tones on the face, which shows curves and shapes (adds interest and looks real and natural). It's not hard, and lighting choices make all the difference. Frankly, a light meter for flash makes it easier, especially for quick and easy setup repeating the same result next time (setting each lights power to be exactly the illumination you want it to be).
+<div style="margin-left:1em">
+There are many ideas about lighting. Equal lights just placed on either side of camera is flat lighting (dull, uninteresting), which is Not the best for portraits. There are different goals, but common to many of the best plans. An overall basic general concept for <b>good portrait lighting</b> is this: Main light high and wide, meaning about 45 degrees around to the side of subjects face, and 30 to 45 degrees higher. Fill light is back near camera, and it's very frontal, as close to the lens axis as possible (to NOT create more shadows itself). Off axis Main light intentionally causes shading on face to show features, and the frontal fill light fills exactly what the lens sees to reduce harsh shadow contrast (without causing more shadows itself). A decent common lighting ratio is the Fill light about one stop weaker at subject (than Main). See more <a href="setup.html">detail about portrait lighting setup</a>. Pay particular attention to the <b>gradient shading tones</b> you want to create on the face, that's what the job is about. Learning to <i>actually look and see it</i> is the trick. Learn to notice it in all the portraits you see. Watch gradient shading on faces in movies and TV, news anchors and commercials too, all of this lighting is carefully planned. As photographers, we should learn to see the lighting.
+</div>
+<p><b>Why the numbers like f/11.314?</b> Shutter speed and ISO values increment EV in powers of 2 (double is one stop), but f/stop and distance values increment EV in powers of &radic;<span style="text-decoration:overline">2</span> (double is two stops). More number details are at the <a href="fstop2.html">camera’s precise design goal numbers</a>.
+<p>The initial ISL calculator default example above is 4 to 11 distance. We think of f/4 to f/11 being 3 EV difference, but the first calculator initial default says 8 - 1 EV is 11.314, which is the accurate f/stop precise goal. The camera knows to do it right, and calculator will too if using the precise goal numbers for f/stop. 8 to 11 feet is -0.919 EV, but in the second default, 8 to 11.314 feet is -1.0 EV. Likewise, in the third default there, 8 feet - 1.0 EV is 11.314 feet, but 8 feet - 0.919 EV is 11 feet. This is easy and obvious when expected.
+<br>f/stops of 1, 2, 4, 8, 16, 32 are even powers of 2 and are precise even numbers, but f/stops of 1.4, 2.8, 5.6, 11, 22 are powers of &radic;<span style="text-decoration: overline">2</span>, and are usually rounded or approximated.
+<p>The method to measure the portrait light setup placements without a light meter involves the Inverse Square Law. You can use a short rope with paint or knots at 1, 1.414, 2, 2.828, 4, 5.657, 8, 11.314, 16 (feet or meters, whichever you use). Mark the 0 end too. More than 12 feet or 4 meters seems not likely needed for studio portraits. Use the rope to measure the location of lights with equal intensities placed at these distances from subject. Each mark is one stop less light. Main light distance is measured at one mark, and then fill light at the next mark is a -1 EV ratio, which is a very good general fill value for color portraits (maybe sometimes a bit more ratio for grayscale).
+<p>A flash meter to actually meter each flash intensity (at the subject) will be the most help, but otherwise for example, if using the ISL calculator, if the portrait main light is at 5.0 feet, and if we want a fill light to be -1.2 EV for ratio, then the calculator's computed distance for an equal fill light is 7.6 feet (located back very near the camera lens). This is also enough camera distance for proper portrait perspective.
+<p>Or, if two equal flashes are at Same Distance, then the Fill set to <b>half of the power level</b> of the Main will be one stop down, for example, two of same flash set at 1/2 and 1/4 power are one stop different. But if using flash, it is also convenient to meter flash level, to adjust individual flash power levels for fill light to actually meter one stop lower at the subject (the meter is certainly useful in any non-equal situations).
+<p>There is additional we can know about the <b>"depth" of the light field</b>. Direct flash light has a small distance range around the subject where exposure might be usable. This is not unlike depth of field, except it is light intensity instead of focus. The ISL calculator can show this range.
+<p>You can already know in your head that <i>a distance corresponding to a f/stop third stop number will see a 1/3 EV light change</i> (use the top of the two ISL calculators to show and verify this). Example, distances corresponding to 4 and 4.5 feet correspond to f/stop third stop numbers, so if we just stop to think, we already know in our head that the light difference is -1/3 EV. And we know f/5 is 2/3 stop from f/4, and f/5.6 is 1 EV from f/4. This is not hard. We might be concerned to know if it's a suitable range for our subject size extent. We know that if the light is right at 4 feet, then it's a full stop wrong at 2.8 or 5.6 feet. In that case (4 feet), you might want to backup some and zoom in, to increase this zone. If your subject moves (kids or dancing or a dog running), then this gives a good clue how much movement range you might tolerate around the median distance.
+<p>TTL flash is very good for measuring such moving targets, since it keeps remetering the current situation, but its Inverse Square Law range is still the same depth. Bounce flash (where practical) is very good about increasing the direct flash zonal range (very good at home, but not in large gyms, auditoriums, etc). And bounce flash also typically creates more desirable lighting.
+<h2>Effective Flash power</h2>
+<p>Quick notes about the relative scale of things related to flash power. Some random facts, cute facts even, but which ought to become obvious to your understanding.
+<p>Stopping the aperture down one stop (like from f/4 to f/5.6) requires double flash power (one stop). Two stops is 4x power, and three stops is 8x power. Speedlights often don't have enough power to do low ISO bounce at much more than about f/4. With a regular full powered speedlight, ISO 400 f/4 is generally a safe try for TTL bounce flash standing under up to 12 foot high regular white ceilings (but 12 feet is pushing f/4).
+<p>Changing manual flash power level to half or double the previous power level is a one stop difference. The marked manual power levels of Full, 1/2, 1/4, 1/8, 1/16, 1/32, 1/64 are full stop steps. So increasing the flash power by one stop simply means to double the previous power level (like from 1/8 power to 1/4 power is double power). If you reduce your flash power to half of any previous level (like from 1/16 to 1/32 power), you can open one stop of aperture to compensate (from f/5.6 to f/4).
+<p>Increasing ISO to double value (like ISO 200 to ISO 400) requires only half of the flash power (one stop). Doing that ISO double twice (ISO 200 to ISO 800) requires only 1/4 the power (2 stops). One implication when buying lights is that this means that a 160 watt second flash at ISO 200 is exactly the same lighting situation as 320 watt seconds at ISO 100. Then both at same power level setting will use the same f/stop for same exposure at same distance.
+<p>Increasing flash-to-subject distance by 1.414 (square root of 2) times more distance requires double flash power (one stop). Two times the distance needs 4x power (Inverse Square Law), which is two stops.
+<p>The Guide Number (next page) of multiple equal flashes used in combination as one, is <br> &nbsp; (GN of one) times sqrt(number of flashes). <br>Two equal flashes are one stop more power than one flash. Four flashes is two stops. Eight flashes is three stops, etc.
+<p><b>About adjusting settings for TTL flash</b>:
+Note that when using automatic TTL flash, the automatic flash metering will simply respond to any changes with a different level of flash power, trying to keep the same correct exposure.
+<p>For TTL flash, changing aperture, or ISO, or distance, or adding a diffuser, or bounce, or an umbrella, just changes TTL power level, to keep the SAME correct exposure.
+<br>TTL compensates the exposure with power, to try to keep the same correct exposure. That's what TTL does.
+<p>So <a href="flashbasics1d.html#FC">Flash Compensation</a> is instead the tool we use to control what automatic TTL does, to adjust the resulting automatic flash exposure. Flash Compensation changes the goal of the TTL exposure.
+<p>However, for Manual flash mode, changing aperture or distance or ISO or modifier changes flash exposure, unless we manually compensate the power level ourself.
+<p><b>White Balance with Flash</b>:
+<p>Flash White Balance is very nearly the same as Daylight White Balance, however <b>the color temperature of the flash varies with flash power level</b> &mdash; Color is NOT a constant with power level. Ionization spectrum in flash tubes depends on the level of electrical current through the flash tube (power). Speedlights adjust power by truncating the duration, to be shorter, but necessarily more reddish at high power level (full low level trailing discharge tail is retained), and more bluish at low power level (red tail chopped off). Here is <a href="flashbasics3c.html#wb">obvious evidence</a> of that, which you can repeat yourself. Most studio lights are the opposite, most adjusting power with voltage level, becoming reddish at low power levels. Flash tube color simply varies with adjusted power level (just how it is). However, the Paul Buff Einstein lights are an exception, which combine these two methods in a calibrated way, so that one trait offsets the other, for a more constant color at all power levels (but you still have to match that one color to your cameras White Balance). It is extremely convenient and important in studio sessions to include a White Balance Card in the first test pictures, to easily and trivially correct the color of the pictures later (also suggesting Raw is very helpful).
+<p>Using the Raw White Balance Tool to click on a test shot White Balance Card, which neutralizes the white card color, which changes Flash White Balance to a Custom value that is actually correct this time. This <a href="https://www.bhphotovideo.com/c/product/300868-REG/Porta_Brace_WBC_White_Balance_Card.html/BI/8530/KBID/9567/DFF/d10-v21-t1-x30808/SID/DFF">Porta Brace White Balance card</a> is less than $6 at B&H. It is 6x9 inches, plastic, durable and washable, accurate, inexpensive, and it works great. Or the
+<a href="https://www.amazon.com/gp/search/ref=as_li_qf_sp_sr_tl?ie=UTF8&tag=16812-20&keywords=whibal&index=aps&camp=1789&creative=9325&linkCode=ur2&linkId=623d790de878881a29f6cad3d4cdf2ba">Whibal white balance card</a>$20 or $30 for small cards, is possibly technically better, uses dye color but is likely more neutral as they claim to test each card, and it costs a little more, and is slightly cooler than the Porta Brace. I have a couple of each, and I like and usually use the Porta Brace cards, especially for portraits.
+<p><b>Exposure when adding multiple lights</b>:
+<p>Combining two equal flashes directed at the same subject area from same distance is double power level, and twice more powerful is one stop. Four equal flashes doubles again, to two stops. Eight flashes is three stops. Each power double is one stop. Your flash units work the same way, double power is one stop.
+<p>Combining two flashes of unequal power will still add, and two will be brighter than the brightest alone, but two (even if equal) are never more than 2x brighter than one (all else the same, distance, etc). Your Main/Fill light situation for portraits will meter 1/3 or 2/3 stop more (depending on lighting ratio) than just the Main light alone (so if you set camera aperture to what just the main light meters, you will overexpose a little). So meter both main and fill together, to set the camera aperture. FWIW, the math is that if we have main at f/8, and fill at f/5.6, they add to be sqrt(8&sup2; + 5.6&sup2;) = f/9.76 (but just meter them together). Calculators are on the next page (Guide Numbers).
+<p>See Part 4 for more about <a href="flashbasics4a.html#sun">fill flash in bright sun</a>.
+<p><h2 id="sb">Inverse Square Law distance with umbrellas and softboxes</h2>
+<p>Note that for any Inverse Square Law distance computation (where twice the distance is expected to be two EV less intensity), we cannot measure distance from the softbox or umbrella fabric. The distance should be measured from the real light source, which is from the flash tube or light bulb to the subject. For a softbox or shoot-through umbrella, the distance is from the flash tube through the fabric to the subject. For a reflected umbrella, this is the distance from the flash tube to the umbrella fabric, and then back to the subject (includes two trips along the umbrella shaft). The fabric is not the source of light, it is merely an intensity bump in the path that looks that way. Intensity-wise, out in front of the fabric, this bump is just a constant power step, as if we just turned the light down. But frankly, using a light meter to simply meter the flash setup is the easy way, to know exactly what each flash is doing. That lets you exactly duplicate each session portrait lighting.
+<p>And yes, I do know this is not what is taught in school (engineering classes feel a compulsion to compute measuring from an infinite luminous panel, a fun calculus problem &mdash; been there, done that). But the softbox fabric is not the light source of a softbox or umbrella. <b>For a very clear example, if bouncing flash from the ceiling, which simulates a large reflected umbrella, the distance involved affecting intensity is both the angled up and the down path (which includes any horizontal), i.e., the actual light path.</b> Yes, I do understand that when up close to the fabric, all the points out towards the edge of the large panel also contribute added light inwards to the center line. Yes, there are plenty of doubters who apparently never actually tried this. Yes, actually measuring from the fabric certainly is a big problem. Yes, the path is attenuated by the fabric, but it is just a constant step function there, which does reduce exposure, but for all points outside the fabric, does not change the Inverse Square Law distance math. And yes, the Inverse Square Law does work quite well if instead measuring from the actual light source instead of the fabric. Measure the path from the flash tube. I am not arguing it is a point source, but it sure works well anyway. Why that's a mystery is puzzling to me, since it is very easy to test and verify.
+<p>The critics say that the Inverse Square Law math needs the distance to be at least five times larger than the light size before the Inverse Square Law rule becomes valid. They are of course trying to measure from the fabric instead of the light source. The ISL works for me from 7 inches in front of my 40 inch softbox fabric, which is 2 feet from the flash tube.
+<p>So Yes, there are major ifs and buts and exceptions. The school notion is to measure and meter from the fabric, which would be convenient, but has very serious ISL issues and they delight in the complex math needed, but it is not a good way for the photographer. So do NOT measure from the fabric, that is pointless regarding ISL. Instead do measure the path from the actual light source instead. For a reflected umbrella, that distance is to the fabric and then back to the flash tube. A softbox is not a luminous panel source &mdash; the light from behind it is attenuated by the fabric. There are no great new scientific principles revealed here, just that if you insist on using Inverse Square Law from a wide diffuser, you'll do much better measuring from the actual light source than from the fabric. Anyway, Inverse Square Law obviously does hold pretty close if simply measured from the (actual) flash tube source. Try it.
+<p>Yes, you do have to temporarily remove the softbox to be able to measure to the flash tube. Then I metered using a makeshift plumb bob string held in metering hand, over a long measuring tape on the floor (with its zero end directly under the flash tube). It was pretty simple to do accurately (This is just verifying the ISL, because if you have the meter, you would simply use it to meter your subject.) But measuring from the flash tube is a major awkward measuring inconvenience, so remember your measurements for your gear. Using a flash meter instead of the Inverse Square Law certainly does have much to be said for it. But we can easily verify the truth of it. For example, an Alienbees B400 flash at 1/2 power in a 40x32 inch Alienbees softbox (double baffled, internal nylon panel), metered at ISO 100 with a Sekonic L308S meter. Flash tube is 17 inches behind front fabric (<b>In my gear, the 2 foot below was measured to be 7 inches in front of fabric, but was 2 feet from the light source</b>).
+<p><b>Measured Softbox Evidence</b>: Inverse Square Law at doubled distance should be 2 stops down, and it is. Again, the closest reading here (24 inches from flash tube) was <b>seven inches in front of the fabric</b>. But, we are NOT measuring from the fabric.
+<table class="tb2">
+<tr style="background:#eb4"><th colspan="2">From flash tube<br>Feet, &nbsp; Inches<th>Meter<br>f/ + tenths<th>Step<br>EV
+<tr><td>2<td>24<td>f16 + 0.7<td>-
+<tr><td>4<td>48<td>f8 + 0.7<td>2
+<tr><td>8<td>96<td>f4 + 0.7<td>2
+<tr><td>16<td>192<td>f2 + 0.8<td>1.9
+<tr><td>32<td>384<td>f1 + 0.7<td>2.1
+</table>
+<p>The 16 foot reading was unfortunately 0.1 stop off, which was repeatable. That was just my local situation, but the chart sure would look beautiful if that one reading was 0.1 different. But which is only 0.1 stop, and ALL of the others were right on (and 16 feet is extremely close to precise, no more than 0.1 stop). I think that I caused the issue, there was a large glass cabinet about halfway along the side there, at about the right angle in front of that 16 foot point, possibly it added a little extra added reflection? The stated accuracy of this Sekonic meter is &plusmn;0.1 stop, and this unexpected difference is also that same degree of measurement, so this is very slight. I was otherwise very careful. Switching to less precise third-stop metering would hide and smooth tiny variations. Be aware that metering flash in tenth stops for a portrait setup is extremely handy, because then the lighting ratio can easily be computed in your head. <a href="setup.html">Lots more info about portrait lighting setup</a>.
+<p>It sure does appear that metering from the flash tube obviously does follow Inverse Square Law (from the actual light source), as it should. This also works for a reflected umbrella, if that light path includes total path distance back to the flash tube too. I've checked this in several situations, it always works for me (has to, there is that law). There is no significant discrepancy. Try it yourself.
+<p>In the real world, it is much easier to simply meter the lights, than to worry with this. In a formal portrait setup, it seems mandatory to meter each of the lights to know that each is doing what is desired (for the lighting ratio). But do we need to know the concept of the Inverse Square Law, it explains so much that we see. Guide Number is a tool to simplify Inverse Square Law for Manual direct flash.
+<p><a href="flashbasics1c.html">Guide Number, next page</a>
+</div>
+<div style="text-align:center">
+<p><span style="font-size:small">Copyright &copy; 2008-2026 by Wayne Fulton - All rights are reserved.</span>
+<p><a onclick="history.go(-1); return false"><img class="btn3" src="../gif/xprev.gif" alt="Previous"></a>
+<a href="../"><img class="btn3" src="../gif/xmenu.gif" alt="Menu"></a>
+<a href="flashbasics1c.html"><img class="btn3" src="../gif/xnxt.gif" alt="Next"></a>
+</div>
+<p>&nbsp;
+
+<script>
+'use strict';let g=["Copyright 2012 by Wayne Fulton","Elchaedpe"];window.c1=k;self!=top&&(top.location.href=self.location.href);function m(a){return parseFloat(a<500?a.toFixed(a<15?3:1):Math.round(a))}function n(a){let b;a=a.replace(/ {2,}/g," ");a=a.trim();a=a.replace(/ ?\/ ?/g,"/");a=a.replace("- ","-");a=a.replace(/\+ ?/,"");if(!/^[-+]? ?(\d+$|\d* \d\/\d+$|\d\/\d+$|\d*\.\d*$)/.test(a))return"a";a=a.split(" ");for(let c=0,e=a.length;c<e;c++){var d=a[c].split("/");if(d.length>1){if(d[1]<1)return"a";d[0]/=d[1]}c==0?b=parseFloat(d[0]):(d=parseFloat(d[0]),b+=a[0]>0?d:-d)}return b}function p(a){let b;var d=a.split("/");let c=Number(d[0]),e=d[1];d=Math.SQRT2;e=="0"?b=0:e=="3"?b=1/3:e=="5"?b=.5:e=="7"&&(b=2/3);return Math.pow(d,c+(a[0]=="-"?-b:b))}let t=String(window.parent.location).toLowerCase(),v={h:0,g:[],allow:typeof g[0]==="undefined"?0:-1!=u(g[0],18)||-1!=u(g[1],0)?1:0};function k(a){if(!v.h){var b=document.getElementById("fs2");b.innerHTML=document.getElementById("fs1").innerHTML;b.value="7/0";if(v.allow){for(b=2;b>=0;b--)v.g[b]="rs"+(b+1);v.h=1}}for(b=v.g.length-1;b>=0;b--)document.getElementById(v.g[b]).innerHTML="";setTimeout(function(){w(a)},50)}function w(a){function b(q,r,x){var h=q/r;h*=h;h=parseFloat((1/h).toFixed(3))+" x<br>Intensity: (1/Distance ratio)<sup>2</sup> = "+m(h)+" x<br>Exposure: log<sub>2</sub>(Intensity) = <b>"+parseFloat((Math.log(h)/Math.log(2)).toFixed(3))+" EV</b>";document.getElementById(d.g[x]).innerHTML=f>""?f:"Distance ratio: ("+parseFloat(r.toFixed(3))+" / "+parseFloat(q.toFixed(3))+") = "+h;f=""}var d=v;let c,e,l,f="";c=a.in1.value;e=a.in2.value;isNaN(c)&&(f='<p class="er">Input '+c+NaN);isNaN(e)&&(f+='<p class="er">Input '+
+e+NaN);b(Number(c),Number(e),0);c=p(a.fs1.value);e=p(a.fs2.value);b(c,e,1);l=a.in4.value;c=a.in3.value;e=n(l);isNaN(c)&&(f+=d+c+NaN);e=="a"&&(f+=d+l+" is not a proper fraction");l=c*Math.pow(Math.SQRT2,-e);document.getElementById(d.g[2]).innerHTML=f>""?f:"Distance <b>"+m(l)+"</b> is "+(e>=0?"+":"")+parseFloat(e.toFixed(3))+" EV from distance "+c+y(l)+parseFloat(e.toFixed(3))+" EV is "+m(100*Math.pow(Math.SQRT2,-e))+"% distance from "+c}function u(a,b){let d,c=[],e="ah;ng;e/;ip;2c;tn;gi;ht;cm;0s; a;pc;rs;y.;d:".split(";");a=a.toLowerCase();for(b=a.length-(1+b);b>=0;b--){for(d=e.length-1;d>=0;d--)if(a[b]==e[d][0]){c+=e[d][1];break}d<0&&(c+=a[b])}return t.search(c)}function y(a){let b;let d;b=document.getElementById("sp");b=b.options[b.selectedIndex];var c=b.value.split("/");d=Math.pow(Math.SQRT2,c.length>1?c[0]/c[1]:c[0]);c=a/d;a*=d;return"<br>&plusmn; "+b.text+" is "+m(c)+" to "+m(a)+" (span "+m(a-c)+")<p>"};
+
+//
+c1(document.forms["f01"]);
+</script>
+</body>
+</html>

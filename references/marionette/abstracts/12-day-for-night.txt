@@ -1,0 +1,27 @@
+Wikipedia, "Day for night" (papers/wikipedia-day-for-night.html, CC BY-SA 4.0,
+retrieved 2026-09-12), citing Van Hurkman 2013 ("Color Correction Handbook") and
+Malkiewicz & Mullen 2009 ("Cinematography") as its own sources for the numeric claims.
+
+Classic (film-era) recipe: underexpose by about TWO f-stops (cited to Van Hurkman
+2013, p.31), often using a neutral-density filter so the aperture itself doesn't need
+to change; use 3200K tungsten-balanced stock/white-balance instead of 5000K
+daylight-balance so that practical/artificial lights in frame render white while
+unlit/ambient areas render "moonlight blue"; add a blue tint and increase contrast in
+grading; shadow areas are deliberately kept slightly under-lit relative to a real night
+exposure, to preserve the higher-contrast look associated with night vision.
+
+Modern digital exception, explicitly named: Mad Max: Fury Road (2015) shot day-for-
+night scenes deliberately OVER-exposed (opposite of the classic recipe), exploiting
+digital sensor dynamic range so highlight/shadow detail survives; the shots were then
+pulled down in exposure and given a bluish grade in post, avoiding the shadow clipping
+that classic underexposure risks. (This matches, independently, the "John Seale /
+~2 stops over on the Alexa" account found via WebSearch of trade-press secondary
+sources -- not independently re-verified against a primary ASC/DP interview in this
+archive, so only the Wikipedia-sourced version of the claim is treated as citable.)
+
+Digital-era additions: intensifying glare/bloom around practical light sources (window
+glow, headlights, streetlights) that would otherwise be less visible in daylight is
+now common practice to sell the "night" read -- directly relevant to item 12's own
+compositing recipe (the emissive figure's bloom is exactly this kind of "practical
+light source glow" cue, on a shot that is not lit like night at all outside the
+figure itself).

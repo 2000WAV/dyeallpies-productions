@@ -1,0 +1,21 @@
+Nestmeyer, Lalonde, Matthews & Lehrmann, "Learning Physics-guided Face Relighting
+under Directional Light" (CVPR 2020; arXiv:1906.03355). Full text:
+papers/nestmeyer2020-face-relighting-arxiv.pdf/.txt (arXiv preprint).
+
+Abstract (verbatim): relighting is essential for realistically transferring objects
+from a captured image into another environment (e.g. authentic AR telepresence). The
+paper's model DE-LIGHTS and RE-LIGHTS a face image via an end-to-end deep network that
+decomposes the input into intrinsic components under a diffuse physics-based image
+formation model, then predicts a residual correction on top of the diffuse render to
+add non-diffuse effects (cast shadows, specular highlights). Trained/evaluated on a
+21-subject portrait database captured in a light-stage rig with 32 individual light
+sources; generalises to complex illumination and non-frontal poses.
+
+Used in item 12 only as the state-of-the-art anchor for "cheap single-image relighting
+of a real subject is a hard, data- and rig-hungry deep-learning problem for FACES" --
+the paper's own light-stage/32-source/21-subject data requirement is the concrete
+reason this approach is NOT proposed for a 9-second hand shot with no rig and no
+training data; item 12's actual recipe instead uses a per-pixel "wrap" style
+compositing shortcut (light wrap, Section 3 of this item), citing this paper and the
+survey below only to show what the "real" version of the problem looks like and why it
+is out of scope.

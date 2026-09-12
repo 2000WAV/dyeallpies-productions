@@ -1,0 +1,22 @@
+Einabadi, Guillemaut & Hilton, "Deep Neural Models for Illumination Estimation and
+Relighting: A Survey" (Computer Graphics Forum 40, 315-331, 2021; DOI
+10.1111/cgf.14283). Abstract-only in this archive:
+papers/einabadi2021-illumination-relighting-survey-abstract.json (fetched via the
+Semantic Scholar Graph API, which returns the publisher-supplied abstract text
+directly as JSON; the paper's own claimed open-access PDF link, served via Wiley's
+"pdfdirect" endpoint and flagged CC-BY/hybrid-OA by Semantic Scholar's metadata,
+returned an HTML interstitial rather than the PDF to a scripted curl request and was
+not saved).
+
+Abstract (verbatim): surveys deep-neural approaches to scene relighting and
+illumination estimation for inserting virtual objects into real scenes (mixed
+reality), organised into three categories -- scene illumination estimation, relighting
+via reflectance-aware scene-specific representations, and relighting as image-to-image
+translation -- with a discussion of characteristics/future trends per category and an
+overview of public datasets.
+
+Used in item 12 exactly as instructed by the brief: cited once, as "the relighting
+survey," to establish that single-image relighting of a real subject is an active,
+data-hungry deep-learning research area rather than something to build bespoke for a
+9-second phone clip; the recipe in this item instead uses the cheap per-pixel
+"light-wrap" compositing shortcut already established in items 05/06/11.

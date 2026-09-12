@@ -1,0 +1,33 @@
+Spencer, Shirley, Zimmerman & Greenberg, "Physically-Based Glare Effects for Digital
+Images" (SIGGRAPH 1995). Full text: papers/spencer1995-physically-based-glare.pdf/.txt
+(fetched via a Wayback Machine mirror of the original Cornell Graphics pubs URL, which
+now 301-redirects to a generic Cornell CS page; the mirrored PDF is the genuine 6-page
+paper, verified by content).
+
+Reviews the physical mechanisms of glare in the human eye and gives an algorithm for
+adding glare to rendered/digital images. Glare splits into FLARE (a lenticular halo +
+ciliary corona, caused by the lens) and BLOOM (= "veiling luminance" / "disability
+glare", caused by scattering in the cornea, lens and retina in roughly equal parts).
+
+Key quantitative content used in item 12:
+- Vos's point-spread-function (PSF) model of ocular glare has three empirical terms:
+  a narrow central Gaussian (the unscattered image), a term proportional to 1/theta^3
+  that dominates for visual angles theta < 1-2 degrees, and a term proportional to
+  1/theta^2 that dominates beyond about 1 degree (theta measured from the glare
+  source). The general veiling-luminance relation is Lv(theta) = k * f(theta) * E_eye,
+  where Lv is equivalent veiling luminance (cd/m^2) added to nearby objects, E_eye is
+  illuminance at the eye from the glare source (lux), theta is the angle between the
+  primary object and the glare source (degrees), and k/f are empirically fit.
+- Simpson's finding: glare sources subtending MORE than 20 arcminutes of visual angle
+  do not produce significant ciliary-corona flare lines (the fine radial rays blur
+  together into bloom instead once the source is that large).
+- Perceived vs. physical scatter fraction: normal viewers perceive only about 10% of
+  light as scattered, but physical measurement shows closer to 40% is actually
+  scattered; the discrepancy is explained by the Crawford-Stiles effect (directional
+  cone sensitivity absorbing stray light preferentially beyond a few degrees).
+- Age dependence (Vos): total scattered-light fraction rises from about 0.36 at age 20
+  to about 0.45 at age 60 (roughly doubling by age 70), with no sex difference and only
+  minor pigmentation effects; cataracts can push the scattered fraction toward 1.
+No single "core:halo brightness ratio" number is given anywhere in the paper -- the
+PSF is a continuous falloff, not a two-zone ratio, which is itself the useful finding
+for item 12 (flagged there as NOT FOUND for a single ratio number).

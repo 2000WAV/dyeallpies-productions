@@ -1,0 +1,27 @@
+Two photography-practitioner sources on the inverse-square law, both consistent with
+each other and with the textbook physics (Wikipedia's own "Inverse-square law" page is
+not separately saved here; the law itself is not in dispute, only its PRACTICAL framing
+for a small light source near a subject is being sourced):
+
+- PetaPixel, "Achieving Black Backgrounds in Macro Photos" (papers/petapixel-black-
+  backgrounds-macro.html, 2015, all rights reserved, cited for facts/figures): states
+  plainly that "each time you double the distance your light travels, the power is
+  reduced by two stops (or 75%)" -- i.e. inverse-square falloff restated in photographic
+  stops -- and that this is exactly why a subject held apart from its background goes
+  dark/black under flash: the background is far enough that returning light has fallen
+  off by several stops relative to the near subject.
+- scantips.com, "Inverse Square Law for camera, with calculator for distance and
+  intensity" (papers/scantips-inverse-square-law.html, cited for the standard E1/E2 =
+  (d2/d1)^2 relation and its practical caveat: the law applies to a source small
+  relative to the subject distance; a source comparable in size to the working distance
+  (e.g. a large softbox close to the subject) falls off closer to 1/d than 1/d^2).
+
+Used in item 12 to support the claim that a small (~15 cm) emissive figure held 5-8 cm
+below the fingertips has a geometric ADVANTAGE over a much brighter but much farther
+window key purely from proximity: two sources at very different absolute output can
+still contribute comparable illuminance at a given point if their DISTANCE ratio is
+large enough, because illuminance falls with the square of distance, not linearly. The
+actual stops/lux numbers for THIS shot are given as a computed ratio in
+data/12-neon-black-numbers.csv, not as a directly-measured photometric quantity (no
+manufacturer luminance figure for the rendered figure's emissive surface was found --
+see the main note's Section 4 for the NOT FOUND flag on that specific number).

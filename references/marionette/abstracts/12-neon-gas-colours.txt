@@ -1,0 +1,35 @@
+Wikipedia, "Neon lighting" and "Argon" (papers/wikipedia-neon-lighting.html,
+papers/wikipedia-argon.html; both CC BY-SA 4.0, retrieved 2026-09-12).
+
+Real neon-sign gas colours (Neon lighting article, "History and science" section):
+- Neon gas itself: the "popular orange" glow neon signs are named for (characteristic
+  orange-red).
+- Mercury (vapour): blue. Mixing metallic mercury with neon gas also creates blue.
+- Hydrogen: purple-red.
+- Helium: yellow or pink.
+- Carbon dioxide: white.
+- Green is achieved indirectly, by passing a mercury/argon tube's light through
+  uranium (yellow) glass, not by a single gas's own emission.
+- White and gold: argon + helium.
+- Fluorescent-coated tubes (argon/mercury-vapour mixture emitting UV that excites a
+  phosphor coating) extend the palette to "nearly 100" additional colours since the
+  1950s (television-phosphor-derived coatings) -- this is the mechanism behind
+  magenta/cyan/other non-primary neon-sign colours, which are phosphor conversions of
+  UV, not raw noble-gas glow.
+- Tube outer diameter 9-25 mm; fill pressure 3-20 Torr (0.4-3 kPa).
+
+Violet specifically (Argon article, infobox + main text): "Gas-discharge lamps filled
+with PURE ARGON provide lilac/violet light; with argon and some mercury, blue." The
+infobox image caption independently describes a vial of argon showing "a violet glow
+when placed in an electric field." This is the direct real-world "classic neon gas
+colour" anchor for a dominant-violet neon figure: pure argon glow IS the real-world
+gas-discharge violet, sitting alongside neon's orange-red, mercury's blue, hydrogen's
+purple-red and helium's yellow/pink as the small set of true single-gas neon colours;
+magenta and cyan are phosphor conversions rather than raw gas colours.
+
+Cross-checked against a physics lecture-demonstration page for neon/mercury/krypton
+discharge tube photographs (papers/ucsb-spectra-three-gases-8816.html, UCSB Physics
+Department, cited for background/corroboration only -- it covers neon, mercury vapour
+and krypton but not argon specifically, so it does not independently confirm the
+argon-violet claim; the Wikipedia Argon article is the sole citation for that specific
+point).

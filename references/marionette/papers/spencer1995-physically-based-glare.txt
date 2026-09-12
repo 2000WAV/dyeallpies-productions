@@ -1,0 +1,1204 @@
+Physically-Based Glare Effects for Digital Images
+
+Greg Spencer Taligent, Inc.
+
+Peter Shirleyy Cornell University
+
+Kurt Zimmermanz Indiana University
+
+Donald P. Greenbergx Cornell University
+
+Abstract
+The physical mechanisms and physiological causes of glare in human vision are reviewed. These mechanisms are scattering in the cornea, lens, and retina, and diffraction in the coherent cell structures on the outer radial areas of the lens. This scattering and diffraction are responsible for the "bloom" and "flare lines" seen around very bright objects. The diffraction effects cause the "lenticular halo". The quantitative models of these glare effects are reviewed, and an algorithm for using these models to add glare effects to digital images is presented. The resulting digital point-spread function is thus psychophysically based and can substantially increase the "perceived" dynamic range of computer simulations containing light sources. Finally, a perceptual test is presented that indicates these added glare effects increase the apparent brightness of light sources in digital images.
+CR Categories and Subject Descriptors: I.3.0 [Computer Graphics]: General; I.3.6 [Computer Graphics]: Methodology and Techniques.
+Additional Key Words and Phrases: bloom, flare, glare, lenticular halo, vision.
+1 Introduction
+There is a continual quest for photorealistic simulations, not only by accurately modeling the physical behavior of light reflection, propagation and transport, but by the creation of images that are "perceived" to be realistic. Unfortunately, a digital image can only be as realistic as the limited color gamut, dynamic range, spatial resolution, field-of-view, and stereo-capacity that the display medium will allow. If we had a display medium which could produce the high luminances of real scenes, we would calculate the radiometric quantities for each pixel in the two dimensional image lattice, and send the resulting lattice to the display. However, digital images are displayed on devices with from 256 to 1024 luminance levels and a maximum luminance of approximately
+50 cd=m2.
+To illustrate why this lack of intensity can hamper realism, consider the difference between the perception of a displayed
+10201 N. De Anza Blvd., Cupertino, CA 95014. Greg Spencer@Taligent.COM.
+y580 ETC, Ithaca, NY 14850. shirley@graphics.cornell.edu. zLindley Hall, Bloomington, IN 47405. kuzimmer@cs.indiana.edu. x580 ETC, Ithaca, NY 14850. dpg@graphics.cornell.edu.
+
+Figure 1: Carl Saltzmann, Erste elektrische Straßenbeleuchtung
+in Berlin, Potsdamer Platz, 1884.
+digital image of a single white pixel on a black background, and the real experience of looking at a small incandescent bulb. The real bulb differs from the digital image in two important ways. The first difference is a qualitative "brightness" that the bulb possesses. The second difference is the hazy glow that can be seen around the bulb. This glow not only gives an impression of greater brightness, but it can also interfere with the visibility of objects near the bulb.
+We can improve the realism of simulated images by adding effects which perceptually expand and enhance the perceived dynamic range. These effects are most pronounced where bright light sources are visible within the scene. Perceptual effects which exaggerate the brightness of objects in an image have long been used in artistic expression. The impressionists, in the late 19th century depicted the brightness of illuminating sources by adding tell-tale radial lines (Figure 1). Cinematographers often add etched lenses to create special effects around lights, starbursts, or explosions to make them appear brighter than otherwise. Although these techniques are not psychophysically accurate, each produces the desired impression by exaggerating the luminance of the sources.
+The idea of adding glare effects to a digital image is not new. Nakamae et al. [20] pointed out that the limited dynamic range of CRTs prevents the display of luminaires at their actual luminance values, and that adding streaking and blooming around the luminaires helps give the appearance of glare. While Nakamae et al.'s glare algorithm is extremely effective in conveying an impression of luminaire intensity, it does not account for the visual masking effects of glare, which is needed for object-visibility prediction.
+
+3.8°
+
+3.5°
+
+3.2° 2.9° 2.6°
+
+Lenticular Halo
+
+2.3°
+
+2.0°
+
+Ciliary Corona
+
+Aqueous Humor Crystalline Lens
+Retina
+
+Cornea
+
+Figure 2: The ciliary corona and lenticular halo for a small white
+light source (after [29]).
+
+Incoming ray Scattered ray
+
+Our approach has been to model the physical effects, primarily caused by the interaction of light rays and the physiology of the human eye. For many years, researchers in optics, psychophysics, and illumination engineering have attempted to determine the mechanisms behind glare, and to quantify the effects of glare on viewers. A camera lens filter that mimics the underlying mechanisms of glare in human vision has recently been developed, and had better results than conventional glare filters for some effects [1].
+Glare effects can be subdivided into two major components: flare and bloom. Flare is composed of a lenticular halo and a ciliary corona (Figure 2), and is primarily caused by the lens [29]. Bloom is caused by scattering from three parts of the visual system: the cornea, lens and retina (Figure 3). The lenticular halo, ciliary corona, and bloom are the dominant contributing factors to glare effects and greatly affect our perception of the brightnesses of light sources.
+Rays of the ciliary corona appear as radial streaks emanating from the center of the source. Similar ray patterns associated with other coronas have been studied by physicists and are caused by random fluctuations in refractive index of the ocular media [15].
+The lenticular halo is observed as a set of colored, concentric rings, surrounding the light source and distal to the ciliary corona. The somewhat irregular rings are composed of radial segments, where the color of each segment of the ray varies with its distance from the source. The apparent size of the halo is constant and independent of the distance between the observer and the source. This phenomenon is caused by the radial fibers of the crystalline structure of the lens [29, 15].
+Bloom, frequently referred to as "veiling luminance" is the "glow" around bright objects. Bloom causes a reduction in contrast that interferes with the visibility of nearby objects, such as the night-time view of the grill between two car headlamps. Bloom is caused by stray light attributed to scatter from three portions of the eye: the cornea, the crystalline lens, and the retina, all with approximately equal contributions [33].
+The physiology of the eye and the resultant physical effects are explained in greater detail in the following section. In Section 3 we develop the quantitative aspects of this glare in terms of the point-spread function of the human eye and present an algorithm for generating the digital flare filter that approximates the point spread function. In Section 4 we describe a brief perceptual experiment which verified
+
+Photoreceptors Collector Cells
+Direction of photoreceptor's
+maximum sensitivity
+Magnification of Retina
+Figure 3: Scattering in the eye (after [28]). A small beam of light
+entering the eye is partially scattered in the cornea, the lens, and in the first layer of the retina.
+A
+B
+Figure 4: Glare around a nearby source A and distant source
+B. Since the halo subtends the same angle for each source, the halo around B has the illusion of being larger than the halo around A.
+
+the increase in perceived brightness. We conclude the paper showing several vivid examples and recommendations for future work.
+
+2 Physiology and Physical Effects
+The physical mechanisms behind glare have been studied since the late 19th century [29] and have been a matter of debate until quite recently [15]. In this section we present the physical origins of glare, drawing mainly on Simpson's work on lenticular haloes [29], and Vos [33] and Hemenger's [15] work on scattering in the eye.
+
+2.1 Lenticular Halo
+
+When one observes a point source of light in a dark sur-
+
+round, there appears to be a series of concentric colored
+
+rings around the source. This is known as the lenticular
+
+halo (Figure 2). No matter how far away the source is from
+
+the observer, the haloes always subtend the same angle at
+
+the eye. As shown in Figure 4, this creates an illusion that
+
+haloes around distant light sources appear larger than haloes
+
+around nearby sources. The intensity of the halo decreases
+
+with distance, and streaks are seen if the source subtends a
+
+sufficiently small solid angle.
+
+The lenticular halo is caused by the circular optical grat-
+
+ing formed by the radial fibers at the periphery of the crys-
+
+talline lens. This was first explained by Drualt in 1897 [29],
+
+and experimentally verified by the Emsley-Fincham tests in
+
+1922 [29]. A clear explanation, first presented by Simpson
+
+in 1953 is illustrated below.
+
+Figure 5(a) shows a biconvex lens with a circular grating
+
+etched into the outer portion of the lens. The axis of the
+
+lens is through the center, perpendicular to the plane of the
+
+paaspmear,llasnedgmmeenettsofththeefocicracluplalarngeraattinpgoianttGF,.wIhf ewree
+
+consider the lines
+
+of the segment are nearly parallel, we have a typical parallel
+
+diffraction grating.
+
+Light is refracted according to the following equation:
+
+sin
+
+
+
+=
+
+ e
+
+;
+
+wwahveerelengitsh,thaendaneguislatrhededviisattainocne
+
+of the light path, between adjacent
+
+ is the
+grating
+
+spaces. Thus, when white light is passed through the region
+
+GaRp,,pFaena, rdanafdtocVRu,0s.eFdT,hoaunnsdtthwVeo0,floiancneadsl
+
+plane, the violet components the red components appear at are formed, each one radiating
+
+outward and containing the full range of spectral colors. As
+
+we circumferentially traverse the circular grating, two over-
+
+lapping haloes are produced.
+
+The biconvex lens with the circular optical grating is ac-
+
+tually a simplified model of the crystalline lens of the hu-
+
+man eye (Figure 5(b)). This is composed of fibers which
+
+are relatively large strips of transparent material having a
+
+cross-section of roughly hexagonal shape [10]. Although the
+
+e central part of the lens is optically homogeneous, the exte-
+rior portions act as an optical grating with a spacing of ,
+
+the width of the fibers. A beam of light which
+
+is
+
+less
+
+than
+
+3mm
+
+in
+
+diameter
+
+can
+
+pass through the clear portion of the lens, but subtending
+
+larger angles will always pass through the grating, thus cre-
+
+ating the lenticular halo. This means that haloes are not
+
+2semenm
+
+in daylight across) but
+
+levels of illumination (when is seen in darker conditions.
+
+the
+
+pupil
+
+is
+
+G
+
+R Y V F V' Y' R'
+
+a)
+
+G'
+
+b)
+
+Figure 5: a) Diagram of the etched biconvex lens (after [29]). b)
+Cell structure of the Crystalline Lens (cell size exaggerated).
+
+L1 B
+L2
+ A
+a b
+Figure 6: A reduction in contrast that results from scattered light
+in the eye causes a reduction in contrast that depends on , the angle of separation.
+
+2.2 The Ciliary Corona
+The ciliary corona is depicted in Figure 2 and consists of rays emanating from a point light source. These radial rays may extend beyond the lenticular halo, and are brighter and more pronounced as the angle subtended by the source decreases (Figure 4). The ciliary corona is caused by semi-random density fluctuation in the nucleus of the lens which causes forward scattering that is independent of wavelength [15]. As the size of the source increases, it appears that the ciliary corona blurs and contributes to the bloom effect. This is because superimposing the fine flare lines coming from each part of an areal source eliminates the crisp pattern of any given set of radial flare lines. Simpson observed that sources much larger than 20 minutes of arc did not have significant flare lines.
+2.3 Bloom
+Bloom, frequently referred to as "disability glare" or "veiling luminance" is best illustrated by the reduced visibility which occurs in the presence of bright light sources. This effect is attributed to the scattering of light in the ocular media, where the scatter contributions from the cornea, crystalline lens, and retina occur in roughly equal portions.
+This effect is illustrated in Figure 6 where light from source A scatters inside the eye and is added to light coming from object B. This scattered light adds an effective lumi-
+nance s that does not originate at B. Because light is added
+to both the light and dark parts of object B, the contrast
+ratio L2=L1 is reduced. In addition, since sensitivity to ab-
+solute luminance difference decreases as the base luminance
+L L increases, the difference between 1 and 2 might be dis-
+
++ + cernible,
+not. The
+
+wmhaiglenitthuedediofffesrednecpeenbdetswoenenthse
+
+L1 and s L2 is
+angle of separation
+
+, and the luminance and solid angle of the source. The
+
+quantitative details of this dependence will be discussed in
+
+Section 3.
+
+Veiling luminance has been the subject of investigations
+
+for almost two centuries, and there is still some controversy
+
+surrounding some of the details of the mechanisms for glare.
+
+It is evident that the stray or scattered light plays a dom-
+
+inant role [15], but neural inhibitory effects may also be
+
+present at very small angles of incidence [33].
+
+It is not feasible to document the large number of psy-
+
+chophysical studies performed on this subject, and the
+
+reader is referred to the annotated bibliography of Ronci and
+
+Stefanacci [24], as well as the more recent studies of Owsley
+
+et al. [22], Ross et al. [25], and Ijspeert et al. [17]. Inves-
+
+tigations by Stiles [31], Cornsweet and Teller [9], Blackwell
+
+and Blackwell [3], Hemenger [15] and others all corroborate
+
+that the masking effect of glare is caused primarily by stray
+
+light. Direct evidence has also been obtained by observing
+
+the interior of the eye, revealing that the light scattering
+
+comes primarily from the cornea, crystalline lens, and retina
+
+(Figure 2). These cellular structures, many microns in di-
+
+ameter, scatter light independent of wavelength, much like
+
+a rough reflecting surface.
+
+For the cornea and the lens, the light is scattered in a
+
+narrow forward cone with approximately a Gaussian dis-
+
+tribution [5]. The corneal scattering can be differentiated
+
+from the lenticular scattering since it casts a shadow of the
+
+iris on the retina. The retina to retina scattering, although
+
+physically in all directions is only important in the same
+
+forward directions due to the drastically reduced directional
+
+sensitivity of the cone system to obliquely incident light (the
+
+"Crawford-Stiles" effect). Because the rod sensitivity does
+
+not have as high a directional sensitivity as the cones, the
+
+magnitude of glare is greater in dark (scotopic) conditions.
+
+For these reasons, the light scattering is somewhat like a
+
+"blurring" or "blooming" effect with a sharp drop-off, and
+
+can be approximated with empirical formulae to match the
+
+experimental results.
+
+3 Algorithm
+Although at a high level we understand the physical mechanisms behind scattering in the eye, the exact structure of the cells in the eye is not known to the extent that we can simulate the scattering from first principles. In fact, current knowledge about the cell structure in the eye comes from inversion of observed scattering behavior [2, 15]. For this reason, we use psychophysical and phenomenological results in addition to physical modeling.
+If the eye is focused on a "point source", then ideally a small discrete area of non-zero irradiance would fall on the retina. Because the eye is a real optical system, there will be some blurring of this signal on the retina. This blurring can be described by a "point source function" (PSF) for the eye. In Section 3.1 we describe quantitative glare models in terms of the PSF of the eye, and in Section 3.2 we show how this model can be simulated by convolving a radiometric image with a particular digital filter kernel.
+
+3.1 Quantitative Model of Glare
+There is approximate agreement on the exact perceptual contribution of the bloom for a "normal" viewer. Several researchers [16, 31, 11] have studied the magnitude of the
+
+glare effect by examining the threshold of visibility of an ob-
+E ject near a source that produces illuminance 0 at the front
+ogthfroetuh"needqeulyuievm.alieBnnaytnctvueeriLnliivnnggthlutahmteminsaaoknuecrscee"thoLeffv,ocbaanjnedctbaebdadforineulgnydav. ibsTiabchlkeis-,
+has led to empirical equations taking the general form:
+
+Lv() = fk(E0);
+
+(1)
+
+where Lv is the
+the illuminance
+
+equivalent veiling luminance from the glare source at the
+
+in cd=m2, eye in lx,
+
+Ek0iiss
+
+a constant depending on the experimental conditions,  is
+
+the angle between the primary object and the glare source
+
+in degrees, and f is an experimentally determined function.
+
+( ) ( + ) fVarioiussusvuaalulleys
+
+for k
+set to
+
+bbeetwNeeonr
+
+3 and
+ 0
+
+5N0
+
+have with
+
+Nbereannugisnegd,fraonmd
+
+1.5 to 3. Since the bloom is viewer-dependent, all of these
+values for k and f can be considered to be in some sense
+
+reasonable, but recently an approximate consensus has been reached on the details of these parameters.
+
+The form of Equation 1 is somewhat confusing because it involves both luminance and illuminance. Vos has presented
+
+the equation in a less intimidating form by rewriting it as a point spread function (PSF). A PSF is a density (unit vol-
+
+ume) function defined on the visual field that describes how a unit volume point source (a delta function) is "spread"
+
+onto other points of the visual field. If we assume that the
+
+( ) unscattered
+as an exact
+
+component of point source),
+
+Equation then the
+
+P1 SisFuPnchanisg:ed
+
+(appears
+
+P ()
+
+=
+
+a()
+
++
+
+f
+
+k
+()
+
+;
+
+(2)
+
+( ) where   is an "ideal" PSF and a is the fraction of light
+that is not scattered.
+The form of Equation 2 assumes that there is no energy
+
+loss in the system. This is not the case, and has been the
+
+( ) cause of
+fraction
+
+osof mligehdtebscaatteteinredthiengElaqrue altitioernat2ur(ei..e.ThRekp=efrcei)veids
+
+roughly 10% for normal viewers. However, physical experi-
+
+ments suggest that as much as 40% of the light is actually scattered [26, 4]. Researchers have investigated this apparent contradiction. The most common explanation is that angular dependence of the sensitivity of the cones in the retina
+
+(the Crawford-Stiles effect [36]) effectively absorbs some of
+the stray light, particularly for  more than a few degrees.
+This same effect causes light transmitted by the outer edge
+
+of a fully dilated pupil to be 5-10 times less effective than light through the center of the pupil [33]. This implies that
+
+we should trust the ten percent figure for our purposes because it is the perceptual quality of the light that we need
+
+to account for. Thus, we should realize that Equation 2 represents a normalized perceptual PSF and does not measure
+
+the spread of retinal illuminance. Recently, Vos has attempted to unify the large number
+
+of PSF models for the eye [33]. In this section we review
+
+Vos' work, and add two effects studied by Hemenger [15]
+
+not accounted for in Vos' model.
+
+If the point spread function is defined on the hemisphere
+
+gofazdeirdeicrteicotnisonenatnedring
+
+the eye, where  is
+is the angle around
+
+the the
+
+angle from the gaze direction,
+
+then
+
+Z
+
+2 Z
+
+ 2
+
+P()sin dd = 1;
+
+(3)
+
+0
+
+0
+
+P where the angles are measured in radians. This normaliza-
+tion condition asserts that the PSF redistributes energy,
+
+log f
+
+(a) (b) (c) (d)
+10 8 6 4 2 0 2 4 6 8 10 Visual Angle [degrees]
+Figure 7: The PSF components (a) f0, (b) f1, (c) f2, and (d) f3.
+(a) (b)
+
+log f
+
+10 8 6 4 2 0 2 4 6 8 10 Visual Angle [degrees]
+Figure 8: (a) The photopic PSF Pp. (b) The scotopic PSF Ps.
+
+but does not emit or absorb energy. If the optical system does absorb energy, this is accounted for by a constant separate from the PSF.
+
+( ) Because the glare literature reports
+wwehecraenreiswirnitdeetghreeePs:SF normalization
+
+its results condition
+
+fionrdaegPrees,,
+
+2
+90
+
+Z 90
+0
+
+P
+
+()
+
+sin
+
+d
+
+=
+
+1:
+
+(4)
+
+Any non-negative function of  that satisfies Equation 4 is a
+
+candidate for a point spread function. This means that any
+
+weighted average of functions that each satisfy Equation 4 is
+
+also a candidate. Vos [33] has reviewed the various models
+
+for glare and noted that there are three different empirical
+
+components in the PSF for an eye. The first is a narrow
+
+Gaussian that represents the unscattered component. The
+
+ second is a function that is roughly proportional to 3 that  is dominant for non-zero less than one or two degrees. The
+
+= 0 ( + ) ( + )  third is a term proportional
+Because both the 3 and
+
+to
+
+
+2
+
+2 for  more
+terms would
+
+than a degree. blow up near
+
+ , Vos replaces them with  a 2 and  a 3 for
+
+some empirical constant a, and suggests the following three
+
+normalized components:
+
+f0() = 2:61  106e
+
+( ) ;  2 0:02
+
+for the central Gaussian,
+
+f1()
+
+=
+
+(
+
+20:91 + 0:02)3
+
+;
+
+ for the 3 component, and
+
+f2()
+
+=
+
+(
+
+72:37 + 0:02)2
+
+;
+
+ for the 2 component. These functions are shown in Figf ure 7. The function 0 represents the unscattered component
+of the light, It shows the typical Gaussian shape expected
+
+for an real-world imaging system. This term should vary
+
+slightly with pupil size [5] but for our purposes could be re-
+
+placed by a delta function because the angular size of the
+
+Gaussian will be much smaller than a pixel width.
+
+Finally, Vos suggests the following combination for the
+
+PSF of a normal viewer:
+
+Pp() = 0:384f0() +
+
+0:478f1() +
+
+0:138f2():
+
+(5)
+
+This PSF is subscripted with a "p" because it is appropriate
+
+for observers in a photopic (light adapted) state. The light
+
+adaptation of a viewer is described by one of three basic
+
+states [23]: less than 0.01 cd=m2 is the scotopic region (night
+
+vision); the range 0.01-3 cd=m2 is the
+night and day vision); more than 3
+
+cmde=smop2 icisretghieonph(motioxpeidc
+
+region (day vision) The graph of Equation 5 is shown in
+
+Figure 8.
+
+3.1.1 Adding the lenticular halo
+
+For pupil diameters less than three millimeters, Simpson re-
+
+ports that the coherent fibers in the lens are blocked by the
+
+iris. The pupil diameter is influenced by many factors such
+
+as age, mood, and the spectral distribution of incoming light,
+
+but it is primarily related to the field luminance of the scene.
+
+Moon and Spencer (1944) [36] relate average pupil diameter
+D (in mm) to field luminance L (in cd=m2):
+
+D = 4:9 3 tanh (0:4(log10 L + 1)) : = 10 This yields a pupil diameter of about 3mm for L cd=m2,
+
+which is the field luminance of a dimly lit interior. We
+
+should expect no lenticular halo in daylight conditions, a
+
+mild lenticular halo in dimly lit rooms, and prominent lentic-
+
+ular haloes for dark scenes.
+
+0 35 3 w56i8tIhtnmwanacsaaonubgsseuedlravraedwleinbdtytihcMuolafalrle:hroaloa.nodBf aPaspaepldmrooexnrim[t1ha8its]etolhybasterlvirgaahtditoiuanst,
+
+Hemenger [15] used the following empirical formula to model
+
+the lenticular halo with these properties produced by light
+
+at 568nm:
+
+( ) = C t Be ; :  19 75( 0)2
+
+(6)
+
+= 3 where B is a constant and 0 .
+
+Since the angle of a diffraction pattern peak is propor-
+
+tional to wavelength, we can establish the formula:
+
+0
+
+()
+
+=
+
+
+568
+
+:
+
+Since we expect the same fraction of incident energy to be
+
+diffracted for each wavelength, we can construct a unit vol-
+
+ume PSF for the lenticular halo:
+
+f3
+
+(;
+
+)
+
+=
+
+436:9
+
+568
+
+
+e
+
+(
+
+: 3
+
+ 568
+
+)2
+
+(7)
+
+Mallero and Palmer also observed that in dark conditions
+
+the halo at 568nm had about ten times the luminance of
+
+436109 1 462 436 9 = 0 033(3 ) = 1 462 (3 568) =  iEtashpqepu:ecaait,lriiosatonre:yna7ctorwi=ermaoesneosasen:.eaaFsbtrlhboearmitc:gohPtehtpffii.sacsfiHaePncoPttw,,efaovsnroe:drft,f3hrteohwamicsinolldaEeffismqfsuuca3aimketenieots;tnhwae5efruauinlnsldgye
+
+dilated pupil, which is only true for scotopic conditions. So
+
+0 016 f : we assume that about half of the radial fibers of the lens are
+
+exposed, calling for a coefficient for 3 of
+
+, resulting in
+
+the equation:
+
+Pm(; ) = 0:368f0() +
+
+0:478f1() +
+
+0:138f2() +
+
+0:016f3(; ):
+
+(8)
+
+m This assumes the lenticular halo is diverted from the central
+peak. The subscript refers to a mesopic observer, whose
+pupil is large, but whose cones are still active.
+0 15 100 For darker conditions the amount of glare may be higher.
+At : cd=m2 there is 50% more straylight than at cd=m2
+[22]. This suggests an alternative form for the darkest pointspread function:
+
+Ps(; ) = 0:282f0() +
+
+0:478f1() +
+
+0:207f2() +
+
+0:033f3(; ):
+
+(9)
+
+The graph of Ps is shown in Figure 8.
+
+3.1.2 Viewer-Specific Variation in PSF
+
+There is an increase in glare with age, although the shape of the PSF stays the same [13]. If there are no cataracts, Vos [33] has established a rough age relation:
+
+Pp() = (0:384 6:9  10 9A4)f0() + 0:478f1() +
+(0:138 + 6:9  10 9A4)f2(); (10)
+
+where A is the age of the viewer in years. This change in
+
+vision is caused primarily by optical changes in the eye [12],
+
+but there is some loss due to neural changes as well [21].
+
+0 05 Ethqaunati:on
+
+10inicmrepaliseesstfhraotmth0e.3f6raacttioangeof20ligthot
+
+scattered more 0.45 at age 60.
+
+The ratio of this light to unscattered light approximately
+
+doubles between the ages of 20 and 70. The situation can be
+
+even worse for viewers with cataracts, where the fraction of
+
+light that is scattered can be close to one [14]. There are no
+
+sex differences in the PSF [22], and only minor differences
+
+for viewers with different pigmentation [17]. The formulas
+
+cfooreffiPcmienatndforPfs3
+
+will may
+
+have similar behavior to Pp, but
+remain relatively constant because
+
+the the
+
+pupil diameter becomes more static with age. This may
+
+result in mild lenticular haloes in photopic conditions for
+
+old viewers.
+
+There is also an age-related color shift toward the yellow in
+
+the light transmitted by the lens. This, as well as increased
+
+fluorescence of the lens, can cause an additional reduction in
+
+visibility for elderly viewers in some viewing conditions such
+
+as twilight [6] and scotopic conditions [21]. The yellowing of
+
+the lens also causes metamerism to vary with age [8]. Since
+
+age-related changes vary widely from viewer to viewer, these
+
+studies are primarily useful for establishing guidelines for the design of environments that are safe for "typical" elderly viewers.
+
+3.2 Digital Glare Filter Generation
+
+The glare formulae of Section 3.1 can be applied directly to
+
+digital images by using a digital point spread function to
+
+spread energy in high-intensity pixels to nearby pixels. This
+
+basic strategy has been used by Nakamae et al. [20] and
+
+Chiu et al. [7]. Unlike these previous approaches, we use
+
+different flare filters based on the adaptation state of the
+
+viewer.
+
+( ) ( ) ( ) ( ) To develop a filter for a particular image, we first construct
+digital versions of f0  , f1  , f2  , and f3  . Since each
+of these filters must have unit volume, we can calculate each
+
+filter proportional to a given function, and then renormalize
+
+the filter so that all pixels sum to one. These filters and
+
+the images they are applied to are stored in Ward's floating
+
+point file format [35], so that the small values in the off-
+
+= 2 + 1 (0 0)  NacesnitneNgrlefiimlcteeanrgtepr,aixwl ephlisexraeerl.eNWnoetnlounsmt.beWrsoethtcheosemereppuiisxteeglustahrea;finltteeetrhdfrotoorugabhne
+
+( 1 1)  N ;N
+
+and we calculate the angle  subtended
+
+ by the pixels of the image that we will add glare to. This
+assumes a relatively small field of view so that  can be
+
+( ) ( ) approximated by a constant for all pixels. To calculate the
+value d i; j for a particular flare component f  we evaluate
+
+the integral
+
+p(i; j)
+
+Z
+=
+
+i+0:5 Z
+
+j+0:5 f 
+p(u
+
+n)2 + (v
+
+n)2 dv du:
+
+i 0:5 j 0:5
+
+We use the trapezoidal rule to evaluate this integral. For
+f0, f1, and f2 we use 10000 sample points in the central
+
+part of the filter where there is rapid change in the function,
+
+( and 100 sample points elsewhere. To construct the colors
+
+in 50
+
+twhaevelleenntgictuhlsafrrohmalo4,00fn3m;to),70w0enmpraoncedssthEenqucaotnivoenrt7tofoar
+
+trichromatic transform as described by Meyer [19]. This halo
+
+is not a classic "pure" spectrum because each wavelength
+
+bleeds into its neighbors, so it is not on the boundary of
+
+the visible part of the CIE diagram and is thus easier to
+
+display on a monitor gamut. The resulting pattern is shown
+
+in Figure 9 and is consistent with Simpson's observations
+
+(Figure 2).
+
+Unfortunately, the filters calculated in this manner will
+
+lack the flare lines we expect (Figure 2), because they are
+
+spatial averages over areas that cover many flare lines. We
+
+need to add these flare lines without disturbing the macro-
+
+scopic structure suggested by Equations 5, 8, and 9. We
+
+[0 1] add flare detail to our digital filter by drawing random an-
+tialiased radial lines of random intensity in the range ;
+
+on a digital image the same size as our filter. We draw a
+
+number of lines to visually match Simpson's observations
+
+(Figure 2). We assume that the ciliary corona (represented
+
+( ) ( ) by f1  ( ) that the
+
+and f2  )
+lenticular
+
+is composed of one set of
+halo (represented by f3 
+
+flare ) is
+
+lines, and composed
+
+of a different set of flare lines. This separation is consistent
+
+with the fact that there is a different physical mechanism for
+
+the two components, as was discussed in Section 2.
+
+We take the random pattern of flare lines and adjust it so
+
+that it has an average pixel value of 1.0, and that each small
+
+neighborhood also has an average value of 1.0. This has
+
+the effect of increasing the pixel intensity radially because
+
+the fraction of pixels in a streak decreases radially from the
+
+Figure 9: Algorithmically generated lenticular halo. Compare to
+Simpson's observed values in Figure 2.
+
+center. This new pattern is then multiplied by the origi-
+
+nal flare functions, which gives them the appropriate detail
+
+without changing their carefully calculated macroscopic be-
+
+( ) havior.
+case of
+
+PTmhispr(oEceqsusaitsiosnho8w)n,
+
+in Figure 10, for where the filter
+
+the particular is built up in
+
+stages.
+
+The filter is independent of a particular image, but must
+
+be recomputed for a new field-of-view because the angular
+
+size of a pixel changes. Thus only one filter is computed
+
+for an animation sequence that uses one set of camera pa-
+
+rameters. The width and height of the filter is double the
+
+width and height of the target image. Because the values
+
+in the filter decrease away from the center (except for the
+
+lenticular halo which is approximately a factor of ten larger
+
+than its nearby interior neighbors), we can use only a central
+
+portion of the filter when processing dim pixels. This enor-
+
+mously decreases the execution time (approximately a factor
+
+of 100 in our implementation on the images in Section 5).
+
+Because the viewer will experience actual glare for the dis-
+
+played pixels, we only need add glare to pixels whose full
+
+intensity is
+iins tIe,nwsihtyeries
+
+IInm>o,t
+
+displayed. So if the maximum displayable
+
+aImnd,
+
+the the
+
+ficoltmerpuisteadppinliteednstiotythfoervaalguieveIn
+
+piIxme.l
+
+Note that the filter is applied at each of these bright pixels in
+
+the source image, which is spread to the appropriate regions
+
+of the destination image.
+
+4 Perceptual Tests
+
+Once the techniques are developed to simulate flare and
+
+bloom, simple experiments can be conducted to determine
+
+the perceptual effects.
+
+In one simple experiment, two stimuli, one with a ciliary
+
+corona, and one without, were compared to see which one
+
+was perceived to be
+400 sented in a window
+
+brighter. Each greyscale image was with a short presentation time,
+
+pmres-
+
+700 or 10 trol
+
+ms. Colormap manipulation was
+the presentation time to within
+
+impmlesm. enEtaecdhtoimcaogne-
+
+window was 300 by 300 pixels on the 1280 by 1024 display
+
+monitor. The presentation window was the only item visible
+
+on a screen with a black background.
+
+The basic "staircase" method was utilized in the exper-
+
+iment with a three-way forced choice (choices were "Im-
+
+age A Brighter", "Image B Brighter" and "Neither Image
+
+Brighter"). The staircase method refers to a method of
+
+decreasing the adjustment to a stimulus to converge on a
+
+threshold while virtually eliminating predictive bias [36].
+
+Images were presented on a Sony Trinitron 19 inch display
+
+connected to a Hewlett-Packard 9000/750 with a VGRX
+
+Graphics card.
+
+Figure 10: Overview of the construction of the scotopic point-
+spread filter Ps.
+One window contained an image with the ciliary corona flare filter applied, and the other contained an identical image, except that the light source was replaced with a hardware-drawn disc surrounded by an annulus of one-third the intensity of the central disc (Figure 11(a)). The maximum intensity of the source with the corona flare was 75% of the maximum value displayable by the display device. The intensity of the disc varied from 0 to 100% of the maximum value.
+Trials were arranged into two groups, with and without context for the source. In one group, the light source was presented by itself, in the center of a black field (Figure 11(b)). In the other group, the light source was placed into the context of a light bulb at the end of a desk lamp on a desk (Figure 11(c)). The order in which these groups of trials was run was randomized ­ half of the subjects performed the experiment with the context set first, and the other half observed the context free environments first. The glare images were also randomly swapped with the disc images so that one type of image did not always appear in the
+
+Perceived Intensity as Percentage of Maximum Displayable
+
+Comparison of With and Without Context
+100% 95% 90% 85% 80% 75% 70% 65% 60% 55% 50%
+1 2 3 4 5 6 7 8 9 10 11 12 Amount of Flare
+
+With Context Without Context Overall Average Actual Level
+
+Figure 13: Overall results of experiment.
+
+The results indicate a fairly strong effect due to glare. This observation implies that applying a glare filter improves the apparent dynamic range of an image.
+
+Figure 11: Sample stimuli showing the lowest and highest flare
+intensity.
+
+Perceived Intensity as Percentage of Maximum Displayable
+1 2 3 4 5 6 7 8 9 10 11 12
+
+100% 95% 90% 85% 80% 75% 70% 65% 60% 55% 50% 45% 40% 35% 30%
+
+Results of Trials With Context
+Flare Intensity
+
+Subject 1 Subject 2 Subject 3 Subject 4 Subject 5 Subject 6 Subject 7 Average Actual Level
+
+Figure 12: Stimulus with context.
+
+same side of the display. In both groups of trials, there were 12 glare images, ranging from a simple slightly blurry dot to a light source which had too much glare to be believable. The entire experiment took place in a darkened room, so that the intensity of the test images would appear brighter overall, and enhance the glare effect.
+4.1 Experimental Results
+The experiment was conducted with a group of seven subjects, generating a statistically significant sample, given the small deviation usually present in brightness perception experiments.
+The results, shown in Figures 12, and 13, show the expected response to the glare increase. If the glare had no effect, then the perceived intensity would be constant, as shown by the horizontal line at the 75% level.
+The presence of a context (a lamp on a table) had no significant influence on the user's perception, but subjects did report having more confidence about the absolute brightness of the light source when the context was present.
+
+5 Examples
+
+The digital filters of Section 4 were applied to several digital
+
+images. By contracting the filter radius for dim pixels, we
+
+were able to run the filters in approximately one to three
+
+minutes per image on a HP9000/755. All of the images are
+
+shown before and after application of the flare filter.
+The scotopic PSF Ps was applied to a night scene (Fig-
+ure 14). Note that the haloes stay the same size for sources
+
+at different distances. The cars in two filtered images are at
+
+different angles, so only the car on the bottom shows appre-
+
+ciable glare. Also notice that the brightness of the headlights
+
+at different angles can only be detected once the glare is
+
+added. The images in Figure 14 we desaturated so that the
+saturation in HSV space was reduced by 70% to simulate
+
+scotopic (rod) vision. The image was not completely desat-
+
+urated because color vision degrades gradually and is still
+partially active even under moonlight (about 0.03 cd=m2)
+
+[30].
+Figure 15 shows an application of the mesopic PSF Pm to
+a rendered image. Note that the lenticular halo is prominent.
+Figure 16 shows an application of the photopic PSF Pp
+
+4 0 10 7 5 10   to a digital photo of a tree composited over a sky with lu-
+
+minance :
+
+3cd=m2 and a sun disk of :
+
+8cd=m2.
+
+The sun pokes through just a few holes in the leaves of the
+
+tree. Note that, as expected when viewing a bright scene,
+
+the lenticular halo is missing from Figure 16.
+
+All of these images have some burn-out, where the value of
+
+the pixel goes above one. Ultimately, a more sophisticated
+
+tone mapping algorithm should be used [32, 7, 34, 27], so
+
+that the images will have the appropriate degree of object
+
+visibility, and qualitative lightness or darkness. This issue is
+
+not addressed in this work.
+
+6 Conclusion
+We have presented the mechanisms of glare in the human visual system, and have provided quantitative formulae used by the vision community that describe its magnitude. These mechanisms are scattering in the cornea, lens, and retina, and diffraction in the coherent cell structures on the outer radial areas of the lens. The scattering and diffraction are responsible for the "bloom" and "flare" lines seen around
+
+Figure 15: An indoor simulation before and after the mesopic glare
+algorithm..
+Figure 14: Two highway scenes before and after the scotopic glare
+algorithm. The orientation of the headlights is made obvious by the degree of glare.
+Figure 16: The Sun showing through leaves before and after the
+photopic glare algorithm. The location of the Sun is obvious only after the glare is added. Note that there is no lenticular halo because the pupil of the viewer is contracted.
+
+very bright objects. The diffraction effects are responsible for the "lenticular halo".
+We have used these glare formulae to develop a digital point-spread function to add glare effects to digital images, and have run a perceptual experiment that indicates that the added glare increases the effective dynamic range in a digital image. Because the physically-based glare effects are expensive to compute, future work should focus on developing efficient methods that yield the same perceptual effects as the physically-based glare.
+Acknowledgements
+Thanks to Dan Kartch for help with the content and format of the paper, Andrew Kunz for help on image of the tree, Brian Smits for providing the theater image, Ben Trumbore and Bruce Walter for detailed comments on the paper, Alireza Esmailpour and Georgios Sakas for help obtaining a good reproduction of the Saltzmann painting, to Ken Torrance for proving important pointers into the optics literature, and to Jim Ferwerda for help understanding the methodology of psychophysics. This work was supported by the NSF/ARPA Science and Technology Center for Computer Graphics and Scientific Visualization (ASC-8920219) and by NSF CCR-9401961 and performed on workstations generously provided by the Hewlett-Packard Corporation.
+References
+[1] Beckman, C., Nilsson, O., and Paulsson, L.-E. Intraocular scatterinng in vision, artistic painting, and photography. Applied Optics 33, 21 (1994), 4749­4753.
+[2] Bettelheim, F. A., and Paunovic, M. Light scattering of normal human lens 1. Biophysical Journal 26, 3 (April 1979), 85­99.
+[3] Blackwell, O. M., and Blackwell, H. R. Individual responses to lighting parameters for a population of 235 observers of varying ages. Journal of the IES 2 (July 1980), 205­232.
+[4] Boettner, E., and Wolter, J. Transmission of the ocular media. Investigative Ophthalmology 1 (1962), 776.
+[5] Campbell, F., and Gubisch, R. Optical quality of the human eye. Journal of Physiology 186 (1966), 558­578.
+[6] Carter, J. H. The effects of aging on selected visual functions: Color vision, glare sensitivity, field of vision, and accomodation. In Aging and Human Visual Function, R. Sekular, D. Kline, and K. Dismukes, Eds., vol. 2 of Modern Aging Research. Alan R. Liss, Inc., 1982, pp. 121­130.
+[7] Chiu, K., Herf, M., Shirley, P., Swamy, S., Wang, C., and Zimmerman, K. Spatially nonuniform scaling functions for high contrast images. In Graphics Interface '93 (May 1993), pp. 245­ 244.
+[8] Coren, S., and Girgus, J. Density of human lens pigmentation in vivo measures over an extended age range. Vision Research 12, 2 (1972), 343­346.
+[9] Cornsweet, T. N., and Teller, D. Y. Relation of increment thresholds to brightness and luminance. Journal of the Optical Society of America 55 (1975), 1303­1308.
+[10] Davson, H., Ed. The Eye, third ed., vol. 1a. Academic Press, inc. ltd., London, 1984.
+[11] Fry, G. A re-evaluation of the scattering theory of glare. Illuminating Engineering 49, 2 (1954), 98­102.
+[12] Hemenger, R. P. Intraocular light scatter in normal vision loss with age. Applied Optics 23, 12 (1984), 1972­1974.
+[13] Hemenger, R. P. Small-angle intraocular light scatter: a hypothesis concerning its source. Journal of the Optical Society of America A 5, 4 (1987), 577­582.
+[14] Hemenger, R. P. Light scatter in cataractous lenses. Opthalmological Phyisiological Optics 10 (October 1990), 394­397.
+
+[15] Hemenger, R. P. Sources of intraocular light scatter from inversion of an empirical glare function. Applied Optics 31, 19 (1992), 3687­3693.
+[16] Holladay, L. Action of a light source in the field of view on lowering visibility. Journal of the Optical Society of America 14, 1 (1927), 1­15.
+[17] Ijspeert, J. K., de Waard, P. W. T., van den Berg, T., and de Jong, P. The intraocular straylight function in 129 healthy volunteers; dependence on angle, age, and pigmentation. Vision Research 30, 5 (1990), 699­707.
+[18] Mellerio, J., and Palmer, D. A. Entopic halos and glare. Vision Research 12 (1972), 141­143.
+[19] Meyer, G. W. Wavelength selection for synthetic image generation. Computer Vision, Graphics, and Image Processing 41 (1988), 57­79.
+[20] Nakamae, E., Kaneda, K., Okamoto, T., and Nishita, T. A lighting model aiming at drive simulators. Computer Graphics 24, 3 (August 1990), 395­404. ACM Siggraph '90 Conference Proceedings.
+[21] Ordy, J. M., Brizzee, K. R., and Johnson, H. A. Cellular alterations in visual pathways and the limbic system: Implications for vision and short-term memory. In Aging and Human Visual Function, R. Sekular, D. Kline, and K. Dismukes, Eds., vol. 2 of Modern Aging Research. Alan R. Liss, Inc., 1982, pp. 79­114.
+[22] Owsley, C., Sekuler, R., and Siemsen, D. Contrast sensitivity throughout adulthood. Vision Research 23, 7 (1983), 689­699.
+[23] Rea, M. S., Ed. The Illumination Engineering Society Lighting Handbook, 8th ed. Illumination Engineering Society, New York, NY, 1993.
+[24] Ronci, C., and Stefanacci, S. An annotated bibliography on some aspected of glare. Att. Fond. Ronci 30 (1975), 277­317.
+[25] Ross, J. E., Clarke, D. D., and Bron, A. J. Effect of age on contrast sensitivity function: uniocular and binocular findings. British Journal of Opthalmology 69 (1985), 51­56.
+[26] Said, F., and Weale, R. The variation with age of the spectral transmissivity of the living human crystaline lens. Gerontologia 3, 4 (1959), 213.
+[27] Schlick, C. Quantization techniques for visualization of high dynamic range imagess. In Proceedings of the Fifth Eurographics Workshop on Rendering (June 1994), pp. 7­18.
+[28] Sekuler, R., and Blake, R. Perception, second ed. McGrawHill, New York, 1990.
+[29] Simpson, G. Ocular halos and coronas. British Journal of Opthalmology 37 (1953), 450­486.
+[30] Smith, G., Vingrys, A. J., Maddocks, J. D., and Hely, C. P. Color recognition and discrimination under full-moon light. Applied Optics 33, 21 (1994), 4741­4748.
+[31] Stiles, W. The effect of glare on the brightness difference threshold. Proceedings of the Royal Society of London 104 (1929), 322­351.
+[32] Tumblin, J., and Rushmeier, H. Tone reproduction for realistic computer generated images. IEEE Computer Graphics & Applications 13, 7 (1993).
+[33] Vos, J. Disability glare- a state of the art report. C.I.E. Journal 3, 2 (1984), 39­53.
+[34] Ward, G. A contrast-based scalefactor for luminance display. In Graphics Gems IV, P. Heckbert, Ed. Academic Press, Boston, 1994, pp. 415­421.
+[35] Ward, G. J. The radiance lighting simulation and rendering system. Computer Graphics 28, 2 (July 1994), 459­472. ACM Siggraph '94 Conference Proceedings.
+[36] Wyszecki, G., and Stiles, W. Color Science: Concepts and Methods, Quantitative Data and Formulae, second ed. Wiley, New York, N.Y., 1992.
+
+

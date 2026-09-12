@@ -1,0 +1,33 @@
+Wikipedia, "Helmholtz-Kohlrausch effect" (papers/wikipedia-helmholtz-kohlrausch.html,
+CC BY-SA 4.0, retrieved 2026-09-12, revision oldid=1359384908).
+
+Definition: saturated colour is perceived as brighter than an achromatic (white/grey)
+patch of the SAME measured luminance; the effect grows with saturation and is strongest
+for spectral/monochromatic colours; it works best in dark viewing environments (the
+article specifically names darkened theatres as a place this is exploited).
+
+Which hues show it most/least (stated directly by the article, no numeric ratio given
+in the free text): "two colours that do not have as great of a Helmholtz-Kohlrausch
+effect as the others are green and yellow" -- implying red, blue/violet and magenta-ish
+hues show a STRONGER effect. Stage lighting practice (cited in the article's own
+"Entertainment" section) exploits this by choosing reds, pinks and blues for gels,
+since these hues can match a white light's PERCEIVED brightness while absorbing some of
+the light energy in the gel.
+
+One concrete numeric example given (aviation industry section): comparing red LED
+runway lamps to filtered/unfiltered incandescent lamps at the SAME physical luminance,
+the white-reference incandescent lamp needs roughly TWICE the luminance of the red LED
+lamp to be perceived as equally bright -- i.e. a real-world H-K brightness bonus on the
+order of a factor of ~2 for a saturated red source (flagged on the source page as
+citing Donofrio's account of aviation lighting standards work; not independently
+re-verified against the primary aviation standard here).
+
+Modelling: named sources for a computable "equivalent achromatic lightness" (L*_EAL)
+adjustment are Fairchild & Pirrotta (1991), Nayatani (1997), High/Green/Nussbaum (2023)
+and Bhaumik & Leloup (2025) -- none of these primary papers were independently fetched
+this pass (Nayatani 1997 and the Color Research & Application papers found by search
+are paywalled; WebFetch/curl were not attempted against Wiley for them given the
+existing item-09 experience that Wiley/ScienceDirect block scripted fetches). Flagged
+as NOT FOUND for an exact closed-form H-K formula in this archive; the qualitative
+direction (violet/blue/red boosted, green/yellow not) and the ~2x aviation example are
+the only numeric anchors available.

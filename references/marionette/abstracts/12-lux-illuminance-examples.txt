@@ -1,0 +1,17 @@
+Wikipedia, "Lux" (papers/wikipedia-lux.html, CC BY-SA 4.0, retrieved 2026-09-12),
+"Illuminance examples" table, individually-sourced rows.
+
+Values used in item 12 as an anchor for "typical indoor/window light" against which a
+small emissive figure's own contribution can be compared:
+- 50 lux: family living room lighting (Australia, 1998 source cited on the page).
+- 320-500 lux: office lighting.
+- 400 lux: sunrise or sunset on a clear day (direct, outdoor).
+- 1000 lux: overcast daylight; also typical TV-studio lighting level.
+
+No number on this page is specific to "light received a metre back from a window on an
+overcast day," which is the actual geometry of item 05's hand-lighting setup; the
+100-1000 lux band above (indoor room lighting through to overcast-day light level) is
+used in item 12 as a plausible bracket for the ambient/window fill on the hand, NOT as
+a measurement of this specific shot (item 05's own archive has no photometer reading of
+the plate, only a geometric light-DIRECTION solve from the hand's cast shadow -- see
+item 05 and item 11 section 2.2). Flagged accordingly wherever used.

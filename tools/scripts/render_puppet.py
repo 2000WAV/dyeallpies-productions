@@ -4,13 +4,19 @@ plate behind the hand matte, with bloom, spill and grain.
 
     python render_puppet.py <master.mp4> <hand3d.npz> <sim.npz> <matte.npy> <out.mp4>
         [look=red] [style=neon|solid] [string_px=3] [bake=hand/work/puppet_layer.npy] [preview=42,44,48,60]
-        [trim=0,267] [shutter=0.5] [scale=2] [backend=gl|cpu]
+        [trim=0,267] [shutter=0.5] [scale=2] [backend=gl|cpu] [plate=wall|black] [hand_gain=1.0] [spill=1.0] [wall=1.0]
 
 Two backends, one look (2026-09-12). `backend=gl` (default, studio.gl on the RTX 2060) reproduces the
 CPU shader below term for term from the same depth + ID buffers: 0.05 s a frame instead of 8.7 s
 (8 motion-blur sub-samples of 0.30 s MuJoCo read-back + 0.57 s NumPy shading + 0.15 s strings).
-`backend=cpu` is the 2026-09-11 path, kept for the equality check and for the neon style's `core`
-term (a per-body distance transform that has no one-pass GLSL form): neon runs on the CPU.
+`backend=cpu` is the 2026-09-11 path, kept for the equality check. The neon style's `core` term (the
+distance to the body's edge) is a jump-flood distance field on the GPU (studio.gl.distance_field),
+normalised by the body's own thickness in px instead of the image's per-body maximum.
+
+Neon on black (2026-09-12, Dennis): `plate=black` isolates the hand on pitch black (the matte's edge
+decontaminated against the wall colour), puts the figure behind it, blooms over both and lets the
+figure's light fall on the hand (`spill`); `look=violet` / `violet-mix` (violet dominant, no green,
+several neon hues on the parts).
 
 Two styles (2026-09-12, Dennis: the neon figure "is very bright and loses focus against the white
 wall; opaque and sharp without too much white"):
@@ -76,6 +82,15 @@ LOOKS = {
     "eblue":   dict(trunk=(1.00, 0.20, 0.02), limb=(0.70, 0.12, 0.02), head=(1.00, 0.30, 0.05), string=(0.95, 0.25, 0.05)),
     "green":   dict(trunk=(0.05, 1.00, 0.02), limb=(0.03, 0.70, 0.02), head=(0.10, 1.00, 0.05), string=(0.10, 0.90, 0.05)),
     "sorange": dict(trunk=(0.02, 0.30, 1.00), limb=(0.02, 0.20, 0.70), head=(0.03, 0.40, 1.00), string=(0.03, 0.30, 0.90)),
+    # the neon-on-black family (2026-09-12, Dennis: body parts may differ in colour, several neon hues, no green,
+    # violet dominant). Spectral violet is outside sRGB; "electric violet" #8F00FF is the usual in-gamut stand-in
+    # (item 12 for the numbers): linear BGR (1.00, 0.00, 0.28). `bodies` overrides the class colour per body name.
+    "violet":     dict(trunk=(1.00, 0.00, 0.28), limb=(1.00, 0.00, 0.14), head=(1.00, 0.06, 0.36), string=(1.00, 0.35, 0.60)),
+    "violet-mix": dict(trunk=(1.00, 0.00, 0.28), limb=(1.00, 0.00, 0.14), head=(1.00, 0.06, 0.36), string=(1.00, 0.35, 0.60),
+                       bodies=dict(upper_arm_l=(0.75, 0.00, 1.00), upper_arm_r=(0.75, 0.00, 1.00),      # magenta
+                                   forearm_l=(1.00, 0.10, 0.04), forearm_r=(1.00, 0.10, 0.04),          # electric blue
+                                   thigh_l=(1.00, 0.00, 0.14), thigh_r=(1.00, 0.00, 0.14),              # blue-violet
+                                   shank_l=(0.02, 0.32, 1.00), shank_r=(0.02, 0.32, 1.00))),            # amber
 }
 BLOOM = [(3, 0.22), (9, 0.12), (27, 0.07), (81, 0.04)]   # neon: sigma px at 1x, weight (see the docstring; 06 for the range)
 BLOOM_SOLID = [(3, 0.04)]                                 # solid: the faintest near halo; item 09: bloom is veiling luminance and
@@ -137,16 +152,37 @@ class PuppetBase:
         self.L = sim["L"]; self.sub = int(sim["sub"]); self.release = int(sim["release"])
         # the npz is lazy: pull the arrays once (each [] on an NpzFile decompresses the whole array)
         self.qpos = sim["qpos"]; self.xpos = sim["xpos"]; self.pad_pos = sim["pad_pos"]; self.site_pos = sim["site_pos"]; self.taut = sim["taut"]
+        # the quaternion slices of qpos (the free root, the ball joints), renormalised after a lerp between records
+        self.quat_slices = []
+        for j in range(self.model.njnt):
+            adr = int(self.model.jnt_qposadr[j]); t = int(self.model.jnt_type[j])
+            if t == int(mujoco.mjtJoint.mjJNT_FREE): self.quat_slices.append(slice(adr + 3, adr + 7))
+            elif t == int(mujoco.mjtJoint.mjJNT_BALL): self.quat_slices.append(slice(adr, adr + 4))
+        self.string_site_ids = [self.model.site(s_).id for _, s_ in pm.STRINGS]
+        self.max_sub = 32     # motion-blur samples per frame at most (2026-09-12: 8 left stepped ghosts on the 100 px snap-open)
 
     def project(self, X):
         X = np.asarray(X, float)
         return np.stack([self.cx + self.f * X[..., 0] / X[..., 1], self.cy - self.f * X[..., 2] / X[..., 1]], -1)
 
     def pose(self, r):
+        """Set the figure at record r; a fractional r interpolates between two sim records (positions
+        and pads lerped, quaternions lerped on the short arc and renormalised: the records are 1/480 s
+        apart, so the arc is tiny) and gives the motion blur more samples than the sim stored."""
         m, d = self.model, self.data
-        d.qpos[:] = self.qpos[r]
-        for k in range(5): d.mocap_pos[self.mocap_ids[k]] = self.pad_pos[r, k]
+        r0 = int(np.floor(r)); r1 = min(r0 + 1, self.qpos.shape[0] - 1); t = float(r - r0)
+        if t < 1e-6 or r1 == r0:
+            d.qpos[:] = self.qpos[r0]; pads = self.pad_pos[r0]
+        else:
+            q0 = self.qpos[r0].astype(np.float64); q1 = self.qpos[r1].astype(np.float64).copy()
+            for sl in self.quat_slices:
+                if np.dot(q0[sl], q1[sl]) < 0: q1[sl] *= -1
+            q = (1 - t) * q0 + t * q1
+            for sl in self.quat_slices: q[sl] /= np.linalg.norm(q[sl]) + 1e-12
+            d.qpos[:] = q; pads = (1 - t) * self.pad_pos[r0] + t * self.pad_pos[r1]
+        for k in range(5): d.mocap_pos[self.mocap_ids[k]] = pads[k]
         mujoco.mj_forward(m, d)
+        self._pads = pads; self._taut = self.taut[r0 if t < 0.5 else r1]
 
     def records(self, i, shutter):
         """The sim records shaded for source frame i: adaptive, one per pixel of motion inside the shutter, up to sub * shutter."""
@@ -154,12 +190,13 @@ class PuppetBase:
         r1 = min(r0 + nsub, self.qpos.shape[0]) - 1
         move = np.abs(self.project(self.xpos[r1, 1:12]) - self.project(self.xpos[r0, 1:12])).max() / self.scale
         moves = np.abs(self.project(self.site_pos[r1]) - self.project(self.site_pos[r0])).max() / self.scale
-        want = int(np.clip(np.ceil(max(move, moves)), 1, nsub))
-        return np.unique(np.round(np.linspace(r0, r1, want)).astype(int))
+        want = int(np.clip(np.ceil(max(move, moves)), 1, self.max_sub))
+        return np.linspace(r0, r1, want) if want > 1 else np.array([float(r0)])
 
     def string_polylines(self, r):
         """The five strings at record r as (points (n,3) world, taut) lists."""
-        pads = self.pad_pos[r]; sites = self.site_pos[r]; taut = self.taut[r]
+        self.pose(r); pads = self._pads; taut = self._taut
+        sites = self.data.site_xpos[self.string_site_ids]
         return [catenary_points(pads[k], sites[k], self.L[k] if not taut[k] else 0.0, n=48) for k in range(5)]
 
 
@@ -294,6 +331,9 @@ uniform vec2 c;                 // cx, cy (u = index - cx: the CPU convention)
 uniform vec3 body_col[24];      // BGR, linear light, by MuJoCo body id
 uniform vec3 key;               // toward the light in camera coords (x right, y down, z forward)
 uniform ivec2 size;
+uniform int style;              // 0 = neon, 1 = solid
+uniform sampler2D jfa;          // nearest ID-edge pixel (studio.gl.distance_field), neon only
+uniform float thick[24];        // the body's thickness in px at this scale, normalises the core term
 out vec4 o;
 
 bool fetch(ivec2 p, out vec3 P, out float id) {
@@ -331,11 +371,23 @@ void main() {
     float ndl = clamp(dot(n, key), 0.0, 1.0);
     vec3 h = normalize(key + view);
     float ndh = clamp(dot(n, h), 0.0, 1.0);
-    vec3 col = body_col[int(id + 0.5)];
-    float edge = pow(clamp((1.0 - ndv - 0.45) / 0.55, 0.0, 1.0), 1.5);
-    vec3 E = col * (0.18 + 0.82 * ndl) * (1.0 - 0.55 * edge) + pow(ndh, 90.0) * 0.35 * (0.5 * col + 0.5);
-    E = min(E, vec3(0.72));
-    o = vec4(E, 1.0);
+    int bid = int(id + 0.5);
+    vec3 col = body_col[bid];
+    if (style == 1) {
+        float edge = pow(clamp((1.0 - ndv - 0.45) / 0.55, 0.0, 1.0), 1.5);
+        vec3 E = col * (0.18 + 0.82 * ndl) * (1.0 - 0.55 * edge) + pow(ndh, 90.0) * 0.35 * (0.5 * col + 0.5);
+        E = min(E, vec3(0.72));
+        o = vec4(E, 1.0);
+    } else {
+        // the CPU neon formula: core = the thickness gradient (distance to the body's edge over its thickness)
+        vec2 seed = texelFetch(jfa, p, 0).rg;
+        float dist = (seed.x < 0.0) ? 0.0 : length(vec2(p) + 0.5 - seed);
+        float core = pow(clamp(dist / max(thick[bid], 1.0), 0.0, 1.0), 0.7);
+        vec3 rim = pow(1.0 - ndv, 3.0) * 2.0 * (0.5 * col + 0.5);
+        float spec = pow(ndh, 80.0) * 1.5;
+        vec3 E = col * (0.22 + 0.45 * ndl + 0.45 * core) + rim + vec3(spec);
+        o = vec4(E, 1.0);
+    }
 }
 """
 
@@ -370,8 +422,6 @@ void main() {
 class PuppetRendererGL(PuppetBase):
     def __init__(self, *a, **k):
         super().__init__(*a, **k)
-        if self.style != "solid":
-            raise ValueError("backend=gl renders style=solid; the neon style's per-body distance transform runs on backend=cpu")
         import moderngl
         self.moderngl = moderngl
         self.gl = sgl.GL(); ctx = self.gl.ctx
@@ -387,8 +437,16 @@ class PuppetRendererGL(PuppetBase):
         l = np.array([KEY_LIGHT[0], -KEY_LIGHT[2], KEY_LIGHT[1]]); l = l / np.linalg.norm(l)
         self.shade_prog["key"].value = tuple(float(x) for x in l)
         cols = np.zeros((24, 3), np.float32)
-        for bid, cls in self.body_class.items(): cols[bid] = self.colours[cls]
+        for bid, cls in self.body_class.items(): cols[bid] = self.colours.get("bodies", {}).get(self.model.body(bid).name, self.colours[cls])
         self.shade_prog["body_col"].write(cols.tobytes())
+        self.shade_prog["style"].value = 1 if self.style == "solid" else 0
+        # the body's thickness in metres for the core term: a capsule's radius, an ellipsoid's smallest semi-axis
+        # (the silhouette's half-width seen from the front), the largest of the body's geoms
+        self.body_r = np.zeros(24, np.float32)
+        for g in range(self.model.ngeom):
+            sz = self.model.geom_size[g]; t = int(self.model.geom_type[g])
+            r = float(sz[0]) if t == int(mujoco.mjtGeom.mjGEOM_CAPSULE) else float(np.sort(sz[:3])[0])
+            b = int(self.model.geom_bodyid[g]); self.body_r[b] = max(self.body_r[b], r)
         self.str_prog = self.gl.program(STRING_VS, STRING_FS); self.str_prog["size"].value = (float(W), float(H))
         self.str_prog["half_w"].value = float(self.string_px * self.scale / 2)
         self.str_buf = ctx.buffer(reserve=5 * 48 * 6 * 4 * 4)
@@ -428,6 +486,13 @@ class PuppetRendererGL(PuppetBase):
         for r in recs:
             self.render_record(r)
             # shade
+            if self.style != "solid":
+                jfa = self.gl.distance_field(self.g_tex, max_step=128)
+                z = self.data.xpos[:, 1]                                   # each body's depth at this (possibly interpolated) record
+                thick = np.zeros(24, np.float32); n = min(len(z), 24)
+                thick[:n] = self.f * self.body_r[:n] / np.maximum(z[:n], 1e-3)
+                self.shade_prog["thick"].write(thick.tobytes())
+                jfa.use(1); self.shade_prog["jfa"].value = 1
             self.sh_fbo.use(); ctx.disable(mgl.DEPTH_TEST); ctx.disable(mgl.BLEND)
             self.g_tex.use(0); self.shade_prog["g"].value = 0; self.shade_vao.render(mgl.TRIANGLES)
             # strings: coverage with MAX blending, depth-tested against the g-buffer
@@ -442,10 +507,82 @@ class PuppetRendererGL(PuppetBase):
         return self.gl.read(self.acc_fbo, components=4, dtype="f2")
 
 
-def composite(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon"):
+def wide_blur(img, sigma, down=4):
+    """A Gaussian of sigma >= 12 px computed at 1/down resolution and resized back: the same result to
+    the eye at a sixteenth of the cost (the black composite's four wide blurs cost 1.4 s a frame at
+    full resolution, 2026-09-12)."""
+    if sigma < 12:
+        return cv2.GaussianBlur(img, (0, 0), sigma)
+    H, W = img.shape[:2]
+    small = cv2.resize(img, (W // down, H // down), interpolation=cv2.INTER_AREA)
+    small = cv2.GaussianBlur(small, (0, 0), sigma / down)
+    return cv2.resize(small, (W, H), interpolation=cv2.INTER_LINEAR)
+
+
+def composite_black(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon", hand_gain=1.0, spill=1.0, wall=1.0):
+    """The neon-on-black plate (2026-09-12): the hand isolated on pitch black, the figure behind it, the
+    bloom over both (the glow wraps the finger edges), the figure's light on the hand, grain everywhere.
+    - The hand's edge is decontaminated against the wall (Smith & Blinn 1996: C = a F + (1 - a) B, so
+      F = (C - (1 - a) B) / a, in linear light, B = the plate's median in a ring 4-40 px outside the matte
+      per frame): without it the soft edge carries the off-white wall as a halo on black.
+    - hand_gain: the hand's exposure in the dark room (1.0 = as shot; item 12 for the day-for-night practice).
+    - spill: how much the figure's light lands on the hand: hand * (1 + spill * irradiance), irradiance =
+      a wide blur (sigma 40 px) of the UNOCCLUDED layer (the light reaches the fingers whether or not the
+      camera sees the figure behind them), scaled so a figure at the fingertips gives ~+30 % at spill 1.
+    - wall: the dark wall behind the figure catches its light (2026-09-12, Dennis: the doll's colours
+      reflecting in the background): a near pool (sigma 60 px) and a broad one (sigma 180 px) of the
+      unoccluded emission, dim, under the figure and the hand; 0 = pitch black."""
+    # every array float32 and every full-frame pass counted: the first version cost 1.45 s a frame in
+    # float64 temporaries, a full-frame exp for the shoulder and a fresh 6 M-sample noise draw (2026-09-12)
+    a = matte.astype(np.float32)[..., None] * np.float32(1 / 255.0)
+    C = srgb8_to_lin(plate_bgr); L = np.asarray(layer, dtype=np.float32)
+    outside = (matte == 0).astype(np.uint8); dist = cv2.distanceTransform(outside, cv2.DIST_L2, 5)
+    ring = (dist > 4) & (dist < 40)
+    B = (np.median(C[ring], axis=0) if ring.sum() > 100 else np.median(C[matte == 0], axis=0)).astype(np.float32)
+    hand = C * a                                                   # premultiplied; the soft band is decontaminated below
+    band = (matte > 0) & (matte < 255)
+    if band.any():
+        ab = a[band]; hand[band] = np.clip((C[band] - (1 - ab) * B[None]) / np.maximum(ab, np.float32(1e-3)), 0, 1) * ab
+    if hand_gain != 1.0: hand *= np.float32(hand_gain)
+    E = L[..., :3] * (1 - a)                                       # the figure where the hand is not
+    irr = wide_blur(L[..., :3], 40)                                # the light the figure throws (unoccluded)
+    irr *= np.float32(6.0 * spill); irr += 1; hand *= irr
+    out = hand; out += E
+    if wall > 0:
+        src = L[..., :3]
+        pool = wide_blur(src, 60); pool *= np.float32(0.35 * wall); pool += np.float32(0.25 * wall) * wide_blur(src, 180)
+        pool *= (1 - a) * (1 - L[..., 3:4] * (1 - a)); out += pool
+    for sigma, w in bloom:
+        g = wide_blur(E, sigma); g *= np.float32(w); out += g
+    if style == "neon":                                            # the shoulder only where it bites
+        hi = out > 0.8
+        if hi.any(): out[hi] = 0.8 + 0.2 * (1 - np.exp(-(out[hi] - 0.8) / 0.2))
+    img = lin_to_srgb(out)
+    if grain_std > 0:      # on a black plate the grain is added in sRGB, at the plate's own 8-bit high-pass std: a linear
+        img += _grain(img.shape, grain_std, int(float(L[..., 3].sum()) % 8))   # std mapped near the wall's level is +-8 levels at black
+    return (np.clip(img, 0, 1) * 255 + 0.5).astype(np.uint8)
+
+
+_GRAIN = {}
+
+
+def _grain(shape, std, k):
+    """A bank of 8 fixed noise frames (a fresh 6 M-sample draw cost 0.2 s a frame); which one a frame
+    gets follows the layer, so the grain still changes frame to frame."""
+    key = (shape, std)
+    if key not in _GRAIN:
+        rng = np.random.default_rng(1234)
+        _GRAIN[key] = [rng.normal(0, std, shape).astype(np.float32) for _ in range(8)]
+    return _GRAIN[key][k % 8]
+
+
+def composite(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon", plate="wall", hand_gain=1.0, spill=1.0, wall=1.0):
     """plate uint8 BGR, layer (H,W,4) premultiplied linear (float16 or float32), matte uint8 (255 = hand).
     Works inside the figure's bounding box (plus the widest bloom's 3 sigma); the plate passes through
-    untouched elsewhere (the full-frame composite cost 0.5 s a frame, 2026-09-12)."""
+    untouched elsewhere (the full-frame composite cost 0.5 s a frame, 2026-09-12). plate="black": the
+    isolated hand on black (composite_black)."""
+    if plate == "black":
+        return composite_black(plate_bgr, layer, matte, grain_std, bloom, style, hand_gain, spill, wall)
     a_any = np.asarray(layer[..., 3]) > 0
     ys, xs = np.nonzero(a_any.any(1)), np.nonzero(a_any.any(0))
     if len(ys[0]) == 0:
@@ -472,9 +609,12 @@ def composite(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon"):
     return res
 
 
-def plate_grain(frame):
+def plate_grain(frame, domain="linear"):
+    """The plate's high-pass std on the wall: in linear light near the wall's level (the wall composite
+    adds grain in linear), or in sRGB units (the black composite adds it after the curve)."""
     g = frame[1200:, :, :].astype(np.float32) / 255.0
     hp = g - cv2.GaussianBlur(g, (0, 0), 2)
+    if domain == "srgb": return float(hp.std())
     return float(srgb_to_lin(np.array(0.9)) - srgb_to_lin(np.array(0.9 - hp.std())))   # the std mapped through the curve near the wall's level
 
 
@@ -497,20 +637,22 @@ def main():
     kw = dict(a.split("=", 1) for a in sys.argv[6:])
     look = kw.get("look", "red"); bake = kw.get("bake"); shutter = float(kw.get("shutter", 0.5)); scale = int(kw.get("scale", 2))
     style = kw.get("style", "solid"); string_px = float(kw.get("string_px", STRING_PX))
-    backend = kw.get("backend", "gl" if style == "solid" else "cpu")
+    backend = kw.get("backend", "gl")
     bloom = BLOOM_SOLID if style == "solid" else BLOOM
+    plate = kw.get("plate", "wall"); hand_gain = float(kw.get("hand_gain", 1.0)); spill = float(kw.get("spill", 1.0)); wall = float(kw.get("wall", 1.0))
+    comp = lambda fr, lay, m: composite(fr, lay, m, grain, bloom, style, plate, hand_gain, spill, wall)
     preview = [int(x) for x in kw["preview"].split(",")] if "preview" in kw else None
     t0_, t1_ = (int(x) for x in kw.get("trim", "0,267").split(","))
     hand = np.load(hand_npz); sim = np.load(sim_npz); matte = np.load(matte_npy, mmap_mode="r")
     cap = cv2.VideoCapture(video); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); W = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)); H = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     R = (PuppetRendererGL if backend == "gl" else PuppetRenderer)(hand, sim, look, scale, style, string_px)
-    print(f"backend {backend}, look {look}, style {style}")
+    print(f"backend {backend}, look {look}, style {style}, plate {plate}" + (f" (hand_gain {hand_gain}, spill {spill}, wall {wall})" if plate == "black" else ""))
     # the alignment check: the pads projected through the render camera vs the tracked tips (should agree to the pad offset, a few px)
     r = int(sim["ref"]) * R.sub
     pp = R.project(R.pad_pos[r]) / scale; tips = hand["tips_img"][int(sim["ref"])]
     print(f"alignment at the reference frame: pads projected vs tracked tips, mean {np.linalg.norm(pp - tips, axis=1).mean():.1f} px (the 7 mm pad offset is ~{0.007 * float(hand['f']) / float(hand['z_hand']):.0f} px)")
-    ok, f0 = cap.read(); grain = plate_grain(f0); cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-    print(f"plate grain std (linear): {grain:.4f}")
+    ok, f0 = cap.read(); grain = plate_grain(f0, "srgb" if plate == "black" else "linear"); cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+    print(f"plate grain std ({'sRGB' if plate == 'black' else 'linear'}): {grain:.4f}")
 
     if bake:
         bake_from = int(kw.get("bake_from", 0))        # resume a crashed bake at this frame (the file keeps the earlier frames)
@@ -533,11 +675,13 @@ def main():
         tiles = []
         for i in preview:
             cap.set(cv2.CAP_PROP_POS_FRAMES, i); ok, fr = cap.read()
-            img = composite(fr, get_layer(i), np.asarray(matte[i]), grain, bloom, style)
+            img = comp(fr, get_layer(i), np.asarray(matte[i]))
             cv2.imwrite(out.replace(".mp4", f"_f{i:03d}.png"), img)
             t = cv2.resize(img, (W // 3, H // 3)); cv2.putText(t, str(i), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3); tiles.append(t)
         rows = [np.hstack(tiles[j:j + 4]) for j in range(0, len(tiles), 4)]
-        w = min(r.shape[1] for r in rows); cv2.imwrite(out.replace(".mp4", "_sheet.png"), np.vstack([r[:, :w] for r in rows]))
+        w = max(r.shape[1] for r in rows)      # pad the short last row (it used to crop every row to it and lose tiles)
+        rows = [np.hstack([r, np.zeros((r.shape[0], w - r.shape[1], 3), np.uint8)]) if r.shape[1] < w else r for r in rows]
+        cv2.imwrite(out.replace(".mp4", "_sheet.png"), np.vstack(rows))
         print("preview written"); return
 
     enc = RawWriter(out, W, H, 30, audio_from=video)
@@ -545,7 +689,7 @@ def main():
     for i in range(t0_, min(t1_, n)):
         ok, fr = cap.read()
         if not ok: break
-        enc.write(composite(fr, get_layer(i), np.asarray(matte[i]), grain, bloom, style))
+        enc.write(comp(fr, get_layer(i), np.asarray(matte[i])))
         if i % 60 == 0: print(f"  frame {i} {(time.time() - t0) / (i - t0_ + 1):.3f} s/frame", flush=True)
     rc = enc.close(); print(f"wrote {out} ffmpeg exit {rc}: {enc.n} frames in {time.time() - t0:.1f} s")
 

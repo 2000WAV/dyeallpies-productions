@@ -1,0 +1,22 @@
+Ritschel, Ihrke, Frisvad, Coppens, Myszkowski & Seidel, "Temporal Glare: Real-Time
+Dynamic Simulation of the Scattering in the Human Eye" (Computer Graphics Forum 28(2),
+183-192, Eurographics 2009). Abstract-only in this archive: no open-access full PDF was
+locatable this pass (the author's own mpi-inf.mpg.de project page and personal PDF link
+both returned 403/404; ResearchGate and Semantic Scholar returned request/paywall
+pages to curl). Saved instead as the institutional abstract record:
+papers/ritschel2009-orbit-dtu.html (DTU Research Database / Orbit, official record,
+confirms venue, pages, DOI 10.1111/j.1467-8659.2009.01357.x).
+
+Abstract (verbatim from the DTU Orbit record): glare from light scattered in the eye
+has previously been modelled only as a STATIC pattern; this paper argues the TEMPORAL
+(fluctuating-in-time) properties of glare are themselves a strong perceptual cue, and
+presents a real-time GPU model of dynamic ocular glare for tone-mapping HDR imagery to
+LDR displays. A psychophysical study validated that the dynamic version increases
+perceived brightness of the light source and is often judged more attractive than a
+static glare rendering, scene-dependently.
+
+Used in item 12 only for the qualitative point that a glare/bloom halo which subtly
+breathes/flickers over time reads as MORE convincing and brighter than a static one --
+no numeric halo-width or ratio figure is available from this abstract; the numeric
+PSF content used in item 12 comes from Spencer et al. 1995 instead (see
+12-spencer1995-physically-based-glare.txt).

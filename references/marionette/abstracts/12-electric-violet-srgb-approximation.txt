@@ -1,0 +1,46 @@
+Wikipedia, "Violet (color)" and "Shades of violet" (papers/wikipedia-violet-color.html,
+papers/wikipedia-shades-of-violet.html; both CC BY-SA 4.0, retrieved 2026-09-12).
+
+Spectral violet is 380-435 nm at the short-wavelength end of the visible spectrum
+(Violet (color) infobox); "Shades of violet" narrows this further for its own naming
+scheme, treating 380-420 nm as "violet proper" and 420-450 nm as a separate "indigo"
+band. Both pages state plainly that an sRGB/RGB display CANNOT reproduce spectral
+violet light directly: violet wavelengths lie outside the sRGB gamut (the spectral
+locus at short wavelengths is outside the sRGB triangle), so displays fake it by mixing
+blue light at high intensity with red light at lower intensity.
+
+Three named sRGB approximations, in increasing "redness" (all HSV V=100%, S=100%):
+- "Violet" (Wikipedia's own infobox colour for the article, sourced to the W3C CSS
+  Color Module Level 3 extended colour keywords): hex #8000FF, sRGB (128,0,255), HSV
+  (270 deg, 100%, 100%). Called "colour wheel violet" in Shades of violet, an
+  approximation of ~417 nm, actually closer to what that page calls "indigo" territory.
+- "Electric violet" (Shades of violet, sourced to an archived third-party "HTML Color
+  Chart" page -- Wikipedia itself flags this source with a "failed verification" tag,
+  so treat the hex as a widely-used convention rather than an authoritative standard):
+  hex #8F00FF, sRGB (143,0,255), HSV (274 deg, 100%, 100%), ISCC-NBS name "Vivid
+  violet". The article states this is "the closest approximation to middle spectrum
+  violet that can be made on a computer screen, given the limitations of the sRGB
+  colour gamut" and pins it to ~400 nm, the MIDDLE of the 380-420 nm violet band -- this
+  is the number requested for this task ("electromagnetic violet" ~400-420 nm).
+- "Vivid violet" / "extreme violet" (same source/caveat): hex #9F00FF, sRGB
+  (159,0,255), approximating the extreme short-wavelength edge (~380 nm).
+
+Two important non-violet lookalikes to avoid: the WEB COLOR literally named "violet"
+(#EE82EE, X11/CSS keyword) is actually a pale tint of MAGENTA (equal red and blue plus
+some green), not a spectral-violet approximation at all -- the article calls this out
+explicitly. "Dark violet" / X11 (#9400D3, RGB 148,0,211) is the closest common named
+colour to a desaturated/pigment version of electric violet (~11% less blue channel,
+substantially less luminous) and is offered as the "artist's pigment" analogue rather
+than the "electric"/emissive one.
+
+Mechanism note (Violet (color), "Optics" section, unsourced/cite-needed tag on the
+underlying claim but consistent with standard opponent-process colour theory): violet
+appears slightly reddish compared to spectral blue, despite being at the OPPOSITE end
+of the spectrum from red, because the S-cone (short-wavelength) contributes a small
+amount of "red" signal to the red-vs-green opponent channel; and the S-cones
+contribute very little to the luminance (lightness) channel at all, which is why
+"the colour violet appears dark" -- a direct, citable mechanism for why violet is the
+LOWEST-luminance of the saturated primaries at matched saturation (see
+data/12-neon-black-numbers.csv for the computed L* values of all three violet
+approximations against pure red and other saturated hues, using the same sRGB-to-L*
+formulas already archived under item 9, abstracts/wikipedia-cielab-srgb-formulas.txt).
