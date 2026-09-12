@@ -399,3 +399,15 @@ under items 5/9 are reused unchanged, not re-fetched. Numbers (including this se
 sRGB-luminance computations for the violet approximations and the illustrative inverse-
 square/lux worked example) are in `data/12-neon-black-numbers.csv`; the findings are in
 `12-neon-on-black-and-the-isolated-hand.md`.
+
+## Item 13 — the outro transition into the sting — 2026-09-12
+
+No file saved: the sources are commercial editing guides and trend pages (CapCut's Premiere zoom
+transition guide, capeditcut.com's Pull In / Pull Out guide and its PC-bug thread, Film Impact's
+Zoom Blur Impacts product page, an Adobe community answer on Dip to Black, Later's and New Engen's
+2026 Reels trend pages) whose only citable content is the description of the effect and two
+figures (CapCut mobile allows 0.3–1 s for Pull In, the PC build locks it at 0.1 s; the Premiere
+guide's starting keyframe is 120 % scale). capeditcut.com did not resolve on 2026-09-12; its
+description comes from the search result's own summary. All URLs and the figures are listed in
+`13-outro-transition.md` with what was built from them (`render_puppet.py::outro_frame`).
+The matte-refinement research the handoff planned as item 13 becomes item 14.

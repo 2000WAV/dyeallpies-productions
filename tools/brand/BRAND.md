@@ -62,6 +62,13 @@ the brand.
   is the "lit thread" read, and item 09's objection to bloom (veiling luminance) applies to a bright
   ground only.
 
+## The ground when the video ends on black (2026-09-12)
+
+The main #231F20 is the sting's default ground. A video that ends on pitch black (the neon-on-black
+puppet, whose outro dips to #000000) gets the sting on `ground=#000000` (an option of
+`render_brand_sting.py`): the warm near-black would read as a step up at the join. Dennis's call
+for that video; the brand's own ground is unchanged.
+
 ## Appending the sting (2026-09-12)
 
 `render_brand_sting.py <out> append=<shot>` encodes the sting with the shot's own stream parameters

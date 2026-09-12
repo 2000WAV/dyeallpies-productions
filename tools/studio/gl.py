@@ -56,21 +56,25 @@ uniform sampler2D strings;     // R32F at 2x: coverage (0 if unused)
 uniform vec3 string_col;
 uniform float w;
 uniform int use_strings;
-out vec4 o;
+layout(location = 0) out vec4 o;
+layout(location = 1) out float o_glow;   // the glow weight (coverage x the body's bloom gain), a second attachment if the fbo has one
 void main() {
     ivec2 p = ivec2(gl_FragCoord.xy) * 2;
-    vec4 acc = vec4(0.0);
+    vec4 acc = vec4(0.0); float gw = 0.0;
     for (int dy = 0; dy < 2; dy++) for (int dx = 0; dx < 2; dx++) {
         vec4 t = texelFetch(shaded, p + ivec2(dx, dy), 0);
-        vec3 E = t.rgb; float a = t.a;
+        // the shaded alpha is the coverage TIMES the body's bloom gain (>= 1 inside a body, 0 outside;
+        // 2026-09-12: the boots glow more than the rest), so coverage = (alpha > 0) and gain = alpha
+        vec3 E = t.rgb; float a = t.a > 0.0 ? 1.0 : 0.0; float g = t.a;
         if (use_strings == 1) {
             float s = texelFetch(strings, p + ivec2(dx, dy), 0).r;
             E = E * (1.0 - s) + string_col * s;
+            g = g * (1.0 - s) + s;                   // a string glows at gain 1
             a = max(a, s);
         }
-        acc += vec4(E * a, a);
+        acc += vec4(E * a, a); gw += g;
     }
-    o = acc * (0.25 * w);
+    o = acc * (0.25 * w); o_glow = gw * (0.25 * w);
 }
 """
 
@@ -248,7 +252,9 @@ class GL:
             vao.render(moderngl.TRIANGLES)
 
     def accumulate(self, acc_fbo, shaded_tex, w, strings_tex=None, string_col=(0, 0, 0)):
-        """Add w * area-downsampled premultiplied (E a, a) of `shaded_tex` (2x) into acc_fbo (1x)."""
+        """Add w * area-downsampled premultiplied (E a, a) of `shaded_tex` (2x) into acc_fbo (1x). When acc_fbo
+        has a second (R32F) attachment it receives the glow weight: the shaded alpha is read as coverage x
+        the body's bloom gain (see ACC_FS), so a composite can bloom some bodies more than others."""
         self.make_current(); acc_fbo.use(); self.ctx.disable(moderngl.DEPTH_TEST)
         self.ctx.enable(moderngl.BLEND); self.ctx.blend_func = (moderngl.ONE, moderngl.ONE); self.ctx.blend_equation = moderngl.FUNC_ADD
         shaded_tex.use(0); self.acc_prog["shaded"].value = 0
@@ -281,8 +287,8 @@ class GL:
             cur = 1 - cur; step //= 2
         return texs[cur]
 
-    def read(self, fbo, components=4, dtype="f2"):
+    def read(self, fbo, components=4, dtype="f2", attachment=0):
         """Read a framebuffer back as (H, W, components), image row order (row 0 = top, see the module doc)."""
         W, H = fbo.size
-        self.make_current(); buf = fbo.read(components=components, dtype=dtype)
+        self.make_current(); buf = fbo.read(components=components, dtype=dtype, attachment=attachment)
         return np.frombuffer(buf, dtype=np.float16 if dtype == "f2" else np.float32).reshape(H, W, components)

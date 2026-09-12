@@ -3,6 +3,8 @@
     python render_brand_sting.py <out.mp4>                    # the sting alone (2.5 s, 1080x1920, 30 fps, silent)
     python render_brand_sting.py <out.mp4> append=<shot.mp4>  # the shot with the sting appended (the shot's audio kept, silence under the sting)
     options: hold=1.5 (s of URL hold after the 1 s animation) frames=<dir> (write PNGs of the beats for a check)
+             ground=#000000 (the sting's ground; default the brand main #231F20. Pitch black for the neon-on-black
+             puppet, Dennis 2026-09-12: the shot ends on #000000 and the sting must not step to the warm near-black)
 
 The brand rules and every number: tools/brand/BRAND.md (from references/marionette/08-brand-sting.md);
 the palette and fonts come from studio.brand so the sting and the document cannot drift apart.
@@ -104,6 +106,8 @@ def frame(i, hold_frames):
 def main():
     out = sys.argv[1]; kw = dict(a.split("=", 1) for a in sys.argv[2:])
     hold = float(kw.get("hold", 1.5)); n = 30 + int(round(hold * FPS))
+    if "ground" in kw:
+        global GROUND; GROUND = brand.bgr(kw["ground"]); print(f"ground {kw['ground']}")
     shot = kw.get("append")
     if shot:
         # encode the sting so that it can be concatenated after the shot WITHOUT re-encoding the shot

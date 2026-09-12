@@ -4,7 +4,13 @@ plate behind the hand matte, with bloom, spill and grain.
 
     python render_puppet.py <master.mp4> <hand3d.npz> <sim.npz> <matte.npy> <out.mp4>
         [look=red] [style=neon|solid] [string_px=3] [bake=hand/work/puppet_layer.npy] [preview=42,44,48,60]
-        [trim=0,267] [shutter=0.5] [scale=2] [backend=gl|cpu] [plate=wall|black] [hand_gain=1.0] [spill=1.0] [spill_hi=1.0] [wall=1.0]
+        [trim=0,267] [shutter=0.5] [scale=2] [backend=gl|cpu] [plate=wall|black] [hand_gain=1.0] [spill=1.0] [spill_hi=1.0] [wall=1.0] [outro=18]
+
+The bake holds five channels since 2026-09-12: premultiplied linear BGR, alpha, and the glow weight
+(coverage x the body's bloom gain, from the shaded alpha through studio.gl's accumulate): a look's per-body
+`gain` / `glow` / `rim_white` / `spec_white` / `spec_pow` dicts make one body hotter and haloed more than the
+rest (the violet-mix boots). `outro=N`: the last N frames pull in toward the doll with a zoom blur and dip to
+black (outro_frame), the "Pull In" transition into the sting.
 
 Two backends, one look (2026-09-12). `backend=gl` (default, studio.gl on the RTX 2060) reproduces the
 CPU shader below term for term from the same depth + ID buffers: 0.05 s a frame instead of 8.7 s
@@ -90,8 +96,20 @@ LOOKS = {
                        bodies=dict(upper_arm_l=(0.75, 0.00, 1.00), upper_arm_r=(0.75, 0.00, 1.00),      # magenta
                                    forearm_l=(1.00, 0.10, 0.04), forearm_r=(1.00, 0.10, 0.04),          # electric blue
                                    thigh_l=(1.00, 0.00, 0.14), thigh_r=(1.00, 0.00, 0.14),              # blue-violet
-                                   shank_l=(0.00, 0.00, 1.00), shank_r=(0.00, 0.00, 1.00))),            # the boots: pure red #FF0000 (Dennis: 255, 0, 0; was amber, then near-red)
+                                   shank_l=(0.00, 0.00, 1.00), shank_r=(0.00, 0.00, 1.00)),             # the boots: pure red #FF0000 (Dennis: 255, 0, 0; was amber, then near-red)
+                       # the boots are the shiniest part and their red glow owns the lower frame (Dennis, 2026-09-12):
+                       # gain = the emission multiplier (1.6: the boot clips to full red over most of its body, a
+                       # gradient survives at the edge), glow = the bloom multiplier carried in the bake's fifth
+                       # channel (3.5: the halo and the wall pool under them are 3.5x the rest), rim_white = 0 (the
+                       # rim stays pure red; 0.25 went pink), spec_white / spec_pow = a tight pale glint (220 vs 80:
+                       # a thin line, not the broad salmon band the first pure-red preview had)
+                       gain=dict(shank_l=1.6, shank_r=1.6), glow=dict(shank_l=3.5, shank_r=3.5),
+                       rim_white=dict(shank_l=0.0, shank_r=0.0), spec_white=dict(shank_l=0.2, shank_r=0.2),
+                       spec_pow=dict(shank_l=220.0, shank_r=220.0)),
 }
+# the neon shader's defaults per body, overridden by a look's per-body dicts of the same name (2026-09-12)
+BODY_DEFAULTS = dict(gain=1.0, glow=1.0, rim_white=0.25, spec_white=0.4, spec_pow=80.0)
+GLOW_MAX = 8.0                                            # the composite clips the per-pixel bloom gain here (a ratio of two small numbers at a soft edge)
 BLOOM = [(3, 0.22), (9, 0.12), (27, 0.07), (81, 0.04)]   # neon: sigma px at 1x, weight (see the docstring; 06 for the range)
 BLOOM_SOLID = [(3, 0.04)]                                 # solid: the faintest near halo; item 09: bloom is veiling luminance and
                                                           # collapses the edge on a bright wall (2026-09-12)
@@ -149,6 +167,14 @@ class PuppetBase:
             bid = self.model.body(b).id
             self.body_class[bid] = "head" if b == "head" else ("trunk" if b in ("pelvis", "chest") else "limb")
         self.colours = LOOKS[look]
+        # per MuJoCo body id: the colour (a look's `bodies` override, else the class colour) and the neon
+        # parameters (gain, glow, rim_white, spec_white; spec_pow apart), both shading paths read these
+        self.body_col = np.zeros((24, 3), np.float32); self.body_par = np.zeros((24, 4), np.float32); self.body_specp = np.full(24, BODY_DEFAULTS["spec_pow"], np.float32)
+        for bid, cls in self.body_class.items():
+            name = self.model.body(bid).name
+            self.body_col[bid] = self.colours.get("bodies", {}).get(name, self.colours[cls])
+            self.body_par[bid] = [self.colours.get(k, {}).get(name, BODY_DEFAULTS[k]) for k in ("gain", "glow", "rim_white", "spec_white")]
+            self.body_specp[bid] = self.colours.get("spec_pow", {}).get(name, BODY_DEFAULTS["spec_pow"])
         self.mocap_ids = [self.model.body(f"pad_{nm}").mocapid[0] for nm, _ in pm.STRINGS]
         self.L = sim["L"]; self.sub = int(sim["sub"]); self.release = int(sim["release"])
         # the npz is lazy: pull the arrays once (each [] on an NpzFile decompresses the whole array)
@@ -264,21 +290,26 @@ class PuppetRenderer(PuppetBase):
                 bm = (body == bid).astype(np.uint8)
                 dt = cv2.distanceTransform(bm, cv2.DIST_L2, 5)
                 core[bm > 0] = np.clip(dt[bm > 0] / (dt.max() + 1e-6), 0, 1) ** 0.7
-        col = np.zeros((H, W, 3), np.float32)
-        for bid, cls in self.body_class.items():
-            col[body == bid] = self.colours[cls]
+        bsafe = np.where(mask, body, 0)
+        col = self.body_col[bsafe]; par = self.body_par[bsafe]                  # (H, W, 3), (H, W, 4): gain, glow, rim_white, spec_white
         white = np.ones(3, np.float32)
         if self.style == "solid":
             # an opaque body under a directional key; the edge goes DARK so the silhouette holds against the light wall
             edge = np.clip((1 - ndv - 0.45) / 0.55, 0, 1) ** 1.5           # 0 in the middle, 1 at the grazing silhouette
             E = col * (0.18 + 0.82 * ndl)[..., None] * (1 - 0.55 * edge)[..., None] + (ndh ** 90)[..., None] * 0.35 * (0.5 * col + 0.5 * white)
             E = np.minimum(E, 0.72)                                            # nothing clips to white
+            glow = np.ones((H, W), np.float32)
         else:
-            rim = ((1 - ndv) ** 3)[..., None] * 2.0 * (0.5 * col + 0.5 * white)
-            spec = (ndh ** 80)[..., None] * 1.5 * white
-            E = col * (0.22 + 0.45 * ndl + 0.45 * core)[..., None] + rim + spec
+            # the GL neon formula (SHADE_FS) term for term: the rim and the specular mix the body's colour with
+            # white by the body's own shares, the whole emission times the body's gain
+            rw = par[..., 2:3]; sw = par[..., 3:4]; sp = self.body_specp[bsafe]
+            rim = ((1 - ndv) ** 3)[..., None] * 2.0 * ((1 - rw) * col + rw)
+            spec = (ndh ** sp)[..., None] * 1.5 * ((1 - sw) * col + sw)
+            E = (col * (0.22 + 0.45 * ndl + 0.45 * core)[..., None] + rim + spec) * par[..., 0:1]
+            glow = par[..., 1]
         E[~mask] = 0
         E_full[y0:y1, x0:x1] = E; a_full[y0:y1, x0:x1] = mask
+        self._glow = np.zeros_like(a_full); self._glow[y0:y1, x0:x1] = glow * mask      # the bloom gain map for bake_frame
         return E_full, a_full
 
     def strings(self, r, E, alpha, depth, body):
@@ -303,17 +334,19 @@ class PuppetRenderer(PuppetBase):
             alpha[y0:y1, x0:x1] = np.maximum(alpha[y0:y1, x0:x1], ab[..., 0])
 
     def bake_frame(self, i, shutter=0.5):
-        """Premultiplied linear RGB + alpha at 1x for source frame i, motion-blurred over the shutter."""
+        """Premultiplied linear RGB + alpha + the glow weight (coverage x bloom gain) at 1x for source frame i,
+        motion-blurred over the shutter."""
         if i < self.release:      # in the fist: nothing is drawn (the held state would show under the closed fist)
-            return np.zeros((self.H // self.scale, self.W // self.scale, 4), np.float32)
+            return np.zeros((self.H // self.scale, self.W // self.scale, 5), np.float32)
         recs = self.records(i, shutter)
         acc = None
         for r in recs:
             depth, body = self.render_record(r)
             E, a = self.shade(depth, body)
             self.strings(r, E, a, depth, body)
+            gw = np.maximum(self._glow, a)             # a string pixel glows at gain 1, as the GL accumulate does
             E = E * a[..., None]                       # premultiply
-            acc = np.dstack([E, a]) if acc is None else acc + np.dstack([E, a])
+            acc = np.dstack([E, a, gw]) if acc is None else acc + np.dstack([E, a, gw])
         acc /= len(recs)
         return cv2.resize(acc, (self.W // self.scale, self.H // self.scale), interpolation=cv2.INTER_AREA)
 
@@ -335,7 +368,9 @@ uniform ivec2 size;
 uniform int style;              // 0 = neon, 1 = solid
 uniform sampler2D jfa;          // nearest ID-edge pixel (studio.gl.distance_field), neon only
 uniform float thick[24];        // the body's thickness in px at this scale, normalises the core term
-out vec4 o;
+uniform vec4 body_par[24];      // neon, per body: gain (emission x), glow (bloom gain, carried out in alpha), rim white share, specular white share
+uniform float body_specp[24];   // neon, per body: the specular exponent
+out vec4 o;                     // rgb = E (linear light); a = the bloom gain inside a body (1 for solid), 0 outside: the accumulate reads coverage = (a > 0)
 
 bool fetch(ivec2 p, out vec3 P, out float id) {
     if (p.x < 0 || p.y < 0 || p.x >= size.x || p.y >= size.y) { P = vec3(0.0); id = -1.0; return false; }
@@ -385,11 +420,13 @@ void main() {
         float dist = (seed.x < 0.0) ? 0.0 : length(vec2(p) + 0.5 - seed);
         float core = pow(clamp(dist / max(thick[bid], 1.0), 0.0, 1.0), 0.7);
         // the rim and the specular carry less white than the wall-plate neon did (0.5 -> 0.25 of white in the
-        // rim, the specular in the body's own colour): a pure-red boot went pink at its edge (Dennis, 2026-09-12)
-        vec3 rim = pow(1.0 - ndv, 3.0) * 2.0 * (0.75 * col + 0.25);
-        vec3 spec = pow(ndh, 80.0) * 1.5 * (0.6 * col + 0.4);
-        vec3 E = col * (0.22 + 0.45 * ndl + 0.45 * core) + rim + spec;
-        o = vec4(E, 1.0);
+        // rim, the specular 0.4 white): a pure-red boot went pink at its edge (Dennis, 2026-09-12); the shares,
+        // the specular exponent and the emission gain are per body (BODY_DEFAULTS, a look's per-body dicts)
+        vec4 pr = body_par[bid];
+        vec3 rim = pow(1.0 - ndv, 3.0) * 2.0 * mix(col, vec3(1.0), pr.z);
+        vec3 spec = pow(ndh, body_specp[bid]) * 1.5 * mix(col, vec3(1.0), pr.w);
+        vec3 E = (col * (0.22 + 0.45 * ndl + 0.45 * core) + rim + spec) * pr.x;
+        o = vec4(E, pr.y);
     }
 }
 """
@@ -434,14 +471,14 @@ class PuppetRendererGL(PuppetBase):
         self.g_tex = self.gl.tex(W, H, 2); self.g_fbo = self.gl.fbo([self.g_tex], depth=True)
         self.sh_tex = self.gl.tex(W, H, 4); self.sh_fbo = self.gl.fbo([self.sh_tex])
         self.st_tex = self.gl.tex(W, H, 1); self.st_fbo = self.gl.fbo([self.st_tex])
-        self.acc_tex = self.gl.tex(W // self.scale, H // self.scale, 4); self.acc_fbo = self.gl.fbo([self.acc_tex])
+        self.acc_tex = self.gl.tex(W // self.scale, H // self.scale, 4); self.acc_glow = self.gl.tex(W // self.scale, H // self.scale, 1)
+        self.acc_fbo = self.gl.fbo([self.acc_tex, self.acc_glow])              # attachment 1: the glow weight (studio.gl.ACC_FS)
         self.shade_prog = self.gl.program(sgl.FULLSCREEN_VS, SHADE_FS); self.shade_vao = self.gl.fullscreen_vao(self.shade_prog)
         self.shade_prog["f"].value = float(self.f); self.shade_prog["c"].value = (float(self.cx), float(self.cy)); self.shade_prog["size"].value = (W, H)
         l = np.array([KEY_LIGHT[0], -KEY_LIGHT[2], KEY_LIGHT[1]]); l = l / np.linalg.norm(l)
         self.shade_prog["key"].value = tuple(float(x) for x in l)
-        cols = np.zeros((24, 3), np.float32)
-        for bid, cls in self.body_class.items(): cols[bid] = self.colours.get("bodies", {}).get(self.model.body(bid).name, self.colours[cls])
-        self.shade_prog["body_col"].write(cols.tobytes())
+        self.shade_prog["body_col"].write(self.body_col.tobytes())
+        self.shade_prog["body_par"].write(self.body_par.tobytes()); self.shade_prog["body_specp"].write(self.body_specp.tobytes())
         self.shade_prog["style"].value = 1 if self.style == "solid" else 0
         # the body's thickness in metres for the core term: a capsule's radius, an ellipsoid's smallest semi-axis
         # (the silhouette's half-width seen from the front), the largest of the body's geoms
@@ -482,10 +519,10 @@ class PuppetRendererGL(PuppetBase):
 
     def bake_frame(self, i, shutter=0.5):
         if i < self.release:
-            return np.zeros((self.H // self.scale, self.W // self.scale, 4), np.float16)
+            return np.zeros((self.H // self.scale, self.W // self.scale, 5), np.float16)
         mgl = self.moderngl; ctx = self.gl.ctx
         recs = self.records(i, shutter)
-        self.gl.make_current(); self.acc_fbo.use(); self.acc_fbo.clear(0.0, 0.0, 0.0, 0.0)
+        self.gl.make_current(); self.acc_fbo.use(); self.acc_fbo.clear(0.0, 0.0, 0.0, 0.0)   # clears every attachment
         for r in recs:
             self.render_record(r)
             # shade
@@ -507,7 +544,9 @@ class PuppetRendererGL(PuppetBase):
             ctx.blend_equation = mgl.FUNC_ADD; ctx.disable(mgl.BLEND)
             # accumulate: strings under, premultiply, 2x2 area average, 1/n
             self.gl.accumulate(self.acc_fbo, self.sh_tex, 1.0 / len(recs), self.st_tex, self.string_col)
-        return self.gl.read(self.acc_fbo, components=4, dtype="f2")
+        layer = self.gl.read(self.acc_fbo, components=4, dtype="f2")
+        glow = self.gl.read(self.acc_fbo, components=1, dtype="f2", attachment=1)     # the fifth channel: coverage x bloom gain
+        return np.concatenate([layer, glow], axis=-1)
 
 
 def wide_blur(img, sigma, down=4):
@@ -520,6 +559,14 @@ def wide_blur(img, sigma, down=4):
     small = cv2.resize(img, (W // down, H // down), interpolation=cv2.INTER_AREA)
     small = cv2.GaussianBlur(small, (0, 0), sigma / down)
     return cv2.resize(small, (W, H), interpolation=cv2.INTER_LINEAR)
+
+
+def glow_gain(L):
+    """The per-pixel bloom gain from the bake's fifth channel (coverage x the body's glow, motion-blur
+    averaged) over its alpha: 1 on an ordinary body, 3.5 on the boots (violet-mix), 1 wherever an old
+    four-channel bake is read. Clipped at GLOW_MAX: at a soft edge both channels are small."""
+    if L.shape[-1] < 5: return None
+    return np.clip(L[..., 4] / np.maximum(L[..., 3], np.float32(1e-3)), 1.0, GLOW_MAX)[..., None].astype(np.float32)
 
 
 def clean_matte(matte):
@@ -591,12 +638,17 @@ def composite_black(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon
     hand *= 1 + np.float32(spill) * strength * tint
     if spill_hi > 0: hand += gloss
     out = hand; out += E
+    # the bloom and the wall pool come from the emission times the body's glow (the boots at 3.5: their red
+    # halo and the pool under them own the lower frame, 2026-09-12); the figure itself and its light on the
+    # hand are not gained (the hand's tint stays the approved one)
+    gg = glow_gain(L)
     if wall > 0:
-        src = L[..., :3]
+        src = L[..., :3] if gg is None else L[..., :3] * gg
         pool = wide_blur(src, 60); pool *= np.float32(0.35 * wall); pool += np.float32(0.25 * wall) * wide_blur(src, 180)
         pool *= (1 - a) * (1 - L[..., 3:4] * (1 - a)); out += pool
+    Eg = E if gg is None else E * gg
     for sigma, w in bloom:
-        g = wide_blur(E, sigma); g *= np.float32(w); out += g
+        g = wide_blur(Eg, sigma); g *= np.float32(w); out += g
     if style == "neon":                                            # the shoulder only where it bites
         hi = out > 0.8
         if hi.any(): out[hi] = 0.8 + 0.2 * (1 - np.exp(-(out[hi] - 0.8) / 0.2))
@@ -638,9 +690,9 @@ def composite(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon", pla
     m = matte[y0:y1, x0:x1].astype(np.float32)[..., None] / 255.0
     E = L[..., :3] * (1 - m); a = L[..., 3:4] * (1 - m)         # the hand is in front of the figure
     out = P * (1 - a) + E
-    glow = np.zeros_like(E)
+    glow = np.zeros_like(E); gg = glow_gain(L); Eg = E if gg is None else E * gg     # the body's glow gain (1 for the solid style)
     for sigma, w in bloom:
-        glow += w * cv2.GaussianBlur(E, (0, 0), sigma)
+        glow += w * cv2.GaussianBlur(Eg, (0, 0), sigma)
     out = out + glow
     if style == "neon":      # shoulder: the hottest core goes white, the colour survives around it
         hi = out > 0.8
@@ -650,6 +702,35 @@ def composite(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon", pla
         out = out + noise * np.clip(a + glow.max(-1, keepdims=True) * 3, 0, 1)
     res = plate_bgr.copy(); res[y0:y1, x0:x1] = lin_to_srgb8(out)
     return res
+
+
+def layer_centroid(layer):
+    """The figure's alpha-weighted centre (x, y) at 1x; the frame's centre when nothing is drawn."""
+    a = np.asarray(layer[..., 3], np.float32); s = float(a.sum())
+    H, W = a.shape
+    if s < 1: return (W / 2.0, H / 2.0)
+    ys, xs = np.mgrid[0:H, 0:W]
+    return (float((xs * a).sum() / s), float((ys * a).sum() / s))
+
+
+def outro_frame(img, k, N, centre):
+    """The pull-in into the sting (Dennis, 2026-09-12: the hand and the doll must not vanish on a cut). The
+    outgoing half of the "Pull In" / zoom-blur transition that CapCut and the Premiere transition packs
+    ship and short-form editors use by default (references/marionette/13-outro-transition.md): the camera
+    pushes toward the doll, accelerating (scale 1 -> 1.45 on t^2), the zoom blur grows with it (the mean
+    of 8 copies scaled between s and s * (1 + 0.18 t): radial streaks from the doll outward), and the last
+    half dips to black so the sting starts from the same #000000. k = 0..N-1 of the last N frames; sRGB."""
+    t = (k + 1) / N
+    s = 1 + 0.45 * t * t; streak = 0.18 * t
+    H, W = img.shape[:2]; cx, cy = centre; K = 8
+    acc = np.zeros((H, W, 3), np.float32)
+    for j in range(K):
+        sj = s * (1 + streak * j / (K - 1))
+        M = np.array([[sj, 0, cx - sj * cx], [0, sj, cy - sj * cy]], np.float32)
+        acc += cv2.warpAffine(img, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
+    acc *= np.float32(1.0 / K)
+    u = np.clip((t - 0.5) / 0.5, 0, 1); fade = 1 - u * u * (3 - 2 * u)              # smoothstep dip to black over the second half
+    return (acc * np.float32(fade) + 0.5).astype(np.uint8)
 
 
 def plate_grain(frame, domain="linear"):
@@ -686,6 +767,7 @@ def main():
     comp = lambda fr, lay, m: composite(fr, lay, m, grain, bloom, style, plate, hand_gain, spill, wall, spill_hi)
     preview = [int(x) for x in kw["preview"].split(",")] if "preview" in kw else None
     t0_, t1_ = (int(x) for x in kw.get("trim", "0,267").split(","))
+    outro = int(kw.get("outro", 0))                     # the last N frames pull in and dip to black (outro_frame); 0 = a hard cut
     hand = np.load(hand_npz); sim = np.load(sim_npz); matte = np.load(matte_npy, mmap_mode="r")
     cap = cv2.VideoCapture(video); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); W = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)); H = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     R = (PuppetRendererGL if backend == "gl" else PuppetRenderer)(hand, sim, look, scale, style, string_px)
@@ -700,7 +782,7 @@ def main():
     if bake:
         bake_from = int(kw.get("bake_from", 0))        # resume a crashed bake at this frame (the file keeps the earlier frames)
         bake_to = int(kw.get("bake_to", n))            # ... and stop after this frame: re-bake a range after a local fix
-        c = BakeCache(bake, bake_key(sim_npz, look, shutter, scale, style, string_px, backend), (n, H, W, 4), np.float16, resume_from=bake_from)
+        c = BakeCache(bake, bake_key(sim_npz, look, shutter, scale, style, string_px, backend), (n, H, W, 5), np.float16, resume_from=bake_from)
         if c.valid:
             print("bake valid, reading back")
         else:
@@ -714,11 +796,19 @@ def main():
     else:
         get_layer = lambda i: R.bake_frame(i, shutter)
 
+    end = min(t1_, n); centre = None
+    def finish(img, i):
+        """The outro on the last `outro` frames, the push-in centred on the doll where the outro starts."""
+        nonlocal centre
+        if not outro or i < end - outro: return img
+        if centre is None: centre = layer_centroid(get_layer(end - outro)); print(f"outro: {outro} frames from {end - outro}, centred on the doll at ({centre[0]:.0f}, {centre[1]:.0f})")
+        return outro_frame(img, i - (end - outro), outro, centre)
+
     if preview:
         tiles = []
         for i in preview:
             cap.set(cv2.CAP_PROP_POS_FRAMES, i); ok, fr = cap.read()
-            img = comp(fr, get_layer(i), np.asarray(matte[i]))
+            img = finish(comp(fr, get_layer(i), np.asarray(matte[i])), i)
             cv2.imwrite(out.replace(".mp4", f"_f{i:03d}.png"), img)
             t = cv2.resize(img, (W // 3, H // 3)); cv2.putText(t, str(i), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3); tiles.append(t)
         rows = [np.hstack(tiles[j:j + 4]) for j in range(0, len(tiles), 4)]
@@ -729,10 +819,10 @@ def main():
 
     enc = RawWriter(out, W, H, 30, audio_from=video)
     cap.set(cv2.CAP_PROP_POS_FRAMES, t0_); t0 = time.time()
-    for i in range(t0_, min(t1_, n)):
+    for i in range(t0_, end):
         ok, fr = cap.read()
         if not ok: break
-        enc.write(comp(fr, get_layer(i), np.asarray(matte[i])))
+        enc.write(finish(comp(fr, get_layer(i), np.asarray(matte[i])), i))
         if i % 60 == 0: print(f"  frame {i} {(time.time() - t0) / (i - t0_ + 1):.3f} s/frame", flush=True)
     rc = enc.close(); print(f"wrote {out} ffmpeg exit {rc}: {enc.n} frames in {time.time() - t0:.1f} s")
 

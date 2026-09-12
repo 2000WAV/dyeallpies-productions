@@ -22,7 +22,7 @@ tools/
 | `studio.encode` | `RawWriter` (BGR frames piped into NVENC or x264, audio from the source or a generated silent track), `decode_check`, `preview_720`, `probe`, `sting_encode_args` + `concat_copy` (a join with no re-encode) | render_puppet, render_brand_sting |
 | `studio.cache` | `BakeCache`: the bake-once memmap + JSON validity key, with the reason a bake reran | render_puppet |
 | `studio.colour` | sRGB <-> linear (arrays and the exact 8-bit LUT), hex helpers, WCAG luminance and contrast | render_puppet, brand |
-| `studio.gl` | moderngl on the RTX 2060: context, meshes for MuJoCo capsules/ellipsoids/spheres, the pinhole clip matrix matching the scripts' `project()`, the depth+ID geometry pass, the 2x->1x premultiplied accumulate pass (supersampling + motion blur) | render_puppet |
+| `studio.gl` | moderngl on the RTX 2060: context, meshes for MuJoCo capsules/ellipsoids/spheres, the pinhole clip matrix matching the scripts' `project()`, the depth+ID geometry pass, the 2x->1x premultiplied accumulate pass (supersampling + motion blur; a second R32F attachment on the accumulation fbo receives a per-pixel glow weight read from the shaded alpha, so a composite can bloom some bodies more than others) | render_puppet |
 | `studio.brand` | the palette (`main #231F20`, `secondary #D75413`, `neutral #F2F0EA`, white), the fonts by role, the contrast table | render_brand_sting |
 
 Rules for adding to it:
