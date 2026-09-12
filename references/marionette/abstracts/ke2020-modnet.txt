@@ -1,0 +1,20 @@
+Ke, Z., Sun, J., Li, K., Yan, Q., and Lau, R. W. H. (2020/2022). MODNet: Real-Time
+Trimap-Free Portrait Matting via Objective Decomposition. AAAI 2022
+(arXiv:2011.11961).
+
+STATUS: full text saved (arXiv), text-extracted; see
+papers/ke2020-modnet.pdf/.txt.
+
+SUMMARY: Decomposes portrait matting into three easier sub-objectives solved by
+three interdependent branches of one lightweight network: semantic estimation
+(coarse foreground/background), boundary/detail estimation (a narrow band around
+the boundary), and final alpha fusion -- each supervised by an explicit
+constraint derived from the ground-truth alpha, rather than end-to-end alpha
+regression alone. Trimap-free (single RGB image in, alpha out) and fast enough
+for real-time use (67 fps on a 1080 Ti); extended with a non-learned flicker-
+reduction trick for video.
+
+RELEVANCE: a second learned-matte candidate for the hand; MODNet's "detail
+branch" is specifically tuned for clean matting of thin structures near
+boundaries (fingers, finger gaps) against a plain background, which is the exact
+geometry of the shot (down-pointing fingers against a uniform off-white wall).

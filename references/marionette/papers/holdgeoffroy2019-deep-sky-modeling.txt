@@ -1,0 +1,596 @@
+                                        Deep Sky Modeling for Single Image Outdoor Lighting Estimation
+
+                                        Yannick Hold-Geoffroy           Akshaya Athawale*                          Jean-Franc¸ois Lalonde
+                                             Adobe Research    Indian Institute of Tech. Dhanbad                       Universite´ Laval
+
+                                           holdgeof@adobe.com  akshaya.15je001564@am.ism.ac.in                   jflalonde@gel.ulaval.ca
+
+arXiv:1905.03897v1 [cs.CV] 10 May 2019                          Abstract                                         Figure 1. Our method can estimate HDR outdoor lighting conditions
+                                                                                                                 from a single image (left). This estimation can be used "as-is" to
+                                           We propose a data-driven learned sky model, which we                  relight virtual objects that match the input image in both sunny (top-
+                                        use for outdoor lighting estimation from a single image. As              right) and overcast (bottom-right) weather. Our key contribution is
+                                        no large-scale dataset of images and their corresponding                 to train both our sky model and lighting estimation end-to-end by
+                                        ground truth illumination is readily available, we use comple-           exploiting multiple complementary datasets during training.
+                                        mentary datasets to train our approach, combining the vast
+                                        diversity of illumination conditions of SUN360 with the ra-              model [13, 14], which can model high dynamic range (HDR)
+                                        diometrically calibrated and physically accurate Laval HDR               sky domes using as few as 4 parameters. They learn to pre-
+                                        sky database. Our key contribution is to provide a holistic              dict lighting by fitting the HW model to a large database of
+                                        view of both lighting modeling and estimation, solving both              outdoor, low dynamic range (LDR) panoramas and training
+                                        problems end-to-end. From a test image, our method can di-               a CNN to regress the HW parameters from limited field of
+                                        rectly estimate an HDR environment map of the lighting with-             view crops extracted from those panoramas.
+                                        out relying on analytical lighting models. We demonstrate
+                                        the versatility and expressivity of our learned sky model and               Unfortunately, approximating outdoor lighting analyti-
+                                        show that it can be used to recover plausible illumination,              cally comes at a cost. Popular sky models (e.g. [13, 25,
+                                        leading to visually pleasant virtual object insertions. To               24]) were developed to model clear skies with smoothly-
+                                        further evaluate our method, we capture a dataset of HDR                 varying amounts of atmospheric aerosols (represented by the
+                                        360 panoramas and show through extensive validation that                 commonly-used turbidity parameter). Therefore, they do not
+                                        we significantly outperform previous state-of-the-art.                   yield accurate representations for other types of common
+                                                                                                                 weather conditions such as partially cloudy or completely
+                                        1. Introduction                                                          overcast skies. For example, consider the different lighting
+                                                                                                                 conditions in fig. 2, which we represent with the HW para-
+                                           The lighting conditions of outdoor scenes can create sig-             metric model using the non-linear fitting approach of [12].
+                                        nificant differences in the scene appearance depending on the            Note how the HW approximation works well in clear skies
+                                        weather and the time of day. Indeed, one need only consider              (top) but degrades as the cloud cover increases (bottom).
+                                        the striking contrast created by bright highlights and dark              Can we obtain a lighting model that is low-dimensional, that
+                                        shadows at noon, the warm, orange hues of the golden hour,               can accurately describe the wide variety of outdoor lighting
+                                        or the gray ominous look of overcast conditions. This wide               conditions, and that can be estimated from a single image?
+                                        variety of effects is challenging for approaches that attempt
+                                        to estimate the lighting conditions from outdoor images.                    In this paper, we propose an answer to this question by
+                                                                                                                 learning an HDR sky model directly from data. Our non-
+                                           A popular solution to this problem involves capturing ob-             analytical data-driven sky model can be estimated directly
+                                        jects of known geometry and reflectance properties (notably,             from a single image captured outdoors. Our approach suc-
+                                        a chrome sphere [6]). Another solution, which does not
+                                        require access to the scene, is to approximate outdoor light-
+                                        ing with low-dimensional, parametric models. This has the
+                                        advantage of drastically reducing the dimensionality of the
+                                        problem down to just a handful of variables, which can more
+                                        easily be estimated from an image. This insight has recently
+                                        been exploited to successfully learn to predict lighting from
+                                        a single outdoor image [12]. In particular, they propose to
+                                        represent outdoor lighting using the Hosek-Wilkie (HW) sky
+
+                                            *Parts of this work were completed while Y. Hold-Geoffroy and A.
+                                        Athawale were at U. Laval.
+
+                                                                                                              1
+cessfully models a much larger set of lighting conditions            Ground truth Ours  [13, 14]
+than previous approaches (see fig. 2).
+                                                                     Figure 2. Examples of our 360° unsaturated HDR database (left),
+    To learn to estimate a non-parametric lighting model             our reconstruction using our learned sky model (center) and the
+from a single photograph, we propose a three-step approach           Hosek-Wilkie sun and sky models [13, 14] fit using the optimization
+which bears resemblance to the "T-network" architecture              described in [12] (right). Renders of each method are shown below
+proposed by [9], and rely on a variety of existing com-              the panorama. Note how our sky model can accurately produce
+plementary datasets. First, we train a deep sky autoen-              a wide variety of lighting conditions from sunny (top) to overcast
+coder that learns a data-driven, deep HDR sky model. To              (bottom) and their corresponding shadow contrast and smoothness.
+train this sky autoencoder, we rely on the Laval HDR sky
+database [20, 22], a large dataset of unsaturated HDR hemi-          disc [14] analytical models. See [17] for a comparison of
+spherical sky images. Second, we project the SUN360                  these analytic sky models.
+LDR outdoor panorama dataset [28] to HDR, using the
+"LDR2HDR" network of Zhang and Lalonde [30], and sub-                Outdoor lighting estimation Lighting estimation from
+sequently map each panorama to the latent space of HDR               a single, generic outdoor scene has first been proposed by
+skies from our sky autoencoder. This effectively provides            Lalonde et al. [21]. Their approach relies on the probabilistic
+non-parametric sky labels for each panorama. Third, we               combination of multiple cues (such as cast shadows, shading,
+train an image encoder that learns to estimate these labels          and sky appearance variation) extracted individually from the
+from a crop, similarly to [12].                                      image. Karsch et al. [16] propose to match the background
+                                                                     image to a large dataset of panoramas [28] and transfer the
+    In short, our main contributions are the following:              panorama lighting (obtained through a specially-designed
+   · we propose a novel sky autoencoder, dubbed "SkyNet"1,           light classifier) to the image. However, the matching metric
+                                                                     may yield results that have inconsistent lighting. Other ap-
+      that can accurately represent outdoor HDR lighting in          proaches rely on known geometry [23] and/or strong priors
+      a variety of illumination conditions;                          on geometry and surface reflectance [1].
+   · we show how HDR lighting can be estimated from a
+      single image, modeling a much wider range of illumi-
+      nation conditions than previous work;
+   · we capture a new dataset of 206 radiometrically cali-
+      brated outdoor HDR 360° panoramas;
+   · we demonstrate, through a series of experiments and a
+      user study, that our approach outperforms the state-of-
+      the-art both qualitatively and quantitatively;
+   · we offer a technique to bridge the gap between our
+      implicit parameters representation and the versatility of
+      low-dimensional parametric sky models.
+
+2. Related work
+
+    Outdoor lighting modeling and estimation have been stud-
+ied extensively over the past decades. For conciseness, we
+will focus on outdoor lighting modeling and estimation that
+is most related to this work.
+
+Outdoor lighting modeling Modeling the sky is a chal-
+lenging research problem that has been well studied across
+many disciplines such as atmospheric science, physics, and
+computer graphics. The Perez All-Weather model [24] was
+first introduced as an improvement over the previous CIE
+Standard Clear Sky model, and modeled weather variations
+using 5 parameters. Preetham et al. [25] later present a sim-
+plified model, which relies on a single physically grounded
+parameter, the atmospheric turbidity. Hosek and Wilkie
+subsequently proposed an improvement over the Preetham
+model, which is comprised of both a sky dome [13] and solar
+
+    1Luckily, it has not (yet) gained artificial consciousness [5].
+HDR sky pano                   radiometric     sky                         z         sky    ^
+LDR sky pano                   distortions  encoder
+                           building mask
+                                               sky                               d decoder
+              Zhang & Lalonde`17            encoder
+                                                                           z
+
+                                            HDR sky pano                                                      r
+
+                                                                                            building mask   z sky
+
+                                                                                                           encoder
+
+   image                                                             z
+
+              image-to-sky                                                 sky       ^
+                 encoder
+I                                                                 z^       decoder                         c
+
+              image-to-azimuth                                       sun azimuth 
+
+              encoder                                                                     
+
+                                                                  -     0          
+
+Figure 3. Overview of our proposed three-step approach. First, we train an autoencoder to learn a 64-parameters latent space of skies z from
+a large dataset of calibrated skies [20], while enforcing its encoder to be robust to distortions in white balance, exposure and occlusions.
+Second, we convert the SUN360 LDR panorama dataset to HDR using [30] and obtain their z vectors with the trained autoencoder. Finally,
+we train two image encoders to learn the mapping between crops from SUN360, the sun azimuth and their corresponding z. Please see text
+for the definitions of the loss functions L.
+
+Deep learning for lighting estimation Deep learning has                 method in a supervised manner is currently impossible as no
+also been recently used for lighting estimation. For example,           large-scale dataset of images and their corresponding illumi-
+Georgoulis et al. [8] learn to estimate lighting and reflectance        nation conditions is yet available. We therefore propose the
+from an object of known geometry, by first estimating its               following 3-step approach, which is also illustrated in fig. 3.
+reflectance map (i.e., its "orientation-dependent" appear-
+ance) [26] and subsequently factoring it into lighting and              1. Train the SkyNet autoencoder on HDR skies The
+material properties [7]. Closer to our work, Hold-Geoffroy et           first step (fig. 3, top row) is to learn a data-driven sky model
+al. [12] model outdoor lighting with the parametric, Hosek-             from the 33,420 hemispherical sky images in the Laval HDR
+Wilkie sky model, and learn to estimate its parameters from             sky database [20] using a deep autoencoder. The autoen-
+a single image. As mentioned above, we take inspiration                 coder, dubbed "SkyNet", learns the space of outdoor lighting
+from this work and significantly improve upon it by propos-             by compressing an HDR sky image to a 64-dimensional
+ing to instead use a learned, data-driven outdoor lighting              latent vector z, and reconstructing it at the original resolu-
+model. Concurrent to this work, Zhang et al. [31] extend                tion. Robustness to white balance, exposure, and occlusions
+[12] with a more flexible parametric sky model. In another              is enforced during training. More details on this step are
+closely-related paper, Calian et al. [2] estimate HDR out-              presented in sec. 4.
+door lighting from a single face image. While they employ
+a similar deep autoencoder to learn a data-driven model,                2. Label LDR panoramas with SkyNet The second step
+they rely on a multi-step non-linear optimization approach              (fig. 3, middle row) is to use the learned SkyNet autoencoder
+over the space of face albedo and sky parameters, which is              to obtain z vectors for a large dataset of panoramas. For
+time-consuming and prone to local minima. In contrast, we               this, the Laval HDR sky database cannot be reused as it only
+learn to estimate lighting from a single image of a generic             contains sky hemispheres. Instead, we take advantage of
+outdoor scene in an end-to-end framework. In addition, our              the wide variety of scenes and lighting conditions captured
+training procedure is more robust to sky occluders (such as             by the SUN360 panorama dataset [28]. Each panorama is
+buildings and trees) and non-linear radiometric distortions.            first converted to HDR with the approach of [30] that has
+Cheng et al. [3] estimate lighting from the front and back              been trained specifically for this purpose. Then, sky masks
+camera of a mobile phone. However, they represent lighting              are estimated using the sky segmentation approach of [12]
+using low-frequency spherical harmonics, which, as shown                based on a dense CRF [19]. The resulting HDR panoramas,
+in [2], does not appropriately model outdoor lighting.                  which we dub SUN360-HDR, along with their sky masks are
+                                                                        forwarded to the SkyNet encoder to recover z. This has the
+3. Overview                                                             effect of labeling each panorama in SUN360 with a compact,
+                                                                        data-driven representation for outdoor illumination.
+   The goal of our technique is to estimate the illumination
+conditions from an outdoor image. Directly training such a              3. Train image encoders to predict illumination Finally,
+                                                                        the last step (fig. 3, bottom row) is to train an image encoder
+                                                                        on limited field of view images extracted from the SUN360
+                                       sky encoder                                          sky decoder                                                                              Parameter       Equation     Distribution    Bounds
+                                                                                                                                                                                                                           
+                feature shape 128x32   64x16               32x8                32x8 (4096)  64x16                                          128x32                                    Exposure (e)    Pd = eP                      [0.1, 10]
+                                   64       64               16                 64              64                                                                                   White bal. (w)  Pd,c = wcPc  O(0.2, 0.2)     [0.8, 1.2]
+                                                                                                                                           64                        3               Gamma ()        Pd = P1/                     [0.85, 1.2]
+                                                                                                                                                                                                                  N (0, 0.06)
+           128                                                                                                                                                    3             128                               O(0.0035, 0.2)
+
+32                     7                                                          2x upsample
+    3                                                                                                                         2x upsample
+                                                                                                                                                               3
+
+                    7                  2x residual blocks  2x residual blocks  z            3x residual blocks                             2x residual blocks        32         ^
+                conv                         stride 2            stride 2                         stride 1                                       stride 1
+                                                                                                                                                                             3
+                                       residual residual                                      residual                                     residual               conv
+
+Figure 4. Architecture of our SkyNet deep autoencoder showing                                                                                                                        Table 1. Parameters used to generate radiometrically distorted ver-
+the parameters of each layer. ELU [4] activation functions are used
+after the convolutional layers (blue). Residual blocks (red) [11]                                                                                                                    sions Pd of the panoramas P. Here, c denotes the color channel,
+have the ReLU activation functions.                                                                                                                                                  N (µ, 2)/O(µ, 2) indicate a normal/lognormal distribution.
+
+dataset, by employing the methodology proposed in [12].                                                                                                                                 While the Laval sky database contains unoccluded sky
+The main difference here is that we train the neural network                                                                                                                         images, panoramas in the SUN360-HDR may contain multi-
+to predict the z vector from the previous step corresponding                                                                                                                         ple buildings and other sky occluders which we do not want
+to each crop, instead of the analytical sky parameters as in                                                                                                                         to learn in our sky model. To prevent SkyNet from learn-
+the previous work. The full HDR sky image can be recovered                                                                                                                           ing non-sky features, we reuse the sky segmentation of [12]
+using the SkyNet decoder. The resulting sky image can be                                                                                                                             (based on a CRF refinement [19]) to mask non-sky regions of
+used "as is" as image-based lighting to photorealistically                                                                                                                           SUN360-HDR with black pixels. To enforce SkyNet to esti-
+render 3D objects into images with a variety of illumination                                                                                                                         mate plausible sky appearance in those regions, we randomly
+conditions. We detail this step in sec. 5.                                                                                                                                           apply black regions to the training images from the Laval
+                                                                                                                                                                                     sky database and ask the network to recover the original, un-
+4. Training the SkyNet deep sky model                                                                                                                                                occluded sky appearance. Specifically, we apply, with 50%
+                                                                                                                                                                                     chance, the non-sky mask from a random SUN360-HDR
+   In this section, we describe SkyNet, our deep autoencoder                                                                                                                         panorama. This is only done on the Laval sky panoramas,
+acting as our sky model, its architecture and training steps.                                                                                                                        as SUN360-HDR already contains buildings occluding the
+                                                                                                                                                                                     sky. This requires the neural network to fill in the holes and
+4.1. Deep autoencoder                                                                                                                                                                predict the sky energy distribution under occluded regions.
+
+   To learn our sky model, we adopt an autoencoder archi-                                                                                                                            4.2. Training losses
+tecture which projects a full HDR sky down to 64 parameters
+(encoder), and subsequently reconstructs it (decoder). This is                                                                                                                          To obtain robustness to occlusions and radiometric distor-
+conceptually similar to [2], with the key differences that we                                                                                                                        tions, we train SkyNet using a combination of two losses, as
+employ a more robust training scheme which includes occlu-                                                                                                                           illustrated in the top part of fig. 3. First, two versions of the
+sions and radiometric distortions, making it amenable to full                                                                                                                        panorama are fed through the network, one after the other:
+end-to-end learning rather than the non-linear inverse ren-                                                                                                                          the original P and a second one to which we applied ran-
+dering framework of [2]. In addition, we employ a different                                                                                                                          dom radiometric distortions Pd. These random distortions
+architecture based on residual layers [11] (see fig. 4).                                                                                                                             consist of variations in exposure, white balance and camera
+                                                                                                                                                                                     response function as described in table 1.
+   To represent the sky, we use the equirectangular (latitude-
+longitude) projection at a resolution of 32×128 in RGB of                                                                                                                               Denoting enc(·) as the encoder, the first loss used to train
+the up hemisphere. This representation has the advantage of                                                                                                                          the sky autoencoder enforces both the undistorted z = enc(P)
+being easy to rotate along the azimuth with a horizontal shift                                                                                                                       and distorted zd = enc(Pd) to be as close as possible by
+of the image. Similarly to [2, 30], we rotate the panoramas                                                                                                                          minimizing the L1 norm between them:
+along their azimuth so that the sun is in the center of the
+image, as we empirically found that training the sky model                                                                                                                                           Ld = zd - z 1 .                           (1)
+is simpler and more well-behaved this way. However, unlike
+its azimuth, we cannot decouple the sun elevation from the                                                                                                                           This loss encourages the sky encoder to be robust to radio-
+sky reconstruction as it influences the sun intensity, color,
+and overall sky luminance distribution [24].                                                                                                                                         metric distortions that may be present in the input panoramas.
+
+   The SkyNet autoencoder training is mostly performed on                                                                                                                            Our second loss is the typical autoencoder reconstruction
+the 33,420 panoramas of the Laval HDR sky database [20,
+22], which we augment with 7000 panoramas from SUN360-                                                                                                                               loss, with the difference that both the undistorted and dis-
+HDR [28, 30] (see sec. 3), both of which include the full
+dynamic range of the sun. We resize each panorama down                                                                                                                               torted inputs must reconstruct the original panorama using
+to a resolution of 32 × 128, ensuring that the sky integral
+remains constant by taking the solid angles into account.                                                                                                                            an L1 loss:
+
+                                                                                                                                                                                                  Lr = P^ - P 1 + P^ d - P 1 ,                 (2)
+
+                                                                                                                                                                                     where P^ = dec(z) and P^ d = dec(zd) are the panoramas re-
+                                                                                                                                                                                     constructed by the decoder dec(·). The reconstruction loss
+
+                                                                                                                                                                                     Lr is only computed on sky pixels in the original panorama
+                                                                                                                                                                                     P. For example, this loss is not active for regions masked by
+
+                                                                                                                                                                                     buildings in panoramas from SUN360-HDR, as no ground
+truth sky appearance is known for this region. The autoen-                                                                                                            1400
+coder is never penalized for any output in these regions.
+On the Laval HDR sky panoramas, this loss is active ev-           5000                                                                                                1200
+erywhere, even for randomly masked (black) regions. The
+target appearance for those regions is the original sky pixels    4000                                                                                                1000
+of the panorama before the sky was masked, effectively ask-       Number of images
+ing the autoencoder to extrapolate--or fill--the region with                                                                                        Number of images3000800
+plausible sky appearance.
+                                                                  2000                                                                                                600
+   Our sky autoencoder is trained with:
+                                                                                                                                                                      400
+
+                                                                  1000           Hold-Geoffroy et al. '17                                                             200            Hold-Geoffroy et al. '17
+                                                                                 ours                                                                                                ours
+                                                                                 chance                                                                                              chance
+                                                                  0 0 20 40 60 80 100 120 140 160 180                                                                 0 0 20 40 60 80 100 120 140 160 180
+                                                                        Degrees                                                                                             Degrees
+
+                                                                        (a) SUN360                                                                                          (b) HDR panoramas
+
+Ls = Lr + dLd ,                 (3)                               Figure 5. Comparison of sun position estimations between our
+                                                                  proposed model (blue) and Hold-Geoffroy et al. [12] showing the
+where we empirically set d = 100 in order to balance the          cumulative sun position estimation error on (a) their SUN360 test
+gradient magnitude between Lr and Ld during training.             set and (b) our HDR 360 captures. Using a recent network archi-
+                                                                  tecture (DenseNet-161 [15]) grants our technique a slight improve-
+   Example sky reconstructions on test panoramas are shown        ment over the network used by [12].
+in the middle column of fig. 2. While LDR content such
+as clouds is lost, the reconstructed panoramas P^ properly        We observed that this loss on the space of z alone failed to
+model the energy distribution of the sky and are thus able to     capture the details in the sky energy distribution and tended
+faithfully reproduce shadow characteristics like contrast and     to produce average skies without strong sun intensities. To
+sharpness. In contrast, while the Hosek-Wilkie sky model          solve this issue, we added an L1 loss on the sky panoramas
+properly approximates clear skies, it does not generalize to      reconstructed from ^z and z by the SkyNet decoder:
+non-clear skies (right-most column in fig. 2).
+
+4.3. Implementation details                                             Lc = (dec(^z) - dec(z)) d 1 ,                                                                                          (5)
+
+   Our sky model holds approximately 1 million parameters         where dec(·) denotes the SkyNet decoder, d the matrix of
+which are learned using the Adam [18] optimizer with a            solid angles spanned by each pixel in the sky panorama, and
+learning rate of 10-3 and  = (0.5, 0.999). We addition-
+ally reduce the learning rate by a factor of 10 whenever the         the element-wise multiplication operator.
+minimum error on the validation set has not decreased over           The image-to-sky encoder is trained by summing those
+the last 10 epochs. Convergence is monitored on the valida-       two losses: Li = Lz + cLc. Due to the large difference
+tion set, which is comprised of 14 days (3999 panoramas)          in magnitude between Lz and Lc, we empirically set c =
+from the Laval HDR sky database that we removed from              3 × 10-10 to prevent gradient imbalance during training.
+the training set and 2000 panoramas from SUN360-HDR
+(sec. 3), different from the ones chosen to augment the train-    5.2. Sun azimuth estimation
+ing set. Training convergence was obtained after 127 epochs
+in our case, taking roughly 4 hours on a Titan Xp GPU. Sky           Due to our sky model training (sec. 4.1), the sun will in-
+inference takes approximately 10ms on the same machine.           variably be located in the center column of the estimated sky
+We (un)normalize the input (output) panoramas using the           panorama. We therefore need to estimate the sun azimuth 
+training set mean and standard deviation.                         to rotate the lighting according to the sun position in the im-
+                                                                  age. Both tasks seem to be closely related, hinting that both
+5. Learning to estimate illumination from a sin-                  could benefit from joint training [12, 29]. However, training
+    gle image                                                     a single model to estimate both the sky parameters z and sun
+                                                                  azimuth  proved difficult. In our experiments, balancing
+   In this section, we describe the third step of our approach    both tasks using a fixed ratio between the losses failed to
+(c.f. sec. 3 and fig. 3), that is, how we learn to estimate both  obtain good generalization performance for both tasks si-
+the sun azimuth  and the sky parameters z of our learned          multaneously. To circumvent this issue, we train a different
+sky model from a single, limited field of view image.             image-to-azimuth model to estimate a probability distribu-
+                                                                  tion of the sun azimuth . This sun azimuth distribution is
+5.1. Image lighting estimation                                    obtained by discretizing the [-, ] range into 32 bins, sim-
+                                                                  ilar to [12]. We use once again a pretrained DenseNet-161
+   To estimate the sky parameters z from a limited field of       where the last layer is replaced by a fully connected layer of
+view image, we use a pretrained DenseNet-161 [15] architec-       32 outputs. A Kullback-Leibler divergence loss L with a
+ture where the last layer was replaced by a fully connected       one-hot target vector is used to train this neural network.
+layer of 64 outputs. We finetune this image-to-sky model on
+sky parameters z using an L2 loss:                                5.3. Implementation details
+
+Lz = ^z - z 2 .                 (4)                                  To train both the image-to-sky and image-to-azimuth en-
+                                                                  coders, we use the SUN360-HDR dataset which we augment
+                                                                                     input image  GT        ours             [12]
+
+          4                                Figure 6. Quantitative relighting error
+                                           on the bunny scene (see fig. 7). We
+          3                                compute two metrics comparing renders
+                                           against ground truth lighting: (a) RMSE
+Error     2                                and (b) scale-invariant (si-)RMSE [10].
+   Error                                   The lighting has been rotated for both
+          1                                methods so the sun is always at the same
+                                           azimuth. The global intensity of our es-
+          0                                timated environment map is generally                       0.21        0.03 3.24        0.08
+                                           closer to the ground truth most of the
+           Hold-Geoffroy et al. '17  ours  time, leading to an almost 10× improve-
+                                           ment in RMSE over [12]. Additionally,
+              (a) RMSE                     our flexible learned sky model allows
+                                           for increased shadow expressiveness and
+        0.25                               can handle completely overcast skies,
+                                           enhancing the si-RMSE by over 60%
+        0.20                               over the previous state-of-the-art.                        0.10        0.06 1.70        0.12
+        0.15
+
+0.10
+
+0.05
+
+0.00                                 ours
+
+     Hold-Geoffroy et al. '17
+
+        (b) si-RMSE
+
+                                                                                                      0.13        0.06 1.50        0.06
+
+with 100 images extracted from 15 captured HDR panora-                                                0.08        0.08 2.58        0.18
+mas (see sec. 6.1 for more details). To counter the severe
+imbalance between both data sources, we penalize errors                                               0.44        0.11 0.83        0.20
+committed on captured panoramas by a factor of 4.
+                                                                                                      0.16        0.15 1.78        0.14
+   To provide more stability to the training, the image-to-
+sky encoder is first trained for 5 epochs using a learning
+rate of 3×10-4 using only the loss on sky parameters Lz.
+Afterward, both losses Lc and Lz are combined and the
+learning rate is set to 2×10-6. The image-to-azimuth model
+was trained with a fixed learning rate of 3×10-4. The Adam
+optimizer is used with  = (0.4, 0.999) and a weight decay
+of 10-7 throughout the training for both the image-to-sky
+and sun azimuth estimator. Convergence of the image-to-sky
+and image-to-azimuth models were obtained after 55 and 3
+epochs (roughly 5 hours of training each on a Titan Xp GPU),
+and inference takes roughly 30ms and 24ms, respectively.
+
+6. Experimental validation                                                           Figure 7. Qualitative relighting comparison between ground truth
+                                                                                     lighting (GT), our method, and Hold-Geoffroy et al. [12]. RMSE
+   This section first presents the dataset used for evaluating                       (SI-RMSE) are shown on the bottom left (right). Images from
+and comparing our method to the state-of-the-art method                              our HDR outdoor panorama dataset were cropped to obtain the
+of Hold-Geoffroy et al. [12]. Then, the performance of our                           input image. The renders using our estimated lighting display a
+proposed method is assessed with qualitative and quantitative                        wide variety of cast shadow characteristics such as sharp (sunny),
+results as well as a user study.                                                     smooth (lightly overcast) and absent (mostly overcast), which the
+                                                                                     parametric sky model of [12] cannot reproduce.
+6.1. A dataset of outdoor HDR panoramas
+                                                                                     HDR outdoor panoramas2. Following the recommendations
+   The previous state-of-the-art on outdoor illumination esti-                       of [27], each panorama captures the full 22 f-stops required
+mation [12] proposed an evaluation based solely on SUN360,                           to record the full unsaturated dynamic range of outdoor
+where the ground truth was obtained using their non-linear                           scenes. Using a Canon 5D Mark iii camera with an 8mm
+optimization on sky pixels to estimate sun intensity. We ar-                         Sigma fisheye lens, a ND3.0 filter, and mounted on a Gi-
+gue that evaluating on SUN360 does not provide an accurate                           gaPan tripod head, we captured 6 sets (at 60° azimuthal
+quantitative relighting performance since it assumes that the                        increments) of 7 exposures (from 1/8000s to 8s shutter speed
+non-linear fit accurately models all types of skies present in                       at f/14 aperture) in RAW mode. We then automatically
+the panoramas, which is not the case (fig. 2).                                       stitched the results into a 360° HDR panorama using the
+
+   To provide a more accurate assessment of the perfor-                                  2Available at http://outdoor.hdrdb.com.
+mance of our technique, we captured a new dataset of 206
+ours  [12]                                                          (a)  (b)  (c)
+
+total votes 536 (69%) 244 (31%)                                          (d)
+                                                                                                                                         (f )
+Table 2. Results of our user study (N = 39), which show that users
+overwhelmingly prefer results obtained with our technique over           (e)
+that of Hold-Geoffroy et al [12].
+                                                                    (a)  (b)  (c)
+
+PTGui commercial software. Since capturing the necessary                 (d)
+42 photos required approximately 3 minutes, care was taken                                                                               (f )
+to select scenes with no motion. We repeated this process
+over 9 different days to capture a diverse set of scenes, result-        (e)
+ing in a mix of urban and natural scenes with illumination
+conditions ranging from overcast to sunny. We select 191            (a)  (b)  (c)
+panoramas from this set (non-overlapping in both location
+and illumination conditions with the 15 used for training in             (d)
+the image-to-sky encoder, see sec. 5.3) and extract 7 crops                                                                              (f )
+per panorama for a total of 1,337 images, which we use for
+evaluation below.                                                        (e)
+
+6.2. Quantitative sun position evaluation                           (a)  (c)  (c)
+
+   We begin by evaluating the performance of our models in               (d)
+estimating the relative position of the sun with respect to the                                                                          (f )
+camera from a single limited field of view image. Results on
+both the SUN360 test set from [12] (left) and our panorama               (e)
+dataset (right) are shown in fig. 5. In both cases, the ground
+truth is obtained by detecting the center of mass of the bright-    Figure 8. Qualitative relighting evaluation. From (a) an input image,
+est region in the panorama, following [12] (who reported            we show the lighting estimation and render from Hold-Geoffroy
+a median error of 4.59). Since our method only estimates            et al. [12] (b-c) and our method (e-f) on SUN360. Note that no
+explicitly the sun azimuth, the elevation angle is estimated        ground truth illumination exists for this dataset, only (d) a saturated
+as the brightest pixel of the reconstructed lighting panorama.      LDR panorama. Our method confers a wider variety of shadow
+Due to the more advanced network architecture employed,             characteristics (f) over that of [12].
+we systematically improve sun position estimation over the
+previous state-of-the-art on both datasets.                         strong cast shadows even on partially cloudy and overcast
+                                                                    skies. Our sky model captures the subtle lighting distribution
+6.3. Lighting evaluation on HDR panoramas                           in these conditions more accurately.
+
+   The relighting error is compared between [12] and our               We further compare our method by performing virtual
+method using the bunny scene on the 1,337 images from our           object insertions using the Cycles renderer. As fig. 9 shows,
+dataset with ground truth illumination (sec. 6.1). Both the         our estimated overall lighting intensity is closer to the ground
+RMSE and the scale-invariant (si-)RMSE [10] are computed,           truth than [12] while still providing plausible shading.
+and results are shown in fig. 6. Our technique yields signifi-
+cant improvement in both the RMSE and si-RMSE. For the              6.4. User study on SUN360 LDR panoramas
+RMSE, the improvement is mostly due to the fact that the
+exposure estimation of [12] that seems biased toward bright            As no accurate ground truth illumination is available for
+skies. The render intensity using our estimated lighting is         SUN360, no quantitative relighting evaluation can faithfully
+generally much closer to the ground truth. Additionally, the        be performed on this dataset. Instead, we evaluate perfor-
+increased versatility of our sky model confers an additional        mance with a user study where we showed (N = 39) partic-
+60% improvement on scale-invariant RMSE.                            ipants 20 pairs of images with a virtual object (a bird statue
+                                                                    model) composited into the image and lit by the estimates
+   Qualitative examples of recovered illumination and ren-          provided by our method and [12]. For each pair, users were
+ders are shown for test images in our HDR panorama dataset          asked to select the image where the object looked most re-
+in fig. 7 and SUN360 dataset in fig. 8. Both techniques pro-        alistic. As shown in tab. 2, our method obtained slightly
+vide plausible estimates yielding strong shadows on sunny           more than 68% of the total votes. Furthermore, our lighting
+days. For both datasets, we observe that lighting from [12]         estimations were preferred (more than 50% votes) on 16 of
+is consistently brighter than the ground truth, resulting in        the 20 images.
+           Ground Truth      [12]            ours
+
+                                                                    (a)
+
+                                                                    (b)
+
+                                                                    (c)
+
+                                                                    (d)
+
+Figure 9. Examples of virtual object insertion comparing our        Figure 10. Examples of user-guided edits on the sky model. (a)
+method to [12] on backgrounds extracted from our evaluation         Interpolating between two sky parameters z does not produce a
+dataset (see sec. 6.1).                                             smooth and plausible lighting transition. To solve this, we propose
+                                                                    a method to enable smooth user-guided lighting edits and show
+7. User-guided edits on the sky model                               results on changing the sun position on (b) a cloudy and (c) a
+                                                                    clear day. Note how the generated skies stay plausible throughout
+   Low-dimensional analytical sky models such as [14, 22]           the transition. We further show an example of changing the sun
+provide explicit parameters for users to interact with, such as     intensity (d), from fully visible to mostly occluded.
+sun position and atmospheric turbidity. The main drawback
+of our implicit sky parameters z is that they cannot be directly    8. Discussion
+hand-tuned. One could think of generating new skies by
+interpolating between two sky parameters z. However, doing             In this paper, we propose what we believe is the first
+so yields abrupt transitions that often contain undesirable         learned sky model trained end-to-end and show how to use
+artifacts such as multiple suns (fig. 10-a).                        it to estimate outdoor lighting from a single limited field of
+                                                                    view images. Our key idea is to use three different datasets
+We propose a new method to browse the parameter space               in synergy: SUN360 [28], Laval HDR sky database [20],
+                                                                    and our own HDR 360 captures. Through quantitative
+spanned by z while producing smooth transitions and plausi-         and qualitative experiments, we show that our technique
+                                                                    significantly outperforms the previous state-of-the-art on
+ble skies. Our intuition is to start from a known sky parame-       both lighting reconstruction and estimation.
+
+ter z and iteratively morph this sky toward a desired target           While our method proposes state-of-the-art performance,
+                                                                    it suffers from some limitations. Notably, the Hosek-Wilkie
+using the sky decoder gradient. To generate this gradient,          model employed by [12] tends to produce stronger lighting
+                                                                    and sharper shadows than our model, which users seemed
+a sky is first forwarded through the sky autoencoder. Then,         to prefer sometimes in our study. Additionally, while our
+                                                                    model accurately captures the sky energy, its texture recovery
+edits are applied to the reconstructed sky and the resulting        quality is still limited. We hope these limitations can be soon
+                                                                    lifted by the current rapid development of deep learning.
+gradients on z are computed. We experiment on two types
+                                                                    Acknowledgements
+of edits: the sun elevation and intensity. To change the sun
+                                                                       The authors wish to thank Se´bastien Poitras for his help
+elevation, we move the 5×5 region around the sun either             in collecting the HDR panorama dataset. This work was
+                                                                    partially supported by the REPARTI Strategic Network and
+up or down and compute the gradient using the difference            the NSERC Discovery Grant RGPIN-2014-05314. We grate-
+                                                                    fully acknowledge the support of Nvidia with the donation
+between the reconstruction and this modified sky. A similar         of the GPUs used for this research, as well as Adobe for
+                                                                    generous gift funding.
+scheme is used for sun intensity, where the region is multi-
+
+plied such that its maximum value is the desired sun intensity.
+
+Iterating  on  this  scheme  using  zn+1  =  4×10-10  ·  Lr  ·  zn
+                                                          z
+
+for a maximum of 300 iterations automatically re-projects
+
+this modified sky back to a plausible sky and successfully
+
+removes the manually-induced artifacts. The multiplying
+
+factor was empirically set as a good balance between stabil-
+
+ity and convergence speed. Visually smooth transitions are
+
+shown in fig. 10.
+References                                                                  object compositing. ACM Transactions on Graphics, 33(3):32,
+                                                                            2014. 2
+ [1] J. T. Barron and J. Malik. Shape, illumination, and reflectance  [17] J. T. Kider, D. Knowlton, J. Newlin, Y. K. Li, and D. P.
+      from shading. IEEE Transactions on Pattern Analysis and               Greenberg. A framework for the experimental comparison
+      Machine Intelligence, 37(8):1670­1687, 2015. 2                        of solar and skydome illumination. ACM Transactions on
+                                                                            Graphics, 33(6), nov 2014. 2
+ [2] D. A. Calian, J.-F. Lalonde, P. Gotardo, T. Simon, I. Matthews,  [18] D. Kingma and J. Ba. Adam: A method for stochastic opti-
+      and K. Mitchell. From Faces to Outdoor Light Probes. Com-             mization. In International Conference on Learning Represen-
+      puter Graphics Forum, 37(2):51­61, 2018. 3, 4                         tations, 2015. 5
+                                                                      [19] P. Kra¨henbu¨hl and V. Koltun. Efficient inference in fully
+ [3] D. Cheng, J. Shi, Y. Chen, X. Deng, and X. Zhang. Learning             connected CRFs with gaussian edge potentials. In Neural
+      scene illumination by pairwise photos from rear and front             Information Processing Systems, 2012. 3, 4
+      mobile cameras. In Computer Graphics Forum, volume 37,          [20] J.-F. Lalonde, L.-P. Asselin, J. Becirovski, Y. Hold-Geoffroy,
+      pages 213­221, 2018. 3                                                M. Garon, M.-A. Gardner, and J. Zhang. The Laval HDR sky
+                                                                            database. http://sky.hdrdb.com, 2016. 2, 3, 4, 8
+ [4] D.-A. Clevert, T. Unterthiner, and S. Hochreiter. Fast and       [21] J. F. Lalonde, A. A. Efros, and S. G. Narasimhan. Estimating
+      accurate deep network learning by exponential linear units            the natural illumination conditions from a single outdoor
+      (ELUs). In International Conference on Learning Represen-             image. International Journal of Computer Vision, 98(2):123­
+      tations, 2016. 4                                                      145, 2012. 2
+                                                                      [22] J.-F. Lalonde and I. Matthews. Lighting estimation in outdoor
+ [5] S. Cyberdyne. SkyNet: A global information grid/digital                image collections. In International Conference on 3D Vision,
+      defense network, 1997. 2                                              2014. 2, 4, 8
+                                                                      [23] S. Lombardi and K. Nishino. Reflectance and illumination
+ [6] P. Debevec. Rendering synthetic objects into real scenes :             recovery in the wild. IEEE transactions on pattern analysis
+      Bridging traditional and image-based graphics with global             and machine intelligence, 38(1), 2016. 2
+      illumination and high dynamic range photography. In Pro-        [24] R. Perez, R. Seals, and J. Michalsky. All-weather model for
+      ceedings of ACM SIGGRAPH, 1998. 1                                     sky luminance distribution--preliminary configuration and
+                                                                            validation. Solar Energy, 50(3):235­245, Mar. 1993. 1, 2, 4
+ [7] S. Georgoulis, K. Rematas, T. Ritschel, M. Fritz, T. Tuyte-      [25] A. J. Preetham, P. Shirley, and B. Smits. A practical analytic
+      laars, and L. Van Gool. What is around the camera? In IEEE            model for daylight. In Proceedings of the 26th annual con-
+      International Conference on Computer Vision, 2017. 3                  ference on Computer graphics and interactive techniques -
+                                                                            SIGGRAPH, 1999. 1, 2
+ [8] S. Georgoulis, K. Rematas, T. Ritschel, E. Gavves, M. Fritz,     [26] K. Rematas, T. Ritschel, M. Fritz, E. Gavves, and T. Tuyte-
+      L. Van Gool, and T. Tuytelaars. Reflectance and natural               laars. Deep reflectance maps. In IEEE Conference on Com-
+      illumination from single-material specular objects using deep         puter Vision and Pattern Recognition, pages 4508­4516, 2016.
+      learning. IEEE Transactions on Pattern Analysis and Machine           3
+      Intelligence, 40(8):1932­1947, 2018. 3                          [27] J. Stumpfel, A. Jones, A. Wenger, C. Tchou, T. Hawkins,
+                                                                            and P. Debevec. Direct hdr capture of the sun and sky. In
+ [9] R. Girdhar, D. F. Fouhey, M. Rodriguez, and A. Gupta. Learn-           Proceedings of ACM AFRIGRAPH, page 5, 2004. 6
+      ing a predictable and generative vector representation for      [28] J. Xiao, K. A. Ehinger, A. Oliva, and A. Torralba. Recogniz-
+      objects. In European Conference on Computer Vision, 2016.             ing scene viewpoint using panoramic place representation. In
+      2                                                                     IEEE Conference on Computer Vision and Pattern Recogni-
+                                                                            tion, 2012. 2, 3, 4, 8
+[10] R. Grosse, M. K. Johnson, E. H. Adelson, and W. T. Freeman.      [29] A. R. Zamir, A. Sax, W. Shen, L. Guibas, J. Malik, and
+      Ground truth dataset and baseline evaluations for intrinsic           S. Savarese. Taskonomy: Disentangling Task Transfer Learn-
+      image algorithms. In IEEE International Conference on Com-            ing. In Proceedings of the IEEE Conference on Computer
+      puter Vision, 2009. 6, 7                                              Vision and Pattern Recognition, 2018. 5
+                                                                      [30] J. Zhang and J.-F. Lalonde. Learning High Dynamic Range
+[11] K. He, X. Zhang, S. Ren, and J. Sun. Deep Residual Learning            from Outdoor Panoramas. International Conference on Com-
+      for Image Recognition. In IEEE Conference on Computer                 puter Vision, 2017. 2, 3, 4
+      Vision and Pattern Recognition, 2016. 4                         [31] J. Zhang, K. Sunkavalli, Y. Hold-Geoffroy, S. Hadap, J. Eisen-
+                                                                            man, and J.-F. Lalonde. All-weather deep outdoor lighting
+[12] Y. Hold-Geoffroy, K. Sunkavalli, S. Hadap, E. Gambaretto,              estimation. In IEEE Conference on Computer Vision and
+      and J.-F. Lalonde. Deep outdoor illumination estimation.              Pattern Recognition (CVPR), 2019. 3
+      In IEEE International Conference on Computer Vision and
+      Pattern Recognition, 2017. 1, 2, 3, 4, 5, 6, 7, 8
+
+[13] L. Hosek and A. Wilkie. An analytic model for full spectral
+      sky-dome radiance. ACM Transactions on Graphics, 31(4):1­
+      9, 2012. 1, 2
+
+[14] L. Hosek and A. Wilkie. Adding a solar-radiance function to
+      the hosek-wilkie skylight model. IEEE Computer Graphics
+      and Applications, 33(3):44­52, may 2013. 1, 2, 8
+
+[15] G. Huang, Z. Liu, K. Q. Weinberger, and L. van der Maaten.
+      Densely Connected Convolutional Networks. In IEEE Con-
+      ference on Computer Vision and Pattern Recognition, 2016.
+      5
+
+[16] K. Karsch, K. Sunkavalli, S. Hadap, N. Carr, H. Jin, R. Fonte,
+      M. Sittig, and D. Forsyth. Automatic scene inference for 3d
+

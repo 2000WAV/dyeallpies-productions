@@ -1,0 +1,35 @@
+Mori, M. (1970/2012). The Uncanny Valley (translated by K.F. MacDorman and
+N. Kageki). IEEE Robotics & Automation Magazine, June 2012, 98-100.
+(Original: Mori, M. (1970). Bukimi no tani [The Uncanny Valley]. Energy,
+7(4), 33-35, in Japanese.)
+
+STATUS: full text saved (MacDorman's own site, the authorized translation);
+see papers/mori1970-2012-uncanny-valley.pdf/.txt.
+
+SUMMARY: Mori's original essay proposing that affinity for a humanlike
+robot/prosthetic/doll rises with human-likeness UP TO A POINT, then
+plunges sharply into revulsion ("the uncanny valley") as it approaches but
+fails to fully attain a lifelike appearance, before recovering once
+human-likeness is indistinguishable from a real person. Uses the example of
+a prosthetic hand: convincing at a glance, but a handshake revealing its
+"limp, boneless grip... texture and coldness" collapses affinity into the
+negative. Mori's own prescriptive conclusion (his final section) is that
+since climbing all the way out of the valley to true human likeness is
+extremely hard, robot/character designers should consider deliberately
+STOPPING SHORT of high realism -- "I predict that it is possible to create
+a safe level of affinity by deliberately pursuing a nonhuman design," using
+the toy robot (partway up the FIRST hill, well before the valley) as the
+model of a safe, appealing, clearly-non-human design.
+
+KEY NUMBERS: none -- the essay is qualitative/conceptual, presenting the
+now-famous affinity-vs-human-likeness curve without numeric axes; later
+quantitative work (Mathur & Reichling 2016, above) is what supplies
+measured curves.
+
+RELEVANCE: the founding citation for section 1's uncanny-valley discussion,
+and directly supports section 7's ranked advice: since the marionette is
+already a stylized, non-photoreal wooden/painted figure rather than an
+attempt at a realistic human face, Mori's own prescription argues FOR
+staying in this stylized register (like his "toy robot," safely up the
+first hill) rather than adding just enough realism (a detailed face, real
+skin shading) to approach, without reaching, human likeness.

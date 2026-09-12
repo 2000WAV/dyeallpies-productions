@@ -1,0 +1,29 @@
+1. Perception. 1997;26(2):171-92. doi: 10.1068/p260171.
+
+Moving cast shadows induce apparent motion in depth.
+
+Kersten D(1), Mamassian P, Knill DC.
+
+Author information:
+(1)Psychology Department, University of Minnesota, Minneapolis 55455, USA. 
+kersten@eye.psych.umn.edu
+
+Phenomenally strong visual illusions are described in which the motion of an 
+object's cast shadow determines the perceived 3-D trajectory of the object. 
+Simply adjusting the motion of a shadow is sufficient to induce dramatically 
+different apparent trajectories of the object casting the shadow. Psychophysical 
+results obtained with the use of 3-D graphics are reported which show that: (i) 
+the information provided by the motion of an object's shadow overrides other 
+strong sources of information and perceptual biases, such as the assumption of 
+constant object size and a general viewpoint; (ii) the natural constraint of 
+shadow darkness plays a role in the interpretation of a moving image patch as a 
+shadow, but under some conditions even unnatural light shadows can induce 
+apparent motion in depth of an object; (iii) when shadow motion is caused by a 
+moving light source, the visual system incorrectly interprets the shadow motion 
+as consistent with a moving object, rather than a moving light source. The 
+results support the hypothesis that the human visual system incorporates a 
+stationary light-source constraint in the perceptual processing of spatial 
+layout of scenes.
+
+DOI: 10.1068/p260171
+PMID: 9274752 [Indexed for MEDLINE]

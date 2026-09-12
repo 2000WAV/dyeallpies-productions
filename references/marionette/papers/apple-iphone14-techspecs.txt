@@ -1,0 +1,861 @@
+iPhone 14 - Tech Specs - Apple Support
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+:root{--sk-body-text-color: rgb(29, 29, 31);--sk-headline-text-color: rgb(29, 29, 31);--sk-body-background-color: rgb(255, 255, 255);--sk-body-link-color: rgb(0, 102, 204);--sk-focus-color: #0071e3;--sk-focus-offset: 1px}body{margin:0;padding:0;font-size:17px;line-height:1.4705882353;font-weight:400;letter-spacing:-.022em;font-family:SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;color:var(--sk-body-text-color);background-color:var(--sk-body-background-color);font-synthesis:none;-moz-font-feature-settings:"kern";-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;min-width:320px}h1,h2,h3,h4,h5,h6{margin:0;padding:0;font-weight:600;color:var(--sk-headline-text-color)}a{color:var(--sk-body-link-color);letter-spacing:inherit;text-decoration:none}a:hover{text-decoration:underline}#app{width:100%}#content{min-height:350px;font-size:17px;line-height:1.4705882353;font-weight:400;letter-spacing:-.022em;font-family:SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}#content p{}#content h1{font-size:48px;line-height:1.0834933333;font-weight:600;letter-spacing:-.003em;font-family:SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}@media (max-width:1068px){#content h1{font-size:40px;line-height:1.1;letter-spacing:0em}}@media (max-width:734px){#content h1{font-size:32px;line-height:1.125;letter-spacing:.004em}}#content h2{font-size:40px;line-height:1.1;font-weight:600;letter-spacing:0em;font-family:SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}@media (max-width:1068px){#content h2{font-size:32px;line-height:1.125;letter-spacing:.004em}}@media (max-width:734px){#content h2{font-size:28px;line-height:1.1428571429;letter-spacing:.007em}}#content h3{font-size:21px;line-height:1.1904761905;font-weight:600;letter-spacing:.011em;font-family:SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}@media (max-width:734px){#content h3{font-size:19px;line-height:1.2105263158;letter-spacing:.012em}}#content #sections{width:83.33333%;position:relative;margin:64px auto}@media (max-width:1068px){#content #sections{width:100%;margin:56px auto}}@media (max-width:734px){#content #sections{width:100%;margin:48px auto}}#content img{max-width:100%;height:auto;display:inline;max-height:700px;object-fit:contain}#content #sections>.has-image:first-child>img,#content #sections>noscript:first-child + .has-image>img{max-height:180px!important;height:180px!important;width:auto!important;-o-object-fit:contain;object-fit:contain}#content li img{display:block}#content br+img{display:block}#content .horizontal-align-center{text-align:center}#content .horizontal-align-left{text-align:left}#content .horizontal-align-right{text-align:right}#content div.has-image:has(img:not(.inactive)){display:block}#content div.has-image:has(img:not(.inactive)) img{display:block}#content div.has-image:has(img:not(.inactive)).horizontal-align-center img{margin-left:auto;margin-right:auto}#content div.has-image:has(img:not(.inactive)).horizontal-align-left img{margin-left:0}#content div.has-image:has(img:not(.inactive)).horizontal-align-right img{margin-left:auto;margin-right:0}.viewport-content{margin-inline-start:auto;margin-inline-end:auto;width:980px}@media (max-width:1068px){.viewport-content{width:692px}}@media (max-width:734px){.viewport-content{width:87.5%}}body.js .oberon-content .inactive{display:none!important}body.no-js .oberon-tabnav{display:none}.oberon-tabnav{margin:52px auto!important}@media (max-width:1068px){.oberon-tabnav{margin:48px auto!important}}@media (max-width:734px){.oberon-tabnav{margin:40px auto!important}}.oberon-tabnav .tabnav-items{margin-left:0!important;margin-right:0!important;margin-top:0!important}.oberon-tabnav .form-tabnav-label{visibility:hidden}.tabnav ul,.tabnav ol,.tabnav li{margin:0;padding:0;list-style:none}.tabnav button{margin:0;padding:0;border:0;background:none;font-family:inherit;box-sizing:border-box;color:inherit;font:inherit;line-height:inherit;cursor:pointer}.tabnav{font-size:14px;line-height:1.2857742857;font-weight:400;letter-spacing:-.016em;font-family:SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;--tabnav-line-height:18px;--tabnav-height:44px;--tabnav-scale:1;--tabnav-inner-height:36px;--tabnav-platter-padding:4px;--tabnav-platter-background:rgb(232, 232, 237);--tabnav-platter-blur:20px;--tabnav-mask-gradient-width:22px;--tabnav-mask-opaque-width:calc(var(--tabnav-paddle-width) - var(--tabnav-platter-padding));--tabnav-mask-offset:calc(var(--tabnav-mask-opaque-width) + var(--tabnav-mask-gradient-width));--tabnav-mask-color-left:transparent;--tabnav-mask-color-right:transparent;--tabnav-mask-gradient:linear-gradient(to right, var(--tabnav-mask-color-left) 0, var(--tabnav-mask-color-left) var(--tabnav-mask-opaque-width), black calc(var(--tabnav-mask-opaque-width) + var(--tabnav-mask-gradient-width)), black calc(100% - (var(--tabnav-mask-opaque-width) + var(--tabnav-mask-gradient-width))), var(--tabnav-mask-color-right) calc(100% - var(--tabnav-mask-opaque-width)), var(--tabnav-mask-color-right) 100%);--tabnav-items-offset:0px;--tabnav-item-padding:16px;--tabnav-item-color:rgb(0, 0, 0);--tabnav-item-color-active:rgb(255, 255, 255);--tabnav-paddle-width:calc(var(--tabnav-inner-height) + var(--tabnav-platter-padding));--tabnav-paddle-height:var(--tabnav-inner-height);--tabnav-paddle-color:rgba(0, 0, 0, .56);--tabnav-paddle-color-hover:rgba(0, 0, 0, .64);--tabnav-paddle-icon-opacity-disabled:0.42;--tabnav-indicator-background:rgb(29, 29, 31);--tabnav-indicator-start:var(--tabnav-platter-padding);--tabnav-indicator-width:0px;--tabnav-focus-color:var(--sk-focus-color, #0071e3);--tabnav-motion-scroll-duration:320ms;--tabnav-motion-indicator-transform-duration:320ms;--r-tabnav-scaling-font-size:14px;position:relative;width:fit-content;max-width:100%;box-sizing:border-box}.tabnav *{box-sizing:border-box;user-select:none;-webkit-tap-highlight-color:transparent}.tabnav-platter{height:calc(var(--tabnav-height));padding:var(--tabnav-platter-padding);background-color:var(--tabnav-platter-background);border-radius:999px;overflow:hidden;position:relative;-webkit-backdrop-filter:blur(var(--tabnav-platter-blur));backdrop-filter:blur(var(--tabnav-platter-blur))}.tabnav-mask{position:relative;height:100%;z-index:1;width:100%;overflow-x:hidden;-webkit-mask-image:var(--tabnav-mask-gradient);mask-image:var(--tabnav-mask-gradient)}.tabnav-items{display:flex;align-items:center;white-space:nowrap;position:relative;margin:0;width:fit-content;height:100%;list-style:none;z-index:1}.tabnav-item{position:relative;height:100%;color:var(--tabnav-item-color);white-space:nowrap;transition-duration:120ms;transition-property:color;transition-timing-function:ease-out}.tabnav-item .tabnav-link{display:flex;align-items:center;height:100%;padding:0 var(--tabnav-item-padding);background:transparent;border:none;color:inherit;text-decoration:none;letter-spacing:inherit;opacity:.8;border-radius:999px;transition-property:opacity;transition-duration:100ms;transition-timing-function:ease-in-out}.tabnav-item .tabnav-link:hover{opacity:1}.tabnav-item.tabnav-item-active{color:var(--tabnav-item-color-active);transition-delay:160ms;transition-duration:160ms;transition-timing-function:ease-in}.tabnav-item.tabnav-item-active .tabnav-link{opacity:1;cursor:auto}.tabnav-label{display:block}.tabnav-indicator{position:absolute;top:var(--tabnav-platter-padding);left:var(--tabnav-indicator-start);bottom:var(--tabnav-platter-padding);width:calc(var(--tabnav-indicator-width) - 1px);height:calc(100% - var(--tabnav-platter-padding)*2);background-color:var(--tabnav-indicator-background);border-radius:999px;pointer-events:none;z-index:0;transition-property:left,width;transition-duration:var(--tabnav-motion-indicator-transform-duration);transition-timing-function:ease-out}.oberon-tabnav .tabnav-link:focus{outline:none}.tabnav:focus-within:has(.tabnav-link:focus-visible) .tabnav-indicator{outline:2px solid var(--sk-focus-color, #0071e3);outline-offset:2px}@media (prefers-color-scheme: dark){:root{--sk-body-text-color: rgb(245, 245, 247);--sk-headline-text-color: rgb(245, 245, 247);--sk-body-background-color: rgb(0, 0, 0);--sk-body-link-color: rgb(41, 151, 255)}body{--sk-glyph: rgb(255, 255, 255);--sk-glyph-gray: rgb(245, 245, 247);--sk-glyph-gray-alpha: rgba(255, 255, 255, .92);--sk-glyph-gray-secondary: rgb(134, 134, 139);--sk-glyph-gray-secondary-alpha: rgba(255, 255, 255, .56);--sk-glyph-blue: rgb(41, 151, 255);--sk-fill: rgb(0, 0, 0);--sk-fill-secondary: rgb(22, 22, 23);--sk-fill-tertiary: rgb(29, 29, 31);--sk-fill-gray: rgb(245, 245, 247);--sk-fill-gray-quaternary: rgb(51, 51, 54)}.tabnav{--tabnav-platter-background:rgb(51, 51, 54);--tabnav-item-color:rgb(255, 255, 255);--tabnav-item-color-active:rgb(0, 0, 0);--tabnav-paddle-color:rgba(255, 255, 255, .8);--tabnav-paddle-color-hover:rgb(255, 255, 255);--tabnav-paddle-icon-opacity-disabled:0.36;--tabnav-indicator-background:rgb(245, 245, 247);--tabnav-focus-color:rgb(255, 255, 255)}body #ac-globalfooter .ac-gf-footer-legal-link:last-child{border-right:0}}
+.localnav{position:relative;top:0;left:0;width:100%;height:52px;min-width:1024px;z-index:9997}@media only screen and (max-width:1044px){.localnav{min-width:320px}}@media only screen and (max-width:767px){.localnav{height:48px}}.localnav-overlap .localnav{margin-bottom:-52px}@media only screen and (max-width:767px){.localnav-overlap .localnav{margin-bottom:-48px}}.topnav-overlap .localnav{margin-top:44px;margin-bottom:-96px}@media only screen and (max-width:767px){.topnav-overlap .localnav{margin-top:48px;margin-bottom:-96px}}.localnav.theme-dark{background:none}.localnav-menustate{display:none}.localnav-wrapper{position:absolute;top:0;left:0;width:100%;height:auto;min-height:100%;z-index:1}.localnav-content{margin:0 auto;max-width:980px;padding:0 22px;position:relative;z-index:2}.localnav-content:after,.localnav-content:before{content:" ";display:table}.localnav-content:after{clear:both}@media only screen and (max-width:1023px){.localnav-content{border-bottom:none}}@media only screen and (max-width:767px){.localnav-content{padding:0 16px}}.localnav.css-sticky,.localnav[data-sticky]{position:sticky}.localnav.no-css-sticky.localnav-sticking{margin-top:0!important;margin-bottom:0!important;position:fixed}#localnav-sticky-placeholder{display:block;margin:0;padding:0;position:relative;visibility:hidden;z-index:-1}#localnav-sticky-placeholder.no-css-sticky.localnav-sticking{height:52px}.localnav-overlap #localnav-sticky-placeholder.no-css-sticky.localnav-sticking,.topnav-overlap #localnav-sticky-placeholder.no-css-sticky.localnav-sticking{height:0}@media only screen and (max-width:767px){#localnav-sticky-placeholder.no-css-sticky.localnav-sticking{height:48px}}.localnav-curtain{background:rgba(0,0,0,.2);opacity:0;position:fixed;top:0;left:0;width:0;height:0;z-index:9996;transition:opacity .2s ease}@media only screen and (max-width:767px){.localnav-curtain{transition:opacity 1s ease .2s,width 0s ease 1.2s,height 0s ease 1.2s}}.localnav-menustate:checked~.localnav-curtain,.localnav-menustate:target~.localnav-curtain{transition:opacity 1s ease .1s}@media only screen and (max-width:767px){.localnav-menustate:checked~.localnav-curtain,.localnav-menustate:target~.localnav-curtain{opacity:1;right:0;bottom:0;width:100%;height:100%}}.localnav-actions{float:left}@media only screen and (max-width:767px){.localnav-actions{right:0;padding:0 16px;position:absolute;top:0;z-index:1}}@media only screen and (max-width:767px){.localnav-actions-center{left:50%}}@media only screen and (max-width:767px){.localnav-actions-center .localnav-action-menucta{margin-left:-20px;left:0;position:absolute;z-index:1}}.localnav-action{margin-left:24px;float:left}@media only screen and (max-width:767px){.localnav-action{line-height:56px}}@media only screen and (max-width:767px){.localnav-action-button,.localnav-action-violator{margin-left:35px;float:right}}.localnav-action-product{position:absolute;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(0 0 99.9% 99.9%);overflow:hidden;height:1px;width:1px;padding:0;border:0;top:auto;left:auto}.localnav-action-menucta{position:relative;z-index:1}@media only screen and (max-width:767px){.localnav-action-menucta{float:left}}.localnav-background{position:absolute;left:0;top:0;width:100%;height:100%;z-index:1;transition:background-color .5s cubic-bezier(.28,.11,.32,1)}.localnav-background:after{background-color:rgba(51,51,51,.2)}@media only screen and (max-width:767px){.localnav-background{min-height:48px;transition:background-color .5s ease .7s}.localnav.localnav-hero .localnav-background{transition-delay:0s}}.localnav.localnav-hero .localnav-background:after{background-color:hsla(0,0%,100%,.4)}.localnav.localnav-scrim .localnav-background{background-color:hsla(0,0%,100%,.9)}.localnav.localnav-scrim .localnav-background:after{background-color:rgba(51,51,51,.2)}@supports (backdrop-filter:initial){.localnav.localnav-scrim .localnav-background{backdrop-filter:saturate(180%) blur(20px);background-color:hsla(0,0%,100%,.7)}}.localnav-scrim.localnav.theme-dark .localnav-background,.theme-dark .localnav-scrim.localnav .localnav-background{background-color:rgba(34,34,34,.9)}@supports (backdrop-filter:initial){.localnav-scrim.localnav.theme-dark .localnav-background,.theme-dark .localnav-scrim.localnav .localnav-background{background-color:rgba(34,34,34,.7)}}.localnav.localnav-sticking .localnav-background{background-color:hsla(0,0%,100%,.9);transition:background-color .5s cubic-bezier(.28,.11,.32,1);transition-property:background-color,backdrop-filter}.localnav.localnav-sticking .localnav-background:after{background-color:rgba(51,51,51,.1)}@supports (backdrop-filter:initial){.localnav.localnav-sticking .localnav-background{backdrop-filter:saturate(180%) blur(20px);background-color:hsla(0,0%,100%,.7)}}.localnav-sticking.localnav.theme-dark .localnav-background,.theme-dark .localnav-sticking.localnav .localnav-background{background-color:rgba(34,34,34,.9)}@supports (backdrop-filter:initial){.localnav-sticking.localnav.theme-dark .localnav-background,.theme-dark .localnav-sticking.localnav .localnav-background{background-color:rgba(34,34,34,.7)}}.localnav-menustate:checked~.localnav .localnav-background,.localnav-menustate:target~.localnav .localnav-background{background-color:#fff;max-height:none;transition:background-color .5s ease;transition-property:background-color,backdrop-filter}.localnav-menustate:checked~.localnav .localnav-background:after,.localnav-menustate:target~.localnav .localnav-background:after{background-color:rgba(51,51,51,.2)}@supports (backdrop-filter:initial){.localnav-menustate:checked~.localnav .localnav-background,.localnav-menustate:target~.localnav .localnav-background{backdrop-filter:saturate(180%) blur(20px);background-color:hsla(0,0%,100%,.9)}}.localnav.theme-dark .localnav-background:after,.theme-dark .localnav .localnav-background:after{background-color:rgba(51,51,51,.95)}.theme-dark.localnav.localnav-hero .localnav-background:after,.theme-dark .localnav.localnav-hero .localnav-background:after{background-color:hsla(0,0%,100%,.4)}.theme-dark.localnav-hero.localnav.localnav-sticking .localnav-background:after,.theme-dark .localnav-hero.localnav.localnav-sticking .localnav-background:after{background-color:rgba(51,51,51,.7)}.theme-dark.localnav.localnav-scrim .localnav-background:after,.theme-dark .localnav.localnav-scrim .localnav-background:after{background-color:rgba(51,51,51,.95)}.theme-dark.localnav.localnav-sticking .localnav-background:after,.theme-dark .localnav.localnav-sticking .localnav-background:after{background-color:rgba(51,51,51,.7)}.localnav-menustate:checked~.localnav.theme-dark .localnav-background,.localnav-menustate:target~.localnav.theme-dark .localnav-background,.theme-dark .localnav-menustate:checked~.localnav .localnav-background,.theme-dark .localnav-menustate:target~.localnav .localnav-background{background-color:#222}.localnav-menustate:checked~.localnav.theme-dark .localnav-background:after,.localnav-menustate:target~.localnav.theme-dark .localnav-background:after,.theme-dark .localnav-menustate:checked~.localnav .localnav-background:after,.theme-dark .localnav-menustate:target~.localnav .localnav-background:after{background-color:rgba(51,51,51,.7)}@supports (backdrop-filter:initial){.localnav-menustate:checked~.localnav.theme-dark .localnav-background,.localnav-menustate:target~.localnav.theme-dark .localnav-background,.theme-dark .localnav-menustate:checked~.localnav .localnav-background,.theme-dark .localnav-menustate:target~.localnav .localnav-background{background-color:rgba(34,34,34,.9)}}.localnav-background:after{margin-left:-490px;left:50%;content:"";display:block;position:absolute;top:100%;width:980px;height:1px;z-index:1}@media only screen and (max-width:1023px){.localnav-background:after{margin-left:0;left:0;width:100%}}.localnav.localnav-noborder .localnav-background:after{display:none}.localnav-noborder.localnav.localnav-sticking .localnav-background:after{display:block}.localnav-menustate:checked~.localnav .localnav-background:after,.localnav-menustate:target~.localnav .localnav-background:after,.localnav.localnav-scrim .localnav-background:after,.localnav.localnav-sticking .localnav-background:after{margin-left:0;left:0;width:100%}.localnav-menu{font-size:12px;line-height:1.5;font-weight:400;letter-spacing:0;font-family:SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;float:right;line-height:40px;margin-top:0;padding-top:12px}.localnav-menu:lang(ar){font-family:SF Pro AR,SF Pro Gulf,SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(ja){font-family:SF Pro JP,SF Pro Text,SF Pro Icons,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,\\30E1\30A4\30EA\30AA,Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(ko){font-family:SF Pro KR,SF Pro Text,SF Pro Icons,Apple Gothic,HY Gulim,MalgunGothic,HY Dotum,Lexi Gulim,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(th){font-family:SF Pro TH,SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(zh-CN){font-family:SF Pro SC,SF Pro Text,SF Pro Icons,PingFang SC,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(zh-HK){font-family:SF Pro HK,SF Pro Text,SF Pro Icons,PingFang HK,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(zh-MO),.localnav-menu:lang(zh-TW){font-family:SF Pro TC,SF Pro Text,SF Pro Icons,PingFang TC,Helvetica Neue,Helvetica,Arial,sans-serif}@media only screen and (max-width:767px){.localnav-menu{font-size:14px;line-height:1.5;font-weight:400;letter-spacing:-.01em;font-family:SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(ar){letter-spacing:0;font-family:SF Pro AR,SF Pro Gulf,SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(ja){letter-spacing:0;font-family:SF Pro JP,SF Pro Text,SF Pro Icons,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,\\30E1\30A4\30EA\30AA,Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(ko){letter-spacing:0;font-family:SF Pro KR,SF Pro Text,SF Pro Icons,Apple Gothic,HY Gulim,MalgunGothic,HY Dotum,Lexi Gulim,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(th){letter-spacing:0;font-family:SF Pro TH,SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(zh){letter-spacing:0}.localnav-menu:lang(zh-CN){font-family:SF Pro SC,SF Pro Text,SF Pro Icons,PingFang SC,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(zh-HK){font-family:SF Pro HK,SF Pro Text,SF Pro Icons,PingFang HK,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-menu:lang(zh-MO),.localnav-menu:lang(zh-TW){font-family:SF Pro TC,SF Pro Text,SF Pro Icons,PingFang TC,Helvetica Neue,Helvetica,Arial,sans-serif}}@media only screen and (max-width:767px){.localnav-menu{padding-top:0;width:100%}}.localnav-menu-tray{float:left}@media only screen and (max-width:767px){.localnav-menu-tray{float:none;overflow:hidden;pointer-events:none;visibility:hidden;width:100%;max-height:0;transition:max-height .5s cubic-bezier(.28,.11,.32,1) .4s,visibility 0s linear 1s}.localnav-menustate:checked~.localnav .localnav-menu-tray,.localnav-menustate:target~.localnav .localnav-menu-tray{max-height:400px;max-height:calc(100vh - 48px - 48px);overflow-y:auto;-webkit-overflow-scrolling:touch;pointer-events:auto;visibility:visible;transition-delay:.2s,0s}}@media only screen and (max-width:767px) and (orientation:landscape){.localnav-menustate:checked~.localnav .localnav-menu-tray,.localnav-menustate:target~.localnav .localnav-menu-tray{max-height:280px;max-height:calc(100vh - 48px - 48px)}}@media only screen and (max-width:767px){.localnav-menustate:checked~.localnav.localnav-opening .localnav-menu-tray,.localnav-menustate:target~.localnav.localnav-opening .localnav-menu-tray{overflow-y:hidden}.localnav-menustate:checked~.localnav.localnav-sticking .localnav-menu-tray,.localnav-menustate:target~.localnav.localnav-sticking .localnav-menu-tray{max-height:calc(100vh - 48px)}}@media only screen and (max-width:767px){.localnav-menu-items{opacity:0;padding:17px 32px 28px;transform:translate3d(0,-150px,0);transition:transform 1s cubic-bezier(.23,1,.32,1) .5s,opacity .7s cubic-bezier(.23,1,.32,1) .2s}.localnav-menustate:checked~.localnav .localnav-menu-items,.localnav-menustate:target~.localnav .localnav-menu-items{opacity:1;transform:translateZ(0);transition-delay:.2s,.4s}}.localnav-menu-item{margin-left:24px;float:left;list-style:none}@media only screen and (max-width:767px){.localnav-menu-item{margin-left:0;display:inline-block;float:none;width:100%;height:42px}.localnav-menu-item:first-child .localnav-menu-link{border-top:0}.localnav.theme-dark .localnav-menu-item,.theme-dark .localnav .localnav-menu-item{border-color:rgba(68,68,68,.5)}.localnav-menu-item:first-child .localnav-menu-link{transition-delay:.07s}.localnav-menu-item:nth-child(2) .localnav-menu-link{transition-delay:.14s}.localnav-menu-item:nth-child(3) .localnav-menu-link{transition-delay:.21s}.localnav-menu-item:nth-child(4) .localnav-menu-link{transition-delay:.28s}.localnav-menu-item:nth-child(5) .localnav-menu-link{transition-delay:.35s}.localnav-menu-item:nth-child(6) .localnav-menu-link{transition-delay:.42s}.localnav-menu-item:nth-child(7) .localnav-menu-link{transition-delay:.49s}.localnav-menustate:checked~.localnav .localnav-menu-item:first-child .localnav-menu-link,.localnav-menustate:target~.localnav .localnav-menu-item:first-child .localnav-menu-link{transition-delay:.56s}.localnav-menustate:checked~.localnav .localnav-menu-item:nth-child(2) .localnav-menu-link,.localnav-menustate:target~.localnav .localnav-menu-item:nth-child(2) .localnav-menu-link{transition-delay:.49s}.localnav-menustate:checked~.localnav .localnav-menu-item:nth-child(3) .localnav-menu-link,.localnav-menustate:target~.localnav .localnav-menu-item:nth-child(3) .localnav-menu-link{transition-delay:.42s}.localnav-menustate:checked~.localnav .localnav-menu-item:nth-child(4) .localnav-menu-link,.localnav-menustate:target~.localnav .localnav-menu-item:nth-child(4) .localnav-menu-link{transition-delay:.35s}.localnav-menustate:checked~.localnav .localnav-menu-item:nth-child(5) .localnav-menu-link,.localnav-menustate:target~.localnav .localnav-menu-item:nth-child(5) .localnav-menu-link{transition-delay:.28s}.localnav-menustate:checked~.localnav .localnav-menu-item:nth-child(6) .localnav-menu-link,.localnav-menustate:target~.localnav .localnav-menu-item:nth-child(6) .localnav-menu-link{transition-delay:.21s}.localnav-menustate:checked~.localnav .localnav-menu-item:nth-child(7) .localnav-menu-link,.localnav-menustate:target~.localnav .localnav-menu-item:nth-child(7) .localnav-menu-link{transition-delay:.14s}}.localnav-menu-link{color:#333;display:inline-block;line-height:22px;white-space:nowrap}@media only screen and (max-width:767px){.localnav-menu-link{border-top:1px solid hsla(0,0%,84%,.5);display:block;line-height:42px;opacity:0;transform:translate3d(0,-25px,0);transition:.5s ease;transition-property:transform,opacity}.localnav.theme-dark .localnav-menu-link,.theme-dark .localnav .localnav-menu-link{border-color:#333}.localnav-menustate:checked~.localnav .localnav-menu-link,.localnav-menustate:target~.localnav .localnav-menu-link{opacity:1;transform:translateZ(0)}}.localnav.localnav-hero .localnav-menu-link{color:#fff}.localnav-hero.localnav.localnav-sticking .localnav-menu-link,.localnav-menustate:checked~.localnav-hero.localnav .localnav-menu-link,.localnav-menustate:target~.localnav-hero.localnav .localnav-menu-link{color:#333}.localnav.localnav-hero .localnav-menu-link:hover{color:#6bf}.localnav-hero.localnav.localnav-sticking .localnav-menu-link:hover,.localnav-menustate:checked~.localnav-hero.localnav .localnav-menu-link:hover,.localnav-menustate:target~.localnav-hero.localnav .localnav-menu-link:hover{color:#0070c9}.localnav-menustate:checked~.theme-dark.localnav .localnav-menu-link,.localnav-menustate:target~.theme-dark.localnav .localnav-menu-link,.localnav.theme-dark .localnav-menu-link,.theme-dark .localnav-menustate:checked~.localnav .localnav-menu-link,.theme-dark .localnav-menustate:target~.localnav .localnav-menu-link,.theme-dark .localnav .localnav-menu-link,.theme-dark.localnav.localnav-sticking .localnav-menu-link,.theme-dark .localnav.localnav-sticking .localnav-menu-link{color:#fff}.localnav-menustate:checked~.theme-dark.localnav .localnav-menu-link:hover,.localnav-menustate:target~.theme-dark.localnav .localnav-menu-link:hover,.localnav.theme-dark .localnav-menu-link:hover,.theme-dark .localnav-menustate:checked~.localnav .localnav-menu-link:hover,.theme-dark .localnav-menustate:target~.localnav .localnav-menu-link:hover,.theme-dark .localnav .localnav-menu-link:hover,.theme-dark.localnav.localnav-sticking .localnav-menu-link:hover,.theme-dark .localnav.localnav-sticking .localnav-menu-link:hover{color:#6bf}.localnav-menu-link:hover{color:#0070c9;text-decoration:none}.localnav-menu-link.current{color:rgba(51,51,51,.6);cursor:default}.localnav-menu-link.current:hover{color:rgba(51,51,51,.6)}.localnav.localnav-hero .localnav-menu-link.current,.localnav.localnav-hero .localnav-menu-link.current:hover{color:hsla(0,0%,100%,.6)}.localnav-hero.localnav.localnav-sticking .localnav-menu-link.current,.localnav-hero.localnav.localnav-sticking .localnav-menu-link.current:hover,.localnav-menustate:checked~.localnav-hero.localnav .localnav-menu-link.current,.localnav-menustate:checked~.localnav-hero.localnav .localnav-menu-link.current:hover,.localnav-menustate:target~.localnav-hero.localnav .localnav-menu-link.current,.localnav-menustate:target~.localnav-hero.localnav .localnav-menu-link.current:hover{color:rgba(51,51,51,.6)}.localnav-menustate:checked~.theme-dark.localnav .localnav-menu-link.current,.localnav-menustate:checked~.theme-dark.localnav .localnav-menu-link.current:hover,.localnav-menustate:target~.theme-dark.localnav .localnav-menu-link.current,.localnav-menustate:target~.theme-dark.localnav .localnav-menu-link.current:hover,.localnav.theme-dark .localnav-menu-link.current,.localnav.theme-dark .localnav-menu-link.current:hover,.theme-dark.localnav-hero.localnav.localnav-sticking .localnav-menu-link.current,.theme-dark .localnav-hero.localnav.localnav-sticking .localnav-menu-link.current,.theme-dark.localnav-hero.localnav.localnav-sticking .localnav-menu-link.current:hover,.theme-dark .localnav-hero.localnav.localnav-sticking .localnav-menu-link.current:hover,.theme-dark .localnav-menustate:checked~.localnav .localnav-menu-link.current,.theme-dark .localnav-menustate:checked~.localnav .localnav-menu-link.current:hover,.theme-dark .localnav-menustate:target~.localnav .localnav-menu-link.current,.theme-dark .localnav-menustate:target~.localnav .localnav-menu-link.current:hover,.theme-dark .localnav .localnav-menu-link.current,.theme-dark .localnav .localnav-menu-link.current:hover{color:hsla(0,0%,100%,.6)}.localnav-action-menucta{display:none}@media only screen and (max-width:767px){.localnav-action-menucta{display:block}}.localnav-menucta{margin-right:-11px;cursor:pointer;display:block;overflow:hidden;width:40px;height:48px;-webkit-tap-highlight-color:transparent}.localnav-menucta-chevron{position:relative;width:100%;height:100%;transform:translateY(16%)}.localnav-menucta-chevron,.localnav-menucta-chevron:after,.localnav-menucta-chevron:before{display:block;z-index:1;transition:transform 1s cubic-bezier(.86,0,.07,1),transform-origin 1s cubic-bezier(.86,0,.07,1)}.localnav-menucta-chevron:after,.localnav-menucta-chevron:before{content:"";position:absolute;top:50%;width:12px;height:1px}.localnav-menucta-chevron:before{right:50%}.localnav-menucta-chevron:after{left:50%}.localnav-menucta-chevron:after,.localnav-menucta-chevron:before{background:#333}.localnav-menucta-chevron:before{transform-origin:100% 100%;transform:rotate(40deg) scaleY(1.5)}.localnav-menucta-chevron:after{transform-origin:0 100%;transform:rotate(-40deg) scaleY(1.5)}.localnav-menustate:checked~.localnav .localnav-menucta-chevron,.localnav-menustate:target~.localnav .localnav-menucta-chevron{transform:translateY(0)}.localnav-menustate:checked~.localnav .localnav-menucta-chevron:before,.localnav-menustate:target~.localnav .localnav-menucta-chevron:before{transform-origin:100% 0;transform:rotate(-40deg) scaleY(1.5)}.localnav-menustate:checked~.localnav .localnav-menucta-chevron:after,.localnav-menustate:target~.localnav .localnav-menucta-chevron:after{transform-origin:0 0;transform:rotate(40deg) scaleY(1.5)}.localnav.localnav-hero .localnav-menucta-chevron:after,.localnav.localnav-hero .localnav-menucta-chevron:before{background:#fff}.localnav-hero.localnav.localnav-sticking .localnav-menucta-chevron:after,.localnav-hero.localnav.localnav-sticking .localnav-menucta-chevron:before,.localnav-menustate:checked~.localnav-hero.localnav .localnav-menucta-chevron:after,.localnav-menustate:checked~.localnav-hero.localnav .localnav-menucta-chevron:before,.localnav-menustate:target~.localnav-hero.localnav .localnav-menucta-chevron:after,.localnav-menustate:target~.localnav-hero.localnav .localnav-menucta-chevron:before{background:#333}.localnav-menustate:checked~.theme-dark.localnav .localnav-menucta-chevron:after,.localnav-menustate:checked~.theme-dark.localnav .localnav-menucta-chevron:before,.localnav-menustate:target~.theme-dark.localnav .localnav-menucta-chevron:after,.localnav-menustate:target~.theme-dark.localnav .localnav-menucta-chevron:before,.localnav.theme-dark .localnav-menucta-chevron:after,.localnav.theme-dark .localnav-menucta-chevron:before,.theme-dark .localnav-menustate:checked~.localnav .localnav-menucta-chevron:after,.theme-dark .localnav-menustate:checked~.localnav .localnav-menucta-chevron:before,.theme-dark .localnav-menustate:target~.localnav .localnav-menucta-chevron:after,.theme-dark .localnav-menustate:target~.localnav .localnav-menucta-chevron:before,.theme-dark .localnav .localnav-menucta-chevron:after,.theme-dark .localnav .localnav-menucta-chevron:before,.theme-dark.localnav.localnav-sticking .localnav-menucta-chevron:after,.theme-dark .localnav.localnav-sticking .localnav-menucta-chevron:after,.theme-dark.localnav.localnav-sticking .localnav-menucta-chevron:before,.theme-dark .localnav.localnav-sticking .localnav-menucta-chevron:before{background:#fff}.localnav-menucta-anchor{display:none;position:absolute;top:0;left:0;width:1px;height:1px;z-index:10}.localnav-menucta-anchor:focus{outline-offset:-6px;width:100%;height:100%}.localnav-menucta-anchor-close{display:none}.localnav-menucta-anchor-label{position:absolute;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(0 0 99.9% 99.9%);overflow:hidden;height:1px;width:1px;padding:0;border:0}@media only screen and (max-width:767px){.localnav-menucta-anchor{display:block}}.localnav-menustate:checked~.localnav .localnav-menucta-anchor-open,.localnav-menustate:target~.localnav .localnav-menucta-anchor-open{display:none}.localnav-menustate:checked~.localnav .localnav-menucta-anchor-close,.localnav-menustate:target~.localnav .localnav-menucta-anchor-close{display:block}.localnav-title{font-size:24px;line-height:2.125;font-weight:500;letter-spacing:.015em;font-family:SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;cursor:default;display:block;float:left;margin:0;padding:0;height:52px;white-space:nowrap}.localnav-title:lang(ar){font-family:SF Pro AR,SF Pro Gulf,SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(ja){font-family:SF Pro JP,SF Pro Display,SF Pro Icons,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,\\30E1\30A4\30EA\30AA,Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(ko){font-family:SF Pro KR,SF Pro Display,SF Pro Icons,Apple Gothic,HY Gulim,MalgunGothic,HY Dotum,Lexi Gulim,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(th){font-family:SF Pro TH,SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(zh-CN){font-family:SF Pro SC,SF Pro Display,SF Pro Icons,PingFang SC,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(zh-HK){font-family:SF Pro HK,SF Pro Display,SF Pro Icons,PingFang HK,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(zh-MO),.localnav-title:lang(zh-TW){font-family:SF Pro TC,SF Pro Display,SF Pro Icons,PingFang TC,Helvetica Neue,Helvetica,Arial,sans-serif}@media only screen and (max-width:767px){.localnav-title{font-size:20px;line-height:2;font-weight:500;letter-spacing:.017em;font-family:SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(ar){font-family:SF Pro AR,SF Pro Gulf,SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(ja){font-family:SF Pro JP,SF Pro Display,SF Pro Icons,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,\\30E1\30A4\30EA\30AA,Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(ko){font-family:SF Pro KR,SF Pro Display,SF Pro Icons,Apple Gothic,HY Gulim,MalgunGothic,HY Dotum,Lexi Gulim,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(th){font-family:SF Pro TH,SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(zh-CN){font-family:SF Pro SC,SF Pro Display,SF Pro Icons,PingFang SC,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(zh-HK){font-family:SF Pro HK,SF Pro Display,SF Pro Icons,PingFang HK,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title:lang(zh-MO),.localnav-title:lang(zh-TW){font-family:SF Pro TC,SF Pro Display,SF Pro Icons,PingFang TC,Helvetica Neue,Helvetica,Arial,sans-serif}}@media only screen and (max-width:767px){.localnav-title{display:inline-block;line-height:48px;height:48px}}.localnav-title a{display:inline-block;line-height:1;margin:0;white-space:nowrap;vertical-align:middle}.localnav-title a,.localnav-title a:hover{text-decoration:none}.localnav-title,.localnav-title a{color:#333;transition:color .5s cubic-bezier(.28,.11,.32,1)}.localnav.localnav-hero .localnav-title,.localnav.localnav-hero .localnav-title a{color:#fff}.localnav-hero.localnav.localnav-sticking .localnav-title,.localnav-hero.localnav.localnav-sticking .localnav-title a,.localnav-menustate:checked~.localnav-hero.localnav .localnav-title,.localnav-menustate:checked~.localnav-hero.localnav .localnav-title a,.localnav-menustate:target~.localnav-hero.localnav .localnav-title,.localnav-menustate:target~.localnav-hero.localnav .localnav-title a{color:#333}.localnav-menustate:checked~.theme-dark.localnav .localnav-title,.localnav-menustate:checked~.theme-dark.localnav .localnav-title a,.localnav-menustate:target~.theme-dark.localnav .localnav-title,.localnav-menustate:target~.theme-dark.localnav .localnav-title a,.localnav.theme-dark .localnav-title,.localnav.theme-dark .localnav-title a,.theme-dark .localnav-menustate:checked~.localnav .localnav-title,.theme-dark .localnav-menustate:checked~.localnav .localnav-title a,.theme-dark .localnav-menustate:target~.localnav .localnav-title,.theme-dark .localnav-menustate:target~.localnav .localnav-title a,.theme-dark.localnav.localnav-sticking .localnav-title,.theme-dark .localnav.localnav-sticking .localnav-title,.theme-dark.localnav.localnav-sticking .localnav-title a,.theme-dark .localnav.localnav-sticking .localnav-title a,.theme-dark .localnav .localnav-title,.theme-dark .localnav .localnav-title a{color:#fff}.localnav-title-comingsoon,.localnav-title-subhead{font-size:17px;line-height:1;font-weight:500;letter-spacing:-.021em;font-family:SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(ar),.localnav-title-subhead:lang(ar){letter-spacing:0;font-family:SF Pro AR,SF Pro Gulf,SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(ja),.localnav-title-subhead:lang(ja){letter-spacing:0;font-family:SF Pro JP,SF Pro Text,SF Pro Icons,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,\\30E1\30A4\30EA\30AA,Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(ko),.localnav-title-subhead:lang(ko){letter-spacing:0;font-family:SF Pro KR,SF Pro Text,SF Pro Icons,Apple Gothic,HY Gulim,MalgunGothic,HY Dotum,Lexi Gulim,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(th),.localnav-title-subhead:lang(th){letter-spacing:0;font-family:SF Pro TH,SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(zh),.localnav-title-subhead:lang(zh){letter-spacing:0}.localnav-title-comingsoon:lang(zh-CN),.localnav-title-subhead:lang(zh-CN){font-family:SF Pro SC,SF Pro Text,SF Pro Icons,PingFang SC,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(zh-HK),.localnav-title-subhead:lang(zh-HK){font-family:SF Pro HK,SF Pro Text,SF Pro Icons,PingFang HK,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(zh-MO),.localnav-title-comingsoon:lang(zh-TW),.localnav-title-subhead:lang(zh-MO),.localnav-title-subhead:lang(zh-TW){font-family:SF Pro TC,SF Pro Text,SF Pro Icons,PingFang TC,Helvetica Neue,Helvetica,Arial,sans-serif}@media only screen and (max-width:767px){.localnav-title-comingsoon,.localnav-title-subhead{font-size:14px;line-height:1;font-weight:500;letter-spacing:-.01em;font-family:SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(ar),.localnav-title-subhead:lang(ar){letter-spacing:0;font-family:SF Pro AR,SF Pro Gulf,SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(ja),.localnav-title-subhead:lang(ja){letter-spacing:0;font-family:SF Pro JP,SF Pro Text,SF Pro Icons,Hiragino Kaku Gothic Pro,\\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3,\\30E1\30A4\30EA\30AA,Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(ko),.localnav-title-subhead:lang(ko){letter-spacing:0;font-family:SF Pro KR,SF Pro Text,SF Pro Icons,Apple Gothic,HY Gulim,MalgunGothic,HY Dotum,Lexi Gulim,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(th),.localnav-title-subhead:lang(th){letter-spacing:0;font-family:SF Pro TH,SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(zh),.localnav-title-subhead:lang(zh){letter-spacing:0}.localnav-title-comingsoon:lang(zh-CN),.localnav-title-subhead:lang(zh-CN){font-family:SF Pro SC,SF Pro Text,SF Pro Icons,PingFang SC,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(zh-HK),.localnav-title-subhead:lang(zh-HK){font-family:SF Pro HK,SF Pro Text,SF Pro Icons,PingFang HK,Helvetica Neue,Helvetica,Arial,sans-serif}.localnav-title-comingsoon:lang(zh-MO),.localnav-title-comingsoon:lang(zh-TW),.localnav-title-subhead:lang(zh-MO),.localnav-title-subhead:lang(zh-TW){font-family:SF Pro TC,SF Pro Text,SF Pro Icons,PingFang TC,Helvetica Neue,Helvetica,Arial,sans-serif}}.localnav-title-comingsoon{opacity:.6}.form-alert{font-size:17px;line-height:1.29412;font-weight:400;letter-spacing:-.021em;font-family:SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;background-color:hsla(0,0%,95%,.4);background-clip:padding-box;border:1px solid #e3e3e3;border-radius:4px;padding:12px 17px 14px;margin-bottom:20px;margin-top:20px}
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ var data = {
+ showHelpFulfeedBack: true,
+ isPreview : false,
+ showPricingTool: false,
+ podCookie: "us~en",
+ dtmPageName: "acs.pageload",
+ locale: "en_US",
+ id: "111850",
+ contentType: "SP",
+ domain: "support.apple.com",
+ isNeighborJsEnabled: true,
+ isOkapiEnabled: false,
+ showPricingServiceTypeDropdown: false,
+ showPricingProductDropdown:true,
+ showPricingModelDropdown:false,
+ urlLocale: "en-us",
+ pricingProductId:"",
+ pricingServiceItemId:"",
+ supportCategory: "",
+ showRecommendation : false,
+ configApiURL : "https://support.apple.com/ols/api/config",
+ isSecureEnv : false,
+ contentDropdownSelectedOption: "",
+ isOberonContent: false,
+ enableAskAppleChat: false,
+ akamaiEdgeScapeURL: "https://support.apple.com/edge-sight",
+ useragentMapping: '{"iPhone":"TAG_1737644162638","Apple Watch":"TAG_1737643896544","PC":"TAG_1737644311532","OOW":"TAG_1745358088483","iPad":"TAG_1737644106898","iPod":"TAG_1737644228957","Apple TV":"TAG_1737643830588","AC_PLUS":"TAG_1745358198570","Mac":"TAG_1737644273189","Android":"TAG_1737643675337","HomePod":"TAG_1737644014443","Vision Pro":"TAG_1737644346859"}'
+ }
+ //for launch - video tracking
+ 
+ window.appState = JSON.stringify(data);
+ 
+
+ 
+
+ 
+
+ 
+ 
+ .videoComponentContainer > a.videoComponent{
+ pointer-events: none;
+ }
+ .videoComponentContainer > a.videoComponent .thumbnail-button{
+ display: none;
+ }
+ 
+ 
+ 
+ const _siteSection = "kb";
+ var _applemd = {
+ page: {
+ 
+ site_section: _siteSection,
+ 
+ content_type: "sp",
+ info_type: "",
+ topics: "",
+ in_house: "",
+ locale: "en-us",
+ 
+ friendly_content: {
+ title: `iPhone 14 - Tech Specs`,
+ publish_date: "",
+ 
+ content_id: "111850",
+ status: "unarchived",
+ version: "8.0.0.0"
+ 
+ },
+ 
+ testandtarget:{
+ throttle:"0.0" 
+ },
+ 
+ 
+ },
+ 
+ product: {
+ list: []
+ }
+ 
+ };
+ const isMobilePlayer = /iPhone|iPod|Android/i.test(navigator.userAgent);
+ 
+
+ 
+ 
+
+ 
+ var neighborInitData = {
+ appDataSchemaVersion: '2.0.0',
+ webVitalDataThrottlingPercentage: 100,
+ reportThrottledWebVitalDataTypes: ['system:dom-content-loaded', 'system:load', 'system:unfocus', 'system:focus', 'system:unload', 'system:page-hide', 'system:visibility-change-visible', 'system:visibility-change-hidden', 'system:event', 'app:load', 'app:unload', 'app:event'],
+ trackMarcomSearch: true,
+ trackSurvey: true,
+ 
+ endpoint: 'https://supportmetrics.apple.com/content/services/stats'
+ }
+
+ 
+
+ 
+
+ 
+ 
+ .videoComponentContainer > a.videoComponent{
+ pointer-events: unset;
+ }
+ .videoComponentContainer > a.videoComponent .thumbnail-button{
+ display: unset;
+ }
+ 
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+Apple
+Store
+Mac
+iPad
+iPhone
+Watch
+
+Vision
+AirPods
+TV &amp; Home
+Entertainment
+Accessories
+Support
+
+0+
+{"props":{"globalNavData":{"locale":"en_US","ariaLabel":"Global","analyticsAttributes":[{"name":"data-analytics-activitymap-region-id","value":"global nav"},{"name":"data-analytics-region","value":"global nav"}],"links":[{"id":"2758e8127e4ab787ae4e849277f79b83b3522719ae4b96a595421e50ea2d03f7","name":"apple","text":"Apple","url":"/","ariaLabel":"Apple","submenuAriaLabel":"Apple menu","images":[{"name":"regular","assetInline":""},{"name":"compact","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"apple home"}]},{"id":"ad4a2a26eb4836393385e9f6c61b526b4a3cb31409c5ed8730ce7a704dd7132f","name":"store","text":"Store","url":"/us/shop/goto/store","ariaLabel":"Store","submenuAriaLabel":"Store menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"store"},{"name":"data-analytics-element-engagement","value":"hover - store"}]},{"id":"9a82f08a3cc17e59a61372a40e7ecb17783e9c10aef163465f29bb5b00d4725a","name":"mac","text":"Mac","url":"/mac/","ariaLabel":"Mac","submenuAriaLabel":"Mac menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"mac"},{"name":"data-analytics-element-engagement","value":"hover - mac"}]},{"id":"00948525be55e5a61fc12335c2fe8fbc94664d6237757d79344cadd205bde991","name":"ipad","text":"iPad","url":"/ipad/","ariaLabel":"iPad","submenuAriaLabel":"iPad menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"ipad"},{"name":"data-analytics-element-engagement","value":"hover - ipad"}]},{"id":"254873a73c00038209d1c486273a47e092f598ac6df39eaa74322285d69c22d6","name":"iphone","text":"iPhone","url":"/iphone/","ariaLabel":"iPhone","submenuAriaLabel":"iPhone menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"iphone"},{"name":"data-analytics-element-engagement","value":"hover - iphone"}]},{"id":"53df160ebeaf43e20199b03d483006c3d35b44cc88b0fc6ad48af0114776e209","name":"watch","text":"Watch","url":"/watch/","ariaLabel":"Watch","submenuAriaLabel":"Watch menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"watch"},{"name":"data-analytics-element-engagement","value":"hover - watch"}]},{"id":"b605ab234f32c76b9d586469b3201bde23eb3c09e73007566a1ab8ee6a3fb8e4","name":"vision","text":"Vision","url":"/apple-vision-pro/","ariaLabel":"Vision","submenuAriaLabel":"Vision menu","images":[{"name":"regular","assetInline":"\n"}],"analyticsAttributes":[{"name":"data-analytics-title","value":"vision"},{"name":"data-analytics-element-engagement","value":"hover - vision"}]},{"id":"43b376b005d0715028ef96e1ca418805056f15d9b10456f5139d4e361450b048","name":"airpods","text":"AirPods","url":"/airpods/","ariaLabel":"AirPods","submenuAriaLabel":"AirPods menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"airpods"},{"name":"data-analytics-element-engagement","value":"hover - airpods"}]},{"id":"88973494415bba4821f7311af3edeaf1e71fbc36382664e2b7f6e313fb356e06","name":"tv-home","text":"TV & Home","url":"/tv-home/","ariaLabel":"TV and Home","submenuAriaLabel":"TV and Home menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"tv & home"},{"name":"data-analytics-element-engagement","value":"hover - tv & home"}]},{"id":"be3677bd24a8b7fb6f4dd14ddc77c350b5b7ba5b8e5ae63e9cbaf717a0533237","name":"entertainment","text":"Entertainment","url":"/entertainment/","ariaLabel":"Entertainment","submenuAriaLabel":"Entertainment menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"entertainment"},{"name":"data-analytics-element-engagement","value":"hover - entertainment"}]},{"id":"fd83bca7a55944f57ac7196504a29bdb8d2358f441cbd4d34ebd74a12eb0157c","name":"accessories","text":"Accessories","url":"/us/shop/goto/buy_accessories","ariaLabel":"Accessories","submenuAriaLabel":"Accessories menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"accessories"},{"name":"data-analytics-element-engagement","value":"hover - accessories"}]},{"id":"561bd1ac8baed0db4c73be831d80363608dd831c84487f80535ef4b6a0f65957","name":"support","text":"Support","url":"https://support.apple.com/?cid=gn-ols-home-hp-tab","ariaLabel":"Support","submenuAriaLabel":"Support menu","images":[{"name":"regular","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"support"},{"name":"data-analytics-element-engagement","value":"hover - support"},{"name":"data-analytics-exit-link","value":"true"}]}],"bag":{"analyticsAttributes":[{"name":"data-analytics-region","value":"bag"}],"open":{"url":"/us/shop/goto/bag","images":[{"name":"regular","assetInline":""},{"name":"compact","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-title","value":"open - bag"}],"ariaLabel":"Shopping Bag"},"close":{"analyticsAttributes":[{"name":"data-analytics-click","value":"prop3:close - bag"},{"name":"data-analytics-title","value":"close - bag"}],"ariaLabel":"Close"},"badge":{"ariaLabel":"Shopping Bag with item count : {%BAGITEMCOUNT%}"},"storeApiUrl":"/[storefront]/shop/bag/status"},"search":{"analyticsAttributes":[{"name":"data-analytics-region","value":"search"}],"open":{"url":"/us/search","images":[{"name":"regular","assetInline":"\n\n\n"},{"name":"compact","assetInline":""}],"ariaLabel":"Search apple.com","analyticsAttributes":[{"name":"data-analytics-title","value":"open - search field"}]},"close":{"ariaLabel":"Close"},"input":{"placeholderTextRegular":"Search apple.com","placeholderTextCompact":"Search","ariaLabel":"Search apple.com"},"submit":{"images":[{"name":"regular","assetInline":""},{"name":"compact","assetInline":""}],"ariaLabel":"Submit search"},"reset":{"images":[{"name":"regular","assetInline":""},{"name":"compact","assetInline":""}],"ariaLabel":"Clear search"},"results":{"ariaLabel":"total results"},"defaultLinks":{"title":"Quick Links","images":[{"name":"regular","assetInline":""},{"name":"compact","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-region","value":"defaultlinks search"}]},"defaultLinksApiUrl":"/search-services/suggestions/defaultlinks/","suggestedLinks":{"title":"Suggested Links","images":[{"name":"regular","assetInline":""},{"name":"compact","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-region","value":"suggested links"}]},"suggestedSearches":{"title":"Suggested Searches","images":[{"name":"regular","assetInline":""},{"name":"compact","assetInline":""}],"analyticsAttributes":[{"name":"data-analytics-region","value":"suggested search"}]},"suggestionsApiUrl":"/search-services/suggestions/"},"segmentbar":{"dataStrings":{"view":"{%STOREFRONT%} Store Home","exit":"Exit","segments":{"smb":"Business Store Home","eduInd":"Education Store Home","other":"Store Home"}}},"menu":{"open":{"ariaLabel":"Menu"},"close":{"ariaLabel":"Close"},"back":{"ariaLabel":"Main menu","images":[{"name":"compact","assetInline":""}]}},"submenu":{"open":{"images":[{"name":"regular","assetInline":""},{"name":"compact","assetInline":""}]}},"hasAbsoluteUrls":true,"hasShopRedirectUrls":false,"analyticsType":"support","storeApiKey":"","wwwDomain":"www.apple.com","textDirection":"ltr","searchUrlPath":"/us/search","storeRootPath":"/us","storeUrlPath":"/us","submenuApiUrl":"https://www.apple.com/api-www/global-elements/global-header/v1/flyouts"},"config":{"version":"ac-globalheader-18-20260410-214409"}}}
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ Documentation
+ 
+ 
+ 
+ 
+ Open Menu
+ 
+ 
+ Close Menu
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+iPhone 14 - Tech Specs
+Year introduced : 2022
+Identify your iPhone model
+Finish
+Midnight
+Purple
+Starlight
+(PRODUCT)RED
+Blue
+Yellow
+Ceramic Shield front, Glass back and aluminum design
+Capacity1
+128GB
+256GB
+512GB
+Size and Weight2
+Width: 2.82 inches (71.5 mm)
+Height: 5.78 inches (146.7 mm)
+Depth: 0.31 inch (7.80 mm)
+Weight: 6.07 ounces (172 grams)
+Display
+Super Retina XDR display
+6.1‑inch (diagonal) all‑screen OLED display
+2532‑by‑1170-pixel resolution at 460 ppi
+HDR display
+True Tone
+Wide color (P3)
+Haptic Touch
+2,000,000:1 contrast ratio (typical)
+800 nits max brightness (typical); 1200 nits peak brightness (HDR)
+Fingerprint-resistant oleophobic coating
+Support for display of multiple languages and characters simultaneously
+The iPhone 14 display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape, the screen is 6.06 inches diagonally (actual viewable area is less).
+Splash, Water, and Dust Resistant3
+Rated IP68 (maximum depth of 6 meters up to 30 minutes) under IEC standard 60529
+Chip
+A15 Bionic chip
+6‑core CPU with 2 performance and 4 efficiency cores
+5‑core GPU
+16‑core Neural Engine
+Camera
+Dual-camera system
+12MP Main: 26 mm, &fnof;/1.5 aperture, sensor‑shift optical image stabilization, 100% Focus Pixels
+12MP Ultra Wide: 13 mm, &fnof;/2.4 aperture and 120&deg; field of view
+2x optical zoom out; digital zoom up to 5x
+Sapphire crystal lens cover
+True Tone flash
+Photonic Engine
+Deep Fusion
+Smart HDR 4
+Portrait mode with Focus and Depth Control
+Portrait Lighting with six effects
+Night mode
+Panorama (up to 63MP)
+Photographic Styles
+Wide color capture for photos and Live Photos
+Lens correction (Ultra Wide)
+Advanced red‑eye correction
+Auto image stabilization
+Burst mode
+Photo geotagging
+Image formats captured: HEIF and JPEG
+Video Recording
+4K Dolby Vision video recording at 24 fps, 25 fps, 30 fps, or 60 fps
+1080p HD video recording at 25 fps, 30 fps, or 60 fps
+720p HD video recording at 30 fps
+Cinematic mode up to 4K HDR at 30 fps
+Action mode up to 2.8K at 60 fps
+HDR video recording with Dolby Vision up to 4K at 60 fps
+Slo‑mo video support for 1080p at 120 fps or 240 fps
+Time‑lapse video with stabilization
+Night mode Time-lapse
+QuickTake video
+Sensor-shift optical image stabilization for video (Main)
+2x optical zoom out
+Digital zoom up to 3x
+Audio zoom
+True Tone flash
+Cinematic video stabilization (4K, 1080p, and 720p)
+Continuous autofocus video
+Take 8MP still photos while recording 4K video
+Playback zoom
+Video formats recorded: HEVC and H.264
+Stereo recording
+TrueDepth Camera
+12MP camera
+&fnof;/1.9 aperture
+Autofocus with Focus Pixels
+Retina Flash
+Photonic Engine
+Deep Fusion
+Smart HDR 4
+Portrait mode with Focus and Depth Control
+Portrait Lighting with six effects
+Animoji and Memoji
+Night mode
+Photographic Styles
+Wide color capture for photos and Live Photos
+Lens correction
+Auto image stabilization
+Burst mode
+4K Dolby Vision video recording at 24 fps, 25 fps, 30 fps, or 60 fps
+1080p HD video recording at 25 fps, 30 fps, or 60 fps
+Cinematic mode up to 4K HDR at 30 fps
+HDR video recording with Dolby Vision up to 4K at 60 fps
+Slo-mo video support for 1080p at 120 fps
+Time‑lapse video with stabilization
+Night mode Time-lapse
+QuickTake video
+Cinematic video stabilization (4K, 1080p, and 720p)
+Face ID
+Enabled by TrueDepth camera for facial recognition
+Apple Pay
+Pay with your iPhone using Face ID in stores, within apps, and on the web
+Send and receive money in Messages with Apple Cash4
+Complete purchases made with Apple Pay on your Mac
+Pay for your ride using Express Transit5
+Learn more about Apple Pay
+Learn more about Apple Cash
+Peace of Mind
+Emergency SOS via satellite6
+Crash Detection7
+Roadside Assistance via satellite6
+Messages via satellite6
+Find&nbsp;My via satellite6
+Cellular and Wireless
+Model A2649* Model A2632*
+5G NR (Bands n1, n2, n3, n5, n7, n8, n12, n14, n20, n25, n26, n28, n29, n30, n38, n40, n41, n48, n53, n66, n70, n71, n77, n78, n79)
+5G NR mmWave (Bands n258, n260, n261)
+FDD‑LTE (Bands 1, 2, 3, 4, 5, 7, 8, 12, 13, 14, 17, 18, 19, 20, 25, 26, 28, 29, 30, 32, 66, 71)
+TD‑LTE (Bands 34, 38, 39, 40, 41, 42, 46, 48, 53)
+UMTS/HSPA+/DC-HSDPA (850, 900, 1700/2100, 1900, 2100 MHz)
+GSM/EDGE (850, 900, 1800, 1900 MHz)
+All models
+5G (sub‑6 GHz and mmWave) with 4x4 MIMO8
+Gigabit LTE with 4x4 MIMO and LAA8
+Wi‑Fi 6 (802.11ax) with 2x2 MIMO
+Bluetooth 5.3
+Ultra Wideband chip for spatial awareness9
+NFC with reader mode
+Express Cards with power reserve
+For details on 5G and LTE support, contact your carrier and see apple.com/iphone/cellular.
+Location
+GPS, GLONASS, Galileo, QZSS, and BeiDou
+Digital compass
+Wi‑Fi
+Cellular
+iBeacon microlocation
+Video Calling10
+FaceTime video calling over cellular or Wi‑Fi
+FaceTime HD (1080p) video calling over 5G or Wi-Fi
+Share experiences like movies, TV, music, and other apps in a FaceTime call with SharePlay
+Screen sharing
+Portrait mode in FaceTime video
+Spatial Audio
+Voice Isolation and Wide Spectrum microphone modes
+Zoom with rear-facing camera
+Audio Calling10
+FaceTime audio
+Voice over LTE (VoLTE)8
+Wi‑Fi calling8
+Share experiences like movies, TV, music, and other apps in a FaceTime call with SharePlay
+Screen sharing
+Spatial Audio
+Voice Isolation and Wide Spectrum microphone modes
+Audio Playback
+Supported formats include AAC, MP3, Apple Lossless, FLAC, Dolby Digital, Dolby Digital Plus, and Dolby Atmos
+Spatial Audio playback
+User‑configurable maximum volume limit
+Video Playback
+Supported formats include HEVC, H.264, and ProRes
+HDR with Dolby Vision, HDR10+/HDR10, and&nbsp;HLG
+Up to 4K HDR AirPlay for mirroring, photos, and video out to Apple TV (2nd generation or later) or AirPlay‑enabled smart TV
+Video mirroring and video out support: Up to 1080p through Lightning Digital AV Adapter and Lightning to VGA Adapter (adapters sold separately)11
+Siri12
+Get help with everyday tasks like sending messages, setting reminders, and&nbsp;more
+Activate hands‑free with only your voice using &rdquo;Siri&rdquo; or &ldquo;Hey&nbsp;Siri&rdquo;
+Protected by the strongest privacy of any intelligent assistant
+Learn more about Siri
+External Buttons and Connectors
+Front camera
+Side button
+Lightning connector
+SIM tray (available on models purchased outside the U.S.)
+Volume buttons
+Ring/Silent switch
+Rear cameras
+Flash
+Power and Battery13
+Video playback: Up to 20 hours
+Video playback (streamed): Up to 16 hours
+Audio playback: Up to 80 hours
+Built-in rechargeable lithium-ion battery
+MagSafe wireless charging up to 15W14
+Qi wireless charging up to 7.5W14
+Fast-charge capable: Up to 50% charge in around 30 minutes15 with 20W adapter or higher paired with USB-C charging cable (available separately)
+MagSafe
+Wireless charging up to 15W14
+Magnet array
+Alignment magnet
+Accessory Identification NFC
+Magnetometer
+Sensors
+Face ID
+Barometer
+High dynamic range gyro
+High-g accelerometer
+Proximity sensor
+Dual ambient light sensors
+Operating System
+iOS
+iOS is the world&rsquo;s most personal and secure mobile operating system, packed with powerful features and designed to protect your privacy.
+See what&rsquo;s new in iOS
+iPhone User Guide
+Accessibility
+Built-in accessibility features supporting vision, mobility, hearing, speech, and cognitive needs help you get the most out of your iPhone &mdash; in the ways that work best for you.
+Learn more about Accessibility
+Features include:
+VoiceOver
+Zoom
+Magnifier
+Voice Control
+Switch Control
+AssistiveTouch
+Eye Tracking
+RTT and TTY support
+Closed Captions
+Live Captions
+Personal Voice
+Live Speech
+Type to Siri
+Vocal Shortcuts
+Spoken Content
+Built-in Apps
+Apple Store
+App Store
+Books
+Calculator
+Calendar
+Camera
+Clips
+Clock
+Compass
+Contacts
+FaceTime
+Files
+Find My
+Fitness
+Freeform
+GarageBand
+Health
+Home
+iMovie
+iTunes Store
+Keynote
+Magnifier
+Mail
+Maps
+Measure
+Messages
+Music
+News
+Notes
+Numbers
+Pages
+Passwords
+Phone
+Photos
+Podcasts
+Reminders
+Safari
+Settings
+Shortcuts
+Stocks
+Tips
+Translate
+TV
+Voice Memos
+Wallet
+Watch
+Weather
+For a complete list of Apple apps available on iPhone, see apple.com/apps.
+SIM Card
+Dual eSIM (two active eSIMs; stores eight or more eSIMs)16
+iPhone 14 and iPhone 14 Plus use eSIM technology and are not compatible with physical SIM cards.
+Learn more about eSIM on iPhone.
+Learn more about traveling with eSIM
+Rating for Hearing Aids
+Hearing Aid Compatible
+Mail Attachment Support
+Viewable document types
+.jpg, .tiff, .gif (images); .doc and .docx (Microsoft Word); .htm and .html (web pages); .key (Keynote); .numbers (Numbers); .pages (Pages); .pdf (Preview and Adobe Acrobat); .ppt and .pptx (Microsoft PowerPoint); .txt (text); .rtf (rich text format); .vcf (contact information); .xls and .xlsx (Microsoft Excel); .zip; .ics; .usdz (USDZ Universal)
+System Requirements
+Apple&nbsp;Account (required for some features)
+Internet access17
+Syncing to a Mac or PC requires:
+macOS Catalina 10.15 or later using the Finder
+macOS High Sierra 10.13 through macOS Mojave 10.14.6 using iTunes 12.8 or later
+Windows 10 or later using iTunes 12.12.10 or later (free download from apple.com/itunes/download)
+Environmental Requirements
+Operating ambient temperature: 32&deg; to 95&deg; F (0&deg; to 35&deg; C)
+Nonoperating temperature: &minus;4&deg; to 113&deg; F (&minus;20&deg; to 45&deg; C)
+Relative humidity: 5% to 95% noncondensing
+Operating altitude: tested up to 10,000 feet (3000 m)
+Languages
+Language support
+English (Australia, UK, U.S.), Chinese (Simplified, Traditional, Traditional &ndash; Hong Kong), French (Canada, France), German, Italian, Japanese, Korean, Spanish (Latin America, Spain), Arabic, Bulgarian, Catalan, Croatian, Czech, Danish, Dutch, Finnish, Greek, Hebrew, Hindi, Hungarian, Indonesian, Kazakh, Malay, Norwegian, Polish, Portuguese (Brazil, Portugal), Romanian, Russian, Slovak, Swedish, Thai, Turkish, Ukrainian, Vietnamese
+QuickType keyboard support
+English (Australia, Canada, India, Japan, New Zealand, Singapore, South Africa, UK, U.S.), Chinese &ndash; Simplified (Handwriting, Pinyin QWERTY, Pinyin 10-Key, Shuangpin, Stroke), Chinese &ndash; Traditional (Cangjie, Handwriting, Pinyin QWERTY, Pinyin 10-Key, Shuangpin, Stroke, Sucheng, Zhuyin), French (Belgium, Canada, France, Switzerland), German (Austria, Germany, Switzerland), Italian, Japanese (Kana, Romaji), Korean (2-Set, 10-Key), Spanish (Latin America, Mexico, Spain), Ainu, Albanian, Amharic, Apache (Western), Arabic, Arabic (Najdi), Armenian, Assamese, Assyrian, Azerbaijani, Bangla (Alphabetic, InScript, Transliteration), Belarusian, Bodo, Bulgarian, Burmese, Cantonese &ndash; Traditional (Cangjie, Handwriting, Phonetic, Stroke, Sucheng), Catalan, Cherokee, Croatian, Czech, Danish, Dhivehi, Dogri, Dutch, Dzongkha, Emoji, Estonian, Faroese, Filipino, Finnish, Flemish, Fula (Adlam), Georgian, Greek, Hawaiian, Hebrew, Hindi (Alphabetic, InScript, Transliteration), Hungarian, Icelandic, Igbo, Indonesian, Irish Gaelic, Kashmiri (Arabic, Devanagari), Kazakh, Khmer, Konkani (Devanagari), Kurdish (Arabic, Latin), Kyrgyz, Lao, Latvian, Lithuanian, Macedonian, Maithili, Malay (Arabic, Latin), Maltese, Manipuri (Bengali, Meetei Mayek), Māori, Mongolian, Navajo, Nepali, Norwegian (Bokm&aring;l, Nynorsk), Odia (Alphabetic, InScript), Pashto, Persian, Persian (Afghanistan), Polish, Portuguese (Brazil, Portugal), Punjabi (Alphabetic, InScript, QWERTY, Transliteration), Rohingya, Romanian, Russian, Samoan, Sanskrit, Santali (Devanagari, Ol Chiki), Serbian (Cyrillic, Latin), Sindhi (Arabic, Devanagari), Sinhala, Slovak, Slovenian, Swahili, Swedish, Tajik, Tamil (Anjal, Tamil 99, Transliteration), Telugu (Alphabetic, InScript, QWERTY, Transliteration), Thai, Tibetan, Tongan, Turkish, Turkmen, Ukrainian, Uyghur, Uzbek (Arabic, Cyrillic, Latin), Vietnamese (Telex, VIQR, VNI), Welsh, Yiddish, Akan, Chickasaw, Choctaw, Chuvash, Gujarati (Alphabetic, InScript, Transliteration), Hausa, Hmong (Pahawh), Ingush, Kabyle, Kannada (InScript, QWERTY, Transliteration), Liangshan Yi, Malayalam (Alphabetic, InScript, Transliteration), Mandaic, Marathi (InScript, QWERTY, Transliteration), Mi&rsquo;kmaw, N&rsquo;Ko, Osage, Rejang, Tamazight (Standard Moroccan), Wancho, Wolastoqey, Yoruba, Inari S&aacute;mi, Kildin S&aacute;mi, Lule S&aacute;mi, Lushootseed, Mvskoke, North S&aacute;mi, Pite S&aacute;mi, Skolt S&aacute;mi, South S&aacute;mi, Ume S&aacute;mi, Urdu (Alphabetic, QWERTY, Transliteration)
+QuickType keyboard support with autocorrection
+Arabic, Arabic (Najdi), Bangla (Alphabetic, InScript,Transliteration), Bulgarian, Catalan, Cherokee, Chinese &ndash; Simplified (Pinyin QWERTY), Chinese &ndash; Traditional (Pinyin QWERTY), Chinese &ndash; Traditional (Standard, Zhuyin-Grid), Croatian, Czech, Danish, Dutch, English (Australia, Canada, India, Japan, New Zealand, Singapore, South Africa, UK, U.S.), Estonian, Filipino, Finnish, Dutch (Belgium), French (Belgium), French (Canada), French (France), French (Switzerland), German (Austria), German (Germany), German (Switzerland), Greek, Gujarati (Alphabetic, InScript, Transliteration), Hawaiian, Hebrew, Hindi (Alphabetic, InScript, Transliteration), Hungarian, Icelandic, Indonesian, Irish Gaelic, Italian, Japanese (Kana), Japanese (Romaji), Korean (2-Set, 10-Key), Latvian, Lithuanian, Macedonian, Malay, Marathi (Alphabetic, InScript, Transliteration), Norwegian (Bokm&aring;l), Norwegian (Nynorsk), Persian, Persian (Afghanistan), Polish, Portuguese (Brazil), Portuguese (Portugal), Punjabi (Alphabetic, InScript, QWERTY, Transliteration), Romanian, Russian, Serbian (Cyrillic), Serbian (Latin), Slovak, Slovenian, Spanish (Latin America), Spanish (Mexico), Spanish (Spain), Swedish, Tamil (Alphabetic, Anjal, Tamil 99, Transliteration), Telugu, Thai, Turkish, Ukrainian, Urdu (Alphabetic, QWERTY, Transliteration), Vietnamese (Telex)
+QuickType keyboard support with predictive typing
+English (Australia, Canada, India, Japan, Singapore, South Africa, UK, U.S.), Chinese (Simplified, Traditional), French (Belgium, Canada, France, Switzerland), German (Austria, Germany, Switzerland), Italian, Japanese, Korean, Spanish (Latin America, Mexico, Spain), Arabic, Arabic (Najdi), Cantonese (Traditional), Dutch (Belgium, Netherlands), Hindi, Portuguese (Brazil, Portugal), Russian, Swedish, Thai, Turkish, Vietnamese, Hebrew, Polish, Romanian, Bangla, Czech, Danish, Gujarati, Greek, Icelandic, Indonesian, Lithuanian, Marathi, Norwegian (Bokm&aring;l, Nynorsk), Punjabi, Slovenian, Tamil, Telugu
+QuickType keyboard support with multilingual typing
+English (Australia, Canada, India, Japan, New Zealand, Singapore, South Africa, UK, U.S.), Chinese &ndash; Simplified (Pinyin), Chinese &ndash; Traditional (Pinyin), French (France), French (Belgium), French (Canada), French (Switzerland), German (Germany), German (Austria), German (Switzerland), Italian, Japanese (Romaji), Portuguese (Brazil), Portuguese (Portugal), Spanish (Spain), Spanish (Latin America), Spanish (Mexico), Dutch (Belgium), Dutch (Netherlands), Hindi (Latin), Vietnamese, Polish, Romanian, Turkish
+QuickType keyboard support with contextual suggestions
+English (Australia, Canada, India, Japan, New Zealand, Singapore, South Africa, UK, U.S.), Chinese (Simplified), French (Belgium), French (Canada), French (France), French (Switzerland), German (Austria), German (Germany), German (Switzerland), Italian, Spanish (Latin America), Spanish (Mexico), Spanish (Spain), Arabic, Arabic (Najdi), Dutch (Belgium), Dutch (Netherlands), Hindi (Devanagari), Hindi (Latin), Russian, Swedish, Portuguese (Brazil), Turkish, Vietnamese
+QuickType keyboard support with QuickPath
+English (Australia, Canada, India, Japan, New Zealand, Singapore, South Africa, UK, U.S.), Chinese (Simplified Pinyin QWERTY), Chinese (Traditional Pinyin QWERTY), French (Canada), French (France), French (Switzerland), German (Austria), German (Germany), German (Switzerland), Italian, Spanish (Latin America), Spanish (Mexico), Spanish (Spain), Portuguese (Brazil), Portuguese (Portugal), Dutch (Belgium), Dutch (Netherlands), Swedish, Vietnamese, Arabic, Hebrew, Korean, Polish, Romanian
+Siri languages
+English (Australia, Canada, India, Ireland, New Zealand, Singapore, South Africa, UK, U.S.), Spanish (Chile, Mexico, Spain, U.S.), French (Belgium, Canada, France, Switzerland), German (Austria, Germany, Switzerland), Italian (Italy, Switzerland), Japanese (Japan), Korean (Republic of Korea), Mandarin Chinese (China mainland, Taiwan), Cantonese (China mainland, Hong Kong), Arabic (Saudi Arabia, United Arab Emirates), Danish (Denmark), Dutch (Belgium, Netherlands), Finnish (Finland), Hebrew (Israel), Malay (Malaysia), Norwegian (Norway), Portuguese (Brazil), Russian (Russia), Swedish (Sweden), Thai (Thailand), Turkish (T&uuml;rkiye)
+Dictation languages
+English (Australia, Canada, India, Ireland, Malaysia, New Zealand, Philippines, Saudi Arabia, Singapore, South Africa, United Arab Emirates, UK, U.S.), Cantonese (China mainland, Hong Kong), Mandarin Chinese (China mainland, Taiwan), French (Belgium, Canada, France, Luxembourg, Switzerland), German (Austria, Germany, Switzerland), Italian (Italy, Switzerland), Japanese, Korean, Spanish (Chile, Colombia, Mexico, Spain, U.S.), Portuguese (Brazil, Portugal), Arabic (Kuwait, Qatar, Saudi Arabia, United Arab Emirates), Catalan, Croatian, Czech, Danish, Dutch (Belgium, Netherlands), Finnish, Greek, Hebrew, Hindi, Hungarian, Indonesian, Malay, Norwegian (Bokm&aring;l), Polish, Romanian, Russian, Shanghainese (China mainland), Slovak, Swedish, Thai, Turkish, Ukrainian, Vietnamese
+Monolingual dictionary support
+English (UK, U.S.), Chinese (Simplified, Traditional, Traditional &ndash; Hong Kong), Danish, Dutch, French, German, Hebrew, Hindi, Italian, Japanese, Korean, Norwegian, Portuguese, Russian, Spanish, Swedish, Thai, Turkish, Bulgarian, Catalan, Greek, Malay, Polish, Punjabi, Romanian
+Idiom dictionary support
+Simplified Chinese, Traditional Chinese &ndash; English, Cantonese &ndash; English
+Bilingual dictionary support
+Arabic &ndash; English, Bangla &ndash; English, Cantonese (Traditional) &ndash; English, Chinese (Simplified) &ndash; English, Chinese (Simplified) &ndash; Japanese, Croatian &ndash; English, Czech &ndash; English, Danish &ndash; English, Dutch &ndash; English, Finnish &ndash; English, French &ndash; English, French &ndash; German, German &ndash; English, Greek &ndash; English, Gujarati &ndash; English, Hindi &ndash; English, Hungarian &ndash; English, Indonesian &ndash; English, Italian &ndash; English, Japanese &ndash; English, Kannada &ndash; English, Kazakh &ndash; English, Korean &ndash; English, Malay &ndash; English, Malayalam &ndash; English, Norwegian &ndash; English, Polish &ndash; English, Portuguese &ndash; English, Punjabi &ndash; English, Russian &ndash; English, Slovak &ndash; English, Spanish &ndash; English, Swedish &ndash; English, Tamil &ndash; English, Telugu &ndash; English, Thai &ndash; English, Turkish &ndash; English, Ukrainian &ndash; English, Urdu &ndash; English, Vietnamese &ndash; English
+Thesaurus
+English (UK, U.S.), Chinese (Simplified)
+Spell check
+English (Australia, Canada, India, Japan, New Zealand, Singapore, South Africa, UK, U.S.), French (Belgium, Canada, France, Switzerland), German (Austria, Germany, Switzerland), Italian, Spanish (Latin America, Mexico, Spain), Arabic, Arabic (Najdi), Bulgarian, Czech, Danish, Dutch (Netherlands, Belgium), Finnish, Greek, Hindi (Devanagari), Hungarian, Irish Gaelic, Norwegian (Bokm&aring;l, Nynorsk), Polish, Portuguese (Brazil, Portugal), Punjabi, Romanian, Russian, Swedish, Telugu, Turkish, Vietnamese
+Apple Pay supported regions
+Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Belarus, Belgium, Brazil, Bulgaria, Canada, Chile, China mainland,20 Colombia, Costa Rica, Croatia, Cyprus, Czech Republic, Denmark, El Salvador, Estonia, Faroe Islands, Finland, France, Georgia, Germany, Greece, Greenland, Guatemala, Guernsey, Honduras, Hong Kong, Hungary, Iceland, Ireland, Isle of Man, Israel, Italy, Japan, Jersey, Jordan, Kazakhstan, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, Macao, Malaysia, Malta, Mexico, Moldova, Monaco, Montenegro, Morocco, Netherlands, New Zealand, Norway, Palestine, Panama, Peru, Poland, Portugal, Qatar, Romania, San Marino, Saudi Arabia, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sweden, Switzerland, Taiwan, UK, Ukraine, United Arab Emirates, U.S., Vatican City, Vietnam
+In the Box
+iPhone 14
+USB-C to Lightning Cable
+Documentation
+As part of our efforts to reach carbon neutrality by 2030, iPhone 14 and iPhone 14 Plus do not include a power adapter or EarPods. Included in the box is a USB‑C to Lightning Cable that supports fast charging and is compatible with USB‑C power adapters and computer ports.
+We encourage you to re‑use your current USB‑A to Lightning cables, power adapters, and headphones, which are compatible with these iPhone models. But if you need any new Apple power adapters or headphones, they are available for purchase.
+iPhone and the Environment
+iPhone 14 and iPhone 14 Plus are designed with the following features to reduce their environmental impact:19
+See the iPhone&nbsp;14 and iPhone&nbsp;14&nbsp;Plus Product Environmental Report&nbsp;(PDF)
+Made with better materials
+100% recycled gold in the wire of all cameras and the plating of multiple printed circuit boards
+100% recycled tungsten in the Taptic Engine, representing 100% of the tungsten in iPhone 14 Plus20 and 99% of the tungsten in iPhone 14
+100% recycled rare earth elements in all magnets, representing 100% of the rare earth elements in iPhone 1421 and 99% of the rare earth elements in iPhone 14 Plus
+100% recycled tin in the solder of multiple printed circuit boards
+35% or more recycled plastic in multiple components
+Energy efficient
+Meets U.S. Department of Energy requirements for battery charger systems22
+Smarter chemistry23
+Arsenic-free glass
+Mercury-, BFR-, PVC-, and beryllium-free
+Green manufacturing
+Apple&rsquo;s Zero Waste Program helps suppliers eliminate waste sent to landfill
+All final assembly supplier sites are transitioning to 100% renewable energy for Apple production
+Responsible packaging
+100% of virgin wood fiber comes from responsibly managed forests
+90% or more fiber-based packaging
+Apple and the Environment
+We&rsquo;re committed to making our products without taking from the earth, and to become carbon neutral across our entire business, including products, by 2030.
+See Apple&rsquo;s commitment
+* To identify your iPhone model number, see support.apple.com/kb/HT3939. For details on 5G and LTE support, contact your carrier and see apple.com/iphone/cellular. Cellular technology support is based on iPhone model number and configuration for GSM networks.
+Available space is less and varies due to many factors. A standard configuration uses approximately 12GB to 17GB of space, including iOS&nbsp;18 with its latest features and Apple apps that can be deleted. Apple apps that can be deleted use about 4.5GB of space, and you can download them back from the App&nbsp;Store. Storage capacity subject to change based on software version, settings, and iPhone model.
+Size and weight vary by configuration and manufacturing process.
+iPhone 14 and iPhone 14 Plus are splash, water, and dust resistant and were tested under controlled laboratory conditions with a rating of IP68 under IEC standard 60529 (maximum depth of 6 meters up to 30 minutes). Splash, water, and dust resistance are not permanent conditions. Resistance might decrease as a result of normal wear. Do not attempt to charge a wet iPhone; refer to the user guide for cleaning and drying instructions. Liquid damage not covered under warranty.
+Apple&nbsp;Cash services are provided by Green&nbsp;Dot&nbsp;Bank, Member FDIC. Apple&nbsp;Payments Services LLC, a subsidiary of Apple&nbsp;Inc., is a service provider of Green&nbsp;Dot&nbsp;Bank for Apple&nbsp;Cash accounts. Neither Apple&nbsp;Inc. nor Apple&nbsp;Payments Services LLC is a bank. Learn more about the Terms&nbsp;and&nbsp;Conditions. Only available in the U.S. on eligible devices. To send and receive money with an Apple&nbsp;Cash account, you must be 18 and a U.S. resident. If you&rsquo;re under 18, your family organizer can set up Apple&nbsp;Cash for you as part of their Apple&nbsp;Cash&nbsp;Family account, but you may not be able to access features that require a supported payment card. Security checks may require more time to make funds available. Apple&nbsp;Cash&nbsp;Family accounts can only send or receive up to $2000 within a rolling seven-day period. Tap to Cash transactions can only be used to send or receive up to $2000 within a rolling seven-day period. Other limits apply, see Terms&nbsp;and&nbsp;Conditions for details. To access and use all Apple&nbsp;Cash features, you must have an eligible device with Wallet that has the latest version of&nbsp;iOS.
+Available only in select cities and transit systems. Requires eligible device and OS version. See here for details.
+Roadside Assistance, Emergency SOS, and Messages via satellite are included for free for two years with the activation of any iPhone&nbsp;14 or later model. Connection and response times vary based on location, site conditions, and other factors. Messages via satellite requires a carrier plan. SMS messaging via satellite is available on supported carriers. SMS message rates may apply. See support.apple.com/kb/HT213885 for more&nbsp;information.
+iPhone 14 and iPhone 14 Pro can detect a severe car crash and call for help. Requires a cellular connection or Wi‑Fi calling.
+Data plan required. 5G, Gigabit LTE, VoLTE, and Wi-Fi calling are available in select markets and through select carriers. Speeds are based on theoretical throughput and vary based on site conditions and carrier. For details on 5G and LTE support, contact your carrier and see apple.com/iphone/cellular.
+Ultra Wideband availability varies by region.
+FaceTime calling requires a FaceTime‑enabled device for the caller and recipient and a Wi‑Fi connection. Availability over a cellular network depends on carrier policies; data charges may apply.
+Standard dynamic range video content only.
+Siri may not be available in all languages or in all areas, and features may vary by area. Internet access required. Cellular data charges may apply.
+All battery claims depend on network configuration and many other factors; actual results will vary. Battery has limited recharge cycles and may eventually need to be replaced. Battery life and charge cycles vary by use and settings. See apple.com/batteries and apple.com/iphone/battery.html for more information.
+Wireless chargers sold separately.
+Testing conducted by Apple in August 2022 using preproduction iPhone 14 and iPhone 14 Plus units and software and accessory Apple USB‑C Power Adapter (20W Model A2305). Fast‑charge testing conducted with drained iPhone units. Charge time varies with settings and environmental factors; actual results will vary.
+iPhone 14 models are activated with an eSIM and do not support a physical SIM. Use of an eSIM requires a carrier that supports eSIM and a wireless service plan (which may include restrictions on switching service providers and roaming, even after contract expiration). See your carrier for details. To learn more, visit apple.com/esim.
+Wireless broadband recommended; fees may apply.
+In China mainland, you can use Apple Pay on the web in Safari only on compatible iPhone and iPad models using iOS 11.2 or later.
+Data accurate as of product launch.
+Excludes trace amount of tungsten found outside of the Taptic Engine and accounting for less than 0.1 percent of the total found in the device.
+Excludes trace amount of rare earth elements found outside of the magnets and accounting for less than 0.2 percent of the total found in the device.
+Efficiency performance is based on the U.S. Department of Energy Federal Energy Conservation Standards for Battery Chargers.
+Apple&rsquo;s Regulated Substances Specification describes Apple&rsquo;s restrictions on the use of certain chemical substances in materials in Apple products, accessories, manufacturing processes, and packaging used for shipping products to Apple&rsquo;s end‑customers. Restrictions are derived from international laws or directives, regulatory agencies, eco‑label requirements, environmental standards, and Apple policies. Every Apple product is free of PVC and phthalates except for AC power cords in India, Thailand (for two‑prong AC power cords), and South Korea, where we continue to seek government approval for our PVC and phthalates replacement. Apple products comply with the European Union Directive 2011/65/EU and its amendments, including exemptions for the use of lead such as high-temperature solder. Apple is working to phase out the use of these exempted substances for new products where technically possible.
+Some features may not be available for all countries or all areas. View complete list.
+Apple Footer
+
+ 
+ Support
+ 
+ 
+ 
+
+ iPhone 14 - Tech Specs

@@ -1,0 +1,816 @@
+PuppetMaster: Robotic Animation of Marionettes
+
+SIMON ZIMMERMANN, ETH Zurich                                                                   Fig. 1. A robot (ABB YuMi® IRB 14000) controlling a bird-shaped, string-
+ROI PORANNE, ETH Zurich and University of Haifa                                                driven marionette. This type of puppet is notoriously difficult to animate.
+JAMES M. BERN, ETH Zurich                                                                      Our control framework generates optimal motion trajectories for the robot
+STELIAN COROS, ETH Zurich                                                                      puppeteer such that the marionette performs a user-specified motion.
+
+We present a computational framework for robotic animation of real-world                       by a small number of cables, and the internal forces arising from
+string puppets. Also known as marionettes, these articulated figures are                       mechanical articulation constraints. As such, the map between the
+typically brought to life by human puppeteers. The puppeteer manipulates                       actions of a puppeteer and the motions performed by the marionette
+rigid handles that are attached to the puppet from above via strings. The                      is notoriously unintuitive, and mastering this unique art form takes
+motions of the marionette are therefore governed largely by gravity, the                       unfaltering dedication and a great deal of practice.
+pull forces exerted by the strings, and the internal forces arising from me-
+chanical articulation constraints. This seemingly simple setup conceals a                         With the long term goal of endowing robots with human-level
+very challenging and nuanced control problem, as marionettes are, in fact,                     dexterity when it comes to manipulating complex physical systems,
+complex coupled pendulum systems. Despite this, in the hands of a master                       we present PuppetMaster ­ a physics-based motion planning frame-
+puppeteer, marionette animation can be nothing short of mesmerizing. Our                       work for robotic animation of marionettes. As illustrated in Fig. 2,
+goal is to enable autonomous robots to animate marionettes with a level of                     the input to our computational puppeteering system consists of:
+skill that approaches that of human puppeteers. To this end, we devise a                       1) a kinematic description of the robot puppeteer (i.e. the hierar-
+predictive control model that accounts for the dynamics of the marionette                      chical arrangement of actuators and rigid links); 2) the design of
+and kinematics of the robot puppeteer. The input to our system consists                        the marionette, which includes the articulated puppet itself, the
+of a string puppet design and a target motion, and our trajectory planning                     control handles that the robot will be manipulating, as well as the
+algorithm computes robot control actions that lead to the marionette moving                    strings that attach the puppet to the handles; and 3) a target motion
+as desired. We validate our methodology through a series of experiments                        that the marionette should aim to reproduce. Our core technical
+conducted on an array of marionette designs and target motions. These                          contribution is a novel trajectory optimization method built upon a
+experiments are performed both in simulation and using a physical robot,                       physics simulator using an implicit time-stepping scheme. To com-
+the human-sized, dual arm ABB YuMi® IRB 14000.                                                 pute derivatives of the system's forward dynamics, we show how
+                                                                                               to apply sensitivity analysis techniques to entire motion trajectories,
+CCS Concepts: · Theory of computation  Nonconvex optimization;                                 as well as how to effectively exploit the specific sparsity structure
+· Computing methodologies  Physical simulation; · Computer sys-                                imposed by the time domain. Our mathematical model forms the
+tems organization  Robotic control;
+                                                                                                            ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+Additional Key Words and Phrases: Computer graphics, robotics, puppeteer-
+ing, sensitivity analysis
+
+ACM Reference Format:
+Simon Zimmermann, Roi Poranne, James M. Bern, and Stelian Coros. 2019.
+PuppetMaster: Robotic Animation of Marionettes. ACM Trans. Graph. 38, 4,
+Article 103 (July 2019), 11 pages. https://doi.org/10.1145/3306346.3323003
+
+1 INTRODUCTION
+
+Marionettes are articulated, string-actuated puppets that have pro-
+vided a medium for animation in performance arts since Ancient
+Greece. In the hands of a skilled puppeteer, marionettes produce
+motions that are incredibly expressive, fluid and compelling. How-
+ever, their deceptively natural movements conceal the fact that
+marionettes are very challenging to control. Marionettes are under-
+actuated, high-dimensional, highly non-linear coupled pendulum
+systems. They are driven by gravity, the tension forces generated
+
+Authors' addresses: Simon Zimmermann, ETH Zurich; Roi Poranne, ETH Zurich and
+University of Haifa; James M. Bern, ETH Zurich; Stelian Coros, ETH Zurich.
+
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. Copyrights for components of this work owned by others than the
+author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or
+republish, to post on servers or to redistribute to lists, requires prior specific permission
+and/or a fee. Request permissions from permissions@acm.org.
+© 2019 Copyright held by the owner/author(s). Publication rights licensed to ACM.
+0730-0301/2019/7-ART103 $15.00
+https://doi.org/10.1145/3306346.3323003
+103:2 · Zimmermann, S. et al
+
+basis of a general, unified framework that enables optimization               physically correct. However, in favor of optimization problems that
+algorithms to concurrently reason about: the robot puppeteer's                are easier to solve, these constraints are often treated in a soft
+workspace (i.e. the space of reachable configurations for its end             manner, resulting in animations where external fictitious forces are
+effectors) and movements; the limited and indirect control provided           merely minimized [Barbic et al. 2009; Pan and Manocha 2018; Schulz
+by string-based actuation setups; the dynamic motions generated               et al. 2014]. Given that we wish simulation results to carry over to the
+by the puppet in response to the robot's actions; and continuous              real world, we instead develop a trajectory optimization technique
+design parameters such as the lengths of the strings and their points         that guarantees Newton's second law of motion is always satisfied,
+of attachment on the control handles. The output generated by our             even for intermediate results, up to unavoidable discretization errors
+planning framework consists of optimal motion trajectories that are           introduced by numerical integration schemes.
+specified in the configuration space of the robot puppeteer.
+                                                                                 Dexterous manipulation of complex physical systems is another
+   To evaluate the efficacy of our robotic puppeteering framework,            topic of research in computer animation that is relevant to our work.
+we designed a set of experiments of increasing complexity. These              In particular, the trajectory optimization formulation we introduce
+experiments include different types of under-actuated dynamical               complements recent model-based [Bai et al. 2016; Clegg et al. 2015]
+systems that we wish a robot to skillfully control, and a varied array        and learning-based [Clegg et al. 2018] techniques developed for ma-
+of motion-based task specifications. To assess the degree to which            nipulation of cloth and clothing. Our technique leverages derivatives
+simulation results carry over to the real world, we further fabricated        of the physics simulation which we use to compute a marionette's
+several physical prototypes that are puppeteered by an ABB YuMi ­             motions. In this respect, we borrow concepts from recent differen-
+a human-sized, dual-arm robot.                                                tiable simulators for rigid bodies [Todorov 2014]. However, in our
+                                                                              formulation, first and second derivatives are computed via sensi-
+2 RELATED WORK                                                                tivity analysis, and they can be taken with respect to the robot's
+                                                                              actions, or with respect to continuous parameters that define the
+The study of motion has been a core research topic in computer                marionette's design. First order Sensitivity analysis, in both its direct
+graphics since the field's very beginning. Nevertheless, animation            and adjoint form [McNamara et al. 2004], is often used to compute
+predates computers by thousands of years: since ancient times, chil-          gradients for steady-state [Auzinger et al. 2018] or quasi-static prob-
+dren and adults alike have been fascinated by physical systems                lems that are governed by force equilibrium [Ly et al. 2018; Pérez
+­ mechanical automatons, animatronic figures, robotic creatures,              et al. 2017]. In this paper, we show how to extend this very useful
+puppets and marionettes ­ that are designed to generate natural               optimization technique to second order, for trajectories computed
+movements. In recent years, these types of physical animation de-             using forward dynamics simulations, and how to exploit the specific
+vices have started to receive considerable attention from the com-            structure imposed by the time domain to increase the computational
+puter graphics community. We have witnessed, for example, com-                efficiency of the motion optimization process.
+putational approaches to designing mechanical toys [Coros et al.
+2013; Song et al. 2017; Thomaszewski et al. 2014; Zhang et al. 2017],            For the history and engineering aspects of traditional marionette
+physical characters that produce motions by virtue of precisely con-          design and manipulation, we refer the interested reader to [Chen
+trolled deformations [Bern et al. 2017; Gauge et al. 2014; Megaro             et al. 2004], and we note that the challenge of controlling marionette
+et al. 2017; Skouras et al. 2013; Xu et al. 2018], robotic creatures          motions has been studied before. For example, sharing our vision,
+that walk [Megaro et al. 2015; Schulz et al. 2017], fly [Du et al.            Murphey and his collaborators developed dynamic models tailored
+2016] or even roller blade [Geilinger et al. 2018], etc. Each of these        to marionettes [Johnson and Murphey 2007]. Building on the tech-
+application domains demands techniques that are tailored to the               nique described in [Hauser 2002], they also formulated trajectory
+unique challenges and characteristics of different types of physical          optimization as unconstrained problems [Murphey and Johnson
+systems. The problem that we tackle in this work, namely robotic              2011; Schultz and Murphey 2012]. This was achieved by defining a
+manipulation of marionettes, is closest to the work of Skouras and            projection operator that takes a candidate, non-physical trajectory
+colleagues [Skouras et al. 2013]. However, while they address the             and finds a valid one. The operator is introduced in the optimization
+problem of designing quasi-static movements, our goal is to gener-            problem as an objective, making constraints redundant. However,
+ate highly dynamic motion trajectories for string-driven physical             computing the gradient of this new objective demands an optimiza-
+systems using dexterous robots as puppeteers.                                 tion problem to be solved. Our method on the other hand provides
+                                                                              analytic expressions for both first and second derivatives. Further-
+   In the early days of computer graphics, animation techniques               more, while previous work focuses largely on simple motions (e.g.
+relied largely on interpolation of artist-prescribed key-frames. With         treating the marionette as a simple suspended mass [Murphey and
+such an approach, the onus is on the animator to manually create              Johnson 2011]) or transferring the motions of a human puppeteer
+the illusion that a character's motions obey the laws of physics. The         onto a robot [Yamane et al. 2004], we demonstrate a diverse array
+tedious and error-prone nature of this process led to the sub-field           of marionette motions that are generated automatically.
+of physically based character animation, which has generated a
+rich body of research over the past three decades. Our work draws                It is also worth noting the connection between marionette ani-
+inspiration from techniques that formulate motion synthesis as                mation and the transport of cable-suspended payloads using cranes
+optimization problems [Cohen 1992; Witkin and Kass 1988]. In                  [Zameroski et al. 2006] or helicopters [Bernard and Kondak 2009;
+these formulations, equations of motion based on Newton's second              Bisgaard et al. 2009]. In this context, the main focus is the handling
+law are incorporated as constraints, resulting in motions that look           of oscillations in high speed, rest-to-rest motions. Trajectory opti-
+                                                                              mization approaches have been proposed to tackle this challenge, as
+ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+seen for example in [Sreenath et al. 2013] and [Sreenath and Kumar              PuppetMaster: Robotic Animation of Marionettes · 103:3
+2013], the latter of which focuses on collaborative transportation                                               Robot puppeteer
+via multi-drone systems. Methods based on reinforcement learning
+have also been successfully developed [Crousaz et al. 2014; Faust                 Attachment                q
+et al. 2013; Palunko et al. 2013], and they present an interesting                 points
+alternative to the model-based marionette control methodology we                                               Handles
+investigate in this paper.                                                 Target ^motion
+                                                                                                        s0
+3 OVERVIEW                                                                                                        l0
+
+As illustrated in Fig. 2, our control framework takes as an input a                              Point mass
+kinematic description of a robot puppeteer, the design of a string-
+driven marionette, and a target motion. We visualize the marionette        Fig. 2. An overview of the main components of our system, which takes
+as a virtual stick figure, and use two distinct visual styles, as seen     as input a kinematic description of the robot puppeteer, a marionette de-
+in the figure, to portray the motion of the puppet, represented by a       sign and a target motion. The output of our control framework consists of
+vector x which encodes the trajectory for each point mass, and the         precisely choreographed motions for the robot puppeteer.
+target motion x^. Strings are used to attach the marionette to rigid
+handles that are directly manipulated by the robot. We refer to the        describe an inverse elastic shape design problem [Ly et al. 2018;
+points of attachment as p, and they control the pull forces applied
+to the marionette through each string. The output of our system            Megaro et al. 2017; Pérez et al. 2017]. First order sensitivity analysis
+consists of choreographed motions for the robot puppeteer, which
+we encode using joint angle trajectories q. We refer the reader to         has become a standard go-to technique for solving such problems,
+the accompanying video for demonstrations and results.
+                                                                           and it is therefore also suitable for our robotic marionette control
+   We solve the robotic puppeteering control problem with a second-
+order trajectory optimization method that exploits derivatives of          task. Briefly, sensitivity analysis provides an analytic expression
+motions generated by forward dynamics simulation. These deriva-
+tives are computed using sensitivity analysis, as described in Section     for  the  Jacobian  dx  and  it  therefore  enables     the   use  of  first  order
+4. By exploiting the specific structure imposed by the time domain,                            dp
+we formulate a computationally-efficient trajectory optimization
+algorithm. In Section 5 we discuss the simulation model we use             gradient-based methods (e.g. L-BFGS) to minimize Eq. 2. To provide
+for our marionettes. Finally, in Section 6 we show experimental re-
+sults, starting with simple systems such as a pendulum and a double        some intuition, for our problem setting, this Jacobian encodes the
+pendulum, and ending with animal-inspired marionette designs.
+
+4 PRELIMINARIES                                                            way in which an entire motion trajectory x changes as a function of
+
+                                                                           the control actions p.
+
+The control problem we seek to solve is characterized by two sets of          First Order Sensitivity Analysis. Sensitivity analysis begins by
+variables: state variables x, and control variables p, which represent     applying the chain rule on O(x(p), p):
+the motion trajectories of the marionette and of the robot, respec-
+tively. The motion of the marionette is governed by the robot's                                       dO    =  O   dx  +    O  ,                         (3)
+actions and by its own non-linear dynamics. Without loss of gener-                                    dp       x   dp       p
+ality, we can therefore express x as an implicit function of p. While
+x(p) does not have a closed-form expression (we must compute it            The analytic expression for the sensitivity      term S  :=   dx   can be found
+through numerical simulation), the dependency between x and p is                                                                         dp
+captured by the relation
+                                                                           using the fact that G(x, p) is always zero (i.e. we assume that for any
+
+                                                                           p we can compute x(p) such that Eq. 1 is satisfied), which implies:
+
+                    G(x, p) = 0,  (1)                                                              dG     =  G  S  +   G    =  0.                        (4)
+                                                                                                   dp        x         p
+which, as we will discuss shortly, encodes Newton's second law of
+                                                                           By rearranging this equation, we get:
+motion for entire trajectories. Our control problem can therefore be
+
+formulated as:                                                                                        S=-      G       -1 G ,
+                                                                                                               x           p
+                 min O(x(p), p),  (2)                                                                                                                    (5)
+
+                 p
+
+where O(x(p), p) is an objective function that quantifies, for example,    and plugging into (3), we obtain:
+
+the degree to which the marionette's motion matches its target, and                            dO       O      G      -1    G      O
+                                                                                               dp     -        x            p      p
+the smoothness of the control actions. This problem formulation is                                 =                           +      .                  (6)
+                                                                                                        x
+very generic. For example, if x was defined as the configuration of an
+
+elastic object, p as the set of parameters that define its rest shape and  We note that through a reordering of matrix multiplications, the
+G(x, p) as the sum of internal and external forces, then Eq. 2 would
+                                                                           well-known  adjoint     method    [Cao  et  al.  2003]  avoids  computing     dx
+                                                                                                                                                         dp
+
+                                                                                     ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+103:4 · Zimmermann, S. et al
+
+directly  as   it  evaluates      dO  .  This  is    oftentimes       more     computationally                           1.0                          Pendulum
+                                  dp
+                                                                                                        Objective Value                 L-BFGS
+efficient.  However,          as  we  will  show     next,      we    can      leverage   dx   to  de-                                  Gauss-Newton
+                                                                                          dp
+                                                                                                                                        Newton
+rive a second-order, generalized Gauss-Newton solver that exhibits
+
+much better convergence properties than first order alternatives.
+
+Second Order Sensitivity Analysis. In our first experiments we
+
+observed that first order optimization, i.e. L-BFGS, converges far too                                  0                     Iteration #             200 0            Time [s]      4
+                                                                                                         0.08                                           Bird
+slowly. As an alternative, Newton's method requires the Hessian
+
+2O   ,  which      can    be  derived    using       second     order       sensitivity   analysis.
+p2
+                                                                                                        Objective Value
+To begin with, we differentiate (3):
+
+                      d2O     =   d dO      =  d         O         +  d     O       .              (7)                              L-BFGS
+                      dp2         dp dp        dp        x S          dp    p                                                       Gauss-Newton
+
+The formulas above involve third-order tensors, which lead to no-                                       0                     Iteration #             50 0             Times [s]        2
+tation that is slightly cumbersome. To simplify our exposition, we
+treat tensors as matrices and assume that contractions are clear                                        Fig. 3. Comparison of the generalized Gauss-Newton approximation with
+from context. For a conceptually similar but more formal derivation,                                    Newton and L-BFGS. The top row shows the number of iterations and
+we refer the interested reader to [Jackson and Mccormick 1988].                                         timings for one of the pendulum examples in Fig. 5. Newton's method
+The second term in Eq. 7 is straightforward:                                                            occasionally stalls in non-convex regions, which largely contributes to the
+                                                                                                        less than satisfactory convergence. Its additional computational cost makes
+                              d O        = ST  2O            +  2O       ,                         (8)  it impractical for this problem. The bottom row shows the comparison for
+                              dp p             xp               p2                                      the bird example in Fig. 8. In this case, Newton's method takes an excessive
+                                                                                                        amount of time and is not shown. In both cases it can be seen that the
+while the first term evaluates to                                                                       generalized Gauss-Newton converges much faster. It is worth noting that
+                                                                                                        all intermediate results, whether or not the process converged, obey physics
+                      d    O          =   d O            S  +   O           d       ,              (9)  becaues of the trajectory optimization strategy we employ.
+                      dp   x S            dp x                  x             S
+                                                                         dp
+
+with
+
+                              d O        = ST  2O           +  2O .                               (10)     Generalized Gauss-Newton. Although Newton's method generally
+                              dp x             x2              xp                                       converges much faster than L-BFGS or gradient descent, there are
+                                                                                                        two issues with it. First, evaluating the second-order sensitivity term
+Here,   d   S  is  a  third-order        tensor,   and      O      d     S     stands for               takes a non-negligible amount of time. Second, the Hessian is often
+        dp                                                  x      dp                                   indefinite, and needs to be regularized. Both problems can be dealt
+                                                                                                        with by simply excluding the tensor terms in (14). The result is a
+                           O         d      =            O      d2xi        .                           generalized Gauss-Newton approximation for the Hessian:
+                           x           S                 xi     dp2
+                                     dp
+                                                  i
+                                                                                                                                        2O            2O         2O T        2O
+The  second-order         sensitivity     term       d   S  must   be    further       broken  down:                          H  =  ST  x2  S  +  ST  xp      +  xp    S  +  p2   .  (15)
+                                                     dp
+
+                              d S=        ST             +            .                           (11)  Although H is not guaranteed to be positive-definite, we note that in
+                              dp               x S           p S                                        our case, O is a convex function of x, and therefore the first term is
+                                                                                                        always well-behaved. Furthermore, for our control problem, O does
+The partial derivatives of S can be found by taking the second                                          not explicitly couple x and p, and therefore the mixed derivative
+derivatives in (4) and rearranging the terms. This results in                                           (i.e. the second) term vanishes. The last term can be indefinite, but
+                                                                                                        we rarely encountered this case in practice.
+                                      G -1
+                           S  =   -   x              2G         +  2G            ,                (12)     Sensitivity analysis for motion trajectories. The implicit relation-
+                      x                              x2 S          px                                   ship described by Eq. (1) is very general, and can easily be derived
+                                                                                                        for different types of dynamical systems and numerical integration
+                           S  =   -   G -1           2G         +     2G         ,                (13)  schemes. Here, we illustrate this process for mass spring systems,
+                      p               x              xp S             p2                                since this is how we choose to model marionettes. In this context,
+                                                                                                        the vector x has dimension 3nT , where n is the number of mass
+where once again we assume that the tensor expressions are self-                                        points, T is the number of time steps, and the constant 3 indicates
+evident. Combining all of the terms above leads to the following                                        that each mass point lives in a 3-dimensional space. We turn di-
+formula for the Hessian:                                                                                rectly to the time-discretized setting and let xi , the i-th 3n block in
+                                                                                                        x, denote the configuration of the system at time ti . As described
+d2O     =   O         ST          +         + ST         2O     S  +  2     2O         +  2O   .  (14)  in [Martin et al. 2011], an Implicit Euler time stepping scheme is
+dp2         x             x S        p S                 x2                 xp            p2
+
+ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+                                                                                                       PuppetMaster: Robotic Animation of Marionettes · 103:5
+
+equivalent to finding xi that minimizes the functional                                                      S            =          - G-1                  G
+                                                                                                                                                           p
+                                   h2                                                                                                  x   -1                 
+                                   2
+                      Ui (xi )  =           xTi  Mxi    +W  (xi , pi )   +  gT xi ,          (16)                     = -                                     
+
+where      xi   =  (  xi  -2xi -1  +xi  -2  )  is  the   time-discretized      acceleration,     M
+                              h2
+is the system's mass matrix, h is the step size, W (xi , pi ) defines the
+
+internal potential deformation energy stored in strings and trusses,
+
+and the last term accounts for gravity; pi , similar to xi , encodes the                             Fig. 4. The structure of the system can be used to compute S faster by block
+control actions taken at time step i. It is easy to verify that xi Ui = 0                            forward-substitution.
+(i.e. xi is a minimizer of Ui ) is equivalent to Newton's second law,
+Mxi = F(xi , pi ) where F(xi , pi ) = -xiW (xi , pi ), which means
+
+that the equations of motion are satisfied.
+
+    Through Eq. 16, computing the motion of the marionette using                                     We use a backtracking line search to find the step size , where again,
+                                                                                                     x need to be recomputed for each test candidate p = p + d in order
+forward simulation is straightforward. We start from an input control                                to evaluate O(x(p), p). We summarize the optimization procedure
+                                                                                                     in Algorithm 1. Note that in the next section we make a transition
+trajectory p (the robot standing still is a valid choice for p), and                                 from handle positions p to robot joint angles q, but the algorithm
+                                                                                                     essentially stays the same.
+two fixed configurations, x0 and x-1, which together represent the
+starting state of the dynamical system. In order, from i = 1 to T , we
+
+then find xi that minimizes Ui using Newton's method.
+
+    In the context of forward dynamics, this standard numerical inte-
+
+gration scheme also reveals the structure of the implicit relationship
+
+described by Eq. (1). In particular, Gi , the i-th 3n block in G, is de-                             Algorithm 1: Trajectory optimization
+
+fined as xi Ui . It is therefore clear that for any motion trajectory                                 Input: Dynamical system, initial p, initial x0, x0,
+computed through physics simulation, G(x, p) = 0, as required for                                     Output: Optimal control trajectory p
+
+sensitivity analysis.
+
+    We discuss the specifics of our marionette model in the next sec-                                  while criterion not reached do
+
+tion, but we first highlight two important observations. First, it is                                  Compute x(p) using forward simulation
+
+very easy to extend the concepts described above to different nu-                                      Compute     dO    (Eq. (3))
+                                                                                                                   dp
+merical integration schemes. For example, the only change required
+
+to use BDF-2 (backward differentiation formula of second order),                                       Compute H ((14) or (15))
+
+which exhibits much less numerical damping than Implicit Euler, is                                     Solve   Hd  =  -  dO
+                                                                                                                         dp
+
+a different definition of the discretized acceleration. Second, upon                                   Run backtracking line search in d
+
+inspection, it is easy to see that the time domain imposes a very                                      /* Simulate after every line search iteration */
+
+specific structure on the system of equations that must be solved                                      end
+
+to  compute        the    Jacobian          dx     in  Eq.  4.  This  structure      is  visualized
+                                            dp
+
+in Fig. 4, and can be easily exploited to speed up computations. In
+
+particular, since Gi depends explicitly only on xi , xi-1, xi-2 and                                     Relation to DDP. A well-known technique for optimal control is
+                                                                     G                               the Differential Dynamic Programming method (DDP). While New-
+pi  (i.e.  all  other     partial  derivatives           are    0),  p   has  a  block   diagonal    ton's method approximates the motion control objective through a
+                                                                                                     global quadratic function, DDP uses a sequence of local quadratic
+form,  and      G     has  a    banded           block   diagonal     form.   This   allows  us  to  models derived for each individual time step. The resulting struc-
+                x                                                                                    ture gives rise to the characteristic backwards/forwards nature of
+                                                                                                     DDP algorithms. Although both DDP and Newton's method feature
+solve the resulting system using block forward-substitution, rather                                  quadratic convergence, the debate regarding which one performs
+                                                                                                     best dates back to at least the 80s [Murray and Yakowitz 1984; Pan-
+than  storing      and    solving       the      entire  linear  system     represented  by  G    .  toja 1988] and continues today [Mizutani 2015]. Like Newton's
+                                                                                             x       method, DDP and its Gauss-Newton approximation, the iterative
+In our experiments, this results in a 5x speedup. We also note that                                  Linear Quadratic Regulator (iLQR), rely on a state transition func-
+                                                                                                     tion xi+1 = f (xi , pi ) and its first and second derivatives. In practice,
+the resulting S is block triangular, which correctly indicates that xi                               DDP and iLQR are typically applied in conjunction with explicit in-
+does not depend on pj if j > i, or intuitively, the robot's actions at                               tegration schemes, because then f takes on an analytic form, and its
+                                                                                                     derivatives can be readily computed. Consequently, the techniques
+any moment in time only affect future motions of the marionette.                                     we have described to compute derivatives of implicitly-integrated
+                                                                                                     forward dynamics simulations open up exciting opportunities for
+    Iterative optimization.             Using either            d2O  or  its approximation H,        DDP/iLQR optimal control formulations as well.
+                                                                dp2
+
+we can minimize (2) using a standard unconstrained optimization
+
+scheme, but we note one key difference: for each candidate p, we
+
+must always compute the corresponding x to ensure that (1) holds
+
+before evaluating any of the derivatives. Once                              O    and H (or   d2O  )
+                                                                            p                dp2
+
+are computed, we find the search direction d by solving
+
+                                               Hd = - dO .                                   (17)
+                                                            dp
+
+                                                                                                            ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+103:6 · Zimmermann, S. et al
+
+5 ROBOTIC PUPPETEERING                                                              where  s  0   j2  is  the     length       of      the   string,  k     =  104, and  (x) is a
+                                                                                              j1
+5.1 The puppet model                                                                C2 one-sided quadratic function modeling the unilateral nature
+
+With the foundations for motion optimization laid out, we now                       of strings [Bern et al. 2017]:
+describe the specifics of the simulation model we employ for mari-
+onettes. Traditional marionettes are piece-wise rigid structures. In                                           1  x  2  +      x  +    2                 x 0
+our simulation model, we assume mass is concentrated at the joints.                                            2           2           6
+This matches the way we design and fabricate our physical proto-                                             
+types, which employ heavy steel balls as joint sockets, and much                                             
+lighter 3D printed parts as structural frames (see the inset figure).                          (x)        =    1  x     3  +  1  x  2  +     x  +  2     0 > x > -  (21)
+Furthermore, since we                                                                                          6              2           2        6
+are using fully implicit
+integration schemes for                                                                                      0                                           otherwise
+forward simulation, we                                                                                       
+can model these struc-
+tural frames as very stiff                                                          Here the constant  = 1mm provides for a smooth transition be-
+springs without worry-
+ing about stability prob-                                                           tween the regime where the string is slack (and therefore applies
+lems. A mass-spring representation of marionettes is therefore nat-
+ural. This simple model has the additional benefit that it is uncon-                no force), and where it is taut and applies tension forces, which
+strained, and the mathematical formulation derived in the previous
+section needs only reason about positions, and not about rotations                  can pull but not push. First, second and third derivatives (the latter
+as well.
+                                                                                    required for Eq. 6) with respect to x and p are straightforward to
+   The mass point representing each joint can optionally be con-
+nected via strings to rigid control handles held by the robot. Impor-               compute analytically for both energy terms.
+tant for our control problem is the world location of the attachment
+point of string j at time index i. We denote this quantity by pij . Sim-            5.2 Control
+ilarly, we let xik represent the world position of the k-th mass point
+at time index i. Its corresponding target location, which is provided               We discussed our control optimization method in Section 4. Here
+through the target animation, is represented by x^ik . We assemble the              we describe the different terms that define Eq. 2.
+positions of all mass points at time index i into a vector xi , and the
+positions of all string attachment points at time index i into a vector                Objectives. The main objective is, of course, to find a marionette
+pi . Finally, we assemble all xi into x, and all pi into p, forming the             motion that is similar to the user specified trajectory x^. To this end,
+state and control trajectories respectively.                                        we define a simple quadratic objective that measures the similarity
+                                                                                    between the two:
+   To solve the equations of motion using Eq. (16), we formulate the
+potential energy of the system as                                                                               Otraj(x) = x - x^ 22.
+                                                                                    We additionally regularize the acceleration of the string attachment
+W (xi , pi ) = Wpuppet(xi ) + Wstring(xi , pi ).                              (18)  points to promote smooth motions, using the simple objective
+
+The energy Wpuppet(xi ) measures the energy stored in the stiff                                                    Oacc(p) = p 22,
+springs we use to model a marionette's body parts. Let L be the
+                                                                                    where the acceleration vector p is estimated using finite differences.
+set of pairs of joints connected by links. Then,                                       Up to this point, the control problem operated directly in the space
+
+                                                                                    of world trajectories for the string's attachment points. However, we
+                                                                                    ultimately need to command the movements of the robot puppeteer,
+                                                                                    which will be specified as joint angle trajectories. These could be
+                                                                                    computed in post-processing using inverse kinematics (IK). The
+                                                                                    pitfall of such a strategy is that it is quite likely that the motion
+                                                                                    planner generates trajectories p which are not within the workspace
+                                                                                    of the robot (i.e. they are not reachable), or they lead to inter-limb
+                                                                                    collisions. Following [Duenser et al. 2018], we eliminate this problem
+                                                                                    with a simple extension that enables us to directly solve for control
+                                                                                    actions specified in the robot's joint space.
+
+                                                                                    Direct optimization of the robot's motions. To compute trajectories
+
+Wpuppet(xi ) =                  k  xij1 - xij2  - l0j1 j2  2                  (19)  for the robot puppeteer's joint angles, it suffices to express each
+                                                                                    string attachment point pj as a kinematic function of the robot's
+                                                            ,
+                                                                                    joint angles q,
+                {j1, j2 }L
+                                                                                                                              pij = FK(lj , qi ),
+where k is a spring constant, and l0j1j2 is the rest length defined by                                                                                              (22)
+the marionette's physical design. We use k = 104 for all our experi-
+                                                                                    where FK is a standard forward kinematics function that computes
+ments, as we found this value sufficient to render the deformations                 the world coordinates of a point lj expressed in the local coordi-
+of the robot's body parts imperceptible. The energy Wstring(xi , pi )
+measures the tension energy stored in the strings. Each string con-                 nate frame of a robot's gripper, and qi is a vector that stores the
+nects a marionette joint x j1 to an attachment point pj2 . We define the            robot's joint angles at time index ti . With this definition in place,
+set of joint-attachment point pairs by S, and define Wstring(xi , pi ) as           we can minimize the objective O(p(q)) directly as a function of q.
+
+                                                                                    The changes introduced by this step are minimal ­ we only need to
+
+                                                                                    apply the chain rule. For example, the gradient of the objective is
+
+                                   xij1 - pij2        j1   j2                       given by
+                                                      0
+Wstring(xi , pi ) =             k               -  s           ,              (20)                                         dO    =     O    dp  +  O     ,
+                                                                                                                           dq          p    dq     q
+                     (j1, j2)S
+
+ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+                                                                                     PuppetMaster: Robotic Animation of Marionettes · 103:7
+
+where  the  Jacobian  dp  encodes  how  the  world  position  of  the  attach-
+                      dq
+
+ment points change with respect to the robot's joint angles. This
+
+Jacobian is straightforward to compute given the definition of the
+
+forward kinematics map. The second derivative of the objective O
+
+with respect to q can be computed in an analogous manner. Solving
+
+directly for joint angle trajectories ensures that the optimization re-
+
+sult is always feasible, and that it effectively exploits the workspace
+
+of different types of robots. Furthermore, this formulation allows us
+
+to define additional objectives to capture, for example, inter-limb
+
+collisions or limits on joint angles and velocities. These objectives
+
+take on standard forms, so we omit them here for brevity. We refer
+
+the interested reader to [Duenser et al. 2018] for formal definitions.
+
+   Finding a convenient starting configuration. In simulation, we can           Fig. 5. Interactive positioning of goals and obstacles. The user can reposition
+set the marionette's starting state (i.e. x0 and x-1) to any arbitrary          the ball and the cup interactively, and the trajectory is updated in real-time.
+values. However, when the robot starts to execute a performance, the            See the accompanying video for more detail.
+physical marionette must start from exactly the same configuration.
+Consequently, x0 and x-1 should correspond to marionette poses                  (a)  (b)
+that are easily achievable. The only practical choice is to pick them
+such that they represent a statically stable configuration given an
+initial robot pose qinit . We find these configurations by setting
+the simulated robot in the desired starting pose and then running
+forward simulation until the system comes to rest.
+
+6 EXPERIMENTAL RESULTS                                                          Fig. 6. Additional motions, also included in the accompanying video. Several
+                                                                                robot poses are overlaid, and the trajectory of the point mass is approxi-
+In this section we summarize the results we generated with our                  mately traced by a dashed line. (a) A double pendulum, which is known
+system. We begin with a few preliminary results and continue to                 for its chaotic behaviour, can still be accurately modeled for a short time
+more elaborate examples that showcase our system's capabilities.                horizon. As in Fig. 5, we ask for a trajectory that avoids the obstacle, and
+Please refer to the accompanying video for a screen capture and                 reaches the cup. (b) In this case, the cup is fixed to the top of the handle
+recording of the actual motions. We implemented our algorithm in                and requires an agile motion to swing the point mass into the cup.
+C++ using Eigen [Guennebaud et al. 2010], and ran it on a computer
+with an Intel Core i7-7709K 4.2Ghz. The average computation time                model them with adequate accuracy. Finally, we ran an additional
+for each forward simulation step (i.e. computing x(p)) as well as               experiment where the cup was fixed to the top of the robot's end
+for computing the search direction d for each individual dynamical              effector. Our optimization method successfully found a very agile
+system can be found in Table 1. Acceptable control solutions begin              robot motion that swings the mass point just right so that it lands
+to emerge after a small number of iterations, and each intermediate             in the cup. This example also clearly shows the benefit of modeling
+optimization result is valid due to the formulation we employ.                  strings as unilateral springs. We note that many of our other results,
+                                                                                both in simulation and using physical prototypes, exploit the fact
+   Interactive specification of goals. For small systems, our applica-          that cables can go slack.
+tion reacts at interactive rates. We began by testing a simple scenario
+involving a pendulum, where the goal is to place the suspended                     Puppet fabrication. We use heavy steel balls to fabricate ball-in-
+mass point inside a cup while avoiding a spherical obstacle. For this           socket joints, and lightweight 3D printed frame structures for the
+example, the robot's end effector is constrained to move only along             marionette's bodies. The steel balls can be connected by strings to
+a horizontal line through a dedicated control objective. The user can           the control handles, and they are free to slide inside their sockets.
+interactively position the cup and obstacle, and immediately observe            As shown in Fig. 7, hinge joints are also easy to model and fabricate.
+the result. Fig 5 illustrates two examples that were obtained in this
+manner. In one example the robot speeds towards the obstacle in                    Periodic motions. Periodic motions are very common in animation,
+order to lift the weight above it, and then slows down to let it land in        and for marionettes in particular. We optimize for periodic motions
+the cup. In the second example, the robot first moves back and forth            by adding an objective that minimizes the difference between the
+to gain momentum before swinging the weight above the obstacle.
+This simple setting highlights the ability of our system to generate                         ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+highly dynamic motions that are physically accurate.
+
+   We refer the reader to the accompanying video (and Fig. 6), where
+we show a similar example, this time involving a double pendulum.
+The dynamics of such systems are notorious for their chaotic be-
+haviour, but for a reasonable planning horizon, we found we can still
+103:8 · Zimmermann, S. et al
+
+                                                                                  Naive design  Optimized design
+
+Fig. 7. Fabrication of a hinge joint. In simulation, these joint are represented  Fig. 9. Continuous design optimization for the Dragon puppet. With a naive
+using a simple frame structure. The black sphere represents a mass point of       handle design, where both handles are linear, the robot cannot reproduce
+negligible weight, which functions to model the behaviour of a hinge joint.       the target motion to a satisfying degree. The design optimization procedure
+                                                                                  suggests to use a triangular handle, which then results in a much more
+               Init cycle     Periodic motion                                     faithful animation.
+
+Target motion                                                                        Design optimization. Designing appropriate handles and picking
+                                                                                  suitable string lengths is not an intuitive task, as these parameters
+Fig. 8. Designing a periodic motion for the Bird puppet. A periodic motion is     shape the space of motions a marionette can perform. In some cases,
+normally very dynamic, and there are virtually no points where the puppet         a quick trial-and-error search suffices to find reasonable parameter
+is at rest. However, we require all motions to start in a resting configuration.  values, but we found it very useful (and easy) to devise an automated
+To avoid this issue, periodic motions start with an initialization cycle, where   procedure instead. Since all of our objectives are smooth with respect
+the robot brings the puppet from rest to a specific position and velocity         to design parameters, we can optimize for these as well, again using
+within the periodic motion. It then switches to the target periodic motion        sensitivity analysis. At a conceptual level, it suffices to replace p
+                                                                                  by any design parameter in the derivation we presented in the
+initial and final positions and velocities of all the components: pup-            previous sections. We use this approach to optimize the locations
+pet joints and end effectors. Specifically, we extend the time horizon            of the attachment points in local coordinates lj from Eq. 22, and
+by one sample at each end, x0 and xt+1, which are not played back,                the string lengths s0j1j2 from Eq. (20). Fig. 9 shows a typical case,
+and define the objective                                                          where the motion trajectory generated with a sub-optimal handle
+                                                                                  design cannot reproduce the target closely enough. After design
+              OCycPos(x, p) = x1 - xt +1 2 + x0 - xt 2.                           optimization, the resulting motion follows the target much more
+                                                                                  closely. In this case, design optimization found that using a triangle-
+As mentioned above, we start all of our motions at a rest pose.                   shaped handle performs better for this specific motion. This would
+Starting a periodic motion from a rest pose would mean that the                   have been difficult to intuitively predict.
+puppet should come to a rest after each cycle. We overcome this by
+running an initialization cycle before switching to the cyclic motion                The design problem also involves discrete vari-
+itself. Given a periodic motion, the user can pick a starting point               ables: the decision regarding which point masses
+on the period, and the system will find a motion that matches the                 should be stringed and to which attachment points
+position and velocity of the puppet at that point of the periodic                 plays a crucial role in shaping the space of permissi-
+motion. This is done using an objective for the final position and                ble motions. We explore various possibilities in Fig.
+velocity. We show an example for the Bird puppet in Fig. 8, where                 10 for a simple design of a puppet's leg. The target
+the user wished to create a flying motion. The entry point into the               motion appears in the inset. The figure shows dif-
+periodic motion is at its beginning, when the wings are at the very               ferent patterns of connectivity of the point masses. As can be seen,
+top. The velocity at this point is admittedly small, but not vanishing.           the quality of the resulting motion is influenced by this discrete
+We stress that every other entry point works as well.                             design decision. We currently do not have a way of automatically
+                                                                                  optimizing this aspect of the design, but we rely on the interactivity
+ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.      of our system to let the designer experiment with different options.
+
+                                                                                     Physical experiments. To investigate the consequences of mod-
+                                                                                  elling approximations and the corresponding sim-to-real gap, we
+                                                                                  recorded the motions of some of our physical marionettes using
+                                                                                  an Optitrack motion capture system. Fig. 11 summarizes some of
+                                                                                  our findings by reporting the mismatch between the simulation
+                                                                                  results and the recorded motions for the Chinese Dragon puppet.
+                                                                                  While the movements of the robot initially match the simulated
+                                                                                  trajectories quite well, drift does accumulate over time. Depending
+                                                                                  on the complexity of the underlying dynamical system, this drift
+                                                                                  can become problematic. For example, for the Puppy marionette,
+                                                                                  we have noticed that after about 10 motion cycles played in an
+                                                                                           PuppetMaster: Robotic Animation of Marionettes · 103:9
+
+(a)                (b)                                     (c)
+
+(d)                (e)                                     (f )                            Fig. 12. Several marionettes animated with our system. Please refer to the
+                                                                                           accompanying video for motions performed both in simulation and using
+                                                                                           physical prototypes.
+
+Fig. 10. Comparisons of various stringing options. The choice of how to                    7 CONCLUSION, LIMITATIONS AND FUTURE WORK
+string a puppet, e.g. where to attach a string to and to which point masses,
+can have a great impact on the space of permissible motions. Note that the                 We presented a control framework for robotic animation of mar-
+handle locations are omitted from this figure for simplicity. The color coding             ionettes. As demonstrated through a variety of experiments, the
+of the strings indicates attachment to the same handle.                                    simulation-based motion optimization technique that we have de-
+                                                                                           veloped provides a promising solution for this very challenging
+1.0                Sim-vs-real: difference between predicted and captured motions          control problem. Nevertheless, our work represents only a first step
+                                                                                           in endowing robots with human-level skill, and it highlights excit-
+                                                   0.05                                    ing opportunities for future investigations. For example, there are
+                                                                                           aspects of a marionette's motion that we are currently not mod-
+Y - Position [m]                                   x                                       eling: string collisions, play and friction in the mechanical joints,
+                                                                                           deformations of the frame structure, forces generated by clothing
+                                     Position [m]       0                  Averaged Error  or other aesthetic layers, etc. Fortunately, as long as such charac-
+                                                    0.05                                   teristics of the dynamical system can be adequately modeled in a
+                                                   y                                       forward dynamics simulation, the control optimization step may
+                                                        0                                  remain unchanged. We believe this decoupling is very powerful, as
+         Physical                                   0.05z                                  it allows different modeling choices to be studied in isolation.
+0.0 Simulation
+                   X - Position [m]                     0        Time [s]          11         As there are still unmodeled aspects of a marionette's dynamics,
+     -0.8                                        10                                        some mismatches between the results predicted in simulation and
+                                                                                           the corresponding real-world motions are unavoidable. Empirically
+Fig. 11. Sim-vs-real comparison for the Chinese Dragon example. We                         we have noticed that the sensitivities of a marionette's motions (i.e.
+tracked the motions of four markers placed on the marionette using a                       how much they change due to an external perturbation) can depend
+motion capture system. The figure on the left shows the measured (in                       quite strongly on the way in which it is designed. For now, the
+grey) and predicted (in red) trajectories in the x - y plane, starting with                number of strings and assignment of attachment points to control
+the initialization step and followed by 10 periodic cycles. The plots on the               handles is kept fixed in our framework, but in the future we plan to
+right show the position error between simulation predictions and physical                  develop optimization techniques for such discrete design choices.
+measurements averaged over the four markers along the x, y and z axes.                     We also currently play back the robot puppeteer's movements in an
+                                                                                           open-loop manner. Nevertheless, feedback mechanisms that are able
+open-loop fashion, the motions of the physical prototype can get                           to gracefully recover from perturbations or drift that accumulate
+out of sync and no longer resemble the desired bounding gait. To                           over time are also very important and should be investigated. And
+overcome problems due to drift, feedback loops should be used to                           last but not least, we are very excited by the prospect of mathemati-
+stabilize the nominal trajectories computed through optimization.                          cally analyzing the stability of a marionette's motions, and by the
+                                                                                           possibility of explicitly incorporating aspects of robust design and
+   Further results. In addition to the examples shown in the paper,                        control in our trajectory optimization scheme.
+we show several more results in the accompanying video. The re-
+sults show a variety of marionette designs and animations: a fish                             Our long term goal is to enable robots to manipulate various types
+swimming, a snake slithering, and a puppy bounding and trotting.                           of complex physical systems ­ clothing, soft parcels in warehouses
+See Fig. 12 and Table 1 for more information on the puppets.                               or stores, flexible sheets and cables in hospitals or on construction
+                                                                                           sites, plush toys or bedding in our homes, etc ­ as skillfully as
+                                                                                           humans do. We believe the technical framework we have set up for
+                                                                                           robotic puppeteering will also prove useful in beginning to address
+                                                                                           this very important grand-challenge.
+
+                                                                                           ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+103:10 · Zimmermann, S. et al
+
+Table 1. List of puppets discussed in the paper and video. We list the number of point masses, strings and attachments points, and the duration of the
+trajectory. The number of time steps was 40 in all cases. We also provide information regarding the number of iterations applied until a reasonable match of
+the target trajectory was reached, as well as the average time per iteration to compute the forward simulation step x(p) and the search direction d. The latter
+includes the time required to compute the gradient and the hessian H as well as the solve of the linear system presented in Eq. 17. We note that our code was
+not optimized for run time and improvements can be made in order to significantly decrease these numbers.
+
+Puppet           # point       # strings  # attachment                                       animation   planning      # iterations  time x(p)  time d
+                 masses                   points                                                         horizon
+Pendulum                           1                                                        preliminary  1.0s / 1.33s       10        0.0041s   0.0561s
+Double Pendulum     1              2             1                                          preliminary  1.0s / 1.33s       10        0.0043s   0.0585s
+Single Leg          2            2-4             1                                          preliminary                     11        0.0027s   0.1252s
+Chinese Dragon      3              5           2-4                                                           1.0s           19        0.0069s   0.4464s
+Swallow             5              4             5                                             flying        1.0s           55        0.0065s   0.3216s
+Fish                5              7             4                                             flying       1.33s           21        0.0220s   2.2532s
+Snake              11              9             7                                          swimming         1.0s           27        0.0102s   2.5396s
+Puppy               9             10             9                                           slithering      1.6s           37        0.0216s   4.6403s
+Puppy              14             10            10                                           bounding        1.0s           25        0.0270s   4.7045s
+                   14                           10                                            trotting       1.0s
+
+REFERENCES                                                                                  Damien Gauge, Stelian Coros, Sandro Mani, and Bernhard Thomaszewski. 2014. In-
+                                                                                                teractive Design of Modular Tensegrity Characters. In The Eurographics / ACM
+Thomas Auzinger, Wolfgang Heidrich, and Bernd Bickel. 2018. Computational design                SIGGRAPH Symposium on Computer Animation, SCA 2014, Copenhagen, Denmark,
+    of nanostructural color for additive manufacturing. ACM Trans. Graph. 37, 4 (2018),         2014. 131­138. https://doi.org/10.2312/sca.20141131
+   159:1­159:16. https://doi.org/10.1145/3197517.3201376
+                                                                                            Moritz Geilinger, Roi Poranne, Ruta Desai, Bernhard Thomaszewski, and Stelian Coros.
+Yunfei Bai, Wenhao Yu, and C. Karen Liu. 2016. Dexterous Manipulation of Cloth.                 2018. Skaterbots: Optimization-based Design and Motion Synthesis for Robotic Crea-
+    Comput. Graph. Forum 35, 2 (2016), 523­532. https://doi.org/10.1111/cgf.12852               tures with Legs and Wheels. In Proceedings of ACM SIGGRAPH, ACM Transactions
+                                                                                                on Graphics (TOG) (Ed.), Vol. 37. ACM.
+Jernej Barbic, Marco da Silva, and Jovan Popovi. 2009. Deformable Object Animation
+    Using Reduced Optimal Control. ACM Trans. Graph. 28, 3, Article 53 (July 2009),         Gaël Guennebaud, Benoît Jacob, et al. 2010. Eigen v3. http://eigen.tuxfamily.org.
+    9 pages. https://doi.org/10.1145/1531326.1531359                                        John Hauser. 2002. A Projection Operator Approach To The Optimization Of Trajectory
+
+James M. Bern, Kai-Hung Chang, and Stelian Coros. 2017. Interactive design of animated          Functionals. IFAC Proceedings Volumes 35, 1 (2002), 377 ­ 382. https://doi.org/10.
+    plushies. ACM Trans. Graph. 36, 4 (2017), 80:1­80:11. https://doi.org/10.1145/3072959.      3182/20020721-6-ES-1901.00312 15th IFAC World Congress.
+    3073700                                                                                 Richard H. Jackson and Garth P. Mccormick. 1988. Second-order Sensitivity Analysis
+                                                                                                in Factorable Programming: Theory and Applications. Math. Program. 41, 1-3 (May
+M. Bernard and K. Kondak. 2009. Generic slung load transportation system using small           1988), 1­27. https://doi.org/10.1007/BF01580751
+    size helicopters. In 2009 IEEE International Conference on Robotics and Automation.     E. Johnson and T. D. Murphey. 2007. Dynamic Modeling and Motion Planning for
+    3258­3264. https://doi.org/10.1109/ROBOT.2009.5152382                                       Marionettes: Rigid Bodies Articulated by Massless Strings. In Proceedings 2007 IEEE
+                                                                                                International Conference on Robotics and Automation. 330­335. https://doi.org/10.
+Morten Bisgaard, Jan Bendtsen, and Anders La Cour-Harbo. 2009. Modelling of Generic            1109/ROBOT.2007.363808
+    Slung Load System. In AIAA Modeling and Simulation Technologies Conference and          Mickaël Ly, Romain Casati, Florence Bertails-Descoubes, Mélina Skouras, and Laurence
+    Exhibit. American Institute of Aeronautics and Astronautics. https://doi.org/10.            Boissieux. 2018. Inverse Elastic Shell Design with Contact and Friction. In SIGGRAPH
+    2514/6.2006- 6816                                                                           Asia 2018 Technical Papers (SIGGRAPH Asia '18). ACM, New York, NY, USA, Article
+                                                                                                201, 16 pages. https://doi.org/10.1145/3272127.3275036
+Yang Cao, Shengtai Li, Linda Petzold, and Radu Serban. 2003. Adjoint sensitivity analysis   Sebastian Martin, Bernhard Thomaszewski, Eitan Grinspun, and Markus H. Gross.
+    for differential-algebraic equations: The adjoint DAE system and its numerical              2011. Example-based elastic materials. ACM Trans. Graph. 30, 4 (2011), 72:1­72:8.
+    solution. SIAM Journal on Scientific Computing 24, 3 (2003), 1076­1089.                     https://doi.org/10.1145/2010324.1964967
+                                                                                            Antoine McNamara, Adrien Treuille, Zoran Popovi, and Jos Stam. 2004. Fluid Control
+I.-Ming Chen, Raymond Tay, Shusong Xing, and Song Huat Yeo. 2004. Marionette: From              Using the Adjoint Method. In ACM SIGGRAPH 2004 Papers (SIGGRAPH '04). ACM,
+   Traditional Manipulation to Robotic Manipulation. In International Symposium                 New York, NY, USA, 449­456. https://doi.org/10.1145/1186562.1015744
+    on History of Machines and Mechanisms. Springer, Dordrecht, 119­133. https:             Vittorio Megaro, Bernhard Thomaszewski, Maurizio Nitti, Otmar Hilliges, Markus H.
+   //doi.org/10.1007/1- 4020- 2204- 2_10                                                        Gross, and Stelian Coros. 2015. Interactive design of 3D-printable robotic crea-
+                                                                                                tures. ACM Trans. Graph. 34, 6 (2015), 216:1­216:9. https://doi.org/10.1145/2816795.
+Alexander Clegg, Jie Tan, Greg Turk, and C. Karen Liu. 2015. Animating human dressing.          2818137
+    ACM Trans. Graph. 34, 4 (2015), 116:1­116:9. https://doi.org/10.1145/2766986            Vittorio Megaro, Jonas Zehnder, Moritz Bächer, Stelian Coros, Markus H. Gross, and
+                                                                                                Bernhard Thomaszewski. 2017. A computational design tool for compliant mecha-
+Alexander Clegg, Wenhao Yu, Jie Tan, C. Karen Liu, and Greg Turk. 2018. Learning to             nisms. ACM Trans. Graph. 36, 4 (2017), 82:1­82:12. https://doi.org/10.1145/3072959.
+    dress: synthesizing human dressing motion via deep reinforcement learning. ACM              3073636
+    Trans. Graph. 37, 6 (2018), 179:1­179:10. https://doi.org/10.1145/3272127.3275048       E. Mizutani. 2015. On Pantoja's problem allegedly showing a distinction between
+                                                                                                differential dynamic programming and stagewise Newton methods. Internat. J.
+Michael F. Cohen. 1992. Interactive Spacetime Control for Animation. SIGGRAPH                   Control 88, 9 (2015), 1702­1711. https://doi.org/10.1080/00207179.2015.1013063
+    Comput. Graph. 26, 2 (July 1992), 293­302. https://doi.org/10.1145/142920.134083        Todd D Murphey and E. Johnson. 2011. Control aesthetics in software architecture
+                                                                                                for robotic marionettes. In American Control Conference (ACC), 2011. IEEE, IEEE,
+Stelian Coros, Bernhard Thomaszewski, Gioacchino Noris, Shinjiro Sueda, Moira For-              3825­3830.
+    berg, Robert W. Sumner, Wojciech Matusik, and Bernd Bickel. 2013. Computa-              D. M. Murray and S. J. Yakowitz. 1984. Differential dynamic programming and Newton's
+    tional design of mechanical characters. ACM Trans. Graph. 32, 4 (2013), 83:1­83:12.         method for discrete optimal control problems. Journal of Optimization Theory and
+    https://doi.org/10.1145/2461912.2461953                                                     Applications 43, 3 (01 Jul 1984), 395­414. https://doi.org/10.1007/BF00934463
+                                                                                            I. Palunko, A. Faust, P. Cruz, L. Tapia, and R. Fierro. 2013. A reinforcement learning
+Cédric De Crousaz, Farbod Farshidian, and Jonas Buchli. 2014. Aggressive optimal                approach towards autonomous suspended load manipulation using aerial robots. In
+    control for agile flight with a slung load. In in IROS 2014 Workshop on Machine             2013 IEEE International Conference on Robotics and Automation. 4896­4901. https:
+    Learning in Planning and Control of Robot Motion.                                          //doi.org/10.1109/ICRA.2013.6631276
+
+Tao Du, Adriana Schulz, Bo Zhu, Bernd Bickel, and Wojciech Matusik. 2016. Com-
+    putational multicopter design. ACM Trans. Graph. 35, 6 (2016), 227:1­227:10.
+    http://dl.acm.org/citation.cfm?id=2982427
+
+Simon Duenser, James M. Bern, Roi Poranne, and Stelian Coros. 2018. Interactive
+    Robotic Manipulation of Elastic Objects. In 2018 IEEE/RSJ International Conference
+    on Intelligent Robots and Systems, IROS 2018, Madrid, Spain, October 1-5, 2018. 3476­
+    3481. https://doi.org/10.1109/IROS.2018.8594291
+
+A. Faust, I. Palunko, P. Cruz, R. Fierro, and L. Tapia. 2013. Learning swing-free tra-
+    jectories for UAVs with a suspended load. In 2013 IEEE International Conference on
+    Robotics and Automation. 4902­4909. https://doi.org/10.1109/ICRA.2013.6631277
+
+ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+                                                                                              PuppetMaster: Robotic Animation of Marionettes · 103:11
+
+Zherong Pan and Dinesh Manocha. 2018. Active Animations of Reduced Deformable
+    Models with Environment Interactions. ACM Trans. Graph. 37, 3, Article 36 (Aug.
+    2018), 17 pages. https://doi.org/10.1145/3197565
+
+J. F. A. De O. Pantoja. 1988. Differential dynamic programming and Newton's method. In-
+    ternat. J. Control 47, 5 (1988), 1539­1553. https://doi.org/10.1080/00207178808906114
+
+Jesús Pérez, Miguel A. Otaduy, and Bernhard Thomaszewski. 2017. Computational
+    design and automated fabrication of kirchhoff-plateau surfaces. ACM Trans. Graph.
+    36, 4 (2017), 62:1­62:12. https://doi.org/10.1145/3072959.3073695
+
+J. Schultz and T. Murphey. 2012. Trajectory generation for underactuated control of a
+    suspended mass. In 2012 IEEE International Conference on Robotics and Automation.
+   123­129. https://doi.org/10.1109/ICRA.2012.6225032
+
+Adriana Schulz, Cynthia R. Sung, Andrew Spielberg, Wei Zhao, Robin Cheng, Eitan
+    Grinspun, Daniela Rus, and Wojciech Matusik. 2017. Interactive robogami: An
+    end-to-end system for design of robots with ground locomotion. I. J. Robotics Res.
+    36, 10 (2017), 1131­1147. https://doi.org/10.1177/0278364917723465
+
+Christian Schulz, Christoph von Tycowicz, Hans-Peter Seidel, and Klaus Hildebrandt.
+    2014. Animating Deformable Objects Using Sparse Spacetime Constraints. ACM
+    Trans. Graph. 33, 4, Article 109 (July 2014), 10 pages. https://doi.org/10.1145/2601097.
+    2601156
+
+Mélina Skouras, Bernhard Thomaszewski, Stelian Coros, Bernd Bickel, and Markus H.
+    Gross. 2013. Computational design of actuated deformable characters. ACM Trans.
+    Graph. 32, 4 (2013), 82:1­82:10. https://doi.org/10.1145/2461912.2461979
+
+Peng Song, Xiaofei Wang, Xiao Tang, Chi-Wing Fu, Hongfei Xu, Ligang Liu, and Niloy J.
+    Mitra. 2017. Computational design of wind-up toys. ACM Trans. Graph. 36, 6 (2017),
+    238:1­238:13. https://doi.org/10.1145/3130800.3130808
+
+Koushil Sreenath and Vijay Kumar. 2013. Dynamics, Control and Planning for Coop-
+    erative Manipulation of Payloads Suspended by Cables from Multiple Quadrotor
+    Robots. https://doi.org/10.15607/RSS.2013.IX.011
+
+K. Sreenath, N. Michael, and V. Kumar. 2013. Trajectory generation and control of
+    a quadrotor with a cable-suspended load - A differentially-flat hybrid system. In
+    2013 IEEE International Conference on Robotics and Automation. 4888­4895. https:
+   //doi.org/10.1109/ICRA.2013.6631275
+
+Bernhard Thomaszewski, Stelian Coros, Damien Gauge, Vittorio Megaro, Eitan Grin-
+    spun, and Markus H. Gross. 2014. Computational design of linkage-based characters.
+    ACM Trans. Graph. 33, 4 (2014), 64:1­64:9. https://doi.org/10.1145/2601097.2601143
+
+Emanuel Todorov. 2014. Convex and analytically-invertible dynamics with contacts
+    and constraints: Theory and implementation in MuJoCo. In 2014 IEEE International
+    Conference on Robotics and Automation, ICRA 2014, Hong Kong, China, May 31 - June
+    7, 2014. 6054­6061. https://doi.org/10.1109/ICRA.2014.6907751
+
+Andrew Witkin and Michael Kass. 1988. Spacetime Constraints. SIGGRAPH Comput.
+    Graph. 22, 4 (June 1988), 159­168. https://doi.org/10.1145/378456.378507
+
+Hongyi Xu, Espen Knoop, Stelian Coros, and Moritz Bächer. 2018. Bend-it: design and
+    fabrication of kinetic wire characters. ACM Trans. Graph. 37, 6 (2018), 239:1­239:15.
+    https://doi.org/10.1145/3272127.3275089
+
+Katsu Yamane, Jessica K. Hodgins, and H. Benjamin Brown. 2004. Controlling a motor-
+    ized marionette with human motion capture data. International Journal of Humanoid
+    Robotics 01, 04 (Dec. 2004), 651­669. https://doi.org/10.1142/S0219843604000319
+
+D. Zameroski, G. Starr, J. Wood, and R. Lumia. 2006. Swing-free trajectory generation
+    for dual cooperative manipulators using dynamic programming. In Proceedings
+    2006 IEEE International Conference on Robotics and Automation, 2006. ICRA 2006.
+   1997­2003. https://doi.org/10.1109/ROBOT.2006.1641998
+
+Ran Zhang, Thomas Auzinger, Duygu Ceylan, Wilmot Li, and Bernd Bickel. 2017.
+    Functionality-aware retargeting of mechanisms to 3D shapes. ACM Trans. Graph.
+    36, 4 (2017), 81:1­81:13. https://doi.org/10.1145/3072959.3073710
+
+                                                                                              ACM Trans. Graph., Vol. 38, No. 4, Article 103. Publication date: July 2019.
+

@@ -1,0 +1,25 @@
+Austman, J.C. (undated, ~1940s-50s; "First Edition"). How to Make and Operate
+Marionettes, Including Facts About the Pixie Marionettes. Pixie Marionettes /
+self-published craft manual.
+
+STATUS: full text saved; see
+papers/takey-how-to-make-operate-marionettes.pdf/.txt (hosted as a free PDF at
+takey.com, a marionette-making resource site).
+
+SUMMARY: a practical, non-academic construction manual for wooden string
+marionettes of traditional (child/stage) scale. Directly relevant sections
+(located by full-text search):
+- Knee and ankle joints are made from a strip of LEATHER, tacked/nailed so as "to
+  allow for a bend" -- i.e. a leather-strap hinge is explicitly a single-axis
+  (1-DOF), unstiffened, friction-only joint with no spring return, matching the
+  "r-joint" (1-DOF revolute) category in Chen/Tay/Xing/Yeo's more formal
+  classification.
+- Shoulder and hip pieces are joined to the torso by a "muslin" cloth strip or "the
+  ribbed top of a stocking," i.e. a flexible fabric hinge rather than a rigid pin --
+  again a soft, low-stiffness, high-compliance joint.
+- Screw-eyes are used at the shoulder, hip, knee, and head purely as string
+  attachment/pass-through points, not as the joints themselves.
+- No angular range-of-motion or stiffness numbers are given anywhere (this is a
+  hobbyist craft manual, not an engineering paper) -- recorded as NOT FOUND for any
+  quantitative joint data; only the qualitative construction (leather = hinge,
+  cloth = flexible universal joint) is usable.

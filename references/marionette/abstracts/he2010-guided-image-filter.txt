@@ -1,0 +1,21 @@
+He, K., Sun, J., and Tang, X. (2010). Guided Image Filtering. ECCV 2010.
+(Journal version: IEEE TPAMI 35(6), 1397-1409, 2013; see
+he2013-guided-image-filter-pami in the papers folder.)
+
+STATUS: full text saved (author-hosted mirror), text-extracted; see
+papers/he2010-guided-image-filter.pdf/.txt and
+papers/he2013-guided-image-filter-pami.pdf/.txt.
+
+SUMMARY: Defines the guided filter, an edge-preserving smoothing operator like the
+bilateral filter, derived from a local-linear model between a guidance image and
+the filter output (the guidance can be the input image itself, or a different,
+sharper image). Because it is a local linear filter it can be computed in O(N)
+time via box filters/integral images and behaves better near strong edges than
+the bilateral filter (fewer gradient-reversal / halo artifacts). Applications
+include denoising, detail enhancement, haze removal, and matting/feathering.
+
+RELEVANCE: a fast alternative to solving the full matting Laplacian (Levin 2008)
+for edge refinement of the hand's alpha matte, guiding the alpha channel with the
+sharp luma channel to snap a coarse or learned matte tightly onto the finger
+silhouette without a halo. Also useful for denoising and detail work when
+matching CG to the plate.

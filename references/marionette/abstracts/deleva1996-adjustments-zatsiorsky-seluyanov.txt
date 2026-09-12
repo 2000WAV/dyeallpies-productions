@@ -1,0 +1,31 @@
+de Leva, P. (1996). Adjustments to Zatsiorsky-Seluyanov's segment inertia parameters.
+Journal of Biomechanics, 29(9), 1223-1230.
+
+ABSTRACT (as printed in the paper; full text saved in
+papers/deleva1996-adjustments-zatsiorsky-seluyanov.pdf, text extract in the .txt of the
+same name):
+
+Zatsiorsky et al. (in Contemporary Problems of Biomechanics, pp. 272-291, CRC Press,
+Massachusetts, 1990a) obtained, by means of a gamma-ray scanning technique, the
+relative body segment masses, center of mass (CM) positions, and radii of gyration for
+samples of college-aged Caucasian males and females. Although these data are the only
+available and comprehensive set of inertial parameters regarding young adult
+Caucasians, they have been rarely utilized for biomechanical analyses of subjects
+belonging to the same or a similar population. The main reason is probably that
+Zatsiorsky et al. used bony landmarks as reference points for locating segment CMs and
+defining segment lengths. Some of these landmarks were markedly distant from the joint
+centers currently used by most researchers as reference points. The purpose of this
+study was to adjust the mean relative CM positions and radii of gyration reported by
+Zatsiorsky et al., in order to reference them to the joint centers or other commonly used
+landmarks, rather than the original landmarks. The adjustments were based on a number
+of carefully selected sources of anthropometric data.
+
+RELEVANCE TO THIS PROJECT: this is the primary source for per-segment mass
+fraction, longitudinal segment length (mm, for a reference female of 61.9 kg/1735 mm
+and male of 73.0 kg/1741 mm), CM position (% of segment length from a stated
+proximal/cranial endpoint), and three-axis (sagittal/transverse/longitudinal) radius of
+gyration (% of segment length), for Head, Trunk (and its Upper/Middle/Lower parts),
+Upper arm, Forearm, Hand, Thigh, Shank and Foot -- Table 4 of the paper, transcribed in
+full in data/02-segment-parameters.csv. Used to scale a ~30 cm, N-segment marionette
+figure and to place each segment's center of mass and rotational inertia in MuJoCo body
+definitions.

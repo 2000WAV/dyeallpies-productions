@@ -1,0 +1,41 @@
+Nothdurft, H.-C. (2000). Salience from feature contrast: additivity across
+dimensions. Vision Research, 40(10-12), 1183-1201.
+doi:10.1016/s0042-6989(00)00031-6. PMID: 10788635.
+
+STATUS: abstract only (fetched via NCBI E-utilities efetch). No PDF saved
+(ScienceDirect paywalled article; not fetched in this compact pass).
+
+ABSTRACT (verbatim from PubMed):
+"Test targets ('singletons') that displayed orientation, motion, luminance,
+or color contrast, or pairwise combinations of these, were presented in line
+texture arrays, and their saliences were quantified in comparison to
+reference targets at defined luminance levels. In general, saliency effects
+in different stimulus dimensions did add, but did not add linearly. That is,
+targets with feature contrast in two dimensions were generally more salient
+than targets with only one of these properties, but often less salient than
+predicted from the sum of the individual saliency components. Salience
+variations within a dimension were compared with and without a second
+saliency effect added. The resulting gain reduction in the combined stimulus
+conditions was interpreted to reflect the amount of overlap between the
+respective saliency mechanisms. Combinations of orientation and color
+contrast produced the strongest gain reduction (about 90% for color in
+orientation) thus indicating the strongest overlap of underlying saliency
+mechanisms. Combinations of orientation and motion contrast revealed about
+50% overlap, slightly smaller rates were found for combinations of color and
+motion. All combinations with luminance contrast (orientation and luminance,
+motion and luminance) produced only little gain reduction (<30%) thus
+indicating a higher degree of independence between the underlying saliency
+mechanisms than for other stimulus dimensions."
+
+KEY NUMBERS:
+- Color-in-orientation gain reduction (feature-channel overlap): ~90%.
+- Orientation-motion overlap: ~50%.
+- Combinations involving LUMINANCE contrast (with orientation or motion):
+  <30% gain reduction -- i.e. luminance-contrast salience is comparatively
+  INDEPENDENT of the other channels, meaning a strong luminance-contrast
+  edge (dark puppet on a light wall) adds its salience roughly on top of
+  whatever colour/orientation salience is also present, rather than
+  competing for the same neural resource. Supports stacking a saturated
+  warm hue (colour salience) with strong luminance contrast (dark object on
+  light wall) as two largely independent, additive routes to salience,
+  rather than one substituting for the other.

@@ -1,0 +1,21 @@
+Wikipedia: "Depth of field" and "Circle of confusion" (accessed 2026-09-12).
+
+STATUS: full HTML pages saved; see papers/wikipedia-depth-of-field.html and
+papers/wikipedia-circle-of-confusion.html.
+
+SUMMARY: standard thin-lens depth-of-field formulas -- hyperfocal distance
+H = f^2/(N*c) + f, near/far limits Dn = H*s/(H+(s-f)), Df = H*s/(H-(s-f))
+for a given focus distance s, focal length f, f-number N and circle-of-
+confusion diameter c. The circle-of-confusion page documents the common
+"diagonal/1500" convention for choosing c from the sensor's diagonal size
+(a somewhat conservative choice tuned for typical viewing/print
+conditions), alongside the alternative of tying c directly to pixel pitch
+(e.g. c = 2 pixels) for a pixel-peeping/on-screen-viewing criterion.
+
+KEY NUMBERS: formulas only (see above); this project's OWN depth-of-field
+numbers for the iPhone 14 main camera (computed by applying these formulas
+to item 05's already-derived focal length and sensor numbers) are in
+data/11-realism-numbers.csv, not restated here.
+
+RELEVANCE: the formula source for item 11 section 5's iPhone 14 depth-of-
+field computation at the 0.4-0.6 m shooting distance used in this shot.

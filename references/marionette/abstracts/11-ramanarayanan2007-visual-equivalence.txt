@@ -1,0 +1,33 @@
+Ramanarayanan, G., Ferwerda, J., Walter, B., and Bala, K. (2007). Visual
+Equivalence: Towards a New Standard for Image Fidelity. ACM Transactions on
+Graphics (SIGGRAPH 2007) 26(3), article 76.
+
+STATUS: full text saved (author-hosted, jamesferwerda.com); see
+papers/ramanarayanan2007-visual-equivalence.pdf/.txt.
+
+SUMMARY: proposes "visual equivalence" as a fidelity standard weaker than
+pixel-identical but stronger than merely "plausible": two renderings (e.g.
+a cheap approximate global-illumination pass and an expensive reference)
+are visually equivalent if observers cannot reliably tell that they convey
+DIFFERENT scene appearance, even if the images are visibly different
+pixel-for-pixel. Builds perceptual metrics for "same vs different lighting/
+material impression" and uses them to accelerate rendering (an application
+to the Lightcuts many-light algorithm: a visual-equivalence-derived error
+threshold roughly halved render time with no perceptible fidelity loss
+versus a stricter, pixel-based threshold).
+
+KEY NUMBERS:
+- Task performance measured with a 75% correct-detection threshold (the
+  point at which observers reliably notice a "same vs different lighting"
+  change) and a 50%/2AFC threshold for a separate yes/no design.
+- Using a "warp3"-based (looser) error threshold instead of a stricter
+  "warp5" threshold in the Lightcuts renderer roughly HALVED rendering time
+  while producing images the visual-equivalence study predicted (and
+  confirmed) were not perceptibly different from the reference.
+
+RELEVANCE: the conceptual basis for item 11 section 7's ranking logic --
+not every rendering improvement needs to be pixel-accurate to the physical
+scene, only visually equivalent to what a viewer would expect; several of
+the ranked interventions (approximate contact shadow, screen-space AO
+instead of ray-traced) are visual-equivalence bets, not physical-accuracy
+bets.

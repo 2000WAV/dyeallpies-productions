@@ -1,0 +1,321 @@
+window.ramp = window.ramp || {};
+ window.ramp.que = window.ramp.que || [];
+
+ const DYNAMIC_INITIAL_HEIGHT = 900;
+ const DYNAMIC_BEFORE_HEIGHT = 180;
+ const DYNAMIC_AFTER_HEIGHT = 70; 
+ const DYNAMIC_TAG = '';
+
+window.ramp.que.push(() => {
+window.ramp.setCustomGamKvs({
+ 'pageid': '71',
+ 'country': 'BR',
+ 
+ 
+
+ 'visitqos': '0'
+});
+})
+
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('set', {
+ 'c_pagetype': '71'
+ });
+
+ gtag('config', 'G-WECNNBCHQE');
+
+ 
+
+GSMArena.com
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ Tip us
+
+ 2.1m
+
+ 160k
+
+ RSS
+
+ EV
+
+ Merch
+
+ 891k
+
+ 166k
+
+ -->
+
+ 
+ Log in
+ 
+
+ 
+
+ 
+ Login
+Home
+News
+Reviews
+Videos
+Featured
+Phone Finder
+Deals
+Merch
+Coverage
+Contact
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+Apple iPhone 14 review
+Comments (115)
+User reviews
+iPhone 14
+
+ 
+ 
+
+ 4.2
+
+1. Introduction, unboxing
+2. Design, build quality, controls and connectivity
+3. Lab tests: display, battery life, charging speed, loudspeaker
+4. Software, performance
+5. Camera, photo and video quality
+6. Alternatives, our verdict, pros and cons
+&nbsp;
+Apple iPhone 14 specification
+User opinions and reviews
+Review comments (115)
+ 
+ Apple iOS
+Upgraded main cam and a new autofocus selfie cam
+The iPhone 14 has a pair of cameras on the back. Neither seems to actually be new. In this case, the main 12MP camera appears to be lifted from the iPhone 13 Pro. That means that compared to the iPhone 13, it has a brighter f/1.5 aperture and larger 1.9µm pixels. So, an overall brighter sensor that's likely on par with the iPhone 13 Pro's.
+Then there is the 12MP ultrawide camera, with its 120-degree field of view and f/2.4 aperture. It seems to be identical to the ultrawide on the vanilla iPhone 13 so we expect similar performance.
+Not necessarily identical, though, since Apple has a new processing pipeline in place for the iPhone 14 generation. It is called the Photonic Engine. That's just a fancy name for Apple's latest HDR stacking technology. The older version used to be called Deep Fusion. In comparison, the Photonic Engine merges more images into one and also uses uncompressed images for the merge process.
+The 12MP selfie camera is arguably the biggest new innovation to the camera setup on the vanilla iPhone because of the addition of phase detection autofocus. Any of you vloggers or "TikTok-ers" out there should rejoice.
+Camera app and features
+The viewfinder has been mostly the same since the iOS 13 and the iPhone 11 - you can see outside of the viewfinder thanks to the precise calibration of the two cameras that allows seeing what will be left outside of the frame in real-time.
+The Apple image processing includes all legacy features like Smart HDR, Night Mode on all cameras, and now Photonic Engine.
+The Night Mode icon pops up automatically when a low-light scene presents itself, and it will take a pseudo-long-exposure shot - all handheld, of course. You will see the seconds suggested next to the Night Mode icon, but if you tap on it, you can change the simulated long exposure or altogether disable it. Usually, it's between 1 and 2 seconds, but sometimes the phone allows you to go for up to 30 seconds depending on the environmental light or its lack thereof. You can use this mode on the main, the ultrawide, and even the selfie snapper.
+As usual, all cameras talk to each other, so they already know the correct exposure and tone mapping settings when you switch between them. This applies to both stills and videos.
+The camera interface is mostly unchanged. You swipe between modes and have a couple of settings you can uncover with an upward swipe - flash, night mode, live photo, photo aspect, exposure compensation, and filters. In video mode, you can change the resolution and frame rate from the viewfinder.
+
+Camera app • Ultrawide • Night Mode • Photographic styles
+Portrait mode is available on the main and the selfie cameras. Even though some camera features have trickled down to the vanilla iPhone, there is still no RAW support on the iPhone 14.
+Introduced last year, Photographic Styles is present in the camera app. It automatically edits a photo, one element at a time (applying different corrections to the subject and background, for example). You can choose between Standard, Rich Contrast, Vibrant, Warm, and Cool. You can tune each of these modes to your liking and set your preferred one as default. It's like filters but more permanent.
+Cinematic mode is also present and carried forward from the iPhone 13 generation. It does automatic rack focus, but the phone records a depth map alongside the video, so you can change the focus point manually after the fact. Editing such videos is possible in iMovie and Clips apps.
+
+Cinematic mode and Action mode
+New for this year - Action mode is available on all iPhone 14 models. It is an enhanced video stabilization mode that is meant for really dynamic and action-filled scenes and situations. We've included some test footage further down the page.
+Daylight photo quality
+As we mentioned already, the iPhone 14 borrows its main 12MP camera from last year's Pro models. If there is one thing that Cupertino deserves incredible praise for in the camera department, it has to be consistency. Both shot to shot on any given device and year over year. These photos are expectedly characteristically iPhone photos. That means they're not overly exciting in terms of color - natural is the operative word here, though some may use more expressive terms. They're not overtly HDR-y either - iPhones aren't afraid of clipping some of the highlights or underdeveloping the deepest shadows if it's needed to get that characteristic contrasty look.
+Detail is no different than any of the 12MP cameras on the market - it's plenty. There's hardly any noise to speak of, but not everyone will be a fan of the somewhat overprocessed rendition of intricate detail that outresolves the sensor.
+
+Apple iPhone 14: 12MP main camera samples
+We took the liberty of going out with the vanilla iPhone 13 to capture some comparison shots for you as well and will be sprinkling them alongside samples from the iPhone 14. In good lighting conditions during the day, the main cameras on both phones produce remarkably similar photos.
+
+Apple iPhone 13: 12MP main camera samples
+The differences are very minute and often not there at all. For instance, the iPhone 14 seems to sharpen finer detail just slightly more than its predecessor and consistently has slightly shorter exposure times, presumably thanks to its brighter lens. Again though, we can hardly tell the two apart.
+The main camera captures very competent portrait shots. Subject detection and separation are nearly perfect, and the background blur is of high quality and convincing. The studio lighting effects are still just as fun to play with as they were back when Apple introduced them.
+
+Apple iPhone 14: 12MP main camera portrait samples
+The iPhone 14 lacks a dedicated telephoto, which means it is stuck with digital zoom from the main camera. At 2x zoom photos look nearly identical in overall quality to 1x ones. Impressive stuff all around.
+
+Apple iPhone 14: 12MP main camera 2x zoom samples
+Here are the same shots as captured by the iPhone 13.
+
+Apple iPhone 13: 12MP main camera 2x zoom samples
+And here's the iPhone 14 in our extensive photo compare database. Pixel-peep away.
+
+Apple iPhone 14 against the Apple iPhone 13 and the Apple iPhone 13 Pro in our Photo compare tool
+On to the 12MP ultrawide camera. Unlike the main cam, it is carried forward from the vanilla iPhone 13 instead of the Pro models. That means that, among other things, it lacks autofocus and can't double as a macro shooter.
+The photos it captures are pretty wide. Resolved detail is solid, contrast is great, and color rendition is very accurate. Dynamic range is nearly identical to the main camera. That is to say, well balanced, but not too wide.
+Foliage and other small details can sometimes look like oil paintings with this cam due to the smaller pixels and overall less detail to work with.
+
+Apple iPhone 14: 12MP ultrawide camera samples
+And once again, here is the iPhone 13 and its ultrawide camera capturing the same shots. These are even more similar to the iPhone 14 ones than those from the main camera. Both phones do have the same ultrawide snapper, after all.
+
+Apple iPhone 13: 12MP ultrawide camera samples
+Selfies
+Selfies from the 12MP camera are spectacular. Resolved detail is great. Skin texture and tones look very natural and detailed. Contrast and dynamic range also deserve praise. The noise is low and handled very well even when shooting indoors - something few selfie cameras can do.
+
+Apple iPhone 14: 12MP selfie camera samples
+Here are some very similar iPhone 13 selfies for comparison.
+
+Apple iPhone 13: 12MP selfie camera samples
+Apple has been offering two Field-of-View modes on the selfie camera for a few generations already - the slightly zoomed-in 7MP crop, which is equivalent to a 30mm field of view, and the full 12MP mode, which has a 23mm equivalent FoV.
+If you hold the iPhone in portrait orientation, selfies are cropped to 7MP to provide a tighter framing, but if you rotate the phone horizontally, you will get more of the scene with the camera app automatically switching to the wider 12MP mode. You can also manually switch between those two modes - there is a switch shortcut on the viewfinder.
+Arguably the biggest boost to the selfie experience is the phase detection autofocus introduced to the vanilla iPhone 14. It is quite dependable and keeps the subject in focus nine out of ten times. It has its ups and down on occasion and is not the speediest of autofocus systems we've seen, but any vloggers or TikTok-ers out there should rejoice.
+Here is a quick and admittedly silly test we did to show autofocus in action on the iPhone 14.
+
+Apple iPhone 14: 12MP selfie camera samples
+And here's how the iPhone 13 handles the same task of capturing a selfie at different distances.
+
+Apple iPhone 13: 12MP selfie camera samples
+Portraits from the selfie camera are solid through and through. Detail is great. Skin tones are pleasant and natural. The texture is nicely captured and rendered. Subject detection and separation are also very competent.
+
+Apple iPhone 14: 7MP selfie camera portrait samples
+By the way, the portraits are shot in 7MP, meaning the camera crops a part of its available FoV and shows a zoomed-in shot.
+Video quality
+The iPhone 14 can record video at up to 4K@60fps with any of its three cameras. With the right app, it can even capture video with all three of them simultaneously.
+All of the cameras also get EIS, and the main cam has OIS as well. Apple calls this cinematic video stabilization. All modes, including the 4K@60fps, also feature an expanded dynamic range thanks to the Smart HDR. The slow-mo options max out at 1080p at 240fps.
+HDR video capture is also available in Dolby Vision format at up to 4K@60fps. You can edit these videos on the go on your phone. You can upload them on YouTube or any other popular platform or even send them to your friends. The Dolby Vision information is saved outside the video stream, so the video will look normal to any non-HDR player/screen and be color-boosted on any Dolby Vision-compatible player and display.
+You get a choice between the more widely-compatible H.264 codec or the more efficient H.265 HEVC for video capture. The latter is required to do 4K@60fps and HDR. With the former, the iPhone 14 is limited to 4K@30fps.
+The iPhone 14, just like the previous iPhones, captures wide stereo audio for the videos at about 192kbps. This is spatial sound, and it's richer and deeper compared to just regular stereo.
+4K videos from the main camera are excellent. There is plenty of detail, vibrant yet true-to-life colors, and solid dynamic range. We have no complaints whatsoever.
+
+Here's the iPhone 14 in our vast video compare database.
+
+Apple iPhone 14 against the Apple iPhone 13 and the Apple iPhone 13 Pro in our Video compare tool
+The 4K videos from the ultrawide camera are equally brilliant. They excel in everything and have to be among the most detailed ones we've seen, as far as ultrawide cameras go.
+
+The iPhone 14 has excellent stabilization all around. EIS can be had on any of its cameras, and the main one also gets the benefit of OIS. For the first time ever, there is a toggle in the Camera app settings to disable EIS, which allows us to capture the following three-way splices.
+The third mode is Apple's new Action Mode. It is meant for very dynamic scenes, like sports and offers additional smoothing at the cost of some resolution and a narrower field of view. It does a splendid job as well. Here is a running sample for your evaluation.
+
+Selfie video from the iPhone 14 looks amazing. It is very clean and detailed. Skin texture and tone are perfect. Stabilization could be a bit better, but the bigger bumps and shakes are still handled well. In case you were wondering, there is no Action Mode available for the selfie cam.
+
+Low-light camera quality
+The main camera on the iPhone 14 captures very clean and detailed low-light shots. Noise is controlled very well and so are light sources. There is plenty of detail in the darker areas too. Overall, there are very proficient low-light shots.
+
+Apple iPhone 14: 12MP main camera low-light samples
+The iPhone 14 has an automatic Night mode that kicks in by itself unless specifically disabled and generally does a great job. All of the above samples were captured with it enabled and in its default automatic state. If you really want to, you can also increase night mode exposure time on a slider within a pre-determined maximum value the algorithm deems appropriate. Doing so produces very similar shots, perhaps a bit softer and with less sharpening applied. It's probably not worth it to mess with the setting.
+
+Apple iPhone 14: 12MP main camera night mode samples
+Remember our earlier point about consistency and iPhones? Well, surprisingly, despite its brighter main camera lens and the new Photonic Engine, the iPhone 14 captures remarkably similar low-light photos to its iPhone 13 Predecessor.
+
+Apple iPhone 13: 12MP main camera low-light samples
+
+Apple iPhone 13: 12MP main camera night mode samples
+You can pixel-peep for yourself, but the differences really are almost non-existent. The only major upgrade we noticed while shooting with both phones was exposure and overall capture time. The iPhone 14 was noticeably quicker than its predecessor. Both its automatic and maximum Night mode capture times were noticeably shorter than on the iPhone 13. In other words, the iPhone 13 simply needs more time and a steady hand in the process to capture night shots as good as its successor.
+The iPhone 14 shoots acceptable ultrawide photos by always using the Night Mode (usually 1-2s as opposed to 2s-3s on the iPhone 13). The images offer balanced exposure and good-looking color saturation; the contrast is good, too.
+
+Apple iPhone 14: 12MP ultrawide camera low-light samples
+The photos are quite soft and noisy but plenty usable for looking at the phone's screen or sharing them across various social networks.
+Cranking Night mode all the way up to the longest exposure the iPhone 14 will offer does result in tangible benefits, particularly in the darkest areas of the shot. Using Night mode at its maximum setting in low light might be a good idea.
+
+Apple iPhone 14: 12MP ultrawide camera night mode samples
+Just like the main camera, the ultrawide on the iPhone 13 captures almost identical low-light and Night mode photos. It just takes a few seconds longer on average for the stacking to take place. If you were expecting some major upgrade to low-light photography, that's not the case.
+
+Apple iPhone 13: 12MP ultrawide camera low-light samples
+
+Apple iPhone 13: 12MP ultrawide camera night mode samples
+Low-light selfies from the iPhone 14 look great. Detail is plenty, and skin tones and texture are nicely captured. The autofocus is also pulling its weight.
+
+Apple iPhone 14: 12MP selfie camera low-light samples
+Just like on the rear cameras, Night mode was set to its default Auto state for these samples. You can crank it up more, but it doesn't seem to make that much of a difference.
+
+Apple iPhone 14: 12MP selfie camera night mode samples
+The selfie photos on the iPhone 14 new selfie cam look much better in low light than the one on the vanilla iPhone 13. Skin texture, in particular, is way better. So, there's at least one clear upgrade to note.
+
+Apple iPhone 13: 12MP selfie camera low-light samples
+
+Apple iPhone 13: 12MP selfie camera night mode samples
+Last but certainly not least, low-light video from the main camera on the iPhone 14 looks spectacular. Detail is amazing, and so are colors. Light sources are very well contained, and there is hardly any noise to speak of. An excellent showing all around.
+
+The same doesn't necessarily apply to the ultrawide camera, which is quite a bit noisier and darker. Still, its video capture is more than adequate for the hardware at hand.
+
+1. Introduction, unboxing
+2. Design, build quality, controls and connectivity
+3. Lab tests: display, battery life, charging speed, loudspeaker
+4. Software, performance
+5. Camera, photo and video quality
+6. Alternatives, our verdict, pros and cons
+&nbsp;
+Apple iPhone 14 specification
+User opinions and reviews
+Review comments (115)
+Comments (115)
+User reviews
+iPhone 14
+
+Phone finder
+
+Samsung
+Apple
+Huawei
+Nokia
+Sony
+LG
+HTC
+Motorola
+Lenovo
+Xiaomi
+Google
+Honor
+Oppo
+Realme
+OnePlus
+Nothing
+vivo
+Meizu
+Ulefone
+Alcatel
+ZTE
+RugOne
+Umidigi
+Coolpad
+Oscal
+Sharp
+Micromax
+Infinix
+Asus
+Tecno
+Doogee
+Blackview
+Cubot
+Oukitel
+Itel
+TCL
+
+ 
+ All brands
+
+ 
+ Rumor mill
+
+Popular reviews
+
+ ELECTRIC VEHICLES
+
+Home
+News
+Reviews
+Compare
+Coverage
+Glossary
+FAQ
+
+RSS
+
+&copy; 2000-2026 GSMArena.com 
+Mobile version
+Android app
+Tools
+Contact us
+Merch store
+Privacy 
+Terms of use

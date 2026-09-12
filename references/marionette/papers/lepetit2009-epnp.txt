@@ -1,0 +1,615 @@
+Int J Comput Vis
+DOI 10.1007/s11263-008-0152-6
+
+EPnP: An Accurate O(n) Solution to the PnP Problem
+
+Vincent Lepetit · Francesc Moreno-Noguer · Pascal Fua
+
+Received: 15 April 2008 / Accepted: 25 June 2008
+© Springer Science+Business Media, LLC 2008
+
+Abstract We propose a non-iterative solution to the PnP                  1 Introduction
+problem--the estimation of the pose of a calibrated camera
+from n 3D-to-2D point correspondences--whose computa-                    The aim of the Perspective-n-Point problem--PnP in short--
+tional complexity grows linearly with n. This is in contrast             is to determine the position and orientation of a camera
+to state-of-the-art methods that are O(n5) or even O(n8),                given its intrinsic parameters and a set of n correspondences
+without being more accurate. Our method is applicable for                between 3D points and their 2D projections. It has many
+all n  4 and handles properly both planar and non-planar                 applications in Computer Vision, Robotics, Augmented Re-
+configurations. Our central idea is to express the n 3D points           ality and has received much attention in both the Photogram-
+as a weighted sum of four virtual control points. The prob-              metry (McGlove et al. 2004) and Computer Vision (Hartley
+lem then reduces to estimating the coordinates of these con-             and Zisserman 2000) communities. In particular, applica-
+trol points in the camera referential, which can be done in              tions such as feature point-based camera tracking (Skrypnyk
+O(n) time by expressing these coordinates as weighted sum                and Lowe 2004; Lepetit and Fua 2006) require dealing with
+of the eigenvectors of a 12 × 12 matrix and solving a small              hundreds of noisy feature points in real-time, which requires
+constant number of quadratic equations to pick the right                 computationally efficient methods.
+weights. Furthermore, if maximal precision is required, the
+output of the closed-form solution can be used to initial-                  In this paper, we introduce a non-iterative solution with
+ize a Gauss-Newton scheme, which improves accuracy with                  better accuracy and much lower computational complexity
+negligible amount of additional time. The advantages of our              than non-iterative state-of-the-art methods, and much faster
+method are demonstrated by thorough testing on both syn-                 than iterative ones with little loss of accuracy. Our approach
+thetic and real-data.1                                                   is O(n) for n  4 whereas all other methods we know of are
+                                                                         either specialized for small fixed values of n, very sensitive
+Keywords Pose estimation · Perspective-n-Point ·                         to noise, or much slower. The specialized methods include
+Absolute orientation                                                     those designed to solve the P3P problem (Gao et al. 2003;
+                                                                         Quan and Lan 1999). Among those that handle arbitrary val-
+1The Matlab and C++ implementations of the algorithm presented in        ues of n (Fischler and Bolles 1981; Dhome et al. 1989;
+this paper are available online at http://cvlab.epfl.ch/software/EPnP/.  Horaud et al. 1989; Haralick et al. 1991; Quan and Lan
+                                                                         1999; Triggs 1999; Fiore 2001; Ansar and Daniilidis 2003;
+V. Lepetit · F. Moreno-Noguer ( ) · P. Fua                               Gao et al. 2003), the lowest-complexity one (Fiore 2001)
+Computer Vision Laboratory, École Polytechnique Fédérale de              is O(n2) but has been shown to be unstable for noisy 2D
+Lausanne (EPFL), CH-1015 Lausanne, Switzerland                           locations (Ansar and Daniilidis 2003). This is currently ad-
+e-mail: fmorenoguer@gmail.com                                            dressed by algorithms that are O(n5) (Quan and Lan 1999)
+                                                                         or even O(n8) (Ansar and Daniilidis 2003) for better accu-
+                                                                         racy whereas our O(n) approach achieves even better accu-
+                                                                         racy and reduced sensitivity to noise, as depicted by Fig. 1
+                                                                         in the n = 6 case and demonstrated for larger values of n in
+                                                                         the result section.
+                                                                       Int J Comput Vis
+
+Fig. 1 Comparing the accuracy of our method against state-of-the-art   Clamped DLT is the DLT algorithm after clamping the internal pa-
+ones. We use the boxplot representation: The boxes denote the first    rameters with their known values; and EPnP is our method. Bottom
+and third quartiles of the errors, the lines extending from each end   row: Accuracy of iterative methods using n = 6: LHM is Lu's et al.
+of the box depict the statistical extent of the data, and the crosses  method (Lu et al. 2000) initialized with a weak perspective assump-
+indicate observations that fall out of it. Top row: Accuracy of non-   tion; EPnP + LHM is Lu's et al. algorithm initialized with the output of
+iterative methods as a function of noise when using n = 6 3D-to-2D     our algorithm; EPnP + GN, our method followed by a Gauss-Newton
+correspondences: AD is the method of Ansar and Daniilidis (2003);      optimization
+
+   A natural alternative to non-iterative approaches are it-           Furthermore, if maximal precision is required our output can
+erative ones (Lowe 1991; DeMenthon and Davis 1995;                     be used to initialize Lu's et al., yielding both higher stabil-
+Horaud et al. 1997; Kumar and Hanson 1994; Lu et al. 2000)             ity and faster convergence. Similarly, we can run a Gauss-
+that rely on minimizing an appropriate criterion. They can             Newton scheme that improves our closed-form solution to
+deal with arbitrary numbers of correspondences and achieve             the point where it is as accurate as the one produced by Lu's
+excellent precision when they converge properly. In par-               et al. method when it is initialized by our method. Remark-
+ticular, Lu et al. (2000) introduced a very accurate algo-             ably, this can be done with only very little extra computa-
+rithm, which is fast in comparison with other iterative ones           tion, which means that even with this extra step, our method
+but slow compared to non-iterative methods. As shown in                remains much faster. In fact, the optimization is performed
+Figs. 1 and 2, our method achieves an accuracy that is al-             in constant time, and hence, the overall solution still remains
+most as good, and is much faster and without requiring an              O(n).
+initial estimate. This is significant because iterative methods
+are prone to failure if poorly initialized. For instance, Lu's            Our central idea is to write the coordinates of the n 3D
+et al. approach relies on an initial estimation of the cam-            points as a weighted sum of four virtual control points. This
+era pose based on a weak-perspective assumption, which                 reduces the problem to estimating the coordinates of the
+can lead to instabilities when the assumption is not satis-            control points in the camera referential, which can be done
+fied. This happens when the points of the object are pro-              in O(n) time by expressing these coordinates as weighted
+jected onto a small region on the side of the image and our            sum of the eigenvectors of a 12 × 12 matrix and solving
+solution performs more robustly under these circumstances.             a small constant number of quadratic equations to pick the
+                                                                       right weights. Our approach also extends to planar config-
+Int J Comput Vis                                                           given coordinates in the world coordinate system (Horn et
+
+Fig. 2 Comparing computation times of our method against the               al. 1988; Arun et al. 1987; Umeyama 1991).
+state-of-the-art ones introduced in Fig. 1. The computation times of
+a MATLAB implementation on a standard PC, are plotted as a func-           The P3P case has been extensively studied in the liter-
+tion of the number of correspondences. Our method is both more ac-
+curate--see Fig. 1--and faster than the other non-iterative ones, espe-    ature, and many closed form solutions have been proposed
+cially for large amounts of noise, and is almost as accurate as the iter-
+ative LHM. Furthermore, if maximal precision is required, the output       such as Dhome et al. (1989), Fischler and Bolles (1981),
+of our algorithm can be used to initialize a Gauss-Newton optimization
+procedure which requires a negligible amount of additional time            Gao et al. (2003), Haralick et al. (1991), Quan and Lan
+
+urations, which cause problems for some methods as dis-                    (1999). It typically involves solving for the roots of an eight-
+cussed in Oberkampf et al. (1996), Schweighofer and Pinz
+(2006), by using three control points instead of four.                     degree polynomial with only even terms, yielding up to four
+
+   In the remainder of the paper, we first discuss related                 solutions in general, so that a fourth point is needed for
+work focusing on accuracy and computational complexity.
+We then introduce our new formulation and derive our sys-                  disambiguation. Fisher and Bolles (1981) reduced the P4P
+tem of linear and quadratic equations. Finally, we compare
+our method against the state-of-the-art ones using synthetic               problem to the P3P one by taking subsets of three points
+data and demonstrate it using real data. This paper is an
+expanded version of that in Moreno-Noguer et al. (2007),                   and checking consistency. Similarly, Horaud et al. (1989)
+where a final Gauss-Newton optimization is added to the
+original algorithm. In Sect. 4 we show that optimizing over                reduced the P4P to a 3-line problem. For the 4 and 5 points
+a reduced number of parameters, the accuracy of the closed-
+solution proposed in Moreno-Noguer et al. (2007) is con-                   problem, Triggs (1999) derived a system of quadratic poly-
+siderably improved with almost no additional computational
+cost.                                                                      nomials, which solves using multiresultant theory. However,
+
+2 Related Work                                                             as pointed out in Ansar and Daniilidis (2003), this does not
+
+There is an immense body of literature on pose estimation                  perform well for larger number of points.
+from point correspondences and, here, we focus on non-
+iterative approaches since our method falls in this category.              Even if four correspondences are sufficient in general
+In addition, we will also introduce the Lu et al. (2000) it-
+erative method, which yields very good results and against                 to estimate the pose, it is nonetheless desirable to consider
+which we compare our own approach.
+                                                                           larger point sets to introduce redundancy and reduce the sen-
+   Most of the non-iterative approaches, if not all of them,
+proceed by first estimating the points 3D positions in the                 sitivity to noise. To do so, Quan and Lan (1999) consider
+camera coordinate system by solving for the points depths.
+It is then easy to retrieve the camera position and orientation            triplets of points and for each one derive four-degree poly-
+as the Euclidean motion that aligns these positions on the
+                                                                           nomials in the unknown point depths. The coefficients of
+                                                                                                                           (n-1)(n-2)
+                                                                           these  polynomials  are  then  arranged  in  a         2    ×  5  ma-
+
+                                                                           trix and singular value decomposition (SVD) is used to es-
+
+                                                                           timate the unknown depths. This method is repeated for all
+                                                                           of the n points and therefore involves O(n5) operations.2 It
+
+                                                                           should be noted that, even if it is not done in Quan and Lan
+
+                                                                           (1999), this complexity could be reduced to O(n3) by apply-
+
+                                                                           ing the same trick as we do when performing the SVD, but
+
+                                                                           even then, it would remain slower than our method. Ansar
+
+                                                                           and Daniilidis (2003) derive a set of quadratic equations
+                                                                                            n(n-1)        n(n+1)
+                                                                           arranged  in  a     2    ×  (     2    + 1)  linear  system,  which,
+
+                                                                           as formulated in the paper, requires O(n8) operations to be
+
+                                                                           solved. They show their approach performs better than Quan
+
+                                                                           and Lan (1999).
+
+                                                                           The complexity of the previous two approaches stems
+
+                                                                           from the fact that quadratic terms are introduced from the
+
+                                                                           inter-point distances constraints. The linearization of these
+
+                                                                           equations produces additional parameters, which increase
+
+                                                                           the complexity of the system. Fiore's method (Fiore 2001)
+
+                                                                           avoids the need for these constraints: He initially forms a
+
+                                                                           set of linear equations from which the world to camera rota-
+
+                                                                           tion and translation parameters are eliminated, allowing the
+
+                                                                           direct recovery of the point depths without considering the
+
+                                                                           inter-point distances. This procedure allows the estimation
+
+                                                                           of the camera pose in O(n2) operations, which makes real-
+
+                                                                           time performance possible for large n. Unfortunately, ignor-
+
+                                                                           ing nonlinear constraints produces poor results in the pres-
+
+                                                                           ence of noise (Ansar and Daniilidis 2003).
+
+                                                                           2Following Golub and Van Loan (1996), we consider that the SVD
+                                                                           for a m × n matrix can be computed by a O(4m2n + 8mn2 + 9n3)
+                                                                           algorithm.
+   By contrast, our method is able to consider nonlinear con-                                                                   Int J Comput Vis
+straints but requires O(n) operations only. Furthermore, in
+our synthetic experiments, it yields results that are more ac-  from the 3D world coordinates of the reference points and
+curate than those of Ansar and Daniilidis (2003).               their 2D image projections. More precisely, it is a weighted
+                                                                sum of the null eigenvectors of M. Given that the correct
+   It is also worth mentioning that for large values of n       linear combination is the one that yields 3D camera coordi-
+one could use the Direct Linear Transformation (DLT) algo-      nates for the control points that preserve their distances, we
+rithm (Abdel-Aziz and Karara 1971; Hartley and Zisserman        can find the appropriate weights by solving small systems
+2000). However, it ignores the intrinsic camera parameters      of quadratic equations, which can be done at a negligible
+we assume to be known, and therefore generally leads to less    computational cost. In fact, for n sufficiently large--about
+stable pose estimate. A way to exploit our knowledge of the     15 in our implementation--the most expensive part of this
+intrinsic parameters is to clamp the retrieved values to the    whole computation is that of the matrix M M, which grows
+known ones, but the accuracy still remains low.                 linearly with n.
+
+   Finally, among iterative methods, Lu's et al. (2000) is         In the remainder of this section, we first discuss our pa-
+one of the fastest and most accurate. It minimizes an er-       rameterization in terms of control points in the generic non-
+ror expressed in 3D space, unlike many earlier methods that     planar case. We then derive the matrix M in whose kernel
+attempt to minimize reprojection residuals. The main diffi-     the solution must lie and introduce the quadratic constraints
+culty is to impose the orthonormality of the rotation matrix.   required to find the proper combination of eigenvectors. Fi-
+It is done by optimizing alternatively on the translation vec-  nally, we show that this approach also applies to the planar
+tor and the rotation matrix. In practice, the algorithm tends   case.
+to converge fast but can get stuck in an inappropriate local
+minimum if incorrectly initialized. Our experiments show        3.1 Parameterization in the General Case
+our closed-form solution is slightly less accurate than Lu's
+et al. when it find the correct minimum, but also that it is    Let the reference points, that is, the n points whose 3D co-
+faster and more stable. Accuracies become similar when af-      ordinates are known in the world coordinate system, be
+ter the closed-form solution we apply a Gauss-Newton opti-
+mization, with almost negligible computational cost.            pi, i = 1, . . . , n.
+
+3 Our Approach to the PnP Problem                                  Similarly, let the 4 control points we use to express their
+                                                                world coordinates be
+Let us assume we are given a set of n reference points whose
+3D coordinates are known in the world coordinate system         cj , j = 1, . . . , 4.
+and whose 2D image projections are also known. As most
+of the proposed solutions to the PnP Problem, we aim at            When necessary, we will specify that the point coordi-
+retrieving their coordinates in the camera coordinate system.
+It is then easy and standard to retrieve the orientation and    nates are expressed in the world coordinate system by using
+translation as the Euclidean motion that aligns both sets of    the w superscript, and in the camera coordinate system by
+coordinates (Horn et al. 1988; Arun et al. 1987; Umeyama        using the c superscript. We express each reference point as
+1991).
+                                                                a weighted sum of the control points
+   Most existing approaches attempt to solve for the depths
+of the reference points in the camera coordinate system. By     4                       4
+contrast, we express their coordinates as a weighted sum of
+virtual control points. We need 4 non-coplanar such con-        piw = ij cwj , with ij = 1,               (1)
+trol points for general configurations, and only 3 for pla-
+nar configurations. Given this formulation, the coordinates     j =1                    j =1
+of the control points in the camera coordinate system be-
+come the unknown of our problem. For large n's, this is a       where the ij are homogeneous barycentric coordinates.
+much smaller number of unknowns that the n depth values         They are uniquely defined and can easily be estimated. The
+that traditional approaches have to deal with and is key to     same relation holds in the camera coordinate system and we
+our efficient implementation.                                   can also write
+
+   The solution of our problem can be expressed as a vector     4
+that lies in the kernel of a matrix of size 2n × 12 or 2n × 9.
+We denote this matrix as M and can be easily computed           pci = ij cjc .                            (2)
+
+                                                                j =1
+
+                                                                   In theory the control points can be chosen arbitrarily.
+                                                                However, in practice, we have found that the stability of
+                                                                our method is increased by taking the centroid of the ref-
+                                                                erence points as one, and to select the rest in such a way
+                                                                that they form a basis aligned with the principal directions
+Int J Comput Vis
+
+Fig. 3 Left: Singular values of
+M M for different focal
+lengths. Each curve averages
+100 synthetic trials. Right:
+Zooming in on the smallest
+eigenvalues. For small focal
+lengths, the camera is
+perspective and only one
+eigenvalue is zero, which
+reflects the scale ambiguity. As
+the focal length increases and
+the camera becomes
+orthographic, all four smallest
+eigenvalues approach zero
+
+of the data. This makes sense because it amounts to con-                  4
+ditioning the linear system of equations that are introduced
+below by normalizing the point coordinates in a way that is                     ij fvyjc + ij (vc - vi )zjc = 0.     (6)
+very similar to the one recommended for the classic DLT
+algorithm (Hartley and Zisserman 2000).                                   j =1
+
+3.2 The Solution as Weighted Sum of Eigenvectors                             Note that the wi projective parameter does not appear
+                                                                          anymore in those equations. Hence, by concatenating them
+                                                                          for all n reference points, we generate a linear system of the
+                                                                          form
+
+We now derive the matrix M in whose kernel the solution                   Mx = 0,                                    (7)
+must lie given that the 2D projections of the reference points
+are known. Let A be the camera internal calibration matrix                where x = [c1c , c2c , c3c , cc4 ] is a 12-vector made of the
+and {ui }i=1,...,n the 2D projections of the {pi }i=1,...,n refer-        unknowns, and M is a 2n × 12 matrix, generated by arrang-
+ence points. We have                                                      ing the coefficients of (5) and (6) for each reference point.
+                                                                          Unlike in the case of DLT, we do not have to normalize the
+i,    wi  ui                        4                           (3)       2D projections since (5) and (6) do not involve the image
+          1                                                               referential system.
+                = Apic = A ij ccj ,
+                                                                             The solution therefore belongs to the null space, or ker-
+                                  j =1                                    nel, of M, and can be expressed as
+
+where the wi are scalar projective parameters. We now ex-
+
+pand this expression by considering the specific 3D coordi-                     N
+nates [xjc, yjc, zjc ] of each cjc control point, the 2D coordi-
+nates [ui, vi] of the ui projections, and the fu, fv focal                x = i vi                                   (8)
+
+length coefficients and the (uc, vc) principal point that ap-                   i=1
+
+pear in the A matrix. Equation 3 then becomes                             where the set vi are the columns of the right-singular vectors
+                                                                          of M corresponding to the N null singular values of M. They
+                                                                          can be found efficiently as the null eigenvectors of matrix
+                                        uc            xjc                 M M, which is of small constant (12 × 12) size. Comput-
+          ui     fu        0            vc   4        yjc                 ing the product M M has O(n) complexity, and is the most
+                           fv                                             time consuming step in our method when n is sufficiently
+i,    wi  vi  =  0                              ij           .  (4)       large, about 15 in our implementation.
+
+             1   0 0 1 j=1                            zjc
+
+   The unknown parameters of this linear system are the
+
+12 control point coordinates {(xjc, yjc, zjc )}j=1,...,4 and the n
+
+projective parameters {wi}i=1,...,n. The last row of (4) im-              3.3 Choosing the Right Linear Combination
+                 4
+plies that wi =  j =1  ij  zjc    .  Substituting   this  expression  in
+
+the first two rows yields two linear equations for each refer-            Given that the solution can be expressed as a linear combi-
+                                                                          nation of the null eigenvectors of M M, finding it amounts
+ence point:                                                               to computing the appropriate values for the {i}i=1,...,N co-
+                                                                          efficients of (8). Note that this approach applies even when
+4                                                                         the system of (7) is under-constrained, for example because
+
+      ij fuxjc + ij (uc - ui )zjc = 0,                          (5)
+
+j =1
+                                                                                                                         Int J Comput Vis
+
+Fig. 4 Effective number N of null singular values in M M. Each ver-          els and an increasing number of reference points, and the results on
+tical bar represents the distributions of N for a total of 300 experiments.  the right correspond to a fixed n = 6 number of reference points and
+On the left, we plot the results for a fixed image noise of  = 10 pix-       increasing level of noise in the 2D projections
+
+the number of input correspondences is (4) or (5), yielding                  where dist(m, n) is the 2D distance between point m ex-
+only (8) or (10) equations, which is less than the number of                 pressed in homogeneous coordinates, and point n. This
+unknowns.                                                                    improves robustness without any noticeable computational
+                                                                             penalty because the most expensive operation is the com-
+   In theory, given perfect data from at least six reference                 putation of M M, which is done only once, and not
+points imaged by a perspective camera, the dimension N                       the solving of a few quadratic equations. The distribu-
+of the null-space of M M should be exactly one because                       tion of values of N estimated in this way is depicted by
+of the scale ambiguity. If the camera becomes orthographic                   Fig. 4.
+instead of perspective, the dimension of the null space in-
+creases to four because changing the depths of the four                         We now turn to the description of the quadratic con-
+control points would have no influence on where the refer-                   straints we introduce for N = 1, 2, 3 and 4.
+ence points project. Figure 3 illustrates this behavior: For
+small focal lengths, M M has only one zero eigenvalue.                       Case N = 1: We simply have x = v. We solve for  by
+However, as the focal length increases and the camera be-                    writing that the distances between control points as retrieved
+comes closer to being orthographic, all four smallest eigen-
+values approach zero. Furthermore, if the correspondences                    in the camera coordinate system should be equal to the ones
+are noisy, the smallest of them will be tiny but not strictly
+equal to zero.                                                               computed in the world coordinate system when using the
+
+   Therefore, we consider that the effective dimension N of                  given 3D coordinates.
+the null space of M M can vary from 1 to 4 depending on                         Let v[i] be the sub-vector of v that corresponds to the
+the configuration of the reference points, the focal length of
+the camera, and the amount of noise, as shown in Fig. 4.                     coordinates of the control point cci . For example, v[1] will
+In this section, we show that the fact that the distances be-                represent the vectors made of the three first elements of
+tween control points must be preserved can be expressed in
+terms of a small number of quadratic equations, which can                    v. Maintaining the distance between pairs of control points
+be efficiently solved to compute {i }i=1,...,N for N = 1, 2, 3
+and 4.                                                                       (ci, cj ) implies that
+
+   In practice, instead of trying to pick a value of N among                 v[i] - v[j] 2 = ciw - cwj 2.                (10)
+the set {1, 2, 3, 4}, which would be error-prone if several
+eigenvalues had similar magnitudes, we compute solutions                     Since the ciw - cjw distances are known, we compute  in
+for all four values of N and keep the one that yields the                    closed-form as
+smallest reprojection error
+                                                                             =  {i,j }[1;4] v[i] - v[j ] · ciw - cwj  .  (11)
+                                                                                      {i,j }[1;4] v[i] - v[j ] 2
+
+res =     dist2  A[R|t]  piw  , ui  ,  (9)                                   Case N = 2: We now have x = 1v1 + 2v2, and our dis-
+                          1                                                  tance constraints become
+       i
+                                                                              (1v1[i] + 2v2[i]) - (1v1[j] + 2v2[j]) 2 = ciw - cjw 2.
+                                                                                                                                                (12)
+Int J Comput Vis                                                       3.4 The Planar Case
+
+   1 and 2 only appear in the quadratic terms and we                   In the planar case, that is, when the moment matrix of the
+solve for them using a technique called "linearization" in             reference points has one very small eigenvalue, we need
+cryptography, which was employed by Ansar and Daniilidis               only three control points. The dimensionality of M is then
+(2003) to estimate the point depths. It involves solving a lin-        reduced to 2n × 9 with 9D eigenvectors vi , but the above
+ear system in [11, 12, 22] where 11 = 12, 12 = 12,                     equations remain mostly valid. The main difference is that
+22 = 22. Since we have four control points, this produces a            the number of quadratic constraints drops from 6 to 3. As a
+linear system of six equations in the ab that we write as:3            consequence, we need use of the relinearization technique
+                                                                       introduced in the N = 4 case of the previous section for
+L = ,                    (13)                                          N  3.
+
+where L is a 6×3 matrix formed with the elements of v1 and             4 Efficient Gauss-Newton Optimization
+v2,  is a 6-vector with the squared distances ciw - cwj 2,
+and  = [11, 12, 22] is the vector of unknowns. We                      We will show in the following section that our closed-form
+                                                                       solutions are more accurate than those produced by other
+solve this system using the pseudoinverse of L and choose              state-of-the-art non-iterative methods. Our algorithm also
+the signs for the a so that all the pic have positive z coordi-        runs much faster than the best iterative one we know of
+nates.                                                                 Lu et al. (2000) but can be slightly less accurate, especially
+                                                                       when the iterative algorithm is provided with a good ini-
+   This yields 1 and 2 values that can be further refined              tialization. In this section, we introduce a refinement pro-
+                                                                       cedure designed to increase the accuracy of our solution
+by using the formula of (11) to estimate a common scale                at very little extra computational cost. As can be seen in
+so that cic = (1v1[i] + 2v[2i]).                                       Figs. 1 and 2, computing the solution in closed form and
+                                                                       then refining it as we suggest here yields the same accu-
+Case N = 3: As in the N = 2 case, we use the six distance              racy as our reference method (Lu et al. 2000), but still much
+constraints of (12). This yields again a linear system L =             faster.
+, although with larger dimensionality. Now L is a square
+6 × 6 matrix formed with the elements of v1, v2 and v3, and               We refine the four values  = [1, 2, 3, 4] of the co-
+ becomes the 6D vector [11, 12, 13, 22, 23, 33] . We                   efficients in (8) by choosing the values that minimize the
+follow the same procedure as before, except that we now use            change in distance between control points. Specifically, we
+                                                                       use Gauss-Newton algorithm to minimize
+the inverse of L instead of its pseudo-inverse.
+
+Case N = 4: We now have four a unknowns and, in                        Error() =                   cci - cjc 2 - ciw - cjw 2 , (15)
+theory, the six distance constraints we have been using
+so far should still suffice. Unfortunately, the linearization                     (i,j ) s.t. i<j
+procedure treats all 10 products ab = ab as unknowns
+and there are not enough constraints anymore. We solve                 with respect . The distances ciw - cwj 2 in the world co-
+this problem using a relinearization technique (Kipnis and             ordinate system are known and the control point coordinates
+Shamir 1999) whose principle is the same as the one we use
+to determine the control points coordinates.                           in camera reference are expressed as a function of the  co-
+
+   The solution for the ab is in the null space of a first             efficients as
+homogeneous linear system made from the original con-
+straints. The correct coefficients are found by introduc-              4
+ing new quadratic equations and solving them again by
+linearization, hence the name "relinearization". These new             cic = j vj[i].                         (16)
+quadratic equations are derived from the fact that we have,
+by commutativity of the multiplication                                 j =1
+
+abcd = abcd = a b c d ,  (14)                                          Since the optimization is performed only over the four i
+                                                                       coefficients, its computational complexity is independent of
+where {a , b , c , d } represents any permutation of the inte-         the number of input 3D-to-2D correspondences. This yields
+gers {a, b, c, d}.                                                     fast and constant time convergence since, in practice, less
+                                                                       than 10 iterations are required. As a result, the computa-
+3We use the indices a and b for the 's in order to differentiate from  tional burden associated to this refinement procedure is al-
+the indices i and j used for the 3D points.                            most negligible as can be observed in Fig. 2. In fact, the time
+                                                                       required for the optimization may be considered as constant,
+                                                                       and hence, the overall complexity of the closed-form solu-
+                                                                       tion and Gauss-Newton remains linear with the number of
+                                                                       input 3D-to-2D correspondences.
+                                                                                                                  Int J Comput Vis
+
+Fig. 5 (Color online) Non Planar case. Mean and median rotation and translation errors for different experiments
+
+5 Results                                                      5.1 Synthetic Experiments
+
+We compare the accuracy and speed of our approach against      We produced synthetic 3D-to-2D correspondences in a
+that of state-of-the-art ones, both on simulated and real im-  640 × 480 image acquired using a virtual calibrated cam-
+age data.                                                      era with an effective focal length of fu = fv = 800 and a
+Int J Comput Vis
+
+Fig. 6 Median error as a function of required amount of computation, itself a function of the number of points being used, for our approach and
+the LHM iterative method (Lu et al. 2000)
+
+principal point at (uc, vc) = (320, 240). We generated dif-      plot representation,4 where each column depicts the distrib-
+ferent sets for the input data. For the centered data, the 3D    ution of the errors for the 300 different simulations. A con-
+reference points were uniformly distributed into the x,y,z       cise way to summarize the boxplot results is to plot both
+interval [-2, 2] × [-2, 2] × [4, 8]. For the uncentered data,    the mean and median results for all simulations: The differ-
+the ranges were modified to [1, 2] × [1, 2] × [4, 8]. We also    ence between the mean and the median mainly comes from
+added Gaussian noise to the corresponding 2D point coor-         the high errors represented as red crosses in the boxplots.
+dinates, and considered a percentage of outliers, for which      The greater it is, the less stable the method. This is shown
+the 2D coordinate was randomly selected within the whole         in Fig. 5a, where in addition to the rotation error we also
+image.                                                           plot the translation error. The closed form solution we pro-
+                                                                 pose is consistently more accurate and stable than the other
+   Given the true camera rotation Rtrue and translation ttrue,   non-iterative ones, especially for large amounts of noise. It is
+we computed the relative error of the estimated rotation R by    only slightly less accurate than the LHM iterative algorithm.
+Erot (%) = qtrue - q / q , where q and qtrue are the nor-        When the Gauss-Newton optimization is applied the accu-
+malized quaternions corresponding to the rotation matrices.      racy of our method becomes then similar to that of LHM
+Similarly, the relative error of the estimated translation t is  and, as shown in Fig. 5b, it even performs better when in-
+determined by Etrans(%) = ttrue - t / t .                        stead of using well spread data as in the previous case, we
+                                                                 simulate data that covers only a small fraction of the image.
+   All the plots discussed in this section were created by
+running 300 independent MATLAB simulations. To esti-                In Fig. 5c, we plot the errors as a function of the num-
+mate running times, we ran the code 100 time for each ex-        ber of reference points, when the noise is fixed to  = 5.
+ample and recorded the average run time.                         Again, EPnP performs better than the other non-iterative
+                                                                 techniques and very nearly as well as LHM. It even repre-
+5.1.1 The Non-Planar Case                                        sents a more stable solution when dealing with the uncen-
+                                                                 tered data of Fig. 5d and data which includes outliers, as
+For the non-planar case, we compared the accuracy and run-       in Fig. 5e. Note that in all the cases where LHM does not
+ning times of our algorithm, which we denote as EPnP,            converge perfectly, the combination EPnP + LHM provides
+and EPnP + GN when it was followed by the optimiza-              accurate results, which are similar to the EPnP + GN solu-
+tion procedure described above, to: AD, the non-iterative        tion we propose. In the last two graphs, we did not compare
+method of Ansar and Daniilidis (2003); Clamped DLT,              the performance of AD, because this algorithm does not nor-
+the DLT algorithm after clamping the internal parameters         malize the 2D coordinates, and hence, cannot deal well with
+with their known values; LHM, the Lu's et al. (2000) itera-      uncentered data.
+tive method initialized with a weak perspective assumption;
+EPnP + LHM, Lu's et al. algorithm initialized with the out-      4The boxplot representation consists of a box denoting the first
+put of our algorithm.                                            Q1 and third Q3 quartiles, a horizontal line indicating the median,
+                                                                 and a dashed vertical line representing the data extent taken to be
+   On Fig. 1, we plot the rotational errors produced by the      Q3 + 1.5(Q3 - Q1). The red crosses denote points lying outside of
+three non-iterative algorithms, and the three iterative ones as  this range.
+a function of noise when using n = 6 points. We use the box-
+                                                                         Int J Comput Vis
+
+Fig. 7 Planar case. Errors as a function of the image noise when using   pose ambiguity. The right-most figure represents the number of solu-
+n = 6 reference points. For Tilt = 0, there are no pose ambiguities and  tions considered as outliers, which are defined as those for which the
+the results represent the mean over all the experiments. For Tilt = 30,  average error in the estimated 3D position of the reference points is
+                                                                         larger than a threshold
+the errors are only averaged among the solutions not affected by the
+
+   As shown in Fig. 2, the computational cost of our method              was already very accurate, and the Gauss-Newton optimiza-
+grows linearly with the number of correspondences and re-                tion could not help to resolve the ambiguity in the rest of
+mains much lower than all the others. It even compares fa-               cases.
+vorably to clamped DLT, which is known to be fast. As
+shown in Fig. 6, EPnP + GN requires about a twentieth                       Figure 7 depicts the errors as a function of the im-
+of the time required by LHM to achieve similar accuracy                  age noise, when n = 10 and for reference points lying
+levels. Although the difference becomes evident for a large              on a plane with tilt of either 0 or 30 degrees. To obtain
+number of reference points, it is significant even for small             a fair comparison we present the results as was done in
+numbers. For instance, for n = 6 points, our algorithm is                Schweighofer and Pinz (2006) and the errors are only av-
+about 10 times faster than LHM, and about 200 times faster               eraged among those solutions not affected by the pose am-
+than AD.                                                                 biguity. We also report the percentage of solutions which
+                                                                         are considered as outliers. When the points are lying on
+5.1.2 The Planar Case                                                    a frontoparallel plane, there is no pose ambiguity and all
+                                                                         the methods have a similar accuracy, with no outliers for
+Schweighofer and Pinz (2006) prove that when the refer-                  all the methods, as shown in the first row of Fig. 7. The
+ence points lie on a plane, camera pose suffers from an                  pose ambiguity problem appears only for inclined planes,
+ambiguity that results in significant instability. They pro-             as shown by the bottom-row graphs of Fig. 7. Note that for
+pose a new algorithm for resolving it and refine the so-                 AD, the number of outliers is really large, and even the er-
+lution using Lu's et al. (2000) method. Hereafter, we will               rors for the inliers are considerable. EPnP and LHM pro-
+refer to this combined algorithm as SP + LHM, which                      duce a much reduced number of outliers and similar re-
+we will compare against EPnP, AD, and LHM. We omit                       sults accuracy for the inliers. As before, the SP + LHM
+Clamped DLT because it is not applicable in the planar case.             method computes the correct pose for almost all the cases.
+We omit as well the EPnP + GN, because for the planar                    Note that we did not plot the errors for LHM, because
+case the closed-form solution for the non-ambiguous cases                when considering only the correct poses, it is the same as
+                                                                         SP + LHM.
+Int J Comput Vis
+
+Fig. 8 Real images. Top. Left: Calibrated reference image. Right: Re-  the thin blue lines. Bottom. Left: Calibrated reference image. Right: Re-
+projection of the model of the box on three video frames. The camera   projection of the building model on three video frames. The registration
+pose has been computed using the set of correspondences depicted by    remains accurate even when the target object is partially occluded
+
+   As in the non-planar case, the EPnP solution proposed               6 Conclusion
+here is much faster than the others. For example for n = 10
+and a tilt of 30, our solution is about 200 times faster than          We have proposed an O(n) non-iterative solution to the PnP
+AD, 30 times faster than LHM, even though the MATLAB                   problem that is faster and more accurate than the best cur-
+code for the latter is not optimized.                                  rent techniques. It is only slightly less accurate than one the
+                                                                       most recent iterative ones (Lu et al. 2000) but much faster
+5.2 Real Images                                                        and more stable. Furthermore, when the output of our al-
+                                                                       gorithm is used to initialize a Gauss-Newton optimization,
+We tested our algorithm on noisy correspondences, that may             the precision is highly improved with a negligible amount
+include erroneous ones, obtained on real images with our               of additional time.
+implementation of the keypoint recognition method of (Lep-
+etit and Fua 2006). Some frames of two video sequences are                Our central idea--expressing the 3D points as a weighted
+shown in Fig. 8. For each case, we trained the method on               sum of four virtual control points and solving in terms of
+a calibrated reference image of the object to be detected,             their coordinates--is very generic. We demonstrated it in
+for which the 3D model was known. These reference im-                  the context of the PnP problem but it is potentially applica-
+ages are depicted in Fig. 8-left. At run time, the method              ble to problems ranging from the estimation of the Essential
+generates about 200 correspondences per image. To filter               matrix from a large number of points for Structure-from-
+out the erroneous ones, we use RANSAC on small sub-                    Motion applications (Stewènius et al. 2006) to shape recov-
+sets made of 7 correspondences from which we estimate the              ery of deformable surfaces. The latter is particularly promis-
+pose using our PnP method. This is effective because, even             ing because there have been many approaches to parame-
+though our algorithm is designed to work with a large num-             terizing such surfaces using control points (Sederberg and
+ber of correspondences, it is also faster than other algorithms        Parry 1986; Chang and Rockwood 1994), which would fit
+for small numbers of points, as discussed above. Further-              perfectly into our framework and allow us to recover not
+more, once the set of inliers has been selected, we use all            only pose but also shape. This is what we will focus on in
+of them to refine the camera pose. This gives a new set of             future research.
+inliers and the estimation is iterated until no additional in-
+liers are found. Figure 8-right shows different frames of the          Acknowledgements The authors would like to thank Dr. Adnan
+sequences, where the 3D model has been reprojected using               Ansar for providing the code of his PnP algorithm. This work was sup-
+the retrieved pose.                                                    ported in part by the Swiss National Science Foundation and by funds
+                                                                       of the European Commission under the IST-project 034307 DYVINE
+                                                                       (Dynamic Visual Networks).
+References                                                                                                                                Int J Comput Vis
+
+Abdel-Aziz, Y. I., & Karara, H. M. (1971). Direct linear transforma-      Horn, B. K. P., Hilden, H. M., & Negahdaripour, S. (1988). Closed-
+      tion from comparator coordinates into object space coordinates in         form solution of absolute orientation using orthonormal matrices.
+      close-range photogrammetry. In Proc. ASP/UI symp. close-range             Journal of the Optical Society of America, 5(7), 1127­1135.
+      photogrammetry (pp. 1­18).
+                                                                          Kipnis, A., & Shamir, A. (1999). Cryptanalysis of the HFE public
+Ansar, A., & Daniilidis, K. (2003). Linear pose estimation from points          key cryptosystem by relinearization. In Advances in cryptology--
+      or lines. IEEE Transactions on Pattern Analysis and Machine In-           CRYPTO'99 (Vol. 1666/1999, pp. 19­30). Berlin: Springer.
+      telligence, 25(5), 578­589.
+                                                                          Kumar, R., & Hanson, A. R. (1994). Robust methods for estimating
+Arun, K. S., Huang, T. S., & Blostein, S. D. (1987). Least-squares fit-         pose and a sensitivity analysis. Computer Vision and Image Un-
+      ting of two 3-D points sets. IEEE Transactions on Pattern Analy-          derstanding, 60(3), 313­342.
+      sis and Machine Intelligence, 9(5), 698­700.
+                                                                          Lepetit, V., & Fua, P. (2006). Keypoint recognition using randomized
+Chang, Y., & Rockwood, A. P. (1994). A generalized de Castel-                   trees. IEEE Transactions on Pattern Analysis and Machine Intel-
+      jau approach to 3D free-form deformation. In ACM SIGGRAPH                 ligence, 28(9), 1465­1479.
+      (pp. 257­260).
+                                                                          Lowe, D. G. (1991). Fitting parameterized three-dimensional models
+DeMenthon, D., & Davis, L. S. (1995). Model-based object pose in                to images. IEEE Transactions on Pattern Analysis and Machine
+      25 lines of code. International Journal of Computer Vision, 15,           Intelligence, 13(5), 441­450.
+      123­141.
+                                                                          Lu, C.-P., Hager, G. D., & Mjolsness, E. (2000). Fast and globally con-
+Dhome, M., Richetin, M., & Lapreste, J.-T. (1989). Determination                vergent pose estimation from video images. IEEE Transactions
+      of the attitude of 3d objects from a single perspective view.             on Pattern Analysis and Machine Intelligence, 22(6), 610­622.
+      IEEE Transactions on Pattern Analysis and Machine Intelligence,
+      11(12), 1265­1278.                                                  McGlove, C., Mikhail, E., & Bethel, J. (Eds.) (2004). Manual of pho-
+                                                                                togrametry. American society for photogrammetry and remote
+Fiore, P. D. (2001). Efficient linear solution of exterior orientation.         sensing (5th edn.).
+      IEEE Transactions on Pattern Analysis and Machine Intelligence,
+      23(2), 140­148.                                                     Moreno-Noguer, F., Lepetit, V., & Fua, P. (2007). Accurate non-
+                                                                                iterative o(n) solution to the pnp problem. In IEEE international
+Fischler, M. A., & Bolles, R. C. (1981). Random sample consensus: a             conference on computer vision. Rio de Janeiro, Brazil.
+      paradigm for model fitting with applications to image analysis and
+      automated cartography. Communications ACM, 24(6), 381­395.          Oberkampf, D., DeMenthon, D., & Davis, L. S. (1996). Iterative pose
+                                                                                estimation using coplanar feature points. Computer Vision and
+Gao, X. S., Hou, X. R., Tang, J., & Cheng, H. F. (2003). Complete               Image Understanding, 63, 495­511.
+      solution classification for the perspective-three-point problem.
+      IEEE Transactions on Pattern Analysis and Machine Intelligence,     Quan, L., & Lan, Z. (1999). Linear N -point camera pose determina-
+      25(8), 930­943.                                                           tion. IEEE Transactions on Pattern Analysis and Machine Intelli-
+                                                                                gence, 21(7), 774­780.
+Golub, G. H., & Van Loan, C. F. (1996). Matrix computations. Johns
+      Hopkins studies in mathematical sciences. Baltimore: Johns Hop-     Schweighofer, G., & Pinz, A. (2006). Robust pose estimation from
+      kins Press.                                                               a planar target. IEEE Transactions on Pattern Analysis and Ma-
+                                                                                chine Intelligence, 28(12), 2024­2030.
+Haralick, R. M., Lee, D., Ottenburg, K., & Nolle, M. (1991). Analysis
+      and solutions of the three point perspective pose estimation prob-  Sederberg, T. W., & Parry, S. R. (1986). Free-form deformation of solid
+      lem. In Conference on computer vision and pattern recognition             geometric models. ACM SIGGRAPH, 20(4).
+      (pp. 592­598).
+                                                                          Skrypnyk, I., & Lowe, D. G. (2004). Scene modelling, recognition and
+Hartley, R., & Zisserman, A. (2000). Multiple view geometry in com-             tracking with invariant image features. In International sympo-
+      puter vision. Cambridge: Cambridge University Press.                      sium on mixed and augmented reality (pp. 110­119). Arlington,
+                                                                                VA.
+Horaud, R., Conio, B., Leboulleux, O., & Lacolle, B. (1989). An an-
+      alytic solution for the perspective 4-point problem. Computer Vi-   Stewènius, H., Engels, C., & Nister, D. (2006). Recent develop-
+      sion, Graphics, and Image Processing, 47(1), 33­44.                       ments on direct relative orientation. International Society for Pho-
+                                                                                togrammetry and Remote Sensing, 60, 284­294.
+Horaud, R., Dornaika, F., & Lamiroy, B. (1997). Object pose: The link
+      between weak perspective, paraperspective, and full perspective.    Triggs, B. (1999). Camera pose and calibration from 4 or 5 known 3D
+      International Journal of Computer Vision, 22(2), 173­189.                 points. In International conference on computer vision (pp. 278­
+                                                                                284).
+
+                                                                          Umeyama, S. (1991). Least-squares estimation of transformation para-
+                                                                                meters between two point patterns. IEEE Transactions on Pattern
+                                                                                Analysis and Machine Intelligence, 13(4).
+

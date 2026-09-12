@@ -1,0 +1,23 @@
+Panagopoulos, A., Wang, C., Samaras, D., and Paragios, N. (2009). Robust Shadow and
+Illumination Estimation Using a Mixture Model. CVPR 2009.
+
+STATUS: full text saved (Stony Brook CVL mirror), text-extracted; see
+papers/panagopoulos2009-shadow-illumination-mixture-model.pdf/.txt.
+
+SUMMARY: Proposes a graphical model that jointly estimates cast shadows and the
+scene's illumination environment from a SINGLE image with only coarse 3D geometry
+(no known fine occluder shape, unlike Sato et al.). Illumination is represented as
+a mixture of von Mises-Fisher distributions on the sphere of directions (a
+smooth, multi-lobe approximation to real skylight + sun / window light). A Markov
+Random Field ties per-pixel shadow evidence (from image intensity/texture) to the
+illumination model, so the two estimates regularize each other; solved with
+graph-cut / EM-style alternation.
+
+RELEVANCE: shows how to go from a single ordinary photo (no calibration target,
+no known occluder) to an illumination *direction + spread* estimate using shadow
+evidence alone -- the same category of problem as inferring the window light's
+direction and angular size from the hand's soft shadow on the wall, but at a
+level of machinery (MRF + mixture model) beyond what this small compositing task
+needs. Cited in 05-camera-light-compositing.md as the "single-image, unknown
+occluder" branch of the shadow-to-light literature, contrasted with the simpler
+penumbra-geometry approach actually used.

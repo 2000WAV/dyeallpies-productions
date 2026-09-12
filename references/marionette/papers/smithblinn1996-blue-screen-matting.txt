@@ -1,0 +1,715 @@
+    Blue Screen Matting
+
+Alvy Ray Smith and James F. Blinn
+        Microsoft Corporation
+
+ABSTRACT                                                                    allowed to pass through and illuminate those parts desired but is
+                                                                            blocked everywhere else. A holdout matte is the complement: It is
+A classical problem of imaging--the matting problem--is separa-             opaque in the parts of interest and transparent elsewhere. In both
+tion of a non-rectangular foreground image from a (usually) rectan-         cases, partially dense regions allow some light through. Hence
+gular background image--for example, in a film frame, extraction of         some of the color film image that is being matted is partially illu-
+an actor from a background scene to allow substitution of a differ-         minated.
+ent background. Of the several attacks on this difficult and persis-
+tent problem, we discuss here only the special case of separating a             The use of an alpha channel to form arbitrary compositions of
+desired foreground image from a background of a constant, or al-            images is well-known in computer graphics [9]. An alpha channel
+most constant, backing color. This backing color has often been             gives shape and transparency to a color image. It is the digital
+blue, so the problem, and its solution, have been called blue screen        equivalent of a holdout matte--a grayscale channel that has full
+matting. However, other backing colors, such as yellow or (in-              value pixels (for opaque) at corresponding pixels in the color image
+creasingly) green, have also been used, so we often generalize to           that are to be seen, and zero valued pixels (for transparent) at
+constant color matting. The mathematics of constant color matting           corresponding color pixels not to be seen. We shall use 1 and 0 to
+is presented and proven to be unsolvable as generally practiced.            represent these two alpha values, respectively, although a typical
+This, of course, flies in the face of the fact that the technique is        8-bit implementation of an alpha channel would use 255 and 0.
+commonly used in film and video, so we demonstrate constraints              Fractional alphas represent pixels in the color image with partial
+on the general problem that lead to solutions, or at least signifi-         transparency.
+cantly prune the search space of solutions. We shall also demon-
+strate that an algorithmic solution is possible by allowing the fore-           We shall use "alpha channel" and "matte" interchangeably, it
+ground object to be shot against two constant backing colors--in            being understood that it is really the holdout matte that is the
+fact, against two completely arbitrary backings so long as they             analog of the alpha channel.
+differ everywhere.
+                                                                                The video industry often uses the terms "key" and "keying"--
+    Key Words: Blue screen matte creation, alpha channel, com-              as in "chromakeying"--rather than the "matte" and "matting" of
+positing, chromakey, blue spill, flare, backing shadows, backing            the film industry. We shall consistently use the film terminology ,
+impurities, separating surfaces, triangulation matting.                     after first pointing out that "chromakey" has now taken on a more
+                                                                            sophisticated meaning (e.g., [8]) than it originally had (e.g., [19]).
+    CR Categories: I.3.3, I.4.6, J.5.
+                                                                                We shall assume that the color channels of an image are
+DEFINITIONS                                                                 premultiplied by the corresponding alpha channel and shall refer
+                                                                            to this as the premultiplied alpha case (see [9], [14], [15], [2], [3]).
+A matte originally meant a separate strip of monochrome film that           Derivations with non-premultiplied alpha are not so elegant.
+is transparent at places, on a corresponding strip of color film,
+that one wishes to preserve and opaque elsewhere. So when                   THE PROBLEM
+placed together with the strip of color film and projected, light is
+                                                                            The mixing of several pictures--the elements--to form a single
+Published in: SIGGRAPH 96 Conference Proceedings, Annual                    resulting picture--the composite--is a very general notion. Here
+Conference Series, Aug 1996, 259-268                                        we shall limit the discussion to a special type of composite fre-
+                                                                            quently made in film and television, the matte shot. This consists
+Permission to copy without fee all or part of this material is granted      of at least two elements, one or more foreground objects each shot
+provided that the copies are not made or distributed for direct com-        against a special backing color--typically a bright blue or green--
+mercial advantage, the ACM copyright notice and the title of the            and a background. We shall limit ourselves to the case of one fore-
+publication and its date appear, and notice is given that copying is by     ground element for ease of presentation.
+permission of the Association for Computing Machinery. To copy
+otherwise, or to republish, requires a fee and/or specific permission.          The matting problem can be thought of as a perceptual proc-
+                                                                            ess: the analysis of a complex visual scene into the objects that
+©1996 ACM                                                                   comprise it. A matte has been successfully pulled, if it in combina-
+                                                                            tion with the given scene correctly isolates what most humans
+
+                                                                         1
+would agree to be a separate object in reality from the other ob-                                    The Matting Problem
+jects in the scene, that we can collectively refer to as the back-
+ground. Note that this analysis problem is the reverse of classic          Given Cf and Cb at corresponding points, and Ck a known backing
+3D geometry-based computer graphics that synthesizes both the              color, and assuming Cf = Co + (1 ­ o)Ck , determine Co which
+object and its matte simultaneously, and hence for which there is          then gives composite color C = Co + (1 ­ o)Cb at the correspond-
+no matting problem.                                                        ing point, for all points that Cf and Cb share in common.
+
+    There is also no matting problem of the type we are consider-              We shall call Co--that is, the color, including alpha, of a fore-
+ing in the case of several multi-film matting techniques such as the       ground object--a solution to the Matting Problem. Once it is
+sodium, infrared, and ultraviolet processes [6], [16]. These record        known at each point, we can compute C at each point to obtain
+the foreground element on one strip of film and its matte simulta-         the desired result, a composite over a new background presumably
+neously on another strip of film.                                          more interesting than a single constant color. We shall refer to the
+                                                                           equation for Cf above as the Matting Equation. We sometimes
+    The problem we address here is that of extracting a matte for a        refer to an uncomposited foreground object (those pixels with o
+foreground object, given only a composite image containing it. We          > 0) as an image sprite, or simply a sprite.
+shall see that, in general, this is an underspecified problem, even in
+the case where the background consists of a single backing color.          PREVIOUS WORK
+Note that a composite image contains no explicit information
+about what elements comprise it. We use the term "composite" to            Blue screen matting has been used in the film and video industries
+convey the idea that the given image is in fact a representation of        for many years [1], [6], [21] and has been protected under patents
+several objects seen simultaneously. The problem, of course, is to         [17], [18], [19], [20] until recently. The most recent of these ex-
+determine, the objecthood of one or more of these objects. In the          pired July, 1995. Newer patents containing refinements of the
+film (or video) world, the problem is to extract a matte in a single-      process still exist, however. Any commercial use of the blue
+film process--that is, one with no special knowledge about the             screen process or extensions should be checked carefully against
+object to be extracted, such as might be contained in a separate           the extant patents--e.g., [22], [23], [24], [25], [5], [4].
+piece of film exposed simultaneously in a multi-film process.
+                                                                               An outstanding inventor in the field is Petro Vlahos, who de-
+    Now a formal presentation of the problem: The color C = [R             fined the problem and invented solutions to it in film and then in
+G B ] at each point of a desired composite will be some func-              video. His original film solution is called the color-difference tech-
+tion of the color Cf of the foreground and color Cb of the new             nique. His video solution is realized in a piece of equipment,
+background at the corresponding points in the two elements. We             common to the modern video studio, called the Ultimatte®. It is
+have for convenience extended the usual color triple to a quadruple        essentially an electronic analog of the earlier color-difference film
+by appending the alpha value. As already mentioned, each of the            technique. He was honored in 1995 with an Academy Award for
+first three primary color coordinates is assumed to have been              lifetime achievement, shared with his son Paul.
+premultiplied by the alpha coordinate. We shall sometimes refer to
+just these coordinates with the abbreviation c = [R G B], for color            Vlahos makes one observation essential to his work. We shall
+C. For any subscript i, Ci = [Ri Gi Bi i] and ci = [Ri Gi Bi].             call it the Vlahos Assumption: Blue screen matting is performed on
+Each of the four coordinates is assumed to lie on [0, 1]. We shall         foreground objects for which the blue is related to the green by Bo
+always assume that f = b = 1 for Cf and Cb--i.e., the given fore-           a2Go. The usual range allowed by his technique is .5  a2  1.5
+ground and new background are opaque rectangular images.                   [20]. That this should work as often as it does is not obvious. We
+                                                                           shall try to indicate why in this paper.
+    The foreground element Cf can be thought of as a composite of
+a special background, all points of which have the (almost) con-               The Vlahos formula for o, abstracted from the claims of his
+stant backing color Ck, and a foreground Co that is the foreground         earliest electronic patent [18] and converted to our notation, is
+object in isolation from any background and which is transparent,
+or partially so, whenever the backing color would show through.                                       o = 1 ­ a1(Bf ­ a2Gf),
+We sometimes refer to Co as the uncomposited foreground color.
+Thus Cf = f(Co, Ck) expresses the point-by-point foreground color          clamped at its extremes to 0 and 1, where the ai are tuning adjust-
+as a given composite f of Ck and Co. We shall always take k = 1            ment constants (typically made available as user controls). We
+for Ck.                                                                    will call this the First Vlahos Form. The preferred embodiment
+                                                                           described in the patent replaces Bf above with min(Bf, Bk), where
+    We assume that f is the over function [9], Ca + (1 ­ a) Cb,            Bk is the constant backing color (or the minimum such color if its
+combining Cb with (premultiplied) Ca by amount a, 0  a  1.                 intensity varies, as it often does in practice). In the second step of
+One of the features of the premultiplied alpha formulation is that         the Vlahos process, the foreground color is further modified before
+the math applied to the three primary color coordinates is the             compositing with a new background by clamping its blue compo-
+same as that applied to the alpha coordinate. An alpha channel             nent to min(Bf, a2Gf).
+holds the factor a at every point in an image, so we will use
+channel and coordinate synonymously. This facilitates:                         A more general Vlahos electronic patent [20] introduces
+
+                                                                                   o = 1 ­ a1(Bf ­ a2(a5 max(r, g) + (1 ­ a5)min(r, g))),
+
+                                                                           where r = a3Rf, g = a4Gf, and the ai are adjustment parameters.
+                                                                           Clamping again ensures 0 and 1 as limiting values. We shall call
+                                                                           this the Second Vlahos Form. Again the blue component of the
+
+                                                                        2
+foreground image is modified before further processing.                    SOLUTION 1: NO BLUE
+    A form for o from a recent patent [4] (one of several new
+                                                                           If co is known to contain no blue, co = [Ro Go 0], and ck contains
+forms) should suffice to show the continued refinements intro-
+duced by Vlahos and his colleagues at Ultimatte Corp.:                     only blue, ck = [0 0 Bk], then
+
+ o = 1 ­ ((Bf ­ a1) ­ a2 max(r, g) ­ max(a5(Rf ­ Gf), a6(Gf ­ Rf))),              [ ] c f = co + (1- o )ck = Ro Go (1- o )Bk .
+
+with clamping as before. They have continually extended the num-           Thus, solving the Bf = (1 - o) Bk equation for o gives solution
+ber of foreground objects that can be matted successfully.
+                                                                                                        Gf  0  1-  Bf       if Bk  0.
+    We believe Vlahos et al. arrived at these forms by many years                             Co = R f                 ,
+of experience and experiment and not by an abstract mathematical                                                   Bk 
+approach such as presented here. The forms we derive are related                                     
+to their forms, as we shall show, but more amenable to analysis.
+                                                                           This example is exceedingly ideal. The restriction to fore-
+    With these patents Vlahos defined and attacked several prob-
+lems of matting: blue spill or blue flare (reflection of blue light        ground objects with no blue is quite serious, excluding all grays but
+from the blue screen on the foreground object), backing shadows
+on the blue screen (shadows of the foreground object on the back-          black, about two-thirds of all hues, and all pastels or tints of the
+ing, that one wishes to preserve as part of the foreground object),
+and backing impurities (departures of a supposedly pure blue               remaining hues (because white contains blue). Basically, it is only
+backing screen from pure blue). We shall touch on these issues
+further in later sections.                                                 valid for one plane of the 3D RGB colorspace, the RG plane.
+
+    Another contribution to matting [8] is based on the following          The assumption of a perfectly flat and perfectly blue backing
+thinking: Find a family of nested surfaces in colorspace that sepa-
+rate the foreground object colors from the backing colors. Each            color is not realistic. Even very carefully prepared "blue screens"
+surface, corresponding to a value of o, is taken to be the set of
+colors that are the o blend of the foreground and backing colors.          used in cinema special effects as backings have slight spatial
+See Fig. 4. The Primatte® device from Photron Ltd., based on this
+concept, uses a nested family of convex multi-faceted polyhedra            brightness variations and also have some red and green impurities
+(128 faces) as separating surfaces. We shall discuss problems with
+separating surface models in a later section.                              (backing impurities). A practical solution for brightness variations,
+
+THE INTRINSIC DIFFICULTY                                                   in the case of repeatable shots, is this: Film a pass without the
+
+We now show that single-film matting, as typically practiced in a          foreground object to produce a record of Bk at each point to be
+film or video effects house, is intrinsically difficult. In fact, we       used for computing Co after a second pass with the object.
+show that there is an infinity of solutions. This implies that there
+is no algorithmic method for pulling a matte from a given fore-                We rather arbitrarily chose pure blue to be the backing color.
+ground element. There must be a human--or perhaps someday a
+sufficiently intelligent piece of image processing software--in the        This is an idealization of customary film and video practice (al-
+loop who "knows" a correct matte when he (she or it) sees one,
+and he must be provided with a sufficiently rich set of controls           though one sees more and more green screens in video). We shall
+that he can successfully "home in" on a good matte when in the
+neighborhood of one. The success of a matting machine, such as             soon show how to generalize to arbitrary and non-constant back-
+the Ultimatte or Primatte, reduces then to the cleverness of its
+designers in selecting and providing such a set of controls.               ing colors and hence do away with the so-called backing impurities
+
+    The argument goes as follows: We know that Rf is an interpo-           problem in certain circumstances.
+lation from Rk to Ro with weight o, or Rf = Ro + (1 ­ o)Rk, and
+that similar relations hold for Gf and Bf. This is cf = co + (1 ­ o)ck     SOLUTION 2: GRAY OR FLESH
+in our abbreviated notation. (We ignore the relation for f because
+it is trivial.) A complete solution requires Ro, Go, Bo, and o. Thus       The matting problem can be solved if co is known to be gray. We
+we have three equations and four unknowns, an incompletely                 can loosen this claim to say it can be solved if either Ro or Go
+specified problem and hence an infinity of solutions, unsolvable           equals Bo. In fact, we can make the following general statement:
+without more information.                                                  There is a solution to the matting problem if Ro or Go = aBo + bo,
+                                                                           and if ck is pure blue with aBk + b  0. To show this, we derive
+    There are some special cases where a solution to the matting           the solution Co for the green case, since the solution for red can be
+problem does exist and is simple.                                          derived similarly:
+
+                                                                           The conditions, rewritten in color primary coordinates, are:
+
+                                                                                [ ] c f = Ro aBo + b o Bo + (1 -  o ) Bk .
+
+                                                                           Eliminate Bo from the expressions for Gf and Bf to solve for o:
+
+                                                                           Co      =    R     Gf  B + o Bk     Gf -    aB     ,  if aBk + b  0.
+                                                                                                                aB k   +b   
+                                                                                           f                                
+
+                                                                           Here we have introduced a very useful definition C = Cf ­ Ck .
+
+                                                                               The special case Co gray clearly satisfies Solution 2, with a =
+                                                                           1 and b = 0 for both Ro and Go. Thus it is not surprising that sci-
+                                                                           ence fiction space movies effectively use the blue screen process
+
+                                                                           (the color-difference technique) since many of the foreground ob-
+
+                                                                           jects are neutrally colored spacecraft. As we know from practice,
+
+                                                                           the technique often works adequately well for desaturated (to-
+
+                                                                           wards gray) foreground objects, typical of many real-world ob-
+
+                                                                           jects.
+
+                                                                           A particularly important foreground element in film and video
+
+                                                                           is flesh which typically has color [d .5d .5d]. Flesh of all races
+
+                                                                           tends to have the same ratio of primaries, so d is the darkening or
+
+                                                                        3
+lightening factor. This is a non-gray example satisfying Solution 2,      against these two shades. Then there is a solution Co to the mat-
+                                                                          ting problem. N.B., ck2 could be black--i.e., d = 0.
+so it is not surprising that the blue screen process works for flesh.
+    Notice that the condition Go = aBo + bo, with 2/3  a  2 and           The assumption that co is known against two shades of Bk is
+
+b = 0, resembles the Vlahos Assumption, Bo  a2Go. In the special          equivalent to the following:
+case b = 0, our derived expression for o can be seen to be of the
+same form as the First Vlahos Form:                                                        [ c f 1 = Ro  Go    ] Bo + (1 - o )Bk1 .
+                                                                                           [ c f 2 = Ro  Go    ] Bo + (1 - o )Bk2
+o = 1-   1   B f           -  1  Gf    .
+        Bk                    a
+                                                                          The expressions for B f1 and B f2 can be combined and Bo elimi-
+Thus our Bk is Vlahos' 1/ a1 and our a is his 1/ a2. Careful reading
+                                                                          nated  to  show o     = 1-  B f1  -  Bf 2  ,  where  the denominator is  not    0
+shows that Bk = 1/ a1 is indeed consistent with [18]. By using                                        Bk1   -  Bk2
+these values, it can be seen that Vlahos' replacement of Bf by
+min(Bf, a2Gf) is just his way of calculating what we call Bo.             since the two backing shades are different. Then
+
+The next solution does not bear resemblance to any technique              Ro = R f1 = R f2         Go = Gf1 = Gf 2             Bo =  Bf 2 Bk1 - B f1 Bk2
+                                                                                                                                         Bk1 - Bk2
+used in the real world. We believe it to be entirely original.
+
+SOLUTION 3: TRIANGULATION                                                 completes the solution.
+
+                                                                          No commonly used matting technique asks that the foreground
+
+Suppose co is known against two different shades of the backing           object be shot against two different backgrounds. For computer
+color. Then a complete solution exists as stated formally below. It
+does not require any special information about co. Fig. 1(a-d) dem-       controlled shots, it is a possibility but not usually done. If passes
+onstrates this triangulation solution:
+                                                                          of a computer controlled camera are added to solve the problem of
+    Let Bk1 and Bk2 be two shades of the backing color--i.e.,
+Bk1 = cBk and Bk2 = dBk for 0  d < c  1. Assume co is known               nonuniform backing mentioned earlier, then the triangulation solu-
+
+                                                                          tion requires four passes.
+
+                                                                          Consider the backing shadows problem for cases where the tri-
+
+                                                                          angulation solution applies. The shadow of a foreground object is
+
+                                                                          part of that object to the extent that its density is independent of
+
+                                                                          the backing color. For a light-emitting backing screen, it would be
+
+                                                                          tricky to perform darkening without changing the shadows of the
+
+                                                                          foreground objects. We will give a better solution shortly.
+
+                                                                          GENERALIZATIONS
+
+                                                                          The preceding solutions are all special cases of the generalization
+                                                                          obtained by putting the Matting Equation into a matrix form:
+
+                                                                                        1       0           0 t1 
+
+                                                                                 Co     0         1        0   [ t2     =  R   G     B     T] ,
+                                                                                                  0        1         
+                                                                                        -  0    - Gk     - Bk  t3    
+                                                                                           Rk                  t4    
+
+                                                                          where a fourth column has been added in two places to convert an
+                                                                          underspecified problem into a completely specified problem. Let
+
+                                                                                           [ ] t = t1 t2 t3 t4 .
+
+                                                                          The matrix equation has a solution Co if the determinant of the 4x4
+                                                                          matrix is non-0, or
+
+                                                                                        t1Rk + t2Gk + t3Bk + t4 = t Ck  0 .
+
+                                                                          Standard linear algebra gives, since   = 0 always,
+
+                                                                          o      =   T  - (t1R  + t2G    + t3B )     =  T  - t C  = 1-  t  Cf - T  .
+                                                                                                t Ck                       t  Ck           t  Ck
+
+Figure 1. Ideal triangulation matting. (a) Object against known           Then co = c + ock by the Matting Equation.
+constant blue. (b)Against constant black. (c)Pulled. (d)Composited            Thus Solutions 1 and 2 are obtained by the following two
+against new background. (e) Object against a known backing (f).
+(g) Against a different known backing (h). (i) Pulled. (j) New com-       choices, respectively, for t and T, where the condition on t  Ck is
+posite. Note the black pixel near base of (i) where pixels in the         given in parentheses:
+two bac kings are identical and the technique fails.
+                                                                                 t = [0 0 1 0]; T = 0; (Bk  0)
+                                                                                 t = [0 -1 a b]; T = 0; (-Gk + aBk + b  0).
+
+                                                                          The latter condition reduces to that derived for Solution 2 by the
+
+                                                                       4
+choice of pure blue backing color--i.e., Gk = 0. We state the gen-        The conditions of Theorem 3 are quite broad--only the sums
+eral result as a theorem of which these solutions are corollaries:
+                                                                          of the primary color coordinates of the two backing colors have to
+
+Theorem 1. There is a solution Co to the Matting Problem if there         differ. In fact, a constant backing color is not even required. We
+
+is a linear condition t  Co = 0 on the color of the uncomposited          have successfully used the technique to pull a matte on an object
+
+foreground object, witht  Ck  0.                                          against a backing of randomly colored pixels and then against that
+
+                                                     = 1- t Cf            same random backing but darkened by 50 percent. Fig. 1(e-j)
+                                                           t  Ck
+Proof. T = 0 in the matrix equation above gives o                 .n      shows another application of the technique, but Fig. 2 shows more
+
+                                                                          realistic cases. See also Fig. 5.
+
+The Second Vlahos Form can be shown to be of this form with a1            The triangulation problem, with complete information from
+proportional to 1/( t  Ck). Geometrically, Theorem 1 means that
+all solutions Co lie on a plane and that Ck does not lie on that          the two shots against different backing colors, can be expressed by
+plane.
+                                                                          this non-square matrix equation for an overdetermined system:
+
+                                                                              1        0      0                1       0            0
+Solution 3 above can also be seen to be a special case of the                   0      1      0                0       1            0  
+                                                                          Co    0      0      1                0       0            1    =
+general matrix formulation with these choices and condition, where                   - Gk1  - Bk1            - Rk 2  - Gk2
+                                                                              - Rk1                                         - Bk2 
+by extended definition Ci = Cfi - Cki , i = 1 or 2:
+                                                                                [ R1 G1     ] B1 R2 G 2 B 2 .
+    [ ] t = 0 0 1 - Bk2 ; T = B 2 ; (Bk1 - Bk2  0) ,
+[ ] [ ] with Ck = 0 0 Bk1 1 and right side R f1 G f1 B1 B2 .              The Theorem 3 form is obtained by adding the last three columns
+
+                                                                          of the matrix and the last three elements of the vector.
+
+The condition is true by assumption. This solution too is a corol-        The standard least squares way [7] to solve this is to multiply
+
+lary of a more general one, Ck1 not restricted to a shade of blue:        both sides of the equation by the transpose of the matrix yielding:
+
+Theorem 2. There is a solution Co to the Matting Problem if the
+uncomposited foreground object is known against two distinct
+backing colors Ck1 and Ck2 , where Ck1 is arbitrary,Ck2 is a shade of
+pure blue, and Bk1 - Bk2  0 .
+
+Proof. This is just the matrix equation above with t and T as for
+
+[ ] Solution 3, but with Ck generalized to Rk1 Gk1 Bk1 1 and the
+[ ] right side of the matrix equation being R1 G1 B1 B2 .
+
+Thus, as for Solution 3, o  =  B 2 - B1   = 1-  Bf1  - Bf2  .n
+                               Bk1 - Bk2        Bk1  - Bk2
+
+The following generalization of Theorem 2 utilizes all of the
+
+Ck2 backing color information. Let the sum of the color coordi-
+
+nates of any color Ca be a = Ra + Ga + Ba .
+
+Theorem 3. There is a solution Co to the Matting Problem if the
+uncomposited foreground object is known against two distinct
+backing colors Ck1 and Ck2 , where both are arbitrary and
+k1 - k2 = (Rk1 - Rk2 ) + (Gk1 - Gk2 ) + ( Bk1 - Bk2 )  0 .
+
+Proof. Change t and T in the proof of Theorem 2 to                        Figure 2. Practical triangulation matting. (a-b)Two different bac k-
+                                                                          ings. (c-d) Objects against the backings. (e)Pulled. (f)New com-
+         [ ] t = 1 1 1 - k2 ; T = 2 .                                     posite. (g-i) and (j-l) Same triangulation process applied to two
+                                                                          other objects (backing shots not shown). (l) Object composited
+This gives t  Co = o -  ok2 =  f2 - k2 , which is exactly what            over another. The table and other extraneous equipment have
+                                                                          been "garbage matted" from the shots. See Fig. 5.
+you get by adding together the three primary color equations in
+the Matting Equation, Co -  oCk2 = C2 . The solution is
+
+o  =  1                     - 2   = 1-  f1 -  f2
+       k1                   - k2        k1 - k2
+
+= 1 - (R f1 - Rf 2 ) + (G f1 - G f2 ) + (Bf1 - B f2 ) ,
+      (Rk1 - Rk2 ) + (Gk1 - Gk2 ) + (Bk1 - Bk2 )
+
+co = c1 + ock1 = cf1 - (1 - o )ck1 , or co = c f2 - (1- o )ck2 . n
+
+                                                                       5
+2                     0              0        -( Rk1  +  Rk 2   )                        IMPLEMENTATION NOTES
+                      2              0                             
+                      0              2        - (Gk1  +                                  The Fig. 1(a-d) example fits the criteria of Theorem 2 (actually the
+0               -(Gk1 + Gk2 )  -(Bk1 + Bk2 )  -( Bk1  +  Gk2 )                           Solution 3 special case) perfectly because the given blue and black
+Co                                                                   =                   screen shots were manufactured by compositing the object over
+     0                                                   Bk     )                        perfect blue and black backings. As predicted by the theorem, we
+                                                             2                           were able to extract the original object in its original form, with
+ -(Rk1 + Rk2 )                                                                           only small least significant bit errors. Similarly Fig. 1(e-j) illus-
+                                                                                         trates Theorem 3 or 4.
+
+        R1 + R2 G 1 + G 2 B 1 + B 2                                                          Fig. 2 is a set of real camera shots of real objects in a real stu-
+                                                                                         dio. Our camera was locked down for the two shots required by
+where  = Rk21 + Gk21 + Bk21 + Rk22 + Gk22 + Bk22 and                                     Theorem 3 and 4 plus two more required for backing color calibra-
+ = -(Rk1R1 + Gk1G1 +B k1 B 1 +R 2k R 2 +G k2G 2 +B k2B 2 ) .                             tions as mentioned before. Furthermore, constant exposure was
+                                                                                         used for the four shots, and a remote-controlled shutter guarded
+Inverting the symmetric matrix and multiplying both sides by the                         against slight camera movements. The results are good enough to
+                                                                                         demonstrate the effectiveness of the algorithm but are nevertheless
+inverse gives a least squares solution Co if the determinant of the                      flawed from misregistration introduced during the digitization
+matrix, 4((Rk1 - Rk2 )2 + (Gk1 - Gk2 )2 + (Bk1 - Bk2 )2 ) , is non-0.                    process--pin registration was not used--and from the foreground
+                                                                                         objects having different brightnesses relative one another, also
+Thus we obtain our most powerful result:                                                 believed to be a scanning artifact.
+
+Theorem 4. There is a solution Co to the Matting Problem if the                              Notice from the Theorem 3 and 4 expressions for o that the
+uncomposited foreground object is known against two arbitrary                            technique is quite sensitive to brightness and misregistration er-
+backing colors Ck1 and Ck2 with nonzero distance between them--                          rors. If the foreground colors differ where they should be equal,
+(Rk1 - Rk2 )2 + (Gk1 - Gk2 )2 + (Bk1 - Bk2 )2  0 (i.e., distinct).                       then o is lowered from its correct value of 1, permitting some
+                                                                                         object transparency. In general, the technique tends to err towards
+    The desired alpha o can be shown to be one minus                                     increased transparency.
+( Rf1 - R f2 )( Rk1 - Rk2 ) +(G f1 -G f2 )(Gk1 -Gk 2 ) + (Bf1 - Bf2 )(Bk1 - Bk 2 ) .
+                                                                                             Another manifestation of the same error is what we term the
+                  ( Rk1 - Rk2 )2 +(Gk1 - Gk2 )2 +(Bk1 - Bk2 )2                           "fine line" problem. Consider a thin dark line with bright surround-
+The Theorem 3 and 4 expressions for o are symmetric with re-                             ings in an object shot against one backing, or the complement, a
+spect to the two backings, reflected in our two expressions for co                       thin bright line in a dark surround. Such a line in slight misregister
+(in the proof of Theorem 3).                                                             with itself against the other backing can differ dramatically in
+                                                                                         brightness at pixels along the line, as seen by our algorithm. The
+    Theorems 2 and 3 are really just special cases of Theorem 4.                         error trend toward transparency will cause the appearance of a
+For Theorem 2, the two colors are required to have different blue                        fine transparent line in the pulled object.
+coordinates. For Theorem 3, they are two arbitrary colors that do
+not lie on the same plane of constant . In practice we have found                            The conclusion is clear: To effectively use triangulation, pin-
+that the simpler conditions of Theorem 3 often hold and permit                           registered filming and digitization should be used to ensure posi-
+use of computations cheaper than those of Theorem 4.                                     tional constancy between the four shots, and very careful monitor-
+                                                                                         ing of lighting and exposures during filming must be undertaken to
+    Theorem 4 allows the use of very general backings. In fact,                          ensure that constant brightnesses of foreground objects are re-
+two shots of an object moving across a fixed but varied back-                            corded by the film (or other recording medium).
+ground can satisfy Theorem 4, as indicated by the lower Fig. 1
+example. If the foreground object can be registered frame to frame                           Since triangulation works only for non-moving objects (exclud-
+as it moves from, say, left to right, then the background at two                         ing rigid motions, such as simple translation), it should be possible
+different positions can serve as the two backings.                                       to reduce brightness variations between steps of the process due
+                                                                                         to noise by averaging several repeated shots at each step.
+    Notice that the Theorem 3 and 4 techniques lead to a backing
+shadows solution whereas simple darkening might not work. The                            A LOWER BOUND
+additional requirement is that the illumination levels and light-
+emitting directions be the same for the two backing colors so that                       The trouble with the problems solved so far is that the premises
+the shadows are the same densities and directions.                                       are too ideal. It might seem that the problems which have Solu-
+                                                                                         tions 1 and 2, and Theorem 1 generalizations, are unrealistically
+    The overdetermined linear system above summarizes all in-                            restrictive of foreground object colors. It is surprising that so
+formation about two shots against two different backing colors. A                        much real-world work approaches the conditions of these solu-
+third shot against a third backing color could be included as well,                      tions. Situations arising from Solution 3, and Theorems 2-4 gener-
+replacing the 4×6 matrix with a 4×9 matrix and the 1×6 right-hand                        alizations, require a doubling of shots, which is a lot to ask even if
+vector with a 1×9 vector. Then the same least squares solution                           the shots are exactly repeatable. Now we return to the general
+technique would be applied to find a solution for this even more                         single-background case and derive bounds on o that limit the
+overdetermined problem. Similarly, a fourth, fifth, etc. shot against                    search space for possible solutions.
+even more backing colors could be used. An overdetermined sys-
+tem can be subject to numerical instabilities in its solution. We
+have not experienced any, but should they arise the technique of
+singular value decomposition [11] might be used.
+
+                                                                                      6
+    Any Co offered as solution must satisfy the physical limits on        yields max  .87, which constrains the possible solutions a bit
+color. It must be that 0  Ro  o (since Ro is premultiplied by o)          more: .78  o  .87.
+and similarly for Go and Bo. The Matting Equation gives Rf = Ro +
+(1 ­ o)Rk. The inequalities for Ro applied to this expression give        BLUE SPILL
+
+           ( ) 1 - o Rk  R f  (1- o ) Rk + o ,                            Vlahos tackled the very important blue spill (blue flare) problem
+                                                                          of backing light reflecting off the foreground object in [19]. He
+with the left side being the expression for Ro = 0 and the right for      solved it for an important class of objects, bright whites and flesh
+Ro = o. Similar inequalities apply to Gf and Bf. Fig. 3 shows all         tones, by making what we call the Second Vlahos Assumption:
+regions of valid combinations of o, Rf, Gf, and Bf using equality in      Foreground objects have max(Bo - Go , 0)  max(Go - Ro, 0). If
+the relationship(s) above as boundaries. The color ck for this figure     this is not true, the color is assumed to be either the backing color
+is taken to be the slightly impure blue [.1 .2 .98].
+                                                                                        
+    The dashed vertical lines in Fig. 3 represent a given cf--in this                 1
+figure, [.8 .5 .6]. The dotted horizontal lines represent the mini-              max
+mum o for each of Rf, Gf, and Bf which gives a valid Ro, Go, and           R =  min
+Bo, respectively. Let these three o's be called R, G, and B.
+Since only one o is generated per color, the following relationship
+must be true:
+
+                           o  max(R, G, B).
+We shall call the o which satisfies this relationship at equality
+min, and any o  min will be called a valid one. Notice that al-
+though the range of possible o's is cut down by this derivation,
+there are still an infinity of valid ones to choose from, hence an
+
+infinity of solutions.                                                       0                                     R
+                                                                               0 Rk
+    If Rf > Rk, as in the Fig. 3 example, then R corresponds to Ro                                         Rf  1
+= o, the right side of the inequalities above for Rf and o. If Rf <            
+Rk then R corresponds to Ro = 0, the left side. Thus                         1
+
+                                    Rf    , if Rf    < Rk
+                               1 -  Rk
+                               
+                                    R
+   R                        =    1  - Rk  ,  if R f  >  Rk  .
+                               
+                               
+                               0, if Rf = Rk
+                                                                          G
+
+In the example of Fig. 3, min  .78. For the special case of pure             0                                     G
+blue backing, min = max(Rf, Gf, 1 ­ Bf). So long as a valid o ex-                                              1
+ists, a foreground object color can be derived from the given cf by             0G                 Gf
+co = c + ock as before.
+                                                                                                k
+AN UPPER BOUND
+                                                                                
+
+Tom Porter pointed out (in an unpublished technical memo [10])               1
+that an upper bound could also be established for o, by taking
+lessons from Vlahos.
+
+    The Vlahos Assumption, when valid, has Bo  a2Go. The rear-
+rangement of the Matting Equation above for the green channel is
+
+                        Go = G f - (1 -  o )Gk .
+
+Another rearrangement, this time for the blue channel, gives us           B
+
+o  =                    1+  Bo - Bf        1 + a2Go - Bf       .
+                               Bk                    Bk
+
+Combining these two, by substituting the equation for Go into the            0                                     B
+
+inequality for o and solving, gives                                             0                      Bf      Bk
+
+                        o        1-  Bf      - a2G f    ,                 Figure 3. Shaded areas show solution space. Black areas
+                                     Bk      - a2Gk                       are constrained by upper and lower alpha limits to valid
+                                                                          alphas for the given foreground color. Valid alphas for Co
+clamped to [0, 1] if necessary. Recall that .5  a2  1.5 typically.        lie along intersection of Cf (dashed lines) with black areas.
+
+Let o at equality be max. Then, in our Fig. 3 example, a2 = 1
+
+                                                                       7
+or flare from it. Object transparency is taken, as before, to be pro-     the body of object colors Co. A given foreground color Cf is shown
+                                                                          at the point of intersection with the o = .5 locus along the
+portional to Bo - Go, and this distinguishes the two cases.               straight line through object colors A and B.
+    Our statement of the Matting Problem needs to be altered to
+                                                                              The Vlahos (or Ultimatte) matting solutions can be cast into
+include the blue spill problem. Our current model says that the           the separating surface model. In the First Vlahos Form (as well as
+                                                                          in our Solutions 1 and 2 and Theorem 1), each dotted line of Fig. 4
+foreground color Cf is a linear combination of the uncomposited           would simply be a straight line (a plane in RGB). In the Second
+foreground object color Co and the backing color Ck, Cf = Co + (1 ­       Vlahos Form it would be a line with two straight segments (two
+o)Ck. The Extended Matting Problem would include a term Cs for            polygons sharing an edge in RGB). The third form simply adds a
+the backing spill contribution. For example, it might be modeled as       third segment (polygon) to this shape. The Primatte solution ex-
+                                                                          tends this trend to many (up to 128) segments (faces of a convex
+a separate foreground object, with its own alpha s, in linear com-        polyhedron).
+bination with the desired foreground object color Co: Cf = Cs + (1
+­ s)(Co + (1 ­ o)Ck). Now the problem becomes the more diffi-                 Fig. 4 illustrates a general problem with the separating surface
+cult one of determining both Cs and Co from the given information         model. All mixtures of A with the backing color will be correctly
+Cf and Ck.                                                                pulled if they indeed exist in the foreground object. However, all
+                                                                          mixtures of B with the backing will not be correctly pulled because
+    A simplification is to assume that the spill color is the same as     they have been disguised as mixtures of A.
+
+the backing color, Cs =  sCk. Thus Cf = (1 ­ s)Co + (1 ­ o +                  Another problem is that it is not always possible to have fore-
+                                                                          ground object colors disjoint from backing colors. Another is the
+os)Ck. For brevity, let C s = C / (1-  s ) . Then this spill              assumption that a locus of constant o is a surface rather than a
+                                                                          volume, connected rather than highly disconnected, and planar or
+model can be put into a matrix equation of the same form as before        convex.
+
+(but notice the  s = 1 singularity):                                      SUMMARY
+
+    1                  0   0 t1                                           The expiration of the fundamental Vlahos patents has inspired us
+                                                                          to throw open the very interesting class of constant color matting
+Co  0                 1      0   [ t2  =    R s  G s  B s   ]T .          problems to the computer graphics community. Thus one of our
+                      0      1                                            purposes has been to review the problems of the field--the gen-
+    -      0        - Gk   - Bk  t3                                       eral one of pulling a matte from a constant color shot plus related
+           Rk                    t4                                       subproblems such as blue spill, backing impurities, and backing
+                                                                          shadows.
+Hence, since  s = 0 always, the solutions are of the same form as
+                                                                              The mathematical approach introduced here we believe to be
+before: o  =  T  -  t C s  and co = cs +  ock . This does not solve       more understandable than the ad hoc approach of the Vlahos pat-
+                 t   Ck                                                   ents, the standard reference on blue screen matting. Furthermore,
+                                                                          we believe that the treatment here throws light on why the proc-
+the problem since  s is still unknown. We shall not pursue the            ess should work so well as it does in real-world applications (gray,
+spill problem further here but recommend it for future research.          near-gray, and flesh tones), surprising in light of the proof herein
+                                                                          that the general problem has an infinity of solutions. Consistent
+SEPARATING SURFACE PROBLEMS                                               with the lack of a general algorithmic solution is the fact that hu-
+                                                                          man interaction is nearly always required in pulling a matte in film
+Fig. 4 illustrates the separating surface approach to the general         or video.
+matting problem. A single plane of colorspace is shown for clarity.
+A family of three separating surfaces for different values of o               Our principal idea is that an image from which a matte is to be
+have been established between the body of backing colors Ck and           pulled can be represented by a model of two images, an uncompo-
+                                                                          sited foreground object image (a sprite) and a backing color image,
+    Magenta                                           Red                 linearly combined using the alpha channel of the foreground object.
+                                                                          Our main results are deduced from this model. In each case, the
+                    = 1                     Co                            expression for the desired alpha channel  o is a function of the
+                                                         B                two images in the model, Cf, the given image--a composite by our
+                                                                          model--and Ck, the given backing image. This may be compared to
+                =.5                      A                                the Vlahos expressions for alpha which are functions of the given
+              = 0                C                                        image Cf only.
+
+                                    f                                         We have introduced an algorithmic solution, the triangulation
+                                                                          solution, by adding a new step to the blue screen process as usu-
+                 C                                                        ally practiced: Another shot of the foreground object against a
+                                                                          second backing color. This multi-background technique cannot be
+                    k
+
+    Blue                                              Black
+
+Figure 4. A slice through a (non-convex) polyhedral family
+of surfaces of constant alpha separating backing colors
+from foreground object colors. Given color Cf will be inter-
+preted as A with alpha of .5 whereas the object might a c-
+tually be B with an alpha of .25.
+
+                                                                       8
+used for live actors or other moving foreground objects because of              (Japanese). See http://206.155.32.1/us/primatte/whitepaper.
+the requirement for repeatability. Whenever it is applicable, how-        [9] PORTER, T. and DUFF, T. Compositing Digital Images. Pro-
+ever, it is powerful, the only restriction on the two backings being
+that they be different pixel by pixel. Hence the backing colors do              ceedings of SIGGRAPH 84 (Minneapolis, Minnesota, July
+not even have to be constant or pure--the backing impurities                    23-27, 1984). In Computer Graphics 18, 3 (July 1984), pp.
+problem does not exist. However, to solve the backing shadows                   253-259.
+problem, illumination level and direction must be the same for            [10] PORTER, T. Matte Box Design. Lucasfilm Technical Memo
+both backings, particularly important if they are generated by light            63, November 1986. Not built.
+emission rather than reflection.                                          [11] PRESS, W. H., TEUKOLSKY, S. A., VETTERLING, W. T., and
+                                                                                FLANNERY , B. P. Numerical Recipes in C. Cambridge Univer-
+    We have bounded the solution space for the general non-                     sity Press, Cambridge, 1988, p. 59.
+algorithmic problem, a new extension to the Vlahos oeuvre. Hope-          [12] SMITH, A. R. Analysis of the Color-Difference Technique.
+fully, this will inspire further researches into this difficult prob-           Technical Memo 30, Lucasfilm Ltd., March 1982.
+lem. See the Vlahos patents (including [4] and [5]) for further in-       [13] SMITH, A. R. Math of Mattings. Technical Memo 32, Lucas-
+spiration.                                                                      film Ltd., April 1982.
+                                                                          [14] SMITH, A. R. Image Compositing Fundamentals. Technical
+    We have touched on the blue spill (blue flare) problem and                  Memo 4, Microsoft Corporation, June 1995.
+suggest that additional research be aimed at this important prob-         [15] SMITH, A. R. Alpha and the History of Digital Compositing.
+lem. We have sketched a possible model for this research, general-              Technical Memo 7, Microsoft Corporation, August 1995.
+izing the idea of the given image being a composite of others. In         [16] VLAHOS, P. Composite Photography Utilizing Sodium Vapor
+particular, we propose that the idea of modeling blue spill by an               Illumination. U. S. Patent 3,095,304, May 15, 1958. Expired.
+additional blue spill image, with its own alpha, might lead to fur-       [17] VLAHOS, P. Composite Color Photography. U. S. Patent
+ther insight.                                                                   3,158,477, November 24, 1964. Expired.
+                                                                          [18] VLAHOS, P. Electronic Composite Photography. U. S. Patent
+    Finally, we have briefly reviewed the modeling of the matting               3,595,987, July 27, 1971. Expired.
+problem with separating surface families (cf. [8]), shown how to          [19] VLAHOS, P. Electronic Composite Photography with Color
+cast the Vlahos work in this light, and discussed some problems                 Control. U. S. Patent 4,007,487, February 8, 1977. Expired.
+with the general notion. We urge that this class of solutions be          [20] VLAHOS, P. Comprehensive Electronic Compositing System.
+further explored and their fundamental problems be elucidated                   U. S. Patent 4,100,569, July 11, 1978. Expired.
+beyond the initial treatment given here.                                  [21] VLAHOS, P. and TAYLOR, B. Traveling Matte Composite
+                                                                                Photography. American Cinematographer Manual. American
+ACKNOWLEDGMENTS                                                                 Society of Cinematographers, Hollywood, 7th edition, 1993,
+                                                                                pp. 430-445.
+To Tom Porter for his alpha upper limit. To Rob Cook for an               [22] VLAHOS, P. Comprehensive Electronic Compositing System.
+early critical reading of [12] and [13] on which much of this paper             U. S. Patent 4,344,085, August 10, 1982.
+is based. To Rick Szeliski for use of his automatic image registra-       [23] VLAHOS, P. Encoded Signal Color Image Compositing. U. S.
+tion software. To Jack Orr and Arlo Smith for studio photography                Patent 4,409,611, October 11, 1983.
+and lighting.                                                             [24] VLAHOS, P., VLAHOS, P. and FELLINGER, D. F. Automatic
+                                                                                Encoded Signal Color Image Compositing. U. S. Patent
+REFERENCES                                                                      4,589,013, May 13, 1986.
+                                                                          [25] VLAHOS, P. Comprehensive Electronic Compositing System.
+[1] BEYER, W. Traveling Matte Photography and the Blue                          U. S. Patent 4,625,231, November 25, 1986.
+      Screen System. American Cinematographer, May 1964, p.
+      266. The second of a four-part series.                              Figure 3. Composite of nine image sprites pulled from studio
+                                                                          photographs using the triangulation technique shown in Fig. 2.
+[2] BLINN, J. F. Jim Blinn's Corner: Compositing Part 1: The-
+      ory. IEEE Computer Graphics & Applications, September
+      1994, pp. 83-87.
+
+[3] BLINN, J. F. Jim Blinn's Corner: Compositing Part 2: Prac-
+      tice. IEEE Computer Graphics & Applications, November
+      1994, pp. 78-82.
+
+[4] DADOURIAN, A. Method and Apparatus for Compositing
+      Video Images. U. S. Patent 5,343,252, August 30, 1994.
+
+[5] FELLINGER, D. F. Method and Apparatus for Applying Cor-
+      rection to a Signal Used to Modulate a Background Video Sig-
+      nal to be Combined with a Foreground Video Signal. U. S.
+      Patent 5,202,762, April 13, 1993.
+
+[6] FIELDING, R. The Technique of Special Effects Cinematogra-
+      phy. Focal/Hastings House, London, 3rd edition, 1972, pp.
+      220-243.
+
+[7] LANCZOS, C. Applied Analysis. Prentice Hall, Inc., Englewood
+      Cliffs, NJ, 1964, pp. 156-161.
+
+[8] M ISHIMA, Y. A Software Chromakeyer Using Polyhedric
+      Slice. Proceedings of NICOGRAPH 92 (1992), pp. 44-52
+
+                                                                       9
+[The following added from Microsoft Tech Memo 15, The Gen-
+eral Matting Case with n Backings, Alvy Ray Smith, Jun 1997:
+APPLICABILITY
+It is clear that the technique described here does not work unless
+the foreground object is constant as the different backings are sub-
+stituted behind it. We were explicit in [the preceding paper] that
+this precludes use of the technique on non-rigidly moving fore-
+ground objects. A further condition on a foreground object that is
+similar and should be made explicit is that it must not optically
+distort the backings as seen through partially transparent parts of
+the object. That is, the backing pixels are assumed to be fixed in
+position, so the foreground object cannot move them via distor-
+tion. This is not a problem if each backing is a constant color, but
+it is relaxing this constancy condition to arbitrary backings that is
+the power of our technique. These restrictions apply, of course, to
+all the "triangulation" techniques of [the preceding paper], all spe-
+cial cases of Theorem 5.
+ACKNOWLEDGEMENTS
+... To a discussion group of computer science students and profes-
+sors from the University of Washington for observing the need for
+distortionless foreground objects.
+
+    To Chris Odgers and Marc Levoy for developing a special
+case of Theorem 2 in [the preceding paper]--pulling a matte from
+two constant backings of pure white and pure black--in a system
+they built for Hanna-Barbera in the 1980s. We learned the details
+[Odgers97] of this after publishing, which are, using our notation1,
+ o = 1 - (B f1 - B f2 ) and co = c f1 - (1 - o ) . They could also have
+used the much simpler co = c f 2 , which always works for a pure
+black backing color.
+REFERENCES2
+[Odgers97] Odgers, Chris, personal communication, Jun 1997.]
+
+1And the B channel instead of the G, which is immaterial as dis-
+cussed in [the preceding paper].
+2 We have discovered the following typographical error in the
+published version of [the preceding] paper: In the expression for
+ at the bottom of p 263, the rightmost six subscripts 1 should
+all be 2s. [It is corrected the preceding paper.]
+
+                                                                            10
+

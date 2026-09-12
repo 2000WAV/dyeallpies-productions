@@ -1,0 +1,42 @@
+Gardner, M.-A., Sunkavalli, K., Yumer, E., Shen, X., Gambaretto, E., Gagne,
+C., and Lalonde, J.-F. (2017). Learning to Predict Indoor Illumination from
+a Single Image. ACM Transactions on Graphics (SIGGRAPH Asia 2017) 36(6),
+article 176. arXiv:1704.00090.
+
+STATUS: full text saved (arXiv); see
+papers/gardner2017-indoor-illumination-arxiv.pdf/.txt.
+
+SUMMARY: trains an end-to-end CNN that regresses a single, limited-FOV, LDR
+indoor photo directly to an HDR omnidirectional illumination map (no
+explicit geometry/material/depth estimation step), using a two-stage
+pipeline (pretrain on LDR panoramas to predict light POSITIONS, then
+fine-tune on a smaller HDR panorama dataset to predict light INTENSITIES).
+Validated with both a quantitative image-reconstruction loss and a
+perceptual user study inserting virtual objects lit by the predicted
+illumination.
+
+KEY NUMBERS (perceptual user study, 105 participants, 1080 pairwise
+comparisons per method, forced-choice "which composite looks more
+realistic, this or the ground-truth-lit one"):
+- Gardner et al.'s own HDR network: chosen as-or-more-realistic than the
+  ground-truth-lit reference in 41.85% of comparisons.
+- Their own LDR-only network: 27.32%.
+- Khan et al. 2006 (prior method): 27.78%.
+- Karsch et al. 2014 (prior method): 16.76%.
+(I.e. even the best automatic single-image illumination estimate here is
+preferred over/tied with ground truth less than half the time -- automatic
+lighting estimation gets a composite MOST of the way to plausible, not all
+the way, and remains behind hand-tuning.)
+- Reported failure modes: light sources' spatial extent/orientation often
+  blurred out (sharp small lights don't produce the crisp cast shadows a
+  real sharp source would); network less reliable on light INTENSITY than
+  light POSITION, and sensitive to the input LDR image's own exposure.
+
+RELEVANCE: section 2 numeric anchor for "how good is single-image
+illumination estimation" -- directly useful context for deciding how much
+effort a learned-illumination approach is worth for this shot versus the
+much simpler single-key-plus-ambient model already used (item 05's PCSS
+shadow-direction recipe): even state-of-the-art learned estimation is only
+right-ish, not exactly right, so a hand-set single soft key from the
+lower-left (matching the plate's own visible hand-shadow) is a reasonable,
+much cheaper substitute for this shot's purposes.

@@ -1,0 +1,21 @@
+Smith, A. R. and Blinn, J. F. (1996). Blue Screen Matting. SIGGRAPH 1996 Conference
+Proceedings, pp. 259-268.
+
+STATUS: full text saved (Alvy Ray Smith's own site), text-extracted; see
+papers/smithblinn1996-blue-screen-matting.pdf/.txt.
+
+SUMMARY: The canonical mathematics of constant-color-backing matting. Formalizes
+the "compositing equation" C = alpha*F + (1-alpha)*B (foreground F, background B,
+observed pixel C, coverage/opacity alpha) and works out the classical Vlahos-style
+and linear "triangulation" solutions for recovering (F, alpha) from one or two
+known backing colors, including the underconstrained-ness of single-backing-color
+keying (3 equations, 4 unknowns per pixel: alpha + 3 color channels of
+premultiplied F) and the assumptions (e.g. restricting F's chrominance relative to
+the backing hue) needed to close the system. Also covers backing-color spill onto
+the foreground and its removal.
+
+RELEVANCE: foundational reference for the "over" compositing operator and for why
+a single-color (or, in our case, single near-uniform wall) key needs an extra
+constraint (difference/luminance keying, or a learned matte) to fully solve for
+alpha -- directly relevant to the hand-matting-on-a-plain-wall problem, even
+though the wall isn't chroma-keyed blue/green.

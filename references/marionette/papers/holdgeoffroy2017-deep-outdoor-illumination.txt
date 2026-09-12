@@ -1,0 +1,620 @@
+                         Deep Outdoor Illumination Estimation
+
+Yannick Hold-Geoffroy1*, Kalyan Sunkavalli, Sunil Hadap, Emiliano Gambaretto, Jean-François Lalonde*
+                                             Université Laval*, Adobe Research
+
+   yannick.hold-geoffroy.1@ulaval.ca, {sunkaval,hadap,emiliano}@adobe.com, jflalonde@gel.ulaval.ca
+                                             http://www.jflalonde.ca/projects/deepOutdoorLight
+
+                        Abstract                                                     Input image (LDR)         CNN
+
+   We present a CNN-based technique to estimate high-                                                        Output sky parameters
+dynamic range outdoor illumination from a single low dy-                                                Outdoor illumination (HDR)
+namic range image. To train the CNN, we leverage a large
+dataset of outdoor panoramas. We fit a low-dimensional                                Rendered object
+physically-based outdoor illumination model to the skies in
+these panoramas giving us a compact set of parameters (in-                           Figure 1. We present an approach for predicting full HDR lighting
+cluding sun position, atmospheric conditions, and camera                             conditions from a single LDR outdoor image. Our prediction can
+parameters). We extract limited field-of-view images from                            readily be used to insert a virtual object into the image. Our key
+the panoramas, and train a CNN with this large set of in-                            idea is to train a CNN using input-output pairs of LDR images
+put image­output lighting parameter pairs. Given a test                              and HDR illumination parameters that are automatically extracted
+image, this network can be used to infer illumination pa-                            from a large database of 360 panoramas.
+rameters that can, in turn, be used to reconstruct an out-
+door illumination environment map. We demonstrate that                               formance on real-world images. Alternatively, techniques
+our approach allows the recovery of plausible illumination                           for intrinsic images can estimate low-frequency illumina-
+conditions and enables photorealistic virtual object inser-                          tion but rely on hand-tuned priors on geometry and ma-
+tion from a single image. An extensive evaluation on both                            terial properties [3, 29] that may not generalize to large-
+the panorama dataset and captured HDR environment maps                               scale scenes. In this work, we seek a single image out-
+shows that our technique significantly outperforms previous                          door illumination inference technique that generalizes to a
+solutions to this problem.                                                           wide range of scenes and does not make strong assumptions
+                                                                                     about scene properties.
+1. Introduction
+                                                                                        To this end, our goal is to train a CNN to directly regress
+   Illumination plays a critical role in deciding the appear-                        a single input low dynamic range image to its correspond-
+ance of a scene, and recovering scene illumination is impor-                         ing high dynamic range (HDR) outdoor lighting conditions.
+tant for a number of tasks ranging from scene understand-                            Given the success of deep networks at related tasks like in-
+ing to reconstruction and editing. However, the process of                           trinsic images [42] and reflectance map estimation [34], our
+image formation conflates illumination with scene geome-                             hope is that an appropriately designed CNN can learn this
+try and material properties in complex ways and inverting                            relationship. However, training such a CNN requires a very
+this process is an extremely ill-posed problem. This is es-                          large dataset of outdoor images with their corresponding
+pecially true in outdoor scenes, where we have little to no                          HDR lighting conditions. Unfortunately, such a dataset cur-
+control over the capture process.                                                    rently does not exist, and, because capturing light probes re-
+                                                                                     quires significant time and effort, acquiring it is prohibitive.
+   Previous approaches to this problem have relied on ex-
+tracting cues such as shadows and shading [26] and combin-
+ing them with (reasonably good) estimates of scene geom-
+etry to recover illumination. However, both these tasks are
+challenging and existing attempts often result in poor per-
+
+      1 Research partly done when Y. Hold-Geoffroy was an intern at Adobe Research.
+
+                                                                                     17312
+   Our insight is to exploit a large dataset of outdoor         Hosek and Wilkie proposed a sky luminance model [16] and
+panoramas [40], and extract photos with limited field of        solar radiance function [17].
+view from them. We can thus use pairs of photos and
+panoramas to train the neural network. However, this ap-        Outdoor lighting estimation Lalonde et al. [26] combine
+proach is bound to fail since: 1) the panoramas have low        multiple cues, including shadows, shading of vertical sur-
+dynamic range and therefore do not provide an accurate es-      faces, and sky appearance to predict the direction and visi-
+timate of outdoor lighting; and 2) even if notable attempts     bility of the sun. This is combined with an estimation of sky
+have been made [41], recovering full spherical panoramas        illumination (represented by the Perez model [31]) from sky
+from a single photo is both improbable and unnecessary for      pixels [28]. Similar to this work, we use a physically-based
+a number of tasks (e.g., many of the high-frequency details     model for outdoor illumination. However, instead of de-
+in the panoramas are not required when rendering Lamber-        signing hand-crafted features to estimate illumination, we
+tian objects into the scene).                                   train a CNN to directly learn the highly complex mapping
+                                                                between image pixels and illumination parameters.
+   Instead, we use a physically-based sky model--the
+Hosek-Wilkie model [16, 17]--and fit its parameters to the         Other techniques for single image illumination estima-
+visible sky regions in the input panorama. This has two ad-     tion rely on known geometry and/or strong priors on scene
+vantages: first, it allows us to recover physically accurate,   reflectance, geometry and illumination [3, 4, 29]. These pri-
+high dynamic range information from the panoramas (even         ors typically do not generalize to large-scale outdoor scenes.
+in saturated regions). Second, it compresses the panorama       Karsch et al. [19] retrieve panoramas (from the SUN360
+to a compact set of physically meaningful and representa-       panorama dataset [40]) with features similar to the input im-
+tive parameters that can be efficiently learned by a CNN. At    age, and refine the retrieved panoramas to compute the illu-
+test time, we recover these parameters--including sun posi-     mination. However, the matching metric is based on image
+tion, atmospheric turbidity, and geometric and radiometric      content which may not be directly linked with illumination.
+camera calibration--from an input image and use them to
+construct an HDR sky environment map.                              Another class of techniques simplify the problem by es-
+                                                                timating illumination from image collections. Multi-view
+   To our knowledge, we are the first to address                image collections have been used to reconstruct geometry,
+the complete scope of estimating a full HDR lighting            which is used to recover outdoor illumination [14, 27, 35,
+representation--which can readily be used for image-based       8], sun direction [39], or place and time of capture [15].
+lighting [7]--from a single outdoor image (fig. 1). Previ-      Appearance changes have also been used to recover colori-
+ous techniques have typically addressed only aspects of this    metric variations of outdoor sun-sky illumination [37].
+problem, e.g., Lalonde et al. [26] recover the position of the
+sun but need to observe sky pixels in order to recover the      Inverse graphics/vision problems in deep learning Fol-
+atmospheric conditions. Similarly, [30] uses a neural net-      lowing the remarkable success of deep learning-based
+work to estimate the sun azimuth to perform localization        methods on high-level recognition problems, these ap-
+in roadside environments. Karsch et al. [19] estimate full      proaches are now being increasingly used to solve inverse
+environment map lighting, but their panorama transfer tech-     graphics problems [24]. In the context of understanding
+nique may yield illumination conditions arbitrarily far away    scene appearance, previous work has leveraged deep learn-
+from the real ones. In contrast, our technique can recover an   ing to estimate depth and surface normals [9, 2], recog-
+accurate, full HDR sky environment map from an arbitrary        nize materials [5], decompose intrinsic images [42], re-
+input image. We show through extensive evaluation that our      cover reflectance maps [34], and estimate, in a setup sim-
+estimates of the lighting conditions are significantly better   ilar to physics-based techniques [29], lighting from objects
+than previous techniques and that they can be used "as is" to   of specular materials [11]. We believe ours is the first at-
+photorealistically relight and render 3D models into images.    tempt at using deep learning for full HDR outdoor lighting
+                                                                estimation from a single image.
+2. Related work
+                                                                3. Overview
+Outdoor illumination models Perez et al. [31] proposed
+an all-weather sky luminance distribution model. This              We aim to train a CNN to predict illumination condi-
+model was a generalization of the CIE standard sky model        tions from a single outdoor image. We use full spherical,
+and is parameterized by five coefficients that can be var-      360° panoramas, as they capture scene appearance while
+ied to generate a wide range of skies. Preetham [32] pro-       also providing a direct view of the sun and sky, which
+posed a simplified version of the Perez model that explains     are the most important sources of light outdoors. Unfor-
+the five coefficients using a single unified atmospheric tur-   tunately, there exists no database containing true high dy-
+bidity parameter. Lalonde and Matthews [27] combined            namic range outdoor panoramas, and we must resort to
+the Preetham sky model with a novel empirical sun model.        using the saturated, low dynamic range panoramas in the
+
+                                                                7313
+                                                                      From this spectral model, we obtain RGB values by ren-
+                                                                   dering it at a discrete set wavelengths spanning the 360­
+                                                                   700nm spectrum, convert to CIE XYZ via the CIE standard
+                                                                   observer color matching functions, and finally convert again
+                                                                   from XYZ to CIE RGB [16]. Referring to this conversion
+                                                                   process as fRGB(·), we express the RGB color CRGB(l) of a
+                                                                   sky direction l as the following expression:
+
+t=1                  t=3  t=7               t = 10                       CRGB(l) = fRGB(l, t, ls) .               (2)
+
+Figure 2. Impact of sky turbidity t on rendered objects. The top
+
+row shows environment maps (in latitude-longitude format), and        In this equation,  is a scale factor applied to all three
+                                                                   color channels, which aims at estimating the (arbitrary and
+the bottom row shows corresponding renders of a bunny model        varying) exposure for each panorama. To generate a sky
+                                                                   environment map from this model, we simply discretize the
+on a ground plane for varying values for the turbidity t, ranging  sky hemisphere sky into several directions (in this paper,
+                                                                   we use the latitude-longitude format [33]), and render the
+from low (left) to high (right). Images have been tonemapped with  RGB values with (2). Pixels which fall within 0.25 of the
+                                                                   sun position ls are rendered with the HW sun model [17]
+ = 2.2 for display.                                                instead (converted to RGB as explained above).
+
+SUN360 dataset [40]. To overcome this limitation, and to              Thus, we are left with three important parameters: the
+provide a small set of meaningful parameters to learn to           sun position ls, which indicate where the main directional
+the CNN, we first fit a physically-based sky model to the          light source is located in the sky, the exposure , and the
+panoramas (sec. 4). Then, we design and train a CNN that           turbidity t. The turbidity is of paramount importance as it
+given an input image sampled from the panorama, outputs            controls the relative sun color (and intensity) with respect to
+the fit illumination parameters (sec. 5), and thoroughly eval-     that of the sky. As illustrated in fig. 2, a low turbidity indi-
+uate its performance in sec. 6.                                    cates a clear sky with a very bright sun, and a high turbidity
+                                                                   represents a sky closer that is closer to overcast situations,
+   Throughout this paper, and following [40], will use the         where the sun is much dimmer.
+term photo to refer to a standard limited-field-of-view image
+as taken with a normal camera, and the term panorama to
+denote a 360-degree full-view panoramic image.
+
+4. Dataset preparation                                             4.2. Optimization procedure
+
+   In this section, we detail the steps taken to augment the          We now describe how the sky model parameters are esti-
+SUN360 dataset [40] with HDR data via the use of the               mated from a panorama in the SUN360 dataset. This proce-
+Hosek-Wilkie sky model, and simultaneously extract light-          dure is carefully crafted to be robust to the extremely varied
+ing parameters that can be learned by the network. We first        set of conditions encountered in the dataset which severely
+briefly describe the sky model parameterization, followed          violates the linear relationship between sky radiance and
+by the optimization strategy used to recover its parameters        pixel values such as: unknown camera response function
+from a LDR panorama.                                               and white-balance, manual post-processing by photogra-
+                                                                   phers and stitching artifacts.
+4.1. Sky lighting model
+                                                                      Given a panorama P in latitude-longitude format and a
+We employ the model proposed by Hosek and                          set of pixels indices p  S corresponding to sky pixels in
+                                                                   P , we wish to obtain the sun position ls, exposure  and
+Wilkie [16], which has been shown [21] to more accurately          sky turbidity t by minimizing the visible sky reconstruction
+                                                                   error in a least-squares sense:
+represent skylight than the popular Preetham model [32].
+
+The model has also been extended to include a solar radi-
+
+ance function [17], which we also exploit.                         ls, , t = arg min  (P (p) - fRGB(lp, t, ls))2
+
+In its simplest form, the Hosek-Wilkie (HW) model ex-                    ls,,t ps
+
+presses the spectral radiance L of a lighting direction along                                                     (3)
+the sky hemisphere l  sky as a function of several param-
+eters:                                                                   s.t. t  [1, 10] ,
+
+     L(l) = fHW(l, , t, g, ls) ,                    (1)            where fRGB(·) is defined in (2) and lp is the light direction
+                                                                   corresponding to pixel p  s (according to the latitude-
+where  is the wavelength, t the atmospheric turbidity (a           longitude mapping). Here, we model the inverse response
+                                                                   function of the camera with a simple gamma curve ( =
+measure of the amount of aerosols in the air), g the ground        2.2). Optimizing for gamma was found to be unstable and
+albedo, and ls the sun position. Here, we fix g = 0.3              keeping it fixed yielded much more robust results.
+(approximate average albedo of the Earth [12]).
+
+                                                                   7314
+Layer           Stride   Resolution                                  The median sun position estimation error of this algorithm
+                                                                     is 4.59° (25th prct. = 1.96°, 75th prct. = 8.42°). Second, we
+Input              2     320 × 240                                   ask a user to label 1,236 images from the SUN360 dataset,
+                   2                                                 by indicating whether the estimated sky parameters agree
+conv7-64           2     160 × 120                                   with the scene visible in the panorama. To do so, we render
+conv5-128          1       80 × 60                                   a bunny model on a ground plane, and light it with the sky
+conv3-256          2       40 × 30                                   synthesized by the physical model. We then ask the user
+conv3-256          1       40 × 30                                   to indicate whether the bunny is lit similarly to the other
+conv3-256          2       20 × 15                                   elements present in the scene. In all, 65.6% of the images
+conv3-256                  20 × 15                                   were deemed to be a successful fit, which is testament to the
+conv3-256                  10 × 8                                    challenging imaging conditions present in the dataset.
+
+                FC-2048                                              5. Learning to predict outdoor lighting
+
+   FC-160                FC-5                                        5.1. Dataset organization
+LogSoftMax               Linear
+                                                                        To train the CNN, we first apply the optimization proce-
+Output: sun position    Output: sky and                              dure from sec. 4.2 to 38,814 high resolution outdoor panora-
+                                                                     mas in the SUN360 [40] database. We then extract 7 pho-
+distribution s          camera parameters q                          tos from each panorama using a standard pinhole camera
+                                                                     model and randomly sampling its parameters: its eleva-
+Figure 3. The proposed CNN architecture. After a series of 7 con-    tion with respect to the horizon in [-20, 20], azimuth
+volutional layers, a fully-connected layer segues to two heads: one  in [-180, 180], and vertical field of view in [35, 68].
+for regressing the sun position, and another one for the sky and     The resulting photos are bilinearly interpolated from the
+camera parameters. The ELU activation function [6] is used on all    panorama to a resolution 320 × 240, and used directly to
+layers except the outputs.                                           train the CNN described in the next section. This results
+                                                                     in a dataset of 271,698 pairs of photos and their corre-
+   We solve (3) in a 2-step procedure. First, the sun position       sponding lighting parameters, which is split into (261,288
+ls is estimated by finding the largest connected component           / 1,751 / 8,659) subsets for (train / validation / test). These
+of the sky above a threshold (98th percentile), and by com-          splits were computed on the panoramas to ensure that pho-
+puting its centroid. The sun position is fixed at this value, as     tos taken from the same panorama do not end up in training
+it was determined that optimizing for its position at the next       and test. Example panoramas and corresponding photos are
+stage too often made the algorithm converge to undesirable           shown in fig. 6.
+local minima.
+                                                                     5.2. CNN architecture
+   Second, the turbidity t is initialized to {1, 2, 3, ..., 10}
+and (3) is optimized using the Trust Region Reflective al-              We adopt a standard feed-forward convolutional neural
+gorithm (a variant of the Levenberg-Marquardt algorithm              network to learn the relationship between the input image I
+which supports bounds) for each of these starting points.            and the lighting parameters. As shown in fig. 3, its architec-
+The parameters resulting in the lowest error are kept as the         ture is composed of 7 convolutional layers, followed by a
+final result. During the optimization loop, for the current          fully-connected layer. It then splits into two separate heads:
+value of t,  is obtained through the closed-form solution            one for estimating the sun position (left in fig. 3), and one
+                                                                     for the sky and camera parameters (right in fig. 3).
+ =         pS P       (p)fRGB(lp, t, ls)  .    (4)
+                      fRGB(lp, t, ls)2                                  The sun position head outputs a probability distribution
+              pS                                                     over the likely sun positions s by discretizing the sky hemi-
+                                                                     sphere into 160 bins (5 for elevation, 32 for azimuth), and
+Finally, the sky mask S is obtained with the sky segmenta-           outputs a value for each of these bins. This was also done
+tion method of [38], followed by a CRF refinement [23].              in [26]. As opposed to regressing the sun position directly,
+                                                                     this has the advantage of indicating other regions believed
+4.3. Validation of the optimization procedure                        to be likely sun positions in the prediction, as illustrated in
+                                                                     fig. 6 below. The parameters head directly regresses a 4-
+   While our fitting procedure minimizes reconstruction er-          vector of parameters q: 2 for the sky (, t), and 2 for the
+rors w.r.t. the panorama pixel intensities, the radiometrically      camera (elevation and field of view). The ELU activation
+uncalibrated nature of this data means that these fits may           function [6] and batch normalization [18] are used at the
+not accurately represent the true lighting conditions. We            output of every layer.
+validate the procedure in two ways. First, the sun position
+estimation algorithm is evaluated on 543 panoramic sky im-
+ages from the Laval HDR sky database [25, 27], which con-
+tains ground truth sun position, and which we tonemapped
+and converted to JPG to simulate the conditions in SUN360.
+
+                                                                     7315
+                                        6000                                                                                                                        250
+
+                                        5000                                                                                                                        200                                                                                         79%
+
+                      Number of images  4000                                                                                                      Number of images  150             64%
+
+                                                                                                                                                                                    54.8%                                                                  54%
+                                                                                                                                                                                                  54.8%
+
+                                        3000                                                                                                                        100 4400.2.2%%
+
+                                        2000                                                                                                                        50                                                                                                  27%
+                                                                                                                                                                                                                                                           11%
+                                                                                                                                                                                                                      Our approach                                           Our approach
+                                                                                                                                                                                                                                                                             Lalonde et al. '12
+                                                                                                                                                                                                                      All cLuaelosnd(weietht apl.ri'o1r2)                    Chance
+
+                                        1000                                                                                                                                                                          ChaCnhcaence
+
+                                                                                                                                                                    0    0  20      40   60              80 100 120 140 160 180
+
+                                                                                                                                                                                                         Error (deg)
+
+                                        00 20 40 60 80 100 120 140 160 180                                                                                                          (a) Dataset from [26]                                                  (b) Subset of SUN360 test set
+                                                                        Degrees
+
+                                                         (a) Angular error                                                                        Figure 5. Comparison with the method of Lalonde et al. [26] show-
+                                                                                                                                                  ing the cumulative sun azimuth estimation error on (a) their orig-
+80                                                                                                200                                             inal dataset, and (b) a 176-image subset from the SUN360 test
+                                                                                                                                                  set. (a) While our method has similar error in an octant (less than
+60                                                                                                150                                             22.5), the precision in a quadrant (less than 45) significantly
+                                                                                                                                                  improves by approximately 10%. (b) The 176-images SUN360
+40                                                                                                100                                             test subset contains much more challenging images where meth-
+                                                                                                                                                  ods based on the detection of explicit cues (as in [26]) fail. Our
+20Error (degrees)                                                                                 50                                              deep learning based approach remains robust and achieves high
+                                                                                                                                                  performance on both datasets.
+                                                                                 Error (degrees)0 0
+
+20                                                                                                50
+
+40                                                                                                100
+
+60                                                                                                150
+
+80       11.25  22.5  33.75                   45  56.25  67.5  78.75  90                          200200 150 100  50 0 50            100 150 200
+      0                                                                                                           Azimuth (degrees)
+
+                      Elevation (degrees)
+
+         (b) Elevation error                                                                           (c) Azimuthal error
+
+Figure 4. Quantitative evaluation of sun position estimation on all                                                                               typically converges in around 7­8 epochs, because our CNN
+8659 images in the SUN360 test set. (a) The cumulative distribu-                                                                                  is not as deep as most modern feed-forward CNN used in vi-
+tion function of the angular error on the sun position. The esti-                                                                                 sion. Moreover, the high initial learning rate used combined
+mation error as function of the sun elevation (b) and (c) azimuth                                                                                 with our large dataset further helps in reducing the number
+relative to the camera (0° means the sun is in front of the camera).                                                                              of epochs required for training.
+The last two figures are displayed as "box-percentile plots" [10],
+where the envelope of each bin represents the percentile and the                                                                                  6. Evaluation
+median is shown as a red bar.
+                                                                                                                                                     We evaluate the performance of the CNN at predicting
+5.3. Training details                                                                                                                             the HDR sky environment map from a single image in a va-
+                                                                                                                                                  riety of ways. First, we present how well the network does
+   We define the loss to be optimized as the sum of two                                                                                           at estimating the illumination parameters on the SUN360
+losses, one for each head:                                                                                                                        dataset. We then show how virtual objects relit by the
+                                                                                                                                                  estimated environment maps differ from their renders ob-
+                L(s, q, s, q) = L(s, s) + L(q, q) ,                                                                                  (5)          tained with the ground truth parametric model, still on the
+                                                                                                                                                  SUN360. Finally, we acquired a small set of HDR outdoor
+where  = 160 to compensate for the number of bins in s.                                                                                           panoramas, and compare our relighting results with those
+The target sun position s is computed for each bin sj as                                                                                          obtained with actual HDR environment maps.
+
+                                                         sj = exp(lsTlj ) ,                                                          (6)          6.1. Illumination parameters on SUN360
+
+and normalized so that j sj = 1. The equation in (6) rep-                                                                                         Sun position We begin by evaluating the performance of
+resents a von Mises-Fisher distribution [1] centered about                                                                                        the CNN at predicting the sun position from a single in-
+                                                                                                                                                  put image. Fig. 4 shows the quantitative performance at
+the ground truth sun position ls. Since the network must                                                                                          this task using three plots: the cumulative distribution func-
+predict a confident value around the sun position, we set                                                                                         tion of sun angular estimation error, and detailed error his-
+ = 80. The target parameters q are simply the ground                                                                                              tograms for each of the elevation and azimuth indepen-
+truth sky and camera parameters.                                                                                                                  dently. We observe that 80% of the test images have error
+                                                                                                                                                  less than 45°. Fig. 4-(b) indicates that the network tends
+   We use a MSE loss for L(q, q), and a Kullback-Leibler                                                                                          to underestimate the sun elevation in high elevation cases.
+(KL) divergence loss for the sun position L(s, s). Using                                                                                          This may be attributable to a lack of such occurrences in the
+the KL divergence is needed because we wish the network                                                                                           training dataset--high sun elevations only occur between
+                                                                                                                                                  the tropics, and at specific times of year because of the
+to learn a distribution over the sun positions, rather than the                                                                                   Earth's tilted rotation axis. Fig. 4-(c) shows that the CNN is
+                                                                                                                                                  not biased towards an azimuth position, and is robust across
+most likely position.
+
+   The loss in (5) is minimized via stochastic gradient de-
+
+scent using the Adam optimizer [22] with an initial learning
+rate of  = 0.01. Training is done on mini-batches of 128
+exemplars, and regularized via early stopping. The process
+
+                                                                                                                                                  7316
+Figure 6. Examples of sun position estimation from a single outdoor image. For each example, the input image is shown on the left, and
+its corresponding location in the panorama is shown with a red outline. The color overlay displays the probability distribution of the sun
+position output by the neural network. A green star marks the most likely sun position estimated by the neural network, while a blue star
+marks the ground truth position.
+
+the entire range. Fig. 6 shows examples of our sun position            (a) Turbidity t  (b) Exposure 
+predictions overlayed over the panoramas that the test im-
+ages were cropped from. Note that our method is able to          Figure 7. Quantitative evaluation for turbidity t and exposure .
+accurately predict the sun direction across a wide range of      The distribution of errors are displayed as "box-percentile" plots
+scenes, field of views, and layouts.                             (see fig. 4). The CNN tends to favor clear skies (low turbidity),
+                                                                 and has higher errors when the exposure is high.
+   We quantitatively compare our approach to that of [26] at
+the task of sun azimuth estimation from a single image. Re-      6.2. Relighting on SUN360
+sults are reported in fig. 5. First, fig. 5-(a) shows a compar-
+ison of both approaches on the 239-image dataset of [26].           Another way of evaluating the performance is by com-
+While our method has similar error in an octant (less than       paring the appearance of a Lambertian 3D model rendered
+22.5°), the precision in a quadrant (less than 45°) is sig-      with the estimated lighting, with that of the same model lit
+nificantly improved (by approximately 10%) by our CNN-           by the ground truth. Fig. 8 provides such a comparison, by
+based approach. Fig. 5-(b) shows the same comparison on          showing three different error metrics computed on render-
+a 176-image subset of the SUN360 test set used in this pa-       ings obtained on our test set. The error metrics are the (a)
+per. In this case, the approach of Lalonde et al. [26] fails     RMSE, (b) scale-invariant RMSE, and (c) per-color scale-
+while the CNN reports robust performance, comparable to          invariant RMSE. The scale-invariant versions of RMSE are
+fig. 5-(a). This is probably due to the fact that the SUN360     defined similarly to Grosse et al. [13], except that the scale
+test set contains much more challenging images that are of-      factor is computed on the entire image (instead of locally as
+ten devoid of strong, explicit illumination cues. These cues,    in [13]). The "per-color" variant computes a different scale
+which are expressly relied upon by [26], are critical to the     factor for each color channel to mitigate differences in white
+success of such methods.                                         balance. The black background in the renders is masked out
+                                                                 before computing the metrics.
+Turbidity and exposure We evaluate the regression per-
+formance for the turbidity t and exposure  lighting param-          To give a sense of what those numbers mean qualita-
+eters on the SUN360 test set, and report the results in fig. 7.  tively, fig. 8 also provides examples corresponding to each
+Overall, the network tends to favor low turbidity estimates      of the (25, 50, 75)th error percentiles. Even examples in
+of the sky (as the dataset contains a majority of such exam-
+ples). In addition, the network successfully estimates low
+exposure values, but has a tendency to underestimate im-
+ages with high exposures.
+
+Camera parameters A detailed performance analysis is
+available in the supplementary material. In a nutshell, the
+CNN achieves error of less than 7° for the elevation and
+11° in field of view for 80% of the test images.
+
+                                                                 7317
+                          Percentiles
+
+                25th      50th         75th
+
+ground truth
+
+network output
+
+                (a) RMSE
+
+                          Percentiles
+
+                25th      50th         75th
+
+ground truth                                                           Figure 9. Virtual object insertion with automated lighting estima-
+                                                                       tion. From a single image, the CNN predicted a full HDR sky map,
+network output                                                         which is used to render an object into the image. No additional
+                                                                       steps are required. More results on automated object insertion are
+                                                                       available in the supplementary materials.
+
+(b) Scale-invariant RMSE
+
+                          Percentiles
+
+                25th      50th         75th
+
+ground truth
+
+                                                                             Estimated elevation: -9°  Estimated elevation: 3.5°
+
+network output                                                         Figure 10. Virtual object insertion with automated lighting and
+
+                                                                       camera elevation estimation. The two images are taken at the same
+
+                                                                       location with the camera pointing downwards (left) and upwards
+
+                                                                       (right). The elevation of the virtual camera used to render the
+
+                       (c) Per-color scale-invariant RMSE              bunny model is set to the value predicted by the CNN, resulting
+
+Figure 8. Quantitative relighting comparison with the ground truth     in a bunny which realistically rests on the ground.
+lighting parameters on the SUN360 dataset. We compute three
+types of error metrics: (a) RMSE, (b) scale-invariant RMSE [13],       used to render the object. In these results, a simple ground
+and (c) per-color scale-invariant RMSE. The plots on the left          plane is used to model the interactions between the virtual
+shows the distribution of errors with the median, 25th and 75th        object and its environment, and the object is placed manu-
+percentiles identified with blue bars. For each measure, examples      ally at a fixed distance in front of the camera.
+corresponding to particular error levels are shown to give a qualita-
+tive sense of performance. Renders obtained with the ground truth      6.3. Validation with HDR panoramas
+(estimated) lighting parameters are shown in the top (bottom) row.
+                                                                          To further validate our approach, we captured a small
+the 75th error percentile look good qualitatively. Slight dif-         dataset of 19 unsaturated, outdoor HDR panoramas. To
+ferences in the sun direction and the overall color can be             properly expose the extreme dynamic range of outdoor
+observed, but they still lie within reasonable limits.                 lighting, we follow the approach proposed by Stumpfel et
+                                                                       al. [36]. We captured 7 bracketed exposures ranging from
+   Fig. 9 shows examples of virtual objects inserted into im-          1/8000 to 8 seconds at f/16, using a Canon EOS 5D Mark III
+ages after being rendered with our estimated HDR illumina-             camera installed on a tripod, and fitted with a Sigma EXDG
+tion. As these examples show, our technique is able to in-             8mm fisheye lens. A 3.0 ND filter was installed behind the
+fer plausible illumination conditions ranging from sunny to            lens, necessary to accurately measure the sun intensity. The
+overcast, and high noon to dawn/dusk, resulting in natural-            exposures were stored as 14-bit RAW images at full reso-
+looking composite images. Fig. 10 shows that the camera                lution. The process was repeated at 6 azimuth angles by
+elevation estimated from the CNN can be used within the                increments of 60° to cover the entire 360° panorama. The
+rendering pipeline to automatically rotate the virtual camera          resulting 42 images were fused using the PTGUI commer-
+
+                                                                       7318
+Ground truth       Estimated  Ground truth                            Estimated  Ground truth                                 Estimated
+
+              (a)                                               (b)                            (c)
+
+Figure 11. Object relighting comparison with ground truth illumination conditions on captured HDR panoramas. For each example, the top
+
+row shows (left) a bunny model relit by the ground truth HDR illumination conditions captured in situ; (right) the same bunny model, relit
+
+by the illumination conditions estimated by the CNN solely from the background image, completely automatically. No further adjustment
+
+(e.g. overall brightness, saturation, etc.) was performed. The bottom row shows the original environment map, field of view of the camera
+
+(in red), and the distribution on sun position estimation (as in fig. 6). Please see additional results on our project page.
+
+cial stitching software. To facilitate the capture process,
+the camera was mounted on a programmable robotic tripod
+head, allowing for repeatable and precise capture.
+
+   To validate the approach, we extract limited field of view
+photos from the HDR panoramas and save them as JPEG
+files. The CNN is then applied to the input photos to pre-
+dict their illumination conditions. Then, we compare re-
+lighting results obtained by rendering a bunny model with:
+1) the HDR panorama itself, which represents the ground
+truth lighting conditions; and 2) the estimated lighting con-
+ditions. Example results are shown in fig. 11. While we
+note that the exposure  is slightly overestimated (resulting
+in a render that is brighter than the ground truth), the relit
+bunny appears quite realistic.
+
+7. Discussion                                                        Figure 12. Typical failure cases of sun position estimation from a
+                                                                     single outdoor image. See fig. 6 for an explanation of the annota-
+   In this paper, we propose what we believe to be the               tions. Failure cases occur when illumination cues are mixed with
+first end-to-end approach to automatically predict full HDR          complex geometry (top), absent from the image (middle), or in the
+lighting models from a single outdoor LDR image of a gen-            presence of mirror-like surfaces (bottom).
+eral scene, which can readily be used for image-based light-
+ing. Our key idea is to train a deep CNN on pairs of photos          gating ways of mitigating this issue by combining the HW
+and panoramas in the SUN360 database, which we "aug-                 model with another sky model, better-suited for overcast
+ment" with HDR information via a physics-based model of              skies. Another limitation is that the resulting environment
+the sky. We show that our method significantly outperforms           map models the sky hemisphere only. While this does not
+previous work, and that it can be used to realistically insert       affect diffuse objects such as the bunny model used in this
+virtual objects into photos.                                         paper, it would be more problematic for rendering specular
+                                                                     materials, as none of the scene texture would be reflected off
+   Despite offering state-of-the-art performance, our                its surface. It is likely that simple adjustments such as [20]
+method still suffers from some limitations. First, the Hosek-        could be helpful in making those renders more realistic.
+Wilkie sky model provides accurate representational accu-
+racy for clear skies, but its accuracy degrades when cloud
+cover increases as the turbidity t is not enough to model
+completely overcast situations as accurately as for clear
+skies. Optimizing its parameters on overcast panoramas
+often underestimates the turbidity, resulting in a bias to-
+ward low turbidity in the CNN. We are currently investi-
+
+                                                                7319
+References                                                             [16] L. Hosek and A. Wilkie. An analytic model for full spec-
+                                                                             tral sky-dome radiance. ACM Transactions on Graphics,
+ [1] A. Banerjee, I. S. Dhillon, J. Ghosh, and S. Sra. Clustering            31(4):1­9, 2012. 2, 3
+      on the unit hypersphere using von Mises-Fisher distributions.
+      Journal of Machine Learning Research, 6:1345­1382, 2005.         [17] L. Hosek and A. Wilkie. Adding a solar-radiance function to
+      5                                                                      the hosek-wilkie skylight model. IEEE Computer Graphics
+                                                                             and Applications, 33(3):44­52, may 2013. 2, 3
+ [2] A. Bansal, B. Russell, and A. Gupta. Marr revisited: 2D-
+      3D model alignment via surface normal prediction. CVPR,          [18] S. Ioffe and C. Szegedy. Batch normalization: Accelerating
+      2016. 2                                                                deep network training by reducing internal covariate shift.
+                                                                             Journal of Machine Learning Research, 37, 2015. 4
+ [3] J. Barron and J. Malik. Shape, illumination, and reflectance
+      from shading. IEEE Transactions on Pattern Analysis and          [19] K. Karsch, K. Sunkavalli, S. Hadap, N. Carr, H. Jin, R. Fonte,
+      Machine Intelligence, 37(8):1670­1687, 2013. 1, 2                      M. Sittig, and D. Forsyth. Automatic scene inference for 3D
+                                                                             object compositing. ACM Trans. Graph., 33(3):32:1­32:15,
+ [4] J. T. Barron and J. Malik. Intrinsic scene properties from a            June 2014. 2
+      single rgb-d image. IEEE Conference on Computer Vision
+      and Pattern Recognition, 2013. 2                                 [20] E. A. Khan, E. Reinhard, R. W. Fleming, and H. H. Bülthoff.
+                                                                             Image-based material editing. ACM Transactions on Graph-
+ [5] S. Bell, P. Upchurch, N. Snavely, and K. Bala. Material                 ics, 25(3):654, 2006. 8
+      recognition in the wild with the materials in context database.
+      IEEE Conference on Computer Vision and Pattern Recogni-          [21] J. T. Kider, D. Knowlton, J. Newlin, Y. K. Li, and D. P.
+      tion, 2015. 2                                                          Greenberg. A framework for the experimental comparison
+                                                                             of solar and skydome illumination. ACM Transactions on
+ [6] D.-A. Clevert, T. Unterthiner, and S. Hochreiter. Fast and              Graphics, 33(6):1­12, nov 2014. 3
+      accurate deep network learning by exponential linear units
+      (ELUs). In International Conference on Learning Represen-        [22] D. Kingma and J. Ba. Adam: A method for stochastic op-
+      tations, 2016. 4                                                       timization. In International Conference on Learning Repre-
+                                                                             sentations, pages 1­15, 2015. 5
+ [7] P. Debevec. Rendering synthetic objects into real scenes :
+      Bridging traditional and image-based graphics with global        [23] P. Krähenbühl and V. Koltun. Efficient inference in fully
+      illumination and high dynamic range photography. In Pro-               connected CRFs with gaussian edge potentials. In Neural
+      ceedings of ACM SIGGRAPH, 1998. 2                                      Information Processing Systems, 2012. 4
+
+ [8] S. Duchêne, C. Riant, G. Chaurasia, J. L. Moreno, P.-Y. Laf-      [24] T. D. Kulkarni, W. F. Whitney, P. Kohli, and J. Tenenbaum.
+      font, S. Popov, A. Bousseau, and G. Drettakis. Multiview               Deep convolutional inverse graphics network. In NIPS,
+      intrinsic images of outdoors scenes with an application to             pages 2539­2547. 2015. 2
+      relighting. ACM Trans. Graph., 34(5):164:1­164:16, Nov.
+      2015. 2                                                          [25] J.-F. Lalonde, L.-P. Asselin, J. Becirovski, Y. Hold-Geoffroy,
+                                                                             M. Garon, M.-A. Gardner, and J. Zhang. The Laval HDR
+ [9] D. Eigen and R. Fergus. Predicting depth, surface normals               sky database. http://www.hdrdb.com, 2016. 4
+      and semantic labels with a common multi-scale convolu-
+      tional architecture. International Conference on Computer        [26] J. F. Lalonde, A. A. Efros, and S. G. Narasimhan. Estimating
+      Vision, 2015. 2                                                        the natural illumination conditions from a single outdoor im-
+                                                                             age. International Journal of Computer Vision, 98(2):123­
+[10] W. W. Esty and J. D. Banfield. The box-percentile plot. Jour-           145, 2012. 1, 2, 4, 5, 6
+      nal Of Statistical Software, 8:1­14, 2003. 5
+                                                                       [27] J.-F. Lalonde and I. Matthews. Lighting estimation in out-
+[11] S. Georgoulis, K. Rematas, T. Ritschel, M. Fritz,                       door image collections. In International Conference on 3D
+      L. Van Gool, and T. Tuytelaars. Delight-net: Decomposing               Vision, 2014. 2, 4
+      reflectance maps into specular materials and natural illumi-
+      nation. arXiv preprint arXiv:1603.08240, 2016. 2                 [28] J.-F. Lalonde, S. G. Narasimhan, and A. A. Efros. What do
+                                                                             the sun and the sky tell us about the camera? International
+[12] P. R. Goode, J. Qiu, V. Yurchyshyn, J. Hickey, M.-C. Chu,               Journal on Computer Vision, 88(1):24­51, May 2010. 2
+      E. Kolbe, C. T. Brown, and S. E. Koonin. Earthshine ob-
+      servations of the earth's reflectance. Geophysical Research      [29] S. Lombardi and K. Nishino. Reflectance and illumination
+      Letters, 28(9):1671­1674, 2001. 3                                      recovery in the wild. IEEE Transactions on Pattern Analysis
+                                                                             and Machine Intelligence, 38(1):129­141, 2016. 1, 2
+[13] R. Grosse, M. K. Johnson, E. H. Adelson, and W. T. Free-
+      man. Ground truth dataset and baseline evaluations for in-       [30] W.-C. Ma, S. Wang, M. A. Brubaker, S. Fidler, and R. Ur-
+      trinsic image algorithms. In IEEE International Conference             tasun. Find your Way by Observing the Sun and Other Se-
+      on Computer Vision, 2009. 6, 7                                         mantic Cues. IEEE Conference on Robotics and Automation
+                                                                             (ICRA), 2017. 2
+[14] T. Haber, C. Fuchs, P. Bekaer, H.-P. Seidel, M. Goesele, and
+      H. Lensch. Relighting objects from image collections. In         [31] R. Perez, R. Seals, and J. Michalsky. All-weather model for
+      IEEE Conference on Computer Vision and Pattern Recogni-                sky luminance distribution - Preliminary configuration and
+      tion, 2009. 2                                                          validation. Solar Energy, 50(3):235­245, Mar. 1993. 2
+
+[15] D. Hauagge, S. Wehrwein, P. Upchurch, K. Bala, and                [32] A. J. Preetham, P. Shirley, and B. Smits. A practical analytic
+      N. Snavely. Reasoning about photo collections using models             model for daylight. In Proceedings of the 26th annual con-
+      of outdoor illumination. In British Machine Vision Confer-             ference on Computer graphics and interactive techniques -
+      ence, 2014. 2                                                          SIGGRAPH, 1999. 2, 3
+
+                                                                       7320
+[33] E. Reinhard, W. Heidrich, P. Debevec, S. Pattanaik, G. Ward,
+      and K. Myszkowski. High Dynamic Range Imaging. Morgan
+      Kaufman, 2 edition, 2010. 3
+
+[34] K. Rematas, T. Ritschel, M. Fritz, E. Gavves, and T. Tuyte-
+      laars. Deep reflectance maps. In IEEE Conference on Com-
+      puter Vision and Pattern Recognition, 2016. 1, 2
+
+[35] Q. Shan, R. Adams, B. Curless, Y. Furukawa, and S. M.
+      Seitz. The visual turing test for scene reconstruction. In
+      3DV, 2015. 2
+
+[36] J. Stumpfel, A. Jones, A. Wenger, C. Tchou, T. Hawkins,
+      and P. Debevec. Direct HDR capture of the sun and sky. In
+      Proceedings of ACM AFRIGRAPH, 2004. 7
+
+[37] K. Sunkavalli, F. Romeiro, W. Matusik, T. Zickler, and
+      H. Pfister. What do color changes reveal about an outdoor
+      scene? In IEEE Conference on Computer Vision and Pattern
+      Recognition, 2008. 2
+
+[38] Y.-H. Tsai, X. Shen, Z. Lin, K. Sunkavalli, and M.-H. Yang.
+      Sky is not the limit: Semantic-aware sky replacement. ACM
+      Transactions on Graphics (SIGGRAPH 2016), 35(4):149:1­
+      149:11, July 2016. 4
+
+[39] S. Wehrwein, K. Bala, and N. Snavely. Shadow detection
+      and sun direction in photo collections. In International Con-
+      ference on 3D Vision, 2015. 2
+
+[40] J. Xiao, K. A. Ehinger, A. Oliva, and A. Torralba. Recogniz-
+      ing scene viewpoint using panoramic place representation.
+      In IEEE Conference on Computer Vision and Pattern Recog-
+      nition, 2012. 2, 3, 4
+
+[41] Y. Zhang, J. Xiao, J. Hays, and P. Tan. Framebreak: Dra-
+      matic image extrapolation by guided shift-maps. In IEEE
+      Conference on Computer Vision and Pattern Recognition
+      Recognition, pages 1171­1178, 2013. 2
+
+[42] T. Zhou, P. Krähenbühl, and A. A. Efros. Learning data-
+      driven reflectance priors for intrinsic image decomposition.
+      ICCV, 2015. 1, 2
+
+                                                                                   7321
+

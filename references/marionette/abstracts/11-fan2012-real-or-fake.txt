@@ -1,0 +1,32 @@
+Fan, S., Ng, T.-T., Herberg, J.S., Koenig, B.L., and Xin, S. (2012). Real or
+Fake?: Human Judgments about Photographs and Computer-Generated Images of
+Faces. SIGGRAPH Asia 2012 Technical Briefs, article 17.
+
+STATUS: NOT FOUND as an independently fetchable file. The ACM DOI page
+(dl.acm.org, tried directly) returns no abstract text to a scripted fetch
+(JS-rendered / access-gated); no author-hosted PDF or abstract mirror was
+located (Fan's own Google Sites page lists the citation but does not host
+the file; ResearchGate pages returned only citation metadata to WebSearch,
+not fetchable body text). Not archived here -- cited bibliographically
+only, via its description in the CG-realism-perception secondary
+literature (multiple later papers, e.g. the escholarship/UC Berkeley PDF
+surfaced by WebSearch, describe it as establishing that human observers can
+reliably distinguish computer-generated from photographic portraits of
+faces). This description is NOT independently re-verified against the
+primary source in this pass.
+
+SUMMARY (from secondary description only): an early forced-choice study of
+whether ordinary viewers can tell CG face renders from photographs; found
+that observers generally CAN tell them apart above chance, and that later
+work in the same group (Fan et al.'s subsequent ACM TAP 2014 "Human
+Perception of Visual Realism for Photo and Computer-Generated Face Images")
+identified the EYES as the single most influential region for the
+real/fake judgment.
+
+KEY NUMBERS: NOT FOUND -- no accuracy percentage or d' value could be
+sourced to a primary or verifiable secondary text in this pass.
+
+RELEVANCE: general background for section 1 (this is a face-specific
+study; the marionette here is a stylized, non-photoreal humanoid figure,
+so its direct applicability is limited -- flagged as background, not load-
+bearing, in the main document).

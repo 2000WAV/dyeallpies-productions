@@ -1,0 +1,15 @@
+Panagopoulos, A., Samaras, D., and Paragios, N. (2011). Illumination Estimation and
+Cast Shadow Detection through a Higher-Order Graphical Model. CVPR 2011.
+
+STATUS: full text saved (Stony Brook CVL mirror), text-extracted; see
+papers/panagopoulos2011-illumination-shadow-higher-order.pdf/.txt.
+
+SUMMARY: Follow-up to the 2009 mixture-model paper. Replaces the pairwise MRF with
+a higher-order MRF that combines low-level shadow evidence (intensity ratios
+across the shadow boundary) with high-level scene priors, recovering both the
+cast-shadow mask and a refined illumination-environment estimate jointly from one
+image and coarse geometry.
+
+RELEVANCE: same family as Panagopoulos 2009 -- background literature for
+single-image illumination-from-shadow estimation, cited alongside Sato 2003 and
+Lalonde 2009/2012 in the "estimating the light from a shadow on a wall" section.

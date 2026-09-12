@@ -1,0 +1,20 @@
+Yao, J., Wang, X., Yang, S., and Wang, B. (2023). ViTMatte: Boosting Image Matting
+with Pretrained Plain Vision Transformers. Information Fusion, 103 (2024),
+102091. (arXiv:2305.15272.)
+
+STATUS: full text saved (arXiv), text-extracted (first pages only; file is large
+due to embedded figures), see papers/yao2023-vitmatte.pdf/.txt.
+
+SUMMARY: Adapts a frozen/fine-tuned plain (non-hierarchical) Vision Transformer
+backbone (pretrained via masked image modeling) to trimap-guided image matting, by
+adding a lightweight convolutional "detail capture" module that restores the
+high-frequency boundary detail the ViT's coarse tokens lose, plus a hybrid
+attention mechanism for a good accuracy/compute trade-off. State of the art on
+Composition-1k and Distinctions-646 at the time of publication; unlike RVM/MODNet
+it still takes a trimap (semi-guided, not fully automatic).
+
+RELEVANCE: third matting option, included in `rembg`'s optional matting backend;
+better fine-edge accuracy than trimap-free nets at the cost of needing a
+(coarse, easy-to-generate-here) trimap -- a reasonable choice for the hand shot
+since a trimap is trivial to produce from a rough threshold/rotoscope of the
+mostly-static hand-on-plain-wall frame.

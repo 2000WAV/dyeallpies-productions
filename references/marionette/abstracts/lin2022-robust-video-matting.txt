@@ -1,0 +1,20 @@
+Lin, S., Yang, L., Saleemi, I., and Sengupta, S. (2021/2022). Robust High-
+Resolution Video Matting with Temporal Guidance. WACV 2022 (arXiv:2108.11515).
+
+STATUS: full text saved (CVF open access), text-extracted; see
+papers/lin2022-robust-video-matting.pdf/.txt.
+
+SUMMARY: "Robust Video Matting" (RVM). A recurrent (ConvGRU-based) architecture
+that estimates a human's alpha matte and foreground frame-by-frame from ordinary
+video WITHOUT a green screen, trimap, or known background, exploiting temporal
+information across frames for both speed and stability (reduces flicker vs
+independent per-frame matting). Trained on a mix of matting datasets (with known
+alpha) and unlabeled real videos (via an adversarial/segmentation consistency
+loss) to generalize to in-the-wild footage. Reports 4K 76 fps / HD 104 fps on a
+GTX 1080 Ti.
+
+RELEVANCE: a candidate learned matte for pulling the hand off the plain wall
+directly from the phone video, frame-consistent across the 9 s / 270-frame clip
+without per-frame trimaps; the recurrent temporal state is specifically useful
+here because the hand is nearly static (small handheld sway) so flicker in a
+per-frame matte would be very visible.

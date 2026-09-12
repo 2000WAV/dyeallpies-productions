@@ -1,0 +1,72 @@
+                                   4.1 DENSITY, MASS, AND INERTIAL PROPERTIES 83
+
+    Figure 4.1 Body segment lengths expressed as a fraction of body height H .
+
+segment lengths expressed as a percentage of body height was prepared by
+Drillis and Contini (1966) and is shown in Figure 4.1. These segment propor-
+tions serve as a good approximation in the absence of better data, preferably
+measured directly from the individual.
+4.1 DENSITY, MASS, AND INERTIAL PROPERTIES
+Kinematic and kinetic analyses require data regarding mass distributions,
+mass centers, moments of inertia, and the like. Some of these measures have
+been determined directly from cadavers; others have utilized measured seg-
+ment volumes in conjunction with density tables, and more modern techniques
+use scanning systems that produce the cross-sectional image at many intervals
+across the segment.
+4.1.1 Whole-Body Density
+The human body consists of many types of tissue, each with a different
+density. Cortical bone has a specific gravity greater than 1.8, muscle tissue
+86  TABLE 4.1 Anthropometric Data
+
+    Segment             Definition                                  Segment Center of Mass/        Radius of Gyration/  Density
+                                                                  Weight/Total Segment Length        Segment Length
+
+                                                                  Body Weight Proximal Distal  C of G Proximal Distal
+
+    Hand                Wrist axis/knuckle II middle finger       0.006 M   0.506  0.494 P 0.297   0.587 0.577 M 1.16
+    Forearm             Elbow axis/ulnar styloid                  0.016 M   0.430
+    Upper arm           Glenohumeral axis/elbow axis              0.028 M   0.436  0.570 P 0.303   0.526 0.647 M 1.13
+    Forearm and hand    Elbow axis/ulnar styloid                  0.022 M   0.682
+    Total arm           Glenohumeral joint/ulnar styloid          0.050 M   0.530  0.564 P 0.322   0.542 0.645 M 1.07
+    Foot                Lateral malleolus/head metatarsal II      0.0145 M  0.50
+    Leg                 Femoral condyles/medial malleolus         0.0465 M  0.433  0.318 P 0.468   0.827 0.565 P 1.14
+    Thigh               Greater trochanter/femoral condyles       0.100 M   0.433
+    Foot and leg        Femoral condyles/medial malleolus         0.061 M   0.606  0.470 P 0.368   0.645 0.596 P 1.11
+    Total leg           Greater trochanter/medial malleolus       0.161 M   0.447
+    Head and neck       C7­T1 and 1st rib/ear canal               0.081 M   1.000  0.50 P 0.475    0.690 0.690 P 1.10
+    Shoulder mass       Sternoclavicular joint/glenohumeral axis            0.712
+    Thorax              C7­T1/T12­L1 and diaphragm*                   --    0.82   0.567 P 0.302   0.528 0.643 M 1.09
+    Abdomen             T12 ­ L1/L4 ­ L5*                         0.216 PC  0.44
+    Pelvis              L4­L5/greater trochanter*                 0.139 LC  0.105  0.567 P 0.323   0.540 0.653 M 1.05
+    Thorax and abdomen  C7 ­ T1/L4 ­ L5*                          0.142 LC  0.63
+    Abdomen and pelvis  T12­L1/greater trochanter*                0.355 LC  0.27   0.394 P 0.416   0.735 0.572 P 1.09
+    Trunk               Greater trochanter/glenohumeral joint*    0.281 PC  0.50
+    Trunk head neck     Greater trochanter/glenohumeral joint*    0.497 M   0.66   0.553 P 0.326   0.560 0.650 P 1.06
+    Head, arms, and     Greater trochanter/glenohumeral joint*    0.578 MC  0.626
+                                                                  0.678 MC         -- PC 0.495     0.116 -- PC 1.11
+       trunk (HAT)
+    HAT                                                                            0.288       --  --  -- 1.04
+
+                                                                                   0.18        --  --  -- 0.92
+
+                                                                                   0.56        --  --  --               --
+
+                                                                                   0.895       --  --  --               --
+
+                                                                                   0.37        --  --  --               --
+
+                                                                                   0.73        --  --  -- 1.01
+
+                                                                                   0.50        --  --  -- 1.03
+
+                                                                                   0.34 P 0.503    0.830 0.607 M --
+
+                                                                                   0.374 PC 0.496  0.798 0.621 PC --
+
+                        Greater trochanter/mid rib                0.678     1.142  -- 0.903 1.456      --               --
+
+    *NOTE: These segments are presented relative to the length between the greater trochanter and the glenohumeral joint.
+    Source Codes: M, Dempster via Miller and Nelson; Biomechanics of Sport, Lea and Febiger, Philadelphia, 1973. P, Dempster via Plagenhoef; Patterns of
+    Human Motion, Prentice-Hall, Inc. Englewood Cliffs, NJ, 1971. L, Dempster via Plagenhoef from living subjects; Patterns of Human Motion, Prentice-Hall,
+    Inc., Englewood Cliffs, NJ, 1971. C, Calculated.
+

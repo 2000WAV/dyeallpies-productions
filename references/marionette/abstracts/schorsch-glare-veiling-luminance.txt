@@ -1,0 +1,31 @@
+Schorsch GmbH lighting glossary: "Glare | Direct Glare | Reflected Glare |
+Veiling Reflection | Discomfort Glare | Disability Glare | Blinding Glare |
+Veiling Luminance" (accessed 2026-09-12).
+
+STATUS: full HTML page saved; see papers/schorsch-glare-glossary.html.
+
+SUMMARY: disability glare / veiling glare is caused by light scattered
+within the eye (and, at the display/optics level, by a bright source
+scattering into a bloom/halo around itself) forming a "veiling luminance"
+that is added across the retinal image near the bright source, which
+REDUCES local retinal contrast rather than adding a sharp edge. This is the
+general-vision/lighting-design source for the item-9 claim that "a bright
+glowing object on a bright ground loses its silhouette": bloom is, by
+construction, veiling luminance -- it spreads some of the bright object's
+energy onto the neighbouring (already-bright) wall pixels, which pulls the
+object-vs-wall luminance ratio toward 1 (Weber contrast toward 0) exactly
+where the eye is trying to read an edge. On a DARK background this same
+spread is invisible (background stays near zero either way) which is why
+bloom/rim-light conventions built for dark or neutral-grey backgrounds
+(standard 3-point-lighting "rim light for separation" cinematography advice)
+do not transfer to a bright background: there, spreading light toward the
+background raises the background's own local luminance, undoing the
+separation instead of creating it.
+
+KEY NUMBERS: qualitative/definitional glossary entry; no numeric contrast
+threshold given -- **NOT FOUND** for a percentage. The numeric case (bloom's
+effect modelled as available light making the wall-side pixels near the
+puppet brighter, reducing Weber contrast) is instead demonstrated with the
+Michelson/Weber contrast arithmetic in data/09-colour-numbers.csv, using
+this glossary only for the qualitative "veiling luminance reduces contrast"
+mechanism name.

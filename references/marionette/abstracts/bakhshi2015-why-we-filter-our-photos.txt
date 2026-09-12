@@ -1,0 +1,29 @@
+Bakhshi, S., Shamma, D.A., Kennedy, L., and Gilbert, E. (2015). Why We Filter
+Our Photos and How It Impacts Engagement. Proceedings of the Ninth
+International AAAI Conference on Web and Social Media (ICWSM 2015).
+
+STATUS: full text saved (open PDF, author-hosted mirror); see
+papers/bakhshi2015-why-we-filter-our-photos.pdf/.txt.
+
+SUMMARY: large-scale (7.6 million Flickr photos) plus interview study of
+photo-filter use and its effect on viewer engagement (views and comments).
+Filtered photos overall were 21% more likely to be viewed and 45% more
+likely to be commented on than unfiltered ones. Breaking this down by what a
+filter actually changes: "filters that increase warmth, exposure and
+contrast boost engagement the most" (verbatim, from the abstract/results).
+Warmth here means shifting the colour balance warmer (more red/yellow, less
+blue) -- convergent with the red/warm-hue "advantage" literature (Elliot &
+Maier 2014) and with the item-9 brief's question of which hue reads best
+against a WARM off-white wall (#F2F0EA is itself warm-leaning: R=242 > G=240
+> B=234).
+
+KEY NUMBERS:
+- +21% relative likelihood of being viewed, filtered vs unfiltered photos.
+- +45% relative likelihood of being commented on, filtered vs unfiltered
+  photos.
+- The three specific edits most associated with higher engagement, named in
+  the paper: increased warmth, increased exposure, increased contrast.
+NOTE: this is a photo-filter study, not a controlled hue/saturation
+psychophysics experiment -- it supports "warm, high-contrast, saturated
+imagery gets more engagement on a photo-sharing platform" as a real-world/
+ecological finding, not a laboratory causal isolation of hue.

@@ -1,0 +1,32 @@
+Hauck, R. M., Camp, L., Ehrlich, H. P., Saggers, G. C., Banducci, D. R., & Graham, W. P.
+(2004). Pulp Nonfiction: Microscopic Anatomy of the Digital Pulp Space. Plastic and
+Reconstructive Surgery, 113(2), 536-539. PMID 14758214.
+
+ABSTRACT (as returned by the Europe PMC API for EXT_ID:14758214, saved in
+papers/europepmc-hauck2004.json; the journal itself -- Ovid/LWW -- is paywalled and no
+open-access full text was found, so only the abstract is archived here):
+
+The volar pad of the fingertip provides a very stable yet sensitive surface that gives the
+hand the ability to pinch and grasp. The focus of this study was to advance understanding of
+the anatomical features of the digital pulp space. The unusual features of the fingertip pulp
+space include prominent collagen fiber cords and a branching continuous fine vasculature.
+Prominent collagen fiber cords radiating out from beneath the epidermal basement membrane are
+like the cords of a parachute, which directly attach to the periosteum of the distal phalanx.
+Those collagen fiber cords are responsible for the firm attachment of the fingertip to the
+distal phalanx. There is a fine patent vasculature within the pulp space. Also contained in
+the capsule are numerous lobules of fat, which contribute to some elasticity of the fingertip.
+Principles of treatment for injuries or infections of the digital pulp should attempt to
+preserve this anatomical construct so that the firmness and vascular supply of the fingertip
+are maintained and not disrupted.
+
+RELEVANCE TO THIS PROJECT: this is the closest found source for the build's 7 mm
+palmar-normal pad offset. A specific numeric result from this paper's body/figures --
+"averaged maximal thickness of soft tissues of the fingertip pulp is 6.4 +/- 0.8 mm" (bone
+[periosteum of the distal phalanx] to palmar skin surface), with "4 +/- 1 mm height for the
+phalanx bone" -- is widely cited by secondary sources (search-engine indexing of the full
+text) but could not be independently verified against the primary full text, which sits
+behind the Ovid/LWW paywall; NOT a direct read of the PDF, flagged accordingly. Taken at face
+value, the project's 7 mm offset (from a landmark near the bone/joint centerline to the
+pad/pulp surface along the palmar normal) sits inside 1 SD of this reported bone-to-skin pulp
+thickness (6.4 +/- 0.8 mm) -- consistent, not exactly matched (7 mm vs 6.4 mm, ~0.75 mm high).
+No male/female breakdown or sample size was recoverable for this figure.

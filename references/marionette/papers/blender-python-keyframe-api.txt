@@ -1,0 +1,2428 @@
+Keyframe(bpy_struct) - Blender Python API
+Contents
+Menu
+Expand
+Light mode
+Dark mode
+Auto light/dark, in light mode
+Auto light/dark, in dark mode
+Skip to content
+Blender Python API
+Blender Python API
+Documentation
+Quickstart
+API Overview
+API Reference Usage
+Best Practice
+Tips and Tricks
+Gotchas
+Troubleshooting Errors & Crashes
+Python Threads are Not Supported
+Internal Data & Their Python Objects
+Using Operators
+Modes and Mesh Access
+Bones & Armatures
+File Paths & String Encoding
+Advanced
+Blender as a Python Module
+Change Log
+Contribute Documentation
+Application Modules
+Context Access (bpy.context)
+Data Access (bpy.data)
+Message Bus (bpy.msgbus)
+Operators (bpy.ops)
+Action Operators
+Anim Operators
+Armature Operators
+Asset Operators
+Boid Operators
+Brush Operators
+Buttons Operators
+Cachefile Operators
+Camera Operators
+Clip Operators
+Cloth Operators
+Collection Operators
+Console Operators
+Constraint Operators
+Curve Operators
+Curves Operators
+Cycles Operators
+Dpaint Operators
+Ed Operators
+Export Anim Operators
+Export Scene Operators
+Extensions Operators
+File Operators
+Fluid Operators
+Font Operators
+Geometry Operators
+Gizmogroup Operators
+Gpencil Operators
+Graph Operators
+Grease Pencil Operators
+Image Operators
+Import Anim Operators
+Import Curve Operators
+Import Scene Operators
+Info Operators
+Lattice Operators
+Marker Operators
+Mask Operators
+Material Operators
+Mball Operators
+Mesh Operators
+Nla Operators
+Node Operators
+Object Operators
+Outliner Operators
+Paint Operators
+Paintcurve Operators
+Palette Operators
+Particle Operators
+Pointcloud Operators
+Pose Operators
+Poselib Operators
+Preferences Operators
+Ptcache Operators
+Render Operators
+Rigidbody Operators
+Scene Operators
+Screen Operators
+Script Operators
+Sculpt Operators
+Sculpt Curves Operators
+Sequencer Operators
+Sound Operators
+Spreadsheet Operators
+Surface Operators
+Text Operators
+Text Editor Operators
+Texture Operators
+Transform Operators
+Ui Operators
+Uilist Operators
+Uv Operators
+View2D Operators
+View3D Operators
+Wm Operators
+Workspace Operators
+World Operators
+Types (bpy.types)
+bpy_struct
+AOV(bpy_struct)
+AOVs(bpy_prop_collection)
+ActionChannelbag(bpy_struct)
+ActionChannelbagFCurves(bpy_prop_collection)
+ActionChannelbagGroups(bpy_prop_collection)
+ActionChannelbags(bpy_prop_collection)
+ActionGroup(bpy_struct)
+ActionLayer(bpy_struct)
+ActionLayers(bpy_prop_collection)
+ActionPoseMarkers(bpy_prop_collection)
+ActionSlot(bpy_struct)
+ActionSlots(bpy_prop_collection)
+ActionStrip(bpy_struct)
+ActionKeyframeStrip(ActionStrip)
+ActionStrips(bpy_prop_collection)
+Addon(bpy_struct)
+AddonPreferences(bpy_struct)
+Addons(bpy_prop_collection)
+AnimData(bpy_struct)
+AnimDataDrivers(bpy_prop_collection)
+AnimViz(bpy_struct)
+AnimVizMotionPaths(bpy_struct)
+AnnotationFrame(bpy_struct)
+AnnotationFrames(bpy_prop_collection)
+AnnotationLayer(bpy_struct)
+AnnotationLayers(bpy_prop_collection)
+AnnotationStroke(bpy_struct)
+AnnotationStrokePoint(bpy_struct)
+AnnotationStrokePoints(bpy_prop_collection)
+AnnotationStrokes(bpy_prop_collection)
+AnyType(bpy_struct)
+Area(bpy_struct)
+AreaSpaces(bpy_prop_collection)
+ArmatureBones(bpy_prop_collection)
+ArmatureConstraintTargets(bpy_prop_collection)
+ArmatureEditBones(bpy_prop_collection)
+AssetLibrary(bpy_struct)
+AssetLibraryCollection(bpy_prop_collection)
+AssetLibraryReference(bpy_struct)
+AssetMetaData(bpy_struct)
+AssetRepresentation(bpy_struct)
+AssetShelf(bpy_struct)
+IMAGE_AST_brush_paint(AssetShelf)
+NODE_AST_compositor(AssetShelf)
+VIEW3D_AST_brush_gpencil_paint(AssetShelf)
+VIEW3D_AST_brush_gpencil_sculpt(AssetShelf)
+VIEW3D_AST_brush_gpencil_vertex(AssetShelf)
+VIEW3D_AST_brush_gpencil_weight(AssetShelf)
+VIEW3D_AST_brush_sculpt(AssetShelf)
+VIEW3D_AST_brush_sculpt_curves(AssetShelf)
+VIEW3D_AST_brush_texture_paint(AssetShelf)
+VIEW3D_AST_brush_vertex_paint(AssetShelf)
+VIEW3D_AST_brush_weight_paint(AssetShelf)
+VIEW3D_AST_pose_library(AssetShelf)
+AssetTag(bpy_struct)
+AssetTags(bpy_prop_collection)
+AssetWeakReference(bpy_struct)
+Attribute(bpy_struct)
+BoolAttribute(Attribute)
+ByteColorAttribute(Attribute)
+ByteIntAttribute(Attribute)
+Float2Attribute(Attribute)
+Float4Attribute(Attribute)
+Float4x4Attribute(Attribute)
+FloatAttribute(Attribute)
+FloatColorAttribute(Attribute)
+FloatVectorAttribute(Attribute)
+Int2Attribute(Attribute)
+IntAttribute(Attribute)
+QuaternionAttribute(Attribute)
+Short2Attribute(Attribute)
+StringAttribute(Attribute)
+AttributeGroupCurves(bpy_prop_collection)
+AttributeGroupGreasePencil(bpy_prop_collection)
+AttributeGroupGreasePencilDrawing(bpy_prop_collection)
+AttributeGroupMesh(bpy_prop_collection)
+AttributeGroupPointCloud(bpy_prop_collection)
+BakeSettings(bpy_struct)
+BezierSplinePoint(bpy_struct)
+BlendData(bpy_struct)
+BlendDataActions(bpy_prop_collection)
+BlendDataAnnotations(bpy_prop_collection)
+BlendDataArmatures(bpy_prop_collection)
+BlendDataBrushes(bpy_prop_collection)
+BlendDataCacheFiles(bpy_prop_collection)
+BlendDataCameras(bpy_prop_collection)
+BlendDataCollections(bpy_prop_collection)
+BlendDataCurves(bpy_prop_collection)
+BlendDataFonts(bpy_prop_collection)
+BlendDataGreasePencilsV3(bpy_prop_collection)
+BlendDataHairCurves(bpy_prop_collection)
+BlendDataImages(bpy_prop_collection)
+BlendDataLattices(bpy_prop_collection)
+BlendDataLibraries(bpy_prop_collection)
+BlendDataLights(bpy_prop_collection)
+BlendDataLineStyles(bpy_prop_collection)
+BlendDataMasks(bpy_prop_collection)
+BlendDataMaterials(bpy_prop_collection)
+BlendDataMeshes(bpy_prop_collection)
+BlendDataMetaBalls(bpy_prop_collection)
+BlendDataMovieClips(bpy_prop_collection)
+BlendDataNodeTrees(bpy_prop_collection)
+BlendDataObjects(bpy_prop_collection)
+BlendDataPaintCurves(bpy_prop_collection)
+BlendDataPalettes(bpy_prop_collection)
+BlendDataParticles(bpy_prop_collection)
+BlendDataPointClouds(bpy_prop_collection)
+BlendDataProbes(bpy_prop_collection)
+BlendDataScenes(bpy_prop_collection)
+BlendDataScreens(bpy_prop_collection)
+BlendDataSounds(bpy_prop_collection)
+BlendDataSpeakers(bpy_prop_collection)
+BlendDataTexts(bpy_prop_collection)
+BlendDataTextures(bpy_prop_collection)
+BlendDataVolumes(bpy_prop_collection)
+BlendDataWindowManagers(bpy_prop_collection)
+BlendDataWorkSpaces(bpy_prop_collection)
+BlendDataWorlds(bpy_prop_collection)
+BlendFileColorspace(bpy_struct)
+BlendImportContext(bpy_struct)
+BlendImportContextItem(bpy_struct)
+BlendImportContextItems(bpy_prop_collection)
+BlendImportContextLibraries(bpy_prop_collection)
+BlendImportContextLibrary(bpy_struct)
+BlenderRNA(bpy_struct)
+BoidRule(bpy_struct)
+BoidRuleAverageSpeed(BoidRule)
+BoidRuleAvoid(BoidRule)
+BoidRuleAvoidCollision(BoidRule)
+BoidRuleFight(BoidRule)
+BoidRuleFollowLeader(BoidRule)
+BoidRuleGoal(BoidRule)
+BoidSettings(bpy_struct)
+BoidState(bpy_struct)
+Bone(bpy_struct)
+BoneCollection(bpy_struct)
+BoneCollectionMemberships(bpy_prop_collection)
+BoneCollections(bpy_prop_collection)
+BoneColor(bpy_struct)
+BoolAttributeValue(bpy_struct)
+BrushCapabilities(bpy_struct)
+BrushCapabilitiesImagePaint(bpy_struct)
+BrushCapabilitiesSculpt(bpy_struct)
+BrushCapabilitiesVertexPaint(bpy_struct)
+BrushCapabilitiesWeightPaint(bpy_struct)
+BrushCurvesSculptSettings(bpy_struct)
+BrushGpencilSettings(bpy_struct)
+ByteColorAttributeValue(bpy_struct)
+ByteIntAttributeValue(bpy_struct)
+CacheFileLayer(bpy_struct)
+CacheFileLayers(bpy_prop_collection)
+CacheObjectPath(bpy_struct)
+CacheObjectPaths(bpy_prop_collection)
+CameraBackgroundImage(bpy_struct)
+CameraBackgroundImages(bpy_prop_collection)
+CameraDOFSettings(bpy_struct)
+CameraStereoData(bpy_struct)
+ChannelDriverVariables(bpy_prop_collection)
+ChildParticle(bpy_struct)
+ClothCollisionSettings(bpy_struct)
+ClothSettings(bpy_struct)
+ClothSolverResult(bpy_struct)
+CollectionChild(bpy_struct)
+CollectionChildren(bpy_prop_collection)
+CollectionExport(bpy_struct)
+CollectionExports(bpy_prop_collection)
+CollectionImport(bpy_struct)
+CollectionLightLinking(bpy_struct)
+CollectionObject(bpy_struct)
+CollectionObjects(bpy_prop_collection)
+CollisionSettings(bpy_struct)
+ColorManagedDisplaySettings(bpy_struct)
+ColorManagedInputColorspaceSettings(bpy_struct)
+ColorManagedSequencerColorspaceSettings(bpy_struct)
+ColorManagedViewSettings(bpy_struct)
+ColorMapping(bpy_struct)
+ColorRamp(bpy_struct)
+ColorRampElement(bpy_struct)
+ColorRampElements(bpy_prop_collection)
+ConsoleLine(bpy_struct)
+Constraint(bpy_struct)
+ActionConstraint(Constraint)
+ArmatureConstraint(Constraint)
+CameraSolverConstraint(Constraint)
+ChildOfConstraint(Constraint)
+ClampToConstraint(Constraint)
+CopyLocationConstraint(Constraint)
+CopyRotationConstraint(Constraint)
+CopyScaleConstraint(Constraint)
+CopyTransformsConstraint(Constraint)
+DampedTrackConstraint(Constraint)
+FloorConstraint(Constraint)
+FollowPathConstraint(Constraint)
+FollowTrackConstraint(Constraint)
+GeometryAttributeConstraint(Constraint)
+KinematicConstraint(Constraint)
+LimitDistanceConstraint(Constraint)
+LimitLocationConstraint(Constraint)
+LimitRotationConstraint(Constraint)
+LimitScaleConstraint(Constraint)
+LockedTrackConstraint(Constraint)
+MaintainVolumeConstraint(Constraint)
+ObjectSolverConstraint(Constraint)
+PivotConstraint(Constraint)
+ShrinkwrapConstraint(Constraint)
+SplineIKConstraint(Constraint)
+StretchToConstraint(Constraint)
+TrackToConstraint(Constraint)
+TransformCacheConstraint(Constraint)
+TransformConstraint(Constraint)
+ConstraintTarget(bpy_struct)
+ConstraintTargetBone(bpy_struct)
+Context(bpy_struct)
+CryptomatteEntry(bpy_struct)
+CurveMap(bpy_struct)
+CurveMapPoint(bpy_struct)
+CurveMapPoints(bpy_prop_collection)
+CurveMapping(bpy_struct)
+CurvePaintSettings(bpy_struct)
+CurvePoint(bpy_struct)
+CurveProfile(bpy_struct)
+CurveProfilePoint(bpy_struct)
+CurveProfilePoints(bpy_prop_collection)
+CurveSlice(bpy_struct)
+CurveSplines(bpy_prop_collection)
+Depsgraph(bpy_struct)
+DepsgraphObjectInstance(bpy_struct)
+DepsgraphUpdate(bpy_struct)
+DisplaySafeAreas(bpy_struct)
+DopeSheet(bpy_struct)
+Driver(bpy_struct)
+DriverTarget(bpy_struct)
+DriverVariable(bpy_struct)
+DynamicPaintBrushSettings(bpy_struct)
+DynamicPaintCanvasSettings(bpy_struct)
+DynamicPaintSurface(bpy_struct)
+DynamicPaintSurfaces(bpy_prop_collection)
+EQCurveMappingData(bpy_struct)
+EditBone(bpy_struct)
+EffectorWeights(bpy_struct)
+EnumPropertyItem(bpy_struct)
+Event(bpy_struct)
+FCurve(bpy_struct)
+FCurveKeyframePoints(bpy_prop_collection)
+FCurveModifiers(bpy_prop_collection)
+FCurveSample(bpy_struct)
+FFmpegSettings(bpy_struct)
+FModifier(bpy_struct)
+FModifierCycles(FModifier)
+FModifierEnvelope(FModifier)
+FModifierFunctionGenerator(FModifier)
+FModifierGenerator(FModifier)
+FModifierLimits(FModifier)
+FModifierNoise(FModifier)
+FModifierSmooth(FModifier)
+FModifierStepped(FModifier)
+FModifierEnvelopeControlPoint(bpy_struct)
+FModifierEnvelopeControlPoints(bpy_prop_collection)
+FieldSettings(bpy_struct)
+FileAssetSelectIDFilter(bpy_struct)
+FileBrowserFSMenuEntry(bpy_struct)
+FileHandler(bpy_struct)
+IMAGE_FH_drop_handler(FileHandler)
+IO_FH_gltf2(FileHandler)
+IO_FH_svg_as_curves(FileHandler)
+NODE_FH_image_node(FileHandler)
+SEQUENCER_FH_image_strip(FileHandler)
+SEQUENCER_FH_movie_strip(FileHandler)
+SEQUENCER_FH_sound_strip(FileHandler)
+VIEW3D_FH_camera_background_image(FileHandler)
+VIEW3D_FH_empty_image(FileHandler)
+VIEW3D_FH_vdb_volume(FileHandler)
+FileSelectEntry(bpy_struct)
+FileSelectIDFilter(bpy_struct)
+FileSelectParams(bpy_struct)
+FileAssetSelectParams(FileSelectParams)
+Float2AttributeValue(bpy_struct)
+Float4AttributeValue(bpy_struct)
+Float4x4AttributeValue(bpy_struct)
+FloatAttributeValue(bpy_struct)
+FloatColorAttributeValue(bpy_struct)
+FloatVectorAttributeValue(bpy_struct)
+FloatVectorValueReadOnly(bpy_struct)
+FluidDomainSettings(bpy_struct)
+FluidEffectorSettings(bpy_struct)
+FluidFlowSettings(bpy_struct)
+ForeachGeometryElementGenerationItem(bpy_struct)
+ForeachGeometryElementInputItem(bpy_struct)
+ForeachGeometryElementMainItem(bpy_struct)
+FreestyleLineSet(bpy_struct)
+FreestyleModuleSettings(bpy_struct)
+FreestyleModules(bpy_prop_collection)
+FreestyleSettings(bpy_struct)
+Function(bpy_struct)
+GPencilInterpolateSettings(bpy_struct)
+GPencilSculptGuide(bpy_struct)
+GPencilSculptSettings(bpy_struct)
+GeometryNodeClosureToListItem(bpy_struct)
+GeometryNodeClosureToListItems(bpy_prop_collection)
+GeometryNodeFieldToGridItem(bpy_struct)
+GeometryNodeFieldToGridItems(bpy_prop_collection)
+GeometryNodeFieldToListItem(bpy_struct)
+GeometryNodeFieldToListItems(bpy_prop_collection)
+Gizmo(bpy_struct)
+GizmoGroup(bpy_struct)
+GizmoGroupProperties(bpy_struct)
+GizmoProperties(bpy_struct)
+Gizmos(bpy_prop_collection)
+GreasePencilDashModifierSegment(bpy_struct)
+GreasePencilDrawing(bpy_struct)
+GreasePencilFrame(bpy_struct)
+GreasePencilFrames(bpy_prop_collection)
+GreasePencilLayerMask(bpy_struct)
+GreasePencilLayerMasks(bpy_prop_collection)
+GreasePencilTimeModifierSegment(bpy_struct)
+GreasePencilTreeNode(bpy_struct)
+GreasePencilLayer(GreasePencilTreeNode)
+GreasePencilLayerGroup(GreasePencilTreeNode)
+GreasePencilv3LayerGroup(bpy_prop_collection)
+GreasePencilv3Layers(bpy_prop_collection)
+Header(bpy_struct)
+Histogram(bpy_struct)
+ID(bpy_struct)
+Action(ID)
+Annotation(ID)
+Armature(ID)
+Brush(ID)
+CacheFile(ID)
+Camera(ID)
+Collection(ID)
+Curve(ID)
+SurfaceCurve(Curve)
+TextCurve(Curve)
+Curves(ID)
+FreestyleLineStyle(ID)
+GreasePencil(ID)
+Image(ID)
+Key(ID)
+Lattice(ID)
+Library(ID)
+Light(ID)
+AreaLight(Light)
+PointLight(Light)
+SpotLight(Light)
+SunLight(Light)
+LightProbe(ID)
+LightProbePlane(LightProbe)
+LightProbeSphere(LightProbe)
+LightProbeVolume(LightProbe)
+Mask(ID)
+Material(ID)
+Mesh(ID)
+MetaBall(ID)
+MovieClip(ID)
+NodeTree(ID)
+CompositorNodeTree(NodeTree)
+GeometryNodeTree(NodeTree)
+ShaderNodeTree(NodeTree)
+TextureNodeTree(NodeTree)
+Object(ID)
+PaintCurve(ID)
+Palette(ID)
+ParticleSettings(ID)
+PointCloud(ID)
+Scene(ID)
+Screen(ID)
+Sound(ID)
+Speaker(ID)
+Text(ID)
+Texture(ID)
+BlendTexture(Texture)
+CloudsTexture(Texture)
+DistortedNoiseTexture(Texture)
+ImageTexture(Texture)
+MagicTexture(Texture)
+MarbleTexture(Texture)
+MusgraveTexture(Texture)
+NoiseTexture(Texture)
+StucciTexture(Texture)
+VoronoiTexture(Texture)
+WoodTexture(Texture)
+VectorFont(ID)
+Volume(ID)
+WindowManager(ID)
+WorkSpace(ID)
+World(ID)
+IDMaterials(bpy_prop_collection)
+IDOverrideLibrary(bpy_struct)
+IDOverrideLibraryProperties(bpy_prop_collection)
+IDOverrideLibraryProperty(bpy_struct)
+IDOverrideLibraryPropertyOperation(bpy_struct)
+IDOverrideLibraryPropertyOperations(bpy_prop_collection)
+IDPropertyWrapPtr(bpy_struct)
+IKParam(bpy_struct)
+Itasc(IKParam)
+ImageFormatSettings(bpy_struct)
+ImagePackedFile(bpy_struct)
+ImagePreview(bpy_struct)
+ImageUser(bpy_struct)
+IndexSwitchItem(bpy_struct)
+Int2AttributeValue(bpy_struct)
+IntAttributeValue(bpy_struct)
+KeyConfig(bpy_struct)
+KeyConfigPreferences(bpy_struct)
+KeyConfigurations(bpy_prop_collection)
+KeyMap(bpy_struct)
+KeyMapItem(bpy_struct)
+KeyMapItems(bpy_prop_collection)
+KeyMaps(bpy_prop_collection)
+Keyframe(bpy_struct)
+KeyingSet(bpy_struct)
+KeyingSetInfo(bpy_struct)
+KeyingSetPath(bpy_struct)
+KeyingSetPaths(bpy_prop_collection)
+KeyingSets(bpy_prop_collection)
+KeyingSetsAll(bpy_prop_collection)
+LatticePoint(bpy_struct)
+LayerCollection(bpy_struct)
+LayerObjects(bpy_prop_collection)
+LayoutPanelState(bpy_struct)
+LibraryWeakReference(bpy_struct)
+Lightgroup(bpy_struct)
+Lightgroups(bpy_prop_collection)
+LineStyleAlphaModifiers(bpy_prop_collection)
+LineStyleColorModifiers(bpy_prop_collection)
+LineStyleGeometryModifiers(bpy_prop_collection)
+LineStyleModifier(bpy_struct)
+LineStyleAlphaModifier(LineStyleModifier)
+LineStyleAlphaModifier_AlongStroke(LineStyleAlphaModifier)
+LineStyleAlphaModifier_CreaseAngle(LineStyleAlphaModifier)
+LineStyleAlphaModifier_Curvature_3D(LineStyleAlphaModifier)
+LineStyleAlphaModifier_DistanceFromCamera(LineStyleAlphaModifier)
+LineStyleAlphaModifier_DistanceFromObject(LineStyleAlphaModifier)
+LineStyleAlphaModifier_Material(LineStyleAlphaModifier)
+LineStyleAlphaModifier_Noise(LineStyleAlphaModifier)
+LineStyleAlphaModifier_Tangent(LineStyleAlphaModifier)
+LineStyleColorModifier(LineStyleModifier)
+LineStyleColorModifier_AlongStroke(LineStyleColorModifier)
+LineStyleColorModifier_CreaseAngle(LineStyleColorModifier)
+LineStyleColorModifier_Curvature_3D(LineStyleColorModifier)
+LineStyleColorModifier_DistanceFromCamera(LineStyleColorModifier)
+LineStyleColorModifier_DistanceFromObject(LineStyleColorModifier)
+LineStyleColorModifier_Material(LineStyleColorModifier)
+LineStyleColorModifier_Noise(LineStyleColorModifier)
+LineStyleColorModifier_Tangent(LineStyleColorModifier)
+LineStyleGeometryModifier(LineStyleModifier)
+LineStyleGeometryModifier_2DOffset(LineStyleGeometryModifier)
+LineStyleGeometryModifier_2DTransform(LineStyleGeometryModifier)
+LineStyleGeometryModifier_BackboneStretcher(LineStyleGeometryModifier)
+LineStyleGeometryModifier_BezierCurve(LineStyleGeometryModifier)
+LineStyleGeometryModifier_Blueprint(LineStyleGeometryModifier)
+LineStyleGeometryModifier_GuidingLines(LineStyleGeometryModifier)
+LineStyleGeometryModifier_PerlinNoise1D(LineStyleGeometryModifier)
+LineStyleGeometryModifier_PerlinNoise2D(LineStyleGeometryModifier)
+LineStyleGeometryModifier_Polygonalization(LineStyleGeometryModifier)
+LineStyleGeometryModifier_Sampling(LineStyleGeometryModifier)
+LineStyleGeometryModifier_Simplification(LineStyleGeometryModifier)
+LineStyleGeometryModifier_SinusDisplacement(LineStyleGeometryModifier)
+LineStyleGeometryModifier_SpatialNoise(LineStyleGeometryModifier)
+LineStyleGeometryModifier_TipRemover(LineStyleGeometryModifier)
+LineStyleThicknessModifier(LineStyleModifier)
+LineStyleThicknessModifier_AlongStroke(LineStyleThicknessModifier)
+LineStyleThicknessModifier_Calligraphy(LineStyleThicknessModifier)
+LineStyleThicknessModifier_CreaseAngle(LineStyleThicknessModifier)
+LineStyleThicknessModifier_Curvature_3D(LineStyleThicknessModifier)
+LineStyleThicknessModifier_DistanceFromCamera(LineStyleThicknessModifier)
+LineStyleThicknessModifier_DistanceFromObject(LineStyleThicknessModifier)
+LineStyleThicknessModifier_Material(LineStyleThicknessModifier)
+LineStyleThicknessModifier_Noise(LineStyleThicknessModifier)
+LineStyleThicknessModifier_Tangent(LineStyleThicknessModifier)
+LineStyleTextureSlots(bpy_prop_collection)
+LineStyleThicknessModifiers(bpy_prop_collection)
+Linesets(bpy_prop_collection)
+LoopColors(bpy_prop_collection)
+Macro(bpy_struct)
+MaskLayer(bpy_struct)
+MaskLayers(bpy_prop_collection)
+MaskParent(bpy_struct)
+MaskSpline(bpy_struct)
+MaskSplinePoint(bpy_struct)
+MaskSplinePointUW(bpy_struct)
+MaskSplinePoints(bpy_prop_collection)
+MaskSplines(bpy_prop_collection)
+MaterialGPencilStyle(bpy_struct)
+MaterialLineArt(bpy_struct)
+MaterialSlot(bpy_struct)
+Menu(bpy_struct)
+MeshAutomaskingSettings(bpy_struct)
+MeshEdge(bpy_struct)
+MeshEdges(bpy_prop_collection)
+MeshLoop(bpy_struct)
+MeshLoopColor(bpy_struct)
+MeshLoopColorLayer(bpy_struct)
+MeshLoopTriangle(bpy_struct)
+MeshLoopTriangles(bpy_prop_collection)
+MeshLoops(bpy_prop_collection)
+MeshNormalValue(bpy_struct)
+MeshPolygon(bpy_struct)
+MeshPolygons(bpy_prop_collection)
+MeshSkinVertex(bpy_struct)
+MeshSkinVertexLayer(bpy_struct)
+MeshStatVis(bpy_struct)
+MeshUVLoop(bpy_struct)
+MeshUVLoopLayer(bpy_struct)
+MeshVertex(bpy_struct)
+MeshVertices(bpy_prop_collection)
+MetaBallElements(bpy_prop_collection)
+MetaElement(bpy_struct)
+Modifier(bpy_struct)
+ArmatureModifier(Modifier)
+ArrayModifier(Modifier)
+BevelModifier(Modifier)
+BooleanModifier(Modifier)
+BuildModifier(Modifier)
+CastModifier(Modifier)
+ClothModifier(Modifier)
+CollisionModifier(Modifier)
+CorrectiveSmoothModifier(Modifier)
+CurveModifier(Modifier)
+DataTransferModifier(Modifier)
+DecimateModifier(Modifier)
+DisplaceModifier(Modifier)
+DynamicPaintModifier(Modifier)
+EdgeSplitModifier(Modifier)
+ExplodeModifier(Modifier)
+FluidModifier(Modifier)
+GreasePencilArmatureModifier(Modifier)
+GreasePencilArrayModifier(Modifier)
+GreasePencilBuildModifier(Modifier)
+GreasePencilColorModifier(Modifier)
+GreasePencilDashModifierData(Modifier)
+GreasePencilEnvelopeModifier(Modifier)
+GreasePencilHookModifier(Modifier)
+GreasePencilLatticeModifier(Modifier)
+GreasePencilLengthModifier(Modifier)
+GreasePencilLineartModifier(Modifier)
+GreasePencilMirrorModifier(Modifier)
+GreasePencilMultiplyModifier(Modifier)
+GreasePencilNoiseModifier(Modifier)
+GreasePencilOffsetModifier(Modifier)
+GreasePencilOpacityModifier(Modifier)
+GreasePencilOutlineModifier(Modifier)
+GreasePencilShrinkwrapModifier(Modifier)
+GreasePencilSimplifyModifier(Modifier)
+GreasePencilSmoothModifier(Modifier)
+GreasePencilSubdivModifier(Modifier)
+GreasePencilTextureModifier(Modifier)
+GreasePencilThickModifierData(Modifier)
+GreasePencilTimeModifier(Modifier)
+GreasePencilTintModifier(Modifier)
+GreasePencilWeightAngleModifier(Modifier)
+GreasePencilWeightProximityModifier(Modifier)
+HookModifier(Modifier)
+LaplacianDeformModifier(Modifier)
+LaplacianSmoothModifier(Modifier)
+LatticeModifier(Modifier)
+MaskModifier(Modifier)
+MeshCacheModifier(Modifier)
+MeshDeformModifier(Modifier)
+MeshSequenceCacheModifier(Modifier)
+MeshToVolumeModifier(Modifier)
+MirrorModifier(Modifier)
+MultiresModifier(Modifier)
+NodesModifier(Modifier)
+NormalEditModifier(Modifier)
+OceanModifier(Modifier)
+ParticleInstanceModifier(Modifier)
+ParticleSystemModifier(Modifier)
+RemeshModifier(Modifier)
+ScrewModifier(Modifier)
+ShrinkwrapModifier(Modifier)
+SimpleDeformModifier(Modifier)
+SkinModifier(Modifier)
+SmoothModifier(Modifier)
+SoftBodyModifier(Modifier)
+SolidifyModifier(Modifier)
+SubsurfModifier(Modifier)
+SurfaceDeformModifier(Modifier)
+SurfaceModifier(Modifier)
+TriangulateModifier(Modifier)
+UVProjectModifier(Modifier)
+UVWarpModifier(Modifier)
+VertexWeightEditModifier(Modifier)
+VertexWeightMixModifier(Modifier)
+VertexWeightProximityModifier(Modifier)
+VolumeDisplaceModifier(Modifier)
+VolumeToMeshModifier(Modifier)
+WarpModifier(Modifier)
+WaveModifier(Modifier)
+WeightedNormalModifier(Modifier)
+WeldModifier(Modifier)
+WireframeModifier(Modifier)
+MotionPath(bpy_struct)
+MotionPathVert(bpy_struct)
+MovieClipProxy(bpy_struct)
+MovieClipScopes(bpy_struct)
+MovieClipUser(bpy_struct)
+MovieReconstructedCamera(bpy_struct)
+MovieTracking(bpy_struct)
+MovieTrackingCamera(bpy_struct)
+MovieTrackingDopesheet(bpy_struct)
+MovieTrackingMarker(bpy_struct)
+MovieTrackingMarkers(bpy_prop_collection)
+MovieTrackingObject(bpy_struct)
+MovieTrackingObjectPlaneTracks(bpy_prop_collection)
+MovieTrackingObjectTracks(bpy_prop_collection)
+MovieTrackingObjects(bpy_prop_collection)
+MovieTrackingPlaneMarker(bpy_struct)
+MovieTrackingPlaneMarkers(bpy_prop_collection)
+MovieTrackingPlaneTrack(bpy_struct)
+MovieTrackingPlaneTracks(bpy_prop_collection)
+MovieTrackingReconstructedCameras(bpy_prop_collection)
+MovieTrackingReconstruction(bpy_struct)
+MovieTrackingSettings(bpy_struct)
+MovieTrackingStabilization(bpy_struct)
+MovieTrackingTrack(bpy_struct)
+MovieTrackingTracks(bpy_prop_collection)
+NDOFMotionEventData(bpy_struct)
+NlaStrip(bpy_struct)
+NlaStripFCurves(bpy_prop_collection)
+NlaStrips(bpy_prop_collection)
+NlaTrack(bpy_struct)
+NlaTracks(bpy_prop_collection)
+Node(bpy_struct)
+NodeCustomGroup(Node)
+NodeInternal(Node)
+CompositorNode(NodeInternal)
+CompositorNodeAlphaOver(CompositorNode)
+CompositorNodeAntiAliasing(CompositorNode)
+CompositorNodeBilateralblur(CompositorNode)
+CompositorNodeBlankImage(CompositorNode)
+CompositorNodeBlur(CompositorNode)
+CompositorNodeBokehBlur(CompositorNode)
+CompositorNodeBokehImage(CompositorNode)
+CompositorNodeBoxMask(CompositorNode)
+CompositorNodeBrightContrast(CompositorNode)
+CompositorNodeChannelMatte(CompositorNode)
+CompositorNodeChromaMatte(CompositorNode)
+CompositorNodeColorBalance(CompositorNode)
+CompositorNodeColorCorrection(CompositorNode)
+CompositorNodeColorMatte(CompositorNode)
+CompositorNodeColorSpill(CompositorNode)
+CompositorNodeCombineColor(CompositorNode)
+CompositorNodeConvertColorSpace(CompositorNode)
+CompositorNodeConvertToDisplay(CompositorNode)
+CompositorNodeConvolve(CompositorNode)
+CompositorNodeCornerPin(CompositorNode)
+CompositorNodeCrop(CompositorNode)
+CompositorNodeCryptomatte(CompositorNode)
+CompositorNodeCryptomatteV2(CompositorNode)
+CompositorNodeCurveRGB(CompositorNode)
+CompositorNodeCustomGroup(CompositorNode)
+CompositorNodeDBlur(CompositorNode)
+CompositorNodeDefocus(CompositorNode)
+CompositorNodeDenoise(CompositorNode)
+CompositorNodeDespeckle(CompositorNode)
+CompositorNodeDiffMatte(CompositorNode)
+CompositorNodeDilateErode(CompositorNode)
+CompositorNodeDisplace(CompositorNode)
+CompositorNodeDistanceMatte(CompositorNode)
+CompositorNodeDoubleEdgeMask(CompositorNode)
+CompositorNodeEllipseMask(CompositorNode)
+CompositorNodeExposure(CompositorNode)
+CompositorNodeFilter(CompositorNode)
+CompositorNodeFlip(CompositorNode)
+CompositorNodeGamma(CompositorNode)
+CompositorNodeGlare(CompositorNode)
+CompositorNodeGroup(CompositorNode)
+CompositorNodeHueCorrect(CompositorNode)
+CompositorNodeHueSat(CompositorNode)
+CompositorNodeIDMask(CompositorNode)
+CompositorNodeImage(CompositorNode)
+CompositorNodeImageCoordinates(CompositorNode)
+CompositorNodeImageInfo(CompositorNode)
+CompositorNodeInpaint(CompositorNode)
+CompositorNodeInvert(CompositorNode)
+CompositorNodeKeying(CompositorNode)
+CompositorNodeKeyingScreen(CompositorNode)
+CompositorNodeKuwahara(CompositorNode)
+CompositorNodeLensdist(CompositorNode)
+CompositorNodeLevels(CompositorNode)
+CompositorNodeLumaMatte(CompositorNode)
+CompositorNodeMapUV(CompositorNode)
+CompositorNodeMask(CompositorNode)
+CompositorNodeMaskToSDF(CompositorNode)
+CompositorNodeMovieClip(CompositorNode)
+CompositorNodeMovieDistortion(CompositorNode)
+CompositorNodeNormal(CompositorNode)
+CompositorNodeNormalize(CompositorNode)
+CompositorNodeOutputFile(CompositorNode)
+CompositorNodePixelate(CompositorNode)
+CompositorNodePlaneTrackDeform(CompositorNode)
+CompositorNodePosterize(CompositorNode)
+CompositorNodePremulKey(CompositorNode)
+CompositorNodeRGB(CompositorNode)
+CompositorNodeRGBToBW(CompositorNode)
+CompositorNodeRLayers(CompositorNode)
+CompositorNodeRelativeToPixel(CompositorNode)
+CompositorNodeRotate(CompositorNode)
+CompositorNodeScale(CompositorNode)
+CompositorNodeSceneTime(CompositorNode)
+CompositorNodeSeparateColor(CompositorNode)
+CompositorNodeSequencerStripInfo(CompositorNode)
+CompositorNodeSetAlpha(CompositorNode)
+CompositorNodeSplit(CompositorNode)
+CompositorNodeStabilize(CompositorNode)
+CompositorNodeStringToImage(CompositorNode)
+CompositorNodeSwitch(CompositorNode)
+CompositorNodeSwitchView(CompositorNode)
+CompositorNodeTime(CompositorNode)
+CompositorNodeTonemap(CompositorNode)
+CompositorNodeTrackPos(CompositorNode)
+CompositorNodeTransform(CompositorNode)
+CompositorNodeTranslate(CompositorNode)
+CompositorNodeVecBlur(CompositorNode)
+CompositorNodeViewer(CompositorNode)
+CompositorNodeZcombine(CompositorNode)
+FunctionNode(NodeInternal)
+FunctionNodeAlignEulerToVector(FunctionNode)
+FunctionNodeAlignRotationToVector(FunctionNode)
+FunctionNodeAxesToRotation(FunctionNode)
+FunctionNodeAxisAngleToRotation(FunctionNode)
+FunctionNodeBitMath(FunctionNode)
+FunctionNodeBooleanMath(FunctionNode)
+FunctionNodeCombineColor(FunctionNode)
+FunctionNodeCombineMatrix(FunctionNode)
+FunctionNodeCombineTransform(FunctionNode)
+FunctionNodeCompare(FunctionNode)
+FunctionNodeEulerToRotation(FunctionNode)
+FunctionNodeFindInString(FunctionNode)
+FunctionNodeFloatToInt(FunctionNode)
+FunctionNodeFormatString(FunctionNode)
+FunctionNodeHashValue(FunctionNode)
+FunctionNodeInputBool(FunctionNode)
+FunctionNodeInputColor(FunctionNode)
+FunctionNodeInputInt(FunctionNode)
+FunctionNodeInputIntVector(FunctionNode)
+FunctionNodeInputMenu(FunctionNode)
+FunctionNodeInputRotation(FunctionNode)
+FunctionNodeInputSpecialCharacters(FunctionNode)
+FunctionNodeInputString(FunctionNode)
+FunctionNodeInputVector(FunctionNode)
+FunctionNodeIntegerMath(FunctionNode)
+FunctionNodeInvertMatrix(FunctionNode)
+FunctionNodeInvertRotation(FunctionNode)
+FunctionNodeMatchString(FunctionNode)
+FunctionNodeMatrixDeterminant(FunctionNode)
+FunctionNodeMatrixMultiply(FunctionNode)
+FunctionNodeMatrixSVD(FunctionNode)
+FunctionNodeProjectPoint(FunctionNode)
+FunctionNodeQuaternionToRotation(FunctionNode)
+FunctionNodeRandomValue(FunctionNode)
+FunctionNodeReplaceString(FunctionNode)
+FunctionNodeReverseString(FunctionNode)
+FunctionNodeRotateEuler(FunctionNode)
+FunctionNodeRotateRotation(FunctionNode)
+FunctionNodeRotateVector(FunctionNode)
+FunctionNodeRotationToAxisAngle(FunctionNode)
+FunctionNodeRotationToEuler(FunctionNode)
+FunctionNodeRotationToQuaternion(FunctionNode)
+FunctionNodeSeparateColor(FunctionNode)
+FunctionNodeSeparateMatrix(FunctionNode)
+FunctionNodeSeparateTransform(FunctionNode)
+FunctionNodeSetStringCase(FunctionNode)
+FunctionNodeSliceString(FunctionNode)
+FunctionNodeSplitString(FunctionNode)
+FunctionNodeStringLength(FunctionNode)
+FunctionNodeStringToValue(FunctionNode)
+FunctionNodeTransformDirection(FunctionNode)
+FunctionNodeTransformPoint(FunctionNode)
+FunctionNodeTransposeMatrix(FunctionNode)
+FunctionNodeTrimString(FunctionNode)
+FunctionNodeValueToString(FunctionNode)
+GeometryNode(NodeInternal)
+GeometryNodeAccumulateField(GeometryNode)
+GeometryNodeApplySimulatedData(GeometryNode)
+GeometryNodeAttributeDomainSize(GeometryNode)
+GeometryNodeAttributeStatistic(GeometryNode)
+GeometryNodeBake(GeometryNode)
+GeometryNodeBlurAttribute(GeometryNode)
+GeometryNodeBoneInfo(GeometryNode)
+GeometryNodeBoundBox(GeometryNode)
+GeometryNodeCameraInfo(GeometryNode)
+GeometryNodeCaptureAttribute(GeometryNode)
+GeometryNodeClosureToList(GeometryNode)
+GeometryNodeClusterByConnected(GeometryNode)
+GeometryNodeClusterByDistance(GeometryNode)
+GeometryNodeCollectionChildren(GeometryNode)
+GeometryNodeCollectionInfo(GeometryNode)
+GeometryNodeConvexHull(GeometryNode)
+GeometryNodeCornersOfEdge(GeometryNode)
+GeometryNodeCornersOfFace(GeometryNode)
+GeometryNodeCornersOfVertex(GeometryNode)
+GeometryNodeCubeGridTopology(GeometryNode)
+GeometryNodeCurveArc(GeometryNode)
+GeometryNodeCurveEndpointSelection(GeometryNode)
+GeometryNodeCurveHandleTypeSelection(GeometryNode)
+GeometryNodeCurveLength(GeometryNode)
+GeometryNodeCurveOfPoint(GeometryNode)
+GeometryNodeCurvePrimitiveBezierSegment(GeometryNode)
+GeometryNodeCurvePrimitiveCircle(GeometryNode)
+GeometryNodeCurvePrimitiveLine(GeometryNode)
+GeometryNodeCurvePrimitiveQuadrilateral(GeometryNode)
+GeometryNodeCurveQuadraticBezier(GeometryNode)
+GeometryNodeCurveSetHandles(GeometryNode)
+GeometryNodeCurveSpiral(GeometryNode)
+GeometryNodeCurveSplineType(GeometryNode)
+GeometryNodeCurveStar(GeometryNode)
+GeometryNodeCurveToMesh(GeometryNode)
+GeometryNodeCurveToPoints(GeometryNode)
+GeometryNodeCurvesToGreasePencil(GeometryNode)
+GeometryNodeCustomGroup(GeometryNode)
+GeometryNodeDeformCurvesOnSurface(GeometryNode)
+GeometryNodeDeleteGeometry(GeometryNode)
+GeometryNodeDistributePointsInGrid(GeometryNode)
+GeometryNodeDistributePointsInVolume(GeometryNode)
+GeometryNodeDistributePointsOnFaces(GeometryNode)
+GeometryNodeDualMesh(GeometryNode)
+GeometryNodeDuplicateElements(GeometryNode)
+GeometryNodeEdgePathsToCurves(GeometryNode)
+GeometryNodeEdgePathsToSelection(GeometryNode)
+GeometryNodeEdgesOfCorner(GeometryNode)
+GeometryNodeEdgesOfVertex(GeometryNode)
+GeometryNodeEdgesToFaceGroups(GeometryNode)
+GeometryNodeExtrudeMesh(GeometryNode)
+GeometryNodeFaceOfCorner(GeometryNode)
+GeometryNodeFieldAtIndex(GeometryNode)
+GeometryNodeFieldAverage(GeometryNode)
+GeometryNodeFieldMinAndMax(GeometryNode)
+GeometryNodeFieldOnDomain(GeometryNode)
+GeometryNodeFieldToGrid(GeometryNode)
+GeometryNodeFieldToList(GeometryNode)
+GeometryNodeFieldVariance(GeometryNode)
+GeometryNodeFillCurve(GeometryNode)
+GeometryNodeFilletCurve(GeometryNode)
+GeometryNodeFilterList(GeometryNode)
+GeometryNodeFlipFaces(GeometryNode)
+GeometryNodeForeachGeometryElementInput(GeometryNode)
+GeometryNodeForeachGeometryElementOutput(GeometryNode)
+GeometryNodeGeometryToInstance(GeometryNode)
+GeometryNodeGetAttributeNames(GeometryNode)
+GeometryNodeGetGeometryBundle(GeometryNode)
+GeometryNodeGetGeometryComponent(GeometryNode)
+GeometryNodeGetNamedGrid(GeometryNode)
+GeometryNodeGizmoDial(GeometryNode)
+GeometryNodeGizmoLinear(GeometryNode)
+GeometryNodeGizmoTransform(GeometryNode)
+GeometryNodeGreasePencilToCurves(GeometryNode)
+GeometryNodeGridAdvect(GeometryNode)
+GeometryNodeGridClip(GeometryNode)
+GeometryNodeGridCurl(GeometryNode)
+GeometryNodeGridDilateAndErode(GeometryNode)
+GeometryNodeGridDivergence(GeometryNode)
+GeometryNodeGridGradient(GeometryNode)
+GeometryNodeGridInfo(GeometryNode)
+GeometryNodeGridLaplacian(GeometryNode)
+GeometryNodeGridMean(GeometryNode)
+GeometryNodeGridMedian(GeometryNode)
+GeometryNodeGridPrune(GeometryNode)
+GeometryNodeGridToMesh(GeometryNode)
+GeometryNodeGridToPoints(GeometryNode)
+GeometryNodeGridVoxelize(GeometryNode)
+GeometryNodeGroup(GeometryNode)
+GeometryNodeImageInfo(GeometryNode)
+GeometryNodeImageTexture(GeometryNode)
+GeometryNodeImportCSV(GeometryNode)
+GeometryNodeImportOBJ(GeometryNode)
+GeometryNodeImportPLY(GeometryNode)
+GeometryNodeImportSTL(GeometryNode)
+GeometryNodeImportText(GeometryNode)
+GeometryNodeImportVDB(GeometryNode)
+GeometryNodeIndexOfNearest(GeometryNode)
+GeometryNodeIndexSwitch(GeometryNode)
+GeometryNodeInputActiveCamera(GeometryNode)
+GeometryNodeInputCollection(GeometryNode)
+GeometryNodeInputCurveHandlePositions(GeometryNode)
+GeometryNodeInputCurveTilt(GeometryNode)
+GeometryNodeInputEdgeSmooth(GeometryNode)
+GeometryNodeInputFont(GeometryNode)
+GeometryNodeInputID(GeometryNode)
+GeometryNodeInputImage(GeometryNode)
+GeometryNodeInputIndex(GeometryNode)
+GeometryNodeInputInstanceBounds(GeometryNode)
+GeometryNodeInputInstanceReference(GeometryNode)
+GeometryNodeInputInstanceRotation(GeometryNode)
+GeometryNodeInputInstanceScale(GeometryNode)
+GeometryNodeInputMaterial(GeometryNode)
+GeometryNodeInputMaterialIndex(GeometryNode)
+GeometryNodeInputMeshEdgeAngle(GeometryNode)
+GeometryNodeInputMeshEdgeNeighbors(GeometryNode)
+GeometryNodeInputMeshEdgeVertices(GeometryNode)
+GeometryNodeInputMeshFaceArea(GeometryNode)
+GeometryNodeInputMeshFaceIsPlanar(GeometryNode)
+GeometryNodeInputMeshFaceNeighbors(GeometryNode)
+GeometryNodeInputMeshIsland(GeometryNode)
+GeometryNodeInputMeshVertexNeighbors(GeometryNode)
+GeometryNodeInputNamedAttribute(GeometryNode)
+GeometryNodeInputNamedLayerSelection(GeometryNode)
+GeometryNodeInputNormal(GeometryNode)
+GeometryNodeInputObject(GeometryNode)
+GeometryNodeInputPosition(GeometryNode)
+GeometryNodeInputRadius(GeometryNode)
+GeometryNodeInputSceneTime(GeometryNode)
+GeometryNodeInputShadeSmooth(GeometryNode)
+GeometryNodeInputShortestEdgePaths(GeometryNode)
+GeometryNodeInputSplineCyclic(GeometryNode)
+GeometryNodeInputSplineResolution(GeometryNode)
+GeometryNodeInputTangent(GeometryNode)
+GeometryNodeInputVoxelIndex(GeometryNode)
+GeometryNodeInstanceOnPoints(GeometryNode)
+GeometryNodeInstanceTransform(GeometryNode)
+GeometryNodeInstancesToPoints(GeometryNode)
+GeometryNodeInterpolateCurves(GeometryNode)
+GeometryNodeIsViewport(GeometryNode)
+GeometryNodeJoinGeometry(GeometryNode)
+GeometryNodeListGetItem(GeometryNode)
+GeometryNodeListLength(GeometryNode)
+GeometryNodeMaterialSelection(GeometryNode)
+GeometryNodeMenuSwitch(GeometryNode)
+GeometryNodeMergeByDistance(GeometryNode)
+GeometryNodeMergeLayers(GeometryNode)
+GeometryNodeMergePoints(GeometryNode)
+GeometryNodeMeshBevel(GeometryNode)
+GeometryNodeMeshBoolean(GeometryNode)
+GeometryNodeMeshCircle(GeometryNode)
+GeometryNodeMeshCone(GeometryNode)
+GeometryNodeMeshCube(GeometryNode)
+GeometryNodeMeshCylinder(GeometryNode)
+GeometryNodeMeshFaceSetBoundaries(GeometryNode)
+GeometryNodeMeshGrid(GeometryNode)
+GeometryNodeMeshIcoSphere(GeometryNode)
+GeometryNodeMeshLine(GeometryNode)
+GeometryNodeMeshToCurve(GeometryNode)
+GeometryNodeMeshToDensityGrid(GeometryNode)
+GeometryNodeMeshToPoints(GeometryNode)
+GeometryNodeMeshToSDFGrid(GeometryNode)
+GeometryNodeMeshToVolume(GeometryNode)
+GeometryNodeMeshUVSphere(GeometryNode)
+GeometryNodeObjectInfo(GeometryNode)
+GeometryNodeOffsetCornerInFace(GeometryNode)
+GeometryNodeOffsetPointInCurve(GeometryNode)
+GeometryNodePoints(GeometryNode)
+GeometryNodePointsOfCurve(GeometryNode)
+GeometryNodePointsToCurves(GeometryNode)
+GeometryNodePointsToSDFGrid(GeometryNode)
+GeometryNodePointsToVertices(GeometryNode)
+GeometryNodePointsToVolume(GeometryNode)
+GeometryNodeProximity(GeometryNode)
+GeometryNodeRaycast(GeometryNode)
+GeometryNodeRealizeInstances(GeometryNode)
+GeometryNodeRemoveAttribute(GeometryNode)
+GeometryNodeRenameAttribute(GeometryNode)
+GeometryNodeRepeatInput(GeometryNode)
+GeometryNodeRepeatOutput(GeometryNode)
+GeometryNodeReplaceMaterial(GeometryNode)
+GeometryNodeResampleCurve(GeometryNode)
+GeometryNodeReverseCurve(GeometryNode)
+GeometryNodeRotateInstances(GeometryNode)
+GeometryNodeSDFGridBoolean(GeometryNode)
+GeometryNodeSDFGridFillet(GeometryNode)
+GeometryNodeSDFGridLaplacian(GeometryNode)
+GeometryNodeSDFGridMean(GeometryNode)
+GeometryNodeSDFGridMeanCurvature(GeometryNode)
+GeometryNodeSDFGridMedian(GeometryNode)
+GeometryNodeSDFGridOffset(GeometryNode)
+GeometryNodeSampleCurve(GeometryNode)
+GeometryNodeSampleGrid(GeometryNode)
+GeometryNodeSampleGridIndex(GeometryNode)
+GeometryNodeSampleIndex(GeometryNode)
+GeometryNodeSampleNearest(GeometryNode)
+GeometryNodeSampleNearestSurface(GeometryNode)
+GeometryNodeSampleSoundFrequencies(GeometryNode)
+GeometryNodeSampleUVSurface(GeometryNode)
+GeometryNodeScaleElements(GeometryNode)
+GeometryNodeScaleInstances(GeometryNode)
+GeometryNodeSelfObject(GeometryNode)
+GeometryNodeSeparateComponents(GeometryNode)
+GeometryNodeSeparateGeometry(GeometryNode)
+GeometryNodeSetCurveHandlePositions(GeometryNode)
+GeometryNodeSetCurveNormal(GeometryNode)
+GeometryNodeSetCurveRadius(GeometryNode)
+GeometryNodeSetCurveTilt(GeometryNode)
+GeometryNodeSetGeometryBundle(GeometryNode)
+GeometryNodeSetGeometryName(GeometryNode)
+GeometryNodeSetGreasePencilColor(GeometryNode)
+GeometryNodeSetGreasePencilDepth(GeometryNode)
+GeometryNodeSetGreasePencilSoftness(GeometryNode)
+GeometryNodeSetGridBackground(GeometryNode)
+GeometryNodeSetGridTransform(GeometryNode)
+GeometryNodeSetID(GeometryNode)
+GeometryNodeSetInstanceTransform(GeometryNode)
+GeometryNodeSetMaterial(GeometryNode)
+GeometryNodeSetMaterialIndex(GeometryNode)
+GeometryNodeSetMeshNormal(GeometryNode)
+GeometryNodeSetNURBSOrder(GeometryNode)
+GeometryNodeSetNURBSWeight(GeometryNode)
+GeometryNodeSetPointRadius(GeometryNode)
+GeometryNodeSetPosition(GeometryNode)
+GeometryNodeSetShadeSmooth(GeometryNode)
+GeometryNodeSetSplineCyclic(GeometryNode)
+GeometryNodeSetSplineResolution(GeometryNode)
+GeometryNodeSimulationInput(GeometryNode)
+GeometryNodeSimulationOutput(GeometryNode)
+GeometryNodeSortElements(GeometryNode)
+GeometryNodeSortList(GeometryNode)
+GeometryNodeSplineLength(GeometryNode)
+GeometryNodeSplineParameter(GeometryNode)
+GeometryNodeSplitEdges(GeometryNode)
+GeometryNodeSplitToInstances(GeometryNode)
+GeometryNodeStoreNamedAttribute(GeometryNode)
+GeometryNodeStoreNamedGrid(GeometryNode)
+GeometryNodeStringJoin(GeometryNode)
+GeometryNodeStringToCurves(GeometryNode)
+GeometryNodeSubdivideCurve(GeometryNode)
+GeometryNodeSubdivideMesh(GeometryNode)
+GeometryNodeSubdivisionSurface(GeometryNode)
+GeometryNodeSwitch(GeometryNode)
+GeometryNodeTagFilter(GeometryNode)
+GeometryNodeTool3DCursor(GeometryNode)
+GeometryNodeToolActiveElement(GeometryNode)
+GeometryNodeToolFaceSet(GeometryNode)
+GeometryNodeToolMousePosition(GeometryNode)
+GeometryNodeToolSelection(GeometryNode)
+GeometryNodeToolSetFaceSet(GeometryNode)
+GeometryNodeToolSetSelection(GeometryNode)
+GeometryNodeTransferAttributes(GeometryNode)
+GeometryNodeTransform(GeometryNode)
+GeometryNodeTranslateInstances(GeometryNode)
+GeometryNodeTriangulate(GeometryNode)
+GeometryNodeTrimCurve(GeometryNode)
+GeometryNodeUVPackIslands(GeometryNode)
+GeometryNodeUVTangent(GeometryNode)
+GeometryNodeUVUnwrap(GeometryNode)
+GeometryNodeVertexOfCorner(GeometryNode)
+GeometryNodeViewer(GeometryNode)
+GeometryNodeViewportTransform(GeometryNode)
+GeometryNodeVolumeCube(GeometryNode)
+GeometryNodeVolumeToMesh(GeometryNode)
+GeometryNodeWarning(GeometryNode)
+GeometryNodeXPBDSolver(GeometryNode)
+NodeClosureInput(NodeInternal)
+NodeClosureOutput(NodeInternal)
+NodeCombineBundle(NodeInternal)
+NodeEnableOutput(NodeInternal)
+NodeEvaluateClosure(NodeInternal)
+NodeFrame(NodeInternal)
+NodeGetBundleItem(NodeInternal)
+NodeGetNestedBundlePaths(NodeInternal)
+NodeGroup(NodeInternal)
+NodeGroupInput(NodeInternal)
+NodeGroupOutput(NodeInternal)
+NodeImplicitConversion(NodeInternal)
+NodeJoinBundle(NodeInternal)
+NodeReroute(NodeInternal)
+NodeSeparateBundle(NodeInternal)
+NodeStoreBundleItem(NodeInternal)
+ShaderNode(NodeInternal)
+ShaderNodeAddShader(ShaderNode)
+ShaderNodeAmbientOcclusion(ShaderNode)
+ShaderNodeAttribute(ShaderNode)
+ShaderNodeBackground(ShaderNode)
+ShaderNodeBevel(ShaderNode)
+ShaderNodeBlackbody(ShaderNode)
+ShaderNodeBrightContrast(ShaderNode)
+ShaderNodeBsdfAnisotropic(ShaderNode)
+ShaderNodeBsdfDiffuse(ShaderNode)
+ShaderNodeBsdfGlass(ShaderNode)
+ShaderNodeBsdfHair(ShaderNode)
+ShaderNodeBsdfHairPrincipled(ShaderNode)
+ShaderNodeBsdfMetallic(ShaderNode)
+ShaderNodeBsdfPrincipled(ShaderNode)
+ShaderNodeBsdfRayPortal(ShaderNode)
+ShaderNodeBsdfRefraction(ShaderNode)
+ShaderNodeBsdfSheen(ShaderNode)
+ShaderNodeBsdfToon(ShaderNode)
+ShaderNodeBsdfTranslucent(ShaderNode)
+ShaderNodeBsdfTransparent(ShaderNode)
+ShaderNodeBump(ShaderNode)
+ShaderNodeCameraData(ShaderNode)
+ShaderNodeClamp(ShaderNode)
+ShaderNodeCombineColor(ShaderNode)
+ShaderNodeCombineXYZ(ShaderNode)
+ShaderNodeCustomGroup(ShaderNode)
+ShaderNodeDisplacement(ShaderNode)
+ShaderNodeEeveeSpecular(ShaderNode)
+ShaderNodeEmission(ShaderNode)
+ShaderNodeFloatCurve(ShaderNode)
+ShaderNodeFresnel(ShaderNode)
+ShaderNodeGamma(ShaderNode)
+ShaderNodeGroup(ShaderNode)
+ShaderNodeHairInfo(ShaderNode)
+ShaderNodeHoldout(ShaderNode)
+ShaderNodeHueSaturation(ShaderNode)
+ShaderNodeInvert(ShaderNode)
+ShaderNodeLayerWeight(ShaderNode)
+ShaderNodeLightFalloff(ShaderNode)
+ShaderNodeLightPath(ShaderNode)
+ShaderNodeMapRange(ShaderNode)
+ShaderNodeMapping(ShaderNode)
+ShaderNodeMath(ShaderNode)
+ShaderNodeMix(ShaderNode)
+ShaderNodeMixRGB(ShaderNode)
+ShaderNodeMixShader(ShaderNode)
+ShaderNodeNewGeometry(ShaderNode)
+ShaderNodeNormal(ShaderNode)
+ShaderNodeNormalMap(ShaderNode)
+ShaderNodeObjectInfo(ShaderNode)
+ShaderNodeOutputAOV(ShaderNode)
+ShaderNodeOutputLight(ShaderNode)
+ShaderNodeOutputLineStyle(ShaderNode)
+ShaderNodeOutputMaterial(ShaderNode)
+ShaderNodeOutputWorld(ShaderNode)
+ShaderNodeParticleInfo(ShaderNode)
+ShaderNodePointInfo(ShaderNode)
+ShaderNodeRGB(ShaderNode)
+ShaderNodeRGBCurve(ShaderNode)
+ShaderNodeRGBToBW(ShaderNode)
+ShaderNodeRadialTiling(ShaderNode)
+ShaderNodeRaycast(ShaderNode)
+ShaderNodeScript(ShaderNode)
+ShaderNodeSeparateColor(ShaderNode)
+ShaderNodeSeparateXYZ(ShaderNode)
+ShaderNodeShaderToRGB(ShaderNode)
+ShaderNodeSqueeze(ShaderNode)
+ShaderNodeSubsurfaceScattering(ShaderNode)
+ShaderNodeTangent(ShaderNode)
+ShaderNodeTexBrick(ShaderNode)
+ShaderNodeTexChecker(ShaderNode)
+ShaderNodeTexCoord(ShaderNode)
+ShaderNodeTexEnvironment(ShaderNode)
+ShaderNodeTexGabor(ShaderNode)
+ShaderNodeTexGradient(ShaderNode)
+ShaderNodeTexIES(ShaderNode)
+ShaderNodeTexImage(ShaderNode)
+ShaderNodeTexMagic(ShaderNode)
+ShaderNodeTexNoise(ShaderNode)
+ShaderNodeTexSky(ShaderNode)
+ShaderNodeTexVoronoi(ShaderNode)
+ShaderNodeTexWave(ShaderNode)
+ShaderNodeTexWhiteNoise(ShaderNode)
+ShaderNodeUVAlongStroke(ShaderNode)
+ShaderNodeUVMap(ShaderNode)
+ShaderNodeValToRGB(ShaderNode)
+ShaderNodeValue(ShaderNode)
+ShaderNodeVectorCurve(ShaderNode)
+ShaderNodeVectorDisplacement(ShaderNode)
+ShaderNodeVectorMath(ShaderNode)
+ShaderNodeVectorRotate(ShaderNode)
+ShaderNodeVectorTransform(ShaderNode)
+ShaderNodeVertexColor(ShaderNode)
+ShaderNodeVolumeAbsorption(ShaderNode)
+ShaderNodeVolumeCoefficients(ShaderNode)
+ShaderNodeVolumeInfo(ShaderNode)
+ShaderNodeVolumePrincipled(ShaderNode)
+ShaderNodeVolumeScatter(ShaderNode)
+ShaderNodeWavelength(ShaderNode)
+ShaderNodeWireframe(ShaderNode)
+TextureNode(NodeInternal)
+TextureNodeAt(TextureNode)
+TextureNodeBricks(TextureNode)
+TextureNodeChecker(TextureNode)
+TextureNodeCombineColor(TextureNode)
+TextureNodeCompose(TextureNode)
+TextureNodeCoordinates(TextureNode)
+TextureNodeCurveRGB(TextureNode)
+TextureNodeCurveTime(TextureNode)
+TextureNodeDecompose(TextureNode)
+TextureNodeDistance(TextureNode)
+TextureNodeGroup(TextureNode)
+TextureNodeHueSaturation(TextureNode)
+TextureNodeImage(TextureNode)
+TextureNodeInvert(TextureNode)
+TextureNodeMath(TextureNode)
+TextureNodeMixRGB(TextureNode)
+TextureNodeOutput(TextureNode)
+TextureNodeRGBToBW(TextureNode)
+TextureNodeRotate(TextureNode)
+TextureNodeScale(TextureNode)
+TextureNodeSeparateColor(TextureNode)
+TextureNodeTexBlend(TextureNode)
+TextureNodeTexClouds(TextureNode)
+TextureNodeTexDistNoise(TextureNode)
+TextureNodeTexMagic(TextureNode)
+TextureNodeTexMarble(TextureNode)
+TextureNodeTexMusgrave(TextureNode)
+TextureNodeTexNoise(TextureNode)
+TextureNodeTexStucci(TextureNode)
+TextureNodeTexVoronoi(TextureNode)
+TextureNodeTexWood(TextureNode)
+TextureNodeTexture(TextureNode)
+TextureNodeTranslate(TextureNode)
+TextureNodeValToNor(TextureNode)
+TextureNodeValToRGB(TextureNode)
+TextureNodeViewer(TextureNode)
+NodeClosureInputItem(bpy_struct)
+NodeClosureInputItems(bpy_prop_collection)
+NodeClosureOutputItem(bpy_struct)
+NodeClosureOutputItems(bpy_prop_collection)
+NodeCombineBundleItem(bpy_struct)
+NodeCombineBundleItems(bpy_prop_collection)
+NodeCompositorFileOutputItem(bpy_struct)
+NodeCompositorFileOutputItems(bpy_prop_collection)
+NodeEnumItem(bpy_struct)
+NodeEvaluateClosureInputItem(bpy_struct)
+NodeEvaluateClosureInputItems(bpy_prop_collection)
+NodeEvaluateClosureOutputItem(bpy_struct)
+NodeEvaluateClosureOutputItems(bpy_prop_collection)
+NodeFunctionFormatStringItem(bpy_struct)
+NodeFunctionFormatStringItems(bpy_prop_collection)
+NodeGeometryBakeItem(bpy_struct)
+NodeGeometryBakeItems(bpy_prop_collection)
+NodeGeometryCaptureAttributeItem(bpy_struct)
+NodeGeometryCaptureAttributeItems(bpy_prop_collection)
+NodeGeometryForeachGeometryElementGenerationItems(bpy_prop_collection)
+NodeGeometryForeachGeometryElementInputItems(bpy_prop_collection)
+NodeGeometryForeachGeometryElementMainItems(bpy_prop_collection)
+NodeGeometryRepeatOutputItems(bpy_prop_collection)
+NodeGeometrySimulationOutputItems(bpy_prop_collection)
+NodeGeometryViewerItem(bpy_struct)
+NodeGeometryViewerItems(bpy_prop_collection)
+NodeIndexSwitchItems(bpy_prop_collection)
+NodeInputs(bpy_prop_collection)
+NodeInternalSocketTemplate(bpy_struct)
+NodeLink(bpy_struct)
+NodeLinks(bpy_prop_collection)
+NodeMenuSwitchItems(bpy_prop_collection)
+NodeOutputs(bpy_prop_collection)
+NodePanelState(bpy_struct)
+NodeRaycastSampleAttributeItem(bpy_struct)
+NodeRaycastSampleAttributeItems(bpy_prop_collection)
+NodeSeparateBundleItem(bpy_struct)
+NodeSeparateBundleItems(bpy_prop_collection)
+NodeSocket(bpy_struct)
+NodeSocketStandard(NodeSocket)
+NodeSocketBool(NodeSocketStandard)
+NodeSocketBundle(NodeSocketStandard)
+NodeSocketClosure(NodeSocketStandard)
+NodeSocketCollection(NodeSocketStandard)
+NodeSocketColor(NodeSocketStandard)
+NodeSocketFloat(NodeSocketStandard)
+NodeSocketFloatAngle(NodeSocketStandard)
+NodeSocketFloatColorTemperature(NodeSocketStandard)
+NodeSocketFloatDistance(NodeSocketStandard)
+NodeSocketFloatFactor(NodeSocketStandard)
+NodeSocketFloatFrequency(NodeSocketStandard)
+NodeSocketFloatMass(NodeSocketStandard)
+NodeSocketFloatPercentage(NodeSocketStandard)
+NodeSocketFloatPixel(NodeSocketStandard)
+NodeSocketFloatTime(NodeSocketStandard)
+NodeSocketFloatTimeAbsolute(NodeSocketStandard)
+NodeSocketFloatUnsigned(NodeSocketStandard)
+NodeSocketFloatWavelength(NodeSocketStandard)
+NodeSocketFont(NodeSocketStandard)
+NodeSocketGeometry(NodeSocketStandard)
+NodeSocketImage(NodeSocketStandard)
+NodeSocketInt(NodeSocketStandard)
+NodeSocketIntFactor(NodeSocketStandard)
+NodeSocketIntPercentage(NodeSocketStandard)
+NodeSocketIntPixel(NodeSocketStandard)
+NodeSocketIntUnsigned(NodeSocketStandard)
+NodeSocketIntVector2D(NodeSocketStandard)
+NodeSocketIntVector3D(NodeSocketStandard)
+NodeSocketIntVectorFactor2D(NodeSocketStandard)
+NodeSocketIntVectorFactor3D(NodeSocketStandard)
+NodeSocketIntVectorPercentage2D(NodeSocketStandard)
+NodeSocketIntVectorPercentage3D(NodeSocketStandard)
+NodeSocketIntVectorPixel2D(NodeSocketStandard)
+NodeSocketIntVectorPixel3D(NodeSocketStandard)
+NodeSocketIntVectorUnsigned2D(NodeSocketStandard)
+NodeSocketIntVectorUnsigned3D(NodeSocketStandard)
+NodeSocketMask(NodeSocketStandard)
+NodeSocketMaterial(NodeSocketStandard)
+NodeSocketMatrix(NodeSocketStandard)
+NodeSocketMenu(NodeSocketStandard)
+NodeSocketObject(NodeSocketStandard)
+NodeSocketRotation(NodeSocketStandard)
+NodeSocketScene(NodeSocketStandard)
+NodeSocketShader(NodeSocketStandard)
+NodeSocketSound(NodeSocketStandard)
+NodeSocketString(NodeSocketStandard)
+NodeSocketStringFilePath(NodeSocketStandard)
+NodeSocketText(NodeSocketStandard)
+NodeSocketTexture(NodeSocketStandard)
+NodeSocketVector(NodeSocketStandard)
+NodeSocketVector2D(NodeSocketStandard)
+NodeSocketVector4D(NodeSocketStandard)
+NodeSocketVectorAcceleration(NodeSocketStandard)
+NodeSocketVectorAcceleration2D(NodeSocketStandard)
+NodeSocketVectorAcceleration4D(NodeSocketStandard)
+NodeSocketVectorDirection(NodeSocketStandard)
+NodeSocketVectorDirection2D(NodeSocketStandard)
+NodeSocketVectorDirection4D(NodeSocketStandard)
+NodeSocketVectorEuler(NodeSocketStandard)
+NodeSocketVectorEuler2D(NodeSocketStandard)
+NodeSocketVectorEuler4D(NodeSocketStandard)
+NodeSocketVectorFactor(NodeSocketStandard)
+NodeSocketVectorFactor2D(NodeSocketStandard)
+NodeSocketVectorFactor4D(NodeSocketStandard)
+NodeSocketVectorPercentage(NodeSocketStandard)
+NodeSocketVectorPercentage2D(NodeSocketStandard)
+NodeSocketVectorPercentage4D(NodeSocketStandard)
+NodeSocketVectorPixel(NodeSocketStandard)
+NodeSocketVectorPixel2D(NodeSocketStandard)
+NodeSocketVectorPixel4D(NodeSocketStandard)
+NodeSocketVectorTranslation(NodeSocketStandard)
+NodeSocketVectorTranslation2D(NodeSocketStandard)
+NodeSocketVectorTranslation4D(NodeSocketStandard)
+NodeSocketVectorVelocity(NodeSocketStandard)
+NodeSocketVectorVelocity2D(NodeSocketStandard)
+NodeSocketVectorVelocity4D(NodeSocketStandard)
+NodeSocketVectorXYZ(NodeSocketStandard)
+NodeSocketVectorXYZ2D(NodeSocketStandard)
+NodeSocketVectorXYZ4D(NodeSocketStandard)
+NodeSocketVirtual(NodeSocketStandard)
+NodeTreeInterface(bpy_struct)
+NodeTreeInterfaceItem(bpy_struct)
+NodeTreeInterfacePanel(NodeTreeInterfaceItem)
+NodeTreeInterfaceSocket(NodeTreeInterfaceItem)
+NodeTreeInterfaceSocketBool(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketBundle(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketClosure(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketCollection(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketColor(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloat(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatAngle(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatColorTemperature(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatDistance(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatFactor(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatFrequency(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatMass(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatPercentage(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatPixel(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatTime(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatTimeAbsolute(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatUnsigned(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFloatWavelength(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketFont(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketGeometry(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketImage(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketInt(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntFactor(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntPercentage(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntPixel(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntUnsigned(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVector2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVector3D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVectorFactor2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVectorFactor3D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVectorPercentage2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVectorPercentage3D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVectorPixel2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVectorPixel3D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVectorUnsigned2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketIntVectorUnsigned3D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketMask(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketMaterial(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketMatrix(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketMenu(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketObject(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketRotation(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketScene(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketShader(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketSound(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketString(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketStringFilePath(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketText(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketTexture(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVector(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVector2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVector4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorAcceleration(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorAcceleration2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorAcceleration4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorDirection(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorDirection2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorDirection4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorEuler(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorEuler2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorEuler4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorFactor(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorFactor2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorFactor4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorPercentage(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorPercentage2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorPercentage4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorPixel(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorPixel2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorPixel4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorTranslation(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorTranslation2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorTranslation4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorVelocity(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorVelocity2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorVelocity4D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorXYZ(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorXYZ2D(NodeTreeInterfaceSocket)
+NodeTreeInterfaceSocketVectorXYZ4D(NodeTreeInterfaceSocket)
+NodeTreePath(bpy_struct)
+Nodes(bpy_prop_collection)
+NodesModifierBake(bpy_struct)
+NodesModifierBakeDataBlocks(bpy_prop_collection)
+NodesModifierBakes(bpy_prop_collection)
+NodesModifierDataBlock(bpy_struct)
+NodesModifierPanel(bpy_struct)
+NodesModifierPanels(bpy_prop_collection)
+NodesModifierProperties(bpy_struct)
+NodesModifierPropertiesEmpty(bpy_struct)
+NodesModifierWarning(bpy_struct)
+ObjectBase(bpy_struct)
+ObjectConstraints(bpy_prop_collection)
+ObjectDisplay(bpy_struct)
+ObjectLightLinking(bpy_struct)
+ObjectLineArt(bpy_struct)
+ObjectModifiers(bpy_prop_collection)
+ObjectShaderFx(bpy_prop_collection)
+Operator(bpy_struct)
+OperatorMacro(bpy_struct)
+OperatorOptions(bpy_struct)
+OperatorProperties(bpy_struct)
+PackedFile(bpy_struct)
+Paint(bpy_struct)
+CurvesSculpt(Paint)
+GpPaint(Paint)
+GpSculptPaint(Paint)
+GpVertexPaint(Paint)
+GpWeightPaint(Paint)
+ImagePaint(Paint)
+Sculpt(Paint)
+VertexPaint(Paint)
+PaintModeSettings(bpy_struct)
+PaletteColor(bpy_struct)
+PaletteColors(bpy_prop_collection)
+Panel(bpy_struct)
+Particle(bpy_struct)
+ParticleBrush(bpy_struct)
+ParticleDupliWeight(bpy_struct)
+ParticleEdit(bpy_struct)
+ParticleHairKey(bpy_struct)
+ParticleKey(bpy_struct)
+ParticleSettingsTextureSlots(bpy_prop_collection)
+ParticleSystem(bpy_struct)
+ParticleSystems(bpy_prop_collection)
+ParticleTarget(bpy_struct)
+PathCompare(bpy_struct)
+PathCompareCollection(bpy_prop_collection)
+Point(bpy_struct)
+PointCache(bpy_struct)
+PointCacheItem(bpy_struct)
+PointCaches(bpy_prop_collection)
+Pose(bpy_struct)
+PoseBone(bpy_struct)
+PoseBoneConstraints(bpy_prop_collection)
+Preferences(bpy_struct)
+PreferencesApps(bpy_struct)
+PreferencesAssetLibraries(bpy_struct)
+PreferencesEdit(bpy_struct)
+PreferencesExperimental(bpy_struct)
+PreferencesExtensions(bpy_struct)
+PreferencesFilePaths(bpy_struct)
+PreferencesInput(bpy_struct)
+PreferencesKeymap(bpy_struct)
+PreferencesSystem(bpy_struct)
+PreferencesView(bpy_struct)
+PrimitiveBoolean(bpy_struct)
+PrimitiveFloat(bpy_struct)
+PrimitiveInt(bpy_struct)
+PrimitiveString(bpy_struct)
+Property(bpy_struct)
+BoolProperty(Property)
+CollectionProperty(Property)
+EnumProperty(Property)
+FloatProperty(Property)
+IntProperty(Property)
+PointerProperty(Property)
+StringProperty(Property)
+PropertyGroup(bpy_struct)
+OperatorFileListElement(PropertyGroup)
+OperatorMousePath(PropertyGroup)
+OperatorStrokeElement(PropertyGroup)
+SelectedUvElement(PropertyGroup)
+PropertyGroupItem(bpy_struct)
+QuaternionAttributeValue(bpy_struct)
+RaytraceEEVEE(bpy_struct)
+ReadOnlyInteger(bpy_struct)
+Region(bpy_struct)
+RegionView3D(bpy_struct)
+RenderEngine(bpy_struct)
+HydraRenderEngine(RenderEngine)
+RenderLayer(bpy_struct)
+RenderPass(bpy_struct)
+RenderPasses(bpy_prop_collection)
+RenderResult(bpy_struct)
+RenderSettings(bpy_struct)
+RenderSlot(bpy_struct)
+RenderSlots(bpy_prop_collection)
+RenderView(bpy_struct)
+RenderViews(bpy_prop_collection)
+RepeatItem(bpy_struct)
+Report(bpy_struct)
+RetimingKey(bpy_struct)
+RetimingKeys(bpy_prop_collection)
+RigidBodyConstraint(bpy_struct)
+RigidBodyObject(bpy_struct)
+RigidBodyWorld(bpy_struct)
+SPHFluidSettings(bpy_struct)
+SceneDisplay(bpy_struct)
+SceneEEVEE(bpy_struct)
+SceneGpencil(bpy_struct)
+SceneHydra(bpy_struct)
+SceneObjects(bpy_prop_collection)
+SceneRenderView(bpy_struct)
+Scopes(bpy_struct)
+ScriptDirectory(bpy_struct)
+ScriptDirectoryCollection(bpy_prop_collection)
+SequenceEditor(bpy_struct)
+SequenceTimelineChannel(bpy_struct)
+SequencerCacheOverlay(bpy_struct)
+SequencerCompositorModifierProperties(bpy_struct)
+SequencerCompositorModifierPropertiesEmpty(bpy_struct)
+SequencerPreviewOverlay(bpy_struct)
+SequencerTimelineOverlay(bpy_struct)
+SequencerToolSettings(bpy_struct)
+ShaderFx(bpy_struct)
+ShaderFxBlur(ShaderFx)
+ShaderFxColorize(ShaderFx)
+ShaderFxFlip(ShaderFx)
+ShaderFxGlow(ShaderFx)
+ShaderFxPixel(ShaderFx)
+ShaderFxRim(ShaderFx)
+ShaderFxShadow(ShaderFx)
+ShaderFxSwirl(ShaderFx)
+ShaderFxWave(ShaderFx)
+ShapeKey(bpy_struct)
+ShapeKeyBezierPoint(bpy_struct)
+ShapeKeyCurvePoint(bpy_struct)
+ShapeKeyPoint(bpy_struct)
+Short2AttributeValue(bpy_struct)
+SimulationStateItem(bpy_struct)
+SoftBodySettings(bpy_struct)
+Space(bpy_struct)
+SpaceClipEditor(Space)
+SpaceConsole(Space)
+SpaceDopeSheetEditor(Space)
+SpaceFileBrowser(Space)
+SpaceGraphEditor(Space)
+SpaceImageEditor(Space)
+SpaceInfo(Space)
+SpaceNLA(Space)
+SpaceNodeEditor(Space)
+SpaceOutliner(Space)
+SpacePreferences(Space)
+SpaceProperties(Space)
+SpaceSequenceEditor(Space)
+SpaceSpreadsheet(Space)
+SpaceTextEditor(Space)
+SpaceView3D(Space)
+SpaceClipOverlay(bpy_struct)
+SpaceDopeSheetOverlay(bpy_struct)
+SpaceImageOverlay(bpy_struct)
+SpaceNodeEditorPath(bpy_prop_collection)
+SpaceNodeOverlay(bpy_struct)
+SpaceUVEditor(bpy_struct)
+Spline(bpy_struct)
+SplineBezierPoints(bpy_prop_collection)
+SplinePoint(bpy_struct)
+SplinePoints(bpy_prop_collection)
+SpreadsheetColumn(bpy_struct)
+SpreadsheetColumnID(bpy_struct)
+SpreadsheetRowFilter(bpy_struct)
+SpreadsheetTable(bpy_struct)
+SpreadsheetTableID(bpy_struct)
+SpreadsheetTableIDGeometry(SpreadsheetTableID)
+SpreadsheetTables(bpy_prop_collection)
+Stereo3dDisplay(bpy_struct)
+Stereo3dFormat(bpy_struct)
+StringAttributeValue(bpy_struct)
+Strip(bpy_struct)
+EffectStrip(Strip)
+AddStrip(EffectStrip)
+AdjustmentStrip(EffectStrip)
+AlphaOverStrip(EffectStrip)
+AlphaUnderStrip(EffectStrip)
+ColorMixStrip(EffectStrip)
+ColorStrip(EffectStrip)
+CompositorStrip(EffectStrip)
+CrossStrip(EffectStrip)
+GammaCrossStrip(EffectStrip)
+GaussianBlurStrip(EffectStrip)
+GlowStrip(EffectStrip)
+MulticamStrip(EffectStrip)
+MultiplyStrip(EffectStrip)
+SpeedControlStrip(EffectStrip)
+SubtractStrip(EffectStrip)
+TextStrip(EffectStrip)
+WipeStrip(EffectStrip)
+ImageStrip(Strip)
+MaskStrip(Strip)
+MetaStrip(Strip)
+MovieClipStrip(Strip)
+MovieStrip(Strip)
+SceneStrip(Strip)
+SoundStrip(Strip)
+StripColorBalanceData(bpy_struct)
+StripColorBalance(StripColorBalanceData)
+StripCrop(bpy_struct)
+StripElement(bpy_struct)
+StripElements(bpy_prop_collection)
+StripModifier(bpy_struct)
+BrightContrastModifier(StripModifier)
+ColorBalanceModifier(StripModifier)
+CurvesModifier(StripModifier)
+EchoModifier(StripModifier)
+HueCorrectModifier(StripModifier)
+MaskStripModifier(StripModifier)
+PitchModifier(StripModifier)
+SequencerCompositorModifierData(StripModifier)
+SequencerTonemapModifierData(StripModifier)
+SoundEqualizerModifier(StripModifier)
+WhiteBalanceModifier(StripModifier)
+StripModifiers(bpy_prop_collection)
+StripProxy(bpy_struct)
+StripTransform(bpy_struct)
+StripsMeta(bpy_prop_collection)
+StripsTopLevel(bpy_prop_collection)
+Struct(bpy_struct)
+StudioLight(bpy_struct)
+StudioLights(bpy_prop_collection)
+TexMapping(bpy_struct)
+TexPaintSlot(bpy_struct)
+TextBox(bpy_struct)
+TextCharacterFormat(bpy_struct)
+TextLine(bpy_struct)
+TextboxState(bpy_struct)
+TextureSlot(bpy_struct)
+BrushTextureSlot(TextureSlot)
+LineStyleTextureSlot(TextureSlot)
+ParticleSettingsTextureSlot(TextureSlot)
+Theme(bpy_struct)
+ThemeBoneColorSet(bpy_struct)
+ThemeClipEditor(bpy_struct)
+ThemeCollectionColor(bpy_struct)
+ThemeCommon(bpy_struct)
+ThemeCommonAnim(bpy_struct)
+ThemeCommonCurves(bpy_struct)
+ThemeConsole(bpy_struct)
+ThemeDopeSheet(bpy_struct)
+ThemeFileBrowser(bpy_struct)
+ThemeFontStyle(bpy_struct)
+ThemeGradientColors(bpy_struct)
+ThemeGraphEditor(bpy_struct)
+ThemeImageEditor(bpy_struct)
+ThemeInfo(bpy_struct)
+ThemeNLAEditor(bpy_struct)
+ThemeNodeEditor(bpy_struct)
+ThemeOutliner(bpy_struct)
+ThemePreferences(bpy_struct)
+ThemeProperties(bpy_struct)
+ThemeRegions(bpy_struct)
+ThemeRegionsAssetShelf(bpy_struct)
+ThemeRegionsChannels(bpy_struct)
+ThemeRegionsScrubbing(bpy_struct)
+ThemeRegionsSidebars(bpy_struct)
+ThemeSequenceEditor(bpy_struct)
+ThemeSpaceGeneric(bpy_struct)
+ThemeSpaceGradient(bpy_struct)
+ThemeSpreadsheet(bpy_struct)
+ThemeStatusBar(bpy_struct)
+ThemeStripColor(bpy_struct)
+ThemeStyle(bpy_struct)
+ThemeTextEditor(bpy_struct)
+ThemeTopBar(bpy_struct)
+ThemeUserInterface(bpy_struct)
+ThemeView3D(bpy_struct)
+ThemeWidgetColors(bpy_struct)
+ThemeWidgetStateColors(bpy_struct)
+TimelineMarker(bpy_struct)
+TimelineMarkers(bpy_prop_collection)
+Timer(bpy_struct)
+ToolSettings(bpy_struct)
+TransformOrientation(bpy_struct)
+TransformOrientationSlot(bpy_struct)
+UDIMTile(bpy_struct)
+UDIMTiles(bpy_prop_collection)
+UILayout(bpy_struct)
+UIList(bpy_struct)
+ASSETBROWSER_UL_metadata_tags(UIList)
+CLIP_UL_tracking_objects(UIList)
+CURVES_UL_attributes(UIList)
+DATA_UL_bone_collections(UIList)
+FILEBROWSER_UL_dir(UIList)
+GPENCIL_UL_annotation_layer(UIList)
+GPENCIL_UL_matslots(UIList)
+GREASE_PENCIL_UL_attributes(UIList)
+GREASE_PENCIL_UL_masks(UIList)
+IMAGE_UL_render_slots(UIList)
+IMAGE_UL_udim_tiles(UIList)
+MASK_UL_layers(UIList)
+MATERIAL_UL_matslots(UIList)
+MESH_UL_attributes(UIList)
+MESH_UL_color_attributes(UIList)
+MESH_UL_color_attributes_selector(UIList)
+MESH_UL_uvmaps(UIList)
+MESH_UL_vgroups(UIList)
+PARTICLE_UL_particle_systems(UIList)
+PHYSICS_UL_dynapaint_surfaces(UIList)
+POINTCLOUD_UL_attributes(UIList)
+POSE_UL_selection_set(UIList)
+RENDER_UL_renderviews(UIList)
+SCENE_UL_gltf2_filter_action(UIList)
+SCENE_UL_keying_set_paths(UIList)
+TEXTURE_UL_texpaintslots(UIList)
+TEXTURE_UL_texslots(UIList)
+UI_UL_list(UIList)
+USERPREF_UL_extension_repos(UIList)
+VIEWLAYER_UL_aov(UIList)
+VIEWLAYER_UL_linesets(UIList)
+VOLUME_UL_grids(UIList)
+WORKSPACE_UL_addons_items(UIList)
+UIPieMenu(bpy_struct)
+UIPopover(bpy_struct)
+UIPopupMenu(bpy_struct)
+USDHook(bpy_struct)
+UVLoopLayers(bpy_prop_collection)
+UVProjector(bpy_struct)
+UnifiedPaintSettings(bpy_struct)
+UnitSettings(bpy_struct)
+UnknownType(bpy_struct)
+UserAssetLibrary(bpy_struct)
+UserExtensionRepo(bpy_struct)
+UserExtensionRepoCollection(bpy_prop_collection)
+UserSolidLight(bpy_struct)
+UvSculpt(bpy_struct)
+VertexGroup(bpy_struct)
+VertexGroupElement(bpy_struct)
+VertexGroups(bpy_prop_collection)
+View2D(bpy_struct)
+View3DCursor(bpy_struct)
+View3DOverlay(bpy_struct)
+View3DShading(bpy_struct)
+ViewLayer(bpy_struct)
+ViewLayerEEVEE(bpy_struct)
+ViewLayers(bpy_prop_collection)
+ViewerPath(bpy_struct)
+ViewerPathElem(bpy_struct)
+EvaluateClosureNodeViewerPathElem(ViewerPathElem)
+ForeachGeometryElementZoneViewerPathElem(ViewerPathElem)
+GroupNodeViewerPathElem(ViewerPathElem)
+IDViewerPathElem(ViewerPathElem)
+ModifierViewerPathElem(ViewerPathElem)
+RepeatZoneViewerPathElem(ViewerPathElem)
+SimulationZoneViewerPathElem(ViewerPathElem)
+ViewerNodeViewerPathElem(ViewerPathElem)
+VolumeDisplay(bpy_struct)
+VolumeGrid(bpy_struct)
+VolumeGrids(bpy_prop_collection)
+VolumeRender(bpy_struct)
+WalkNavigation(bpy_struct)
+Window(bpy_struct)
+Windows(bpy_prop_collection)
+WorkSpaceTool(bpy_struct)
+WorldLighting(bpy_struct)
+WorldMistSettings(bpy_struct)
+XrActionMap(bpy_struct)
+XrActionMapBinding(bpy_struct)
+XrActionMapBindings(bpy_prop_collection)
+XrActionMapItem(bpy_struct)
+XrActionMapItems(bpy_prop_collection)
+XrActionMaps(bpy_prop_collection)
+XrComponentPath(bpy_struct)
+XrComponentPaths(bpy_prop_collection)
+XrEventData(bpy_struct)
+XrNavigation(bpy_struct)
+XrSessionSettings(bpy_struct)
+XrSessionState(bpy_struct)
+XrUserPath(bpy_struct)
+XrUserPaths(bpy_prop_collection)
+XrViewfinderState(bpy_struct)
+wmOwnerID(bpy_struct)
+wmOwnerIDs(bpy_prop_collection)
+wmTools(bpy_prop_collection)
+bpy_prop
+bpy_prop_array
+bpy_prop_collection_idprop
+bpy_prop_collection
+BlendDataPathMeta
+ContextTempOverride
+GeometrySet
+InlineShaderNodes
+Shared Enum Types
+Id Type Items
+Object Mode Items
+Workspace Object Mode Items
+Object Empty Drawtype Items
+Object Gpencil Type Items
+Metaelem Type Items
+Color Space Convert Default Items
+Proportional Falloff Items
+Proportional Falloff Curve Only Items
+Snap Source Items
+Snap Element Items
+Snap Animation Element Items
+Curve Fit Method Items
+Mesh Select Mode Items
+Mesh Select Mode Uv Items
+Mesh Delimit Mode Items
+Mesh Walk Delimit Edge Loop Items
+Mesh Walk Delimit Edge Ring Items
+Mesh Walk Delimit Face Loop Items
+Space Graph Mode Items
+Space File Browse Mode Items
+Space Sequencer View Type Items
+Space Type Items
+Space Image Mode Items
+Space Image Mode All Items
+Space Action Mode Items
+Fileselect Params Sort Items
+Asset Access Items
+Region Type Items
+Region Panel Category Items
+Object Modifier Type Items
+Constraint Type Items
+Boidrule Type Items
+Strip Modifier Type Items
+Strip Video Modifier Type Items
+Strip Sound Modifier Type Items
+Strip Scale Method Items
+Object Shaderfx Type Items
+Modifier Triangulate Quad Method Items
+Modifier Triangulate Ngon Method Items
+Modifier Shrinkwrap Mode Items
+Shrinkwrap Type Items
+Shrinkwrap Face Cull Items
+Node Warning Type Items
+Image Type All Items
+Image Color Mode Items
+Image Color Depth Items
+Image Generated Type Items
+Normal Space Items
+Normal Swizzle Items
+Bake Save Mode Items
+Bake Margin Type Items
+Bake Target Items
+Views Format Items
+Views Format Multilayer Items
+Views Format Multiview Items
+Stereo3D Display Items
+Stereo3D Anaglyph Type Items
+Stereo3D Interlace Type Items
+Exr Codec Items
+Color Sets Items
+Beztriple Keyframe Type Items
+Beztriple Interpolation Mode Items
+Beztriple Interpolation Easing Items
+Fcurve Auto Smoothing Items
+Keyframe Handle Type Items
+Driver Target Rotation Mode Items
+Keyingset Path Grouping Items
+Keying Flag Items
+Keying Flag Api Items
+Fmodifier Type Items
+Motionpath Bake Location Items
+Motionpath Display Type Items
+Motionpath Range Items
+Event Value Items
+Event Direction Items
+Event Type Items
+Event Type Mask Items
+Operator Type Flag Items
+Operator Return Items
+Operator Property Tag Items
+Shared Automasking Flag Items
+Brush Sculpt Brush Type Items
+Brush Vertex Brush Type Items
+Brush Weight Brush Type Items
+Brush Gpencil Types Items
+Brush Gpencil Vertex Types Items
+Brush Gpencil Sculpt Types Items
+Brush Gpencil Weight Types Items
+Brush Curves Sculpt Brush Type Items
+Brush Image Brush Type Items
+Brush Curve Preset Items
+Grease Pencil Selectmode Items
+Stroke Depth Order Items
+Axis Xy Items
+Axis Xyz Items
+Axis Flag Xyz Items
+Symmetrize Direction Items
+Texture Type Items
+Light Type Items
+Lightprobes Type Items
+Unpack Method Items
+Object Type Items
+Object Rotation Mode Items
+Object Type Curve Items
+Rigidbody Object Type Items
+Rigidbody Object Shape Items
+Rigidbody Constraint Type Items
+Object Axis Items
+Object Axis Flip Items
+Bake Pass Type Items
+Bake Pass Filter Type Items
+Keymap Propvalue Items
+Operator Context Items
+Wm Report Items
+Wm Job Type Items
+Property Type Items
+Property Subtype Items
+Property Subtype String Items
+Property Subtype Number Items
+Property Subtype Number Array Items
+Property Unit Items
+Property Flag Items
+Property Flag Enum Items
+Property Override Flag Items
+Property Override Flag Collection Items
+Property String Search Flag Items
+Shading Type Items
+Navigation Mode Items
+Node Socket In Out Items
+Node Socket Type Items
+Node Tree Interface Item Type Items
+Node Socket Structure Type Items
+Node Math Items
+Mapping Type Items
+Node Vec Math Items
+Node Boolean Math Items
+Node Compare Operation Items
+Node Integer Math Items
+Node Float To Int Items
+Node Map Range Items
+Node Clamp Items
+Node Compositor Extension Items
+Node Compositor Interpolation Items
+Ramp Blend Items
+Prop Dynamicpaint Type Items
+Clip Editor Mode Items
+Icon Items
+Uilist Layout Type Items
+Linestyle Color Modifier Type Items
+Linestyle Alpha Modifier Type Items
+Linestyle Thickness Modifier Type Items
+Linestyle Geometry Modifier Type Items
+Window Cursor Items
+Dt Method Vertex Items
+Dt Method Edge Items
+Dt Method Loop Items
+Dt Method Poly Items
+Dt Mix Mode Items
+Dt Layers Select Src Items
+Dt Layers Select Dst Items
+Context Mode Items
+Preference Section Items
+Attribute Type Items
+Attrtype Items
+Attr Storage Type Items
+Color Attribute Type Items
+Attribute Type With Auto Items
+Attribute Domain Items
+Attribute Domain Edge Face Items
+Attribute Domain Only Mesh Items
+Attribute Domain Only Mesh No Edge Items
+Attribute Domain Only Mesh No Corner Items
+Attribute Domain Point Face Curve Items
+Attribute Domain Point Edge Face Curve Items
+Attribute Curves Domain Items
+Color Attribute Domain Items
+Attribute Domain Without Corner Items
+Attribute Domain With Auto Items
+Geometry Component Type Items
+Node Combsep Color Items
+Node Socket Data Type Items
+Node Geometry Curve Handle Side Items
+Node Geometry Mesh Circle Fill Type Items
+Volume Grid Data Type Items
+Collection Color Items
+Strip Color Items
+Subdivision Uv Smooth Items
+Subdivision Boundary Smooth Items
+Transform Orientation Items
+Velocity Unit Items
+Curves Type Items
+Curves Handle Type Items
+Curve Normal Mode Items
+Geometry Nodes Gizmo Color Items
+Geometry Nodes Linear Gizmo Draw Style Items
+Asset Import Method Items
+Particle Edit Hair Brush Items
+Particle Edit Disconnected Hair Brush Items
+Keyframe Paste Offset Items
+Keyframe Paste Offset Value Items
+Keyframe Paste Merge Items
+Transform Pivot Full Items
+Transform Mode Type Items
+Nla Mode Extend Items
+Nla Mode Blend Items
+Keyblock Type Items
+Asset Library Type Items
+File Path Foreach Flag Items
+Types with Custom Property Support
+Utilities (bpy.utils)
+bpy.utils submodule (bpy.utils.previews)
+bpy.utils submodule (bpy.utils.units)
+Path Utilities (bpy.path)
+Application Data (bpy.app)
+Application Handlers (bpy.app.handlers)
+Application Translations (bpy.app.translations)
+Application Icons (bpy.app.icons)
+Application Timers (bpy.app.timers)
+Property Definitions (bpy.props)
+Standalone Modules
+Audio System (aud)
+Additional Math Functions (bl_math)
+Font Drawing (blf)
+Font Drawing Types (blf.types)
+BMesh Module (bmesh)
+BMesh Operators (bmesh.ops)
+BMesh Types (bmesh.types)
+BMesh Utilities (bmesh.utils)
+BMesh Geometry Utilities (bmesh.geometry)
+Extra Utilities (bpy_extras)
+bpy_extras submodule (bpy_extras.anim_utils)
+bpy_extras submodule (bpy_extras.asset_utils)
+bpy_extras submodule (bpy_extras.object_utils)
+bpy_extras submodule (bpy_extras.io_utils)
+bpy_extras submodule (bpy_extras.image_utils)
+bpy_extras submodule (bpy_extras.keyconfig_utils)
+bpy_extras submodule (bpy_extras.mesh_utils)
+bpy_extras submodule (bpy_extras.node_utils)
+bpy_extras submodule (bpy_extras.view3d_utils)
+bpy_extras submodule (bpy_extras.id_map_utils)
+Freestyle Module (freestyle)
+Freestyle Types (freestyle.types)
+Freestyle Predicates (freestyle.predicates)
+Freestyle Functions (freestyle.functions)
+Freestyle Chaining Iterators (freestyle.chainingiterators)
+Freestyle Shaders (freestyle.shaders)
+Freestyle Utilities (freestyle.utils)
+freestyle.utils submodule (freestyle.utils.ContextFunctions)
+GPU Module (gpu)
+GPU Types (gpu.types)
+GPU Matrix Utilities (gpu.matrix)
+GPU Select Utilities (gpu.select)
+GPU Shader Utilities (gpu.shader)
+GPU State Utilities (gpu.state)
+GPU Texture Utilities (gpu.texture)
+GPU Platform Utilities (gpu.platform)
+GPU Capabilities Utilities (gpu.capabilities)
+GPU Compute Utilities (gpu.compute)
+GPU Utilities (gpu_extras)
+gpu_extras submodule (gpu_extras.batch)
+gpu_extras submodule (gpu_extras.presets)
+ID Properties Module (idprop)
+ID Property Access (idprop.types)
+Image Buffer (imbuf)
+Image Buffer Types (imbuf.types)
+Math Types & Utilities (mathutils)
+Geometry Utilities (mathutils.geometry)
+BVHTree Utilities (mathutils.bvhtree)
+KDTree Utilities (mathutils.kdtree)
+Interpolation Utilities (mathutils.interpolate)
+Noise Utilities (mathutils.noise)
+5.2
+Versions
+Loading...
+Note
+You are not using the most up to date version of the documentation.
+is the newest version.
+Back to top
+Keyframe(bpy_struct)
+¶
+base class —
+bpy_struct
+class
+bpy.types.
+Keyframe
+(
+bpy_struct
+)
+¶
+Bézier curve point with two handles defining a Keyframe on an F-Curve
+amplitude
+¶
+Amount to boost elastic bounces for ‘elastic’ easing (in [0, inf], default 0.0)
+Type
+:
+float
+back
+¶
+Amount of overshoot for ‘back’ easing (in [-inf, inf], default 0.0)
+Type
+:
+float
+co
+¶
+Coordinates of the control point (array of 2 items, in [-inf, inf], default (0.0, 0.0))
+Type
+:
+mathutils.Vector
+co_ui
+¶
+Coordinates of the control point. Note: Changing this value also updates the handles similar to using the graph editor transform operator (array of 2 items, in [-inf, inf], default (0.0, 0.0))
+Type
+:
+mathutils.Vector
+easing
+¶
+Which ends of the segment between this and the next keyframe easing interpolation is applied to (default
+'AUTO'
+)
+Type
+:
+Literal[
+Beztriple Interpolation Easing Items
+]
+handle_left
+¶
+Coordinates of the left handle (before the control point) (array of 2 items, in [-inf, inf], default (0.0, 0.0))
+Type
+:
+mathutils.Vector
+handle_left_type
+¶
+Handle types (default
+'FREE'
+)
+Type
+:
+Literal[
+Keyframe Handle Type Items
+]
+handle_right
+¶
+Coordinates of the right handle (after the control point) (array of 2 items, in [-inf, inf], default (0.0, 0.0))
+Type
+:
+mathutils.Vector
+handle_right_type
+¶
+Handle types (default
+'FREE'
+)
+Type
+:
+Literal[
+Keyframe Handle Type Items
+]
+interpolation
+¶
+Interpolation method to use for segment of the F-Curve from this Keyframe until the next Keyframe (default
+'CONSTANT'
+)
+Type
+:
+Literal[
+Beztriple Interpolation Mode Items
+]
+period
+¶
+Time between bounces for elastic easing (in [-inf, inf], default 0.0)
+Type
+:
+float
+select_control_point
+¶
+Control point selection status (default False)
+Type
+:
+bool
+select_left_handle
+¶
+Left handle selection status (default False)
+Type
+:
+bool
+select_right_handle
+¶
+Right handle selection status (default False)
+Type
+:
+bool
+type
+¶
+Type of keyframe (for visual purposes only) (default
+'KEYFRAME'
+)
+Type
+:
+Literal[
+Beztriple Keyframe Type Items
+]
+classmethod
+bl_rna_get_subclass
+(
+id
+,
+default
+=
+None
+,
+/
+)
+¶
+Parameters
+:
+id
+(
+str
+) – The RNA type identifier.
+default
+(
+bpy.types.Struct
+| None) – The value to return when not found.
+Returns
+:
+The RNA type or default when not found.
+Return type
+:
+bpy.types.Struct
+classmethod
+bl_rna_get_subclass_py
+(
+id
+,
+default
+=
+None
+,
+/
+)
+¶
+Parameters
+:
+id
+(
+str
+) – The RNA type identifier.
+default
+(
+type
+|
+None
+) – The value to return when not found.
+Returns
+:
+The class or default when not found.
+Return type
+:
+type
+Inherited Properties
+¶
+bpy_struct.id_data
+Inherited Functions
+¶
+bpy_struct.as_pointer
+bpy_struct.driver_add
+bpy_struct.driver_remove
+bpy_struct.get
+bpy_struct.id_properties_clear
+bpy_struct.id_properties_ensure
+bpy_struct.id_properties_ui
+bpy_struct.is_property_hidden
+bpy_struct.is_property_overridable_library
+bpy_struct.is_property_readonly
+bpy_struct.is_property_set
+bpy_struct.items
+bpy_struct.keyframe_delete
+bpy_struct.keyframe_insert
+bpy_struct.keys
+bpy_struct.path_from_id
+bpy_struct.path_from_module
+bpy_struct.path_resolve
+bpy_struct.pop
+bpy_struct.property_overridable_library_set
+bpy_struct.property_unset
+bpy_struct.rna_ancestors
+bpy_struct.type_recast
+bpy_struct.values
+References
+¶
+bpy.context.selected_editable_keyframes
+FCurve.keyframe_points
+FCurveKeyframePoints.insert
+FCurveKeyframePoints.remove
+Next
+KeyingSet(bpy_struct)
+Previous
+KeyMaps(bpy_prop_collection)
+Copyright © Blender Authors
+Made with
+Furo
+Report issue
+on this page
+On this page
+Keyframe(bpy_struct)
+Keyframe
+Keyframe.amplitude
+Keyframe.back
+Keyframe.co
+Keyframe.co_ui
+Keyframe.easing
+Keyframe.handle_left
+Keyframe.handle_left_type
+Keyframe.handle_right
+Keyframe.handle_right_type
+Keyframe.interpolation
+Keyframe.period
+Keyframe.select_control_point
+Keyframe.select_left_handle
+Keyframe.select_right_handle
+Keyframe.type
+Keyframe.bl_rna_get_subclass()
+Keyframe.bl_rna_get_subclass_py()
+Inherited Properties
+Inherited Functions
+References

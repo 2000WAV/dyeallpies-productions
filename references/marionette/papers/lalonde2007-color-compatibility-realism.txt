@@ -1,0 +1,383 @@
+Using Color Compatibility for Assessing Image Realism
+
+        Jean-Franc¸ois Lalonde and Alexei A. Efros
+School of Computer Science, Carnegie Mellon University
+
+   http://graphics.cs.cmu.edu/projects/realismcolor
+
+                        Abstract                                   Figure 1. There are only two real images in this montage. Can you
+                                                                   identify them?
+   Why does placing an object from one photograph into
+another often make the colors of that object suddenly look         always appear inconsistent to a human observer? Not nec-
+wrong? One possibility is that humans prefer distributions         essarily. Cavanagh [3] uses examples from art to demon-
+of colors that are often found in nature; that is, we find         strate that humans are curiously unaware of the great liber-
+pleasing these color combinations that we see often. An-           ties that artists often take with physics, including impossi-
+other possibility is that humans simply prefer colors to be        ble lighting, inconsistent shadows, and incorrect reflections.
+consistent within an image, regardless of what they are. In        Actually, this is not too surprising, considering that it is ex-
+this paper, we explore some of these issues by studying the        tremely difficult for both human and computers to estimate
+color statistics of a large dataset of natural images, and         the true lighting environment map from a single image. But
+by looking at differences in color distribution in realistic       one important component of lighting that is readily avail-
+and unrealistic images. We apply our findings to two prob-         able in an image is color. Indeed, the experience of Photo-
+lems: 1) classifying composite images into realistic vs. non-      shop artists confirms that "getting color right" is one of the
+realistic, and 2) recoloring image regions for realistic com-      most important tasks for good image composites [1]. There-
+positing.                                                          fore, in this paper, we have chosen to concentrate on the role
+                                                                   of color in image compositing.
+1. Introduction
+                                                                   1.1. The Role of Color
+   Consider the images shown on Figure 1. Only two of
+them are real. The rest are composite images ­ created by             The first question one must ask is whether color itself is
+taking an object from one image and pasting it into a dif-         the important cue for visual compatibility or just a manifes-
+ferent one. The four synthetic images have been picked             tation of some higher-order semantic relationships? Do we
+from a set of automatically generated composites and, as           prefer certain shades of green with certain shades of blue, or
+you can see, some look reasonably real while others appear         do we just like to see grass and sky together? This is a very
+quite fake. What is it, then, that makes a composite image         difficult question. While the experience of graphic design-
+appear real? Clearly, scene semantics and geometry play            ers as well as recent work on color harmony [5] suggests
+a key role [2] ­ a car floating in midair or twice as big as       that humans do prefer palettes of certain colors over others,
+other cars would instantly appear out of place. In this paper,
+we will assume that these high-level scene structural issues
+have been dealt with (for an example of a user-guided ap-
+proach, see [10]). Here, we are interested in investigating
+the more subtle artifacts that appear even if the semantic
+composition of the scene is correct (e.g. right column of
+Figure 1).
+
+   Difference in scene lighting between the source and des-
+tination images is one important consideration. The same
+object photographed under two different types of illumina-
+tion (in a thick forest vs. a sunny beach) will usually have
+a strikingly different appearance. But does this mean that
+differently lit objects when placed in the same image will
+
+                                                                1
+it is likely that object identity also plays a role. In this pa-  color variation than photographs because it is difficult to
+per, we plan to investigate how far we can get without the        mix paints that have the same chromaticity but different in-
+use of explicit semantic information.                             tensity. Ke et al. [9] propose a set of high-level image fea-
+                                                                  tures for assessing the perceived artistic quality of a photo-
+   Our second question relates to the nature of color com-        graph. Their color features include a measure of histogram
+patibility. Do different pairs of colors simply appear to be      similarity to a set of high-quality photographs, as well as an
+more or less compatible with each other? Or perhaps com-          estimate of hue variation in the image (apparently, profes-
+patibility is evaluated over entire color distributions rather    sional photos have fewer hues).
+than individual colors? In this paper, we will take a first step
+in trying to answer some of these questions.                         The classic paper by Forsyth [8] has spawned a large
+                                                                  body of work in color constancy. However, their goals
+1.2. Prior Work                                                   are different: retrieve the illuminant under which a given
+                                                                  scene was lit, from a list of known illuminants. One method
+   In computer graphics, people have long been interested         related to the present work has been introduced by Fin-
+in methods for adjusting the colors of one image to make it       layson et al. [7], in which they determine the illumination
+match the "color mood" of another image. In a much-cited          based on nearest-neighbor matching to a set of illumination
+work, Reinhard et al. [16] propose a very simple technique        palettes. More recently, Lalonde et al. [10] presented a data-
+based on matching the means and variances of marginal             driven technique for image compositing that uses a coarse
+color distributions between images using the L color              illumination context descriptor to find scenes with similar
+space. The central assumption of the method is that the           lighting in a large database.
+marginal color distributions of the object and its background
+should match. This technique was applied to compositing of        1.3. Overview
+synthetic objects into real videos [15], although no quantita-
+tive evaluation of the method's effectiveness was presented.         In this paper, our goal is to use color information to au-
+While this makes sense for some cases, often you find an          tomatically predict whether a composite image such as the
+object becoming very greenish due to being pasted into a          ones in Figure 1 will look realistic or not to a human ob-
+forest scene. To address this problem, Chang et al. [4] pro-      server. In the pursuit of this endeavor, two different and
+posed to first assign each pixel to one of 11 "basic color        complementary approaches are evaluated.
+categories" obtained from psycho-physical experiments and
+relating to universal color naming in languages. The color           The first approach utilizes the fact that phenomena that
+adjustment is then performed only within each category.           happen in the real world are, by definition, natural. This
+This method produces much more pleasing results (on the           translates to the hypothesis that colors in an image will look
+7 images shown) but, again, no quantitative evaluation is         realistic if they appear in real images with high probabil-
+performed. The Color Harmonization approach [5] adjusts           ity [11]. We pose the problem as follows: given a set of
+the hue values of the image color-map according to a pre-         colors (a palette), what are the other color palettes that are
+defined set of templates that are thought to encode color         likely to co-occur in the same image? In Section 3, we pro-
+harmony. Alternatively, Pe´rez et al. [14] propose to copy        pose several ways to estimate color palette co-occurences.
+the object gradients and reintegrate to get the colors. While
+this approach results in a seamless insertion, it often gen-         Our second approach does not consider global color
+erates noticeable artifacts such as color bleeding or severe      statistics and makes the assumption that a composite image
+discoloration when the object and background have dissim-         will look realistic if the object and background colors have
+ilar color distributions (again, these works are difficult to     similar distributions. This idea is directly inspired by the
+evaluate since no quantitative results are shown).                work of Reinhard et al. [15], which has never been evalu-
+                                                                  ated rigorously on a large number of examples. We propose
+   Computer vision researchers are more interested in the         to extend the work using a better color representation and
+task of classifying images based on various characteris-          provide an extensive comparative evaluation in Section 4.
+tics. Farid and colleagues have done extensive work on
+using higher-order image statistics for a variety of tasks,          Finally, from the intuitions gathered while evaluating the
+including distinguishing between computer renderings and          global and local approaches, we suggest a way of combin-
+photographs [12], detecting digital tampering, finding art        ing them into a single classifier. Section 5 presents this com-
+fakes [13], etc. However, their efforts are directed towards      bined approach and compares it to using either technique by
+detecting differences that are not perceptible to a human ob-     itself. As an additional application, we show in Section 6
+server, whereas our goals are the opposite. Cutzu et al. [6]      how to automatically shift the colors of an unrealistic ob-
+present a neat technique for distinguishing paintings from        ject to make it look more realistic in its new scene.
+photographs based on the color distribution of the image.
+Their insight is that paintings are likely to exhibit more        2. Generating the Composite Image Dataset
+
+                                                                     In order to compare the different approaches pro-
+                                                                  posed, a dataset of synthetic images was generated semi-
+Figure 2. Example images randomly selected from our test set. Top row: Real images. Middle row: Realistic synthetic images. Bottom
+row: Unrealistic synthetic images. The entire test database used to produce the results presented in this paper contains a total of 1000
+images and was semi-automatically generated from images taken from the LabelMe database [18].
+
+automatically1.                                                    Some of the automatically generated composite images
+                                                                happen to have matching colors and appear quite realistic,
+   Since the process of manual image compositing can be         while others have color distributions that make them look
+long and tedious, we seek to automatically generate com-        unrealistic. Sometimes, however, the automatic procedure
+posite images that will look right semantically, i.e. objects   fails completely, producing results that are structurally in-
+should be at the appropriate locations in the resulting im-     consistent and obviously wrong. We label those as unsuc-
+ages. We propose a very simple algorithm to generate se-        cessful and manually remove from the test data. We asked
+mantically correct images by utilizing a large segmentation     three human observers with normal color vision to label the
+dataset. We use the popular LabelMe image database [18]         remaining images as either realistic or unrealistic. The real-
+which contains roughly 170,000 labeled objects. We first        istic class is augmented with randomly selected real images
+remove all incomplete objects by searching the label strings    from the dataset. For real images, a random object in that
+for words "part", "occlude", "regions" and "crop". We           image is selected to be the tested inserted object. Our fi-
+then manually group objects that have similar labels, and       nal test set is composed of 360 unrealistic, 180 real, and
+end up with the following 15 most frequently-occurring          180 realistic images. Figure 2 shows examples of typical
+objects in the dataset: "building", "bush", "car", "field",     real and synthetic (realistic and unrealistic) images in our
+"foliage", "house", "mountain", "person", "road", "rock",       test set, which remained identical for all the experiments
+"sand", "sky", "snow", "tree", and "water".                     performed in this paper. We also employ a much larger
+                                                                and non-overlapping part of the LabelMe dataset contain-
+   Because segmentations are available, we can create a         ing 20,000 images to compute the natural color statistics in
+synthetic composite by starting with an image, and replac-      the following experiments.
+ing one of its objects by another one of the same semantic
+type and shape. The algorithm only selects the objects that     3. Global Natural Color Statistics
+occupy at least 5% and at most 60% of their corresponding
+image area. The shape matching is done by computing the            In this section, our aim is to find a way to test the natural-
+SSD over blurred and subsampled object masks, allowing          ness of colors in a given image by computing their similarity
+for translations. Once the best matching object is found, we    with global color statistics accumulated over a large set of
+paste it onto the original image and apply linear feathering    real images. We propose three ways of doing so.
+along the border to mask out potential seams. Even though
+this algorithm is very simple, it performs surprisingly well    3.1. Universal Color Palette
+(see Figures 1 and 2), because it exploits the richness of the
+dataset.                                                           The simplest way of modeling the joint natural color
+                                                                distribution is to assume that an image is generated ac-
+    1The dataset is publicly available online.
+Figure 3. Most and least realistic images ranked by the universal palette algorithm. Top row: 7 most realistic images in the test database.
+Bottom row: 7 least realistic images. Note that this first-order analysis is completely unable to tell apart realistic images from unrealistic
+ones.
+
+cording to a single, global distribution, which is the same        background, we sample the 6-D histogram by marginaliz-
+for all images. This assumes the existence of a universal          ing over all the colors in the object and compare it with the
+palette, from which all natural images are generated. While        histogram of the background.
+this first-order assumption is restrictive, we can easily esti-
+mate the joint distribution of all training images by comput-         Unfortunately, this method performs only marginally
+ing a global 3-dimensional joint histogram in CIE L*a*b*           better than the first-order approximation, and still does not
+color space. Given a new image, we compute its color his-          yield satisfying results on our test dataset. To quantitatively
+togram, and compare it to the global model. Unless other-          compare the different techniques, we use the 2-distance
+wise noted, all experiments in this paper are performed in         metric to assign a realism score to every image in our test
+the CIE L*a*b* color space using 3-D joint histograms with         dataset and construct ROC curves; the same procedure is
+1003 bins. Figure 3 presents images that are close (top row)       used in the remainder of the paper. In our experiments,
+and far (bottom row) from this global distribution, using the      the area under the ROC curve for the universal palette is
+2-distance metric for histogram comparison. It illustrates         0.59, and 0.61 for the second-order. Several reasons ex-
+that the universal palette has the tendency to (falsely) pre-      plain this poor performance: the 6-dimensional histogram is
+dict that images with a single, saturated color are less likely    likely too coarse and smoothes over important color shades.
+to be realistic. Whereas this approach is clearly not use-         More importantly, this model only represents a single ex-
+ful in our image realism classification setting, it might still    pected palette given a single color, which is not enough to
+have interesting applications, such as finding striking and        capture the complexity of our visual world. For instance,
+unusual color photographs in a large dataset (see Figure 3,        blue sky co-occurs with grass, roads, seas, cities, etc. each
+bottom row).                                                       of which might exhibit very different color palettes. Since
+                                                                   this method is computing the average over all observed in-
+3.2. Expected Color Palette                                        stances, it is not powerful enough to model each of them
+                                                                   jointly.
+   While the universal palette is easy to compute, it appears
+not to be powerful enough to model the complexity of natu-         3.3. Data-Driven Color Palette
+ral images because it only models first-order color statistics.
+A better approach would be to consider pairs of colors that           To address the limitations of the previous method, we
+appear together in the same image. Given a 3-dimensional           would ideally need to know the co-occurences of all pos-
+color space, this is a 6-dimensional function that represents      sible color palettes. Since this number is huge, we would
+the probability of observing a color distribution given a sin-     require a prohibitively large number of images and comput-
+gle color. Stated differently, it is modeling the palette that is  ing power to compute them.
+likely to co-occur together with a particular color in a real
+image.                                                                Although it might be possible to employ the recent
+                                                                   method of Yang et al. [19] to extract a more powerful co-
+   We represent this distribution by a 6-dimensional his-          occurence feature, we note instead that because we have
+togram of 166 bins. For every color in every object in the         large amounts of real data with labelled objects, we can use
+entire training dataset, we compute the histogram of all the       a nearest-neighbor approach to approximate this distribu-
+colors occurring in that objet's background region. For test-      tion directly. Given the object color palette, we find a set of
+ing: given a composite image composed of an object and its         k most similar-looking objects based on color (k-NN), and
+                                                                   approximate its expected co-occurring palette by the best-
+  0 0.25 0.5 0.75 1                                                  technique marginals joint joint with texture
+
+ROC AUC 0.59 0.69 0.74 0.79 0.74                                     ROC AUC 0.66 0.76  0.78
+
+Table 1. Influence of color and texture on the nearest-neighbor re-  Table 2. Summary of local techniques. The best performance
+trieval. Using texton only ( = 0) fails to return good nearest       (bold) is obtained by combining a joint histogram representation
+neighbors, and maximum performance is obtained when  = 0.75          with texture matching using texton histograms. Scores are ob-
+(in bold). Scores are obtained by computing the ROC area under       tained by computing the ROC area under the curve (AUC) on our
+the curve (AUC) on our test set.                                     test set.
+
+matching background in this k set. This method yields an             new sunset background by shifting its colors towards red.
+area under the ROC curve of 0.74, a significant improve-             While their application is in image recoloring, it can also be
+ment over the previous techniques.                                   used in our context by computing the distance between the
+                                                                     object and its new background colors.
+   Can we improve its performance further? Let's consider
+an example. When determining if a tree matches a particu-               The color description used in [15] is a simple marginal
+lar forest scene, it might be more important to look for simi-       histogram in L color space. A straightforward improve-
+lar forest images, which typically have very consistent color        ment is to use the full 3-D joint histograms instead of
+palettes, than for green buildings which might exhibit dif-          marginals because color components are still quite corre-
+ferent shades of green and still look realistic. Clearly, incor-     lated even in L. Interestingly, this yields substantial im-
+porating object recognition could greatly help in matching           provement, going from an area under the ROC curve of 0.66
+similar scenes. Here, we experiment with a weak recogni-             for marginals to 0.76 for joint on our test data, at the cost
+tion cue by using texture matching between images.                   of a higher-dimensional representation. The same intuition
+                                                                     of using texture as mentioned in the previous section also
+   First, a texton dictionary of 1000 instances is learned by        applies here, and improves performance as well, as shown
+clustering 32-dimensional oriented filter responses on our           in Table 2.
+20,000 training images. A texton histogram can then be
+computed for each object and associated background in the            5. Combining Global and Local Statistics
+training data and be used in the k-NN process.
+                                                                        Let us consider for a moment the two techniques intro-
+   To evaluate the distance between two objects, we take             duced in the previous sections. When the global method
+a linear combination of their color and texton histograms            yields a high realism score, we can be confident that it is
+2-distances. A parameter  is used to control the relative            correct because it relies on matches to actual real scenes.
+importance of color and texture, where  = 0 indicates only           However, when it is uncertain, it means that no good match
+texture, and  = 1 means only color. In Table 1, we provide           was found, and the results are not reliable. We can then only
+a comparative evaluation using  = {0, 0.25, 0.5, 0.75, 1},           rely on the local approach. This suggests that we can com-
+progressively increasing the influence of color. We ob-              bine both global and local ideas into one coherent classifier.
+serve that texture information improves upon results ob-
+tained with color only, but is ineffective when used alone,             We propose a two-stage cascade. First, the algorithm
+which seems to confirm our intuition.                                computes the distance to the nearest-neighbor according to
+                                                                     the best global measure from Section 3. If the match is
+   The limitations of such an approach is that it wholly de-         good enough (as determined by a threshold  ), it classifies
+pends on the training data. Given the huge dimensional-              this image as realistic. Otherwise, it uses the local method
+ity of the space of all scenes, we cannot expect to find a           from Section 4 to assign a realism score. We use 10-fold
+matching scene for any given image, even with a dataset of           cross-validation on our labeled dataset to determine the best
+20,000 images. We will now investigate a different, more             parameter  (0.35 in our case) which will maximize the area
+local class of techniques, which can hopefully compensate            under the ROC curve.
+when the training data cannot help.
+                                                                        Figure 4 shows the ROC curves for the best techniques
+4. Local Color Statistics                                            presented in this paper. We compare our techniques against
+                                                                     the baseline proposed by Reinhard et al. [15]. The results
+   Reinhard et al. [15] have demonstrated a very simple              clearly show that combining the global and local techniques
+way of making an object match its background by shifting             results in performance superior to any single one. In another
+its colors to make them closer to the background colors. The         paper [16], they make a point of using L color space. We
+intuition behind this idea is that this shift appears to be in-      performed each experiment by using the L, CIE L*a*b*,
+creasing the correlation between the object and background           HSV and RGB color spaces and found that the CIE L*a*b*
+illuminants. For example, the reddish hue of a sunset sky            color space performs the best, closely followed by L.
+should appear on all objects in the scene. An object taken
+from a bright day scene can be made to look better in the               In Figure 5, we show a visual representation of the rank-
+                                                ROC curve comparison, overview          ter in Dt by comparing their means and variances.
+                    1
+                                                                                           Instead, we propose an entirely automatic algorithm.
+                    0.9                                                                 Each color distribution is represented by a mixture of k
+                                                                                        spherical gaussians (k = 100 and remains constant for all
+                    0.8                                                                 images), and the distributions are matched in a soft way us-
+                                                                                        ing the solution to the well-known transportation problem.
+                    0.7                                                                 The algorithm is divided in three steps. First, we use the
+                                                                                        Earth Mover's Distance algorithm [17] to compute the best
+True Positive Rate  0.6                                                                 assignment between the clusters in Ds and Dt. Second,
+                                                                                        color shift vectors for each cluster in Ds are computed as a
+                    0.5                                                                 weighted average of its distance in color space to each of its
+                                                                                        assigned clusters in Dt. Finally, every pixel in Ds can be re-
+                    0.4                                                                 colored by computing a weighted average of clusters shifts,
+                                                                                        with weights inversely proportional to the pixel-cluster dis-
+                    0.3                                                                 tance. These three steps are performed in the CIE L*a*b*
+                                                                                        color space, and the results are converted back to RGB for
+                    0.2            Combination of local and global (0.81)               visualization. Examples of recoloring using the global and
+                                                                                        local models are illustrated in Figure 6, and show that we
+                                   Data-driven palette (joint) (0.79)                   can automatically improve the realism of composite images
+                                                                                        by using the same general approach.
+                    0.1            Local palette (joint) (0.78)
+
+                                   Baseline (Reinhard) (0.66)
+
+                    00   0.2  0.4  0.6                                          0.8  1
+
+                              False Positive Rate
+
+Figure 4. The ROC curves comparing the best approaches of the
+global and local categories, as well as the combination of both,
+shown against the baseline method, suggested by Reinhard et
+al. [15]. The combination of both local and global methods outper-
+forms any single method taken independently, and is significantly
+better than the baseline approach.
+
+ings produced by our combined classifier on our test set.                               7. Conclusion
+Images are shown ranging from least (top) to most (bottom)
+realistic. Ground truth labels are illustrated by color bor-                               In this paper, we study the problem of understanding
+ders: a red border indicates an unrealistic image, green and                            color compatibility using image composites as a useful ap-
+blue indicates realistic and real respectively. It is interesting                       plication domain. We propose two measures for assessing
+to observe the output of the algorithm at mid-range where                               the naturalness of an image: 1) a global, data-driven ap-
+confusion is higher: even for humans, assessing image re-                               proach that exploits a large database of natural images, and
+alism is much less obvious and requires a more careful in-                              2) a local model that depends only on colors within the
+spection than for images at both ends of the spectrum.                                  image. We show that while both techniques provide sub-
+                                                                                        stantial improvement over previous work, the best approach
+6. Application to Automatic Image Recoloring                                            needs to use both techniques for different types of images.
+
+   An interesting application as well as a visual evaluation                               We evaluate our approach on a large test dataset of syn-
+of this technique is the recoloring of an image to make it                              thetic images, generated by a novel semi-automatic tech-
+appear more realistic. The idea is to first classify the im-                            nique. We are the first work in this field to provide a quanti-
+age using our proposed method and retrieve either a nearest                             tative evaluation and we demonstrate performance superior
+scene (if the global method is used), or the determination                              to the state of the art method [15]. We also qualitatively val-
+that no matching global scene is available. In the first case,                          idate our approach using a novel image recoloring method
+we need to recolor the object to match the colors of simi-                              that makes composite images look more realistic.
+lar objects in that nearest scene. In the second case, we can
+only try to make the object more similar to its surroundings,                              A number of issues, such as position of objects in the
+as in [15].                                                                             image, object semantics and material properties still need
+                                                                                        to be addressed. While this paper is only a first step,
+   The goal of recoloring is to modify a source color distri-                           lessons learned from the presented experiments should be
+bution Ds in order to match a target color distribution Dt.                             extremely useful to steer this area towards a better under-
+In our setting, Ds represents the object colors, and Dt is the                          standing of natural color statistics and color perception.
+nearest neighbor object if the global method is used, or the
+background otherwise.                                                                      Acknowledgements
+
+   Our color matching procedure is an automatic extension                                  We gratefully acknowledge Bryan Russell, Antonio Tor-
+of the interactive recoloring approach from [16], where they                            ralba and the rest of the LabelMe team for setting up and
+propose to represent both Ds and Dt by k color clusters,                                maintaining the database. This work has been partially
+with k being manually chosen to be the number of major                                  supported by NSF grants CCF-0541230 and CAREER IIS-
+colors in the scene. Each cluster in Ds is matched to a clus-                           0546547.
+0-5%
+
+12-17%
+
+25-30%
+
+42-47%
+
+52-57%
+
+70-85%
+
+82-87%
+
+95-100%
+
+Figure 5. Images ranked according to their realism score, determined by combining the best global and local methods. The border color
+indicates the labeled class for each image (red: unrealistic synthetic; green: realistic synthetic; blue: real). Each row corresponds to the
+percentile interval shown on the left, and images are randomly selected within each interval. Row 1: 0-5% interval (most unrealistic), 2:
+12-17%, 3: 25-30% , 4: 42-47%, 5: 52-57%, 6: 70-75%, 7: 82-87%, 8: 95-100% (most realistic).
+(a)  (b)                                                            (c)  (d)
+
+(e)  (f)                                                            (g)  (h)
+
+Figure 6. Automatic image recoloring. The input images (a,b,c,d) are recolored by using the local (e,f) and the global statistics (g,h).
+
+Recoloring these unrealistic input images increases their realism.
+
+References                                                          [12] S. Lyu and H. Farid. How realistic is photorealistic? IEEE
+                                                                          Transactions on Signal Processing, 53(2):845­850, 2005.
+ [1] E. H. Adelson. personal communication, 2006.
+ [2] I. Biederman. On the semantics of a glance at a scene. In      [13] S. Lyu, D. Rockmore, and H. Farid. A digital technique for
+                                                                          art authentication. Proceedings of the National Academy of
+      M. Kubovy and J. R. Pomerantz, editors, Perceptual Organi-          Sciences, 101(49):17006­17010, 2004.
+      zation, chapter 8. Lawrence Erlbaum, 1981.
+ [3] P. Cavanagh. The artist as neuroscientist. Nature, 434:301­    [14] P. Pe´rez, M. Gangnet, and A. Blake. Poisson image editing.
+      307, March 2005.                                                    ACM Transactions on Graphics (SIGGRAPH 2003), 2003.
+ [4] Y. Chang, S. Saito, K. Uchikawa, and M. Nakajima.
+      Example-based color stylization of images. ACM Transac-       [15] E. Reinhard, A. O. Aku¨yz, M. Colbert, C. E. Hughes, and
+      tions on Applied Perception, 2(3):322­345, 2005.                    M. O'Connor. Real-time color blending of rendered and cap-
+ [5] D. Cohen-Or, O. Sorkine, R. Gal, T. Leyvand, and Y.-Q. Xu.           tured video. In Interservice/Industry Training, Simulation
+      Color harmonization. ACM Transactions on Graphics (SIG-             and Education Conference, December 2004.
+      GRAPH 2006), 25(3):624­630, 2006.
+ [6] F. Cutzu, R. Hammoud, and A. Leykin. Estimating the            [16] E. Reinhard, M. Ashikhmin, B. Gooch, and P. Shirley. Color
+      photorealism of images: Distinguishing paintings from pho-          transfer between images. IEEE Computer Graphics and Ap-
+      tographs. In IEEE Conference on Computer Vision and Pat-            plications, special issue on Applied Perception, 21(5):34­41,
+      tern Recognition, 2003.                                             September - October 2001.
+ [7] G. D. Finlayson, S. D. Hordley, and P. M. Hubel. Color
+      by correlation: A simple, unifying framework for color con-   [17] Y. Rubner, C. Tomasi, and L. Guibas. The earth mover's dis-
+      stancy. IEEE Transactions on Pattern Analysis and Machine           tance as a metric for image retrieval. International Journal
+      Intelligence, 23(11):1209­1221, 2001.                               of Computer Vision and Image Understanding, 2000.
+ [8] D. A. Forsyth. A novel algorithm for colour constancy. Inter-
+      national Journal of Computer Vision, 5(1):5­36, July 1990.    [18] B. C. Russell, A. Torralba, K. P. Murphy, and W. T. Freeman.
+ [9] Y. Ke, X. Tang, and F. Jing. The design of high-level fea-           LabelMe: a database and web-based tool for image annota-
+      tures for photo quality assessment. In IEEE Conference on           tion. Technical Report AIM-2005-025, MIT AI Lab Memo,
+      Computer Vision and Pattern Recognition, 2006.                      September 2005.
+[10] J.-F. Lalonde, D. Hoiem, A. A. Efros, C. Rother, J. Winn, and
+      A. Criminisi. Photo clip art. ACM Transactions on Graphics    [19] L. Yang, R. Jin, C. Pantofaru, and R. Sukthankar. Discrimi-
+      (SIGGRAPH 2007), 26(3), August 2007.                                native cluster refinement: Improving object category recog-
+[11] R. B. Lotto and D. Purves. The empirical basis of color per-         nition given limited training data. In IEEE Conference on
+      ception. Consciousness and Cognition, 11(4):609­629, De-            Computer Vision and Pattern Recognition, June 2007.
+      cember 2002.
+

@@ -1,0 +1,21 @@
+Oat, C. (2003). Real-Time 3D Scene Post-Processing. Game Developers Conference
+Europe 2003 (ATI Research).
+
+STATUS: full text saved (author's own site), text-extracted; see
+papers/oat2003-realtime-3d-scene-postprocessing.pdf/.txt.
+
+SUMMARY: A survey and tutorial covering HDR rendering, bloom, tone mapping,
+vignette, depth of field and heat-haze as real-time post effects, framed
+explicitly as mimicking the physical properties of real-world illumination and
+the imaging devices used to capture it. Documents Kawase's bloom filter (Masaki
+Kawase, GDC 2003, DOUBLE-S.T.E.A.L.) in detail, including the actual downsample
+kernel weights used at each iteration (a 3x3 kernel with weights 1/16, 2/16,
+4/16 arranged binomially) and how iterating the filter at progressively coarser
+downsample levels builds a wide, cheap approximate Gaussian bloom.
+
+RELEVANCE: primary contemporary source, alongside the original Kawase GDC talk,
+for the exact bloom kernel weights and the downsample-iterate-upsample bloom
+recipe used for the marionette's glow. Also frames bloom explicitly as camera or
+film sensor bleed, i.e. an optical or sensor artifact worth reproducing so the
+neon object reads as filmed by the same phone camera as the plate, rather than
+composited flat on top of it.

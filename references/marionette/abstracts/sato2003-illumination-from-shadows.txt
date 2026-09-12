@@ -1,0 +1,30 @@
+Sato, I., Sato, Y., and Ikeuchi, K. (2003). Illumination from Shadows.
+IEEE Transactions on Pattern Analysis and Machine Intelligence, 25(3), 290-300.
+(Earlier conference version: Sato, Sato & Ikeuchi, "Illumination Distribution from
+Shadows," CVPR 1999.)
+
+STATUS: full text saved (author mirror, NII), text-extracted; see
+papers/sato2003-illumination-from-shadows.pdf/.txt.
+
+SUMMARY: Recovers a scene's illumination distribution (as a set of discrete point
+sources on a hemisphere) from image brightness measured INSIDE the shadow cast by
+an object of known 3D shape. Key idea: a shadow region is occluded from some
+directions of the incident illumination and not others; by knowing the object's
+shape (hence exactly which sky/light directions are blocked at each shadow pixel)
+and measuring the residual brightness in the shadow (indirect/ambient light plus
+any partially-visible sources), a linear system in the unknown per-direction
+radiances can be solved. Handles unknown surface reflectance jointly, and uses an
+adaptive (coarse-to-fine) sampling of light directions instead of a dense fixed
+grid. Demonstrated on real photographs with a calibrated occluder of known
+geometry casting a shadow on a diffuse surface.
+
+RELEVANCE: the theoretical basis for "read the light from the shadow it casts."
+For the marionette shot: the real hand occludes the window light and casts a soft
+shadow on the wall; the same occlusion logic (in reverse -- reasoning from
+penumbra width/shape back to source position + angular size) is the basis of the
+light-and-shadow estimate in 05-camera-light-compositing.md. This paper assumes a
+known occluder shape and solves for the light; our pipeline instead uses the
+simpler classical penumbra-geometry relation (see Fernando 2005 / real-time
+soft-shadow literature) because the hand's shape is already known from the shot
+setup and we only need light DIRECTION + ANGULAR SIZE, not a full incident-light
+hemisphere.

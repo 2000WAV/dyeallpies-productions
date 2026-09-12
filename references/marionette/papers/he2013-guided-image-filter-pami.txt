@@ -1,0 +1,905 @@
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 35, NO. X, XXXXXXX 2013                                                  1
+
+            Guided Image Filtering
+
+Kaiming He, Member, IEEE, Jian Sun, Member, IEEE, and Xiaoou Tang, Fellow, IEEE
+
+Abstract--In this paper, we propose a novel explicit image filter called guided filter. Derived from a local linear model, the guided filter
+computes the filtering output by considering the content of a guidance image, which can be the input image itself or another different
+image. The guided filter can be used as an edge-preserving smoothing operator like the popular bilateral filter [1], but it has better
+behaviors near edges. The guided filter is also a more generic concept beyond smoothing: It can transfer the structures of the guidance
+image to the filtering output, enabling new filtering applications like dehazing and guided feathering. Moreover, the guided filter
+naturally has a fast and nonapproximate linear time algorithm, regardless of the kernel size and the intensity range. Currently, it is one
+of the fastest edge-preserving filters. Experiments show that the guided filter is both effective and efficient in a great variety of
+computer vision and computer graphics applications, including edge-aware smoothing, detail enhancement, HDR compression, image
+matting/feathering, dehazing, joint upsampling, etc.
+
+Index Terms--Edge-preserving filtering, bilateral filter, linear time filtering
+
+                                                          Ç
+
+1 INTRODUCTION                                                                                                 consistent with the scene. In these cases, we regard the
+                                                                                                               chrominance/alpha/depth layers as the image to be
+MOST applications in computer vision and computer                                                              filtered, and the luminance/composite/scene as the gui-
+        graphics involve image filtering to suppress and/or                                                    dance image, respectively. The filtering process in [9], [10],
+extract content in images. Simple linear translation-invariant                                                 and [11] is achieved by optimizing a quadratic cost
+(LTI) filters with explicit kernels, such as the mean,                                                         function weighted by the guidance image. The solution is
+Gaussian, Laplacian, and Sobel filters [2], have been widely                                                   given by solving a large sparse matrix which solely
+used in image restoration, blurring/sharpening, edge                                                           depends on the guide. This inhomogeneous matrix im-
+detection, feature extraction, etc. Alternatively, LTI filters                                                 plicitly defines a translation-variant filtering kernel. While
+can be implicitly performed by solving a Poisson Equation                                                      these optimization-based approaches [8], [9], [10], [11] often
+as in high dynamic range (HDR) compression [3], image                                                          yield state-of-the-art quality, it comes with the price of
+stitching [4], image matting [5], and gradient domain                                                          expensive computational time.
+manipulation [6]. The filtering kernels are implicitly defined
+by the inverse of a homogenous Laplacian matrix.                                                                  Another way to take advantage of the guidance image is
+                                                                                                               to explicitly build it into the filter kernels. The bilateral
+   The LTI filtering kernels are spatially invariant and                                                       filter, independently proposed in [12], [13], and [1] and
+independent of image content. But usually one may want                                                         later generalized in [14], is perhaps the most popular one
+to consider additional information from a given guidance                                                       of such explicit filters. Its output at a pixel is a weighted
+image. The pioneer work of anisotropic diffusion [7] uses the                                                  average of the nearby pixels, where the weights depend on
+gradients of the filtering image itself to guide a diffusion                                                   the intensity/color similarities in the guidance image. The
+process, avoiding smoothing edges. The weighted least                                                          guidance image can be the filter input itself [1] or another
+squares (WLS) filter [8] utilizes the filtering input (instead                                                 image [14]. The bilateral filter can smooth small fluctua-
+of intermediate results, as in [7]) as the guidance, and                                                       tions and while preserving edges. Though this filter is
+optimizes a quadratic function, which is equivalent to                                                         effective in many situations, it may have unwanted gradient
+anisotropic diffusion with a nontrivial steady state. The                                                      reversal artifacts [15], [16], [8] near edges (discussed in
+guidance image can also be another image besides the                                                           Section 3.4). The fast implementation of the bilateral filter
+filtering input in many applications. For example, in                                                          is also a challenging problem. Recent techniques [17], [18],
+colorization [9] the chrominance channels should not bleed                                                     [19], [20], [21] rely on quantization methods to accelerate
+across luminance edges; in image matting [10] the alpha                                                        but may sacrifice accuracy.
+matte should capture the thin structures in a composite
+image; in haze removal [11] the depth layer should be                                                             In this paper, we propose a novel explicit image filter
+                                                                                                               called guided filter. The filtering output is locally a linear
+. K. He and J. Sun are with the Visual Computing Group, Microsoft                                              transform of the guidance image. On one hand, the guided
+   Research Asia, Microsoft Building 2, #5 Dan Leng Street, Hai Dian                                           filter has good edge-preserving smoothing properties like the
+   District, Beijing 100080, China. E-mail: {kahe, jiansun}@microsoft.com.                                     bilateral filter, but it does not suffer from the gradient
+                                                                                                               reversal artifacts. On the other hand, the guided filter can be
+. X. Tang is with the Department of Information Engineering, Chinese                                           used beyond smoothing: With the help of the guidance
+   University of Hong Kong, 809 SHB, Shatin, N.T., Hong Kong.                                                  image, it can make the filtering output more structured and
+   E-mail: xtang@ie.cuhk.edu.hk.                                                                               less smoothed than the input. We demonstrate that the
+                                                                                                               guided filter performs very well in a great variety of
+Manuscript received 13 June 2012; revised 6 Sept. 2012; accepted 16 Sept.                                      applications, including image smoothing/enhancement,
+2012; published online 1 Oct. 2012.                                                                            HDR compression, flash/no-flash imaging, matting/feath-
+Recommended for acceptance by J. Jia.                                                                          ering, dehazing, and joint upsampling. Moreover, the guided
+For information on obtaining reprints of this article, please send e-mail to:
+tpami@computer.org, and reference IEEECS Log Number                                                            Published by the IEEE Computer Society
+TPAMI-2012-06-0447.
+Digital Object Identifier no. 10.1109/TPAMI.2012.213.
+
+                                                                              0162-8828/13/$31.00 ß 2013 IEEE
+2  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 35, NO. X, XXXXXXX 2013
+
+filter naturally has an OðNÞ time (in the number of pixels N)1               the case of box spatial kernels, Weiss [34] proposes an
+nonapproximate algorithm for both gray-scale and high-                       OðN log rÞ time method based on distributive histograms, and
+dimensional images, regardless of the kernel size and the                    Porikli [18] proposes the first OðNÞ time method using
+intensity range. Typically, our CPU implementation achieves                  integral histograms. We point out that constructing the
+40 ms per mega-pixel performing gray-scale filtering: To the                 histograms is essentially performing a 2D spatial filter in
+best of our knowledge, this is one of the fastest edge-                      the space-range domain with a 1D range filter followed.
+preserving filters.                                                          Under this viewpoint, both [34] and [18] sample the signal
+                                                                             along the range domain but do not reconstruct it. Yang [19]
+   A preliminary version of this paper was published in                      proposes another OðNÞ time method which interpolates
+ECCV '10 [22]. It is worth mentioning that the guided filter                 along the range domain to allow more aggressive subsam-
+has witnessed a series of new applications since then. The                   pling. All of the above methods are linearly complex w.r.t. the
+guided filter enables a high-quality real-time OðNÞ stereo                   number of the sampled intensities (e.g., number of linear
+matching algorithm [23]. A similar stereo method is                          pieces or histogram bins). They require coarse sampling to
+proposed independently in [24]. The guided filter has also                   achieve satisfactory speed, but at the expense of quality
+been applied in optical flow estimation [23], interactive                    degradation if the Nyquist condition is severely broken.
+image segmentation [23], saliency detection [25], and
+illumination rendering [26]. We believe that the guided                         The space-range domain is generalized to higher
+filter has great potential in computer vision and graphics,                  dimension for color-weighted bilateral filtering [35]. The
+given its simplicity, efficiency, and high-quality. We have                  expensive cost due to the high dimensionality can be
+provided a public code to facilitate future studies [27].                    reduced by the Gaussian kd-trees [20], the Permutohedral
+                                                                             Lattices [21], or the Adaptive Manifolds [36]. But the
+2 RELATED WORK                                                               performance of these methods is not competitive for gray-
+                                                                             scale bilateral filters because they spend much extra time
+We review edge-preserving filtering techniques in this                       preparing the data structures.
+section. We categorize them as explicit/implicit weighted-
+average filters and nonaverage ones.                                            Given the limitations of the bilateral filter, people began
+                                                                             to investigate new designs of fast edge-preserving filters.
+2.1 Explicit Weighted-Average Filters                                        The OðNÞ time Edge-Avoiding Wavelets (EAW) [37] are
+                                                                             wavelets with explicit image-adaptive weights. But the
+The bilateral filter [1] is perhaps the simplest and most                    kernels of the wavelets are sparsely distributed in the image
+intuitive one among explicit weighted-average filters. It                    plane, with constrained kernel sizes (to powers of two),
+computes the filtering output at each pixel as the average of                which may limit the applications. Recently, Gastal and
+neighboring pixels, weighted by the Gaussian of both                         Oliveira [38] propose another OðNÞ time filter known as the
+spatial and intensity distance. The bilateral filter smooths                 Domain Transform filter. The key idea is to iteratively and
+the image while preserving edges. It has been widely used                    separably apply 1D edge-aware filters. The OðNÞ time
+in noise reduction [28], HDR compression [15], multiscale                    complexity is achieved by integral images or recursive
+detail decomposition [29], and image abstraction [30]. It is                 filtering. We will compare with this filter in this paper.
+generalized to the joint bilateral filter in [14], where the
+weights are computed from another guidance image rather                      2.2 Implicit Weighted-Average Filters
+than the filtering input. The joint bilateral filter is
+particularly favored when the image to be filtered is not                    A series of approaches optimize a quadratic cost function
+reliable to provide edge information, e.g., when it is very                  and solve a linear system, which is equivalent to implicitly
+noisy or is an intermediate result, such as in flash/no-flash                filtering an image by an inverse matrix. In image segmenta-
+denoising [14], image upsamling [31], image deconvolution                    tion [39] and colorization [9], the affinities of this matrix are
+[32], stereo matching [33], etc.                                             Gaussian functions of the color similarities. In image
+                                                                             matting, a matting Laplacian matrix [10] is designed to
+   The bilateral filter has limitations despite its popularity. It           enforce the alpha matte as a local linear transform of the
+has been noticed in [15], [16], and [8] that the bilateral filter            image colors. This matrix is also applied in haze removal
+may suffer from "gradient reversal" artifacts. The reason is                 [11]. The weighted least squares filter in [8] adjusts the
+that when a pixel (often on an edge) has few similar pixels                  matrix affinities according to the image gradients and
+around it, the Gaussian weighted average is unstable. In this                produces halo-free edge-preserving smoothing.
+case, the results may exhibit unwanted profiles around
+edges, usually observed in detail enhancement or HDR                            Although these optimization-based approaches often
+compression.                                                                 generate high quality results, solving the linear system is
+                                                                             time-consuming. Direct solvers like Gaussian Elimination
+   Another issue concerning the bilateral filter is the                      are not practical due to the memory-demanding "filled in"
+efficiency. A brute-force implementation is OðNr2Þ time with                 problem [40], [41]. Iterative solvers like the Jacobi method,
+kernel radius r. Durand and Dorsey [15] propose a piece-wise                 Successive Over-Relaxation (SOR), and Conjugate Gradi-
+linear model and enable FFT-based filtering. Paris and                       ents [40] are too slow to converge. Though carefully
+Durand [17] formulate the gray-scale bilateral filter as a 3D                designed preconditioners [41] greatly reduce the iteration
+filter in a space-range domain, and downsample this domain                   number, the computational cost is still high. The multigrid
+to speed up if the Nyquist condition is approximately true. In               method [42] is proven OðNÞ time complex for homogeneous
+                                                                             Poisson equations, but its quality degrades when the matrix
+    1. In the literature, "OðNÞ/linear time" algorithms are sometimes        becomes more inhomogeneous. Empirically, the implicit
+referred to as "O(1)/constant time" (per pixel). We are particularly         weighted-average filters take at least a few seconds to
+interested in the complexity of filtering the entire image, and we will use  process a one megapixel image either by preconditioning
+the way of "OðNÞ time" throughout this paper.                                [41] or by multigrid [8].
+HE ET AL.: GUIDED IMAGE FILTERING                                                                                                                           3
+
+Fig. 1. Illustrations of the bilateral filtering process (left) and the guided filtering process (right).
+
+   It has been observed that these implicit filters are closely           where x is the pixel                tchoaotrdPinjaWteibjfa¼nd1.KTi hies  a normalizing
+related to the explicit ones. In [43], Elad shows that the                parameter to ensure                                                      parameters s
+bilateral filter is one Jacobi iteration in solving the Gaussian
+affinity matrix. The Hierarchical Local Adaptive Precondi-                and r adjust the sensitivity of the spatial similarity and the
+tioners [41] and the Edge-Avoiding Wavelets [37] are
+constructed in a similar manner. In this paper, we show                   range (intensity/color) similarity, respectively. The joint
+that the guided filter is closely related to the matting
+Laplacian matrix [10].                                                    bilateral filter degrades to the original bilateral filter [1]
+
+2.3 Nonaverage Filters                                                    when I and p are identical.
+
+Edge-preserving filtering can also be achieved by nonaver-                The implicit weighted-average filters (in Section 2.2)
+age filters. The median filter [2] is a well-known edge-aware
+operator, and is a special case of local histogram filters [44].          optimize a quadratic function and solve a linear system in
+Histogram filters have OðNÞ time implementations in a way
+as the bilateral grid. The Total-Variation (TV) filters [45]              this form:
+optimize an L1-regularized cost function, and are shown
+equivalent to iterative median filtering [46]. The L1 cost                                                          Aq ¼ p;                                 ð3Þ
+function can also be optimized via half-quadratic split [47],
+alternating between a quadratic model and soft shrinkage                  where q and p are N-by-1 vectors concatenating fqig and
+(thresholding). Recently, Paris et al. [48] proposed manip-               fpig, respectively, and A is an N-by-N matrix only depends
+ulating the coefficients of the Laplacian Pyramid around                  on I. The solution to (3), i.e., q ¼ AÀ1p, has the same form as
+each pixel for edge-aware filtering. Xu et al. [49] propose               (1), with Wij ¼ ðAÀ1Þij.
+optimizing an L0-regularized cost function favoring piece-
+wise constant solutions. The nonaverage filters are often                 3.1 Definition
+computationally expensive.
+                                                                          Now we define the guided filter. The key assumption of the
+                                                                          guided filter is a local linear model between the guidance I
+                                                                          and the filtering output q. We assume that q is a linear
+                                                                          transform of I in a window !k centered at the pixel k:
+
+                                                                                                           qi ¼ akIi þ bk; 8i 2 !k;                         ð4Þ
+
+3 GUIDED FILTER                                                           where ðak; bkÞ are some linear coefficients assumed to be
+                                                                          constant in !k. We use a square window of a radius r. This
+We first define a general linear translation-variant filtering            local linear model ensures that q has an edge only if I has an
+                                                                          edge, because rq ¼ arI. This model has been proven
+process, which involves a guidance image I, an filtering                  useful in image super-resolution [50], image matting [10],
+                                                                          and dehazing [11].
+input image p, and an output image q. Both I and p are
+                                                                             To determine the linear coefficients ðak; bkÞ, we need
+given beforehand according to the application, and they can               constraints from the filtering input p. We model the output q
+                                                                          as the input p subtracting some unwanted components n
+be identical. The filtering output at a pixel i is expressed as           like noise/textures:
+
+a weighted average:
+
+                                X                                                                             qi ¼ pi À ni:                                 ð5Þ
+
+                         qi ¼ WijðIÞpj;                              ð1Þ  We seek a solution that minimizes the difference between q
+
+                                j
+
+where i and j are pixel indexes. The filter kernel Wij is a               and p while maintaining the linear model (4). Specifically,
+
+function of the guidance image I and independent of p. This               we minimize the following cost function in the window !k:
+
+filter is linear with respect to p.                                                   Eðak;  bkÞ           ¼  X     ÀÀ      þ      À  piÁ2  þ      a2k  Á   ð6Þ
+                                                                                                                      akIi                               :
+                                                                                                                               bk
+
+An example of such a filter is the joint bilateral filter [14]                                                i2!k
+
+(Fig. 1 (left)). The bilateral filtering kernel W bf is given by          Here,  is a regularization parameter penalizing large ak. We
+                                                                          will investigate its intuitive meaning in Section 3.2.
+Wibjf ðIÞ  ¼  1          k  xi  À xj  k2         k  Ii  À Ij  k2     ð2Þ  Equation (6) is the linear ridge regression model [51], [52]
+              Ki  exp À         s2        exp À         2r        ;       and its solution is given by
+4                                           IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 35, NO. X, XXXXXXX 2013
+
+                       ak     ¼   1    P               kp"k   ;                    ð7Þ 3.2 Edge-Preserving Filtering
+                                  j!j     i2!k Iipi À                                     Given the definition of the guided filter, we first study the
+                                            2k þ 
+
+                                                                                             edge-preserving filtering property. Fig. 2 shows an example
+
+                                  bk ¼ p"k À akk:                                  ð8Þ       of the guided filter with various sets of parameters. Here we
+                                                                                             investigate the special case where the guide I is identical to
+Here, k and k2 are the                 mean and     v¼arj!1ijaPncie2!ok fpIi  in !k, j!j is
+the number of pixels in                !k, and p"k                            is the mean    the filtering input p. We can see that the guided filter
+
+of p in !k. Having obtained the linear coefficients ðak; bkÞ, we                             behaves as an edge-preserving smoothing operator (Fig. 2).
+                                                                                                The edge-preserving filtering property of the guided
+can compute the filtering output qi by (4). Fig. 1 (right)
+                                                                                             filter can be explained intuitively as following. Consider the
+shows an illustration of the guided filtering process.                                       case where I  p. In this case, ak ¼ 2k=ðk2 þ Þ in (7) and
+                                                                                             bk ¼ ð1 À akÞk. It is clear that if  ¼ 0, then ak ¼ 1 and
+   However, a pixel i is involved in all the overlapping                                     bk ¼ 0. If  > 0, we can consider two cases.
+
+windows !k that covers i, so the value of qi in (4) is not                                      Case 1: "High variance." If the image I changes a lot
+                                                                                             within !k, we have k2 ) , so ak % 1 and bk % 0.
+identical when it is computed in different windows. A
+                                                                                                Case 2: "Flat patch." If the image I is almost constant in
+simple strategy is to average all the possible values of qi. So                              !k, we have 2k ( , so ak % 0 and bk % k.
+
+after computing ðak; bkÞ for all windows !k in the image, we                                    When ak and bk are averaged to get a"i and b"i, combined
+                                                                                             in (10) to get the output, we have that if a pixel is in the
+compute the filtering output by
+                                                                                             middle of a "high variance" area, then its value is
+                                  1X                                                         unchanged (a % 1; b % 0; q % p), whereas if it is in the
+                       qi     ¼              ðakIi  þ  bkÞ:                        ð9Þ
+                                  j!j                                                        middle of a "flat patch" area, its value becomes the average
+                                       kji2!k                                                of the pixels nearby (a % 0; b % ; q % ").
+
+                    P                  P
+Noticing that kji2!k ak ¼ k2!i ak due to the symmetry of
+
+the box window, we rewrite (9) by
+
+                                  qi ¼ a"iIi þ b"i;                                ð10Þ         More specifically, the criterion of a "flat patch" or a "high
+                                                                                             variance" one is given by the parameter . The patches with
+where  a"i  ¼  1    P         ak  and  b"i  ¼  1    P         bk  are         the  average   variance (2) much smaller than  are smoothed, whereas
+               j!j                             j!j                                           those with variance much larger than  are preserved. The
+                        k2!i                            k2!i                                 effect of  in the guided filter is similar to the range variance
+                                                                                             r2 in the bilateral filter (2): Both determine "what is an
+coefficients of all windows overlapping i. The averaging                                     edge/a high variance patch that should be preserved."
+
+strategy of overlapping windows is popular in image                                             Further, in a flat region the guided filter becomes a
+                                                                                             cascade of two box mean filters whose radius is r. Cascades
+denoising (see [53]) and is a building block of the very                                     of box filters are good approximations of Gaussian filters.
+                                                                                             Thus, we empirically set up a "correspondence" between
+successful BM3D algorithm [54].                                                              the guided filter and the bilateral filter: r $ s and  $ 2r.
+                                                                                             Fig. 2 shows the results of both filters using corresponding
+   With the modification in (10), rq is no longer scaling of rI                              parameters. The table "PSNR" in Fig. 2 shows the
+because the linear coefficients ða"i; b"iÞ vary spatially. But as                            quantitative difference between the guided filter results
+ða"i; b"iÞ are the output of a mean filter, their gradients can be                           and the bilateral filter results of the corresponding para-
+                                                                                             meters.2 It is often considered as visually insensitive when
+expected to be much smaller than that of I near strong edges.                                the PSNR ! 40 dB [18].
+
+In this situation we can still have rq % a"rI, meaning that                                  3.3 Filter Kernel
+
+abrupt intensity changes in I can be mostly preserved in q.
+
+   Equations (7), (8), and (10) are the definition of the
+
+guided filter. A pseudocode is in Algorithm 1. In this
+
+algorithm, fmean is a mean filter with a window radius r.
+
+The abbreviations of correlation (corr), variance (var), and
+
+covariance (cov) indicate the intuitive meaning of these
+
+variables. We will discuss the fast implementation and the
+
+computation details in Section. 4.
+
+Algorithm 1. Guided Filter.                                                                  It is easy to show that the relationships among I, p, and q,
+Input: filtering input image p, guidance image I, radius r,
+                                                                                             given by (7), (8), and (10), are in the weighted-average form
+         regularization 
+Output: filtering output q.                                                                  as (1). InPfact, ak in (7) can be rewritten as a weighted sum of
+                                                                                             p : ak ¼ j AkjðIÞpj, where Aij are the weights only
+ 1: meanI ¼ fmeanðIÞ                                                                         P dependent on I. For the samPe reason, we also have bk ¼
+     meanp ¼ fmeanðpÞ
+     corrI ¼ fmeanðI: Ã IÞ                                                                      j BkjðIÞpj from (8) and qi ¼ j WijðIÞpj from (10). We can
+     corrIp ¼ fmeanðI: Ã pÞ                                                                  prove that the kernel weights is explicitly expressed by
+
+ 2: varI ¼ corrI À meanI : Ã meanI                                                           WijðIÞ  ¼   1      X           þ  ðIi  À  kÞðIj À        ð11Þ
+     covIp ¼ corrIp À meanI : Ã meanp                                                                   j!j2             1             k2 þ     kÞ :
+
+                                                                                                              k:ði;jÞ2!k
+
+   3: a ¼ covIp:=ðvarI þ Þ                                                                   Proof. Due to the linear dependence between p and q, the
+      b ¼ meanp À a: Ã meanI                                                                    filter kernel is given by Wij ¼ @qi=@pj. Putting (8) into
+                                                                                                (10) and eliminating b, we obtain
+   4: meana ¼ fmeanðaÞ
+      meanb ¼ fmeanðbÞ
+
+ 5: q ¼ meana: Ã I þ meanb                                                                       2. Note that we do not intend to approximate the bilateral filer, and the
+/Ã fmean is a mean filter with a wide variety of O(N) time                                   bilateral filter results are not considered as "ground-truth." So the "PSNR"
+methods. Ã/                                                                                  measure is just analogous to those used in the bilateral filter approximations
+                                                                                             [18].
+HE ET AL.: GUIDED IMAGE FILTERING                                                                                                                       5
+
+                                                                             Fig. 3. A 1D example of an ideal step edge. For a window that exactly
+                                                                             centers on the edge, the variables  and  are as indicated.
+
+                                                                             The derivative gives
+
+                                                                                          @qi  ¼     1    X@ak      ðIi  À    kÞ  þ                     ð13Þ
+                                                                                          @pj        j!j  k2!i @pj                   @p"k :
+                                                                                                                                     @pj
+
+                                                                             In this equation, we have
+
+                                                                                                  @p"k  ¼   1         ¼  1                              ð14Þ
+                                                                                                  @pj       j!j j2!k     j!j k2!j ;
+
+                                                                             where j2!k is one when j is in the window !k, and is zero
+                                                                             otherwise. On the other hand, the partial derivative
+
+                                                                             @ak=@pj in (13) can be computed from (7):
+
+                                                                                                                   X                            !
+
+                                                                                          @ak  ¼     1         1   i2!k  @pi  Ii  À  @p"k  k
+                                                                                          @pj     2k þ                   @pj         @pj
+                                                                                                              j!j                                       ð15Þ
+                                                                                                            
+                                                                                                     11                  1
+                                                                                               ¼ 2k þ  j!j Ij À j!j k k2!j:
+
+                                                                             Putting (14) and (15) into (13), we obtain
+
+                                                                             @qi          ¼     1      X           þ  ðIi  À  kÞðIj À                   ð16Þ
+                                                                             @pj               j!j2             1             k2 þ              kÞ :
+
+                                                                                                     k2!i ;k2!j
+
+                                                                             This is the expression of the filter kernel Wij.                           tu
+
+                                                                             P Some further algebraic manipulations show that
+                                                                                j WijðIÞ  1. No extra effort is needed to normalize
+
+                                                                             the weights.
+
+                                                                             The edge-preserving smoothing property can also be
+
+                                                                             understood by investigating the filter kernel (11). Take an
+
+                                                                             ideal step edge of a 1D signal as an example (Fig. 3). The
+
+                                                                             terms Ii À k and Ij À k have the same sign (+/-) when Ii
+
+                                                                             and Ij are on the same side of an edge, while they have
+
+                                                                             opposite signs when the two pixels are on different sides. So
+                                                                                          term 1 þ ðIi  Àonkk2ÞþðIdjÀiffkeÞreisnmt usicdhessmthaallner
+                                                                             in (11) the  two pixels                                                    (and close to
+                                                                             zero) for                                                                  on the same
+
+                                                                             sides. This means that the pixels across an edge are almost
+
+                                                                             not averaged together. We can also understand the
+
+                                                                             smoothing    effect of   from     (%11j)!1.j2WPhke:ðni;jÞ2k2!k(1:   ("flat patch"),
+                                                                             the kernel   becomes    Wij ðI Þ                                   This is an LTI
+
+Fig. 2. Edge-preserving filtering results of a gray-scale image using the    low-pass filter (it is a cascade of two mean filters).
+guided filter (top) and the bilateral filter (bottom). In this example, the
+guidance I is identical to the input p. The input image is scaled in ½0; 1.  Fig. 4 illustrate some examples of the kernel shapes in
+The table "PSNR" shows the quantitative difference between the guided
+filter results and the bilateral filter results using corresponding          real images. In the top row are the kernels near a step edge.
+parameters. The input image is from [1].
+                                                                             Like the bilateral kernel, the guided filter kernel assigns
+
+                                                                             nearly zero weights to the pixels on the opposite side of the
+
+                                                                             edge. In the middle row are the kernels in a patch with small
+
+       1X                                                                    scale textures. Both filters average almost all the nearby
+
+qi  ¼  j!j      ðakðIi             À  kÞ  þ  p"kÞ:  ð12Þ                     pixels together and appear as low-pass filters. This is more
+
+            k2!i                                                             apparent in a constant region (Fig. 4 (bottom row)), where
+
+                                                                             the guided filter degrades to a cascade of two mean filters.
+6                       IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 35, NO. X, XXXXXXX 2013
+
+Fig. 4. Filter kernels. Top: A realistic step edge (guided filter:                  due to the abrupt change of the edge. For the example edge
+r ¼ 7;  ¼ 0:12, bilateral filter: s ¼ 7; r ¼ 0:1). Middle and Bottom: A             pixel in Fig. 6, its filtered value is smaller than its original
+textured patch and a constant patch (guided filter: r ¼ 8;  ¼ 0:22,                 value, making the filtered signal q sharper than the input p.
+                                                                                    This sharpening effect has been observed in [15], [16], [8].
+bilateral filter: s ¼ 8; r ¼ 0:2). The kernels are centered at the pixels           Now suppose the gradient of the input p is positive: @xp > 0
+denoted by the red dots. The Gaussian guided filter rpepffiffilaces the mean        (as in Figs. 5 and 6). When q is sharpened, it gives:
+filter in Algorithm 1 by a Gaussian filter with g ¼ s= 2.                           @xq > @xp. The detail layer d thus has a negative gradient
+                                                                                    @xd ¼ @xp À @xq < 0, meaning it has a reversed gradient
+   It can be observed in Fig. 4b that the guided filter is                          direction w.r.t. the input signal (see Fig. 5 (top)). When the
+                                                                                    detail layer is magnified and recombined with the input
+rotationally asymmetric and slightly biases to the x/y-axis.                        signal, the gradient reversal artifact on the edge appears.
+                                                                                    This artifact is inherent and cannot be safely avoided by
+This is because we use a box window in the filter design.                           tuning parameters because natural images usually have
+                                                                                    edges at all kinds of scales and magnitudes.
+This problem can be solved by using a Gaussian weighted
+                                                                                       On the other hand, the guided filter performs better on
+window instead. Formally, we can introduce the weights                              avoiding gradient reversal. Actually, if we use the patch-wise
+                                                                                    model (4), it is guaranteed to not have gradient reversal in the
+wik ¼ expðÀ k xi À xk k2 =2gÞ in (6):                                               case of self-guided filtering (I  p). In this case, (7) gives
+                                                                                    ak ¼ 2k=ð2k þ Þ < 1 and bk is a constant. So we have @xq ¼
+   Eðak;  bkÞ  ¼  X         ÀÀ    þ      À  piÁ2  þ  a2kÁ:  ð17Þ                    ak@xp and the detail layer gradient @xd ¼ @xp À @xq ¼ ð1 À
+                        wik akIi                                                    akÞ@xp, meaning that @xd and @xp are always in the same
+                                     bk                                             direction. When we use the overlapping model (9) instead of
+                                                                                    (4), we have @xq ¼ a"@xp þ p@xa" þ @xb". Because a" and b" are
+                  i2!k                                                              low-pass filtered maps, we obtain @xq % a"@xp and the above
+                                                                                    conclusion is still approximately true. In practice, we do not
+It is straightforward to show that the resulted Gaussian                            observe the gradient reversal artifacts in all experiments.
+guided filter can be computed by replacing all the mean                             Fig. 5 (bottom) gives an example. In Fig. 6, we show the
+filters fmean in Algorithm 1 with Gaussian filters fGauss. The                      guided filter kernel of an edge pixel. Unlike the bilateral
+resulting kernels are rotationally symmetric as in Fig. 4d.3                        kernel, the guided filter assigns some small but essential
+In Section 4, we will show that the Gaussian guided filter is                       weights to the weaker side of the kernel. This makes the
+still OðNÞ time like the original guided filter. But because in                     guided kernel is less biased, avoiding reducing the value of
+practice we find that the original guided filter is always                          the example edge pixel in Fig. 5.
+good enough, we use it in all the remaining experiments.
+                                                                                       We notice that the gradient reversal problem also appears
+
+                                                                                    in the recent edge-preserving Domain Transform filter [38]
+
+                                                                                    (Fig. 7). This very efficient filter is derived from the (1D)
+
+                                                                                    bilateral kernel, so it does not safely avoid gradient reversal.
+
+3.4 Gradient-Preserving Filtering                                                   3.5 Extension to Color Filtering
+
+Though the guided filter is an edge-preserving smoothing                            The guided filter can be easily extended to color images. In
+operator like the bilateral filter, it avoids the gradient                          the case when the filtering input p is multichannel, it is
+reversal artifacts that may appear in detail enhancement                            straightforward to apply the filter to each channel inde-
+and HDR compression. A brief introduction to the detail                             pendently. In the case when the guidance image I is
+enhancement algorithm is as follows (see also Fig. 5). Given                        multichannel, we rewrite the local linear model (4) as
+the input signal p (black in Fig. 5), its edge-preserving
+smoothed output is used as a base layer q (red). The                                                qi ¼ aTk Ii þ bk; 8i 2 !k:     ð18Þ
+difference between the input signal and the base layer is
+the detail layer (blue): d ¼ p À q . It is magnified to boost the                   Here Ii is a 3 Â 1 color vector, ak is a 3 Â 1 coefficient vector,
+details. The enhanced signal (green) is the combination of
+the boosted detail layer and the base layer. An elaborate                           qi and bk are scalars. The guided filter for color guidance
+description of this method can be found in [15].
+                                                                                    images becomes
+   For the bilateral filter (Fig. 5 (top)), the base layer is not
+consistent with the input signal at the edge pixels (see                                             1X                         !
+the zoom-in). Fig. 6 illustrates the bilateral kernel of an edge                                     j!j i2!k Iipi À kp"k
+pixel. Because this pixel has no similar neighbors, the                             ak ¼ ðÆk þ UÞÀ1                             ;  ð19Þ
+Gaussian weighted range kernel unreliably averages a
+group of pixels. Even worse, the range kernel is biased                                             bk ¼ p"k À akTk;               ð20Þ
+
+                                                                                                    qi ¼ a"Ti Ii þ b"i:            ð21Þ
+
+    3. Because the Gaussian guided filter becomes a cascade of two Gaupssffiffiian  Here, Æk is the 3 Â 3 covariance matrix of I in !k, and U is a
+filters in constant regions, we set the Gaussian parameter g ¼ s= 2 to              3 Â 3 identity matrix.
+ensure the same response in constant regions as the bilateral filter.
+                                                                                       A color guidance image can better preserve the edges
+                                                                                    that are not distinguishable in gray-scale (see Fig. 8). This is
+                                                                                    also the case in bilateral filtering [20]. A color guidance
+HE ET AL.: GUIDED IMAGE FILTERING                                                                                                                                                         7
+
+                                                                               Fig. 8. Guided filtering results guided by the color image (b) and guided
+                                                                               by its gray-scale version (c). The result in (c) has halos because the
+                                                                               edge is not undistinguishable in gray-scale.
+
+Fig. 5. 1D illustration for detail enhancement. See the text for explanation.
+
+                                                                               Fig. 9. Structure-transferring filtering.
+
+                                                                               image is also essential in the matting/feathering and
+                                                                               dehazing applications, as we show later, because the local
+                                                                               linear model is more likely to be valid in the RGB color
+                                                                               space than in gray-scale [10].
+
+Fig. 6. The filtering results and the filter kernels at a pixel on a clean     3.6 Structure-Transferring Filtering
+edge. In this example, the edge height is 1 and the edge slope spans
+20 pixels. The parameters are r ¼ 30;  ¼ 0:152 for the guided filter and       Interestingly, the guided filter is not simply a smoothing
+s ¼ 30; r ¼ 0:15 for the bilateral filter.                                     filter. Due to the local linear model of q ¼ aI þ b, the output q
+                                                                               is locally a scaling (plus an offset) of the guidance I. This
+Fig. 7. Gradient reversal artifacts in the domain transform filter [38].       makes it possible to transfer structure from the guidance I to
+                                                                               the output q, even if the filtering input p is smooth (see Fig. 9).
+
+                                                                                  To show an example of structure-transferring filtering,
+                                                                               we introduce an application of guided feathering: A binary
+                                                                               mask is refined to appear an alpha matte near the object
+                                                                               boundaries (Fig. 10). The binary mask can be obtained from
+                                                                               graph-cut or other segmentation methods, and is used as the
+                                                                               filter input p. The guidance I is the color image. Fig. 10 shows
+                                                                               the behaviors of three filters: guided filter, (joint) bilateral
+                                                                               filter, and a recent domain transform filter [38]. We observe
+                                                                               that the guided filter faithfully recovers the hair, even
+                                                                               though the filtering input p is binary and very rough. The
+                                                                               bilateral filter may lose some thin structures (see zoom-in).
+                                                                               This is because the bilateral filer is guided by pixel-wise
+                                                                               color difference, whereas the guided filter has a patch-wise
+                                                                               model. We also observe that the domain transform filter
+                                                                               does not have a good structure-transferring ability and
+                                                                               simply smooths the result. This is because this filter is based
+                                                                               on geodesic distance of pixels, and its output is a series of 1D
+                                                                               box filters with adaptive spans [38].
+
+                                                                                  The structure-transferring filtering is an important
+                                                                               property of the guided filter. It enables new filtering-based
+                                                                               applications, including feathering/matting and dehazing
+                                                                               (Section 5). It also enables high-quality filtering-based stereo
+                                                                               matching methods in [23] and [24].
+8                                     IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 35, NO. X, XXXXXXX 2013
+
+                                                                              Proof. The matrix form of (25) is
+
+                                                                                L ¼ j!jðU À WÞ;                                   ð27Þ
+
+                                                                              where U is a unit matrix of the same size as L. To apply
+                                                                              the Jacobi method [40] on the linear system (23), we
+                                                                              require the diagonal/off-diagonal parts of the matrices.
+                                                                              We decompose W into a diagonal part Wd and an off-
+                                                                              diagonal part Wo, so W ¼ Wd þ Wo. From (27) and (23)
+                                                                              we have
+
+                                                                              ðj!jU À j!jWd À j!jWo þ ÃÞq ¼ Ãp:                   ð28Þ
+
+                                                                              Note that only Wo is off-diagonal here. Using p as the initial
+                                                                              guess, we compute one iteration of the Jacobi method:
+
+                                                                              q % ðj!jU À j!jWd þ ÃÞÀ1ðj!jWo þ ÃÞp
+                                                                                Ã À1                                            
+                                                                                                                              Ã   ð29Þ
+                                                                              ¼ U À Wd þ j!j                     W À Wd þ j!j p:
+
+                                                                              In (29), the only convolution is the matrix multiplication
+
+                                                                              Wp. The other matrices are all diagonal and point-wise
+
+Fig. 10. Comparisons on structure-transferring filtering. The parameters      operations. To further simplify (29), we let the matrix Ã
+are r ¼ 60,  ¼ 0:012 for the guided filter, s ¼ 60, r ¼ 0:01 for the (joint)
+bilateral filter, and s ¼ 60, r ¼ 0:5 for the domain transform filter         satisfy: Ã ¼ j!jWd or, equivalently,
+(a smaller r would make the domain transform result more similar to the
+input mask and does not improve the quality).                                           1X                      ðIi À kÞ2  !
+                                                                                Ãii ¼ j!j k2!i                    k2 þ 
+                                                                                                          1  þ             :      ð30Þ
+
+3.7 Relation to Implicit Methods                                              The expectation value of Ãii in (30) is 2, implying that the
+                                                                              constraint in (22) is soft. Equation (29) is then reduced to
+The guided filter is closely related to the matting Laplacian
+matrix [10]. This casts new insights into the understanding                     q % Wp:                                           ð31Þ
+of this filter.
+                                                                              This is the guided filter.                          tu
+   In a closed-form solution to matting [10], the matting
+Laplacian matrix is derived from a local linear model.                           In [55], we have shown another relationship between the
+Unlike the guided filter, which computes the local optimal                    guided filter and the matting Laplacian matrix through the
+for each window, the closed-form solution seeks a global                      Conjugate Gradient solver [40].
+optimal. To solve for the unknown alpha matte, this method
+minimizes the following cost function:                                           In Section 5, we apply this property to image matting/
+                                                                              feathering and haze removal, which provide some reason-
+           EðqÞ ¼ ðq À pÞTÃðq À pÞ þ qTLq:                      ð22Þ          ably good initial guess p. This is another perspective of the
+                                                                              structure-transferring property of the filter.
+Here, q is an N-by-1 vector denoting the unknown alpha
+matte, p is the constraint (e.g., a trimap), L is an N Â N                    4 COMPUTATION AND EFFICIENCY
+matting Laplacian matrix, and Ã is a diagonal matrix encoded
+with the weights of the constraints. The solution to this                     A main advantage of the guided filter over the bilateral
+optimization problem is given by solving a linear system                      filter is that it naturally has an OðNÞ time nonapproximate
+                                                                              algorithm, independent of the window radius r and the
+                             ðL þ ÃÞq ¼ Ãp:                     ð23Þ          intensity range.
+
+   The elements of the matting Laplacian matrix are given by                     The filtering process in (1) is a translation-variant
+                                                                              convolution. Its computational complexity increases when
+   Lij  ¼    X            À           þ  ðIi  À  kÞðIj À        ð24Þ          the kernel becomes larger. Instead of directly performing the
+                      ij     1                   2k þ     kÞ :                convolution, we compute the filter output from its definition
+                                                                              (7), (8), and (10) by Algorithm 1. The main computational
+           k:ði;jÞ2!k              1                                          burden is the mean filter fmean with box windows of radius r.
+                             j!j                                              Fortunately, the (unnormalized) box filter can be efficiently
+                                                                              computed in OðNÞ time using the integral image technique
+where ij is the Kronecker delta. Comparing (24) with (11),                    [57] or a simple moving sum method (see Algorithm 2).
+we find that the elements of the matting Laplacian matrix                     Considering the separability of the box filter, either method
+can be directly given by the guided filter kernel:                            takes two operations (addition/subtraction) per pixel along
+                                                                              each x/y direction. Thus the mean filter fmean takes, per
+                          Lij ¼ j!jðij À WijÞ;                  ð25Þ          pixel, five addition/subtraction operations and one @
+                                                                              division (to normalize).
+Following the strategy in [43], we prove that the output of
+
+the guided filter is one Jacobi iteration in optimizing (22):
+
+                             X                                  ð26Þ
+                          qi % WijðIÞpj:
+
+                             j
+HE ET AL.: GUIDED IMAGE FILTERING                                                               9
+
+                                                               TABLE 1
+            Number of Mean Filters (#fm) and Guided Filter Running Time in Different Scenarios
+
+Algorithm 2. 1D Box Filter via Moving Sum                                         Note that the OðNÞ time guided filter is nonapproximate
+                                                                               and applicable for intensity of any range. On the contrary,
+Input: input signal p, radius r                                                the OðNÞ time bilateral filter may have noticeable quantiza-
+                                                                               tion artifacts due to range subsampling. Fig. 11 shows an
+Output:   oPutir¼p0uptisignal  s.                                              example where the signal to be filtered is in high dynamic
+ 1: s0 ¼                                                                       range. Porikli's method [18] has apparent quantization
+                                                                               artifacts even when B ¼ 32. Similar artifacts are less visible
+2: for i ¼ 1 to end do                                                         in Yang's method [19] when B ¼ 8 thanks to the range
+                                                                               interpolation (but takes more time, see Table 2), but still
+3: si ¼ siÀ1 þ piþr À piÀrÀ1                                                   obvious when B ¼ 4 because the Nyquist sampling condi-
+                                                                               tion becomes severely broken.
+4: end for
+                                                                                  For color image filtering (see Table 3), the guided filter
+   With the OðNÞ time mean filter, the guided filter in                        takes 300 ms/Mp when I 6¼ p and 150 ms/Mp when I  p.
+Algorithm 1 is naturally OðNÞ time. Likewise, the color-                       This is substantially faster than the high-dimensional
+guidance version in (19), (20), and (21) can be computed in a                  bilateral filter algorithms, like the Gaussian kd-tree [20]
+similar OðNÞ time manner.4 A public Matlab code is available                   (> 10 s=Mp) and the state-of-the-art Permutohedral Lattice
+in [22], including both gray-scale and color versions.                         [21] (> 1 s=Mp). After the publication of the guided filter in
+                                                                               [22], most recently [38] proposed the OðNÞ time Domain
+   In Table 1, we summarize the number of mean filters                         Transform filters. Its Normalized Convolution (NC) version
+needed in different scenarios. Here, the dI and dp are the                     takes 160 ms/Mp, and its Recursive Filter (RF) version takes
+number of channels in I and p, respectively. We also list the                  60 ms/Mp for color image filtering, as report in [38]. Though
+special case of I  p because the duplication of I and p
+saves some mean filters. The case of I  p is most concerned                                                        TABLE 2
+in practice.                                                                              Time Comparisons with OðNÞ Bilateral Filters
+
+   We experiment with the running time in a PC with an                                               for Gray-Scale Image Filtering
+Intel core i7 3.0 GHz CPU and 8 GB RAM. The
+implementation is in C++. All the algorithms are single-                       y: reported by the authors.
+core based and without SIMD instructions (e.g., SSE) unless
+specified. In our experiments, a mean filter takes about                                                           TABLE 3
+5-7 ms/Mp. The running time is listed in Table 1.                                          Time Comparisons on Color Image Filtering
+
+   We would like to highlight that the gray-scale image
+edge-preserving smoothing (I  p; dp ¼ 1) takes only
+40 ms/Mp. As a comparison (see Table 2), the O(N) time
+bilateral filter in [18] is reported 155 ms/Mp using 32-bin
+histograms (B ¼ 32) and 310 ms/Mp using 64-bin as
+reported in [18]. The method as described in [18] uses
+integral histograms, requiring 6B addition/subtraction op-
+erations per pixel to build the histogram. Instead, we can
+adopt the moving histogram in [56], which requires 2B þ 2
+operations per pixel. With SSE our implementation of
+[18]+[56] achieves 40 ms/Mp (B ¼ 32) and 80 ms/Mp
+(B ¼ 64). Because the moving histogram in [56] is proposed
+only for median filtering, the combination of [18]+[56], to
+the best of our knowledge, is an unpublished state-of-the-
+art of bilateral filtering in the literature. Yang's OðNÞ
+algorithm [19] takes about 120 ms/Mp when B ¼ 8 (using
+the author's public code, with box spatial kernels).
+
+    4. In (19), we have to invert a 3-by-3 symmetric matrix. The solution can
+be computed explicitly in about 30 operations (þ À Ã=) per matrix.
+10  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 35, NO. X, XXXXXXX 2013
+
+Fig. 11. Quantization artifacts of O(N) time bilateral filter. (a) Input HDR
+image (32 bit float, displayed by linear scaling). (b) Compressed image
+using Porikli's O(N) bilateral filter (32 bins) [18]. (c) Compressed image
+using the guided filter. Note both methods have comparable running time.
+
+                                                                                                    Fig. 14. Flash/no-flash denoising. The parameters are r ¼ 8,  ¼ 0:22 for
+                                                                                                    the guided filter, and s ¼ 8, r ¼ 0:2 for the joint bilateral filter.
+
+Fig. 12. Detail enhancement. The parameters are r ¼ 16,  ¼ 0:12 for the
+guided filter, and s ¼ 16, r ¼ 0:1 for the bilateral filter. The detail layer
+is boosted Â5.
+
+                                                                               Fig. 15. Guided feathering. A binary mask p is filtered under the
+                                                                               guidance of I. In the zoom-in patches, we compare with the photoshop
+                                                                               refine edge function and the closed-form matting. For closed-form
+                                                                               matting, we erode and dilate the mask to obtain a trimap. The
+                                                                               parameters are r ¼ 60,  ¼ 10À6 for the guided filter.
+
+Fig. 13. HDR compression. The parameters are r ¼ 15,  ¼ 0:122 for the             Detail enhancement and HDR compression. The method
+guided filter, and s ¼ 15, r ¼ 0:12 for the bilateral filter.                  for detail enhancement is described in Section 3.4. The HDR
+                                                                               compression is done in a similar way, but compressing the
+the Domain Transform is very fast, it does not avoid gradient                  base layer instead of magnifying the detail layer (see [15]).
+reversal (Fig. 7) and not suitable for transferring structures                 Fig. 12 shows an example for detail enhancement and Fig. 13
+(Fig. 10).                                                                     shows an example for HDR Compression. The results using
+                                                                               the bilateral filter are also provided. As shown in the zoom-in
+   With the OðNÞ time recursive Gaussian filter [58], the                      patches, the bilateral filter leads to gradient reversal artifacts.
+Gaussian guided filter discussed in Section 3.3 is also OðNÞ                   Notice that gradient reversal artifacts often introduce new
+time. The recursive Gaussian filter is more expensive than                     profiles around edges.
+the box filter (15 operations versus two operations per pixel
+per x=y direction).                                                               Flash/no-flash denoising. In [14], it is proposed to
+                                                                               denoise a no-flash image under the guidance of its flash
+5 EXPERIMENTS                                                                  version. Fig. 14 shows a comparison of using the joint
+                                                                               bilateral filter and the guided filter. The gradient reversal
+Next, we experiment with the guided filter in a great variety                  artifacts are noticeable near some edges in the joint bilateral
+of computer vision and graphics applications.                                  filter result.
+HE ET AL.: GUIDED IMAGE FILTERING                                 11
+
+Fig. 16. Haze removal. (a) Hazy image. (b) Raw transmission map [11]. (c) The raw transmission map is refined by the guided filter (r ¼ 20,
+ ¼ 10À3). (d) Using the matting Laplacian in [11]. (e) Recovered image using (c).
+
+   Guided feathering/matting. We have introduced the              implementation, the joint bilateral upsampling takes 180 ms
+guided feathering application in Section 3.6. A similar tool,     per mega-pixel output (reported 2s/Mp in [31]), whereas
+called "Refine Edge," is provided by the commercial               the guided filter upsampling takes about 20 ms/Mp.
+software Adobe Photoshop CS4. An accurate matte can also
+be computed through the closed-form matting [10]. Fig. 15            Limitations. The guided filter has a common limitation
+shows the comparisons. Our result is visually comparable          of other explicit filters--it may exhibit halos near some
+with the closed-form solution in this short hair case. Both       edges. "Halos" refer to the artifacts of unwanted smoothing
+our method and Photoshop provide fast feedback (< 1 s) for        of edges. (On the contrary, "gradient reversal" refers to the
+this 6-mega-pixel image, while the closed-form solution           artifacts of unwanted sharpening of edges. In the literature,
+takes about two minutes to solve a huge linear system.            some studies do not distinguish these two kinds of artifacts
+                                                                  and simply refer to them as "halos." We discuss them
+   In the general matting cases the fuzzy region is large; we     separately in this paper because the reasons for these
+can adopt color sampling strategies [59] to estimate a more       artifacts are different.) Halos are unavoidable for local
+reliable initial guess before filtering. Combined with the        filters when the filters are forced to smooth some edges. For
+global sampling method [59], the guided filter is the best        example, if strong textures are to be smoothed (see Fig. 18),
+performed filtering-based matting method in the alphamat-         the weaker edges would also be smoothed. Local filters like
+ting benchmark (www.alphamatting.com, performance re-             guided/bilateral filters would concentrate the blurring near
+ported in June 2012).                                             these edges and introduce halos (Fig. 18). Global optimiza-
+                                                                  tion-based filters (e.g.the WLS filter [8]) would distribute
+   Single image haze removal. In [11], a haze transmission        such blurring more globally. The halos are suppressed at
+map is roughly estimated using a dark channel prior, and is       the price of global intensity shifting (see Fig. 18 (right)).
+refined by solving the matting Laplacian matrix. On the
+contrary, we simply filter the raw transmission map under         6 CONCLUSION
+the guidance of the hazy image (we first apply a max filter
+to counteract the morphological effects of the min filter (see    In this paper, we have presented a novel filter which is
+[11]), and consider this as the filtering input of the guided     widely applicable in computer vision and graphics.
+filter). The results are visually similar (Fig. 16). The zoom-in  Differently from the recent trend toward accelerating the
+windows in Fig. 16 also demonstrate the structure-transfer-
+ring property of the filter. The running time of the guided       Fig. 17. Joint upsampling for colorization.
+filter is about 40 ms for this 600 Â 400 image, in contrast to
+10 seconds using the matting Laplacian matrix as in [11].
+
+   Joint upsampling. Joint upsampling [31] is to upsample
+an image under the guidance of another image. Taking the
+application of colorization [9] as an example. A gray-scale
+luminance image is colorized through an optimization
+process. To reduce the running time, the chrominance
+channels are solved at a coarse resolution and upsampled
+under the guidance of the full resolution luminance image
+by the joint bilateral filter [31].
+
+   This upsampling process can be performed by the
+guided filter. The algorithm is slightly different with
+Algorithm 1 because now we have a guidance image (e.g.,
+luminance) at two scales and a filtering input
+(e.g., chrominance) at the coarse scale only. In this case,
+we compute the linear coefficient a and b in using (7) and (8)
+at the coarse scale, bilinearly upsample them to the fine
+scale (replacing the mean filter on a and b), and compute the
+output by q ¼ aI þ b at the fine scale. The result is visually
+comparable to the joint bilateral upsampling (Fig. 17). In our
+12  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 35, NO. X, XXXXXXX 2013
+
+Fig. 18. The halo artifacts. The parameters are r ¼ 16,  ¼ 0:42 for the guided filter, s ¼ 16, r ¼ 0:4 for the bilateral filte, and  ¼ 1:2,  ¼ 5 (see [8])
+for the WLS filter. On the right we show the input signals and filtering results on a scanline.
+
+bilateral filter [17], [18], [19], [20], [21], we design a new                [19] Q. Yang, K.-H. Tan, and N. Ahuja, "Real-Time O(1) Bilateral
+                                                                                    Filtering," Proc. IEEE Conf. Computer Vision and Pattern Recognition,
+filter that exhibits the nice property of edge-preserving                           pp. 557-564, 2009.
+
+smoothing but which can be computed efficiently and                           [20] A. Adams, N. Gelfand, J. Dolson, and M. Levoy, "Gaussian KD-
+                                                                                    Trees for Fast High-Dimensional Filtering," Proc. ACM Siggraph,
+nonapproximately. Our filter is more generic than "smooth-                          pp. 21:1-21:12, 2009.
+
+ing" and is applicable for structure-transferring, enabling                   [21] A. Adams, J. Baek, and M.A. Davis, "Fast High-Dimensional
+                                                                                    Filtering Using the Permutohedral Lattice," Computer Graphics
+novel applications of filtering-based feathering/matting                            Forum, vol. 29, no. 2, pp. 753-762, 2010.
+
+and dehazing. Since the local linear model (4) is a kind of                   [22] K. He, J. Sun, and X. Tang, "Guided Image Filtering," Proc.
+                                                                                    European Conf. Computer Vision, pp. 1-14, 2010.
+patch-wise unsupervised learning, other advanced models/
+                                                                              [23] C. Rhemann, A. Hosni, M. Bleyer, C. Rother, and M. Gelautz,
+features might be applied to obtain new filters. We leave                           "Fast Cost-Volume Filtering for Visual Correspondence and
+                                                                                    Beyond," Proc. IEEE Conf. Computer Vision and Pattern Recognition,
+this for future studies.                                                            pp. 3017-3024, 2011.
+
+REFERENCES                                                                    [24] L. De-Maeztu, S. Mattoccia, A. Villanueva, and R. Cabeza, "Linear
+                                                                                    Stereo Matching," Proc. IEEE Int'l Computer Vision Conf. pp. 1708-
+[1] C. Tomasi and R. Manduchi, "Bilateral Filtering for Gray and                    1715, 2011.
+      Color Images," Proc. IEEE Int'l Computer Vision Conf., 1998.
+                                                                              [25] Y. Ding, J. Xiao, and J. Yu, "Importance Filtering for Image
+[2] R.C. Gonzalez and R.E. Woods, Digital Image Processing, second                  Retargeting," Proc. IEEE Conf. Computer Vision and Pattern
+      ed. Prentice Hall, 2002.                                                      Recognition, pp. 89-96, 2011.
+
+[3] R. Fattal, D. Lischinski, and M. Werman, "Gradient Domain High            [26] P. Bauszat, M. Eisemann, and M. Magnor, "Guided Image
+      Dynamic Range Compression," Proc. ACM Siggraph, 2002.                         Filtering for Interactive High-Quality Global Illumination,"
+                                                                                    Computer Graphics Forum, vol. 30, no. 4, pp. 1361-1368, June 2011.
+[4] P. Pe´rez, "Poisson Image Editing," Proc. ACM Siggraph, 2003.
+[5] J. Sun, J. Jia, C.-K. Tang, and H.-Y. Shum, "Poisson Matting," Proc.      [27] K. He, "Guided Image Filtering (Matlab Code)," http://research.
+                                                                                    microsoft.com/en-us/um/people/kahe/, 2010.
+      ACM Siggraph, 2004.
+[6] P. Bhat, B. Curless, M. Cohen, and C.L. Zitnick, "Fourier Analysis        [28] C. Liu, W.T. Freeman, R. Szeliski, and S.B. Kang, "Noise
+                                                                                    Estimation from a Single Image," Proc. IEEE Conf. Computer Vision
+      of the 2D Screened Poisson Equation for Gradient Domain                       and Pattern Recognition, 2006.
+      Problems," Proc. European Conf. Computer Vision, pp. 114-128, 2008.
+[7] P. Perona and J. Malik, "Scale-Space and Edge Detection Using             [29] R. Fattal, M. Agrawala, and S. Rusinkiewicz, "Multiscale Shape
+      Anisotropic Diffusion," IEEE Trans. Pattern Analysis and Machine              and Detail Enhancement from Multi-Light Image Collections,"
+      Intelligence, vol. 12, no. 7, pp. 629-639, July 1990.                         Proc. ACM Siggraph, 2007.
+[8] Z. Farbman, R. Fattal, D. Lischinski, and R. Szeliski, "Edge-
+      Preserving Decompositions for Multi-Scale Tone and Detail               [30] H. Winnemo¨ ller, S.C. Olsen, and B. Gooch, "Real-Time Video
+      Manipulation," Proc. ACM Siggraph, 2008.                                      Abstraction," Proc. ACM Siggraph, 2006.
+[9] A. Levin, D. Lischinski, and Y. Weiss, "Colorization Using
+      Optimization," Proc. ACM Siggraph, 2004.                                [31] J. Kopf, M. Cohen, D. Lischinski, and M. Uyttendaele, "Joint
+[10] A. Levin, D. Lischinski, and Y. Weiss, "A Closed Form Solution to              Bilateral Upsampling," Proc. ACM Siggraph, 2007.
+      Natural Image Matting," Proc. IEEE Conf. Computer Vision and
+      Pattern Recognition, 2006.                                              [32] L. Yuan, J. Sun, L. Quan, and H.-Y. Shum, "Progressive Inter-Scale
+[11] K. He, J. Sun, and X. Tang, "Single Image Haze Removal Using                   and Intra-Scale Non-Blind Image Deconvolution," Proc. ACM
+      Dark Channel Prior," Proc. IEEE Conf. Computer Vision and Pattern             Siggraph, pp. 74:1-74:10, 2008.
+      Recognition, 2009.
+[12] V. Aurich and J. Weule, "Non-Linear Gaussian Filters Performing          [33] K.-J. Yoon and I.S. Kweon, "Adaptive Support-Weight Approach
+      Edge Preserving Diffusion," Mustererkennung 1995, 17. DAGM-                   for Correspondence Search," IEEE Trans. Pattern Analysis and
+      Symp., pp. 538-545, 1995.                                                     Machine Intelligence, vol. 28, no. 4, pp. 650-656, Apr. 2006.
+[13] S.M. Smith and J.M. Brady, "Susan--A New Approach to Low
+      Level Image Processing," Int'l J. Computer Vision, vol. 23, pp. 45-78,  [34] B. Weiss, "Fast Median and Bilateral Filtering," ACM Trans.
+      1995.                                                                         Graphics, vol. 25, no. 3, pp. 519-526, July 2006.
+[14] G. Petschnigg, M. Agrawala, H. Hoppe, R. Szeliski, M. Cohen, and
+      K. Toyama, "Digital Photography with Flash and No-Flash Image           [35] J. Chen, S. Paris, and F. Durand, "Real-Time Edge-Aware Image
+      Pairs," Proc. ACM Siggraph, 2004.                                             Processing with the Bilateral Grid," ACM Trans. Graphics, vol. 26,
+[15] F. Durand and J. Dorsey, "Fast Bilateral Filtering for the Display of          no. 3, 2007.
+      High-Dynamic-Range Images," Proc. ACM Siggraph, 2002.
+[16] S. Bae, S. Paris, and F. Durand, "Two-Scale Tone Management for          [36] E.S.L. Gastal and M.M. Oliveira, "Adaptive Manifolds for Real-
+      Photographic Look," Proc. ACM Siggraph, 2006.                                 Time High-Dimensional Filtering," Proc. ACM Siggraph, 2012.
+[17] S. Paris and F. Durand, "A Fast Approximation of the Bilateral
+      Filter Using a Signal Processing Approach," Proc. European Conf.        [37] R. Fattal, "Edge-Avoiding Wavelets and Their Applications," Proc.
+      Computer Vision, 2006.                                                        ACM Siggraph, 2009.
+[18] F. Porikli, "Constant Time O(1) Bilateral Filtering," Proc. IEEE
+      Conf. Computer Vision and Pattern Recognition, 2008.                    [38] E.S.L. Gastal and M.M. Oliveira, "Domain Transform for Edge-
+                                                                                    Aware Image and Video Processing," ACM Trans. Graphics,
+                                                                                    vol. 30, no. 4, pp. 69:1-69:12, 2011.
+
+                                                                              [39] L. Grady, "Random Walks for Image Segmentation," IEEE Trans.
+                                                                                    Pattern Analysis and Machine Intelligence, vol. 28, no. 11, pp. 1768-
+                                                                                    1783, Nov. 2006.
+
+                                                                              [40] Y. Saad, Iterative Methods for Sparse Linear Systems. SIAM, 2003.
+
+                                                                              [41] R. Szeliski, "Locally Adapted Hierarchical Basis Preconditioning,"
+                                                                                    Proc. ACM Siggraph, 2006.
+HE ET AL.: GUIDED IMAGE FILTERING                                            13
+
+[42] W.L. Briggs, V.E. Henson, and S.F. McCormick, A Multigrid                                              Kaiming He received the BS degree from the
+      Tutorial, second ed. SIAM, 2000.                                                                      Academic Talent Program, Physics Department,
+                                                                                                            Tsinghua University in 2007, and the PhD
+[43] M. Elad, "On the Origin of the Bilateral Filter and Ways to                                            degree from the Department of Information
+      Improve It," IEEE Trans. Image Processing, vol. 11, no. 10, pp. 1141-                                 Engineering, the Chinese University of Hong
+      1151, Oct. 2002.                                                                                      Kong in 2011. He joined Microsoft Research
+                                                                                                            Asia in August 2011. His research interests
+[44] M. Kass and J. Solomon, "Smoothed Local Histogram Filters,"                                            include computer vision and computer graphics.
+      ACM Trans. Graphics, vol. 29, pp. 100:1-100:10, July 2010.                                            He has received the Best Paper Award at the
+                                                                                                            IEEE Conference on Computer Vision and
+[45] L.I. Rudin, S. Osher, and E. Fatemi, "Nonlinear Total Variation         Pattern Recognition (CVPR) 2009. He is a member of the IEEE.
+      Based Noise Removal Algorithms," Physica D, vol. 60, nos. 1-4,
+      pp. 259-268, Nov. 1992.                                                                               Jian Sun received the BS, MS, and PhD
+                                                                                                            degrees from Xian Jiaotong University in 1997,
+[46] Y. Li and S. Osher, "A New Median Formula with Applications to                                         2000, and 2003, respectively. He joined Micro-
+      PDE Based Denoising," Comm. Math. Sciences, vol. 7, pp. 741-753,                                      soft Research Asia in July 2003. His current two
+      2009.                                                                                                 major research interests are interactive compu-
+                                                                                                            ter vision (user interface + vision) and Internet
+[47] Y. Wang, J. Yang, W. Yin, and Y. Zhang, "A New Alternating                                             computer vision (large image collection + vision).
+      Minimization Algorithm for Total Variation Image Reconstruc-                                          He is also interested in stereo matching and
+      tion," SIAM J. Imaging Science, vol. 1, no. 3, pp. 248-272, 2008.                                     computational photography. He is a member of
+                                                                                                            the IEEE.
+[48] S. Paris, S.W. Hasinoff, and J. Kautz, "Local Laplacian Filters:
+      Edge-Aware Image Processing with a Laplacian Pyramid," ACM                                            Xiaoou Tang received the BS degree from the
+      Trans. Graphics, vol. 30, no. 4, pp. 68:1-68:12, July 2011.                                           University of Science and Technology of China,
+                                                                                                            Hefei, in 1990, the MS degree from the
+[49] L. Xu, C. Lu, Y. Xu, and J. Jia, "Image Smoothing via l0 Gradient                                      University of Rochester, New York, in 1991,
+      Minimization," Proc. ACM Siggraph Asia, pp. 174:1-174:12, 2011.                                       and the PhD degree from the Massachusetts
+                                                                                                            Institute of Technology, Cambridge, in 1996. He
+[50] A. Zomet and S. Peleg, "Multi-Sensor Super Resolution," Proc.                                          is a professor in the Department of Information
+      IEEE Workshop Applications of Computer Vision, 2002.                                                  Engineering, the Chinese University of Hong
+                                                                                                            Kong. He worked as the group manager of the
+[51] N. Draper and H. Smith, Applied Regression Analysis, second ed.                                        Visual Computing Group at Microsoft Research
+      John Wiley, 1981.                                                      Asia from 2005 to 2008. He was a program chair of the IEEE
+                                                                             International Conference on Computer Vision (ICCV) 2009 and is an
+[52] T. Hastie, R. Tibshirani, and J.H. Friedman, The Elements of            associate editor of the IEEE Transactions on Pattern Analysis and
+      Statistical Learning. Springer, 2003.                                  Machine Intelligence (TPAMI) and the International Journal of Computer
+                                                                             Vision (IJCV). His research interests include computer vision, pattern
+[53] V. Katkovnik, A. Foi, K. Egiazarian, and J. Astola, "From Local         recognition, and video processing. He received the Best Paper Award at
+      Kernel to Nonlocal Multiple-Model Image Denoising," Int'l              the IEEE Conference on Computer Vision and Pattern Recognition
+      J. Computer Vision, vol. 86, no. 1, pp. 1-32, 2010.                    (CVPR) 2009. He is a fellow of the IEEE.
+
+[54] K. Dabov, R. Foi, V. Katkovnik, and K. Egiazarian, "Image               . For more information on this or any other computing topic,
+      Denoising by Sparse 3D Transform-Domain Collaborative Filter-          please visit our Digital Library at www.computer.org/publications/dlib.
+      ing," IEEE Trans. Image Processing, vol. 16, no. 8, pp. 2080-2095,
+      Aug. 2007.
+
+[55] K. He, J. Sun, and X. Tang, "Fast Matting Using Large Kernel
+      Matting Laplacian Matrices," Proc. IEEE Conf. Computer Vision and
+      Pattern Recognition, pp. 2165-2172, 2010.
+
+[56] S. Perreault and P. He´bert, "Median Filtering in Constant Time,"
+      IEEE Trans. Image Processing, vol. 16, no. 9, pp. 2389-2394, Sept.
+      2007.
+
+[57] F. Crow, "Summed-Area Tables for Texture Mapping," Proc. ACM
+      Siggraph, 1984.
+
+[58] R. Deriche, "Recursively Implementing the Gaussian and Its
+      Derivatives," 1993.
+
+[59] K. He, C. Rhemann, C. Rother, X. Tang, and J. Sun, "A Global
+      Sampling Method for Alpha Matting," Proc. IEEE Conf. Computer
+      Vision and Pattern Recognition, pp. 2049-2056, 2011.
+

@@ -1,0 +1,716 @@
+                                       To appear in the SIGGRAPH 98 conference proceedings
+
+                 Rendering Synthetic Objects into Real Scenes:
+Bridging Traditional and Image-based Graphics with Global Illumination
+
+                       and High Dynamic Range Photography
+
+                                                     Paul Debevec
+
+                                                   University of California at Berkeley1
+
+ABSTRACT                                                               1 Introduction
+
+We present a method that uses measured scene radiance and global       Rendering synthetic objects into real-world scenes is an important
+illumination in order to add new objects to light-based models with    application of computer graphics, particularly in architectural and
+correct lighting. The method uses a high dynamic range image-          visual effects domains. Oftentimes, a piece of furniture, a prop, or
+based model of the scene, rather than synthetic light sources, to il-  a digital creature or actor needs to be rendered seamlessly into a
+luminate the new objects. To compute the illumination, the scene is    real scene. This difficult task requires that the objects be lit con-
+considered as three components: the distant scene, the local scene,    sistently with the surfaces in their vicinity, and that the interplay of
+and the synthetic objects. The distant scene is assumed to be pho-     light between the objects and their surroundings be properly simu-
+tometrically unaffected by the objects, obviating the need for re-     lated. Specifically, the objects should cast shadows, appear in reflec-
+flectance model information. The local scene is endowed with es-       tions, and refract, focus, and emit light just as real objects would.
+timated reflectance model information so that it can catch shadows
+and receive reflected light from the new objects. Renderings are                                            Distant
+created with a standard global illumination method by simulating                                             Scene
+the interaction of light amongst the three components. A differen-
+tial rendering technique allows for good results to be obtained when                                                  light-based
+only an estimate of the local scene reflectance properties is known.                                                (no reflectance
+
+   We apply the general method to the problem of rendering syn-                                                         model)
+thetic objects into real scenes. The light-based model is constructed
+from an approximate geometric model of the scene and by using a                     light
+light probe to measure the incident illumination at the location of
+the synthetic objects. The global illumination solution is then com-    Local              Synthetic
+posited into a photograph of the scene using the differential render-   Scene               Objects
+ing technique. We conclude by discussing the relevance of the tech-
+nique to recovering surface reflectance properties in uncontrolled     estimated              known
+lighting situations. Applications of the method include visual ef-     reflectance          reflectance
+fects, interior design, and architectural visualization.
+                                                                         model                 model
+   CR Descriptors: I.2.10 [Artificial Intelligence]: Vision and
+Scene Understanding - Intensity, color, photometry and threshold-      Figure 1: The General Method In our method for adding synthetic
+ing; I.3.7 [Computer Graphics]: Three-Dimensional Graphics and         objects into light-based scenes, the scene is partitioned into three
+Realism - Color, shading, shadowing, and texture; I.3.7 [Computer      components: the distant scene, the local scene, and the synthetic ob-
+Graphics]: Three-Dimensional Graphics and Realism - Radiosity;         jects. Global illumination is used to simulate the interplay of light
+I.4.1 [Image Processing]: Digitization - Scanning; I.4.8 [Image        amongst all three components, except that light reflected back at the
+Processing]: Scene Analysis - Photometry, Sensor Fusion.               distant scene is ignored. As a result, BRDF information for the dis-
+                                                                       tant scene is unnecessary. Estimates of the geometry and material
+    1Computer Science Division, University of California at Berke-     properties of the local scene are used to simulate the interaction of
+ley, Berkeley, CA 94720-1776. Email: debevec@cs.berkeley.edu.          light between it and the synthetic objects.
+More information and additional results may be found at:
+http://www.cs.berkeley.edu/~debevec/Research                              Currently available techniques for realistically rendering syn-
+                                                                       thetic objects into scenes are labor intensive and not always success-
+                                                                       ful. A common technique is to manually survey the positions of the
+                                                                       light sources, and to instantiate a virtual light of equal color and in-
+                                                                       tensity for each real light to illuminate the synthetic objects. An-
+                                                                       other technique is to photograph a reference object (such as a gray
+                                                                       sphere) in the scene where the new object is to be rendered, and
+                                                                       use its appearance as a qualitative guide in manually configuring the
+                                                                       lighting environment. Lastly, the technique of reflection mapping is
+                                                                       useful for mirror-like reflections. These methods typically require
+                                                                       considerable hand-refinement and none of them easily simulates the
+                                                                       effects of indirect illumination from the environment.
+To appear in the SIGGRAPH 98 conference proceedings
+
+   Accurately simulating the effects of both direct and indirect light-              technique that produces perceptually accurate results even when the
+ing has been the subject of research in global illumination. With a                  estimated BRDF is somewhat inaccurate.
+global illumination algorithm, if the entire scene were modeled with
+its full geometric and reflectance (BRDF) characteristics, one could                    We demonstrate the general method for the specific case of ren-
+correctly render a synthetic object into the scene simply by adding it               dering synthetic objects into particular views of a scene (such as
+to the model and recomputing the global illumination solution. Un-                   background plates) rather than into a general image-based model. In
+fortunately, obtaining a full geometric and reflectance model of a                   this method, a light probe is used to acquire a high dynamic range
+large environment is extremeley difficult. Furthermore, global il-                   panoramic radiance map near the location where the object will be
+lumination solutions for large complex environments are extremely                    rendered. A simple example of a light probe is a camera aimed at a
+computationally intensive.                                                           mirrored sphere, a configuration commonly used for acquiring envi-
+                                                                                     ronment maps. An approximate geometric model of the scene is cre-
+   Moreover, it seems that having a full reflectance model of the                    ated (via surveying, photogrammetry, or 3D scanning) and mapped
+large-scale scene should be unnecessary: under most circumstances,                   with radiance values measured with the light probe. The distant
+a new object will have no significant effect on the appearance of                    scene, local scene, and synthetic objects are rendered with global
+most of the of the distant scene. Thus, for such distant areas, know-                illumination from the same point of view as the background plate,
+ing just its radiance (under the desired lighting conditions) should                 and the results are composited into the background plate with a dif-
+suffice.                                                                             ferential rendering technique.
+
+   Recently, [9] introduced a high dynamic range photographic                        1.1 Overview
+technique that allows accurate measurements of scene radiance to
+be derived from a set of differently exposed photographs. This tech-                 The rest of this paper is organized as follows. In the next section
+nique allows both low levels of indirect radiance from surfaces and                  we discuss work related to this paper. Section 3 introduces the ba-
+high levels of direct radiance from light sources to be accurately                   sic technique of using acquired maps of scene radiance to illuminate
+recorded. When combined with image-based modeling techniques                         synthetic objects. Section 4 presents the general method we will use
+(e.g. [22, 24, 4, 10, 23, 17, 29]), and possibly active techniques for               to render synthetic objects into real scenes. Section 5 describes a
+measuring geometry (e.g. [35, 30, 7, 27]) these derived radiance                     practical technique based on this method using a light probe to mea-
+maps can be used to construct spatial representations of scene ra-                   sure incident illumination. Section 6 presents a differential render-
+diance.                                                                              ing technique for rendering the local environment with only an ap-
+                                                                                     proximate description of its reflectance. Section 7 presents a sim-
+   We will use the term light-based model to refer to a repre-                       ple method to approximately recover the diffuse reflectance char-
+sentation of a scene that consists of radiance information, possi-                   acteristics of the local environment. Section 8 presents results ob-
+bly with specific reference to light leaving surfaces, but not neces-                tained with the technique. Section 9 discusses future directions for
+sarily containing material property (BRDF) information. A light-                     this work, and we conclude in Section 10.
+based model can be used to evaluate the 5D plenoptic function [1]
+P ; ; Vx; Vy; Vz for a given virtual or real subset of space1. A                    2 Background and Related Work
+material-based model is converted to a light-based model by com-
+puting an illumination solution for it. A light-based model is differ-               The practice of adding new objects to photographs dates to the early
+entiated from an image-based model in that its light values are ac-                  days of photography in the simple form of pasting a cut-out from one
+tual measures of radiance2, whereas image-based models may con-                      picture onto another. While the technique conveys the idea of the
+tain pixel values already transformed and truncated by the response                  new object being in the scene, it usually fails to produce an image
+function of an image acquisition or synthesis process.                               that as a whole is a believable photograph. Attaining such realism
+                                                                                     requires a number of aspects of the two images to match. First, the
+   In this paper, we present a general method for using accurate                     camera projections should be consistent, otherwise the object may
+measurements of scene radiance in conjunction with global illumi-                    seem too foreshortened or skewed relative to the rest of the picture.
+nation to realistically add new objects to light-based models. The                   Second, the patterns of film grain and film response should match.
+synthetic objects may have arbitrary material properties and can be                  Third, the lighting on the object needs to be consistent with other
+rendered with appropriate illumination in arbitrary lighting environ-                objects in the environment. Lastly, the object needs to cast realistic
+ments. Furthermore, the objects can correctly interact with the en-                  shadows and reflections on the scene. Skilled artists found that by
+vironment around them: they cast the appropriate shadows, they are                   giving these considerations due attention, synthetic objects could be
+properly reflected, they can reflect and focus light, and they exhibit               painted into still photographs convincingly.
+appropriate diffuse interreflection. The method can be carried out
+with commonly available equipment and software.                                         In optical film compositing, the use of object mattes to prevent
+                                                                                     particular sections of film from being exposed made the same sort of
+   In this method (see Fig. 1), the scene is partitioned into three                  cut-and-paste compositing possible for moving images. However,
+components. The first is the distant scene, which is the visible part                the increased demands of realism imposed by the dynamic nature of
+of the environment too remote to be perceptibly affected by the syn-                 film made matching camera positions and lighting even more criti-
+thetic object. The second is the local scene, which is the part of the               cal. As a result, care was taken to light the objects appropriately for
+environment which will be significantly affected by the presence of                  the scene into which they were to be composited. This would still
+the objects. The third component is the synthetic objects. Our ap-                   not account for the objects casting shadows onto the scene, so often
+proach uses global illumination to correctly simulate the interaction                these were painted in by an artist frame by frame [13, 2, 28]. Digi-
+of light amongst these three elements, with the exception that light                 tal film scanning and compositing [26] helped make this process far
+radiated toward the distant environment will not be considered in the                more efficient.
+calculation. As a result, the BRDF of the distant environment need
+not be known -- the technique uses BRDF information only for the                        Work in global illumination [16, 19] has recently produced algo-
+local scene and the synthetic objects. We discuss the challenges in                  rithms (e.g. [31]) and software (e.g. [33]) to realistically simulate
+estimating the BRDF of the local scene, and methods for obtain-                      lighting in synthetic scenes, including indirect lighting with both
+ing usable approximations. We also present a differential rendering                  specular and diffuse reflections. We leverage this work in order to
+                                                                                     create realistic renderings.
+    1Time and wavelength dependence can be included to represent the gen-
+eral 7D plenoptic function as appropriate.                                              Some work has been done on the specific problem of composit-
+                                                                                     ing objects into photography. [25] presented a procedure for ren-
+    2In practice, the measures of radiance are with respect to a discrete set of
+spectral distributions such as the standard tristimulus model.
+
+                                                                                  2
+To appear in the SIGGRAPH 98 conference proceedings
+
+dering architecture into background photographs using knowledge                recorded by taking a full dynamic range photograph of a mirrored
+of the sun position and measurements or approximations of the lo-
+cal ambient light. For diffuse buildings in diffuse scenes, the tech-          ball on a table (see Section 5). A digital camera was used to acquire
+nique is effective. The technique of reflection mapping (also called                                                                        1         1
+environment mapping) [3, 18] produces realistic results for mirror-            a  series  images  in  one-stop  exposure  increments  from  4  to  10000
+like objects. In reflection mapping, a panoramic image is rendered
+or photographed from the location of the object. Then, the surface             second. The images were fused using the technique in [9].
+normals of the object are used to index into the panoramic image
+by reflecting rays from the desired viewpoint. As a result, the shiny             The environment is displayed at three exposure levels (-0, -3.5,
+object appears to properly reflect the desired environment3. How-
+ever, the technique is limited to mirror-like reflection and does not          and -7.0 stops) to show its full dynamic range. Recovered RGB ra-
+account for objects casting light or shadows on the environment.
+                                                                               diance values for several points in the scene and on the two major
+   A common visual effects technique for having synthetic objects
+cast shadows on an existing environment is to create an approximate            light sources are indicated; the color difference between the tung-
+geometric model of the environment local to the object, and then
+compute the shadows from the various light sources. The shadows                sten lamp and the sky is evident. A single low-dynamic range pho-
+can then be subtracted from the background image. In the hands of
+professional artists this technique can produce excellent results, but         tograph would be unable to record the correct colors and intensities
+it requires knowing the position, size, shape, color, and intensity of
+each of the scene's light sources. Furthermore, it does not account            over the entire scene.
+for diffuse reflection from the scene, and light reflected by the ob-
+jects onto the scene must be handled specially.                                   Fig. 3(a-e) shows the results of using this panoramic radiance
+
+   To properly model the interaction of light between the objects and          map to synthetically light a variety of materials using the RADI-
+the local scene, we pose the compositing problem as a global illumi-
+nation computation as in [14] and [12]. As in this work, we apply              ANCE global illumination algorithm [33]. The materials are: (a)
+the effect of the synthetic objects in the lighting solution as a dif-
+ferential update to the original appearance of the scene. In the pre-          perfectly reflective, (b) rough gold, (c) perfectly diffuse gray ma-
+vious work an approximate model of the entire scene and its origi-
+nal light sources is constructed; the positions and sizes of the light         terial, (d) shiny green plastic, and (e) dull orange plastic. Since
+sources are measured manually. Rough methods are used to esti-
+mate diffuse-only reflectance characteristics of the scene, which are          we are computing a full illumination solution, the objects exhibit
+then used to estimate the intensities of the light sources. [12] addi-
+tionally presents a method for performing fast updates of the illu-            self-reflection and shadows from the light sources as appropriate.
+mination solution in the case of moving objects. As in the previous
+work, we leverage the basic result from incremental radiosity [6, 5]           Note that in (c) the protrusions produce two noticeable shadows of
+that making a small change to a scene does not require recomputing
+the entire solution.                                                           slightly different colors, one corresponding to the ceiling light and
+
+3 Illuminating synthetic objects with real                                     a softer shadow corresponding to the window.
+    light
+                                                                                  The shiny plastic object in (d) has a 4 percent specular component
+In this section we propose that computer-generated objects be lit by
+actual recordings of light from the scene, using global illumination.          with a Gaussian roughness of 0.04 [32]. Since the object's surface
+Performing the lighting in this manner provides a unified and phys-
+ically accurate alternative to manually attempting to replicate inci-          both blurs and attenuates the light with its rough specular compo-
+dent illumination conditions.
+                                                                               nent, the reflections fall within the dynamic range of our display de-
+   Accurately recording light in a scene is difficult because of the
+high dynamic range that scenes typically exhibit; this wide range              vice and the different colors of the light sources can be seen. In (e)
+of brightness is the result of light sources being relatively concen-
+trated. As a result, the intensity of a source is often two to six orders      the rough plastic diffuses the incident light over a much larger area.
+of magnitude larger than the intensity of the non-emissive parts of
+an environment. However, it is necessary to accurately record both                To illustrate the importance of using high dynamic range radi-
+the large areas of indirect light from the environment and the con-
+centrated areas of direct light from the sources since both are signif-        ance maps, the same renderings were produced using just one of
+icant parts of the illumination solution.
+                                                                               the original photographs as the lighting environment. In this single
+   Using the technique introduced in [9], we can acquire correct
+measures of scene radiance using conventional imaging equipment.               image, similar in appearance to Fig. 2(a), the brightest regions had
+The images, called radiance maps, are derived from a series of im-
+ages with different sensor integration times and a technique for com-          been truncated to approximately 2 percent of their true values. The
+puting and accounting for the imaging system response function f .
+We can use these measures to illuminate synthetic objects exhibiting           rendering of the mirrored surface (f) appears similar to (a) since it
+arbitrary material properties.
+                                                                               is displayed in low-dynamic range printed form. Significant errors
+   Fig. 2 shows a high-dynamic range lighting environment with
+electric, natural, and indirect lighting. This environment was                 are noticeable in (g-j) since these materials blur the incident light.
+
+    3Using the surface normal indexing method, the object will not reflect     In (g), the blurring of the rough material darkens the light sources,
+itself. Correct self-reflection can be obtained through ray tracing.
+                                                                               whereas in (b) they remain saturated. Renderings (h-j) are very dark
+
+                                                                               due to the missed light; thus we have brightened by a factor of eight
+
+                                                                               on the right in order to make qualitative comparisons to (c-e) pos-
+
+                                                                               sible. In each it can be seen that the low-dynamic range image of
+
+                                                                               the lighting environment fails to capture the information necessary
+
+                                                                               to simulate correct color balance, shadows, and highlights.
+
+                                                                                  Fig. 4 shows a collection of objects with different material prop-
+
+                                                                               erties illuminated by two different environments. A wide variety
+
+                                                                               of light interaction between the objects and the environment can be
+
+                                                                               seen. The (synthetic) mirrored ball reflects both the synthetic ob-
+
+                                                                               jects as well as the environment. The floating diffuse ball shows
+
+                                                                               a subtle color shift along its right edge as it shadows itself from
+
+                                                                               the windows and is lit primarily by the incandescent lamp in Fig.
+
+                                                                               4(a). The reflection of the environment in the black ball (which has
+
+                                                                               a specular intensity of 0.04) shows the colors of the light sources,
+
+                                                                               which are too bright to be seen in the mirrored ball. A variety of
+
+                                                                               shadows, reflections, and focused light can be observed on the rest-
+
+                                                                               ing surface.
+
+                                                                                  The next section describes how the technique of using radiance
+
+                                                                               maps to illuminate synthetic objects can be extended to compute the
+
+                                                                               proper photometric interaction of the objects with the scene. It also
+
+                                                                               describes how high dynamic range photography and image-based
+
+                                                                               modeling combine in a natural manner to allow the simulation of
+
+                                                                               arbitrary (non-infinite) lighting environments.
+
+                                                                               4 The General Method
+
+                                                                               This section explains our method for adding new objects to light-
+                                                                               based scene representations. As in Fig. 1, we partition our scene
+                                                                               into three parts: the distant scene, the local scene, and the synthetic
+
+                                                                            3
+                                  To appear in the SIGGRAPH 98 conference proceedings
+
+                                                                                                                             (11700,7300,2600)
+                                                                                                                              (5700,8400,11800)
+
+                      (18,17,19)  (620,890,1300)
+(60,40,35)
+
+Figure 2: An omnidirectional radiance map This full dynamic range lighting environment was acquired by photographing a mirrored ball
+balanced on the cap of a pen sitting on a table. The environment contains natural, electric, and indirect light. The three views of this image
+adjusted to (a) +0 stops, (b) -3.5 stops, and (c) -7.0 stops show that the full dynamic range of the scene has been captured without saturation.
+As a result, the image usefully records the direction, color, and intensity of all forms of incident light.
+
+Figure 3: Illuminating synthetic objects with real light (Top row: a,b,c,d,e) With full dynamic range measurements of scene radiance from
+Fig. 2. (Bottom row: f,g,h,i,j) With low dynamic range information from a single photograph of the ball. The right sides of images (h,i,j)
+have been brightened by a factor of six to allow qualitative comparison to (c,d,e). The high dynamic range measurements of scene radiance
+are necessary to produce proper lighting on the objects.
+
+Figure 4: Synthetic objects lit by two different environments (a) A collection of objects is illuminated by the radiance information in 2.
+The objects exhibit appropriate interreflection. (b) The same objects are illuminated by different radiance information obtained in an outdoor
+urban environment on an overcast day. The radiance map used for the illumination is shown in the upper left of each image. Candle holder
+model courtesy of Gregory Ward Larson.
+
+                                                                                    4
+To appear in the SIGGRAPH 98 conference proceedings
+
+objects. We describe the geometric and photometric requirements                       its appearance from the desired viewpoint should be included
+for each of these components.                                                         as part of the local scene.
+                                                                                      Since the local scene is a full BRDF model, it can be added
+  1. A light-based model of the distant scene                                         to the global illumination problem as would any other object.
+      The distant scene is constructed as a light-based model. The                    The local scene may consist of any number of surfaces and ob-
+      synthetic objects will receive light from this model, so it is nec-             jects with different material properties. For example, the local
+      essary that the model store true measures of radiance rather                    scene could consist of a patch of floor beneath the synthetic
+      than low dynamic range pixel values from conventional im-                       object to catch shadows as well as a mirror surface hanging
+      ages. The light-based model can take on any form, using very                    on the opposite wall to catch a reflection. The local scene re-
+      little explicit geometry [23, 17], some geometry [24], moder-                   places the corresponding part of the light-based model of the
+      ate geometry [10], or be a full 3D scan of an environment with                  distant scene.
+      view-dependent texture-mapped [11] radiance. What is im-                        Since it can be difficult to determine the precise BRDF char-
+      portant is for the model to provide accurate measures of inci-                  acteristics of the local scene, it is often desirable to have only
+      dent illumination in the vicinity of the objects, as well as from               the change in the local scene's appearance be computed with
+      the desired viewpoint. In the next section we will present a                    the BRDF estimate; its appearance due to illumination from
+      convenient procedure for constructing a minimal model that                      the distant scene is taken from the original light-based model.
+      meets these requirements.                                                       This differential rendering method is presented in Section 6.
+      In the global illumination computation, the distant scene ra-
+      diates light toward the local scene and the synthetic objects,              3. Complete material-based models of the objects
+      but ignores light reflected back to it. We assume that no area                  The synthetic objects themselves may consist of any variety
+      of the distant scene will be significantly affected by light re-                of shapes and materials supported by the global illumination
+      flecting from the synthetic objects; if that were the case, the                 software, including plastics, metals, emitters, and dielectrics
+      area should instead belong to the local scene, which contains                   such as glass and water. They should be placed in their desired
+      the BRDF information necessary to interact with light. In the                   geometric correspondence to the local scene.
+      RADIANCE [33] system, this exclusively emissive behavior
+      can be specified with the "glow" material property.                          Once the distant scene, local scene, and synthetic objects are
+                                                                                properly modeled and positioned, the global illumination software
+  2. An approximate material-based model of the local scene                     can be used in the normal fashion to produce renderings from the
+      The local scene consists of the surfaces that will photomet-              desired viewpoints.
+      rically interact with the synthetic objects. It is this geome-
+      try onto which the objects will cast shadows and reflect light.           5 Compositing using a light probe
+      Since the local scene needs to fully participate in the illumina-
+      tion solution, both its geometry and reflectance characteristics          This section presents a particular technique for constructing a light-
+      should be known, at least approximately. If the geometry of               based model of a real scene suitable for adding synthetic objects at a
+      the local scene is not readily available with sufficient accuracy         particular location. This technique is useful for compositing objects
+      from the light-based model of the distant scene, there are vari-          into actual photography of a scene.
+      ous techniques available for determining its geometry through
+      active or passive methods. In the common case where the lo-                  In Section 4, we mentioned that the light-based model of the dis-
+      cal scene is a flat surface that supports the synthetic objects, its      tant scene needs to appear correctly in the vicinity of the synthetic
+      geometry is determined easily from the camera pose. Meth-                 objects as well as from the desired viewpoints. This latter require-
+      ods for estimating the BRDF of the local scene are discussed              ment can be satisfied if it is possible to directly acquire radiance
+      in Section 7.                                                             maps of the scene from the desired viewpoints. The former require-
+      Usually, the local scene will be the part of the scene that is geo-       ment, that the appear photometrically correct in all directions in
+      metrically close to the synthetic objects. When the local scene           the vicinity of the synthetic objects, arises because this information
+      is mostly diffuse, the rendering equation shows that the visible          comprises the incident light which will illuminate the objects.
+      effect of the objects on the local scene decreases as the inverse
+      square of the distance between the two. Nonetheless, there is a              To obtain this part of the light-based model, we acquire a full dy-
+      variety of circumstances in which synthetic objects can signif-           namic range omnidirectional radiance map near the location of the
+      icantly affect areas of the scene not in the immediate vicinity.          synthetic object or objects. One technique for acquiring this radi-
+      Some common circumstances are:                                            ance map is to photograph a spherical first-surface mirror, such as a
+                                                                                polished steel ball, placed at or near the desired location of the syn-
+              If there are concentrated light sources illuminating the          thetic object4. This procedure is illustrated in Fig. 7(a). An actual
+              object, then the object can cast a significant shadow on          radiance map obtained using this method is shown in Fig. 2.
+              a distant surface collinear with it and the light source.
+                                                                                   The radiance measurements observed in the ball are mapped onto
+              If there are concentrated light sources and the object is         the geometry of the distant scene. In many circumstances this model
+              flat and specular, it can focus a significant amount of           can be very simple. In particular, if the objects are small and resting
+              light onto a distant part of the scene.                           on a flat surface, one can model the scene as a horizontal plane for
+                                                                                the resting surface and a large dome for the rest of the environment.
+              If a part of the distant scene is flat and specular (e.g. a       Fig. 7(c) illustrates the ball image being mapped onto a table surface
+              mirror on a wall), its appearance can be significantly af-        and the walls and ceiling of a finite room; 5 shows the resulting light-
+              fected by a synthetic object.                                     based model.
+
+              If the synthetic object emits light (e.g. a synthetic laser),     5.1 Mapping from the probe to the scene model
+              it can affect the appearance of the distant scene signifi-
+              cantly.                                                           To precisely determine the mapping between coordinates on the ball
+                                                                                and rays in the world, one needs to record the position of the ball
+      These situations should be considered in choosing which parts
+      of the scene should be considered local and which parts dis-                  4Parabolic mirrors combined with telecentric lenses [34] can be used to
+      tant. Any part of the scene that will be significantly affected in        obtain hemispherical fields of view with a consistent principal point, if so
+                                                                                desired.
+
+                                                                             5
+To appear in the SIGGRAPH 98 conference proceedings
+
+relative to the camera, the size of the ball, and the camera param-          5.2 Creating renderings
+eters such as its location in the scene and focal length. With this
+information, it is straightforward to trace rays from the camera cen-        To render the objects into the scene, a synthetic local scene model is
+ter through the pixels of the image, and reflect rays off the ball into      created as described in Section 4. Images of the scene from the de-
+the environment. Often a good approximation results from assum-              sired viewpoint(s) are taken (Fig. 7(a)), and their position relative to
+ing the ball is small relative to the environment and that the camera's      the scene is recorded through pose-instrumented cameras or (as in
+view is orthographic.                                                        our work) photogrammetry. The location of the ball in the scene is
+                                                                             also recorded at this time. The global illumination software is then
+   The data acquired from a single ball image will exhibit a num-            run to render the objects, local scene, and distant scene from the de-
+ber of artifacts. First, the camera (and possibly the photographer)          sired viewpoint (Fig. 7(d)).
+will be visible. The ball, in observing the scene, interacts with it:
+the ball (and its support) can appear in reflections, cast shadows,             The objects and local scene are then composited onto the back-
+and can reflect light back onto surfaces. Lastly, the ball will not re-      ground image. To perform this compositing, a mask is created by
+flect the scene directly behind it, and will poorly sample the area          rendering the objects and local scene in white and the distant scene
+nearby. If care is taken in positioning the ball and camera, these ef-       in black. If objects in the distant scene (which may appear in front
+fects can be minimized and will have a negligible effect on the final        of the objects or local scene from certain viewpoints) are geomet-
+renderings. If the artifacts are significant, the images can be fixed        rically modeled, they will properly obscure the local scene and the
+manually in image editing program or by selectively combining im-            objects as necessary. This compositing can be considered as a subset
+ages of the ball taken from different directions; Fig. 6 shows a rela-       of the general method (Section 4) wherein the light-based model of
+tively artifact-free enviroment constructed using the latter method.         the distant scene acts as follows: if Vx; Vy; Vz corresponds to an
+We have found that combining two images of the ball taken ninety             actual view of the scene, return the radiance value looking in direc-
+degrees apart from each other allows us to eliminate the camera's            tion ; . Otherwise, return the radiance value obtained by casting
+appearance and to avoid poor sampling.                                       the ray ; ; Vx; Vy; Vz onto the radiance-mapped distant scene
+                                                                             model.
+                                      (a)
+                                                                                In the next section we describe a more robust method of com-
+                                      (b)                                    positing the local scene into the background image.
+Figure 6: Rendering with a Combined Probe Image The full dy-
+namic range environment map shown at the top was assembled from              6 Improving quality with differential ren-
+two light probe images taken ninety degrees apart from each other.               dering
+As a result, the only visible artifact is small amount of the probe sup-
+port visible on the floor. The map is shown at -4.5, 0, and +4.5 stops.      The method we have presented so far requires that the local scene
+The bottom rendering was produced using this lighting information,           be modeled accurately in both its geometry and its spatially varying
+and exhibits diffuse and specular reflections, shadows from different        material properties. If the model is inaccurate, the appearance of the
+sources of light, reflections, and caustics.                                 local scene will not be consistent with the appearance of adjacent
+                                                                             distant scene. Such a border is readily apparent in Fig. 8(c), since
+                                                                             the local scene was modeled with a homogeneous BRDF when in
+                                                                             reality it exhibits a patterned albedo (see [21]). In this section we
+                                                                             describe a method for greatly reducing such effects.
+
+                                                                                Suppose that we compute a global illumination solution for the
+                                                                             local and distant scene models without including the synthetic ob-
+                                                                             jects. If the BRDF and geometry of the local scene model were per-
+                                                                             fectly accurate, then one would expect the appearance of the ren-
+                                                                             dered local scene to be consistent with its appearance in the light-
+                                                                             based model of the entire scene. Let us call the appearance of the lo-
+                                                                             cal scene from the desired viewpoint in the light-based model LSb.
+                                                                             In the context of the method described in Section 5, LSb is simply
+                                                                             the background image. We will let LSnoobj denote the appearance
+                                                                             of the local scene, without the synthetic objects, as calculated by the
+
+                                                                             , global illumination solution. The error in the rendered local scene
+
+                                                                             (without the objects) is thus: Errls = LSnoobj LSb. This error
+                                                                             results from the difference between the BRDF characteristics of the
+                                                                             actual local scene as compared to the modeled local scene.
+
+                                                                                Let LSobj denote the appearance of the local environment as cal-
+                                                                             culated by the global illumination solution with the synthetic objects
+                                                                             in place. We can compensate for the error if we compute our final
+                                                                             rendering LSfinal as:
+
+                                                                                           , LSfinal = LSobj Errls
+
+                                                                                Equivalently, we can write:
+
+                                                                                       , LSfinal = LSb + LSobj LSnoobj 
+
+                                                                                In this form, we see that whenever LSobj and LSnoobj are the
+                                                                             same (i.e. the addition of the objects to the scene had no effect on
+                                                                             the local scene) the final rendering of the local scene is equivalent
+                                                                             to LSb (e.g. the background plate). When LSobj is darker than
+                                                                             LSnoobj, light is subtracted from the background to form shadows,
+
+                                                                          6
+East        To appear in the SIGGRAPH 98 conference proceedings
+
+                                                               Up
+                        South
+
+                                                                                                                       North
+
+                                                                            West
+
+      Down
+
+Figure 5: A Light-Based Model A simple light-based model of a room is constructed by mapping the image from a light probe onto a box. The
+box corresponds to the upper half of the room, with the bottom face of the box being coincident with the top of the table. The model contains
+the full dynamic range of the original scene, which is not reproduced in its entirety in this figure.
+
+and when LSobj is lighter than LSnoobj light is added to the back-                spatial variation)
+ground to produce reflections and caustics.
+                                                                              2. Choose approximate initial values for the parameters of the re-
+   Stated more generally, the appearance of the local scene without               flectance model
+the objects is computed with the correct reflectance characteristics
+lit by the correct environment, and the change in appearance due to           3. Compute a global illumination solution for the local scene
+the presence of the synthetic objects is computed with the modeled                with the current parameters using the observed lighting con-
+reflectance characteristics as lit by the modeled environment. While              figuration or configurations.
+the realism of LSfinal still benefits from having a good model of
+the reflectance characteristics of the local scene, the perceptual ef-        4. Compare the appearance of the rendered local scene to its ac-
+fect of small errors in albedo or specular properties is considerably             tual appearance in one or more views.
+reduced. Fig. 8(g) shows a final rendering in which the local en-
+vironment is computed using this differential rendering technique.            5. If the renderings are not consistent, adjust the parameters of
+The objects are composited into the image directly from the LSobj                 the reflectance model and return to step 3.
+solution shown in Fig. 8(c).
+                                                                               Efficient methods of performing the adjustment in step 5 that ex-
+   It is important to stress that this technique can still produce abi-     ploit the properties of particular reflectance models are left as future
+trarily wrong results depending on the amount of error in the es-           work. However, assuming a diffuse-only model of the local scene
+timated local scene BRDF and the inaccuracies in the light-based            in step 1 makes the adjustment in step 5 straightforward. We have:
+model of the distance scene. In fact, Errls may be larger than
+LSobj, causing LSfinal to be negative. An alternate approach is                            Z 2 Z =2
+to compensate for the relative error in the appearance of the local
+scene: LSfinal = LSbLSobj =LSnoobj. Inaccuracies in the local               Lr1 r ;  r =                 dLii; i cos i sin i di d i =
+scene BDRF will also be reflected in the objects.
+                                                                                           00
+   In the next section we discuss techniques for estimating the
+BRDF of the local scene.                                                                 Z 2 Z =2
+
+7 Estimating the local scene BRDF                                                     d            Lii; i cos i sin i di d i
+
+Simulating the interaction of light between the local scene and the                      00
+synthetic objects requires a model of the reflectance characteristics
+of the local scene. Considerable recent work [32, 20, 8, 27] has pre-          If we initialize the local scene to be perfectly diffuse ( d = 1)
+sented methods for measuring the reflectance properties of mate-            everywhere, we have:
+rials through observation under controlled lighting configurations.
+Furthermore, reflectance characteristics can also be measured with                         Z 2 Z =2
+commercial radiometric devices.
+                                                                            Lr2r; r =                    Lii; i cos i sin i di d i
+   It would be more convenient if the local scene reflectance could
+be estimated directly from observation. Since the light-based model                        00
+contains information about the radiance of the local scene as well as
+its irradiance, it actually contains information about the local scene         The updated diffuse reflectance coefficient for each part of the lo-
+reflectance. If we hypothesize reflectance characteristics for the lo-      cal scene can be computed as:
+cal scene, we can illuminate the local scene with its known irradi-
+ance from the light-based model. If our hypothesis is correct, then                                d0  =  Lr1 r ;  r
+the appearance should be consistent with the measured appearance.                                         Lr2 r ;  r
+This suggests the following iterative method for recovering the re-
+flectance properties of the local scene:                                       In this manner, we use the global illumination calculation to ren-
+                                                                            der each patch as a perfectly diffuse reflector, and compare the re-
+  1. Assume a reflectance model for the local scene (e.g. diffuse           sulting radiance to the observed value. Dividing the two quantities
+      only, diffuse + specular, metallic, or arbitrary BRDF, including      yields the next estimate of the diffuse reflection coefficient d0 . If
+                                                                            there is no interreflection within the local scene, then the 0d esti-
+                                                                            mates will make the renderings consistent. If there is interreflection,
+                                                                            then the algorithm should be iterated until there is convergence.
+
+                                                                               For a trichromatic image, the red, green, and blue diffuse re-
+                                                                            flectance values are computed independently. The diffuse charac-
+                                                                            teristics of the background material used to produce Fig. 8(c) were
+
+                                                                         7
+To appear in the SIGGRAPH 98 conference proceedings
+
+(a) Acquiring the background photograph                                          computed using this method, although it was assumed that the entire
+                                                                                 local scene had the same diffuse reflectance.
+              light probe
+                                                                                    In the standard "plastic" illumination model, just two more co-
+          (b) Using the light probe                                              efficients ­ those for specular intensity and roughness ­ need to be
+                                                                                 specified. In Fig. 8, the specular coefficients for the local scene were
+                                                                     distant     estimated manually based on the specular reflection of the window
+                                                                       scene     in the table in Fig. 2.
+
+(c) Constructing the light-based model                                           8 Compositing Results
+
+synthetic  distant                                                               Fig. 5 shows a simple light-based model of a room constructed us-
+ objects    scene                                                                ing the panoramic radiance map from Fig. 2. The room model be-
+                                                                                 gins at the height of the table and continues to the ceiling; its mea-
+                                                local scene                      surements and the position of the ball within it were measured man-
+                                                                                 ually. The table surface is visible on the bottom face. Since the room
+(d) Computing the global illumination solution                                   model is finite in size, the light sources are effectively local rather
+                                                                                 than infinite. The stretching on the south wall is due to the poor sam-
+Figure 7: Using a light probe (a) The background plate of the scene              pling toward the silhouette edge of the ball.
+(some objects on a table) is taken. (b) A light probe (in this case, the
+camera photographing a steel ball) records the incident radiance                    Figs. 4 and 6 show complex arrangements of synthetic objects lit
+near the location of where the synthetic objects are to be placed.               entirely by a variety of light-based models. The selection and com-
+(c) A simplified light-based model of the distant scene is created as            position of the objects in the scene was chosen to exhibit a wide vari-
+a planar surface for the table and a finite box to represent the rest            ety of light interactions, including diffuse and specular reflectance,
+of the room. The scene is texture-mapped in high dynamic range                   multiple soft shadows, and reflected and focused light. Each ren-
+with the radiance map from the light probe. The objects on the ta-               dering was produced using the RADIANCE system with two dif-
+ble, which were not explicitly modeled, become projected onto the                fuse light bounces and a relatively high density of ambient sample
+table. (d) Synthetic objects and a BRDF model of the local scene are             points.
+added to the light-based model of the distant scene. A global illumi-
+nation solution of this configuration is computed with light coming                 Fig. 8(a) is a background plate image into which the synthetic ob-
+from the distant scene and interacting with the local scene and syn-             jects will be rendered. In 8(b) a calibration grid was placed on the
+thetic objects. Light reflected back to the distant scene is ignored.            table in order to determine the camera pose relative to the scene and
+The results of this rendering are composited (possibly with differ-              to the mirrored ball, which can also be seen. The poses were deter-
+ential rendering) into the background plate from (a) to achieve the              mined using the photogrammetric method in [10]. In 8(c), a model
+final result.                                                                    of the local scene as well as the synthetic objects is geometrically
+                                                                                 matched and composited onto the background image. Note that the
+                                                                                 local scene, while the same average color as the table, is readily dis-
+                                                                                 tinguishable at its edges and because it lacks the correct variations
+                                                                                 in albedo.
+
+                                                                                    Fig. 8(d) shows the results of lighting the local scene model with
+                                                                                 the light-based model of the room, without the objects. This image
+                                                                                 will be compared to 8(c) in order to determine the effect the syn-
+                                                                                 thetic objects have on the local scene. Fig. 8(e) is a mask image in
+                                                                                 which the white areas indicate the location of the synthetic objects.
+                                                                                 If the distant or local scene were to occlude the objects, such regions
+                                                                                 would be dark in this image.
+
+                                                                                    Fig. 8(f) shows the difference between the appearance of the lo-
+                                                                                 cal scene rendered with (8(c)) and without (8(d)) the objects. For il-
+                                                                                 lustration purposes, the difference in radiance values have been off-
+                                                                                 set so that zero difference is shown in gray. The objects have been
+                                                                                 masked out using image 8(e). This difference image encodes both
+                                                                                 the shadowing (dark areas) and reflected and focussed light (light
+                                                                                 areas) imposed on the local scene by the addition of the synthetic
+                                                                                 objects.
+
+                                                                                    Fig. 8(g) shows the final result using the differential rendering
+                                                                                 method described in Section 6. The synthetic objects are copied
+                                                                                 directly from the global illumination solution 8(c) using the object
+                                                                                 mask 8(e). The effects the objects have on the local scene are in-
+                                                                                 cluded by adding the difference image 8(f) (without offset) to the
+                                                                                 background image. The remainder of the scene is copied directly
+                                                                                 from the background image 8(a). Note that in the mirror ball's re-
+                                                                                 flection, the modeled local scene can be observed without the effects
+                                                                                 of differential rendering -- a limitation of the compositing tech-
+                                                                                 nique.
+
+                                                                                    In this final rendering, the synthetic objects exhibit a consistent
+                                                                                 appearance with the real objects present in the background image
+                                                                                 8(a) in both their diffuse and specular shading, as well as the di-
+                                                                                 rection and coloration of their shadows. The somewhat speckled
+                                                                                 nature of the object reflections seen in the table surface is due to
+
+                                                                              8
+(a) Background photograph  (b) Camera calibration grid and light probe
+
+(c) Objects and local scene matched to background (d) Local scene, without objects, lit by the model
+
+(e) Object matte           (f) Difference in local scene between c and d
+
+                                      (g) Final result with differential rendering
+Figure 8: Compositing synthetic objects into a real scene using a light probe and differential rendering
+To appear in the SIGGRAPH 98 conference proceedings
+
+the stochastic nature of the particular global illumination algorithm                      three dimensional direct visualization from ONR and BMDO, grant FDN00014-96-1-
+used.                                                                                      1200.
+
+   The differential rendering technique successfully eliminates the                        References
+border between the local scene and the background image seen in
+8(c). Note that the albedo texture of the table in the local scene area                     [1] ADELSON, E. H., AND BERGEN, J. R. Computational Models of Visual Pro-
+is preserved, and that a specular reflection of a background object                               cessing. MIT Press, Cambridge, Mass., 1991, ch. 1. The Plenoptic Function and
+on the table (appearing just to the left of the floating sphere) is cor-                          the Elements of Early Vision.
+rectly preserved in the final rendering. The local scene also exhibits
+reflections from the synthetic objects. A caustic from the glass ball                       [2] AZARMI, M. Optical Effects Cinematography: Its Development, Methods, and
+focusing the light of the ceiling lamp onto the table is evident.                                 Techniques. University Microfilms International, Ann Arbor, Michigan, 1973.
+
+9 Future work                                                                               [3] BLINN, J. F. Texture and reflection in computer generated images. Communica-
+                                                                                                  tions of the ACM 19, 10 (October 1976), 542­547.
+The method proposed here suggests a number of areas for future
+work. One area is to investigate methods of automatically recov-                            [4] CHEN, E. QuickTime VR - an image-based approach to virtual environment nav-
+ering more general reflectance models for the local scene geome-                                  igation. In SIGGRAPH '95 (1995).
+try, as proposed in Section 7. With such information available, the
+program might also also be able to suggest which areas of the scene                         [5] CHEN, S. E. Incremental radiosity: An extension of progressive radiosity to an
+should be considered as part of the local scene and which can safely                              interactive synthesis system. In SIGGRAPH '90 (1990), pp. 135­144.
+be considered distant, given the position and reflectance character-
+istics of the desired synthetic objects.                                                    [6] COHEN, M. F., CHEN, S. E., WALLACE, J. R., AND GREENBERG, D. P. A pro-
+                                                                                                  gressive refinement approach to fast radiosity image generation. In SIGGRAPH
+   Some additional work could be done to allow the global illumina-                               '88 (1988), pp. 75­84.
+tion algorithm to compute the ilumination solution more efficiently.
+One technique would be to have an algorithm automatically locate                            [7] CURLESS, B., AND LEVOY, M. A volumetric method for building complex mod-
+and identify concentrated light sources in the light-based model of                               els from range images. In SIGGRAPH '96 (1996), pp. 303­312.
+the scene. With such knowledge, the algorithm could compute most
+of the direct illumination in a forward manner, which could dra-                            [8] DANA, K. J., GINNEKEN, B., NAYAR, S. K., AND KOENDERINK, J. J. Re-
+matically increase the efficiency with which an accurate solution                                 flectance and texture of real-world surfaces. In Proc. IEEE Conf. on Comp. Vision
+could be calculated. To the same end, use of the method presented                                 and Patt. Recog. (1997), pp. 151­157.
+in [15] to expedite the solution could be investigated. For the case
+of compositing moving objects into scenes, greatly increased effi-                          [9] DEBEVEC, P. E., AND MALIK, J. Recovering high dynamic range radiance maps
+ciency could be obtained by adapting incremental radiosity methods                                from photographs. In SIGGRAPH '97 (August 1997), pp. 369­378.
+to the current framework.
+                                                                                           [10] DEBEVEC, P. E., TAYLOR, C. J., AND MALIK, J. Modeling and rendering ar-
+10 Conclusion                                                                                     chitecture from photographs: A hybrid geometry- and image-based approach. In
+                                                                                                  SIGGRAPH '96 (August 1996), pp. 11­20.
+We have presented a general framework for adding new objects to
+light-based models with correct illumination. The method lever-                            [11] DEBEVEC, P. E., YU, Y., AND BORSHUKOV, G. D. Efficient view-dependent
+ages a technique of using high dynamic range images of real scene                                 image-based rendering with projective texture-mapping. Tech. Rep. UCB//CSD-
+radiance to synthetically illuminate new objects with arbitrary re-                               98-1003, University of California at Berkeley, 1998.
+flectance characteristics. We leverage this technique in a general
+method to simulate interplay of light between synthetic objects and                        [12] DRETTAKIS, G., ROBERT, L., AND BOUGNOUX, S. Interactive common illu-
+the light-based environment, including shadows, reflections, and                                  mination for computer augmented reality. In 8th Eurographics workshop on Ren-
+caustics. The method can be implemented with standard global il-                                  dering, St. Etienne, France (May 1997), J. Dorsey and P. Slusallek, Eds., pp. 45­
+lumination techniques.                                                                            57.
+
+   For the particular case of rendering synthetic objects into real                        [13] FIELDING, R. The Technique of Special Effects Cinematography. Hastings
+scenes (rather than general light-based models), we have presented a                              House, New York, 1968.
+practical instance of the method that uses a light probe to record inci-
+dent illumination in the vicinity of the synthetic objects. In addition,                   [14] FOURNIER, A., GUNAWAN, A., AND ROMANZIN, C. Common illumination
+we have described a differential rendering technique that can con-                                between real and computer generated scenes. In Graphics Interface (May 1993),
+vincingly render the interplay of light between objects and the local                             pp. 254­262.
+scene when only approximate reflectance information for the local
+scene is available. Lastly, we presented an iterative approach for                         [15] GERSHBEIN, R., SCHRODER, P., AND HANRAHAN, P. Textures and radiosity:
+determining reflectance characteristics of the local scene based on                               Controlling emission and reflection with texture maps. In SIGGRAPH '94 (1994).
+measured geometry and observed radiance in uncontrolled lighting
+conditions. It is our hope that the techniques presented here will be                      [16] GORAL, C. M., TORRANCE, K. E., GREENBERG, D. P., AND BATTAILE, B.
+useful in practice as well as comprise a useful framework for com-                                Modeling the interaction of light between diffuse surfaces. In SIGGRAPH '84
+bining material-based and light-based graphics.                                                   (1984), pp. 213­222.
+
+Acknowledgments                                                                            [17] GORTLER, S. J., GRZESZCZUK, R., SZELISKI, R., AND COHEN, M. F. The
+                                                                                                  Lumigraph. In SIGGRAPH '96 (1996), pp. 43­54.
+The author wishes to thank Chris Bregler, David Forsyth, Jianbo Shi, Charles Ying,
+Steve Chenney, and Andrean Kalemis for the various forms of help and advice they           [18] HECKBERT, P. S. Survey of texture mapping. IEEE Computer Graphics and
+provided. Special gratitude is also due to Jitendra Malik for helping make this work              Applications 6, 11 (November 1986), 56­67.
+possible. Discussions with Michael Naimark and Steve Saunders helped motivate this
+work. Tim Hawkins provided extensive assistance on improving and revising this pa-         [19] KAJIYA, J. The rendering equation. In SIGGRAPH '86 (1986), pp. 143­150.
+per and provided invaluable assistance with image acquisition. Gregory Ward Larson         [20] KARNER, K. F., MAYER, H., AND GERVAUTZ, M. An image based measure-
+deserves great thanks for the RADIANCE lighting simulation system and his invalu-
+able assistance and advice in using RADIANCE in this research, for assisting with re-             ment system for anisotropic reflection. In EUROGRAPHICS Annual Conference
+flectance measurements, and for very helpful comments and suggestions on the paper.               Proceedings (1996).
+This research was supported by a Multidisciplinary University Research Initiative on       [21] KOENDERINK, J. J., AND VAN DOORN, A. J. Illuminance texture due to surface
+                                                                                                  mesostructure. J. Opt. Soc. Am. 13, 3 (1996).
+                                                                                           [22] LAVEAU, S., AND FAUGERAS, O. 3-D scene representation as a collection of
+                                                                                                  images. In Proceedings of 12th International Conference on Pattern Recognition
+                                                                                                  (1994), vol. 1, pp. 689­691.
+                                                                                           [23] LEVOY, M., AND HANRAHAN, P. Light field rendering. In SIGGRAPH '96
+                                                                                                  (1996), pp. 31­42.
+                                                                                           [24] MCMILLAN, L., AND BISHOP, G. Plenoptic Modeling: An image-based ren-
+                                                                                                  dering system. In SIGGRAPH '95 (1995).
+                                                                                           [25] NAKAMAE, E., HARADA, K., AND ISHIZAKI, T. A montage method: The over-
+                                                                                                  laying of the computer generated images onto a background photograph. In SIG-
+                                                                                                  GRAPH '86 (1986), pp. 207­214.
+                                                                                           [26] PORTER, T., AND DUFF, T. Compositing digital images. In SIGGRAPH 84 (July
+                                                                                                  1984), pp. 253­259.
+                                                                                           [27] SATO, Y., WHEELER, M. D., AND IKEUCHI, K. Object shape and reflectance
+                                                                                                  modeling from observation. In SIGGRAPH '97 (1997), pp. 379­387.
+                                                                                           [28] SMITH, T. G. Industrial Light and Magic: The Art of Special Effects. Ballantine
+                                                                                                  Books, New York, 1986.
+                                                                                           [29] SZELISKI, R. Image mosaicing for tele-reality applications. In IEEE Computer
+                                                                                                  Graphics and Applications (1996).
+                                                                                           [30] TURK, G., AND LEVOY, M. Zippered polygon meshes from range images. In
+                                                                                                  SIGGRAPH '94 (1994), pp. 311­318.
+                                                                                           [31] VEACH, E., AND GUIBAS, L. J. Metropolis light transport. In SIGGRAPH '97
+                                                                                                  (August 1997), pp. 65­76.
+                                                                                           [32] WARD, G. J. Measuring and modeling anisotropic reflection. In SIGGRAPH '92
+                                                                                                  (July 1992), pp. 265­272.
+                                                                                           [33] WARD, G. J. The radiance lighting simulation and rendering system. In SIG-
+                                                                                                  GRAPH '94 (July 1994), pp. 459­472.
+                                                                                           [34] WATANABE, M., AND NAYAR, S. K. Telecentric optics for computational vi-
+                                                                                                  sion. In Proceedings of Image Understanding Workshop (IUW 96) (February
+                                                                                                  1996).
+                                                                                           [35] Y.CHEN, AND MEDIONI, G. Object modeling from multiple range images. Im-
+                                                                                                  age and Vision Computing 10, 3 (April 1992), 145­155.
+
+                                                                                       10
+

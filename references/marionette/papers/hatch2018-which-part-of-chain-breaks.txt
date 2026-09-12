@@ -1,0 +1,781 @@
+arXiv:1808.08668v1 [physics.class-ph] 27 Aug 2018                             Which part of a chain breaks
+
+                                                                                                   Seung Ki Baek
+                                                             Department of Physics, Pukyong National University, Busan 48513, Korea
+
+                                                                                                  (Dated: August 28, 2018)
+
+                                                                                              Abstract
+
+                                                      This work investigates the dynamics of a one-dimensional homogeneous harmonic chain on a
+                                                   horizontal table. One end is anchored to a wall; the other (free) end is pulled by external force.
+                                                   A Green's function is derived to calculate the response to a generic pulling force. As an example,
+                                                   I assume that the magnitude of the pulling force increases with time at a uniform rate . If the
+                                                   number of beads and springs used to model the chain is large, the extension of each spring takes
+                                                   a simple closed form, which is a piecewise-linear function of time. Under an additional assumption
+                                                   that a spring breaks when its extension exceeds a certain threshold, results show that for large 
+                                                   the spring breaks near the pulling end, whereas the breaking point can be located close to the wall
+                                                   by choosing small . More precisely, the breaking point moves back and forth along the chain as 
+                                                   decreases, which has been called "anomalous" breaking in the context of the pull-or-jerk experiment.
+                                                   Although the experiment has been explained in terms of inertia, its meaning can be fully captured
+                                                   by discussing the competition between intrinsic and extrinsic time scales of forced oscillation.
+
+                                                                                                           1
+I. INTRODUCTION
+
+The pull-or-jerk (or "inertia ball") experiment is commonly used to demonstrate Newton's
+
+laws of motion: As depicted in Fig. 1, a ball of mass m is hung from a ceiling by a string,
+
+whose tension is denoted as Tup. Another string is attached at the bottom of the ball, and
+its tension is denoted as Tdown. A downward "jerky" force F is exerted at the end of the
+
+lower string, and the question is which string breaks. We know from our experience that the
+
+answer depends on how quickly the magnitude of the force changes: If the force suddenly
+
+increases, the lower string breaks. If, on the other hand, the force increases slowly, then
+
+the upper string breaks. This phenomenon is sometimes explained as due to the inertia
+
+of the ball, described as a "tendency to resist changes in motion" (see, e.g., Refs. 1 and
+
+2). However, this does not clearly answer why the outcome varies with the jerkiness of the
+
+driving force, if all we know about mass is that it is a constant of motion independent of any
+
+specific dynamic process. Moreover, this experiment has a counter-intuitive aspect, which
+
+may be completely baffling unless one makes good sense of inertia: Suppose that the force
+
+has constant jerkiness  so that F = t for t > 0. By approximating each string as a spring
+
+with force constant K, one can solve the equation of motion to obtain3,4
+
+                 
+
+                  Tup = t - 0-1 sin 0t                                              (1)
+
+                  Tdown = t,
+
+where 0  K/m and the gravitational force is neglected. Interested readers are referred
+
+to Ref. 5 for a thorough analysis of this system. A simple assumption on the failure behavior
+
+is that the string breaks when T exceeds a certain threshold, say, Tc. According to Eq. (1),
+the lower string will break if  > c  0-1Tc, which is consistent with our understanding.
+At the same time, it also predicts the existence of "anomalous" breaking, which means that
+
+the force can break the lower string with even smaller jerkiness    1  c,  1  c  .  In this sense,
+                                                                    3      2
+
+which string breaks is not really a matter of pull or jerk.
+
+A natural question would be how this analysis generalizes to a chain of many beads and
+
+springs,5 which I wish to address in this work. A harmonic chain is a useful starting point to
+
+investigate properties of a macroscopic system near equilibrium. It has been used to under-
+
+stand basic statistical properties of solids such as heat capacity6 and thermal conductivity7­12
+
+and the breaking strength of a polymer chain.13,14 A ladder of resistively and capacitively
+
+shunted Josephson junctions can also be approximated by a harmonic chain through the
+
+                   2
+mapping to a locally coupled one-dimensional Kuramoto model15­17 when phase differences
+are small. Specifically, I will consider a harmonic chain consisting of identical beads and
+springs on a horizontal table as depicted in Fig. 2. One end of the chain is fixed to the wall,
+and the other end is driven by a time-varying external force F . The primary goal of this
+paper is to give students a precise picture of this general many-body pull-or-jerk experiment.
+Following Ref. 3, the spring is assumed to have a threshold of deformation above which it
+ceases to obey Hooke's law. The question is which spring is the earliest that reaches the
+threshold under a given external force, and this spring will be regarded as a breaking point
+of the chain. My finding is that the oscillatory motion in Eq. (1) manifests itself as a wave
+traveling across this many-body system, implying that one should consider two competing
+time scales, one for external driving and the other for internal wave dynamics, to understand
+the failure behavior. This study can also be thought of as an advanced exercise for physics
+majors because a harmonic chain is a representative mechanical example that is analytically
+soluble by means of undergraduate-level mathematics.18
+
+   This work is organized as follows: In Sec. II, I calculate the Green's function for the
+model system by solving the full equation of motion. It gives an approximate formula which
+holds in the continuum limit. The case of a linearly increasing force is then investigated
+in Sec. III under the assumption that friction is negligibly small. The analytic result is
+compared with numerical integration of the equations of motion. I discuss implications of
+the observed behavior and conclude this work in Sec. IV. A sample Python code is provided
+in the Appendix.
+
+II. MODEL
+
+   Consider longitudinal waves on a harmonic chain consisting of beads and springs. Each
+bead has mass m and every spring has the same spring constant K, and the square root
+of their ratio is defined as 0  K/m. The number of beads is N, and their equilibrium
+positions in the absence of external force is denoted by xj = jl, where l means the equilibrium
+length of the spring (j = 1, . . . , N). The total length of the system in equilibrium therefore
+equals xN = Nl  L. The displacement of the jth bead from its equilibrium position is
+denoted by yj. The number of springs is also N, and the extension of the jth spring is
+zj  yj - yj-1. The N th bead is pulled by a time-dependent external force F (t), where t
+
+                                                        3
+denotes time. The equations of motion can thus be written as follows:
+
+                   
+
+                        m d2      y1  =  K (-2y1      +    y2)  -       d   y1
+                            dt2                                         dt
+                   
+
+                   
+
+                        m    d2   yj  =  K (yj -1   -   2yj     +  yj+1)    -      d   yj      for 1 < j < N                      (2)
+                             dt2                                                   dt
+                   
+                             d2
+                        m    dt2  yN  =  K (yN -1       -  yN   )  -    d   yN  + F (t)
+                                                                        dt
+                   
+
+where  is a friction coefficient. With the Kronecker delta k,l and two auxiliary variables
+
+y0  0 and yN+1  yN , all the above cases can be covered by the following expression:
+
+                        m    d2      yj  =  K (yj -1    -  2yj     +  yj+1)     -      d   yj  +  F (t)j,N ,                      (3)
+                             dt2                                                       dt
+
+where j = 1, . . . , N . In this notation, y0 = 0 and yN+1 = yN can be regarded as boundary
+conditions of Eq. (3). In particular, y0 = 0 has direct physical meaning because the wall can
+
+be regarded as a fictitious bead with zero displacement (see Fig. 2). In addition, the system
+
+is initially at rest with zero displacements, i.e., yj = 0 and dyj/dt = 0 for every j at t = 0.
+In a dimensionless form, the dynamics is now rewritten as
+
+                        d2        j   =  (j-1      -    2j   +     j+1)     -   2  d   j       +  f ( )j,N ,                      (4)
+                        d 2                                                        d
+
+where   0t, j  yj/l,   /(2m0), and f  F/(Kl). It is convenient to choose
+
+f ( ) = u( ) and solve Eq. (4) for  > 0, where u means the Heaviside step function. The
+unknown j is decomposed into homogeneous and particular parts, denoted by j(h) and
+j(p), respectively, to have j = j(h) + j(p). It is easy to see that j(p) = j constitutes a
+particular solution for j = 1, . . . , N with 0(p)  0 and N(p+) 1  N(p). On the other hand,
+j(h) satisfies the following homogeneous equation:
+
+                                  d2     j(h)  =   j(h-)1  -    2j(h)   +   j(h+)1  -      2   d  j(h)                            (5)
+                                  d 2                                                          d
+
+with 0(h)  0 and N(h+) 1  N(h). The initial conditions are j(h) = -j and dj(h)/d = 0
+for j = 1, . . . , N at  = 0. To construct a solution, one has to choose j(h)  sin kj,
+considering 0(h) = 0. The other boundary condition N(h+) 1 = N(h) is then rewritten as
+
+sin k(N  + 1)  =   sin kN,        which     quantizes        the      wavenumber           as  kn  =    (n +  1  )/(N  +    1  )  with
+                                                                                                              2             2
+
+n = 0, 1, . . . , N - 1. Note that the resulting basis functions are orthogonal in the sense that
+
+   4     N    sin  knj  sin  km   j   =  mn.       With these basis functions, the homogeneous solution is
+2N +1    j=1
+
+represented as j(h) =             N -1   an  (  )  sin  knj  .  Substituting           this    into Eq.  (5),    one  sees  that the
+                                  n=0
+
+coefficients have to satisfy
+
+                                               d2   an   +   2     d    an  =   -n2 an                                            (6)
+                                               d 2                 d
+
+                                                                   4
+with n  2 sin(kn/2), which is just the dispersion relation for phonons. The above differ-
+ential equation can be solved by an( ) = Aeµn+ + Beµn- with µ±n  - ± 2 - n2 and
+arbitrary constants A and B. The constants are determined by applying the orthogonality
+
+relation to the initial conditions as follows:
+
+                  an(0)       =  A  +B     =     4         1   N                  =  - cn                        (7)
+                                              2N +                                     22n
+                                                                  (-j) sin knj
+
+                                                              j=1
+
+                  dan                                      4           N
+                  d                                     2N + 1
+                         (0)  =  Aµ+n  +      Bµ-n   =                      0 × sin knj = 0,                     (8)
+
+                                                                       j=1
+
+where cn  sin[(1+N )kn]/      N  +  1      . After some algebra to compute A and B from the above
+                                    2
+
+set of equations, the solution is obtained as the following shifted discrete Fourier series:
+
+                                     N -1     cn              µ-n eµn+ - µn+eµn-     sin knj.                    (9)
+                                              2 - n2
+                  j(h)( ) = n=0 n2
+
+Using the connection between the Heaviside step function and the Dirac delta function, i.e.,
+
+du/d = ( ), one readily obtains the Green's function as follows:
+
+                            d                 N -1        cn
+                            d                           2 - 2n
+                  Gj( )  =       j( )  =                               eµ+n  - eµn-      sin knj,                (10)
+
+                                              n=0
+
+which is the response to f ( ) = ( ). Given any f ( ), the response can thus be calculated
+
+from the following convolution formula:
+
+                                                   
+
+                                 j( ) = Gj( )f ( -  )d .                                                         (11)
+
+                                              0
+
+    It turns out that the case of N  1 greatly simplifies the analysis, making kn  n 
+
+n   +  1  /N , n  n, and µ±n  n±  - ±                         2 - n2 for finite n. If a continuous variable
+       2
+
+  x/l is introduced to replace the integer index j, the Green's function becomes
+
+                                     N -1     (-1)n                en+ - en-      sin n,                         (12)
+
+                  G(,  ) 
+                                    n=0 N 2 - n2
+
+with the displacement field,
+
+                                                   
+
+                               (,  ) = G(,  )f ( -  )d ,                                                         (13)
+
+                                              0
+
+as depicted in Fig. 3(a). The rescaled extension of the jth spring, j  j - j-1 = zj/l, is
+
+approximated  by  (,  )          (  ,      )  evaluated       at     =    j.  In  terms  of  Eq.  (13),  it  is  written
+                              
+
+as                                              
+                                              0
+                              (,  ) =                 G(      ,    )f  (  -    )d .                              (14)
+                                                    
+
+                                                        5
+If  = 0 in Eq. (12), the kernel function G/ takes the following form:
+
+           G               N -1  (-1)n
+                                   N
+              (,     )                  2  sin  n   cos  n                    (15)
+
+                           n=0
+
+                           N -1  (-1)n
+                                   N
+                        =               [sin n(     +  )  +  sin n(    -  )]  (16)
+
+                           n=0
+
+inside the physical region, i.e.,  > 0 and 0 <  < N. Here, one can verify the following
+
+equality:
+
+              HN (r)       N -1  (-1)n     sin  nr  =  (-1)N-1 sin r          (17)
+                           n=0     N
+                                                          2N  cos  r
+                                                                   2N
+
+by calculating geometric series. When the argument r is away from (2p+1)N for any integer
+
+p, the magnitude of HN (r) is small because of N in the denominator. If r-(2p+1)N =   1,
+on the other hand, the cosine in the denominator behaves linearly as  varies. It implies
+
+that HN is well approximated by the normalized sinc function, sinc()  sin /(), and
+the sign depends on p as follows:
+
+                                 HN  (-1)psinc().                             (18)
+
+To sum up, HN (r) can be regarded as a train of sinc-typed impulses at r = (2p + 1)N.
+The factor of (-1)p means that two neighboring impulses have different signs, so the pe-
+riod of HN is 4N in total. It would thus be useful to consider a convoluted function
+W (r)  sinc(r)  4N (r), where 4N (r) is the Dirac comb with periodicity of 4N . The
+alternating impulse train is then described as HN (r)  W (r - N) - W (r - 3N) to a good
+approximation. Furthermore, one may simply take W (r)  4N (r) because the convoluted
+sinc function only modifies the peak shape without changing the essential physics. This
+leads to a particularly handy formula, HN (r)  4N (r - N ) - 4N (r - 3N ). Now, the
+kernel function simplifies to
+
+           G  (   ,  )     HN (  +  )      +  HN (  -    )                    (19)
+           
+
+                         4N ( +  - N ) - 4N ( +  - 3N )
+
+                        + 4N ( -  - N ) - 4N ( -  - 3N ),                     (20)
+
+if  > 0 and 0 <  < N. If the Dirac comb is written as an explicit sum of delta peaks, this
+                                                        6
+can also be expressed as
+
+G  (,  )    (          +    -  N)  -  (  +    -  3N )   +  (   -    -  N)  -  (  -    -   3N )
+
+
+          + ( +  - 5N) - ( +  - 7N) + ( -  - 5N) - ( -  - 7N) + . . . (21)
+
+                                                           
+
+          = (-1)[ +  - (2 + 1)N ] + (-1)[ -  - (2 + 1)N ].                                         (22)
+
+            =0                                             =0
+
+On the (,  ) plane, it is basically a pulse propagating back and forth between the two ends
+
+of the chain [Fig. 3(b)]. The pulse undergoes a phase shift of  every time it hits the free
+
+end on the right. Note that such soliton-like motion is due to the continuum approximation,
+
+in which the wave speed is given independent of the wave number when  = 0. In a
+
+finite-sized system, the pulse will eventually disperse. Plugging Eq. (22) into Eq. (14), one
+
+approximately obtains the extension of the jth spring as follows:
+
+            m+ax                                           m-ax
+
+   j( )  (-1)f [ + j - (2 + 1)N ] + (-1)f [ - j - (2 + 1)N ], (23)
+
+            =0                                             =0
+
+where each of m±ax is defined as the greatest integer that makes positive the argument
+of every function in the summation. An example is the periodic driving force f ( ) =
+
+sin(2 /0) with 0 = 4N . As expected, this induces resonant behavior [Fig. 3(c)] because
+G/ has 4N-periodicity in time. It is also clear that one can observe constructive or
+
+destructive interference at a specific spring by sending pulses with an appropriate time
+
+interval [Fig. 3(d)].
+
+III. APPLICATION
+
+If  = 0 and f ( ) =  with a constant slope , Eq. (13) yields
+
+(,  ) =   - 16N 2  (-1)n sin n + 1  sin n + 1  .                                                   (24)
+                             3          (2n + 1)3                2N                    2N
+                                   n=0
+
+A direct way to obtain Eq. (24) is to note that j =  j forms a particular solution for
+Eq. (4) when  = 0. For general  > 0, however, one should employ the method of Green's
+functions. The displacement field is obtained by differentiating Eq. (24) with respect to 
+
+                             8N           (-1)n                  1                     1  
+                              2         (2n + 1)2                2  N                  2  N
+   (,  )    =             -                        sin     n  +            cos   n  +           .  (25)
+
+                                   n=0
+
+                                                   7
+At  = N, it reduces to
+
+                                  N ( )  ( = N,  ) = ,                         (26)
+
+which means that the rightmost spring extends linearly in time. At the other end of the
+
+chain, i.e., at  = 0, the Fourier series on the right-hand side (RHS) of Eq. (25) describes a
+
+triangle wave of period 4N and amplitude N, which behaves as - between  = 0 and
+
+N. Combining this result with the first term on the RHS of Eq. (25), one can see that the
+
+extension of the leftmost spring fastened to the wall is described by the following piecewise
+
+linear function:
+
+                    
+
+                                  0            if 0   < N
+                    
+
+                    
+
+                    
+
+1( )  2 [ - (2 + 1)N ] if (4 + 1)N   < (4 + 3)N                                (27)
+
+                    
+
+                            4( + 1)N           if (4 + 3)N   < (4 + 5)N,
+                    
+                    
+
+where  = 0, 1, 2, . . .. It is plausible that the spring remains at rest when 0   < N because
+it takes time for the external perturbation to be transferred through N intermediate springs.
+However, the subsequent motion is not so self-evident: The spring suddenly begins to expand
+twice as fast as the rightmost one until the expansion stops abruptly at  = 2N, and this
+pattern continues periodically. Application of Eq. (23) actually shows that every spring has
+such discontinuity in the time derivative of j except for j = N: From the shape of G/
+in Fig. 3(b), it is easily seen that
+
+                  
+
+                               0            if 0   < N - j
+
+                  
+
+                  
+
+                  
+
+                    ( + j - N)              if (4 + 1)N - j   < (4 + 1)N + j
+                  
+                  
+
+                  
+
+                  
+
+j( )  2[ - (2 + 1)N ] if (4 + 1)N + j   < (4 + 3)N - j                         (28)
+
+                  
+
+                    ( - j + N)              if (4 + 3)N - j   < (4 + 3)N + j
+                                            if (4 + 3)N + j   < (4 + 5)N - j,
+                  
+                  
+
+                  
+
+                  
+
+                         4( + 1)N
+                  
+
+with  = 0, 1, 2, . . . [see, e.g., N/2 in Fig. 4(a)]. Note that Eq. (28) is directly proportional
+to . It is because Eq. (4) is linear and thus invariant under rescaling every j and  by a
+common factor  > 0
+
+                    d2   j  =  (j-1  -  2j  +  j+1)  -  2  d  j  +   j,N .     (29)
+                    d 2                                    d
+
+In words, the sole effect of choosing a different value for  is to change the overall length scale.
+No matter how slowly the end of the harmonic chain is pulled, the periodic discontinuity will
+
+                                            8
+not disappear. Note also that Eqs. (26) and (27) provide envelopes for every j in between
+[Eq. (28)], although the lines can sometimes coincide. As demonstrated in Fig. 4(a), the
+analytic predictions of Eq. (28) are well substantiated by direct numerical integration of
+Eq. (4). One may also check the mechanical energy per particle
+
+                          1  N      1  1 dj      2     1     N    1  j - j-1          2
+                          N         2  N d             N          2      N
+  =                                                 +                                  ,  (30)
+
+                             j=1                             j=1
+
+where the first and second terms represent the kinetic and potential parts, respectively
+
+[Fig. 4(b)]. The factor of 1/N inside each pair of parentheses is due to the fact that j 
+O(N) [see Fig. 4(a)]. The kinetic part of Eq. (30) turns out to be a periodic function of
+
+ with a period of 4N. The potential energy, on the other hand, keeps increasing as a
+
+quadratic function of  .
+
+   Recall the assumption that every spring obeys Hooke's law up to some threshold c > 0,
+above which the spring breaks.3­5 The restoring force of the jth spring is thus written as
+
+                                    
+
+                          fjres  =     -K j  if |j| < c                                   (31)
+                                          0  otherwise (i.e., broken).
+
+Then, the above calculation implies that the magnitude of  is an important factor to
+determine which spring breaks. It is related to the fact that a different value of  just
+rescales every j with exactly the same factor. If  = -1 in Eq. (29) and j  -1j, it is
+a harmonic chain defined by
+
+  d2                         j   =  (j-1  -  2j  +     j+1)  -  2    d  j  +   j,N ,      (32)
+  d 2                                                                d
+
+in which the threshold of a spring becomes c  c/. Large jerkiness therefore maps to a
+low threshold in this derived system. As illustrated in Fig. 4(c), the Nth spring will break
+when  is large because it is the earliest one that extends to c. Conversely, small  can
+break a spring close to the wall. Precisely speaking, one can only specify the range of springs
+to break in the latter case. According to Eq. (28), all the springs between  = 0 and ( N)
+are the most extended ones in this chain when  = 3N -  (mod 4N). In theory, therefore,
+it is possible to break every spring all at once by choosing a suitable value of  so that every
+j reaches the threshold c at the same time, which may happen at  = 2N . In practice,
+however, this would mean that the breaking point becomes very sensitive to experimental
+noise and mechanical defects.
+
+                                                    9
+   Another point of Fig. 4(c) is that one can break the Nth spring by pulling the end
+even more slowly, which proves the existence of "anomalous" breaking in this system.3­5
+If this anomaly is hardly observed, the reason could be that friction is not negligible in
+any experimental situation.3 If  is positive yet so small that only the second summation
+contributes in Eq. (12), the triangle wave in 1 will gradually decay as indicated by e- in
+the summand. On the other hand, it is reasonable to guess that N will not experience any
+notable change, considering that G/ containing the friction term identically vanishes at
+ = N due to the boundary condition. Consequently, 1 is expected to lie below N in the
+long run [Fig. 4(d)]. It implies that the anomaly can indeed be diminished by friction, but
+the price is that it also becomes hard to locate the breaking point close to the wall. For
+sufficiently large , the one that breaks will always be the Nth spring where the force is
+acting.
+
+IV. DISCUSSION AND CONCLUSION
+
+   To summarize, I have investigated the dynamics of a harmonic chain which is anchored
+to a wall at one end and subject to external force at the other end. By using the method
+of Green's functions, one can calculate the response of the system to a general time-varying
+force. A simple expression is obtained when the system becomes a continuous medium
+composed of a large number of beads and springs [Eq. (23)]. With the simple failure behavior
+assumed in Eq. (31), anomalous breaking3­5 is still a theoretical possibility in this many-
+body system when driven by a ramp force F  t. A nontrivial difference from the common
+pull-or-jerk experiment is that every spring except the last one exhibits distinct stop-and-go
+behavior in its extension j [compare Eq. (1) and Eq. (28)]. It implies that it roughly takes
+t  O(0-1) for the external perturbation to travel across a spring, and this is a fast process
+compared to system-wide dynamics when N is large. When one talks about the pull-or-jerk
+experiment in the context of Newton's law of inertia, the precise meaning is that t  m1/2.
+If time is not enough to send an amount of energy across the chain, therefore, it will be the
+rightmost spring that breaks. In other words, there are two competing time scales: One is
+the intrinsic time scale of the chain, and the other is that of the driving force. The point is
+that the experiment should be understood in terms of these time scales of forced oscillation,
+in addition to the law of inertia.
+
+                                                        10
+   From a technical point of view, the chain is described by a set of coupled, linear, ordinary
+differential equations. Although it looks much more difficult than the one-body counterpart
+as in Fig. 1, the problem can readily be handled by standard techniques such as separation
+of variables and Green's functions.18 It is instructive to check the validity of the analytic
+solution by performing numerical simulations, e.g., with the RK4 method as we have done
+throughout this work. Figure 4(a) has already shown consistency between the analytic and
+numerical approaches, but the agreement is actually striking in every detail, as demonstrated
+in Fig. 5. For reference, a sample Python code is provided in the Appendix.19 Readers are
+also encouraged to extend the model to inhomogeneous or anharmonic cases to incorporate
+more realistic aspects of the chain dynamics.20
+
+    ACKNOWLEDGMENTS
+
+   S.K.B. gratefully acknowledges discussions with Julian Lee, Hang-Hyun Jo, and Hiroyuki
+Shima. This work was supported by a research grant of Pukyong National University (2016).
+
+  Electronic mail: seungki@pknu.ac.kr
+ 1 P. G. Hewitt, Conceptual Physics, 11th ed. (Addison-Wesley Longman, Reading, MA, 2009).
+ 2 Information is available in the "More inertia experiments" section of the Institute of Physics Web
+
+    site, <http://practicalphysics.org/more-inertia-experiments.html >.
+ 3 M. A. Heald and G. M. Caplan, "Which string breaks?," Phys. Teach. 34(8), 504­507 (1996).
+ 4 G. M. Caplan and M. A. Heald, "Ye olde inertia demonstration," Am, J. Phys. 72(7), 860­862
+
+    (2004).
+ 5 H. Shima, "Analytic expression for the pull-or-jerk experiment," Eur. J. Phys. 35(6), 065016
+
+    (2014).
+ 6 R. H. Swendsen, An Introduction to Statistical Mechanics and Thermodynamics (Oxford U. P,
+
+    Oxford, 2012).
+ 7 Z. Rieder, J. L. Lebowitz, and E. Lieb, "Properties of a harmonic crystal in a stationary nonequi-
+
+    librium state," J. Math. Phys. 8(5), 1073­1078 (1967).
+ 8 J. Florencio Jr. and M. H. Lee, "Exact time evolution of a classical harmonic-oscillator chain,"
+
+                                                        11
+    Phys. Rev. A 31(5), 3231­3236 (1985).
+ 9 M. H. Lee, J. Florencio Jr., and J. Hong, "Dynamic equivalence of a two-dimensional quantum
+
+    electron gas and a classical harmonic oscillator chain with an impurity mass," J. Phys. A: Math.
+    Gen. 22(8), L331­L335 (1989).
+10 B. Hu, B. Li, and H. Zhao, "Heat conduction in one-dimensional nonintegrable systems," Phys.
+    Rev. E 61(4), 3828­3831 (2000).
+11 A. Dhar, "Heat conduction in the disordered harmonic chain revisited," Phys. Rev. Lett. 86(26),
+    5882­5885 (2001).
+12 F. Bonetto, J. L. Lebowitz, and J. Lukkarinen, "Fourier's law for a harmonic crystal with self-
+    consistent stochastic reservoirs," J. Stat. Phys. 116(1), 783­813 (2004).
+13 T. Doerr and P. Taylor, "Breaking in polymer chains. I. The harmonic chain," J. Chem. Phys.
+    101(11), 10107­10117 (1994).
+14 C. F. Lee, "Thermal breakage of a discrete one-dimensional string," Phys. Rev. E 80(3), 031134
+    (2009).
+15 K. Wiesenfeld, P. Colet, and S. H. Strogatz, "Synchronization transitions in a disordered Joseph-
+    son series array," Phys. Rev. Lett. 76(3), 404­407 (1996).
+16 K. Wiesenfeld, P. Colet, and S. H. Strogatz, "Frequency locking in Josephson arrays: Connection
+    with the Kuramoto model," Phys. Rev. E 57(2), 1563­1569 (1998).
+17 B. Daniels, S. Dissanayake, and B. Trees, "Synchronization of coupled rotators: Josephson junc-
+    tion ladders and the locally coupled Kuramoto model," Phys. Rev. E 67(2), 026216 (2003).
+18 M. L. Boas, Mathematical Methods in the Physical Sciences, 3rd ed. (Wiley, Hoboken, NJ, 2006).
+19 M. E. J. Newman, Computational Physics (CreateSpace Independent, United States, 2013).
+20 J. Paturej, A. Milchev, V. G. Rostiashvili, and T. A. Vilgis, "Polymer chain scission at constant
+    tension ­ an example of force-induced collective behaviour," EPL 94(4), 48003 (2011).
+
+Appendix A: Sample code
+
+Here, I present a Python code to simulate the dynamics of N = 30 beads with the RK4
+
+method.19 Note that it includes y0 = 0 explicitly because the index of an array begins from
+
+zero by default. The array r contains both the displacement and velocity of every bead in
+
+such  a  way  that  its  elements  r[2*j]  and  r[2*j+1]  correspond  to  yj  and  d   yj  ,  respectively.
+                                                                                   dt
+
+                                                12
+from __future__ import p r i n t _ f u n ct i o n , d i v i s i o n # f o r Python 2
+from numpy import empty , a r r a y , z e r o s
+
+def drive ( t ) :
+       return betat
+
+def f ( r , t ) :
+       r d o t = empty ( 2 N1 , f l o a t )
+       fo r i in range ( 0 , 2N1 , 2 ) : # time d e r i v a t i v e o f d i s p l a c e m e n t
+              rdot [ i ] = r [ i +1]
+       fo r i in range ( 1 , 2N1 , 2 ) : # time d e r i v a t i v e o f v e l o c i t y
+              i f i ==1:
+                     accel = 0.
+              e l i f i >1 and i <2N1-1:
+                     a c c e l = r [ i -3] - 2 r [ i -1] + r [ i +1] - gamma r [ i ]
+              e l i f i ==2N1-1:
+                     a c c e l = r [ i -3] - r [ i -1] - gamma r [ i ] + d r i v e ( t )
+              rdot [ i ] = accel
+       return rdot
+
+start , end = 0. , 150.                              # time domain
+
+max_step = 15000                                     # number of time steps
+
+h = ( end - s t a r t ) / max_step                   # time increment
+
+N1 = 31 # number o f b e a d s i n c l u d i n g t h e z e r o t h one ( j =0)
+
+beta = 1. # increasing rate of the driving force
+
+gamma = 0 . # f r i c t i o n c o e f f i c i e n t
+
+r = z e r o s ( 2 N1 , f l o a t )
+
+for step in range ( max_step ) :
+
+t = hstep
+
+k1 = h f ( r , t )
+
+k2 = h f ( r +0.5k1 , t +0.5h)
+
+                                    13
+k3 = h f ( r +0.5k2 , t +0.5h)
+k4 = h f ( r +0.5 k3 , t+h )
+r += ( k1+2k2+2k3+k4 ) / 6
+
+                                                14
+                                                        Tup
+                                                     m
+
+                                                       Tdown
+                                                      F
+
+FIG. 1. Typical configuration of the pull-or-jerk experiment consisting of two elastic strings and a
+ball of mass m. The upper string has tension Tup. The lower one has Tdown and a time-dependent
+force F is exerted at its end.
+
+   m  m      m  m  m
+
+K                     F
+
+FIG. 2. Schematic representation of a harmonic chain with N = 5 beads. Every bead has mass m,
+whereas the spring is massless. The spring constant is K for every spring. The leftmost spring is
+fastened to the wall whose displacement is fixed as y0 = 0, and the rightmost bead is driven by an
+external force F . The whole system is placed on a horizontal table so that the gravitational force
+does not enter the equation of motion.
+
+         15
+                      (a)                                                (b)
+                      Displacement j()                                         4N
+
+                                                                         Time                       0
+
+                      0                                         16N             0
+                       Bead index j                   Time 
+
+                                         N0                                        0             N
+
+                                                                                      Position 
+
+Rescaled extension j  20                                                 (d)
+                                                                               4N
+                                 (c)
+                      10
+
+                      0                                                  Time                       0
+
+                      -10     NN1/2                                             0
+                      -20
+                                                      6×102
+                           0          2      4                                     0             N
+
+                                      Rescaled time                                   Position 
+
+FIG. 3. (a) Approximate displacement field (,  ) in Eq. (13) in response to the Heaviside step
+function, f ( ) = u( ), when N = 30 and  = 10-2. As time goes by, it converges to the particular
+solution, (p)(,  ) = . (b) Propagator of Eq. (14), G/, when friction is ignored by setting
+ = 0. (c) Extensions of springs under f ( ) = sin(2 /0) with 0 = 4N . Equation (4) is integrated
+by the fourth-order Runge-Kutta method (RK4) with N = 30 and  = 0, and the result agrees well
+with Eq. (23). (d) (,  ) when f ( ) = ( ) + ( - N ).
+
+                                                                     16
+Rescaled extension j  2×102                                        Rescaled energy       10 (b)        Kinetic
+                                    (a)                                                              Potential
+
+                          4N
+
+                                                                                         5
+
+                      2N                         NN1/2                                   0
+
+                        0                2N  4N             2×102                           0    2N  4N                          2×102
+                          0
+
+                                         Rescaled time                                           Rescaled time 
+
+Rescaled extension j      (c)                                      Rescaled extension j        (d)
+                               smaller 
+                                                                                                                             N1
+                        (anomalous breaking)                                                             Rescaled time 
+                          small 
+
+                      large 
+                                                        N1
+
+                                    Rescaled time 
+
+FIG. 4. (a) Comparison between numerical results (points) and the approximate solutions in
+Eqs. (25)­(27) (lines), when  = 0. The data points are obtained from the RK4 method with
+N = 30 and  = 1. Note that the extension of an intermediate spring such as 15 lies between 1
+and 30 all the time. (b) Rescaled mechanical energy of the chain [Eq. (30)], numerically obtained
+with the same set of parameters. (c) Which part breaks if every spring behaves as in Eqs. (31) and
+(32). Three different values of the threshold c are represented by the horizontal arrows. For large
+, the corresponding c is small, so it is the N th spring that extends to the threshold at the smallest
+ (bottom arrow). For small , the breaking point can be located closer to the wall because N is
+still below the threshold while others exceed it (middle arrow). However, the N th spring can break
+with even smaller  (topmost arrow), which has been called "anomalous" breaking. (d) Effects of
+friction when  = 10-2 in Eq. (4). The other parameters are the same as in panel (a). Because of
+friction, the triangle wave of 1 decays as time goes by, whereas N is hardly affected.
+
+                                                            17
+Rescaled extension j  1.5×102      Exact
+                            4N  Numeric
+
+                      2N
+
+                      0
+
+                                0N        3N        1.5×102
+
+                                    Rescaled time 
+
+FIG. 5. Comparison between the analytic solution [Eq. (11)] and the numerical result obtained by
+the RK4 method when N = 30,  = 0, and f ( ) =  . Inset: Zoomed-in view of the small oscillatory
+part. The numerical data points are exactly on top of the analytic solution.
+
+                                    18
+

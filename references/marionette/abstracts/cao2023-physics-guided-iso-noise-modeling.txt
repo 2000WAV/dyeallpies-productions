@@ -1,0 +1,21 @@
+Cao, Y., et al. (2023). Physics-Guided ISO-Dependent Sensor Noise Modeling for
+Extreme Low-Light Photography. CVPR 2023.
+
+STATUS: full text saved (CVF open access); see
+papers/cao2023-physics-guided-iso-noise-modeling.pdf.
+
+SUMMARY: Models raw sensor noise as a physically-motivated mixture, photon shot
+noise, read noise, banding or row noise, and quantization, whose parameters vary
+with ISO and are calibrated per color channel (per Bayer or CFA position) rather
+than as a single signal-independent Gaussian; shows this heteroscedastic,
+per-channel, per-ISO model matches real extreme-low-light sensor noise far better
+than a flat noise assumption, improving denoising and synthetic-noise generation
+trained on it.
+
+RELEVANCE: the grain-matching step, matching the plate's per-channel noise level
+when compositing the CG marionette, should add noise with this kind of
+signal-dependent, per-channel character rather than flat Gaussian grain. Even
+though this shot is well-lit rather than extreme low-light, the same qualitative
+point holds: real sensor noise variance grows with signal and gain and differs
+slightly per color channel, which is what makes flat added grain look subtly
+wrong on close inspection.

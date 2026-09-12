@@ -1,0 +1,37 @@
+Lee, K-R. and Ju, Y-G. (2020). Measurement of resistance coefficients of pendulum
+motion with balls of various sizes. arXiv:2002.03796.
+(Filename kept as salcedo2020 for continuity with the download log; actual authors
+are Lee and Ju, Kyungpook National University -- corrected here.)
+
+ABSTRACT (as printed):
+In order to obtain the damping and resistance coefficients of a pendulum, we
+constructed an optical system containing a photogate for measuring the speed of
+the pendulum at the lowest point of motion. The photogate consisted of a
+photoresistor, a laser, a mechanical body, and a pendulum ball. A 3D printer was
+used to produce the mechanical body and pendulum balls of various sizes.
+Furthermore, we used Arduino to automate measurement of the speed at the lowest
+point of motion and increase the precision. We found that the resistance
+coefficient was proportional to the size of the balls, regardless of the ball mass,
+in agreement with the drag equation for a small Reynolds number.
+
+KEY NUMBERS (Table I / results section, full text in
+papers/salcedo2020-pendulum-resistance-coefficients.pdf/.txt): for pendulum balls
+of diameter 11.5, 18.7, 24.1, 30.0, and 36.0 mm -- a size range that brackets the
+hand/head/foot segments of a ~30 cm marionette figure -- the measured exponential
+DAMPING COEFFICIENT (gamma in x(t) = A e^{-gamma t} cos(omega t), units 1/s) was
+0.0096, 0.0086, 0.0070, 0.0067, and 0.0056 s^-1 respectively, i.e. DECREASING with
+increasing ball size/mass even though the drag force itself increases with size
+(because mass grows faster than drag as the ball gets bigger). The corresponding
+resistance coefficients c (in the linear-drag model F = -c*v, units kg/s) were
+1.2e-4, 1.4e-4, 1.8e-4, 2.2e-4, and 2.6e-4 kg/s, confirming c is proportional to
+ball radius (Stokes-like drag regime for these low speeds/sizes).
+
+RELEVANCE: gives real, measured order-of-magnitude damping coefficients for
+small pendulum bobs in air, appropriate for estimating how much a ~30 cm
+marionette's free swing decays per period from air drag alone (aside from any
+extra damping added at the joints/strings). At gamma ~ 0.006-0.01 /s and a typical
+period of order 1 s for a limb-scale pendulum, air drag alone gives a logarithmic
+decrement of only ~0.006-0.01 per swing -- i.e. air drag is NOT the main source of
+settling in a 7 s marionette shot; joint/string damping must do most of the work,
+consistent with Yamane et al. (2003) needing a fitted damping term at the string
+attachment rather than relying on air drag.

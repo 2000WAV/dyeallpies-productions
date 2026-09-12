@@ -1,0 +1,389 @@
+Dynamic Modeling and Motion Planning for Marionettes:
+        Rigid Bodies Articulated by Massless Strings
+
+                                Elliot Johnson and Todd D. Murphey
+                                 Electrical and Computer Engineering
+
+                                  University of Colorado at Boulder
+                                        Boulder, Colorado 80309
+
+                     erjohnso@colorado.edu and murphey@colorado.edu
+
+   Abstract-- We consider the problem of modeling a robotic         An accurate and fast model is an important part of a
+marionette. Marionettes are highly under-actuated systems that   controller or motion planner for a robotic marionette. In
+can only be controlled remotely by moving strings. We present a  this paper, we present a useful model for the dynamics of
+mixed dynamic-kinematic modeling technique that removes the      a marionette. However, the marionette differs from typical
+controller dynamics from the marionette, resulting in a clean    mechanical system in important ways that make modeling
+abstraction that represents the dynamics of the marionette in a  the system non-trivial.
+natural way. As an example, a model is derived for a single arm
+moving in a plane. A model for a three-dimensional marionettes   Fig. 1. A model of a robotic marionette stand and a photograph of the
+is also shown. Finally, an expansive-space tree (EST) motion     experimental marionette stand under development.
+planner is used to find a path from an input configuration to
+a goal for a puppet arm with seven degrees of freedom.              Mechanical systems are often modeled in two ways. In
+                                                                 a dynamic model, all of the forces and inertial bodies of
+                       I. INTRODUCTION                           the system are included and used to determine the system's
+                                                                 motion within a static environment. A subset of these can
+   Marionettes are puppets that are supported and controlled     be reduced to kinematic models in which the actuators are
+by manipulating strings tied to points on the marionette.        assumed to be strong enough to track any desired configu-
+Marionettes have been used for entertainment for centuries.      ration path or that the system intrinsically follows kinematic
+These under-actuated, non-linear, and highly coupled sys-        paths [2].
+tems can become expressive characters capable of extremely
+precise and refined movements in the hands of an experi-            Neither of these approaches are appropriate for a mari-
+enced artist.                                                    onette. A dynamic model must include the both the mari-
+                                                                 onette and the driving mechanisms (so long as the end of
+   In light of this capability, there is interest in developing  the string actuating the marionette is not inertially fixed).
+robotic marionettes. Such systems can be used as research        The model is therefore tightly coupled to the particular
+platforms in various areas. There are open research questions    implementation it was derived from. However, there are
+in controllers and motion planners for systems that are          certainly characteristics of a marionette's dynamics that are
+indirectly actuated. Such problems have been considered for      independent of the method used to pull its strings. A kine-
+controlling an object hanging from a crane. Additionally,        matic model that captures the full range of motion cannot be
+modes of human physical rehabilitation can use pulling on        derived for an under-actuated system such as the marionette.
+wires to adjust motion of injured people.
+                                                                    A better approach is to consider the marionette as two
+   There is also ongoing effort to study interaction between     distinct systems. The marionette is considered an unactu-
+humans and robots so that systems can communicate more           ated, dynamic system. The string-driving mechanism is a
+effectively using expressive body language while restricted      fully actuated system that can be reduced to a kinematic
+by less articulated motor ability. Mapping expressive gestures
+to marionettes with limited mobility while preserving their
+expressiveness has been extensively studied by professional
+puppeteers. A robotic marionette is a useful platform for
+studying such mapping techniques and generalizing them to
+more robotics systems.
+
+   A prototype puppet stand and its planned successor are
+shown in Fig. 1. The prototype stand uses six stepper motors
+to control strings attached to the arms, legs, and head.
+The length of the strings can be varied, but the strings do
+not move. Lateral motions for the hands are achieved by
+attaching two strings to each hand. The stand is controlled
+using a National Instruments FPGA board with a LabVIEW
+VI.
+model with velocity inputs. The systems are coupled by the
+strings, which are introduced to the model as non-holonomic
+constraints.
+
+   Such an arrangement allows us to the study the intrinsic
+dynamics of the marionette rather than new dynamics in-
+troduced by the actuator mechanism. If the dynamics of a
+particular implementation wish to be studied, the kinematic
+reduction can easily be replaced with a full dynamic model.
+
+   After presenting this method, we discuss simulation re-
+sults for a full three-dimensional marionette and a three-
+dimensional marionette arm. An expansive-space tree (EST)
+motion planner is used to create a motion plan for the arm.
+
+                     II. PREVIOUS WORK                                                   Fig. 2. The 2D Marionette Arm
+
+   Physics-based simulation techniques are used extensively     can be moved horizontally. The configuration of the system
+in computer graphics and electronic entertainment. A number     is q = [1 2 x L]T .
+of fast methods for large physical simulations have been
+developed [16], [1]. These model systems as sets of rigid          The arm is modeled using well-known Euler-Lagrange
+bodies joined by constraints. Over time, errors due to nu-      methods for articulated mechanical systems [15]. The system
+meric integration violate the constraints so spring forces are  is similar to a closed-chain of rigid bodies, but differs in two
+introduced to restore them. The simulations are realistic, but  important ways. First, one of the linkages has no mass­one
+may not be accurate enough for optimal control applications.    therefore cannot consider applying a force to the link or use
+                                                                the inertia of the link. Including the parameters that define
+   Xing and Chen [17], [6] have developed a robotic mar-        the string link (L and x) in the configuration will results in
+ionette that synthesizes motion from a library of behavior      a globally degenerate inertia matrix and, correspondingly,
+primitives. The primitives are designed manually and re-        degenerate equations of motion. Associating a mass with
+fined experimentally. A controller combines the primitives      the string parameters to avoid this difficulty introduces other
+to create the requested motions. Very expressive motions are    problems­a small mass yields stiff differential equations for
+possible, but the primitive library and implementation are      the motion while a large mass will unrealistically affect the
+specific to the form of the marionette.                         dynamics of the system.
+
+   Yamane et al [18] present a control system to use motion        The second difference is that the string represents a pris-
+capture data to drive an automated marionette. This technique   matic joint because the length of the string can change. This
+uses an inverse kinematic model to determine the appropriate    essentially couples the marionette model to the mechanism
+string inputs. The string dynamics are modeled as decoupled     used to articulate the marionette. To preserve abstraction and
+swinging dynamics.                                              simplify the modeling, we desire to separate the marionette
+                                                                dynamics from the actuator dynamics and controller perfor-
+   The inverse-kinematic method maps motion capture data        mance.
+to the puppet very well, but the controller is limited by
+the simplified dynamic model. A marionette performance             The solution is to treat the string as a constraint that
+will typically exploit the unique dynamic properties of the     indirectly applies the system inputs. In this approach, we
+system to effectively communicate with the audience. For        model the marionette as a dynamical system with a set
+instance, acrobatic marionettes typically use specialized han-  of non-holonomic string constraints. The system inputs are
+dles designed to excite particular dynamic modes [8]. If an     the velocities of the string lengths and positions and are
+automated marionette is to be comparable to a traditional       introduced to the system through Pfaffian constraints. (Note
+performer, the control system will need a model that includes   that generally these constraints do not need to always be
+many of the unusual aspects of the system dynamics such as      satisfied. If the z component of the force enforcing the
+the global coupling and swinging dynamics.                      constraint is greater than the force due to gravity, then the
+                                                                constraint will be broken and the string will go slack.) We
+   III. TWO DIMENSIONAL MARIONETTE ARM                          refer to this approach as the mixed dynamic-kinematic model
+                     DYNAMICAL MODEL                            of the marionette.
+
+   To illustrate the primary modeling issues associated with    A. Euler-Lagrange Model
+a marionette, we initially consider the two-dimensional mar-
+ionette arm shown in Fig. 2. The arm consists of two               To derive the equations of motion, the (inertial) base
+rigid links with known masses and moments of inertia. The       coordinate frame for the system is chosen to be at base of
+shoulder is fixed in place and the arm can rotate at the        the shoulder. The center of mass for each link is located at
+shoulder and elbow. The arm is controlled using a massless
+string connected to the tip of the arm. The length of the
+string (L) can be varied and the position of the string (x)
+the geometric midpoint of the link. For each link, we define                  B. Wire Constraint
+an inertia matrix Ii  R3×3
+                                                                                 The dynamic puppet is coupled to the kinematic controller
+               mi 0 0                                                         through the string. The string is considered massless and
+                                                                              modeled as a constraint. The constraint is analogous to a
+         Ii =  0 mi 0                               (1)                       marble in a bowl where the marble cannot penetrate the
+                                                                              bowl, but is free to leave the surface. Initially, we derive the
+                        0 0 Ii                                                constraint as a rigid wire that strictly controls the distance
+                                                                              between two points.
+where mi and Ii are the mass and rotational inertia of the
+i-th link, respectively.                                                         If the wire is not changing length and the point S is not
+                                                                              moving (i.e., x and L are not changing), the wire defines
+   The system's Lagrangian can be fully described using 1                     a holonomic constraint on the distance between the ends of
+and 2. We define the dynamic configuration, qD = [1 2]                        the wire, PA and PS:
+QD to distinguish it from the full system configuration.
+                                                                                          h(q) = ||PA(1, 2) - PS(x)|| - L = 0
+   Let gi : QD  SE(2) (we use matrix homogeneous
+representations of SE(n)) define the coordinate frame for                        That is, it restricts the allowable configurations of the
+the center of mass of link i at a given configuration relative                system. When x and L may vary, then we simply rewrite
+to the base frame. For the arm,                                               the equation as a Pfaffian constraint
+
+g1 (qD)  =    R (1) Tx           L1                 (2)
+                                 2
+
+g2 (qD)  =    R (1) Tx (L1) R (2) Tx            L2  (3)
+                                                2
+                                                                                                            h
+where R()  SE(2) performs a rotation by angle  and                                               A(q)q = q = 0
+
+                                                                                                             q
+
+Tx(d)  SE(2) translates by distance d along the x-axis.                          to be used with the Euler-Lagrange model, where x and
+   The body velocity Vib : T QD  R3×3 of each frame is                        L will become the control inputs to the system.
+
+calculated as:                                                                   Finally, the constraint must be rearranged to accommodate
+                                                                              the two types of configuration variable. In the previous
+         Vib  (qD ,  qD )  =  gi-1   dgi  qD        (4)                       section, the dynamic configuration qD was introduced. It is
+                                     dqD                                      complemented by the kinematic configuration which includes
+                                                                              the variables that will be treated kinematically: qK = [x L].
+   The kinetic and potential energies for each link can now                   Including this distinction is simply a matter of rewriting the
+be defined1                                                                   constraint as:
+
+         Ti  (qD, qD)      =  1  VbiT  IiVbi        (5)
+                              2
+                                                                                                                qD
+             Vi (qD) = [0 mi 0] gi                  (6)                       A(q)q = [AD(q) AK (q)]            qK    =0  (9)
+
+   The Lagrangian for the system is the sum of the kinetic                    where AD(q) =   h  and AK (q) =   h  .
+energy minus the potential energy over all the masses.                                       qD                qK
+
+                     2                                                        C. Mixed Dynamic-Kinematic Model
+
+L (qD, qD) = (Ti(qD, qD) - Vi(qD))                  (7)                          The constraints are included in the dynamic model us-
+                                                                              ing Lagrange multipliers, , associated with the Lagrange-
+              i=1                                                             d'Alhembert principle for constrained mechanical motion:
+
+The equations of motions are easily derived from the
+
+Lagrangian using the Euler-Lagrange equations:                                 M (qD)q¨D + C(qD, qD)qD + g(qD) = u + ADT (qD). (10)
+
+             d L L                                                            Equation 10 includes the new term, AT (qD), which is the
+                          - =u                                                force applied on the system by the constraints. Equation 9
+                                                                              is differentiated to provide a second equation:
+             dt q q
+
+which are standard equations for modeling mechanical sys-
+tems [15], [7]. They are expressed in standard form as:
+
+M (qD)q¨D + C(qD, qD)qD + g(qD) = u                 (8)                       ADq¨D + A DqD + AK q¨K + A K qK = 0.        (11)
+
+where u represents generalized forces on the system, M (qD)                      Finally, the inputs to the system are the kinematic config-
+is the inertia matrix, C(qD, qD) is the Coriolis matrix, and                  uration variables qK :
+g(qD) contains gravitational terms. Note that u is not related
+to the arm's inputs. It can be used to introduce other forces on                                 q¨K = uL                 (12)
+the arm such as damping. The string forces will be introduced
+in the following sections.                                                       Equations 10, 11, and 12 provide a complete set of
+                                                                              equations for modeling the marionette for a given set of
+                                                                   2 0 - x 3  inputs. We require that the velocity inputs are uniformly
+   1We use the operator "unhat" such that for x = 4  0 y 5,                   continuous so that its derivative is well defined, and that the
+                                                                              initial configuration and velocity satisfy the constraint. To
+                                                                       0 01   integrate the model, Equations 10 and 11 are used to solve
+
+x = [x y ]T
+for  and q¨D. Once qD and q¨D are found, the equations can       rather than bounce upward. We solve for the impulse mag-
+be integrated using any ODE numeric integrator.                  nitude
+
+   The mixed model does not depend on the dynamics of the         = -(ADM -1ATD)-1(ADq0 + AK qK )  (15)
+string actuators in any way, thus providing a clean abstraction
+between two distinctly different parts of the system. In the     and use Equ. 14 to determine qf . Note that this is equivalent
+case that the inputs are fixed to be constant, the mixed model   to projecting the velocity using the inertia tensor as the
+reduces to the same dynamics that are found using a standard     metric­see [7].
+Euler-Lagrange approach.
+                                                                    When the transition is detected, the integrator is stopped.
+                   IV. STRING CONSTRAINTS                        The appropriate impulse is applied to the arm, the constraint
+                                                                 is enabled, and the integrator is restarted.
+   The wire constraints can be modified to behave like
+strings, which only enforce a maximum distance between             V. FULL THREE DIMENSIONAL MARIONETTE
+two points, by placing two restrictions on the constraint                               DYNAMIC MODEL
+force. The force must be positive and the can only be applied
+when the distance between the string endpoints equals the           Extending this model to more interesting puppets is
+length of the string. We encode these restrictions using 1       straightforward and suitable for automation. In our imple-
+and 2 and calculate the string forces, S, from the original      mentation, a configuration file defines a puppet as a tree of
+wire forces, W .                                                 coordinate frames. Masses and strings are attached to differ-
+                                                                 ent frames. The configuration is used by a Mathematica
+1 =  1 W  0                                                      script to symbolically solve for M (qD), C(qD, qD), g(qD),
+     0 W < 0                                                     and the constraint matrices. These are exported to a simulator
+                                                                 implemented in C.
+2 =  1 ||PA - PS||  L
+     0 ||PA - PS|| < L                                              Fig. 3 shows a complete three dimensional model of a
+                                                                 marionette. The dynamic puppet has 25 degrees of freedom
+                            S = 12W                              (DOF). There are seven strings which can be moved in a
+                                                                 plane and wound in and out which introduce 21 kinematic
+   When the constraint violates either restriction, the con-     DOF. Though computationally intensive, the model exhibits
+straint force is coerced to zero and the system reduces to       the rich dynamical behavior of a marionette. Simulation
+Equ. 8. Transitions back to the enabled state require special    videos of the full three dimensional puppet and other models
+treatment.                                                       may be seen at http://puppeteer.colorado.edu/.
+
+   The Pfaffian constraint assumes that initial system velocity
+does not violate the constraint and applies the necessary force
+to prevent the constraint from being violated.
+
+   The velocity is no longer restricted once the string is
+disabled. When the constraint is reintroduced to the system,
+the system velocity must instanteously change to satisfy the
+constraint. The instantaneously change is accomplished by
+modeling the transition as a collision involving an impulse.
+
+   We set the change in the generalized momentum [13] equal
+to the collision impulse
+
+p = M (qf - q0) = K            (13)
+
+   where K is the impulse and q0 and qf are the system
+velocities immediately before and after the collision, respec-
+tively. The impulse will be in the same direction as a force
+applied by a string, so we use the same strategy used with
+Lagrange multipliers to separate the impulse
+
+     K = ATD                                                                          Fig. 3. Three Dimensional Marionette
+
+into known and unknown parts.                                    VI. VALIDITY OF MIXED KINEMATIC-DYNAMIC
+                                                                                             MODELING
+qf = M -1ADT  + q0             (14)
+                                                                    It is worth noting that the validity of the partial kinematic
+The collision is considered completely inelastic so that the     reduction just used in the mixed dynamic-kinematic model
+final velocity immediately satisfies the constraint equation     can be verified as follows. In all that follows, we assume
+
+ADqf + AK qK = AD(M -1ADT  + q0) + AK qK = 0
+that the mechanical system controlling the puppet is fully-                      This process is repeated for a large number of iterations.
+actuated (i.e., there is an input for every degree of freedom                 This builds a tree of reachable configurations and the in-
+of the system). The mechanical system including both the                      puts required to move between connected configurations.
+puppet and the mechanism controlling the puppet can be                        Eventually, the algorithm generates a configuration near qf ,
+described using the constrained Euler-Lagrange equations                      providing a path from q0 to qf .
+with q = [qD, qK , qM ], where qD is the configuration of
+the puppet and qM is the configuration of the mechanism                          The performance of the motion planner is drastically
+controlling the puppet. Equivalently, the equations of motion                 improved by biasing the random selection of configurations
+can be written as:                                                            to favor those closer to the desired configuration. The video
+                                                                              attachment for this paper demonstrates a plan generated by
+                             ~ qq = uiY i                                     this algorithm to move between two configurations while
+                                                                              avoid obstacles.
+where ~ is the constrained affine connection ui are the m
+inputs, and Yi are the associated input vector fields. (See                      The algorithm is slow and inefficient, but it provides a
+[2] for a complete description of this formalism) In this                     brute-force way to do motion planning and obstacle avoid-
+context, a system is kinematically reducible [3], [2], [4], [5],              ance for an under-actuated system like the marionette.
+[14]2 (i.e, all paths on the configuration manifold Q corre-
+spond to trajectories on T Q and vice-versa) if Yi, Yj                        Fig. 4. An expansive-space tree is used to determine a path between two
+span{Yk|1  k  m} where X, Y = ~ X Y + ~ Y X.                                  configurations. The black dots show nodes in the search tree and the plot
+Now, because the strings are massless, the inertia tensor is                  out the path taken to traverse the tree.
+block diagonal in [qD, qK ]. That is, the kinetic energy KE
+satisfies                                                                         VIII. CONCLUSIONS AND FUTURE WORKS
+                                                                                 The mixed dynamic-kinematic model is a useful tool
+         1d            MD   0  d   qD  .                                      for modeling marionette dynamics. Using generalized co-
+KE = 2 dt ([qD, qK ])   0  MK  dt  qK                                         ordinates and Lagrange's equation preserves the mechanical
+                                                                              structure of the system and provides a concise expression
+This allows us to address the constraints independently so                    of the dynamics. The abstraction between the actuator and
+that                                                                          marionette simplifies the model while maintaining the full
+                                                                              behavior of the system.
+~ qM qM = uiY i                                                                  The purpose of this work is to develop a model suit-
+~ qD qD = 0.                                                                  able for optimal control and motion planning. The current
+                                                                              implementation is too slow to do either for a full three-
+Because the mechanism controlling the puppet is assumed                       dimensional marionette. The full dynamics must be reduced
+to be fully actuated, the first equation for the mecha-                       to a more computationally feasible model. The kinematic-
+nism dynamics trivially satisfies the condition Yi, Yj                        dynamic abstraction is a successful step in this direction.
+span{Yk|1  k  m} for kinematic reducibility (again,                              The string constraint model further simplifies the model.
+see [2] for details of this construction). Hence, separating                  Marionette models developed for computer graphics appli-
+the kinematic reduction of the mechanism controlling the                      cations [9] often treat the strings as a chain of small masses
+puppet from the (not kinematically reducible) dynamics of                     joined by stiff springs. These extra components are unneces-
+the puppet is a mechanically valid description of the system.                 sary with the string constraint, reducing the number of bodies
+However, we should emphasize that this is only true when
+the strings are assumed to be massless.
+
+                  VII. MOTION PLANNING
+
+   As an example application of the model, we have devel-
+oped a primitive motion planner for three dimensional puppet
+arm in Fig. 4 based on the Expansive-Space Tree (EST)
+algorithm [7]. The arm has four dynamic DOF and three
+kinematic inputs.
+
+   The algorithm consists of a collection of configurations,
+Q, and a desired final configuration, qf . Q is initialized with
+a starting configuration. The motion planner selects a random
+configuration qi  Q and generates a random input for the
+system. The model is integrated forward from qi for a short
+time using the random input. The final state of the simulation
+is added to Q.
+
+   2We do not go into the details of this analysis as it would take us far
+afield from the basic subject matter. However, the covariant derivative is a
+fundamental tool in establishing kinematic reducibility, so we introduce it
+here and point the interested reader to references for further information.
+to simulate and avoiding the numerically undesirable features                [2] F. Bullo and A.D. Lewis. Geometric Control of Mechanical Systems.
+of stiff springs.                                                                 Number 49 in Texts in Applied Mathematics. Springer-Verlag, 2004.
+
+   The Euler-Lagrange structure will also allow the model                    [3] F. Bullo and A.D. Lewis. Low-order controllability and kinematic
+to use variational integrators to improve performance. Varia-                     reductions for affine connection control systems. SIAM Journal on
+tional integrators can allow large simulation time steps while                    Control and Optimization, 44(3):885­908, 2005.
+guaranteeing energy conservation during the integration[12],
+[11], [10].                                                                  [4] F. Bullo, A.D. Lewis, and K.M. Lynch. Controllable kinematic
+                                                                                  reductions for mechanical systems: Concepts, computational tools,
+   We wish to develop an automated marionette to explore                          and examples. Int Symp on Math. Theory of Networks and Systems
+choreography as an abstract controls concept. In the context                      (MTNS), August 2002.
+of a marionette performance, choreography is essentially an
+abstract way of defining a trajectory for the system. In this                [5] F. Bullo and K. M. Lynch. Kinematic controllability for decoupled
+framework, a user can write a play by defining when and                           trajectory planning in underactuated mechanical systems. IEEE Trans-
+where events should occur which would then be compiled                            actions on Robotics and Automation, 17(4):402­412, August 2001.
+by the controller into a complete set of collision-free trajec-
+tories for each puppet. Before these concepts can be fully                   [6] I.-M. Chen, R. Tay, S.S. Xing, and S.H. Yeo. Marionette: From
+explored, however, several more components of the system                          traditional manipulation to robotic manipulation. In International
+will need be developed including a motion planner and model                       Symposium History of Machines and Mechanisms, Cassiano, Italy,
+that includes interactions between multiple puppets and the                       2004.
+environment.
+                                                                             [7] H. Choset, K. M. Lynch, S. Hutchinson, G. Kantor, W. Burgard, L. E.
+                 IX. ACKNOWLEDGMENTS                                              Kavraki, and S. Thrun. Principles of Robot Motion. The MIT Press,
+                                                                                  2005.
+   The authors gratefully acknowledge discussions with An-
+nie Peterle, a puppeteer that has given us much insight into                 [8] P. Fraser. Puppet Circus. Plays, Inc., 1971.
+the basic problems of dynamics of string puppets as well                     [9] S. Kim, X. Zhang, and Y. Kim. Haptic puppetry for interactive games.
+as the Atlanta Center for Puppetry Arts for their ongoing
+contributions to this project.                                                    In International Conference on E-learning and Games, 2006.
+                                                                            [10] A. Lew, J. E. Marsden, M. Ortiz, and M. West. Asynchronous
+   This material is based upon work partially supported by
+the National Science Foundation under Grant No. 0546430.                          variational integrators. Arch. Rational Mech. Anal., 167:85­146, 2003.
+Any opinions, findings, and conclusions or recommendations                  [11] A. Lew, J. E. Marsden, M. Ortiz, and M. West. An overview of
+expressed in this material are those of the author(s) and
+do not necessarily reflect the views of the National Science                      variational integrators. In Finite Element Methods: 1970's and Beyond,
+Foundation.                                                                       pages 98­115, 2004.
+                                                                            [12] A. Lew, J. E. Marsden, M. Ortiz, and M. West. Variational time
+                            REFERENCES                                            integrators. Int. J. Numer. Methods Engrg, 60:153­212, 2004.
+                                                                            [13] J. E. Marsden and T.S. Ratiu. Introduction to Mechanics and Symme-
+ [1] D. Baraff. Non-penetrating rigid body simulation. In State of the Art        try: A Basic Exposition of Classical Mechanical Systems. Springer,
+      Reports, 1993.                                                              2002.
+                                                                            [14] T. D. Murphey and J. W. Burdick. The power dissipation method
+                                                                                  and kinematic reducibility of multiple model robotic systems. IEEE
+                                                                                  Transactions on Robotics, 22(4):694­710, August 2006.
+                                                                            [15] R.M. Murray, Z. Li, and S.S. Sastry. A Mathematical Introduction to
+                                                                                  Robotic Manipulation. CRC Press, 1994.
+                                                                            [16] A. Witkin, M. Gleicher, and W. Welch. Interactive dynamics. In
+                                                                                  Computer Graphics, 1990.
+                                                                            [17] S.S. Xing and I.-M Chen. Design expressive behaviors for robotic
+                                                                                  puppet. In 7th International Conference on Control, Automation,
+                                                                                  Robotics, Vision, pages 378­383, Singapore, 2002.
+                                                                            [18] K. Yamane, J.K. Hodgins, and H.B. Brown. Controlling a marionette
+                                                                                  with human motion capture data. In International Conference on
+                                                                                  Robotics and Automation, 2003.
+

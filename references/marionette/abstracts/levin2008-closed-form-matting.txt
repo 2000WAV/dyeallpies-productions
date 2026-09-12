@@ -1,0 +1,21 @@
+Levin, A., Lischinski, D., and Weiss, Y. (2008). A Closed-Form Solution to Natural
+Image Matting. IEEE Transactions on Pattern Analysis and Machine Intelligence,
+30(2), 228-242. (Conference version: CVPR 2006.)
+
+STATUS: full text saved (author mirror, MIT CSAIL), text-extracted; see
+papers/levin2008-closed-form-matting.pdf/.txt.
+
+SUMMARY: Derives the "matting Laplacian": under a local color-line assumption (in
+a small window, foreground and background colors each lie near a line in RGB
+space), the alpha matte that is linear in the image colors within each window can
+be solved for in closed form, in the whole image at once, given only a sparse
+trimap or a few scribbles -- no explicit foreground/background color sampling
+step. The matting Laplacian is a sparse matrix built purely from local image
+statistics (per-window color covariance) and is later reused, as an image prior,
+in guided filtering, dehazing, colorization, and other edge-aware tasks.
+
+RELEVANCE: the classical (pre-deep-learning) high-quality matting method for
+fine, wispy edges (hair, fur -- here, finger silhouettes and any stray hair on
+the hand) from a trimap; contrasted in 05-camera-light-compositing.md with the
+guided filter (a fast local-linear approximation to the same color-line idea) and
+with learned mattes (RVM/MODNet/ViTMatte) that skip the trimap entirely.

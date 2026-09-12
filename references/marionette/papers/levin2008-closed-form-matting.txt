@@ -1,0 +1,807 @@
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 30, NO. 2, FEBRUARY 2008                                                 1
+
+A Closed-Form Solution to Natural
+             Image Matting
+
+                     Anat Levin, Dani Lischinski, and Yair Weiss
+
+Abstract--Interactive digital matting, the process of extracting a foreground object from an image based on limited user input, is an
+important task in image and video editing. From a computer vision perspective, this task is extremely challenging because it is massively
+ill-posed--at each pixel we must estimate the foreground and the background colors, as well as the foreground opacity ("alpha matte")
+from a single color measurement. Current approaches either restrict the estimation to a small part of the image, estimating foreground and
+background colors based on nearby pixels where they are known, or perform iterative nonlinear estimation by alternating foreground and
+background color estimation with alpha estimation. In this paper, we present a closed-form solution to natural image matting. We derive a
+cost function from local smoothness assumptions on foreground and background colors and show that in the resulting expression, it is
+possible to analytically eliminate the foreground and background colors to obtain a quadratic cost function in alpha. This allows us to find
+the globally optimal alpha matte by solving a sparse linear system of equations. Furthermore, the closed-form formula allows us to predict
+the properties of the solution by analyzing the eigenvectors of a sparse matrix, closely related to matrices used in spectral image
+segmentation algorithms. We show that high-quality mattes for natural images may be obtained from a small amount of user input.
+
+Index Terms--Matting, interactive image editing, spectral segmentation.
+
+                                                          Ç
+
+1 INTRODUCTION                                                                                                 typically experience difficulty handling images with a
+                                                                                                               significant portion of mixed pixels or when the foreground
+NATURAL image matting and compositing is of central                                                            object has many holes [19]. In such challenging cases, a
+       importance in image and video editing. Formally,                                                        great deal of experience and user interaction may be
+image matting methods take as input an image I, which is                                                       necessary to construct a trimap that would yield a good
+assumed to be a composite of a foreground image F and a                                                        matte. Another problem with the trimap interface is that the
+background image B. The color of the ith pixel is assumed                                                      user cannot directly influence the matte in the most
+to be a linear combination of the corresponding foreground                                                     important part of the image: the mixed pixels.
+and background colors
+                                                                                                                  In this paper, we present a new closed-form solution for
+Ii ¼ iFi þ ð1 À iÞBi;  ð1Þ                                                                                     extracting the alpha matte from a natural image. We derive a
+                                                                                                               cost function from local smoothness assumptions on fore-
+where i is the pixel's foreground opacity. In natural image                                                    ground and background colors F and B and show that in the
+matting, all quantities on the right-hand side of the                                                          resulting expression, it is possible to analytically eliminate F
+compositing equation (1) are unknown. Thus, for a three-                                                       and B, yielding a quadratic cost function in . The alpha
+channel color image, at each pixel, there are three equations                                                  matte produced by our method is the global optimum of this
+and seven unknowns.                                                                                            cost function, which may be obtained by solving a sparse
+                                                                                                               linear system. Since our approach computes  directly and
+   Obviously, this is a severely underconstrained problem,                                                     without requiring reliable estimates for F and B, a modest
+and user interaction is required to extract a good matte.                                                      amount of user input (such as a sparse set of scribbles) is often
+Most recent methods expect the user to provide a trimap as a                                                   sufficient for extracting a high-quality matte. Furthermore,
+starting point; an example is shown in Fig. 1e. The trimap is                                                  our closed-form formulation enables one to understand and
+a rough (typically hand-drawn) segmentation of the image                                                       predict the properties of the solution by examining the
+into three regions: foreground (shown in white), back-                                                         eigenvectors of a sparse matrix, closely related to matrices
+ground (shown in black), and unknown (shown in gray).                                                          used in spectral image segmentation algorithms. In addition
+Given the trimap, these methods typically solve for F , B,                                                     to providing a solid theoretical basis for our approach, such
+and  simultaneously. This is typically done by iterative                                                       analysis can provide useful hints to the user regarding where
+nonlinear optimization, alternating the estimation of F and                                                    in the image scribbles should be placed.
+B with that of . In practice, this means that for good
+results, the unknown regions in the trimap must be as small                                                    1.1 Previous Work
+as possible. As a consequence, trimap-based approaches
+                                                                                                               Most existing methods for natural image matting require
+. The authors are with the School of Computer Science and Engineering, The                                     the input image to be accompanied by a trimap [1], [2], [5],
+   Hebrew University of Jerusalem, 91905, Israel.                                                              [6], [14], [17], labeling each pixel as foreground, back-
+   E-mail: {alevin, danix, yweiss}@cs.huji.ac.il.                                                              ground, or unknown. The goal of the method is to solve the
+                                                                                                               compositing equation (1) for the unknown pixels. This is
+Manuscript received 7 Aug. 2006; revised 26 Mar. 2007; accepted 30 Apr.                                        typically done by exploiting some local regularity assump-
+2007; published online 16 May 2007.                                                                            tions on F and B to predict their values for each pixel in the
+Recommended for acceptance by H. Shum.                                                                         unknown region. In the Corel KnockOut algorithm [2], F
+For information on obtaining reprints of this article, please send e-mail to:
+tpami@computer.org, and reference IEEECS Log Number TPAMI-0582-0806.                                           Published by the IEEE Computer Society
+Digital Object Identifier no. 10.1109/TPAMI.2007.1177.
+
+                                                                              0162-8828/08/$25.00 ß 2008 IEEE
+2  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 30, NO. 2, FEBRUARY 2008
+
+Fig. 1. (a) An image with sparse constraints: white scribbles indicate the foreground, black scribbles indicate the background. (b) Applying Bayesian
+matting to such sparse input produces a completely erroneous matte. (c) Foreground extraction algorithms, such as [11], [13] produce a hard
+segmentation. (d) An automatically generated trimap from a hard segmentation may miss fine features. An accurate hand-drawn trimap (e) is
+required in this case to produce a reasonable matte (f). Images are taken from [19].
+
+and B are assumed to be smooth and the prediction is based        matting method of Grady et al. [8]. Both of these methods
+on a weighted average of known foreground and back-               propagate scribbled constraints to the entire image by
+ground pixels (closer pixels receive higher weight). Some         minimizing a quadratic cost function. Here, we apply a
+algorithms [6], [14] assume that the local foreground and         similar strategy, but our assumptions and cost function are
+background come from a relatively simple color distribu-          modified so as to better suit the matting problem.
+tion. Perhaps, the most successful of these algorithms is the
+Bayesian matting algorithm [6], where a mixture of oriented          A scribble-based interface for interactive matting was
+Gaussians is used to learn the local distribution and then ,      proposed by Wang and Cohen [19]. Starting from a few
+F , and B are estimated as the most probable ones given that      scribbles indicating a small number of background and
+distribution. Such methods work well when the color               foreground pixels, they use belief propagation to iteratively
+distributions of the foreground and the background do             estimate the unknowns at every pixel in the image.
+not overlap, and the unknown region in the trimap is small.       Although this approach has produced some impressive
+As demonstrated in Fig. 1b, a sparse set of constraints could     results, it has the disadvantage of employing an expensive
+lead to a completely erroneous matte. In contrast, although       iterative nonlinear optimization process, which might
+our approach also makes certain smoothness assumptions            converge to different local minima. Another scribble-based
+regarding F and B, it does not involve estimating the values      matting approach was recently proposed by Guan et al. [9],
+of these functions until after the matte has been extracted.      augmenting the random walk approach [8] with an iterative
+                                                                  estimation of color models.
+   The Poisson matting method [17] also expects a trimap as
+part of its input and computes the alpha matte in the mixed       2 DERIVATION
+region by solving a Poisson equation with the matte gradient
+field and Dirichlet boundary conditions. In the global Poisson    For clarity of exposition, we begin by deriving a closed-form
+matting method, the matte gradient field is approximated as       solution for alpha matting of gray-scale images. This solution
+rI=ðF À BÞ by taking the gradient of the compositing              will then be extended to the case of color images in Section 2.1.
+equation and neglecting the gradients in F and B. The matte
+is then found by solving for a function whose gradients are as       As mentioned earlier, the matting problem is severely
+close as possible to the approximated matte gradient field.       underconstrained. Therefore, some assumptions on the
+Whenever F or B is not sufficiently smooth inside the             nature of F , B, and/or  are needed. To derive our solution
+unknown region, the resulting matte might not be correct,         for the gray-scale case, we make the assumption that both F
+and additional local manipulations may need to be applied         and B are approximately constant over a small window
+interactively to the matte gradient field in order to obtain a    around each pixel. Note that assuming that F and B are
+satisfactory solution. This interactive refinement process is     locally smooth does not mean that the input image I is
+referred to as local Poisson matting. As we shall see, our        locally smooth, since discontinuities in  can account for the
+method makes weaker assumptions on the behavior of F and          discontinuities in I. This assumption, which will be some-
+B, which generally leads to more accurate mattes.                 what relaxed in Section 2.1, allows us to rewrite (1),
+                                                                  expressing  as a linear function of the image I:
+   Recently, several successful approaches for extracting a
+foreground object from its background have been proposed                                   i % aIi þ b; 8i 2 w;                        ð2Þ
+[3], [11], [13]. Both approaches translate simple user-specified
+constraints (such as scribbles or a bounding rectangle) into a    where  a  ¼    1   ,  b  ¼  À    B   ,  and  w  is  a  small  image  window.
+min-cut problem. Solving the min-cut problem yields a hard                     F ÀB              F ÀB
+binary segmentation, rather than a fractional alpha matte         This linear relation is similar to the prior used in [20] and
+(Fig. 1c). The hard segmentation could be transformed into a
+trimap by erosion, but this could still miss some fine or fuzzy   the shape recipes of [18]. This relation suggests finding , a,
+features (Fig. 1d). Although Rother et al. [13] do perform
+border matting by fitting a parametric alpha profile in a         and b that minimize the cost function
+narrow strip around the hard boundary, this is more akin to
+feathering than to full alpha matting, since wide fuzzy                                       XX                                !
+regions cannot be handled in this manner.
+                                                                         Jð; a; bÞ ¼                      ði À ajIi À bjÞ2 þ aj2 ;     ð3Þ
+   Our approach is closely related to the colorization
+method of Levin et al. [10], and the random walk alpha                                        j2I i2wj
+
+                                                                  where wj is a small window around pixel j.
+                                                                     The cost function above includes a regularization term on
+
+                                                                  a. One reason for adding this term is numerical stability. For
+                                                                  example, if the image is constant in the jth window, aj and bj
+LEVIN ET AL.: A CLOSED-FORM SOLUTION TO NATURAL IMAGE MATTING                                                                           3
+
+cannot be uniquely determined without a prior. Also,                              2.1 Color Images
+minimizing the norm of a biases the solution toward
+smoother alpha mattes (since aj ¼ 0 means that  is constant                       A simple way to apply the cost function to color images is to
+over the jth window).
+                                                                                  apply the gray-level cost to each channel separately.
+   In our implementation, we typically use windows of
+3 Â 3 pixels. Since we place a window around each pixel, the                      Alternatively, we can replace the linear model (2) with a
+windows wj in (3) overlap. It is this property that enables the
+propagation of information between neighboring pixels. The                        4D linear model
+cost function is quadratic in , a, and b, with 3N unknowns
+for an image with N pixels. Fortunately, as we show below,                                                         X
+a and b may be eliminated from (3), leaving us with a quadratic                                    i % acIic þ b; 8i 2 w;               ð9Þ
+cost in only N unknowns: The alpha values of the pixels.
+                                                                                                                   c
+Theorem 1. Define JðÞ as
+                                                                                  where c sums over color channels. The advantage of this
+                        JðÞ ¼ min Jð; a; bÞ:                                      combined linear model is that it relaxes our previous
+                                                                                  assumption that F and B are constant over each window.
+                                        a;b                                       Instead, as we show below, it is enough to assume that in a
+                                                                                  small window each of F and B is a linear mixture of two
+Then,                                                                             colors; in other words, the values Fi in a small window lie on a
+                                                                                  single line in the RGB color space, Fi ¼ iF1 þ ð1 À iÞF2, and
+                           JðÞ ¼ T L ;                                       ð4Þ  the same is true for the background values Bi. In what
+                                                                                  follows, we refer to this assumption as the color line model.
+where L is an N Â N matrix, whose ði; jÞth entry is
+                                                                                     Such a model is useful since it captures, for example, the
+X                                                                        !!       varying shading on a surface with a constant albedo.
+                                                                                  Another example is a situation where the window contains
+               1              þ         1       ðIi     kÞðIj     À  kÞ           an edge between two uniformly colored regions both
+            ij À jwkj      1                         À                    : ð5Þ   belonging to the background or the foreground. In Fig. 2,
+                                        þ   2k                                    we illustrate this concept by plotting local RGB distribu-
+kjði;jÞ2wk                       jwk j                                            tions from a real image. Furthermore, Omer and Werman
+                                                                                  [12] demonstrated that in many natural images the pixel
+Here, ij is the Kronecker delta, k and 2k are the mean and                        colors in the RGB space tend to form a relatively small
+variance of the intensities in the window wk around k, and jwkj                   number of elongated clusters. Although these clusters are
+                                                                                  not straight lines, their skeletons are roughly linear locally.
+is the number of pixels in this window.
+                                                                                  Theorem 2. If the foreground and background colors in a window
+Proof. Rewriting (3) using matrix notation, we obtain                                satisfy the color line model, we can express
+                                                                                                               X
+            Jð; a; bÞ ¼ XGk                      ak  !      "k2                                         i ¼ acIic þ b; 8i 2 w:
+                                                 bk
+                                    k                   À         ;          ð6Þ                                              c
+
+where for every window wk, Gk is defined as a ðjwkj þ                             Proof. Substituting into (1) the linear combinations Fi ¼
+                                                                                     iF F1 þ ð1 À iF ÞF2 and Bi ¼ iBB1 þ ð1 À iBÞB2, where
+1Þ Â 2 matrix. For each i 2 wk, Gk contains a row pofffiffithe                       F1, F2, B1, and B2 are constant over a small window, we
+form ½Ii; 1, and the last row of Gk is of the form ½ ; 0.
+                                                                                     obtain
+For a given matte , we define "k as a ðjwkj þ 1Þ Â 1
+
+vector, whose entries are i for every i 2 wk and whose                            Iic ¼ iðiF F1c þ ð1 À iF ÞF2cÞ þ ð1 À iÞðiBB1c þ ð1 À iBÞB2c Þ:
+
+last entry is zero. The elements in "k and Gk are ordered                         Let H be a 3 Â 3 matrix whose cth row is ½F2c þ B2c ;
+                                                                                  F1c À F2c; Bc1 À Bc2. Then, the above may be rewritten as
+correspondingly.
+   For a given matte , the optimal pair aÃk; bÃk inside each                                       2                  i     3
+
+window wk is the solution to the least squares problem
+
+                              argmin Gk                 ak  !     "k2                   H4 iiF 5 ¼ Ii À B2;
+                                                        bk
+            ðaÃk; bÃkÞ  ¼                                      À             ð7Þ                      ð1 À iÞiB
+
+                                                                                  where Ii and B2 are 3 Â 1 vectors representing three color
+
+                        ¼ ðGTk GkÞÀ1GkT "k:                                  ð8Þ  channels. We denote by a1; a2; a3 the elements in the first
+
+Substituting this solution into (6) and denoting G"k ¼                            row   of HÀ1 and by b the scalar product of   ¼thP e fcirasctIrioþwb.otuf
+I À GkðGTk GkÞÀ1GkT , we obtain                                                   H À1  with the vector B2. We then obtain i
+
+                               X                                                  Using the 4D linear model (9), we define the following
+                     JðÞ ¼ "Tk G"Tk G"k"k
+                                                                                  cost function for the matting of RGB images
+                                               k
+                                                                                                      0                  X      !2 X 1
+                                                                                  Jð; a; bÞ ¼ X@X                  i À acjIic À bj þ ajc2 A: ð10Þ
+and some further algebraic manipulations show that the
+                                                                                                         j2I i2wj        c      c
+ði; jÞth element of G"kT G"k may be expressed as
+                                                                                  Similar to the gray-scale case, ac and b can be eliminated
+                                                                     !            from the cost function, yielding a quadratic cost in the 
+                                                                                  unknowns alone:
+            1                        1      ðIi      kÞðIj
+       ij À jwkj        1  þ                     À             À  kÞ   :
+                                     þ  k2
+                              jwk j
+
+Summing over k yields the expression in (5).                                 tu                                    JðÞ ¼ T L :          ð11Þ
+4                                         IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 30, NO. 2, FEBRUARY 2008
+
+                                                                             expressed as a linear function of itself, for example, by setting
+                                                                             a1 ¼ 1, a2 ¼ a3 ¼ b ¼ 0).
+
+                                                                                Apart from the mathematical justification, the intuition
+                                                                             behind our cost function is that the matte may be represented
+                                                                             locally as a linear combination of the image color channels, as
+                                                                             illustrated by the three representative examples shown in
+                                                                             Fig. 3. The first example is a window with rather uniform
+                                                                             foreground and background colors. In this case, the alpha
+                                                                             matte has a strong normalized correlation with the image,
+                                                                             and it may be generated by multiplying one of the color
+                                                                             channels by a scale factor and adding a constant. In the second
+                                                                             example, the alpha matte is constant over the entire window.
+                                                                             Regardless of the complexity of the image texture in this
+                                                                             window, we can obtain the constant alpha by multiplying the
+                                                                             image channels by zero and adding a constant. This trivial
+                                                                             case is important, as it demonstrates some of the power of the
+                                                                             4D linear model. Since a typical matte is constant (zero or one)
+                                                                             over most image windows, the matte in such windows may
+                                                                             be expressed as a linear function of the image in a trivial way,
+                                                                             regardless of the exact color distribution and whether the
+                                                                             color line model holds or not. Finally, we present a window
+                                                                             with nonuniform alpha, where in addition, the background
+                                                                             contains an edge. Since the edge contrasts in the different
+                                                                             color channels are different, by scaling the color channels
+                                                                             appropriately, our model is able to actually cancel the
+                                                                             background edge.
+
+                                                                             3 CONSTRAINTS AND USER INTERFACE
+
+                                                                             In our system, the user-supplied constraints on the matte may
+
+                                                                             be provided via a scribble-based GUI or a trimap. The user
+
+                                                                             uses a background brush (black scribbles in our examples) to
+
+                                                                             indicate background pixels ð ¼ 0Þ and a foreground brush
+
+                                                                             (white scribbles) to indicate foreground pixels ð ¼ 1Þ.
+
+                                                                             To extract an alpha matte matching the user's con-
+
+                                                                             straints, we solve for
+
+                                                                               ¼  argmin  T L         þ ÀT  À  bTS  Á    ð À bSÞ;     ð13Þ
+                                                                                                                     DS
+
+Fig. 2. Local patches selected from a real image and the RGB plots of        where  is some large number, DS is a diagonal matrix
+their color distributions.                                                   whose diagonal elements are one for constrained pixels and
+                                                                             zero for all other pixels, and bS is the vector containing the
+                                                                             specified alpha values for the constrained pixels and zero
+                                                                             for all other pixels.
+
+                                                                                Since the above cost is quadratic in alpha, the global
+                                                                             minimum may be found by differentiating (13) and setting
+                                                                             the derivatives to zero. This amounts to solving the
+                                                                             following sparse linear system
+
+Here, L is an N Â N matrix, whose ði; jÞth element is                                     ðL þ DSÞ ¼ bS:                              ð14Þ
+
+     X            À   1    ð1  þ  ðIi  À  kÞðÆk  þ        I3ÞÀ1ðIj  À        Theorem 3. Let I be an image formed from F and B according to
+              ij     jwkj                           jwkj               kÞ ;     the compositing equation (1), and let Ã denote the true alpha
+
+   kjði;jÞ2wk                                                                   matte. If F and B satisfy the color line model in every local
+
+                                                                       ð12Þ     window wk and if the user-specified constraints S are
+                                                                                consistent with Ã, then Ã is an optimal solution for the
+where Æk is a 3 Â 3 covariance matrix, k is a 3 Â 1 mean
+vector of the colors in a window wk, and I3 is the 3 Â 3 identity               system (13), where L is constructed with  ¼ 0.
+matrix.
+                                                                             Proof. Since  ¼ 0, if the color line model is satisfied in every
+   We refer to the matrix L in (5) and (12) as the matting
+Laplacian. Note that the elements in each row of L sum to zero               window wk, it follows from the definition (10) that
+and, therefore, the null space of L includes the constant
+vector. If  ¼ 0 is used, the null space of L also includes every             JðÃ; a; bÞ ¼ 0 and, therefore, JðÃÞ ¼ ÃT LÃ ¼ 0.         ut
+color channel of I (as each of the color channels can be
+                                                                             We demonstrate this in Fig. 4. The first image (Fig. 4a) is a
+
+                                                                             synthetic example that was created by compositing computer
+
+                                                                             simulated (monochromatic) smoke over a simple back-
+                                                                             ground with several color bands, which satisfies the color
+LEVIN ET AL.: A CLOSED-FORM SOLUTION TO NATURAL IMAGE MATTING            5
+
+Fig. 3. Local linear relations between alpha windows and image windows.
+
+line model. The black-and-white scribbles show the input                 and B under the scribble (by cloning them from other
+constraints. The matte extracted by our method (Fig. 4b) is              locations in the image). This gives a constraint on  in the
+indeed identical to the ground-truth matte. The second                   scribbled area, computable directly from the compositing
+example (Fig. 4c) is a real image, with fairly uniform                   equation (1). Another constraint type is when the artist
+foreground and background colors. By scribbling only two                 indicates that F and B are constant but unknown under the
+black-and-white points, a high-quality matte was extracted               scribble. This tells the system that the linear relationship (9)
+(Fig. 4d).                                                               should hold for all the pixels covered by the scribble, rather
+                                                                         than only inside each 3 Â 3 window. This adds to (12) an
+   Note that Theorem 3 states only necessary but not                     additional larger window that contains all of the pixels under
+sufficient conditions for recovering the true alpha matte.               the scribble. The usage of these two brushes is illustrated in
+This is the case, since the null space of L may contain                  Fig. 5. If only black-and-white scribbles are used (Fig. 5a),
+multiple solutions, and it is up to the user to provide a                there is no way to specify background constraints for the parts
+sufficient number of constraints to ensure that solving (13)             of the background partially visible through the fine gaps in
+yields the correct alpha matte. For example, constraining                the hair. As a result, these gaps are not captured by the
+the system to output the true matte in Fig. 4a required a
+setting constraint inside every connected component.
+
+3.1 Additional Scribbling Brushes
+
+To provide the user with more flexible control over the
+output, we add additional types of brushes for specifying
+constraints at regions containing mixed pixels. One simple
+constraint may be set by explicitly specifying the values of F
+
+Fig. 4. Matting examples. (a) and (c) Input images with sparse           Fig. 5. Using additional scribbling brushes. (a) Input image. (b) Simple
+constraints. (b) and (d) Extracted mattes.                               background (black) and foreground (white) scribbles. (c) Scribbling
+                                                                         foreground and background colors explicitly. (d) Marking wider
+                                                                         neighborhoods.
+6  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 30, NO. 2, FEBRUARY 2008
+
+                                                                 Fig. 7. Computing a matte using different window sizes. (a) Input marks.
+                                                                 (b) 3 Â 3 windows. (c) 5 Â 5 windows.
+
+Fig. 6. Computing a matte using different  values.
+
+recovered matte (Fig. 5b). To overcome this, the user may pick   Fig. 8. Computing a matte using different window sizes. (a) Input marks.
+some blond and brown colors from the neighboring pixels          (b) Windows of size 3 Â 3. (c) Windows of size 5 Â 5. (d) Windows of size
+(Fig. 5c) and specify them as the foreground and background      3 Â 3 computed at coarser resolution. (e) Simple interpolation of (d).
+colors in that region. The matte produced from these             (f) Interpolating the a and b parameters corresponding to the matte in (d)
+constraints succeeds in capturing the partial visibility of the  and applying them to obtain a matte for the finer image.
+background. Alternatively, the user may place a scribble
+(gray scribble in Fig. 5d) indicating that this area should be   usually used  ¼ 0:17 to 0:15, since real images are normally
+treated as a single large neighborhood, causing the brown        not as noisy as the above example.
+pixels showing through the hair to be treated the same as the
+brown pixels outside. In the results section, we show that          Fig. 6 demonstrates the fact that  is an important
+these additional brushes are also useful for the challenging     parameter in our system, which controls the amount of
+tasks of extracting mattes for shadows and smoke.                noise versus the amount of smoothing in the solution.
+                                                                 Although many of our theoretical results in this paper only
+4 PARAMETERS                                                     hold for the case  ¼ 0, it should be noted that, in practice,
+                                                                 as  approaches zero, our method will typically fail to
+To gain a better understanding of our method, we illustrate      produce a constant matte in textured or noisy regions.
+here the effect of the different parameters on the alpha
+reconstruction.                                                     Another parameter that affects the results is the window
+                                                                 size. We usually construct the matting Laplacian using
+   First, we demonstrate the effect of , which is the weight of  3 Â 3 windows. Using wider windows is more stable when
+the regularization term on a in (3). There are two reasons for   the color line model holds, but the chance of encountering
+having this term. The first reason is numerical stability. For   windows that deviate from the color line model grows when
+example, if the image is constant in the jth window, aj and bj   the windows are larger. This is illustrated in Fig. 7. The matte
+cannot be uniquely determined without a prior. Also,             of the image was recovered using both 3 Â 3 and
+minimizing the norm of a biases the solution toward              5 Â 5 windows. The mattes are shown in Figs. 7b and 7c,
+smoother alpha mattes (since aj ¼ 0 means that  is constant      respectively. It may be seen that the matte in Fig. 7c contains
+over the jth window). In Fig. 6, we demonstrate the effect of    some errors. The reason is that some of the 5 Â 5 windows
+on the resulting matte. Our input image consists of two noisy    deviate from the color line model since their areas cover three
+areas and was scribbled with two vertical lines. In Fig. 6, we   differently colored background strips, whereas the
+show three different mattes that were obtained using three       3 Â 3 windows are small enough and never cover more than
+different values of . We also plot the different mattes using a  two strips. On the other hand, in Fig. 8, the fact that
+one-dimensional profile of one of the rows. For comparison,      5 Â 5 windows can cover three different strips is useful as
+we also plot the profile of the input image scaled to the        that helps the foreground constraint (the white scribble) to
+[0, 1] range. We can see that when  is small the sharpness of    propagate to the entire striped texture region (Fig. 8c).
+the recovered matte matches the profile of the edge in the       (Despite the fact that two blue pixels in different strips are not
+input image, but the matte also captures the image noise. For
+large  values, the image noise is indeed ignored, but the
+recovered alpha is oversmoothed. In our implementation, we
+LEVIN ET AL.: A CLOSED-FORM SOLUTION TO NATURAL IMAGE MATTING       7
+
+direct neighbors, they are neighbors in the induced graph
+due to the fact that the window is large enough.) Such
+propagation does not occur when using 3 Â 3 windows, as
+shown in Fig. 8b.
+
+   Even in cases for which wider windows are useful, their
+usage increases computation time since the resulting system
+is less sparse. To overcome this, we consider the linear
+coefficients in (9) that relate an alpha matte to an image. The
+coefficients obtained using wide windows on a fine-resolu-
+tion image are similar to those obtained with smaller windows
+on a coarser image. Therefore, we can solve for the alpha matte
+using 3 Â 3 windows on a coarse image and compute the
+linear coefficients that relate it to the coarse image channels.
+We then interpolate the linear coefficients and apply them to
+the finer resolution image. The alpha matte obtained using
+this approach is similar to the one that would have been
+obtained by solving the matting system directly on the fine
+image with wider windows. To demonstrate this, Fig. 8d
+shows the alpha matte that was obtained when 3 Â 3 windows
+were used on the image in Fig. 8a after downsampling it by a
+factor of two. If we just upsample this alpha matte by a factor of
+two, we get the blurred alpha matte shown in Fig. 8e. On the
+other hand, if we compute the a and b values relating the small
+alpha (Fig. 8d) to the image, upsample them and apply them to
+the finer resolution image, we get the sharp matte in Fig. 8f,
+which is almost identical to the one in Fig. 8c, obtained using
+5 Â 5 windows.
+
+5 SPECTRAL ANALYSIS                                                 Fig. 9. Smallest eigenvectors of Laplacians corresponding to different
+
+The matting Laplacian matrix L is a symmetric semidefinite          affinity functions.
+matrix, as evident from Theorem 1 and its proof. This
+matrix may also be writtPen as L ¼ D À W , where D is a             are usually nonnegative, the matting affinity may also
+diagonal matrix Dði; iÞ ¼ j W ði; jÞ, and W is a symmetric          assume negative values.
+matrix whose off-diagonal entries are defined by (12). Thus,
+the matrix L has the same form as the graph Laplacian used             To compare the two affinity functions WG and WM, we
+in spectral methods for segmentation but with a novel               examine the eigenvectors of the corresponding Laplacians,
+affinity function given by (12). For comparison, the typical        since these eigenvectors are used by spectral segmentation
+way to define the affinity function (for example, for image         algorithms for partitioning images.
+segmentation using normalized cuts [15]) is to set
+                                                                       Fig. 9 shows the second smallest eigenvector (the first
+                 WGði; jÞ ¼ eÀkIiÀIjk2=2 ;             ð15Þ         smallest eigenvector is constant in both cases) for both
+                                                                    Laplacian matrices on three example images. For the matting
+where  is a global constant (typically chosen by hand). This        affinity, we present eigenvectors with two  values ( ¼ 0:17
+affinity is large for nearby pixels with similar colors and         and  ¼ 0:15). The first example is a simple image with
+approaches zero when the color difference is much greater           concentric circles of different colors. In this case, the
+than . The random walk matting algorithm [8] uses a                 boundaries between regions are very simple, and all
+similar affinity function for the matting problem, but the          Laplacians capture the transitions correctly. The second
+color distance between two pixels is taken after applying a         example is an image of a peacock. The global  eigenvector
+linear transformation to their colors. The transformation is        (used by standard spectral clustering algorithms) fails to
+image dependent and is estimated using a manifold                   capture the complex fuzzy boundaries between the peacock's
+learning technique.                                                 tail feathers and the background. In contrast, the matting
+                                                                    Laplacian's eigenvector (constructed using  ¼ 0:15) sepa-
+   In contrast, by rewriting the matting Laplacian as               rates the peacock from the background very well, as this
+L ¼ D À W , we obtain the following affinity function,              Laplacian explicitly encodes fuzzy cluster assignments.
+which we refer to as "the matting affinity:"                        When the matting Laplacian is constructed using  ¼ 0:17,
+                                                                    the eigenvector is similar to the input image and, in addition
+WMði; jÞ ¼          À1                      !
+  X1                                             ð16Þ
+                 1 þ ðIi À kÞ Æk þ jwkj I3 ðIj À kÞ :
+kjði;jÞ2wk jwkj
+
+We note that by using the term affinity here, we somewhat
+extend its conventional usage: Although standard affinities
+8  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 30, NO. 2, FEBRUARY 2008
+
+                                                                          region exhibiting coherent eigenvector values (Fig. 10c). The
+                                                                          resulting matte is shown in Fig. 10d. Note that the scribbles in
+                                                                          Fig. 10c were our first and single attempt to place scribbles on
+                                                                          this image.
+
+                                                                             Stated somewhat more precisely, the alpha matte may be
+                                                                          predicted by examining some of the smaller eigenvectors of
+                                                                          the matting Laplacian, since an optimal solution to (13) will be
+                                                                          to a large degree spanned by the smaller eigenvectors. In fact,
+                                                                          it is possible to bound the weight of the larger eigenvectors in
+                                                                          the optimal solution, as a function of the ratios of the
+                                                                          corresponding eigenvalues.
+
+                                                                          Theorem 4. Let v1; . . . ; vN be the eigenvectors of the matting
+                                                                             Laplacian (12) with eigenvalues 1 2 Á Á Á N . Let S be
+                                                                             the subset of scribbled pixels, with scribble values si, i 2 S. We
+                                                                             denote by xðSÞ the restriction of the vector x to the scribbled
+
+                                                                          pixels (so that xðSÞ is an jSj-dimensional vector). Let  be the
+
+                                                                          eoipgteinmvaelctmorasttbe,asainsdassupp¼osPe kN¼i1saekxvpkr.essed with respect to the
+
+                                                                             If   ¼thePscKkr¼i1bbblkevskðaSreÞ,spthaennnefodrbeyvetrhye  K smallest    eigenvectors
+                                                                          sðSÞ                                                           j>K
+
+Fig. 10. Smallest eigenvectors (a) and (b) are used for guiding scribble                      aj2     PK       bk2  kbk2k :
+                                                                                                                      j
+placement (c). The resulting matte is shown in (d).                                                       k¼1
+
+to the peacock, also captures some of the vegetation in the                                           j
+background. The last example is the noisy step function in
+Fig. 6. In this case, the eigenvector corresponding to  ¼ 0:17            Proof.  Let    ¼  PK       bkvk.  Then,                      satisfies     ðSÞ ¼ sðSÞ.
+captures all of the image noise, whereas using a larger
+ results in a less noisy eigenvector. However, an appropriate                                    k¼1
+choice of a global  yields an eigenvector with a perfect step             Since  is the optimal solution  ¼ arg min T L such
+function. This is an excellent result if the goal is a hard
+segmentation, but if the goal is a soft alpha matte, it is                that ðSÞ ¼ sðSÞ, we must have that T L T L. Since
+preferable to have an edge whose smoothness is proportional
+to the smoothness of the edge in the input image, so the                  the Laplacian matrix L is positive semidefinite, the
+matting eigenvector might be more appropriate. Thus,
+designing a good matting affinity is not equivalent to                    eigenvectors v1; . . . ; vN are orthogonal. Therefore,
+designing a good affinity for hard segmentation.
+                                                                                                              X N                                      ð17Þ
+5.1 The Eigenvectors as Guides                                                                     T L ¼ a2kk;
+
+Although the matting problem is ill posed without some                                                             k¼1
+user input, the matting Laplacian matrix contains a lot of
+information on the image even before any constraints have                                                        X K                                            ð18Þ
+been provided, as demonstrated in the previous section.                                               T L ¼ bk2k                                     kbk2K. ut
+
+   This suggests that looking at some of the smallest                                                          k¼1                       PK
+eigenvectors of the matting Laplacian can guide the user
+where to place scribbles. For example, the extracted matte and            and as a result, for every j: aj2j                                 k¼1  b2k
+the smallest eigenvectors tend to be piecewise constant over
+the same regions. If the values inside a segment in the                   Corollary 1. If the scribbles are spanned by the null space of L,
+eigenvector image are coherent, a single scribble within such                the optimal solution will also lie in the null space of L.
+a segment should suffice to propagate the desired value to the
+entire segment. On the other hand, areas where the                        Proof. Let K be the dimension of the null space. Using
+eigenvector's values are less coherent correspond to more
+"difficult" regions in the image, suggesting that more                    the previous theorem's notation, for every j > K,
+scribbling efforts might be required there. We note, however,             a2j kbk2K ¼ 0, and the optimal solution is spanned
+that a basic strategy for scribble placing is just to examine the
+input image and place scribbles on regions with different                 by the K null-space eigenvectors.                                            tu
+colors. This is also evident by the fact that when the matting
+Laplacian is constructed using  ¼ 0, the null space of the                The above implies that the smoothness of the recovered
+matting Laplacian will contain the three color channels.
+                                                                          alpha matte will tend to be similar to that of the smallest
+   Fig. 10 illustrates how a scribbling process may be guided
+by the eigenvectors. By examining the two smallest eigen-                 eigenvectors of L.
+vectors (Figs. 10a and 10b), we placed a scribble inside each
+                                                                          6 OPTIMIZATION
+
+                                                                          The optimization problem defined by (13) is one of
+                                                                          minimizing a quadratic cost function subject to linear
+                                                                          constraints, and the solution can therefore be found by
+                                                                          solving a sparse set of linear equations.
+
+                                                                             For the results shown here, we solve the linear system
+                                                                          using Matlab's direct solver (the "backslash" operator),
+                                                                          which takes 20 seconds for a 200 Â 300 image on a 2.8 GHz
+                                                                          CPU. Processing large images using Matlab's solver is
+                                                                          impossible due to memory limitations. To overcome this,
+                                                                          we use a coarse-to-fine scheme. We downsample the image
+LEVIN ET AL.: A CLOSED-FORM SOLUTION TO NATURAL IMAGE MATTING                                                                                      9
+
+Fig. 11. Foreground and background reconstruction: (a) input, (b) Alpha matte, (c) foreground reconstruction, (d) background reconstruction, and
+(e) F composited over a novel background.
+
+and the constraints and solve at a lower resolution. The         stronger in the presence of matte edges. Specifically, we
+recovered alpha matte is then interpolated to the finer
+resolution: alpha values are thresholded and pixels with         minimize a system of the form
+alpha close to zero or one are clamped and considered as
+constrained in the finer resolution. Constrained pixels may be        XX   ðiFic þ ð1 À iÞBic À IicÞ2
+eliminated from the system, reducing the system size. For
+that, we note that within the constrained areas, there is no     min
+need to enforce the local linear models. Therefore, when
+computing the matting Laplacian matrix (5), (12), we sum              i2I  c     À       Á2     À      Á2            À       Á2     À      Á2  
+only windows wk that contain at least one unconstrained                          j Ficx          Bcix                j Ficy          Bicy       ;
+pixel. Aside from efficiency, clamping alpha values to zero or             þjix              þ               þ  jiy              þ
+one is also useful in avoiding oversmoothed alpha mattes,
+and we used such clamping to produce the results in Fig. 16d.                                                                              ð19Þ
+We note, however, that clamping the alpha values in a coarse-
+to-fine approach has the negative side effect that long thin     awnhderBecF, iacxn, dFicy,iBx ciaxn, dandiyBaciry earthe ethme axttaenddeyrivdaetriivveast.ivWeseonfoFtec
+structures such as strains of hair may be lost.                  that for a fixed , the cost (19) is quadratic, and its minimum
+                                                                 may be found by solving a sparse set of linear equations.
+   It should be noted that solving linear systems with this      Given the solution of F and B, the  solution can be further
+structure is a well-studied problem [8], [16]. We have also      refined, but in practice, we have observed this is not
+implemented a multigrid solver for matte extraction. The         required. Fig. 11 shows an alpha matte and F and B images
+multigrid solver runs in a couple of seconds even on very        recovered in this way.
+large images but with a small degradation in matte quality.
+Therefore, a multigrid solver enables the system to operate      8 RESULTS
+as an interactive tool. The user can place constraints,
+examine the resulting matte, and add constraints in image        In all examples presented in this section, the scribbles used in
+areas that require further refinement.                           our algorithm are presented in the following format: black-
+                                                                 and-white scribbles are used to indicate the first type of hard
+   The eigenvectors of the matting Laplacian depend only         constraints on . Red scribbles represent places in which
+on the input image and are independent of the user's             foreground and background colors were explicitly specified.
+constraints. It is not necessary to compute them, unless the     Finally, gray scribbles are used to represent the third type of
+user wishes to use them for guidance in scribble placement,      constraint--requiring a and b to be constant (without
+as described earlier. In this case, they only need to be         specifying their exact value) within the scribbled area.
+computed once, possibly as part of the initialization that
+takes place when a new image is loaded. Recently, there has      8.1 Visual Comparisons
+been much research on efficient methods for the computa-
+tion of eigenvectors (for example, [4]), partly in response to   Fig. 12 presents matting results on images from the
+the growing interest in normalized cuts image segmentation       Bayesian matting work [6]. Our results appear visually
+and other spectral clustering methods.                           comparable to those produced by Bayesian matting.
+                                                                 Whereas the Bayesian matting results use a trimap, each
+7 RECONSTRUCTING F AND B                                         of our results was obtained using a sparse set of scribbles.
+
+Having solved for , it is also usually necessary to reconstruct     In Fig. 13, we extract mattes from a few of the more
+F and, in some cases, also B. One approach for reconstructing    challenging examples presented in the Poisson matting
+F and B is to solve (9) for the optimal a and b given  using     paper [17]. For comparison, the Poisson and Bayesian
+least squares. However, in order to extract F and B from a and   matting results provided in [17] are also shown.1
+b, there is an additional matting parameter that should be
+recovered ( in the proof of Theorem 2). For complex                Fig. 14 shows the mattes extracted using our technique
+foreground and background patterns, such a reconstruction        on two challenging images used in [19] and compares our
+may produce noisy results, and therefore, we solve for F and     results to several other recent algorithms. It can be seen that
+B using the compositing equation, introducing some explicit      our results on these examples are comparable in terms of
+smoothness priors on F and B. The smoothness priors are          visual quality to those of [19], even though we use a far
+                                                                 simpler algorithm. Global Poisson matting cannot extract a
+                                                                 good matte from a sparse set of scribbles although its
+                                                                 performance with a trimap is quite good. The random walk
+                                                                 matting algorithm [8] also minimizes a Laplacian but uses
+
+                                                                     1. The authors thank Leo Jia for providing them with the images and
+                                                                 results.
+10  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 30, NO. 2, FEBRUARY 2008
+
+Fig. 12. Comparison with Bayesian matting [6]. (a) Input image. (b) Trimap. (c) Bayesian matting result (obtained from the Bayesian Matting Web
+page). (d) Scribbles. (e) Our result.
+
+Fig. 13. Result on Poisson matting examples. (a) Input image. (b) Bayesian matting (obtained from the Poisson matting paper). (c) Poisson matting
+(obtained from the Poisson matting paper). (d) Our result. (e) Scribbles.
+
+an affinity function with a global scaling parameter and,     foreground and background colors. In this case, the matte
+hence, has a particular difficulty with the peacock image.    produced by our method is clearly better than the one
+                                                              produced by the Wang-Cohen method. To better understand
+   Fig. 15 presents compositing examples using our algo-      why this is the case, we show an RGB histogram of
+rithm for some images from the previous experiments. We       representative pixels from the F and B scribbles. Some pixels
+show compositing both over a constant background and          in the background fit the foreground color model much better
+over natural images.                                          than the background one (one such pixel is marked red in
+                                                              Fig. 17b and indicated by an arrow in Fig. 17d). As a result,
+   Fig. 16 shows an example (from [19]) where Wang and        such pixels are classified as foreground with a high degree of
+Cohen's method fails to extract a good matte from sparse      certainty in the first stage. Once this error has been made, it
+scribbles due to color ambiguity between the foreground       only reinforces further erroneous decisions in the vicinity of
+and the background. The same method, however, is able to      that pixel, resulting in a white clump in the alpha matte.
+produce an acceptable matte when supplied with a trimap.
+Our method produces a cleaner but also imperfect matte           Since our method does not make use of global color models
+from the same set of scribbles, but adding a small number of  for F and B, it can handle ambiguous situations such as that in
+additional scribbles results in a better matte. (To produce   Fig. 17. However, there are also cases where our method fails
+this result, we applied clamping of alpha values as           to produce an accurate matte for the very same reason. Fig. 18
+described in Section 6.)                                      shows an actress in front of a background with two colors.
+                                                              Even though the black B scribbles cover both colors, the
+   Fig. 17 shows another example (a close-up of the Koala
+image from [17]), where there is an ambiguity between
+LEVIN ET AL.: A CLOSED-FORM SOLUTION TO NATURAL IMAGE MATTING    11
+
+Fig. 14. A comparison of alpha mattes extracted by different algorithms. Images (a), (c), (e), (g), (i), (k), (m), and (o) are taken from [19]. The
+remaining images were generated by our own implementation of the respective methods. (a) Peacock scribbles. (b) Poisson from scribbles.
+(c) Wang-Cohen. (d) Our result. (e) Peacock trimap. (f) Poisson from trimap. (g) Bayesian. (h) Random walk. (i) Fire scribbles. (j) Poisson from
+scribbles. (k) Wang-Cohen. (l) Our result. (m) Fire trimap. (n) Poisson from trimap. (o) Bayesian. (p) Random walk.
+
+generated matte includes parts of the background (between        mattes: The first matte is computer simulated smoke, most
+the hair and the shoulder on the left). In such cases, the user  of which is partially transparent; the other matte is a part of
+would have to add another B scribble in that area.               a disk, mostly opaque with a feathered boundary. The
+                                                                 mattes are shown in Fig. 20. Consequently, we obtained
+   To demonstrate the limitations of our approach in the         4,000 composite images, two of which are shown in Fig. 20.
+presence of insufficient user input, consider the examples in    On this set of images, we compared the performance of four
+Fig. 19. Only three dots of constraints were provided, and the   matting algorithms: Wang and Cohen, global Poisson
+resulting matte is some interpolation from black to white,       matting, random walk matting, and our own (using
+adapting to the image texture. The source of the problem is      3 Â 3 windows with no pyramid). All algorithms were
+demonstrated by the synthetic example in the second row in       provided a trimap as input. Examples of the trimaps and
+Fig. 19. In this example, the input image consists of three      the results produced by the different methods are shown in
+regions, only two of which are constrained. The system is then   Fig. 20. For each algorithm, we measured the summed
+free to assign the middle unconstrained region any average       absolute error between the extracted matte and the ground
+nonopaque gray value. The core of this problem is that           truth. Fig. 20 plots the average error of the four algorithms as a
+although our quadratic cost places strong assumptions on the     function of the smoothness of the background (specifically,
+foreground and background distributions, it imposes no           we measured the average gradient strength, binned into
+restrictions on . Thus, it searches for continuous solutions     10 bins). When the background is smooth, all algorithms
+without taking into account that for a mostly opaque             perform well with both mattes. When the background
+foreground object, the matte should be strictly zero or one      contains strong gradients, global Poisson matting performs
+over most of the image.                                          poorly (recall that it assumes that background and fore-
+                                                                 ground gradients are negligible). Of the remaining algo-
+8.2 Quantitative Comparisons                                     rithms, our algorithm consistently produced the most
+                                                                 accurate results.
+To obtain a quantitative comparison between the algorithms,
+we performed an experiment with synthetic composites for         8.3 Shadow Matting
+which we have the ground-truth alpha matte. We randomly
+extracted 2,000 subimages from the image shown in Fig. 20.       Fig. 21 presents additional applications of our technique. In
+We used each subimage as a background and composited             particular, the red marks specifying the foreground and
+over it a uniform foreground image using two different alpha
+12  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 30, NO. 2, FEBRUARY 2008
+
+Fig. 15. Some compositing examples using , F , and B extracted by our   Fig. 16. An example (from [19]) with color ambiguity between foreground
+algorithm. (a) Compositing with a constant background. (b) Compositing  and background. (a) Scribbles and matte by [19]. (b) Results from [19]
+over natural images.                                                    using a trimap. (c) Our result with scribbles similar to those in (a). (d) Our
+                                                                        results with a few additional scribbles.
+background color may be used to extract shadow and smoke.
+In the top row, the red scribbles on the shadow specify that the           An alternative approach for shadow extraction is to use
+foreground color is black. In the bottom row, the red scribble          the shadow composition equation proposed in [7]:
+on the smoke indicates that the foreground color is white (in
+both cases, the background color for the red scribbles was                                         I ¼ L þ ð1 À ÞS;
+selected from neighboring uncovered pixels). These sparse
+constraints on  were then propagated to achieve the final               where I is the input image, L is the lit image, S is the shadow
+matte. Note that shadow matting cannot be directly achieved             image, and  is the shadow density matte. We consider the image
+with matting algorithms that initialize foreground colors               in Fig. 22. We first place black-and-white scribbles on the man
+using neighboring pixels, since no neighboring black pixels             and extract him from the background. We are then left with
+are present. Note also that the shadow area captures a                  the background image in Fig. 22c from which we would like to
+significant amount of the image area, and it is not clear how to        extract the shadow. This enables us to place black scribbles
+specify a good trimap in this case. The smoke example was               inside the shadow area and white scribbles outside. Those
+processed also in [5], but in their case, a background model            scribbles are used for computing the shadow mask  in
+was calculated using multiple frames.                                   Fig. 22d. We can use the two mattes (Figs. 22b and 22d) to
+LEVIN ET AL.: A CLOSED-FORM SOLUTION TO NATURAL IMAGE MATTING                                                                   13
+
+                                                                    Fig. 18. Failure due to lack of a color model.
+
+Fig. 17. An example with ambiguity between F and B. (a) Scribbles.  Fig. 19. Limitations in the lack of sufficient user input.
+(b) Wang-Cohen. (c) Our result. (d) RGB histogram of F (red) and B
+(blue) pixels.
+
+paste both the man and his shadow over a novel background,          9 DISCUSSION
+as shown in Fig. 22e. The double compositing follows the
+following formula:                                                  Matting and compositing are tasks of central importance in
+                                                                    image and video editing and pose a significant challenge for
+               Inew ¼ F þ ð1 À Þð1 À s þ sBnewÞ;                   computer vision. Although this process by definition requires
+                                                                    user interaction, the performance of most existing algorithms
+where s is some scalar 0 < s < 1 controlling the shadow             deteriorates rapidly as the amount of user input decreases. In
+strength. To the best of our knowledge, this is the first attempt   this paper, we have introduced a cost function based on the
+to address shadow matting using an interactive interface.           assumption that foreground and background colors vary
+
+Fig. 20. A quantitative comparison using two ground-truth mattes. The errors are plotted as a function of the average gradient strength of the
+background, binned into 10 bins. To produce these results, we used our own implementation of the respective methods, using the parameter values
+specified in the original papers.
+14  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 30, NO. 2, FEBRUARY 2008
+
+Fig. 21. Additional examples. Our technique applied for shadow and smoke extraction. (a) Input image. (b) Scribbles. (c) Extracted mattes. (d) and
+(e) Composites.
+
+Fig. 22. Shadow compositing with the shadow composition equation [7]. (a) Marked input image. (b) Extracted alpha matte. (c) Extracted background
+with marked shadow. (d)  shadow matte. (e) Compositing foreground and shadow with a novel background.
+
+smoothly and showed how to analytically eliminate the              incorporate more sophisticated models of foreground and
+foreground and background colors to obtain a quadratic cost        background but still obtain high-quality results using
+function in alpha. The resulting cost function is similar to cost  simple numerical linear algebra.
+functions obtained in spectral methods to image segmenta-
+tion but with a novel affinity function that is derived from the      Finally, the implementation of our matting algorithm and
+formulation of the matting problem. The global minimum of          all examples presented in this paper are available for public
+our cost function may be found efficiently by solving a sparse     usage at http://people.csail.mit.edu/alevin/matting.tar.gz.
+system of linear equations. Our experiments on real and
+synthetic images show that our algorithm clearly outper-           ACKNOWLEDGMENTS
+forms other algorithms that use quadratic cost functions,
+which are not derived from the matting equations. Further-         This work was supported by the Israel Science Foundation
+more, our results are competitive with those obtained by           founded by the Israel Academy of Sciences and Humanities.
+much more complicated nonlinear cost functions. However,
+compared to previous nonlinear approaches, we can obtain           REFERENCES
+solutions in a few seconds, and we can analytically prove the
+properties of our solution and provide guidance to the user by     [1] N.E. Apostoloff and A.W. Fitzgibbon, "Bayesian Video Matting
+analyzing the eigenvectors of our operator.                              Using Learnt Image Priors," Proc. IEEE Conf. Computer Vision and
+                                                                         Pattern Recognition, 2004.
+   Although our approach assumes smoothness in fore-
+ground and background colors, it does not assume a global          [2] A. Berman, P. Vlahos, and A. Dadourian, "Comprehensive
+color distribution for each segment. Our experiments have                Method for Removing from an Image the Background Surround-
+demonstrated that our local smoothness assumption often                  ing a Selected Object," US patent 6,135,345, 2000.
+holds for natural images. Nevertheless, it would be
+interesting to extend our formulation to include additional        [3] Y. Boykov and M.P. Jolly, "Interactive Graph Cuts for Optimal
+assumptions on the two segments (for example, global                     Boundary & Region Segmentation of Objects in N-D Images,"
+models, local texture models, and so forth). The goal is to              Proc. Eighth Int'l Conf. Computer Vision, 2001.
+
+                                                                   [4] C. Chennubhotla and A. Jepson, "Hierarchical Eigensolver for
+                                                                         Transition Matrices in Spectral Methods," Advances in Neural
+                                                                         Information Processing Systems 17, L.K. Saul, Y. Weiss, and
+                                                                         L. Bottou, eds. MIT Press, pp. 273-280, 2005.
+LEVIN ET AL.: A CLOSED-FORM SOLUTION TO NATURAL IMAGE MATTING             15
+
+[5] Y.Y. Chuang, A. Agarwala, B. Curless, D.H. Salesin, and R.                                           Anat Levin received the BSc, MSc, and PhD
+      Szeliski, "Video Matting of Complex Scenes," ACM Trans.                                            degrees in computer science from the Hebrew
+      Graphics, vol. 21, no. 3, pp. 243-248, 2002.                                                       University of Jerusalem in 2000, 2001, and
+                                                                                                         2006, respectively. She is currently a postdoc-
+[6] Y.Y. Chuang, B. Curless, D.H. Salesin, and R. Szeliski, "A Bayesian                                  toral associate at the Computer Science and
+      Approach to Digital Matting," Proc. IEEE Conf. Computer Vision                                     Artificial Intelligence Laboratory, Massachusetts
+      and Pattern Recognition, 2001.                                                                     Institute of Technology. Her areas of interest
+                                                                                                         include computer vision, computer graphics, and
+[7] Y.Y. Chuang, D.B. Goldman, B. Curless, D.H. Salesin, and R.                                          machine learning. In particular, she has worked
+      Szeliski, "Shadow Matting and Compositing," ACM Trans.                                             on low and mid-level vision, computational
+      Graphics, 2003.                                                     photography, and visual recognition. For more information, see http://
+                                                                          people.csail.mit.edu/alevin.
+[8] L. Grady, T. Schiwietz, S. Aharon, and R. Westermann, "Random
+      Walks for Interactive Alpha-Matting," Proc. Fifth IASTED Int'l                                     Dani Lischinski received the BSc and MSc
+      Conf. Visualization, Imaging, and Image Processing, 2005.                                          degrees in computer science from the Hebrew
+                                                                                                         University of Jerusalem in 1987 and 1989,
+[9] Y. Guan, W. Chen, X. Liang, Z. Ding, and Q. Peng, "Easy Matting,"                                    respectively, and the PhD degree in computer
+      Proc. Ann. Conf. European Assoc. for Computer Graphics, 2006.                                      science from Cornell University in 1994. He is
+                                                                                                         currently on the faculty of the School of Engineer-
+[10] A. Levin, D. Lischinski, and Y. Weiss, "Colorization Using                                          ing and Computer Science, Hebrew University of
+      Optimization," ACM Trans. Graphics, 2004.                                                          Jerusalem. His areas of interest include compu-
+                                                                                                         ter graphics and image and video processing. In
+[11] Y. Li, J. Sun, C.-K. Tang, and H.-Y. Shum, "Lazy Snapping," ACM                                     particular, he has worked on algorithms for
+      Trans. Graphics, vol. 23, no. 3, pp. 303-308, 2004.                 photorealistic image synthesis, image-based modeling and rendering,
+                                                                          texture synthesis, and editing and manipulation of images and video. For
+[12] I. Omer and M. Werman, "Color Lines: Image Specific Color            more information, see http://www.cs.huji.ac.il/~danix.
+      Representation," Proc. IEEE Conf. Computer Vision and Pattern
+      Recognition, June 2004.                                                                            Yair Weiss received the PhD degree from the
+                                                                                                         Massachusetts Institute of Technology, working
+[13] C. Rother, V. Kolmogorov, and A. Blake, ""Grabcut": Interactive                                     with Ted Adelson on Bayesian models of motion
+      Foreground Extraction Using Iterated Graph Cuts," ACM Trans.                                       analysis. He is an associate professor of compu-
+      Graphics, vol. 23, no. 3, pp. 309-314, 2004.                                                       ter science and engineering at the Hebrew
+                                                                                                         University of Jerusalem, joining the faculty in
+[14] M.A. Ruzon and C. Tomasi, "Alpha Estimation in Natural Images,"                                     2001. From 1998 to 2001, he was a visiting
+      Proc. IEEE Conf. Computer Vision and Pattern Recognition, 2000.                                    scientist in the Department of Electrical Engineer-
+                                                                                                         ing and Computer Science, University of Califor-
+[15] J. Shi and J. Malik, "Normalized Cuts and Image Segmentation,"                                      nia, Berkeley. His research interests include
+      Proc. IEEE Conf. Computer Vision and Pattern Recognition, pp. 731-  human and machine vision, human and machine learning, and neural
+      737, 1997.                                                          computation. He is a fellow of the Canadian Institute of Advanced
+                                                                          Research.
+[16] R. Szeliski, "Locally Adapted Hierarchical Basis Preconditioning,"
+      ACM Trans. Graphics, vol. 25, no. 3, pp. 1135-1143, 2006.
+
+[17] J. Sun, J. Jia, C.-K. Tang, and H.-Y. Shum, "Poisson Matting," ACM
+      Trans. Graphics, vol. 23, no. 3, pp. 315-321, 2004.
+
+[18] A. Torralba and W.T. Freeman, "Properties and Applications of
+      Shape Recipes," Proc. IEEE Conf. Computer Vision and Pattern
+      Recognition, June 2003.
+
+[19] J. Wang and M. Cohen, "An Iterative Optimization Approach for
+      Unified Image Segmentation and Matting," Proc. 10th IEEE Int'l
+      Conf. Computer Vision, 2005.
+
+[20] A. Zomet and S. Peleg, "Multi-Sensor Super Resolution," Proc.
+      IEEE Workshop Applications of Computer Vision, 2002.
+
+                                                                          . For more information on this or any other computing topic,
+                                                                          please visit our Digital Library at www.computer.org/publications/dlib.
+

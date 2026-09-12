@@ -1,0 +1,37 @@
+Kleffner, D.A., and Ramachandran, V.S. (1992). On the perception of shape
+from shading. Perception & Psychophysics, 52(1), 18-36.
+
+STATUS: full text saved (open PDF via Springer); see
+papers/kleffner-ramachandran1992-perception-shape-from-shading.pdf/.txt.
+(This is the full peer-reviewed follow-up study to Ramachandran's 1988
+Scientific American article "Perceiving Shape from Shading", 269, 76-83,
+which was not itself locatable as an open PDF -- **NOT FOUND** as a
+downloadable file for the 1988 Sci Am piece; its core "single light source,
+assumed from above" claims are the ones experimentally confirmed and
+extended in this 1992 paper, which is the one actually saved.)
+
+SUMMARY: shape-from-shading (perceiving 3-D solidity purely from smooth
+luminance gradients across a 2-D image, with no outline, texture, motion or
+binocular cues) is shown to be an early, fast, "pop-out"-capable visual
+process: (1) it relies on two built-in assumptions -- a SINGLE light source
+for the whole scene, and that the light comes from ABOVE (in retinal, not
+gravitational, coordinates); (2) shading-defined tokens support perceptual
+grouping/segregation on their own; (3) detecting a single convex ("lit from
+above, therefore bump") shape among concave distractors is a genuine
+pop-out effect (reaction time flat vs. number of distractors) driven by the
+shading gradient itself, not by low-level luminance-polarity differences;
+(4) naive subjects find concave "dents" easier to pop out than convex
+"bumps." Directly supports the item-9 brief's shading-cues claim: smooth
+luminance gradients (simulating a single, consistent, from-above key light)
+read as solid 3-D form pre-attentively and fast, independent of any object
+outline -- i.e., the marionette's own body shading (not just its silhouette
+edge) is what will sell "solid," and it needs one consistent, primarily-
+overhead key light direction to avoid fighting the assumption the visual
+system already applies.
+
+KEY NUMBERS: this is a reaction-time/psychophysics paper (pop-out search
+slopes, search asymmetry percentages between naive/experienced observers);
+no directly reusable pixel/luminance number for this project's render --
+**NOT FOUND** for a numeric shading-contrast threshold to reuse verbatim;
+used here for the qualitative "single overhead-ish light + shading pop-out"
+argument only.

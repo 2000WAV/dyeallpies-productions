@@ -1,0 +1,25 @@
+Wikipedia: "CIELAB color space" and "sRGB" (accessed 2026-09-12).
+
+STATUS: full HTML pages saved; see papers/wikipedia-cielab.html and
+papers/wikipedia-srgb.html.
+
+FORMULAS USED (standard, textbook-level; cited here for the exact constants):
+- sRGB EOTF (encoded 0-1 component R' to linear intensity R, same per
+  channel): R = R'/12.92 if R' <= 0.04045, else R = ((R'+0.055)/1.055)^2.4.
+- Relative luminance: Y = 0.2126 R_lin + 0.7152 G_lin + 0.0722 B_lin (ITU-R
+  BT.709 primaries, the sRGB gamut's own primaries).
+- CIE lightness: L* = 116 f(Y/Yn) - 16, where f(t) = t^(1/3) for
+  t > (6/29)^3 ~= 0.008856, else f(t) = t/(3*(6/29)^2) + 4/29; Yn is the
+  reference white's luminance (taken as 1.0 here, i.e. luminance already
+  normalized to the wall's own frame, matching the brief's "wall linear
+  luminance ~0.85, L* ~94" pairing -- recomputing from the given hex
+  #F2F0EA gives Y=0.8714, L*=94.80, consistent with the brief's rounded
+  figures).
+RELEVANCE to item 9: these are the formulas behind every luminance/L*
+number in data/09-colour-numbers.csv (wall luminance/L*, candidate puppet
+hues' luminance/L*, and the derived Weber/Michelson contrasts). Computation
+performed locally with Python (mirroring the formulas as given on these
+pages); not itself a research finding, but the arithmetic the finding rests
+on, and each of its two encoded input constants (0.04045/12.92/1.055/2.4 for
+the EOTF; 0.2126/0.7152/0.0722 for luminance; 6/29 and 116/16 for L*) is
+attributed to this pair of pages, not invented.

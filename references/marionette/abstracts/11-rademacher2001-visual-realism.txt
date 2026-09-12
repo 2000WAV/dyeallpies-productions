@@ -1,0 +1,33 @@
+Rademacher, P., Lengyel, J., Cutrell, E., and Whitted, T. (2001). Measuring
+the Perception of Visual Realism in Images. Proceedings of the 12th
+Eurographics Workshop on Rendering Techniques (EGWR 2001), 235-247.
+
+STATUS: full text saved (author-hosted mirror via Edward Cutrell's site);
+see papers/rademacher2001-visual-realism.pdf/.txt.
+
+SUMMARY: forced-choice ("real"/"not real") psychophysics experiments on
+photographs and matched CG renderings, varying one visual factor at a time:
+shadow softness (penumbra angle), surface smoothness, number of light
+sources, number of objects, and variety of object shapes. Uses a repeated-
+measures logistic regression on the binary response.
+
+KEY NUMBERS:
+- Shadow softness: five penumbra levels measured at 0.39, 1.5, 2.5, 5.2 and
+  10.3 degrees. Realism rating became statistically significant starting at
+  the 5.21-degree level (chi^2=5.39, df=1, p=.0203) versus the sharpest
+  (0.39-degree) shadows; no significant difference between the two softest
+  levels (10.3 vs 5.2 degrees; chi^2=2.64, p=.1043). I.e. softening a shadow
+  buys realism only up to roughly 5 degrees of penumbra angle -- beyond that,
+  diminishing returns.
+- Surface smoothness: smooth (spray-painted) blocks rated tau=.39 "real";
+  rough (brush-painted, visible brush marks) blocks rated tau=.71 "real" --
+  a large, statistically strong effect in the OPPOSITE direction from a
+  naive "smoother = more realistic" assumption. Perfectly smooth CG surfaces
+  read as less real than surfaces with visible texture/imperfection.
+
+RELEVANCE: directly informs items 3 (shadow softness on the wall) and 4
+(materials) of 11-cg-realism-in-phone-footage.md -- a ~5-degree penumbra is
+the target softness for the marionette's own cast shadow if one is added,
+and a small amount of surface roughness/imperfection on the puppet's paint
+(vs. a perfectly smooth solid-red render) is evidence-backed, not just a
+stylistic guess.

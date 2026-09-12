@@ -1,0 +1,32 @@
+Ngan, A., Durand, F., and Matusik, W. (2005). Experimental Analysis of BRDF
+Models. Eurographics Symposium on Rendering (EGSR) 2005, 117-126.
+
+STATUS: full text saved (MERL technical report copy); see
+papers/ngan2005-experimental-analysis-brdf-models.pdf/.txt.
+
+SUMMARY: fits several standard analytic BRDF models (Blinn-Phong,
+Cook-Torrance, Ward, Lafortune, He-Torrance-Sillion, etc.) to all 100
+measured materials in the MERL database (Matusik et al. 2003, above) and
+reports which analytic model best matches each material class, and how
+well. Key qualitative finding directly relevant to item 4: a SINGLE
+microfacet lobe fits glossy/matte materials well -- explicitly named:
+"fabrics, rubber and paints" -- but HIGHLY SPECULAR materials (explicitly
+named: "brushed metals" and "highly specular plastics") need a two-lobe
+(coarse + fine) fit to capture both a broad glossy lobe and a narrow sharp
+highlight; a single-lobe fit under- or over-blurs one of the two.
+
+KEY NUMBERS: the paper's own fitted roughness/specular-exponent parameter
+TABLE per material (the number this project would ideally quote, e.g. "gold
+paint fits Cook-Torrance with roughness=X") is in a supplemental spreadsheet
+(fit_param_with_errors.xls, linked from the Eurographics Digital Library
+page) that was NOT fetched in this pass (spreadsheet, not a paper/PDF, and
+outside this task's core scope) -- NOT FOUND as a directly quoted number
+here; only the qualitative one-lobe-vs-two-lobe finding above is used.
+
+RELEVANCE: supports item 4's claim that a lacquered/glossy surface needs
+BOTH a broad soft highlight (the diffuse-ish "paint" lobe) and a separate,
+narrower sharp highlight (the "highly specular plastic" second lobe) to
+read as glossy/lacquered rather than merely bright -- directly informs the
+recommended two-term specular design (a wide soft term plus a narrow sharp
+term) if the marionette's material is pushed toward a glossier "lacquered
+wood" look per the graphics-plan follow-up in HANDOFF.md.

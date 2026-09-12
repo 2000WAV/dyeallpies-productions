@@ -1,0 +1,2685 @@
+Color Management - Blender 4.2 LTS Manual
+Contents
+Menu
+Expand
+Light mode
+Dark mode
+Auto light/dark mode
+Hide navigation sidebar
+Hide table of contents sidebar
+Toggle site navigation sidebar
+Blender 4.2 LTS Manual
+Toggle Light / Dark / Auto color theme
+Toggle table of contents sidebar
+Blender 4.2 LTS Manual
+Getting Started
+About Blender
+Toggle navigation of About Blender
+Blender’s History
+About Free Software and the GPL
+The Blender Community
+Installing Blender
+Toggle navigation of Installing Blender
+Installing on Linux
+Installing on macOS
+Installing on Windows
+Installing from Steam
+Linux Windowing Environment
+Configuring Blender
+Toggle navigation of Configuring Blender
+Introduction
+Configuring Peripherals
+Defaults
+Help System
+Sections
+User Interface
+Toggle navigation of User Interface
+Introduction
+Splash Screen
+Topbar
+Workspaces
+Status Bar
+Areas
+Regions
+Tabs & Panels
+Common Shortcuts
+Default Keymap
+Industry Compatible Keymap
+Buttons
+Fields
+Menus
+Eyedropper
+Decorators
+Data-Block Menu
+List View
+Color Picker
+Color Ramp Widget
+Color Palette
+Curve Widget
+Search
+Nodes
+Toggle navigation of Nodes
+Introduction
+Node Parts
+Selecting
+Arranging Nodes
+Editing
+Sidebar
+Node Groups
+Frame Node
+Reroute Node
+Tool System
+Operators
+Undo & Redo
+Annotations
+Selecting
+Editors
+Toggle navigation of Editors
+3D Viewport
+Toggle navigation of 3D Viewport
+Introduction
+Startup Scene
+Object Modes
+Navigating
+Toggle navigation of Navigating
+Introduction
+Navigation
+Fly/Walk Navigation
+Aligning
+Perspective/Orthographic
+Local View
+Camera View
+Viewpoint
+View Regions
+Contextual Views
+3D Cursor
+Selecting
+Controls
+Toggle navigation of Controls
+Transform Orientation
+Pivot Point
+Toggle navigation of Pivot Point
+Bounding Box Center
+3D Cursor
+Individual Origins
+Median Point
+Active Element
+Snapping
+Proportional Editing
+Display
+Toggle navigation of Display
+Object Type Visibility
+Viewport Gizmos
+Viewport Overlays
+Viewport Shading
+Toolbar
+Toggle navigation of Toolbar
+Measure
+Add Cube
+Add Cone
+Add Cylinder
+Add UV Sphere
+Add Icosphere
+Sidebar
+Viewport Render
+Image Editor
+Toggle navigation of Image Editor
+Introduction
+Navigating
+Sidebar
+Overlays
+Image Settings
+Editing
+UV Editor
+Toggle navigation of UV Editor
+Introduction
+Navigating
+Overlays
+Sidebar
+Selecting
+Snapping
+Compositor
+Texture Nodes
+Toggle navigation of Texture Nodes
+Introduction
+Color Nodes
+Toggle navigation of Color Nodes
+Combine Color Node
+Invert Color Node
+Mix Node
+RGB Curves Node
+Hue/Saturation/Value Node
+Separate Color Node
+Converter Nodes
+Toggle navigation of Converter Nodes
+Color Ramp Node
+Distance Node
+Math Node
+RGB to BW Node
+Value to Normal Node
+Distort Nodes
+Toggle navigation of Distort Nodes
+At Node
+Rotate Node
+Scale Node
+Translate Node
+Input Nodes
+Toggle navigation of Input Nodes
+Coordinates Node
+Image Node
+Texture Node
+Time Curve Node
+Output Nodes
+Toggle navigation of Output Nodes
+Output Node
+Viewer Node
+Pattern Nodes
+Toggle navigation of Pattern Nodes
+Checker Node
+Bricks Node
+Texture Nodes
+Toggle navigation of Texture Nodes
+Blend Node
+Clouds Node
+Distorted Noise Node
+Magic Node
+Marble Node
+Musgrave Node
+Noise Node
+Stucci Node
+Voronoi Node
+Wood Node
+Group
+Geometry Node Editor
+Shader Editor
+Video Sequencer
+Toggle navigation of Video Sequencer
+Introduction
+Sequencer
+Toggle navigation of Sequencer
+Introduction
+Channels
+Navigating
+Toolbar
+Toggle navigation of Toolbar
+Introduction
+Blade
+Sidebar
+Toggle navigation of Sidebar
+Strip
+Modifiers
+Cache
+Proxy
+Display
+Preview
+Toggle navigation of Preview
+Introduction
+Header
+Toolbar
+Sidebar
+Controls
+Toggle navigation of Controls
+Pivot Point
+Display
+Toggle navigation of Display
+Display Mode
+Gizmos
+Overlays
+Sequencer & Preview
+Movie Clip Editor
+Toggle navigation of Movie Clip Editor
+Introduction
+Display
+Toggle navigation of Display
+Viewport Gizmos
+Mask Display
+Clip Display
+Sidebar Region
+Dope Sheet
+Toggle navigation of Dope Sheet
+Introduction
+Navigating
+Editing
+Modes
+Toggle navigation of Modes
+Action Editor
+Shape Key Editor
+Grease Pencil
+Mask
+Sidebar
+Timeline
+Graph Editor
+Toggle navigation of Graph Editor
+Introduction
+Channels
+Toggle navigation of Channels
+Introduction
+Editing
+F-Curves
+Toggle navigation of F-Curves
+Introduction
+Editing
+Properties
+F-Curve Modifiers
+Drivers Editor
+Nonlinear Animation
+Toggle navigation of Nonlinear Animation
+Introduction
+Tracks
+Strips
+Editing
+Toggle navigation of Editing
+Track
+Strip
+Sidebar
+Text Editor
+Python Console
+Info Editor
+Outliner
+Toggle navigation of Outliner
+Introduction
+Interface
+Selecting and Activating
+Editing
+Usage
+Properties
+File Browser
+Asset Browser
+Spreadsheet
+Preferences
+Toggle navigation of Preferences
+Introduction
+Interface
+Viewport
+Lights
+Editing
+Animation
+Get Extensions
+Add-ons
+Themes
+Input
+Navigation
+Keymap
+System
+Save & Load
+File Paths
+Experimental
+Scenes & Objects
+Toggle navigation of Scenes & Objects
+Scenes
+Toggle navigation of Scenes
+Introduction
+Scene Properties
+Objects
+Toggle navigation of Objects
+Introduction
+Object Types
+Object Origin
+Selecting
+Editing
+Toggle navigation of Editing
+Transform
+Toggle navigation of Transform
+Introduction
+Transform Control
+Toggle navigation of Transform Control
+Numeric Input
+Axis Locking
+Precision
+Move
+Rotate
+Scale
+Move/Scale Texture Space
+Align to Transform Orientation
+Randomize
+Align Objects
+Mirror
+Clear
+Apply
+Snap
+Duplicate
+Duplicate Linked
+Join
+Asset
+Parenting Objects
+Modifiers
+Constraints
+Track
+Relations
+Toggle navigation of Relations
+Make Single User
+Link/Transfer Data
+Toggle navigation of Link/Transfer Data
+Link Objects to Scene
+Link Data
+Copy UV Maps
+Transfer Mesh Data
+Transfer Mesh Data Layout
+Shading
+Rigid Body
+Convert
+Show/Hide
+Clean Up
+Delete
+Properties
+Toggle navigation of Properties
+Transform
+Relations
+Collections
+Toggle navigation of Collections
+Introduction
+Collections
+Instancing
+Toggle navigation of Instancing
+Vertices
+Faces
+Collection
+Visibility
+Viewport Display
+Line Art
+Tools
+Toggle navigation of Tools
+Toolbar
+Tool Settings
+Scale Cage
+Collections
+Toggle navigation of Collections
+Introduction
+Collections
+View Layers
+Toggle navigation of View Layers
+Introduction
+Modeling
+Toggle navigation of Modeling
+Introduction
+Meshes
+Toggle navigation of Meshes
+Introduction
+Structure
+Primitives
+Toggle navigation of Primitives
+Import Images as Planes
+Tools
+Toggle navigation of Tools
+Toolbar
+Tool Settings
+Extrude Region
+Extrude Manifold
+Extrude to Cursor
+Loop Cut
+Poly Build
+Spin
+Selecting
+Toggle navigation of Selecting
+Introduction
+Select Mirror
+Select Random
+Checker Deselect
+Select More/Less
+Select Similar
+Select All by Trait
+Select Linked
+Select Loops
+Select Sharp Edges
+Side of Active
+By Attribute
+Editing
+Toggle navigation of Editing
+Introduction
+Mesh Operators
+Toggle navigation of Mesh Operators
+Transformation
+Toggle navigation of Transformation
+Move, Rotate, Scale
+To Sphere
+Shear
+Bend
+Push/Pull
+Warp
+Randomize
+Shrink Fatten
+Skin Resize
+Mirror
+Duplicate
+Extrude
+Merge
+Split
+Separate
+Bisect
+Knife Project
+Knife Topology Tool
+Convex Hull
+Symmetrize
+Snap to Symmetry
+Normals
+Shading
+Set Attribute
+Sort Elements
+Clean Up
+Deleting & Dissolving
+Vertex Operators
+Toggle navigation of Vertex Operators
+Extrude Vertices
+Extrude to Cursor or Add
+Bevel Vertices
+New Edge/Face from Vertices
+Connect Vertex Path
+Connect Vertex Pairs
+Rip Vertices
+Rip Vertices and Fill
+Rip Vertices and Extend
+Slide Vertices
+Smooth Vertices
+Laplacian Smooth
+Blend from Shape
+Propagate to Shapes
+Vertex Groups
+Hooks
+Make Vertex Parent
+Edge Operators
+Toggle navigation of Edge Operators
+Extrude Edges
+Bevel Edges
+Bridge Edge Loops
+Screw
+Subdivide
+Subdivide Edge-Ring
+Un-Subdivide
+Rotate Edge
+Edge Slide
+Offset Edge Slide
+Loop Cut and Slide
+Edge Data
+Face Operators
+Toggle navigation of Face Operators
+Extrude Faces
+Extrude Faces Along Normals
+Extrude Individual Faces
+Inset Faces
+Poke Faces
+Triangulate Faces
+Triangles to Quads
+Solidify Faces
+Wireframe
+Fill
+Grid Fill
+Beautify Faces
+Intersect (Knife)
+Intersect (Boolean)
+Weld Edges into Faces
+Shade Smooth & Flat
+Face Data
+UV Operators
+Properties
+Toggle navigation of Properties
+Object Data
+Vertex Groups
+Toggle navigation of Vertex Groups
+Introduction
+Vertex Groups Panel
+Assigning a Vertex Group
+Vertex Weights
+Geometry Data
+UVs
+Toggle navigation of UVs
+UVs & Texture Space
+Unwrapping
+Toggle navigation of Unwrapping
+Introduction
+Seams
+Tools
+Toggle navigation of Tools
+Toolbar
+Rip
+Grab
+Relax
+Pinch
+Editing
+Workflows
+Toggle navigation of Workflows
+Layout Workflow
+UDIMs
+Using UV Maps
+Mesh Analysis
+Retopology
+Curves
+Toggle navigation of Curves
+Introduction
+Tools
+Toggle navigation of Tools
+Toolbar
+Draw
+Curve Pen
+Structure
+Primitives
+Selecting
+Editing
+Toggle navigation of Editing
+Transform Panel
+Curve
+Control Points
+Segments
+Other
+Properties
+Toggle navigation of Properties
+Shape
+Geometry
+Path Animation
+Active Spline
+Curve Display
+Curves (New)
+Toggle navigation of Curves (New)
+Tools
+Toggle navigation of Tools
+Toolbar
+Draw
+Primitives
+Selecting
+Editing
+Toggle navigation of Editing
+Curves
+Control Points
+Segments
+Properties
+Surfaces
+Toggle navigation of Surfaces
+Introduction
+Toolbar
+Structure
+Primitives
+Selecting
+Editing
+Toggle navigation of Editing
+Transform Panel
+Surface
+Control Points
+Segments
+Properties
+Toggle navigation of Properties
+Shape
+Active Spline
+Metaball
+Toggle navigation of Metaball
+Introduction
+Toolbar
+Structure
+Primitives
+Editing
+Properties
+Text
+Toggle navigation of Text
+Introduction
+Selecting
+Editing
+Properties
+Volumes
+Toggle navigation of Volumes
+Introduction
+Properties
+Empties
+Modifiers
+Toggle navigation of Modifiers
+Introduction
+Common Modifier Options
+Edit
+Toggle navigation of Edit
+Data Transfer Modifier
+Mesh Cache Modifier
+Mesh Sequence Cache Modifier
+UV Project Modifier
+UV Warp Modifier
+Vertex Weight Edit Modifier
+Vertex Weight Mix Modifier
+Vertex Weight Proximity Modifier
+Generate
+Toggle navigation of Generate
+Array Modifier
+Bevel Modifier
+Boolean Modifier
+Build Modifier
+Decimate Modifier
+Edge Split Modifier
+Geometry Nodes Modifier
+Mask Modifier
+Mesh to Volume Modifier
+Mirror Modifier
+Multiresolution Modifier
+Remesh Modifier
+Screw Modifier
+Skin Modifier
+Solidify Modifier
+Subdivision Surface Modifier
+Triangulate Modifier
+Volume to Mesh Modifier
+Weld Modifier
+Wireframe Modifier
+Deform
+Toggle navigation of Deform
+Armature Modifier
+Cast Modifier
+Curve Modifier
+Displace Modifier
+Hook Modifier
+Laplacian Deform Modifier
+Lattice Modifier
+Mesh Deform Modifier
+Shrinkwrap Modifier
+Simple Deform Modifier
+Smooth Modifier
+Smooth Corrective Modifier
+Smooth Laplacian Modifier
+Surface Deform Modifier
+Volume Displace Modifier
+Warp Modifier
+Wave Modifier
+Normals
+Toggle navigation of Normals
+Normal Edit Modifier
+Weighted Normal Modifier
+Smooth By Angle Modifier
+Physics
+Toggle navigation of Physics
+Cloth Modifier
+Collision Modifier
+Dynamic Paint Modifier
+Explode Modifier
+Fluid Modifier
+Ocean Modifier
+Particle Instance Modifier
+Particle System Modifier
+Soft Body Modifier
+Geometry Nodes
+Toggle navigation of Geometry Nodes
+Introduction
+Inspection
+Attributes
+Fields
+Instances
+Baking
+Node-Based Tools
+Attribute Nodes
+Toggle navigation of Attribute Nodes
+Attribute Statistic Node
+Domain Size Node
+Blur Attribute Node
+Capture Attribute Node
+Remove Named Attribute Node
+Store Named Attribute Node
+Input Nodes
+Toggle navigation of Input Nodes
+Constant
+Toggle navigation of Constant
+Boolean Node
+Color Node
+Image Node
+Integer Node
+Material Node
+Rotation Node
+String Node
+Value Node
+Vector Node
+Scene
+Toggle navigation of Scene
+3D Cursor Node
+Active Camera Node
+Collection Info Node
+Image Info Node
+Is Viewport Node
+Mouse Position Node
+Object Info Node
+Scene Time Node
+Self Object Node
+Viewport Transform Node
+Output Nodes
+Toggle navigation of Output Nodes
+Viewer Node
+Geometry Nodes
+Toggle navigation of Geometry Nodes
+Read
+Toggle navigation of Read
+ID Node
+Index Node
+Named Attribute Node
+Normal Node
+Position Node
+Radius Node
+Selection Node
+Active Element Node
+Sample
+Toggle navigation of Sample
+Geometry Proximity Node
+Index of Nearest
+Raycast Node
+Sample Index Node
+Sample Nearest Node
+Write
+Toggle navigation of Write
+Set ID Node
+Set Position Node
+Set Selection Node
+Operations
+Toggle navigation of Operations
+Bake Node
+Bounding Box Node
+Convex Hull Node
+Delete Geometry Node
+Duplicate Elements Node
+Merge by Distance Node
+Split To Instances Node
+Sort Elements Node
+Transform Geometry Node
+Separate Components Node
+Separate Geometry Node
+Geometry to Instance Node
+Join Geometry Node
+Curve Nodes
+Toggle navigation of Curve Nodes
+Read
+Toggle navigation of Read
+Curve Handle Position Node
+Curve Length Node
+Curve Tangent Node
+Curve Tilt Node
+Endpoint Selection Node
+Handle Type Selection Node
+Is Spline Cyclic Node
+Spline Length Node
+Spline Parameter Node
+Spline Resolution Node
+Sample
+Toggle navigation of Sample
+Sample Curve Node
+Write
+Toggle navigation of Write
+Set Curve Normal Node
+Set Curve Radius Node
+Set Curve Tilt Node
+Set Handle Positions Node
+Set Handle Type Node
+Set Spline Cyclic Node
+Set Spline Resolution Node
+Set Spline Type Node
+Operations
+Toggle navigation of Operations
+Curve to Mesh Node
+Curve to Points Node
+Deform Curves on Surface Node
+Fill Curve Node
+Fillet Curve Node
+Interpolate Curves Node
+Resample Curve Node
+Reverse Curve Node
+Subdivide Curve Node
+Trim Curve Node
+Primitives
+Toggle navigation of Primitives
+Arc Node
+Bézier Segment Node
+Curve Circle Node
+Curve Line Node
+Curve Spiral Node
+Quadratic Bézier Node
+Quadrilateral Node
+Star Node
+Topology
+Toggle navigation of Topology
+Curve of Point Node
+Offset Point in Curve Node
+Points of Curve Node
+Instances Nodes
+Toggle navigation of Instances Nodes
+Instance on Points Node
+Instances to Points Node
+Realize Instances Node
+Rotate Instances Node
+Scale Instances Node
+Translate Instances Node
+Set Instance Transform Node
+Instance Transform Node
+Instance Rotation Node
+Instance Scale Node
+Mesh Nodes
+Toggle navigation of Mesh Nodes
+Read
+Toggle navigation of Read
+Edge Angle Node
+Edge Neighbors Node
+Edge Vertices Node
+Edges to Face Groups Node
+Face Area Node
+Face Group Boundaries Node
+Face Neighbors Node
+Face Set Node
+Is Face Planar Node
+Is Edge Smooth Node
+Is Face Smooth Node
+Mesh Island Node
+Shortest Edge Paths Node
+Vertex Neighbors Node
+Sample
+Toggle navigation of Sample
+Sample Nearest Surface Node
+Sample UV Surface Node
+Write
+Toggle navigation of Write
+Set Face Set Node
+Set Shade Smooth Node
+Operations
+Toggle navigation of Operations
+Dual Mesh Node
+Edge Paths to Curves Node
+Edge Paths to Selection Node
+Extrude Mesh Node
+Flip Faces Node
+Mesh Boolean Node
+Mesh to Curve Node
+Mesh to Points Node
+Mesh to Volume Node
+Scale Elements Node
+Split Edges Node
+Subdivide Mesh Node
+Subdivision Surface Node
+Triangulate Node
+Primitives
+Toggle navigation of Primitives
+Cone Node
+Cube Node
+Cylinder Node
+Grid Node
+Icosphere Node
+Mesh Circle Node
+Mesh Line Node
+UV Sphere Node
+Topology
+Toggle navigation of Topology
+Corners of Edge Node
+Corners of Face Node
+Corners of Vertex Node
+Edges of Corner Node
+Edges of Vertex Node
+Face of Corner Node
+Offset Corner in Face Node
+Vertex of Corner Node
+UV
+Toggle navigation of UV
+Pack UV Islands Node
+UV Unwrap Node
+Point Nodes
+Toggle navigation of Point Nodes
+Distribute Points in Volume
+Distribute Points on Faces
+Points Node
+Points to Curves Node
+Points to Vertices Node
+Points to Volume Node
+Set Point Radius Node
+Volume Nodes
+Toggle navigation of Volume Nodes
+Operations
+Toggle navigation of Operations
+Volume to Mesh Node
+Primitives
+Toggle navigation of Primitives
+Volume Cube Node
+Simulation Zone
+Material Nodes
+Toggle navigation of Material Nodes
+Replace Material Node
+Material Index Node
+Material Selection Node
+Set Material Node
+Set Material Index Node
+Texture Nodes
+Toggle navigation of Texture Nodes
+Brick Texture Node
+Checker Texture Node
+Gradient Texture Node
+Image Texture Node
+Magic Texture Node
+Musgrave Texture Node
+Noise Texture Node
+Voronoi Texture Node
+Wave Texture Node
+White Noise Texture Node
+Utilities Nodes
+Toggle navigation of Utilities Nodes
+Color
+Toggle navigation of Color
+Blackbody Node
+Color Ramp Node
+Combine Color Node
+Mix Node
+RGB Curves Node
+Separate Color Node
+Text
+Toggle navigation of Text
+Join Strings Node
+Replace String Node
+Slice String Node
+Special Characters Node
+String Length Node
+String to Curves Node
+Value to String Node
+Vector
+Toggle navigation of Vector
+Combine XYZ Node
+Separate XYZ Node
+Vector Curves Node
+Vector Math Node
+Vector Rotate Node
+Field
+Toggle navigation of Field
+Accumulate Field Node
+Evaluate at Index Node
+Evaluate on Domain Node
+Math
+Toggle navigation of Math
+Boolean Math Node
+Clamp Node
+Compare Node
+Float Curve
+Float To Integer Node
+Map Range Node
+Math Node
+Mix Node
+Matrix
+Toggle navigation of Matrix
+Combine Matrix Node
+Combine Transform Node
+Invert Matrix Node
+Multiply Matrices Node
+Project Point Node
+Separate Matrix Node
+Separate Transform Node
+Transform Direction Node
+Transform Point Node
+Transpose Matrix Node
+Rotation
+Toggle navigation of Rotation
+Align Rotation to Vector Node
+Axis to Rotation Node
+Axis Angle to Rotation Node
+Euler to Rotation Node
+Invert Rotation Node
+Rotate Rotation Node
+Rotate Vector Node
+Rotation to Euler Node
+Rotation to Quaternion Node
+Quaternion to Rotation Node
+Deprecated
+Toggle navigation of Deprecated
+Align Euler to Vector Node
+Rotate Euler Node
+Index Switch Node
+Menu Switch Node
+Random Value Node
+Repeat Zone
+Switch Node
+Group
+Hair Nodes
+Toggle navigation of Hair Nodes
+Deformation
+Toggle navigation of Deformation
+Blend Hair Curves
+Displace Hair Curves
+Frizz Hair Curves
+Hair Curves Noise
+Roll Hair Curves
+Rotate Hair Curves
+Shrinkwrap Hair Curves
+Smooth Hair Curves
+Straighten Hair Curves
+Trim Hair Curves
+Generation
+Toggle navigation of Generation
+Duplicate Hair Curves
+Generate Hair Curves
+Interpolate Hair Curves
+Guides
+Toggle navigation of Guides
+Braid Hair Curves
+Clump Hair Curves
+Create Guide Index Map
+Curl Hair Curves
+Read
+Toggle navigation of Read
+Curve Info
+Curve Root
+Curve Segment
+Curve Tip
+Hair Attachment Info
+Utility
+Toggle navigation of Utility
+Attach Hair Curves to Surface
+Redistribute Curve Points
+Restore Curve Segment Length
+Write
+Toggle navigation of Write
+Set Hair Curve Profile
+Normals Nodes
+Toggle navigation of Normals Nodes
+Smooth By Angle Node Group
+Transform
+Toggle navigation of Transform
+Introduction
+Transform Modal Map
+Sculpting & Painting
+Toggle navigation of Sculpting & Painting
+Introduction
+Brush
+Toggle navigation of Brush
+Introduction
+Brushes
+Brush Settings
+Texture & Texture Mask
+Stroke
+Falloff
+Cursor
+Selection & Visibility
+Navigation
+Sculpting
+Toggle navigation of Sculpting
+Introduction
+Toggle navigation of Introduction
+General
+The Brush
+Gesture Tools
+Visibility, Masking & Face Sets
+Filters
+Transforming
+Painting
+Working with Multiple Objects
+Adaptive Resolution
+Cloth Sculpting
+Toolbar
+Tools
+Toggle navigation of Tools
+Draw
+Draw Sharp
+Clay
+Clay Strips
+Clay Thumb
+Layer
+Inflate
+Blob
+Crease
+Smooth
+Flatten
+Fill
+Scrape
+Multiplane Scrape
+Pinch
+Grab
+Elastic Deform
+Snake Hook
+Thumb
+Pose
+Nudge
+Rotate
+Slide Relax
+Boundary
+Cloth
+Simplify
+Mask
+Draw Face Sets
+Multires Displacement Eraser
+Multires Displacement Smear
+Paint
+Smear
+Mask Gesture Tools
+Hide Gesture Tools
+Face Set Gesture Tools
+Trim Gesture Tools
+Line Project
+Mesh Filter
+Cloth Filter
+Color Filter
+Edit Face Set
+Mask by Color
+Transforms
+Tool Settings
+Toggle navigation of Tool Settings
+Brushes
+Brush Settings
+Toggle navigation of Brush Settings
+Brush Settings
+Texture
+Stroke
+Falloff
+Cursor
+Dyntopo
+Remesh
+Symmetry
+Options
+Controls
+Editing
+Toggle navigation of Editing
+Sculpt
+Mask
+Face Sets
+Expand
+Texture Paint
+Toggle navigation of Texture Paint
+Introduction
+Texture Paint Tools
+Tool Settings
+Toggle navigation of Tool Settings
+Texture Slots
+Brushes
+Brush Settings
+Toggle navigation of Brush Settings
+Texture
+Stroke
+Falloff
+Cursor
+Mask
+Symmetry
+Options
+Tiling
+Vertex Paint
+Toggle navigation of Vertex Paint
+Introduction
+Vertex Paint Tools
+Tool Settings
+Toggle navigation of Tool Settings
+Brushes
+Brush Settings
+Toggle navigation of Brush Settings
+Texture
+Stroke
+Falloff
+Cursor
+Symmetry
+Editing
+Weight Paint
+Toggle navigation of Weight Paint
+Introduction
+Weight Paint Tools
+Tool Settings
+Toggle navigation of Tool Settings
+Brushes
+Brush Settings
+Toggle navigation of Brush Settings
+Stroke
+Falloff
+Cursor
+Symmetry
+Options
+Using Vertex Groups
+Editing
+Curves Sculpting
+Toggle navigation of Curves Sculpting
+Introduction
+Tools
+Toggle navigation of Tools
+Selection Paint
+Add Curves
+Delete Curves
+Density Brush
+Comb Curves
+Snake Hook Curves
+Grow / Shrink Curves
+Pinch Curves
+Puff Curves
+Smooth Curves
+Slide Curves
+Common Settings
+Grease Pencil
+Toggle navigation of Grease Pencil
+Introduction
+Object
+Structure
+Primitives
+Selecting
+Multiframe
+Properties
+Toggle navigation of Properties
+Object Data
+Layers
+Masks
+Onion Skinning
+Strokes
+Viewport Display
+Modifiers
+Toggle navigation of Modifiers
+Introduction
+Generate
+Toggle navigation of Generate
+Array Modifier
+Build Modifier
+Dot Dash Modifier
+Envelope Modifier
+Length Modifier
+Line Art Modifier
+Mirror Modifier
+Multiple Strokes
+Outline Modifier
+Simplify Modifier
+Subdivide Modifier
+Deform
+Toggle navigation of Deform
+Armature Modifier
+Hook Modifier
+Lattice Modifier
+Noise Modifier
+Offset Modifier
+Shrinkwrap Modifier
+Smooth Modifier
+Thickness Modifier
+Color
+Toggle navigation of Color
+Hue/Saturation Modifier
+Opacity Modifier
+Tint Modifier
+Modify
+Toggle navigation of Modify
+Texture Mapping Modifier
+Time Offset Modifier
+Vertex Weight Angle Modifier
+Vertex Weight Proximity Modifier
+Visual Effects
+Toggle navigation of Visual Effects
+Introduction
+Blur Visual Effect
+Colorize Visual Effect
+Flip Visual Effect
+Glow Visual Effect
+Pixelate Visual Effect
+Rim Visual Effect
+Shadow Visual Effect
+Swirl Visual Effect
+Wave Distortion Visual Effect
+Materials
+Toggle navigation of Materials
+Introduction
+Properties
+Animation
+Toggle navigation of Animation
+Introduction
+Interpolation
+Animation Tools
+Draw Mode
+Toggle navigation of Draw Mode
+Introduction
+Drawing Tools
+Tools
+Toggle navigation of Tools
+Draw Tool
+Fill Tool
+Erase Tool
+Tint Tool
+Cutter Tool
+Eyedropper
+Line Tool
+Polyline Tool
+Arc Tool
+Curve Tool
+Box Tool
+Circle Tool
+Interpolate
+Tools Settings
+Toggle navigation of Tools Settings
+Brushes
+Brush Settings
+Color
+Stroke Placement
+Drawing Planes
+Guides
+Sculpt Mode
+Toggle navigation of Sculpt Mode
+Introduction
+Sculpting Tools
+Brush Settings
+Edit Mode
+Toggle navigation of Edit Mode
+Introduction
+Editing Tools
+Curve Editing
+Grease Pencil Menu
+Stroke Menu
+Point Menu
+Vertex Paint Mode
+Toggle navigation of Vertex Paint Mode
+Introduction
+Vertex Paint Tools
+Brush Settings
+Editing
+Weight Paint Mode
+Toggle navigation of Weight Paint Mode
+Introduction
+Weight Paint Tools
+Tool Settings
+Toggle navigation of Tool Settings
+Brush Settings
+Options
+Weights Menu
+Object Mode
+Toggle navigation of Object Mode
+Convert to Geometry
+Trace Image to Grease Pencil
+Animation & Rigging
+Toggle navigation of Animation & Rigging
+Introduction
+Keyframes
+Toggle navigation of Keyframes
+Introduction
+Editing
+Keying Sets
+Armatures
+Toggle navigation of Armatures
+Introduction
+Bones
+Toggle navigation of Bones
+Introduction
+Bone Collections
+Structure
+Tools
+Toggle navigation of Tools
+Toolbar
+Tool Settings
+Selecting
+Editing
+Toggle navigation of Editing
+Introduction
+Transform
+Bone Roll
+Extrude
+Duplicate
+Fill Between Joints
+Split
+Separate Bones
+Subdivide
+Switch Direction
+Symmetrize
+Naming
+Parenting
+Properties
+Delete
+Properties
+Toggle navigation of Properties
+Transform
+Bendy Bones
+Relations
+Inverse Kinematics
+Deform
+Viewport Display
+Custom Properties
+Properties
+Toggle navigation of Properties
+Introduction
+Bone Collections
+Selection Sets
+Viewport Display
+Structure
+Skinning
+Toggle navigation of Skinning
+Introduction
+Armature Deform Parent
+Posing
+Toggle navigation of Posing
+Introduction
+Selecting
+Editing
+Toggle navigation of Editing
+Introduction
+Clear Transform
+Apply
+In-Betweens
+Propagate
+Copy/Paste Pose
+Pose Library
+Flip Quats
+Show/Hide
+Tool Settings
+Bone Constraints
+Toggle navigation of Bone Constraints
+Introduction
+Introduction
+Spline IK
+Lattice
+Constraints
+Toggle navigation of Constraints
+Introduction
+Header
+Common
+Stack
+Camera Solver Constraint
+Object Solver Constraint
+Follow Track Constraint
+Copy Location Constraint
+Copy Rotation Constraint
+Copy Scale Constraint
+Copy Transforms Constraint
+Limit Distance Constraint
+Limit Location Constraint
+Limit Rotation Constraint
+Limit Scale Constraint
+Maintain Volume Constraint
+Transformation Constraint
+Transform Cache Constraint
+Clamp To Constraint
+Damped Track Constraint
+Inverse Kinematics Constraint
+Locked Track Constraint
+Spline IK Constraint
+Stretch To Constraint
+Track To Constraint
+Action Constraint
+Armature Constraint
+Child Of Constraint
+Floor Constraint
+Follow Path Constraint
+Pivot Constraint
+Shrinkwrap Constraint
+Actions
+Drivers
+Toggle navigation of Drivers
+Introduction
+Usage
+Drivers Panel
+Workflow & Examples
+Troubleshooting
+Markers
+Shape Keys
+Toggle navigation of Shape Keys
+Introduction
+Shape Keys Panel
+Workflow
+Motion Paths
+Physics
+Toggle navigation of Physics
+Introduction
+Rigid Body
+Toggle navigation of Rigid Body
+Introduction
+Properties
+Toggle navigation of Properties
+Settings
+Collisions
+Dynamics
+Rigid Body World
+Rigid Body Constraints
+Toggle navigation of Rigid Body Constraints
+Introduction
+Types
+Toggle navigation of Types
+Fixed Constraint
+Point Constraint
+Hinge Constraint
+Slider Constraint
+Piston Constraint
+Generic Constraint
+Generic Spring Constraint
+Motor Constraint
+Tips
+Cloth
+Toggle navigation of Cloth
+Introduction
+Settings
+Toggle navigation of Settings
+Physical Properties
+Cache
+Shape
+Collisions
+Property Weights
+Field Weights
+Examples
+Soft Body
+Toggle navigation of Soft Body
+Introduction
+Settings
+Toggle navigation of Settings
+Object
+Simulation
+Cache
+Goal
+Edges
+Self Collision
+Solver
+Forces
+Toggle navigation of Forces
+Exterior
+Interior
+Collision
+Examples
+Fluid
+Toggle navigation of Fluid
+Introduction
+Type
+Toggle navigation of Type
+Domain
+Toggle navigation of Domain
+Settings
+Gas Settings
+Toggle navigation of Gas Settings
+Adaptive Domain
+Noise
+Viewport Display
+Liquid Settings
+Toggle navigation of Liquid Settings
+Diffusion
+Particles
+Mesh
+Guides
+Collections
+Cache
+Field Weights
+Flow
+Effector
+Materials
+Particle System
+Toggle navigation of Particle System
+Introduction
+Particle System Panel
+Emitter
+Toggle navigation of Emitter
+Emission
+Cache
+Velocity
+Rotation
+Physics
+Toggle navigation of Physics
+Introduction
+Newtonian
+Keyed
+Boids
+Fluid
+Render
+Viewport Display
+Children
+Force Fields
+Vertex Groups
+Hair
+Toggle navigation of Hair
+Introduction
+Emission
+Hair Dynamics
+Render
+Shape
+Children
+Viewport Display
+Texture Influence
+Particle Edit Mode
+Dynamic Paint
+Toggle navigation of Dynamic Paint
+Introduction
+Brush
+Canvas
+Forces
+Toggle navigation of Forces
+Gravity
+Force Fields
+Toggle navigation of Force Fields
+Introduction
+Boid
+Charge
+Curve Guide
+Drag
+Fluid Flow
+Force
+Harmonic
+Lennard-Jones
+Magnetic
+Texture
+Turbulence
+Vortex
+Wind
+Collision
+Baking Physics Simulations
+Simulation Nodes
+Rendering
+Toggle navigation of Rendering
+Introduction
+EEVEE
+Toggle navigation of EEVEE
+Introduction
+Render Settings
+Toggle navigation of Render Settings
+Sampling
+Clamping
+Raytracing
+Volumes
+Curves
+Depth of Field
+Motion Blur
+Film
+Performance
+Grease Pencil
+Scene Settings
+World Settings
+Object Settings
+Toggle navigation of Object Settings
+Object
+Materials
+Light Settings
+Light Probes
+Toggle navigation of Light Probes
+Sphere
+Plane
+Volume
+Limitations
+Toggle navigation of Limitations
+Limitations
+Supported Nodes
+Cycles
+Toggle navigation of Cycles
+Introduction
+Render Settings
+Toggle navigation of Render Settings
+Grease Pencil
+Sampling
+Light Paths
+Volumes
+Subdivision
+Curves
+Simplify
+Motion Blur
+Film
+Performance
+World Settings
+Object Settings
+Toggle navigation of Object Settings
+Object
+Light Linking
+Adaptive Subdivision
+Cameras
+Material Settings
+Light Settings
+GPU Rendering
+Experimental Features
+Render Baking
+Optimizing Renders
+Toggle navigation of Optimizing Renders
+Reducing Noise
+Shader Nodes
+Workbench
+Toggle navigation of Workbench
+Introduction
+Performance
+Sampling
+Lighting
+Color
+Options
+Grease Pencil
+Viewport Display
+Cameras
+Lights
+Toggle navigation of Lights
+Light Objects
+World Environment
+Materials
+Toggle navigation of Materials
+Introduction
+Components
+Toggle navigation of Components
+Surfaces
+Volumes
+Displacement
+Assignment
+Preview
+Settings
+Line Art
+Legacy Textures
+Toggle navigation of Legacy Textures
+Introduction
+Colors
+Blend
+Clouds
+Distorted Noise
+Image or Movie
+Magic
+Marble
+Musgrave
+Noise
+Stucci
+Voronoi
+Wood
+Shader Nodes
+Toggle navigation of Shader Nodes
+Introduction
+Input
+Toggle navigation of Input
+Ambient Occlusion
+Attribute Node
+Bevel Node
+Camera Data Node
+Fresnel Node
+Geometry Node
+Curves Info Node
+Layer Weight Node
+Light Path Node
+Object Info Node
+Particle Info Node
+Point Info
+RGB Node
+Tangent Node
+Texture Coordinate Node
+UV Map Node
+Value Node
+Color Attribute Node
+Volume Info Node
+Wireframe Node
+Output
+Toggle navigation of Output
+AOV Output Node
+Material Output Node
+Light Node
+World Node
+Shader
+Toggle navigation of Shader
+Add Shader
+Background
+Diffuse BSDF
+Emission
+Glass BSDF
+Glossy BSDF
+Hair BSDF
+Holdout
+Mix Shader
+Principled BSDF
+Principled Hair BSDF
+Principled Volume
+Ray Portal BSDF
+Refraction BSDF
+Specular BSDF
+Subsurface Scattering
+Toon BSDF
+Translucent BSDF
+Transparent BSDF
+Sheen BSDF
+Volume Absorption
+Volume Scatter
+Texture
+Toggle navigation of Texture
+Brick Texture Node
+Checker Texture Node
+Environment Texture Node
+Gradient Texture Node
+IES Texture Node
+Image Texture Node
+Magic Texture Node
+Musgrave Texture Node
+Noise Texture Node
+Point Density Node
+Sky Texture Node
+Voronoi Texture Node
+Wave Texture Node
+White Noise Texture Node
+Color
+Toggle navigation of Color
+Brightness/Contrast Node
+Gamma Node
+Hue/Saturation/Value Node
+Invert Color Node
+Light Falloff Node
+Mix Node
+RGB Curves Node
+Vector
+Toggle navigation of Vector
+Bump Node
+Displacement Node
+Mapping Node
+Normal Node
+Normal Map Node
+Vector Curves Node
+Vector Displacement Node
+Vector Rotate Node
+Vector Transform Node
+Converter
+Toggle navigation of Converter
+Blackbody Node
+Clamp Node
+Color Ramp Node
+Combine Color Node
+Combine XYZ Node
+Float Curve
+Map Range Node
+Math Node
+Mix Node
+RGB to BW Node
+Separate Color Node
+Separate XYZ Node
+Shader To RGB
+Vector Math Node
+Wavelength Node
+Group
+Open Shading Language
+Color Management
+Freestyle
+Toggle navigation of Freestyle
+Introduction
+Render Properties
+View Layer Properties
+Toggle navigation of View Layer Properties
+Freestyle
+Line Set
+Line Style
+Toggle navigation of Line Style
+Introduction
+Strokes
+Color
+Alpha
+Thickness
+Geometry
+Texture
+Color
+Toggle navigation of Color
+Along Stroke
+Crease Angle
+Curvature 3D
+Distance from Camera
+Distance from Object
+Material
+Noise
+Tangent
+Alpha
+Toggle navigation of Alpha
+Along Stroke
+Crease Angle
+Curvature 3D
+Distance from Camera
+Distance from Object
+Material
+Noise
+Tangent
+Thickness
+Toggle navigation of Thickness
+Along Stroke
+Calligraphy
+Crease Angle
+Curvature 3D
+Distance from Camera
+Distance from Object
+Material
+Noise
+Tangent
+Geometry
+Toggle navigation of Geometry
+2D Offset
+2D Transform
+Backbone Stretcher
+Bézier Curve
+Blueprint
+Guiding Lines
+Perlin Noise 1D
+Perlin Noise 2D
+Polygonization
+Sampling
+Simplification
+Sinus Displacement
+Spatial Noise
+Tip Remover
+Material Properties
+Python Scripting
+Layers & Passes
+Toggle navigation of Layers & Passes
+Introduction
+View Layer
+Passes
+Render Output
+Toggle navigation of Render Output
+Introduction
+Output Properties
+Toggle navigation of Output Properties
+Format
+Frame Range
+Stereoscopy
+Toggle navigation of Stereoscopy
+Introduction
+Usage
+Output
+Metadata
+Post Processing
+Audio Rendering
+Toggle navigation of Audio Rendering
+Introduction
+Speaker
+Rendering Animations
+Animation Player
+Compositing
+Toggle navigation of Compositing
+Introduction
+Sidebar
+GPU Compositor
+Input Nodes
+Toggle navigation of Input Nodes
+Constant
+Toggle navigation of Constant
+RGB Node
+Value Node
+Bokeh Image Node
+Image Node
+Mask Node
+Movie Clip Node
+Texture Node
+Scene
+Toggle navigation of Scene
+Render Layers Node
+Scene Time Node
+Time Curve Node
+Output Nodes
+Toggle navigation of Output Nodes
+Composite Node
+Viewer Node
+File Output Node
+Color Nodes
+Toggle navigation of Color Nodes
+Adjust
+Toggle navigation of Adjust
+Brightness/Contrast Node
+Color Balance Node
+Color Correction Node
+Exposure Node
+Gamma Node
+Hue Correct Node
+Hue/Saturation/Value Node
+RGB Curves Node
+Tone Map Node
+Mix
+Toggle navigation of Mix
+Alpha Over Node
+Combine Color Node
+Separate Color Node
+Mix Node
+Z Combine Node
+Alpha Convert Node
+Color Ramp Node
+Color Space Node
+Set Alpha Node
+Invert Color Node
+RGB to BW Node
+Filter Nodes
+Toggle navigation of Filter Nodes
+Blur Filter Nodes
+Toggle navigation of Blur Filter Nodes
+Bilateral Blur Node
+Blur Node
+Bokeh Blur Node
+Defocus Node
+Directional Blur Node
+Vector Blur Node
+Anti-Aliasing Node
+Denoise Node
+Despeckle Node
+Dilate/Erode Node
+Inpaint Node
+Filter Node
+Glare Node
+Kuwahara Node
+Pixelate Node
+Posterize
+Sun Beams Node
+Keying Nodes
+Toggle navigation of Keying Nodes
+Channel Key Node
+Chroma Key Node
+Color Key Node
+Color Spill Node
+Difference Key Node
+Distance Key Node
+Keying Node
+Keying Screen Node
+Luminance Key Node
+Mask Nodes
+Toggle navigation of Mask Nodes
+Cryptomatte Node
+Cryptomatte Node (Legacy)
+Box Mask Node
+Ellipse Mask Node
+Double Edge Mask Node
+ID Mask Node
+Tracking Nodes
+Toggle navigation of Tracking Nodes
+Plane Track Deform Node
+Stabilize 2D Node
+Track Position Node
+Transform Nodes
+Toggle navigation of Transform Nodes
+Rotate Node
+Scale Node
+Transform Node
+Translate Node
+Corner Pin Node
+Crop Node
+Displace Node
+Flip Node
+Map UV Node
+Lens Distortion Node
+Movie Distortion Node
+Utilities Nodes
+Toggle navigation of Utilities Nodes
+Map Range Node
+Map Value Node
+Math Node
+Levels Node
+Normalize Node
+Split Node
+Switch Node
+Switch View Node
+Vector Nodes
+Toggle navigation of Vector Nodes
+Combine XYZ Node
+Separate XYZ Node
+Normal Node
+Vector Curves Node
+Group
+Layout Nodes
+Motion Tracking & Masking
+Toggle navigation of Motion Tracking & Masking
+Motion Tracking
+Toggle navigation of Motion Tracking
+Introduction
+Clip View
+Toggle navigation of Clip View
+Introduction
+Tracking Marker
+Toolbar
+Toggle navigation of Toolbar
+Track
+Solve
+Selecting
+Editing
+Toggle navigation of Editing
+Clip
+Track
+Reconstruction
+Sidebar
+Toggle navigation of Sidebar
+Track
+Toggle navigation of Track
+Track
+Objects Panel
+Plane Track
+Camera
+Marker
+2D Stabilization
+Toggle navigation of 2D Stabilization
+Introduction
+2D Stabilization Panel
+Workflow
+View
+Graph View
+Dope Sheet View
+Masking
+Toggle navigation of Masking
+Introduction
+S-Curves
+Selecting
+Editing
+Sidebar
+Video Editing
+Toggle navigation of Video Editing
+Introduction
+Setup Your Project
+Toggle navigation of Setup Your Project
+Introduction
+Directory Structure
+Edit Your Project
+Toggle navigation of Edit Your Project
+Introduction
+Montage
+Toggle navigation of Montage
+Introduction
+Strips
+Toggle navigation of Strips
+Introduction
+Scene Strip
+Clip Strip
+Mask Strip
+Movie Strip
+Sound Strip
+Image/Sequence Strip
+Color Strip
+Text Strip
+Adjustment Layer Strip
+Effect Strips
+Toggle navigation of Effect Strips
+Add Strip
+Subtract Strip
+Multiply Strip
+Alpha Over, Under & Over Drop Strips
+Color Mix Strip
+Multicam Selector Strip
+Transform Strip
+Speed Control Strip
+Glow Strip
+Gaussian Blur Strip
+Transitions
+Toggle navigation of Transitions
+Sound Crossfade
+Cross Strip
+Gamma Cross Strip
+Wipe Strip
+Selecting
+Editing
+Meta Strips
+Assets, Files, & Data System
+Toggle navigation of Assets, Files, & Data System
+Introduction
+Blender File
+Toggle navigation of Blender File
+Opening & Saving
+Compatibility
+Packed Data
+Blend-Files Previews
+Rename
+Data-Blocks
+Custom Properties
+Linked Libraries
+Toggle navigation of Linked Libraries
+Link & Append
+Library Overrides
+Asset Libraries
+Toggle navigation of Asset Libraries
+Introduction
+Asset Catalogs
+Media Formats
+Toggle navigation of Media Formats
+Supported Graphics Formats
+Supported Video & Audio Formats
+Importing & Exporting Files
+Toggle navigation of Importing & Exporting Files
+Alembic
+Collada (Legacy)
+Universal Scene Description
+Wavefront OBJ
+Stanford PLY
+STL
+Import/Export SVG as Grease Pencil
+Export Grease Pencil as (PDF)
+Add-ons
+Toggle navigation of Add-ons
+3D View
+Toggle navigation of 3D View
+VR Scene Inspection
+Animation
+Toggle navigation of Animation
+Copy Global Transform
+Import-Export
+Toggle navigation of Import-Export
+BioVision Motion Capture (BVH)
+FBX
+Scalable Vector Graphics (SVG)
+UV Layout
+glTF 2.0
+Node
+Toggle navigation of Node
+Node Wrangler
+Rigging
+Toggle navigation of Rigging
+Rigify
+Toggle navigation of Rigify
+Introduction
+Basic Usage
+Bone Positioning Guide
+Generated Rig Features
+Creating Meta-rigs
+Rig Types
+Toggle navigation of Rig Types
+Basic
+Spines
+Limbs
+Faces
+Skin
+Face
+Feature Sets
+System
+Toggle navigation of System
+Manage UI Translations
+Advanced
+Toggle navigation of Advanced
+Using Blender From The Command Line
+Toggle navigation of Using Blender From The Command Line
+Launching from the Command Line
+Toggle navigation of Launching from the Command Line
+Linux
+macOS
+Windows
+Arguments
+Extensions Command Line Arguments
+Rendering From The Command Line
+Scripting & Extending Blender
+Toggle navigation of Scripting & Extending Blender
+Introduction
+Scripting & Security
+Add-on Tutorial
+Creating Extensions
+Toggle navigation of Creating Extensions
+Getting started
+Compatible licenses
+Supported tags
+Add-ons
+Python Wheels
+Creating a Repository
+Toggle navigation of Creating a Repository
+Static Repository
+Dynamic Repository
+Application Templates
+Keymap Customization
+Working Limits
+Operators
+Blender’s Directory Layout
+Deploying Blender in Production
+Appendices
+Toggle navigation of Appendices
+Rotation Modes
+Troubleshooting
+Toggle navigation of Troubleshooting
+Startup
+3D Viewport
+Graphics Hardware
+Toggle navigation of Graphics Hardware
+Windows – Nvidia
+Windows – AMD
+Windows – Intel
+Windows – Other GPU
+Linux – Nvidia
+Linux – AMD
+Linux – Intel
+Linux – Other GPU
+macOS – Nvidia
+macOS – AMD
+macOS – Intel
+macOS – Other GPU
+Crashes
+Python Errors
+Recovering Data
+Glossary
+Manual Index
+Get Involved
+Contribute Documentation
+Toggle navigation of Contribute Documentation
+Installing Dependencies
+Toggle navigation of Installing Dependencies
+Linux
+macOS
+Windows
+Building the Manual
+Editing the Manual
+Pull Requests
+Todo List
+Writing Style Guide
+Markup Style Guide
+Commit Guidelines
+Templates
+Maintenance
+Release Cycle
+Contribute
+Style Guide
+4.2
+Versions
+Loading...
+en
+Languages
+Loading...
+Note
+You are not using the most up to date version of the documentation.
+is the newest version.
+Back to top
+Edit this page
+Toggle Light / Dark / Auto color theme
+Toggle table of contents sidebar
+Color Management
+#
+Color management is important to create renders and assets that are physically accurate and look great
+on multiple display devices. It is used both to ensure all parts of the pipeline interpret colors correctly,
+and to make artistic changes like exposure and color grading.
+Different views and exposures of the same render.
+#
+Blender’s color management is based on the
+OpenColorIO
+library.
+By using the same OpenColorIO configuration in multiple applications,
+the same color spaces and transforms will be available for consistent results.
+Workflow
+#
+Scene Linear Color Space
+#
+For correct results, different
+Color Spaces
+are needed for rendering, display and storage of images.
+Rendering and compositing is best done in
+scene linear
+color space,
+which corresponds more closely to nature, and makes computations more physically accurate.
+An example of a linear workflow.
+#
+If the colors are linear, it means that if in reality, we double the number of photons,
+the color values are also doubled. Put another way,
+if we have two photos/renders each with one of two lights on, and add those images together,
+the result would be the same as a render/photo with both lights on. It follows that such
+a radiometrically linear space is best for photorealistic rendering and compositing.
+However, these values do not directly correspond to human perception or the way display devices
+work. and image files are often stored in different color spaces.
+So we have to take care to do the right conversion into and out of this scene linear color space.
+Display Transforms
+#
+Transforming scene linear colors to display involves both technical and artistic choices.
+Correct display of renders requires a conversion to the display device color space.
+A computer monitor works differently from a digital cinema projector or HDTV,
+and so needs a different conversion.
+There is also an artistic choice to be made.
+Partially that is because display devices cannot display the full spectrum of colors and
+only have limited brightness, so we can squeeze the colors to fit in the gamut of the device.
+Besides that, it can also be useful to give the renders a particular look,
+e.g. as if they have been printed on real camera film.
+The default Filmic transform does this.
+Conversion from linear to display device space.
+#
+Image Color Spaces
+#
+When loading and saving media formats it is important to have color management in mind.
+File formats such as PNG or JPEG will typically store colors in a color space ready for
+display, not in a linear space. When they are used as textures in renders,
+they need to be converted to linear first, and when saving renders for display on the web,
+they also need to be converted to a display space.
+For intermediate files in production, it is recommended to use
+OpenEXR
+files.
+These are always stored in scene linear color spaces, without any data loss.
+That makes them suitable to store renders that can later be composited, color graded and
+converted to different output formats.
+Images can also contain data that is not actually a color. For example normal or displacement maps
+merely contain vectors and offsets. Such images should be marked as
+Non-Color Data
+so
+that no color space conversion happens on them.
+Render Settings
+#
+Reference
+Editor
+:
+Properties
+Panel
+:
+Render Properties ‣ Color Management
+Color Management properties.
+#
+These are color management settings that are used across Blender.
+These color management settings are Scene specific so settings can be customized per Scene.
+Color management can also be overridden when saving images;
+this behavior can be set in the
+Output Color Management Properties
+.
+Display Device
+The color space for the display that Blender is being viewed on.
+Most displays are sRGB by default with some newer displays having the option to use Rec. 2020.
+These displays have a wider color gamut and can display high dynamic range content.
+If you have an Apple display you probably will want to use Display P3.
+It is important to check your OS and display setting to make sure
+they all match the display in use to view the most accurate image.
+sRGB
+:
+Used by most displays.
+Display P3
+:
+Used by most Apple devices.
+Rec. 1886
+:
+Used by many older TVs.
+Rec. 2020
+:
+Used for newer wide gamut HDR displays.
+View Transform
+These are different ways to view the image on the same display device.
+Standard
+:
+Does no extra conversion besides the conversion for the display device. Often used for
+non-photorealistic results or video editing where a specific look is already baked into
+the input video.
+Khronos PBR Neutral
+:
+A tone mapping transform designed specifically for PBR color accuracy,
+to get sRGB colors in the output render that match as faithfully as possible
+the input sRGB base color in materials, under gray-scale lighting.
+This is aimed toward product photography use cases, where the scene
+is well-exposed and HDR color values are mostly restricted to small specular highlights.
+AgX
+:
+A tone mapping transform that improves on
+Filmic
+, giving more photorealistic results.
+AgX offers 16.5 stops of dynamic range and unsaturates highly
+exposed colors to mimic film’s natural response to light.
+Filmic
+:
+A tone mapping transform designed to handle high dynamic range colors.
+Filmic is deprecated and is superseded by AgX which improves handling of saturated colors.
+Filmic Log
+:
+Converts to Filmic log color space. This can be used for export to color grading applications,
+or to inspect the image by flattening out very dark and light areas.
+False Color
+:
+Shows a heat map of image intensities, to visualize the dynamic range, and help properly expose an image.
+Below is a table that represents how normalized linear color data is represented with False Color.
+Luminance Value
+Color
+Low Clip
+Black
+0.0001% to 0.05%
+Blue
+0.05% to 0.5%
+Blue-Cyan
+0.5% to 5%
+Cyan
+5% to 16%
+Green-Cyan
+16% to 22%
+Grey
+22% to 35%
+Green-Yellow
+35% to 55%
+Yellow
+55% to 80%
+Orange
+80% to 97%
+Red
+High Clip
+White
+Raw
+:
+Intended for inspecting the image but not for final export.
+Raw gives the image without any color space conversion.
+Look
+Choose an artistic effect from a set of measured film response data
+which roughly emulates the look of certain film types. Applied before color space conversion.
+Exposure
+Used to control the image brightness (in stops) applied before color space conversion.
+It is calculated as follows:
+\(output\_value = render\_value × 2^{(exposure)}\)
+Gamma
+Extra gamma correction applied after color space conversion.
+Note that the default display transforms already perform the appropriate conversion,
+so this mainly acts as an additional effect for artistic tweaks.
+Sequencer
+The color space that the
+Sequencer
+operates in.
+By default, the Sequencer operates in sRGB space,
+but it can also be set to work in Linear space like the Compositing nodes, or another color space.
+Different color spaces will give different results for color correction, crossfades, and other operations.
+The list of color spaces depends on the active
+OCIO config
+.
+The default supported color spaces are described in detail here:
+Default OpenColorIO Configuration
+Display
+#
+High Dynamic Range
+Enable high dynamic range display in rendered viewport, uncapping display brightness.
+This requires a monitor with HDR support and a view transform designed for HDR
+(Filmic does not generate HDR colors).
+This feature is currently only supported on macOS.
+Use Curves
+#
+Adjust RGB Curves to control the image colors before the color space conversion.
+Read more about using the
+Curve Widget
+.
+Image Files
+#
+When working with image files, the default color space is usually the right one.
+If this is not the case, the color space of the image file can be configured in the image settings.
+A common situation where manual changes are needed is when working with or baking normal maps or displacement maps,
+for example. Such maps do not actually store colors, just data encoded as colors.
+Those images should be marked as
+Non-Color Data
+.
+Image data-blocks will always store float buffers in memory in the scene linear color space,
+while a byte buffer in memory and files in a drive are stored in the specified
+color space
+setting.
+By default, only renders are displayed and saved with the render
+View Transformation
+applied.
+These images are the “Render Result” and “Viewer” image data-blocks,
+and the files saved directly to a drive with the Render Animation operator.
+However, when loading a render saved to an intermediate OpenEXR file,
+Blender cannot detect automatically that this is a render
+(it could be e.g. an image texture or displacement map).
+We need to specify that this is a render and that we want the transformations applied,
+with these two settings:
+View as Render
+Display the image data-block (not only renders) with view transform, exposure, gamma, RGB curves applied.
+Useful for viewing rendered frames in linear OpenEXR files the same as when rendering them directly.
+Save as Render
+Option in the image save operator to apply the view transform, exposure, gamma, RGB curves.
+This is useful for saving linear OpenEXR to e.g. PNG or JPEG files in display space.
+OpenColorIO Configuration
+#
+Blender comes with a standard OpenColorIO configuration that
+contains a number of useful display devices and view transforms.
+The reference linear
+Color Space
+used is the linear color space
+with Rec. 709 chromaticities and D65 white point.
+However, OpenColorIO is also designed to give a consistent user experience across
+multiple applications
+,
+and for this, a single shared configuration file can be used.
+Blender will use the standard OCIO environment variable to read an OpenColorIO configuration
+other than the default Blender one. More information about how to set up such a workflow
+can be found on the
+OpenColorIO website
+.
+Blender currently use the following color space rules:
+scene_linear
+Color space used for rendering, compositing, and storing all float precision images in memory.
+data
+Color space for non-color data.
+aces_interchange
+ACES2065-1 color space. Used to derive chromaticities of the
+scene_linear
+color space, for
+effects such as blackbody emission.
+color_picking
+Defines the distribution of colors in color pickers. It is expected to
+be approximately perceptually linear, have the same gamut as the
+scene_linear
+color space,
+map 0..1 values to 0..1 values in the scene linear color space for predictable editing of materials’ albedo.
+default_sequencer
+Default color space for the Sequencer,
+scene_linear
+if not specified.
+default_byte
+Default color space for byte precision images and files,
+texture_paint
+if not specified.
+default_float
+Default color space for float precision images and files,
+scene_linear
+if not specified.
+The standard Blender configuration includes support for saving and loading images in
+ACES
+(
+code and documentation
+) color spaces.
+However, the ACES gamut is larger than the Rec. 709 gamut, so for best results,
+an ACES specific configuration file should be used. OpenColorIO provides
+an
+ACES configuration
+file,
+though it may need a few more tweaks to be usable in production.
+Default OpenColorIO Configuration
+#
+Color Spaces
+Blender’s OCIO configuration file is equipped by default to read/write files in these color spaces:
+sRGB
+:
+Standard RGB display space using Rec. 709 chromaticities and a D65 white point.
+Rec.2020
+:
+BT.2020 2.4 Exponent EOTF Display.
+Rec.1886
+:
+BT.1886 2.4 Exponent EOTF Display, commonly used for TVs.
+Non-Color
+:
+Generic data that is not color, will not apply any color transform (e.g. normal maps).
+Linear Rec.709
+:
+Linear BT.709 chromaticities with illuminant D65 white point.
+Linear Rec.2020
+:
+Linear BT.2020 with illuminant D65 white point.
+Linear FilmLight E-Gamut
+:
+Linear E-Gamut with illuminant D65 white point.
+Linear DCI-P3 D65
+:
+Linear DCI-P3 with illuminant D65 white point.
+Linear CIE-XYZ E
+:
+1931 CIE XYZ standard with assumed illuminant E white point.
+Linear CIE-XYZ D65
+:
+1931 CIE XYZ with adapted illuminant D65 white point.
+Filmic sRGB
+:
+Similar to
+sRGB
+but uses the Filmic view transform.
+Filmic Log
+:
+Intermediate log color space of Filmic view transform.
+Display P3
+:
+Apple’s Display P3 with sRGB compound (piece-wise) encoding transfer function, common on Mac devices.
+ACEScg
+:
+An ACES color space that is designed to be used for rendering and compositing.
+It uses the AP1 color primaries, a D60 white point, and a linear transfer function.
+While similar to ACES2065-1, this color space has a smaller color gamut.
+The smaller gamut allow it to better represent the colors that fit inside the CIE 1931 chromaticities diagram.
+Colors that lie outside the CIE 1931 chromaticities are generally not important to rendering and compositing
+because the human stimulus cannot represent these colors.
+ACES2065-1
+:
+An ACES color space using the AP0 color primaries, a D60 white point and a linear transfer function.
+This color space is meant to store and transfer data with the most amount of possible color information.
+Next
+Freestyle
+Previous
+Open Shading Language
+Copyright
+© : This page is licensed under a CC-BY-SA 4.0 Int. License
+Made with
+Furo
+Last updated on 2026-08-12
+View Source
+View Translation
+Report issue on this page
+On this page
+Color Management
+Workflow
+Scene Linear Color Space
+Display Transforms
+Image Color Spaces
+Render Settings
+Display
+Use Curves
+Image Files
+OpenColorIO Configuration
+Default OpenColorIO Configuration

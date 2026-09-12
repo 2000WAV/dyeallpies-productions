@@ -1,0 +1,31 @@
+Mathur, M.B., and Reichling, D.B. (2016). Navigating a Social World with
+Robot Partners: A Quantitative Cartography of the Uncanny Valley. Cognition
+146, 22-32. DOI: 10.1016/j.cognition.2015.09.008. PMID: 26402646.
+
+STATUS: abstract only, fetched via NCBI E-utilities; full text paywalled at
+ScienceDirect/Elsevier, no open author copy located. See
+abstracts/mathur-reichling2016-uncanny-valley-cartography.txt for the raw
+efetch output.
+
+SUMMARY (from the abstract): the first study to demonstrate a genuine
+Uncanny Valley effect using a large, OBJECTIVELY CHOSEN sample of 80
+real-world robot faces (not just artificially blended/morphed images, which
+prior studies relied on and which produced inconsistent results), rating
+their likability across the human-likeness spectrum. Also ran an "investment
+game" showing the uncanny-valley dip affects not just explicit likability
+ratings but implicit judgments of a robot's social TRUSTWORTHINESS, tied to
+the same facial-expression cues used to judge humans.
+
+KEY NUMBERS: NOT FOUND -- the paper's quantitative valley curve (likability
+vs. human-likeness, the location/depth of the dip) is in the paywalled full
+text and figures, not recoverable from the abstract alone.
+
+RELEVANCE: confirms the uncanny valley is a real, measurable effect (not
+just an anecdotal/inconsistent one), using real-world robot faces rather
+than only synthetic morphs -- relevant caution for section 1/7: since the
+marionette is stylized and not attempting photoreal human skin/face detail,
+it should sit safely on the near (low-human-likeness) side of the valley
+described here, and pushing individual features (e.g. a very detailed face)
+toward higher realism while the rest of the body stays stylized would risk
+crossing INTO the valley rather than out of it (see also Chattopadhyay &
+MacDorman 2016, inconsistent-realism finding, below).

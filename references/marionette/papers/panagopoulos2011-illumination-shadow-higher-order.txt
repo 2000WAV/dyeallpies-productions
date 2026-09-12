@@ -1,0 +1,488 @@
+Illumination Estimation and Cast Shadow Detection through a Higher-order
+                                      Graphical Model
+
+      Alexandros Panagopoulos1, Chaohui Wang2,3, Dimitris Samaras1 and Nikos Paragios2,3
+         1Image Analysis Lab, Computer Science Dept., Stony Brook University, NY, USA
+                 2Laboratoire MAS, E´ cole Centrale Paris, Cha^tenay-Malabry, France
+                    3Equipe GALEN, INRIA Saclay - I^le-de-France, Orsay, France
+
+                        Abstract                                    Figure 1. Our approach: from left to right, the original image; our
+                                                                    shadow estimate; a sun dial rendered with the estimated illumina-
+   In this paper, we propose a novel framework to jointly           tion from our algorithm and overlayed on the image
+recover the illumination environment and an estimate of the
+cast shadows in a scene from a single image, given coarse           try and reflectance, compared to shading or specularities.
+3D geometry. We describe a higher-order Markov Random
+Field (MRF) illumination model, which combines low-level               In the computer vision community, there has been much
+shadow evidence with high-level prior knowledge for the             research in extracting illumination from shading, specular
+joint estimation of cast shadows and the illumination en-           reflection or shadows of objects. In [26], a small number
+vironment. First, a rough illumination estimate and the             of light source directions is detected using critical points,
+structure of the graphical model in the illumination space          and [25] extends it to an image of an arbitrary object with
+is determined through a voting procedure. Then, a higher            known shape. In [23], a method is proposed for estimating
+order approach is considered where illumination sources             the illumination distribution of a real scene from shadows,
+are coupled with the observed image and the latent vari-            assuming known geometry illuminated by infinitely distant
+ables corresponding to the shadow detection. We examine             light sources, casting shadows onto a planar lambertian sur-
+two inference methods in order to effectively minimize the          face. In [7] illumination and reflectance are simultaneously
+MRF energy of our model. Experimental evaluation shows              estimated without the distant illumination assumption. In
+that our approach is robust to rough knowledge of geome-            [27], a unified framework is proposed to estimate both dis-
+try and reflectance and inaccurate initial shadow estimates.        tant and point light sources.
+We demonstrate the power of our MRF illumination model
+on various datasets and show that we can estimate the illu-            Prior art on illumination estimation using shadows cast
+mination in images of objects belonging to the same class           on textured surfaces is limited. In [23], an extra image is
+using the same coarse 3D model to represent all instances           necessary to deal with texture. In [18], a method is pro-
+of the class.                                                       posed that integrates multiple cues from shading, shadow,
+                                                                    and specular reflections. [10] uses regularization by corre-
+1. Introduction                                                     lation to estimate illumination from shadows when texture
+                                                                    is present, but requires extra user-specified information and
+   Image formation is a function of three components: the           assumes lambertian surface reflectance and known geom-
+3D geometry of the scene, the reflectance properties of the         etry. Recently, [19] proposed a method able to deal with
+present surfaces, and the distribution of lights. Much work         inaccurate geometry and texture, but the shadow detection
+has been done in estimating one or two of these compo-              results when texture is present are limited. [14] proposed an
+nents, assuming that the rest are known [18, 21, 23, 25, 26].       approach that combines cues from the sky, cast shadows on
+Illumination estimation methods often assume known ge-              the ground and surface brightness to estimate illumination
+ometry that is combined with strong assumptions about re-           of outdoor scenes with the sun as the single light source.
+flectance. In this work, we describe a method that relaxes          Their method makes strong assumptions and is only appli-
+these assumptions, based on the information contained in            cable to daytime outdoor scenes.
+cast shadows. Cast shadows as a cue are relatively stable in
+the presence of large inaccuracies in knowledge of geome-
+
+                                                               673
+   There are several challenges when simultaneously esti-            of higher-order cliques has been given a lot of attention
+mating shadows and illumination. Solving the low level               recently [9, 13]. Furthermore, we are able to reduce the
+component that is the detection of cast shadows is not               search space and identify the MRF topology through an ini-
+straightforward. The illumination estimation itself is also          tial illumination estimate obtained using a voting algorithm.
+problematic due to the fact that measurements at the image           We then describe two methods to perform inference on this
+level correspond to cumulative effects of all light sources          MRF model in the presence of higher-order cliques. We
+leading to a very complex formulation. Shadow detection,             make the following assumptions (common in illumination
+in the absence of illumination estimation or knowledge of            modeling): the coarse 3D geometry is known, the illumi-
+3D geometry is a well studied problem. [22] uses invariant           nation environment can be approximated by a set of dis-
+color features to segment cast shadows in still or moving            tant light sources, and the reflectance of surfaces is roughly
+images. In [3, 4], a set of illumination invariant features is       lambertian. For the extraction of shadows we utilize a re-
+proposed to detect and remove shadows from a single im-              cently proposed image cue [20]. It should be noted, how-
+age, making several assumptions about the lights and the             ever, that the proposed MRF model is flexible with respect
+camera. Recently, [28] combined a number of cues in a                to the shadow cues.
+complex method to recognize shadows in monochromatic
+images, while in [15], a learning approach is proposed to               We evaluate our method on a set of images captured in
+detect shadows in consumer-grade photographs, focusing               a controlled environment, as well as on a set of car images
+on shadows on the ground.                                            from Flickr and images from the Motorbikes class of Cal-
+                                                                     tech 101 [17]. Quantitative results are obtained on a syn-
+   While shadow detection can work at the image level, illu-         thetic dataset. Our results show that our method is robust
+mination estimation necessitates assumptions about geom-             enough to be able to use geometry consisting of bounding
+etry. In this paper, we propose a novel framework to re-             boxes or a common rough 3D model for a whole class of
+cover the illumination environment of a scene and a rough            objects, while it can also be applied to scenes where some
+cast shadow estimate from a single observed image, given             of our assumptions are violated.
+coarse 3D geometry. Our main goal is to relax the nec-
+essary geometry assumptions so that simplistic approxima-               This paper is organized as follows: Sec. 2 introduces
+tions such as bounding boxes are enough to estimate illumi-          the problem; Sec. 3 describes the MRF model to jointly
+nation. Such approximate geometric information could be              estimate the shadows and illumination, while in Sec. 4 we
+derived as part of more general scene understanding tech-            discuss the inference process. Experimental results are pre-
+niques, while enabling illumination estimation to be incor-          sented in Sec. 5. Sec. 6 concludes the paper.
+porated in the scene understanding loop; the obtained illu-
+mination information could be a crucial contextual prior in          2. Problem Description
+addressing various other scene understanding questions.
+                                                                        A commonly used set of assumptions, which we will use
+   Graphical models can efficiently incorporate different            here, is that the surfaces in the scene exhibit lambertian re-
+cues within a unified framework [24]. To deal with the joint         flectance, and that the scene is illuminated by point light
+illumination and shadow estimation problem robustly in a             sources at infinity, as well as some constant ambient illumi-
+flexible and extensible framework, we formulate it as an             nation term. Under these assumptions, the outgoing radi-
+MRF model. All latent variables can then be simultane-               ance at a pixel i is given by:
+ously inferred by minimizing the MRF energy. To the best
+of our knowledge, this is the first time that scene photome-                                                  N
+try is addressed using an MRF model.
+                                                                       Lo(p) = p 0 + Vp(di)i max{di · np, 0} ,
+   The MRF model we propose captures the interaction
+between geometry and light sources and combines it with                                                      i=1
+image evidence of cast shadows, for joint estimation of
+cast shadows and illumination. The problem of shadow                                                                                     (1)
+detection is well-posed in terms of the graph topology               where N is the number of light sources, p is the albedo at
+(graph nodes correspond to image pixels). On the other               point p, 0 is the ambient intensity, i, i  {1, ..., N } is
+hand, illumination estimation implies a potential depen-             the intensity of the i-th light source, di is the illumination
+dence between each pixel and all nodes representing the              direction of the i-th light source, and Vp(di) is a visibility
+light sources, corresponding to higher-order cliques in the          term for direction di at point p, defined as:
+graph. At the same time, the number of light sources is
+unknown, resulting in unknown MRF topology, and the                  Vp(dj) =  0, if ray from p along dj intersects G
+search space is continuous, complicating the use of dis-                       1, otherwise
+crete methods. The problem of inference in the presence
+                                                                                                                            (2)
+
+                                                                     Assuming a simplified linear model for the camera sen-
+
+                                                                     sors, we model the observed value at pixel (x, y) as:
+
+                                                                               I(x, y) = Lo(p) + ,                          (3)
+
+                                                                674
+where  is an exposure parameter and is noise. Since we                        source. The process of discovering new lights stops when
+can only estimate light source intensities up to scale, we                    the current discovered light does not have a significant con-
+assume  = 1.                                                                  tribution to the shadows in the scene. The results of the vot-
+                                                                              ing algorithm are used to initialize the MRF both in terms of
+   We define illumination through parameters L =                              topology and search space leading to more efficient use of
+{0, 1, ..., N , d1, ..., dN }, where di is the direction and                  discrete optimization. When available, the number of light
+i the intensity of light source i for i  {1, N }, and 0                       sources can also be set manually.
+is the ambient intensity. The information available to our
+method is a single color image I of the scene, an approxi-                    Algorithm 1 Voting to initialize illumination estimate
+mate 3D model of the geometry G of the scene and approx-
+imate camera parameters.                                                      Lights Set: L  
+                                                                              Direction Set: D  all the nodes of a unit geodesic sphere
+   We assume we can obtain an initial cast shadow estimate                    Pixel Set: P  all the pixels in the observed image
+from the input image (see Sec. 5.1). In such a shadow esti-                   loop
+mate the effects of albedo  are roughly factored out and the
+non-shadow pixels of I are masked out. Ideally, the value of                  votes[d]  0, d  D
+each shadow pixel (x, y) in such a shadow image Is would                      for all pixel i  P do
+be the shading at that point due to the non-occluded light
+sources, given by:                                                               for all direction d  D \ L do
+                                                                                    if Is(i) < S and d  L, Vi(d ) = 0 then
+                                    N                                                   if Vi(d) = 1 then votes[d]  votes[d] + 1
+                                                                                    else
+ Is(x, y) = 0 + Vp(di)i max{di · np, 0} + ,
+                                                                                        if Vi(d) = 0 then votes[d]  votes[d] + 1
+                                   i=1                                        d  arg maxd(votes[d])
+                                                                              Pd  {i|ci(d) = 1 and d = d, ci(d) = 0}
+                                                                    (4)
+where p is the 3D point where (x, y) projects to. In prac-                    d  median                1-Is (i)
+tice we can obtain a cast shadow cue ^Is which is a rough                                    max{-n(p(i))·d,0} iPd
+approximation of Is.
+                                                                              if d <  then
+   In the following sections we will present a model to
+jointly estimate the shadows Is and the illumination param-                   stop the loop
+eters L from the approximate shadow cue ^Is. In section
+5.1 we present the shadow cue which we used to obtain our                     L  L  (d, d )
+results.
+                                                                              3.2. Markov Random Field Formulation
+3. Global MRF for Scene Photometry
+                                                                                 The proposed MRF consists of one node for each im-
+   In this section we describe the MRF model which models                     age pixel i  P and one node for each light source l  L.
+the creation of cast shadows, associating them with high-                     Each pixel node and all the light nodes compose a high-
+level information about geometry and the light sources. As                    order clique c  C. The 4-neighborhood system [1] com-
+mentioned earlier, the higher-order cliques in the model, the                 poses the edge set E between pixels. The energy of our
+unknown MRF topology and the continuous search space                          MRF model has the following form:
+complicate the problem. Therefore, we will first describe
+a method to reduce the search space and identify the MRF                      E(x) =      p(xi) + l(xl) +           p(xi, xj )
+topology through an initial illumination estimate obtained
+using a voting algorithm.                                                             iP     lL            (i,j)E
+
+3.1. Initializing the MRF Model                                                       + c(xi, xL),                                       (5)
+
+   We use a greedy approach to get a rough estimate of il-                            iP
+lumination from the shadow cue Is, by the voting method
+in Algorithm 1. The idea is that, shadow pixels that are not                  where p(xi) and l(xl) are the singleton potentials for
+explained from the discovered light sources vote for the oc-                  pixel nodes and light nodes respectively, p(xi, xj) is the
+cluded light directions. The pixels that are not in shadow                    pairwise potential defined on a pair of neighbor pixels, and
+vote for the directions that are not occluded. The set of                     c(xi, xL) is the high-order potential associating all lights
+all possible directions is evenly sampled by the nodes of a                   in L and a pixel xi.
+geodesic sphere [23]. After discovering a new light source
+direction, we estimate the associated intensity using the me-                    The latent variable xi for pixel node i  P represents
+dian of the values of pixels in the shadow of this new light                  the intensity value for that pixel. We uniformly discretize
+                                                                              the real intensity value [0, 1] into N bins to get the candi-
+                                                                              date set Xi for xi. The latent variable xl for light node l  L
+                                                                              is composed of the intensity and the direction of the light.
+                                                                              We sample the space in the vicinity of the light configu-
+                                                                              ration obtained by the previous voting approach to get the
+                                                                              candidate set Xl for xl (see details later in this section).
+
+                                                                         675
+3.2.1 Singleton Potentials for Pixel Nodes                         3.2.3 Pairwise Potentials
+
+This term encodes the similarity between the estimated in-         We adopt the well-known Ising prior to define the pairwise
+tensity value and the shadow cue value and is defined as:          potential between a pair of neighboring pixels (i, j)  E to
+                                                                   favor neighbor pixels having the same value:
+
+p(xi) = ws min{|xi - Is(i)| , tp}.            (6)
+
+where an upper bound tp for this cost term is used to avoid        p(xi, xj) =   wp if xi = xj           (10)
+over-penalizing outliers and ws is a positive weight coeffi-                     0 if xi = xj
+cient (same for wl, wp and wc below).
+                                                                   3.2.4 Higher-order Potentials
+
+3.2.2 Singleton Potentials for Light Nodes                         We use this term to impose consistency between the illumi-
+                                                                   nation configuration and the pixel intensity values.
+We use this term to favor illumination configurations gener-
+ating shadow shapes that match observed shadow outlines               Let S be the synthetic shadow, generated by light con-
+by incorporating a shadow shape-matching prior into the            figuration xL and geometry G. The intensity at pixel i  S,
+MRF model.                                                         given a configuration xL of the lights, is:
+
+   We detect edges in the shadow cue image using a Sobel             si(xL) = x0 + xl Vi(xdl ir) max{-xldir · n(i), 0},
+detector [5]. Let  (i)  [0, 2) be the angle of the gradient
+at pixel i with the x-axis, and ^(i)  {0, K - 1} a quantiza-                                        lL
+tion of  (i). For each possible direction d  {0, K - 1}, we
+compute a distance map d which contains, for each pixel,                                                                             (11)
+the distance to the closest edge of orientation d (zero for        where x0 corresponds to the ambient intensity, xl is the
+pixels that lie on an edge of orientation d).                      light intensity component of xl, xldir is the light direction
+                                                                   component, n(i) is the normal at 3D point p imaged at pixel
+   For pixel i with gradient angle  (i), the distance func-        i and Vi(xdl ir)  {0, 1} is the visibility term for light direc-
+tion is computed by interpolating between the distance map         tion xdl ir at 3D point p (cf. Eq.2). For pixels i / S, we set
+values for the two closest quantized orientations:                 si(xL) = 1, according to the definition of our shadow cue
+                                                                   Is(i). The clique potential is defined as:
+
+dist(i)(i) = (1 - ) · ^(i)(i) +  · ^(i)+1(i), (7)                  c(1)(xi, xL) = wc min{(si(xL) - xi)2, tc}, (12)
+
+=  K ·  (i)  ,                                (8)                  where tc is also an upper bound to avoid over-penalizing
+                                                                   outliers.
+   2
+                                                                      In cases where the geometry G is far from the real scene
+where {.} indicates the fractional part. In our experiments,       geometry, a light configuration that does not generate any
+we chose K = 4.                                                    visible shadows in the image might result to a lower MRF
+                                                                   energy than the true light source. To avoid this degenerate
+   We examine a configuration xl of light l. The shape-            case, we introduce the term c(2)(xL), which penalizes light
+matching prior expresses the quality of the match between          configurations that do not generate any visible shadows in
+the edges of the synthetic shadow Sl associated with xl,           the image. The final form of the clique potential is:
+given the geometry G, and the observed edges in the shadow
+cue image:
+
+1                                                                  c(xi, xL) = c(1)(xi, xL) + c(2)(xL).  (13)
+
+l(xl) = wl |ESl (xl)| iPE(xl) distSl (i)(i),  (9)
+
+                                                                   4. Inference
+
+where ESl (xl) is the set of all pixels that lie on edges of          We can simultaneously estimate the cast shadows and the
+the shadow Sl generated by light label xl and Sl (i) is the        illumination through a minimization over the MRF's energy
+gradient angle of the synthetic shadow edge generated by           defined in Eq. 5:
+
+xl at pixel i. To determine the set of shadow edge pixels                        xopt = arg min E(x)     (14)
+ESl (xl), we generate the shadow Sl created by light label                       x
+xl and the geometry G and then apply gaussian smoothing
+and the Sobel edge detector. The set ESl (xl) contains all         This MRF model contains high-order cliques of size |L|+2,
+pixels whose gradient magnitude is above e.                        which make energy minimization challenging.
+
+   Note that our MRF model is flexible with respect to both           The most straightforward manner to minimize the model
+                                                                   energy is the high-order clique reduction technique pro-
+singleton terms and other singleton measures can be con-           posed in [9], while a more promising alternative given the
+
+sidered.
+
+                                                              676
+complexity and the dimensionality of the problem is the               When we have multiple lights, in each iteration of the al-
+dual decomposition [13].                                              gorithm we change the parameters of only one of the light
+                                                                      sources to a new guess. The final solution corresponds to
+   [9] performs inference in a higher-order MRF with bi-              the light parameter sample that generated the labeling with
+nary labels by reducing any pseudo-Boolean function to an             the lowest energy:
+equivalent quadratic one while keeping the minima of the
+resulting function the same as the original. Like [9], we em-         xopt = arg min E(s)(x).  (20)
+ploy the fusion-move [16] and QPBO [6, 12] algorithms to              s
+extend this method to deal with multi-label MRFs: During
+energy minimization, a number of iterations is performed,             This method is more tolerant to local minima in the model
+and for each iteration, the algorithm fuses the current label-        energy (which appear often in practice), while we also no-
+ing Lcur and a proposed labeling Lprop by minimizing a                ticed that, compared to a more standard gradient descent
+pseudo-Boolean energy [9].                                            method, it resulted in significantly less calls to evaluate en-
+                                                                      ergy EI (x}|xL), which are very costly. Results on conver-
+   However, this method in practice failed to provide good            gence can be found in the supplemental materials.
+solutions. This can be explained by the complexity of the
+graph-structure, the number of labels (in particular with re-
+spect to the illumination variables) and the nature of pair-
+wise and higher order interactions.
+
+   In order to address this failure and efficiently perform in-
+ference, we can split the minimization of the energy in Eq.5
+in two stages [2]. If we assume that the light parameters
+are fixed, the high-order clique potentials in Eq.12 become
+singleton potentials of the form:
+
+c(1)(xi|L) = wc min{(si(xL) - xi)2, tc}.             (15)
+
+   This way, for a fixed light configuration L, we can com-           Figure 2. The model energy over possible directions of one light,
+pute the energy of the MRF model by rewriting the energy              for a simple synthetic scene.
+in Eq.5 as:
+                                                                      4.1. Generating Proposals
+             E(x) = EI (x|xL) + EL(xL),              (16)
+                                                                         Both approaches above utilize sampling of the solution
+where                                                                 space in order to generate proposals to minimize the MRF
+                                                                      energy. Generating good guesses for these proposals is im-
+EI (x|xL) =      p(xi) + c(1)(xi|L) +             p(xi, xj )          portant in order to achieve fast convergence to a good solu-
+                                                                      tion. Here we describe how we generate proposals for each
+             iP                          (i,j)E                       random variable class.
+
+                                                     (17)                Light directions: We generate the proposed light source
+                                                                      direction x^dl ir by drawing a sample from a von Mises-Fisher
+is the energy of an MRF involving only pairwise potentials,           distribution with mean direction x dl ir and concentration pa-
+                                                                      rameter sample, where x ldir is the estimated value from the
+given the light configuration L, and                                  previous iteration of the algorithm. The estimate from the
+                                                                      voting algorithm is used for the first iteration. For our ex-
+       EL(xL) =          l(xl) + c(2)(xL)            (18)             periments, sample was set to 200. Samples are drawn using
+                                                                      the accept-reject algorithm.
+                    lL
+                                                                         Light intensities: For light source l, we compute a pro-
+is the energy associated with the (fixed) light configuration         posed intensity by adding a random offset (drawn from a
+L. Given the light configuration L, we can minimize the en-           normal distribution) to the current light source intensity es-
+ergy EI (x|xL) using any of the various available inference           timate. We generate proposals for the ambient intensity x^0
+algorithms for pairwise MRF models. For our experiments,              in the same way.
+we used the TRW-S belief propagation algorithm [11].
+                                                                         Pixel intensities: In the case of higher-order clique re-
+   Furthermore, minx{EI (x|xL)} changes with different                duction, we also need to generate proposals for the pixel
+light configurations, as shown in Fig.2. In order to min-             labels. The light proposal is kept fixed for N successive it-
+imize E(x), we sample the light parameter space around                erations, while each of the N pixel labels is proposed for
+the current estimate and we minimize the pairwise energy              every pixel node, after which a new light proposal is gener-
+EI (x|xL). We then compute the total MRF energy for a                 ated.
+sample t of the light parameter space as
+
+       E(s)(x)   =  min  {EI  (x|xL)  +  EL(xL)}  .  (19)
+
+                      x
+
+                                                                 677
+Figure 3. Bright channel: a. original image (from [3]); b. bright          We used 8 values for the pixel node labels, and per-
+channel; c. confidence map; d. refined bright channel                   formed 1000 iterations of our algorithm. The values
+                                                                        we selected for the weights in our experiments were:
+5. Experimental Validation                                              (ws, wl, wp, wc) = (8, 1, 1, 4). The upper bounds for
+                                                                        the truncated potentials were selected to be (tp, tc) =
+   In our discussion so far, we have assumed that some per-             (0.5, 0.5).
+pixel estimate ^Is of the shadow/shading image Is is avail-
+able to be used as input in our MRF model. Before we pro-               5.2.1 Synthetic Dataset
+
+ceed with the experimental validation, we will discuss the              We evaluated our method quantitatively on a set of synthetic
+                                                                        images, rendered using a set of known light sources, se-
+cues we used to estimate shadow intensity.                              lected randomly for each test image. We used area light
+                                                                        sources of various sizes to evaluate our approach on both
+5.1. Shadow Cues                                                        soft and hard shadows. The number of light sources varied
+                                                                        from 1 to 3. We examined three different cases:
+   We use the bright channel cue [20], which is based on
+the following observations:                                               1. Accurate geometry: We estimated the illumination us-
+                                                                              ing the same 3D model used to render each image.
+· The value of each of the color channels of the image
+   has an upper limit which depends on the incoming ra-                   2. Approximate geometry: We estimated the illumination
+   diance. This means that, if little light arrives at the                    using a coarse 3D model that roughly approximated
+   3D point corresponding to a given pixel, then all color                    the original geometry by a bounding box and a ground
+   channels will have low values.                                             plane.
+
+· In most images, if we examine an arbitrary image                        3. Approximate geometry with noisy shadow input: We
+   patch, the albedo for at least some of the pixels in the                   estimated the illumination using a coarse 3D model
+   patch will probably have a high value in at least one of                   and a noisy initial shadow estimate. To obtain the
+   the color channels.                                                        latter, we added random dark patches to the rendered
+                                                                              shadow. The reason is that, on one hand our methods
+From the above observations it is expected that, the maxi-                    are relatively insensitive to spatially-uniform random
+mum value of the r, g, b color channels in an image patch                     noise, and on the other, this kind of patch-based noise
+will be roughly proportional to the incoming radiance for                     better emulates the errors in shadow estimation that
+many patches in the image. Therefore, the bright channel,                     happen in real data, which generally result in whole
+Ibright for image I is defined in a way similar to [8]:                       image regions erroneously identified as shadows.
+
+Ibright(i) = maxc{r,g,b} maxj(i)(Ic(j))  (21)                              For each estimated light source, we computed the dif-
+                                                                        ference in parameters from the true light source that was
+where Ic(j) is the value of color channel c for pixel j and             closest in direction to the estimated one. Table 5.2 shows
+(i) is a rectangular patch centered at pixel i. As de-                  the computed errors for light source direction and inten-
+scribed in [20], the bright channel cue is computed in mul-             sity, averaged over all images in the synthetic test set. We
+tiple scales, and confidence values are computed for each               also compare the estimation accuracy with the results from
+region based on hue differences across the region borders.              the voting algorithm used to initialize the MRF model pa-
+The confidences are combined across scales, and then dark               rameters. Our results demonstrate both the accuracy of our
+regions with low confidence are discarded (Fig.3).                      method and the robustness of the estimate with respect to
+                                                                        large inaccuracies in the geometry and initial shadow esti-
+5.2. Results                                                            mate.
+
+   We evaluated our approach using images collected un-                 5.2.2 Real Datasets
+der controlled illumination conditions in the lab, as well as
+with real-world images of cars collected from Flickr, and               We evaluated our approach further on images of the class
+the Motorbike images from Caltech 101 [17]. To visualize                "Motorbikes" of the Caltech 101 dataset [17]. For every
+the estimated illumination, we rendered a synthetic verti-              image in this dataset we used the same rough 3D model
+cal pole (sun dial) using the estimated light parameters and            representing an average motorbike, and the same average
+overlayed it to the original images.                                    camera parameters across all images. We demonstrate that
+                                                                        our algorithm can estimate the illumination effectively, de-
+                                                                        spite the variations in geometry, pose and camera position
+
+                                                                   678
+Figure 4. Results for the Motorbikes class of the Caltech101 dataset. A synthetic sun dial (orange) rendered with the estimated illumination
+is overlayed on each original image. A single 3D model capturing an average motorbike was used for the estimation in all instances, with
+the same average camera parameters.
+
+              Voting        Exact geometry  Approx. geometry        Approx. geometry + noisy shadow input
+  MRF(without shape prior)  12.30           12.86                   28.81
+                            8.04            12.53                   22.46
+    MRF(with shape prior)   6.77            13.38                   15.44
+MRF(HOCR [9])+shape prior   12.19           16.58                   26.64
+
+Table 1. Synthetic results: from left to right, we present the mean error in the estimated light directions on a synthetic dataset, using
+the exact geometry to do the illumination estimation; using geometry approximated by bounding boxes and a ground plane; and using
+approximate geometry and a noisy shadow input. Results are averaged over a random mix of images rendered with 1, 2 or 3 area light
+sources of random size. As expected, the benefit from the shadow shape-matching prior is largest in the case of noisy shadow input.
+
+in each individual image. Results are shown in Fig.4. The           6. Conclusions
+results show that our approach is robust enough to estimate
+the illumination by using the same generic 3D model for all            In this paper, we introduced a higher-order MRF model
+instances of a class of objects. In the most general case, an       to jointly estimate the illumination parameters and the cast
+object detector can be used to recognize objects of known           shadows, where the joint modeling of the low-level ev-
+classes in an image, and then simple common class geome-            idence and the high-level prior knowledge within a sin-
+try can be used to estimate the illumination from that image,       gle probabilistic model significantly improves the estima-
+combined with a horizon line estimator, without any other           tion performance. We presented results in various classes
+information provided by the user for each image separately.         of scenes, demonstrating the power of our MRF illumina-
+                                                                    tion model. Our results with the Caltech 101 dataset show
+   We also present results on images of cars collected from         that we can estimate the illumination environment using the
+Flickr (Fig.5). The geometry in these cases was a bounding          same geometry and even pose for a large class of scenes -
+box corresponding to the car body and the ground plane.             aided by an object detector in more complex environments.
+Camera parameters were matched manually. Results with               In many cases, as with our results on car images from Flickr,
+both the Caltech 101 dataset and the images in Fig.5 were           a bounding box is enough to perform estimation. The ex-
+obtained assuming one light source in the scene. Despite            periments show that our approach is more general and more
+our initial assumption of Lambertian reflectance, the results       robust than previous approaches in illumination estimation
+show that our algorithm can cope with the abundance of              and thus quite successful in real world images. Future work
+non-lambertian surfaces in these images.                            includes dual decomposition [13] for the optimization of
+                                                                    the MRF. Furthermore, we are interested in incorporating
+   Some cases where our algorithm fails are presented in            our method in more general scene understanding tasks, e.g.
+Fig.6. The two main reasons for failure are that either there       refining our knowledge of scene geometry from the illumi-
+are large, dark areas that get mistaken for shadows or that         nation estimates.
+the shadows are very dim and not well-defined, as is the
+case in cloudy days. In the case of the Caltech 101 dataset         Acknowledgments: This work was partially supported by
+another reason was that, for a few images, the common 3D            NIH grants 5R01EB7530-2, 1R01DA020949-01 and NSF
+model we used was imaged at a significantly different posi-         grants CNS-0627645, IIS-0916286, CNS-0721701.
+tion than the motorbike in the image.
+
+                                                               679
+Figure 5. Results with images of cars collected from Flickr. Top row: the original image and a synthetic sun dial rendered with the estimated
+illumination; Bottom row: the final shadow labels. The geometry consists of the ground plane and a single bounding box for the car.
+
+Figure 6. Some failure cases; top: the dark ground is mistakenly           [13] N. Komodakis and N. Paragios. Beyond pairwise energies:
+labeled as shadow; bottom: a very dim shadow and a dark ground                   Efficient optimization for higher-order mrfs. In CVPR, 2009.
+patch result in an incorrect shadow and illumination estimate.
+                                                                           [14] J.-F. Lalonde, A. A. Efros, and S. G. Narasimhan. Estimating
+References                                                                       natural illumination from a single outdoor image. In ICCV,
+                                                                                 2009.
+ [1] Y. Boykov and G. F. Lea. Graph cuts and efficient n-d image
+      segmentation. IJCV, 70(2):109­131, November 2006.                    [15] J.-F. Lalonde, A. A. Efros, and S. G. Narasimhan. Detect-
+                                                                                 ing ground shadows in outdoor consumer photographs. In
+ [2] M. Bray, P. Kohli, and P. H. S. Torr. Posecut: Simultane-                   European Conference on Computer Vision, 2010.
+      ous segmentation and 3d pose estimation of humans using
+      dynamic graph-cuts. In In ECCV, pages 642­655, 2006.                 [16] V. Lempitsky, C. Rother, , and A. Blake. Logcut - efficient
+                                                                                 graph cut optimization for markov random fields. In ICCV,
+ [3] G. Finlayson, M. Drew, and C. Lu. Intrinsic images by en-                   2007.
+      tropy minimization. In ECCV, 2004.
+                                                                           [17] F. Li, R. Fergus, and P. Perona. Learning generative vi-
+ [4] G. Finlayson, S. Hordley, C. Lu, and M. Drew. On the re-                    sual models from few training examples: An incremental
+      moval of shadows from images. PAMI, 28(1):59­68, 2006.                     bayesian approach tested on 101 object categories. CVIU,
+                                                                                 106(1):59­70, April 2007.
+ [5] R. C. Gonzalez and R. E. Woods. Digital Image Processing
+      (3rd Edition). Prentice-Hall, Inc., 2006.                            [18] Y. Li, S. Lin, H. Lu, and H.-Y. Shum. Multiple-cue illumi-
+                                                                                 nation estimation in textured scenes. In ICCV, 2003.
+ [6] P. L. Hammer, P. Hansen, and B. Simeone. Roof duality,
+      complementation and persistency in quadratic 0-1 optimiza-           [19] A. Panagopoulos, D. Samaras, and N. Paragios. Robust
+      tion. Mathematical Programming, 28:121­155, 1984.                          shadow and illumination estimation using a mixture model.
+                                                                                 In CVPR, 2009.
+ [7] K. Hara, K. Nishino, and K. Ikeuchi. Light source position
+      and reflectance estimation from a single view without the dis-       [20] A. Panagopoulos, C. Wang, D. Samaras, and N. Paragios.
+      tant illumination assumption. PAMI, 27(4):493­505, 2005.                   Estimating shadows with the bright channel cue. In CRICV
+                                                                                 2010 (in conjuction with ECCV'10), 2010.
+ [8] K. He, J. Sun, and X. Tang. Single image haze removal using
+      dark channel prior. In CVPR, 2009.                                   [21] R. Ramamoorthi, M. Koudelka, and P. Belhumeur. A fourier
+                                                                                 theory for cast shadows. PAMI, 27(2):288­295, 2005.
+ [9] H. Ishikawa. Higher-order clique reduction in binary graph
+      cut. In CVPR, 2009.                                                  [22] E. Salvador, A. Cavallaro, and T. Ebrahimi. Cast shadow seg-
+                                                                                 mentation using invariant color features. CVIU, 95(2):238­
+[10] T. Kim and K. Hong. A practical approach for estimating                     259, 2004.
+      illumination distribution from shadows using a single image.
+      IJIST, 15(2):143­154, 2005.                                          [23] I. Sato, Y. Sato, and K. Ikeuchi. Illumination from shadows.
+                                                                                 PAMI, 25(3):290­300, 2003.
+[11] V. Kolmogorov. Convergent tree-reweighted message pass-
+      ing for energy minimization. PAMI, 28(10):1568­1583,                 [24] C. Wang, M. De la Gorce, and N. Paragios. Segmentation,
+      2006.                                                                      ordering and multi-object tracking using graphical models.
+                                                                                 In ICCV, 2009.
+[12] V. Kolmogorov and C. Rother. Minimizing nonsubmodular
+      functions with graph cuts-a review. PAMI, 29(7):1274­1279,           [25] Y. Wang and D. Samaras. Estimation of multiple direc-
+      2007.                                                                      tional light sources for synthesis of augmented reality im-
+                                                                                 ages. Graph. Models, 65(4):185­205, 2003.
+
+                                                                           [26] Y. Yang and A. Yuille. Sources from shading. In CVPR,
+                                                                                 1991.
+
+                                                                           [27] W. Zhou and C. Kambhamettu. A unified framework for
+                                                                                 scene illuminant estimation. IVC, 26(3):415­429, 2008.
+
+                                                                           [28] J. Zhu, K. G. G. Samuel, S. Masood, and M. F. Tappen.
+                                                                                 Learning to recognize shadows in monochromatic natural
+                                                                                 images. In CVPR, 2010.
+
+                                                                      680
+

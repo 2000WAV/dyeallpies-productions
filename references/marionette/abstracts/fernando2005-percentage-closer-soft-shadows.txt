@@ -1,0 +1,22 @@
+Fernando, R. (2005). Percentage-Closer Soft Shadows. ACM SIGGRAPH 2005 Sketches.
+(NVIDIA developer presentation slides also archived under the same filename.)
+
+STATUS: full text/slides saved (NVIDIA developer mirror), text-extracted; see
+papers/fernando2005-percentage-closer-soft-shadows.pdf/.txt.
+
+SUMMARY: Introduces Percentage-Closer Soft Shadows (PCSS), the standard real-time
+approximation for shadows that get softer and wider with distance from the
+occluder, using a single shadow map. Core geometric relation, from similar
+triangles, assuming occluder, receiver and light are roughly parallel and the
+light is a small disk of known angular size: estimate the average blocker depth
+via a search around the receiver point, then set the penumbra width as
+w_penumbra = w_light times (d_receiver minus d_blocker) divided by d_blocker,
+where distances are measured from the light; use that width to set the
+percentage-closer-filtering kernel radius per pixel.
+
+RELEVANCE: this is the formula used in 05-camera-light-compositing.md to go from
+the hand's soft shadow on the wall, i.e. the measured penumbra width in the
+plate, back to either the window light's angular size (given the known
+hand-to-wall distance) or the hand-to-wall distance (given an assumed or measured
+window angular size). The two are degenerate from a single photo unless one of
+them is known independently, which the write-up flags explicitly.

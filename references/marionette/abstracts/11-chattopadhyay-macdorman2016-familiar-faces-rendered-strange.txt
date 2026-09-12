@@ -1,0 +1,35 @@
+Chattopadhyay, D., and MacDorman, K.F. (2016). Familiar Faces Rendered
+Strange: Why Inconsistent Realism Drives Characters into the Uncanny
+Valley. Journal of Vision 16(11):7, 1-25. DOI: 10.1167/16.11.7.
+
+STATUS: full text saved (MacDorman's own site); see
+papers/chattopadhyay-macdorman2016-familiar-faces-rendered-strange.pdf/.txt.
+
+SUMMARY: 365 participants categorized and rated objects, animals and humans
+whose realism was manipulated along two kinds of transitions: one that
+REDUCED realism CONSISTENCY across the image/features (some parts more
+realistic than others) and a matched control that reduced realism
+uniformly. Key result: reducing realism consistency did NOT make objects in
+general appear less familiar, but for animals and humans specifically it
+did, and specifically drove COLD, EERIE feelings (the uncanny-valley
+affect) -- i.e. the uncanny valley is better explained by INCONSISTENT
+realism across a humanlike figure than by low realism per se. A uniformly
+low-realism (fully stylized) character avoids the effect; a character that
+mixes realism levels across its features (a realistic face on a cartoonish
+body, or vice versa) is the actual trigger.
+
+KEY NUMBERS: n=365 participants; realism inconsistency measured
+objectively via a two-dimensional Morlet wavelet decomposition (a spatial-
+frequency-domain measure, not a simple percentage) rather than a single
+scalar -- no single "% inconsistency threshold" number is quotable from the
+abstract/intro; the qualitative finding (inconsistency, not low realism
+itself, drives eeriness) is the load-bearing result for this project.
+
+RELEVANCE: the single most directly load-bearing uncanny-valley citation
+for this project's ranked checklist (section 7): the marionette's smooth
+capsules/ellipsoids, single solid-red material, and uniform shading style
+should stay CONSISTENT across every body part -- adding, say, a highly
+detailed, differently-shaded face or hands while the rest of the body stays
+primitive-shaped would risk the exact inconsistency this paper shows
+triggers uncanny eeriness, worse than just leaving the whole figure
+uniformly stylized/low-realism as it is now.

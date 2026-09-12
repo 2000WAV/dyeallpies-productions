@@ -1,0 +1,35 @@
+Yamane, K., Hodgins, J.K., and Brown, H.B. (2003). Controlling a marionette with
+human motion capture data. Proceedings of the 2003 IEEE International Conference
+on Robotics and Automation (ICRA), pp. 3834-3841.
+
+ABSTRACT (as printed):
+In this paper, we present a method for controlling a motorized, string-driven
+marionette using motion capture data from human actors. The motion data must be
+adapted for the marionette because its kinematic and dynamic properties differ
+from those of the human actor in degrees of freedom, limb length, workspace, mass
+distribution, sensors, and actuators. This adaptation is accomplished via an inverse
+kinematics algorithm that takes into account marker positions, joint motion ranges,
+string constraints, and potential energy. We also apply a feedforward controller to
+prevent extraneous swings of the hands. Experimental results show that our approach
+enables the marionette to perform motions that are qualitatively similar to the
+original human motion capture data.
+
+KEY NUMBERS / DETAILS PULLED FROM THE FULL TEXT (papers/yamane2003-marionette-icra.pdf
+/.txt):
+- The physical marionette used is about 60 cm tall (roughly twice the ~30 cm figure
+  planned for this project).
+- The shoulder and elbow joints have cloth stops to prevent unrealistic joint angles --
+  i.e. the joint's range of motion is limited passively by a soft cloth stop, not a rigid
+  mechanical hinge stop. This is the closest primary-source number this search found for
+  "how limp is a marionette joint": the joint is otherwise free/underdamped, and only a
+  soft cloth tether stops over-rotation.
+- Swing dynamics of the hands (after a string is released/slackened) are modeled as a
+  pendulum with a moving base; the linearized equation of motion is of the form
+  y'' = -(g/l)(x - y) - d y', with l the pendulum length and d a damping term fit
+  experimentally per joint (exact fitted value of d not given in the extracted text --
+  NOT FOUND as a number, only as a fitted-per-joint free parameter of their model).
+- The dynamic model treats each string as a constraint that goes slack whenever the
+  required tension would be negative (string can only pull), consistent with the
+  unilateral-tendon description also used by Johnson & Murphey (2007, see
+  johnson2007-dynamic-modeling-marionettes.txt) and adopted for MuJoCo's own
+  "unactuated tendon with range [0 X]" cable behaviour.

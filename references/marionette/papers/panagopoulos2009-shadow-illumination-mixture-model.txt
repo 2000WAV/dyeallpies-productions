@@ -1,0 +1,556 @@
+Robust Shadow and Illumination Estimation Using a Mixture Model
+
+           Alexandros Panagopoulos1, Dimitris Samaras1 and Nikos Paragios2,3
+   1Image Analysis Lab, Computer Science Dept., Stony Brook University, NY, USA
+
+           2Laboratoire MAS, Ecole Centrale Paris, Chatenay-Malabry, France
+              3Equipe GALEN, INRIA Saclay - Ile-de-France, Orsay, France
+
+                    {apanagop,samaras}@cs.sunysb.edu, nikos.paragios@ecp.fr
+
+                        Abstract                                   and the relative position of objects, as well as the charac-
+                                                                   teristics of the light sources. The detection of shadows can
+   Illuminant estimation from shadows typically relies on          aid important computer vision tasks such as segmentation
+accurate segmentation of the shadows and knowledge of ex-          and object detection. In the field of computer graphics, il-
+act 3D geometry, while shadow estimation is difficult in the       lumination information is necessary for Augmented Real-
+presence of texture. These can be onerous requirements;            ity ([1]) applications, where virtual objects are inserted and
+in this paper we propose a graphical model to estimate             seamlessly integrated into a real scene. The distribution of
+the illumination environment and detect the shadows of a           the real light sources is necessary in order to render the vir-
+scene with textured surfaces from a single image and only          tual objects in a way that matches the existing image, and
+coarse 3D information. We represent the illumination en-           have them cast convincing shadows on the real scene.
+vironment as a mixture of von Mises-Fisher distributions.
+Then, each shadow pixel becomes the combination of sam-               In the computer vision community, there has been much
+ples generated from this illumination environment. We inte-        research in extracting illumination from shading, specular
+grate a number of low-level, illumination-invariant 2D cues        reflection or shadows of objects. In [22] a method was pro-
+in a graphical model to detect and estimate cast shadows on        posed for detecting a small number of light source direc-
+textured surfaces. Both 2D cues and approximate 3D rea-            tions using critical points, and [21] extended it to an image
+soning are combined to infer a set of labels that identify the     of an arbitrary object with known shape, combining infor-
+shadows in the image and estimate the positions, shapes            mation both from shading and cast shadows. Sato et al.
+and intensities of the light sources. Our results demonstrate      ([20]) proposed a method for estimating the illumination
+that the probabilistic combination of multiple cues, unlike        distribution of a real scene from shadows. Their assump-
+prior approaches, manages to differentiate both hard and           tion is that an object of known shape is illuminated by dis-
+soft shadows from the underlying surface texture even when         tant light sources, casting its shadows onto a planar lamber-
+we can only coarsely anticipate the effect of 3D geometry.         tian surface. In [9], the distant illumination assumption is
+We also experimentally demonstrate how correct estimation          removed and simultaneous illumination and reflectance es-
+of the sharpness and shape of the light sources improves the       timation is performed. Recently, Zhou et al.([24]) proposed
+Augmented Reality results.                                         a unified framework to estimate both distant and point light
+                                                                   sources. These approaches require precise geometry and
+1. Introduction                                                    assume that the surface is not textured.
+
+   The image formation process is a function of three com-            There are significantly fewer illumination estimation re-
+ponents: the 3D geometry of the scene, the reflectance of          sults using shadows cast on textured surfaces. In [20], an
+the different surfaces in it, and the distribution of lights       extra image is necessary to deal with texture. In [15] a
+around it. Much work has been done in estimating one or            method is proposed that integrates multiple cues from shad-
+two of these components, assuming that the rest are known          ing, shadow, and specular reflections for estimating a small
+([22], [21], [15], [18]). In illumination estimation, a com-       number of directional illuminants in textured environments.
+mon and important assumption has been that the geome-              However, the method does not seem to be applicable to
+try of the scene is known and well-defined, combined with          complex light sources such as area lights. Another approach
+strong assumptions about reflectance. In this work, based          proposed in [14] uses regularization by correlation to esti-
+on the information provided by cast shadows, we attempt to         mate illumination from shadows when texture is present.
+relax these assumptions.                                           Their method, however, requires some extra user-specified
+                                                                   information, while also assuming that surface reflectance is
+   Shadows in an image provide useful information about            lambertian and the objects are of known shape.
+the represented scene: they provide cues about the shapes
+                                                                      A lot of work has been done in the related area of shadow
+
+                                                                1
+detection, without estimating illumination or knowledge of       algorithm outputs a set of shadow labels and the parameters
+3D geometry. [19] uses invariant color features to segment       that define the light source distribution.
+cast shadows in still or moving images. In [5], [6], a new
+set of illumination invariant features is proposed to detect        This combination of multiple cues enables more reliable
+and remove shadows from a single image with very good            shadow detection in our approach. At the same time, the
+results. This method, however, is better suited to images        more compact formulation of the illumination estimation
+with relatively sharp shadows and makes several assump-          problem enables the selection of parameters by accumulat-
+tions about the lights and the camera. Other papers have fo-     ing a large amount of global evidence, impervious to out-
+cused on shadow detection in video ([16], [13], [12], [17],      liers. Another reason why the proposed mixture model is
+[23]). Illumination invariant features have proven very use-     well-suited to the problem is that it enables important pa-
+ful in segmenting shadows. They have, however, limita-           rameters such as shape and intensity of each light distribu-
+tions separating shadow from texture, while they also do         tion to be directly estimated from the image.
+not guarantee that the shadows identified will have global
+consistency and/or any relationship with the scene geome-           Summarizing, the contributions of the paper are:
+try.
+                                                                    - we associate a mixture of von Mises-Fisher distribu-
+   As already mentioned, illumination estimation algo-                 tions with the generation of cast shadows in an image
+rithms typically require precise knowledge of geometry. In
+many cases, however, only very coarse geometry may be               - the above leads to a compact representation of the illu-
+available, either from user input or from a generic model of           mination which allows for robust estimation, relatively
+a detected object class (e.g. car, human etc). In this paper           insensitive to inaccuracies in 3D geometry and shadow
+we propose a method which combines 2D cues, such as il-                estimation.
+lumination invariant features, with 3D reasoning to identify
+shadows and estimate the illumination environment. Our              - we integrate low-level cues obtained from illumina-
+method is based on modeling illumination as a mixture of               tion invariant features with 3D reasoning in a graphical
+von Mises-Fisher distributions ([2]), which can intuitively            model to enable shadow inference for textured surfaces
+be thought as Gaussian distributions on a sphere, and us-
+ing a graphical model to do the shadow segmentation. It             We validate our method by applying it to a dataset fea-
+requires only coarse knowledge of the 3D geometry for il-        turing images of simple objects in backgrounds that contain
+lumination estimation; meanwhile, the knowledge of geom-         significant texture, under known and controlled illumina-
+etry assists in detecting shadows, enforcing global consis-      tion, as well as to a more challenging set of photographs
+tency. Graphical models such as the one we will describe         of outdoor scenes involving geometrically complicated ob-
+have been used successfully in many computer vision prob-        jects. We demonstrate that even when complex objects,
+lems ([3], [11], [4]). Mixtures of von Mises-Fisher distri-      such as a tree or a human, are modeled with simple bound-
+butions have been used in modeling illumination estimated        ing boxes, in natural scenes involving texture, our method
+from specular highlights ([10]) and filtering normal maps        is able to get a close approximation to the original illumina-
+([8]). A step by step overview of our method follows:            tion.
+
+   We describe illumination as a mixture of von Mises-              The paper is organized as follows: Sec.2 gives neces-
+Fisher distributions. Our goal is to estimate the parameters     sary background information; Sec.3 presents our model and
+of the distributions in this mixture. Given a single input im-   the EM algorithm to perform inference with it; in Sec.4,
+age and a coarse model of the geometry of the scene, we first    shadow detection from illumination invariant features and
+extract a set of illumination invariant features. Then illumi-   their integration to our model is discussed; in Sec.5, the es-
+nation parameters are estimated using the EM algorithm. In       timation of the parameters of the light source distributions
+the E-step, we segment shadows, given the 2D cues (inten-        in the mixture model is presented; results demonstrating the
+sity variations and illumination invariant features), and in-    performance of our approach are presented in Sec.6, and in
+put from the interaction of the light sources with the geom-     Sec.7 conclusions and future extensions are discussed.
+etry. This segmentation is performed using belief propaga-
+tion in a graphical model which integrates the above infor-      2. Background
+mation. Afterwards, we update the expectations of the hid-
+den variables that relate shadow pixels to the light sources in     The inputs to our algorithm are the image I and a coarse
+our model. Given these expectations, in the M-step we es-        3D model of the geometry G. We assume light sources are
+timate the mean direction of the light source distributions.     distant. Therefore, illumination can be approximated as a
+We also estimate the intensities and shapes of these distri-     mixture of light distributions on a unit sphere of light di-
+butions, using information directly from the image. The          rections. For each pixel i, a set Ri of N random 3D unit
+                                                                 vectors expressing directions in 3D space is used to produce
+                                                                 N samples of the illumination environment. We model the
+                                                                 light source distributions as von Mises-Fisher distributions.
+2.1. The von Mises-Fisher distribution                          3.1. The Generalized EM algorithm
+
+   A 3-dimensional unit random vector x (i.e., x  R3 and           The problem of estimating the illumination from cast
+ x = 1) is said to have a 3-variate von Mises-Fisher (re-       shadows, given the above model, can be regarded as the
+ferred to as vMF henceforth) distribution [2] if its probabil-  problem of estimating the mixture of vMF distributions de-
+                                                                fined in eq.4. For this estimation problem we use the EM
+ity density function has the form:                              algorithm, which has been used widely to estimate the pa-
+                                                                rameters of mixture models due to its simplicity and numer-
+          f (x|µ, ) =                eµT x          (1)         ical stability. We will adopt and modify the soft-assignment
+                                                                scheme described by Banerjee et al. ([2]) to estimate the
+                        4 sinh k                                parameters of a mixture of vMF distributions.
+
+where µ is the mean direction,  is the concentration pa-           Let X = {x1, ..., xP } the set of pixels in the image and
+rameter, µ = 1 and   0. The concentration parame-               L = {L1, ..., LM } the set of light source distributions. For
+ter  defines how strongly samples drawn from the distri-        each pixel, a set of N sample directions is used. Therefore,
+bution are concentrated around the mean direction µ. The        the data points for our mixture model are the random sample
+von Mises-Fisher distribution is the equivalent of a Gaus-      directions R = {r1, ..., rP N } used. Our algorithm chooses
+sian distribution on a sphere, and it is used widely in direc-  randomly M points as the cluster means µj for each light
+tional statistics.                                              source distribution j, and then repeats the following steps:
+
+3. Model description                                            3.1.1 E-step
+
+In this section, we formulate the generation of cast shad-      At each iteration, in the E-step we detect shadow pixels, cal-
+
+ows as a mixture of vMF distributions on the unit sphere,       culating the probability P (si|I, ) that pixel xi is in shadow,
+                                                                given the current estimate of the parameters , and then we
+and present the general EM framework to estimate the pa-
+rameters of this mixture model.                                 estimate the new values of the parameters for only one dis-
+
+We assume that light sources are distant. Let i be a pixel      tribution j in each iteration.
+                                                                   To estimate the expected shadow values ISj due to light
+of the original image. We sample the incoming radiance at
+this pixel along N randomly chosen directions. The radi-        distribution j, we sample the corresponding vMF distribu-
+ance L(i) arriving at pixel i can be discreetly approximated
+                                                                tion using the accept-reject algorithm to generate a set of
+
+by the sum of the incoming radiance along each direction        incoming light directions D = d1, ..., dQ for each pixel i.
+
+rk.                        N                                    The normalized sum of rays dk that do not intersect the ge-
+                                                                ometry is used to estimate the expected shadow value ISj (i).
+                L(i) = L(rk)                        (2)
+                                                                   The probability that pixel i is in shadow cast due to light
+
+                           k=1                                  distribution j, given our current estimate of the parameters
+
+A light source contributes to the radiance along direction rk   , is modeled as the probability that pixel i has been labeled
+only if the ray from the 3D position of pixel i along direc-
+                                                                as shadow, and that the expected shadow intensity by all
+tion rk does not intersect the geometry of the scene G. We
+define the occlusion factor ci(rk) for ray rk from pixel i as:  distributions other than j does not explain pixel i:
+
+                                                                                                                         
+
+                                                                                                        M                
+
+          0, if ray from i along rk intersects G                qj(xi|I, )  P (si|I, ) max IS(xi) - ISk, 0 ,
+          1, otherwise
+ci(rk) =                                            (3)                                                 k=1,k=j 
+
+                                                                                                                         (5)
+
+The incoming radiance at pixel i can then be expressed as:      where IS(xi) is the shadow intensity value, as estimated
+                                                                in Sec.5. For the first EM iteration, when there is no such
+
+                                                                estimate, IS(xi) = 1 if pixel i is labeled as shadow, and 0
+                                                                otherwise.
+                N                 M
+
+          L(i) = ci(rk) lj(rk),                     (4)
+
+                k=1             j=1                             We update the expectation for each hidden variable hi,k,
+
+where M is the number of distributions used to approxi-         associated to sample direction rk for pixel i, using the fol-
+
+mate the illumination, and lj(rk) is the value of light dis-    lowing rule:                 1 - ci(rk)               ×
+                                                                 pj(hi,k|I, )  qj(xi|I, )  m=k (1 - ci(rm))
+tribution j along direction rk. We model each light dis-
+
+tribution j as a von Mises-Fisher distribution, with mean                                  ×    f (rk|µj, j)             (6)
+
+direction µj, concentration parameter j and intensity j.                                        M    f  (rk|µn  ,  n)
+                                                                                                n=1
+We assume that  M    j  =  1.  Therefore,  we  can  describe
+                j=1
+                                                                3.1.2 M-step
+the illumination environment using the set of parameters        In the M-step, we update the parameters  for each k=1...M.
+                                                                The mean directions µj are estimated based on the point
+ = {µ1, 1, 1, ..., µM , M , M }, which we need to es-
+
+timate.
+estimator for the mean of a vMF distribution:
+
+       1  P        1
+       P          |Ri|
+µj  =                           pj (hi,k|I,  )rk       (7)
+
+          i=1              kRi
+
+The concentration parameters j and the intensities j are
+estimated directly from the image, as described in Sec.5.
+
+3.2. Shadow detection in the E-step                               Figure 1. Illumination invariant images: a) original image, b) nor-
+                                                                  malized rgb, c) c1c2c3, d) the 1d illumination invariant image ob-
+   In the E-step of the EM algorithm described above, we          tained using the approach in [6]. Notice that in all three illumina-
+used the probability that a pixel i belongs to a cast shadow.     tion invariant images, the shadow is much less visible than in the
+Estimating these probabilities is a labeling problem, where       original.
+we want to assign a set of labels S = {si|i  P } to all
+image pixels, identifying shadows:
+
+s(i) =       +1, if pixel i is in shadow               (8)
+             -1, otherwise
+
+As we mentioned, we use a number of 2D cues coming from           Having such a representation, we can compare gradients
+illumination invariant representations of the image (fig.1),      in the original image with gradients in the illumination-
+combined with information from 3D reasoning to estimate           invariant representation to attribute the gradient to either
+the shadow labels. The probability of the shadow labels S         shadows/shading or texture. Having identified shadow bor-
+is modeled as:                                                    ders this way, we can produce a set of labels identifying
+                                                                  shadows in the original image.
+                                                    
+                                                                     Illumination-invariant image cues are not sufficient in
+P (S|I, ) = P (si|) P (si, sj|I) (9)                              the general case, however, and more complicated reason-
+                                                                  ing is necessary for more accurate shadow detection. An
+               i                j                                 example of this can be seen in figure 1, which shows the il-
+                                                                  lumination invariant features we use for an example image.
+The term P (si|) models the probability that pixel i is in        Edges due to illumination, although dimmer, are still noti-
+shadow given the current estimate of the illumination, and        cable, while some texture edges are not visible. Enforcing
+                                                                  consistency between the shadow and the scene geometry re-
+enforces geometrically meaningful shadows. It is approxi-         moves many falsely detected shadow edges (fig.2).
+                                        M
+mated using the expected shadow values  j=1    ISj  ,  spatially
+
+smoothed. The term P (si, sj|I) represents the probability
+
+that pixel i is in shadow, given a set of features for pixel i
+
+and a neighboring pixel, j. These features define potential       4.1. Illumination-invariant cues
+
+shadow borders in the image, separating image gradients
+
+due to shadow from the ones related to texture. The compu-           Photometric color invariants are functions which de-
+                                                                  scribe each image point, while disregarding shading and
+tation of shadow borders is discussed in section 4.               shadows. These functions are demonstrated to be invari-
+                                                                  ant to a change in the imaging conditions, such as view-
+Our mixture model along with equation 9 define a fac-             ing direction, object's surface orientation and illumination
+                                                                  conditions. Some examples of photometric invariant color
+tor graph, containing one node for each pixel in the im-          features are normalized RGB, hue, saturation, c1c2c3 and
+                                                                  l1l2l3 [7]. A more complicated illumination invariant rep-
+age. Each probability in eq.9 becomes a factor, resulting         resentation specifically targeted to shadows is described in
+                                                                  [6]. In this work, three illumination-invariant representa-
+in a graph formed as a 2D lattice with hidden variables. In-      tions are integrated into our model: normalized rgb, c1c2c3
+                                                                  and the representation proposed in [6] (displayed in figure
+ference to find the labels si at each step is performed using     1).
+
+loopy belief propagation.                                            The c1c2c3 invariant color features are defined as:
+
+4. Detecting shadows                                              ck (x,  y)  =  arctan                    k(x, y)      y))
+                                                                                         max(k+1mod3(x, y), k+2mod3(x,
+   Separating shadows from texture is a difficult prob-
+lem. In our case, we want to reason about gradients in                                                                  (10)
+the original image and attribute them to either changes in
+shadow or to texture variations. For this purpose, we use
+three illumination-invariant image representations. Ideally,
+an illumination-invariant representation of the original im-
+age will not contain any information related to shadows.
+where k(x, y) is the k-th RGB color component for pixel            Figure 2. Shadow borders: a) original image, b) estimate using
+(x, y).                                                            only 2D cues, c) refined estimate after first iteration
+
+   We only use the 1d illumination invariant representation
+proposed in [6]. For this representation, a vector of illu-
+minant variation e is estimated. The illumination invariant
+
+features are defined as the projection of the log-chromaticity
+vector x of the pixel color with respect to color channel p
+to a vector e orthogonal to e:
+
+I = x T e                                             (11)         where Ii(nkv)ar is the result of a step filter oriented along the
+                                                                   image gradient and applied to illumination invariant image
+xj          =  k , k    1, 2, 3, k  =  p, j  =  1, 2  (12)         k, k = 1, 2, 3. The parameters 0, ..., 3 are learned directly
+               p                                                   from data, as the values that best separate shadow borders
+                                                                   from edges not related to shadows in the training set. We
+and k represents the k-th RGB component.                           prefer this method over directly comparing with edges in
+   These illumination invariant features assume narrow-            the illumination invariant image (as in [6] for example) in
+                                                                   order to deal with very soft shadows and edge localization
+band camera sensors, Planckian illuminants and a known             differences in the original and the invariant image.
+sensor response, which requires calibration. We circum-
+vent the known sensor response requirement by using the               Because the illumination invariant features often either
+entropy-minimization procedure proposed in [5] to calcu-           contain some illumination information, or omit some infor-
+late the illuminant variation direction e. Futhermore, it has      mation that is not related to illumination, the shadow bor-
+been shown that the features extracted this way are suffi-         ders detected using the above method generally include bor-
+ciently illumination-invariant, even if the other two assump-      ders that are not related to shadows (figure 2.b). To alleviate
+tions above are not met ([6]).                                     this problem, we take advantage of the current estimate of
+                                                                   the illumination to remove unreasonable shadow borders,
+   Figure 1 shows the resulting illumination invariant im-         by defining the final shadow edges as:
+ages. It is easy to notice that some texture edges do not ap-
+pear in the illumination invariant images in any of the repre-     Es(x, y) = es(x, y) IS                          (14)
+sentations, especially in the case of edges between texture
+patches with large intensity differences and similar color.        where IS is the shadow map expected from our current esti-
+This leads to erroneously classifying some edges as shadow         mate of the illumination parameters,  and the rough geom-
+borders. These false positives will be removed later in our        etry G, smoothed with a gaussian filter. The refined shadow
+algorithm, utilizing the 3d reasoning about shadows.               borders after the first iteration are shown in figure 2.c.
+
+4.2. Identifying shadow borders                                    4.3. Integrating shadow borders to our graphical
+                                                                         model
+   A border which appears in the original image but not
+in the illumination invariant images is a border which can            Shadow borders are integrated in our graphical model by
+be attributed to illumination effects. Therefore, to identify      the term P (si, sj|I) in eq.9, which defines the probability of
+potential shadow borders, edges are detected in the origi-         the pair of labels for pixels i and j given the corresponding
+nal image and each edge is checked against the illumination        image features. If pixels i and j do not belong to an image
+invariant images. Calculating edges as simple finite differ-       border, then this term enforces uniformity of labels, so it
+ence approximations to gradients leads to a lot of noise, de-      becomes:
+tecting edges that are not important. To solve this, we apply
+a smoothing filter to the original image, and then use the         Puniform(si, sj |I) =  1 - 1, if si = sj        (15)
+Canny edge detector to detect edges.
+                                                                                          1,  otherwise
+   We do not calculate similar edge maps from the illumi-
+nation invariant images. Instead, for each pixel that lies on      If one of i and j belongs to a shadow edge, this term en-
+an edge in the original image, we compare the difference           forces a transition in the labels from i to j. The probability
+of the average values of the illumination invariants along         of the pair of labels of i and j becomes:
+the direction of the gradient in the original image. Thus the
+shadow border map is defined as:                                     1 - 2,                   si = +1, Ii    < Ij
+                                                                   
+
+                                                                   Pborder(si, sj |I) = 1 - 2, sj = +1, Ij < Ii
+
+               1, if I > 0 and |Ii(nkv)ar| < k                      2,                        otherwise
+               0, otherwise
+es(x, y) =                                                                                                         (16)
+                                                             (13)
+                                                                   In the above equations, si = +1 if pixel i is in shadow
+
+                                                                   and the constants 1 and 2 are learned from the training
+data. We do not assume that P (si, sj|I) has a distribution                                                                convergence
+dependent on the difference of the intensities of i and j in
+order to make possible the detection of dim shadows. Often                                                       30
+the intensity changes over falsely detected shadow edges are
+much larger than the ones over real shadow borders.                                                                            mean direction error, image 6.a
+
+                                                                                                                               mean direction error, image 6.b
+
+                                                                                                                 25            mean direction error, image 6.c
+                                                                                                                               mean direction error, image 5.a
+
+                                                                                        angular error (degrees)  20
+
+5. Estimating  and intensity                                                                                     15
+
+    Estimating the concentration parameter  for a mixture                                                        10
+
+of vMF distributions requires significant approximations
+
+([2]). In our model, it becomes even more difficult because                                                      5
+
+the values of the samples are not individually observed; in-
+
+stead, only their per-pixel sums are known. It is easy to                                                        0   0  5  10             15  20                25
+
+observe, though, that there is a clear connection between                                                                      iteration
+
+the shadow edge gradients, as they appear in the image,                                 Figure 3. Convergence: the plot shows the mean error (in degrees)
+                                                                                        between the estimated light source directions for each iteration and
+and the concentration parameter of the light source distri-                             the final parameter values from our algorithm
+
+butions. We exploit this connection to derive an estimator
+
+for .        i
+             S
+    Let   I     be  the   image     of   the  shadow     intensities   attributed
+
+to light source distribution i. Assuming that the shadow
+
+intensities are known, the relation connecting the gradient
+
+of  I  i  and    the   parameter      i,  using    a     linear  approximation
+       S
+for ex, is:
+i(x, y)             I     i  (x,  y)  -       rR1 o(r) - rR2 o(r)
+                          S
+
+                                rR1 o(r)rµi - rR2 o(r)rµi                      (17)
+
+where R1 and R2 are the samples at (x, y) and (x+x, y +
+
+y) respectively.
+
+    To    estimate     the   true  shadow     image   gradient      I  i    relevant
+                                                                       S
+
+to light source distribution i, for each shadow edge pixel
+
+(x, y), we project the image gradient along the direction of
+
+the expected shadow gradient, ISi , given the current illu-
+
+mination estimate:                                                                      Figure 4. Comparison of real and synthesized shadows: a,b) pho-
+                                                                                        tographs under same illumination, c) estimated illumination from
+                 I     i  (x,   y)    =  ISi (x, y)I(x, y)                     (18)     (a), d) a picture of the background with the object removed, e) a
+                       S                   i ISi (x, y)                                 3D model of the original object rendered with the estimated illu-
+                                                                                        mination, and superimposed on the background image of (d). The
+where i is the current estimate of the intensity of light                               shadows in this image are rendered with the estimated illumination
+source i. ISi has been smoothed using a gaussian filter.                                and cast on the background image.
+
+   To estimate , we compute the estimate from eq.17 for                                 i is set to the mean of all I(x, y), for shadow edge pixels
+                                                                                        (x, y). Intensities are normalized so that i i = 1.
+all pixels located around the identified shadow borders. The
+                                                                                        6. Results
+estimate of i is selected to be the maximum of all per-pixel
+                                                                                           For all of our experiments, 200 random samples of the
+estimates from eq.17. In practice, we discard the top 1% of                             illumination sphere per pixel were used. A maximum of
+                                                                                        40 EM iterations and 1500 iterations for the belief propaga-
+values as outliers and select the maximum of the remaining                              tion in the factor graph were performed. The average run-
+                                                                                        ning time of the algorithm was 3-5 minutes per image (For
+values as the value of i.                                                               performance reasons, several EM iterations were performed
+                                                                                        before successive applications of belief propagation in the
+    Intensity estimation is also based on shadow borders.                               E-step). On average, our algorithm needed 15 to 20 EM it-
+                                                                                        erations per light source distribution to converge (see Fig.3).
+For each pixel (x, y) that lies on an identified shadow edge,
+
+I   i  (x,   y)  defines     a  direction     perpendicular      to    the  shadow
+    S
+                                                                            i
+edge.     We select two samples p1                 =  (x,  y)    +  t1I     S  (x,  y)
+
+and p2      =    (x,  y)  +  t2I      i  (x,  y).  We increment t1          and t2
+                                      S
+                                              i                     i
+until we find       a  minimum        of  I   S    (p1)  and  I     S  (p2).   Then
+
+p1 lies in the shadow umbra and p2 is outside the shadow.
+
+The intensity difference I(x, y) = I(p2) - I(p1) is an
+
+estimate of the shadow intensity. The light source intensity
+Figure 5. Results for different textures with our dataset: the original images are in the first row, the shadows as rendered from the coarse 3D
+model (used for the estimation) and the estimated illumination, using the same viewpoint as the original image, are in the second row, and
+the third row shows the illumination sphere as viewed from the top of the scene. Images a, c and d have been captured using the same lights
+setup. The mean difference of light source directions from these 3 images and 2 more with the same original illumination and different
+background (not shown here) was 4.92 degrees. Images e and f were captured using 3 light sources.
+
+Figure 6. Results with our dataset: For each of 4 input images, clockwise, the original image, the labeling before the first iteration (using
+only 2D cues), the final labeling, and the coarse 3D model rendered with the estimated illumination are displayed. Notice that even in a
+difficult case, such as image d, where the initial shadow labeling is very poor, our algorithm is able to discover the shadows and estimate
+the illumination.
+
+The 3D models we used to approximate the geometry con-           for directions estimated under the same illumination, for the
+sisted of 8 to 15 polygons each for all results presented here.  same object but with 5 textured backgrounds (3 of the 5 are
+                                                                 in Fig.6 a, c and d) was 4.92 degrees. The estimation of the
+   A dataset of 58 pictures captured in a controlled envi-       concentration parameter  is often inaccurate, especially in
+ronment, using various background textures, was used to          the presence of texture. A better separation of texture and
+evaluate the algorithm. The geometry of the objects and the      shadow is required for better estimation of .
+illumination environment were both known in these cases. 5
+of the images were used to learn the parameters for shadow          The number of distributions used in the mixture model
+border detection and the rest were used for testing. Results     does not affect the results substantially. If the number of
+in some representative examples of images are displayed in       distributions used is larger than necessary, the distribution
+Fig.5 and 6. In Fig.4 we show the augmentation of a real         means tend to cluster together in clusters that correspond
+scene with a synthetic object, compared to the image of the      to the actual lights. When the number of distributions is
+actual object in the scene.                                      less than that of the major light sources, our model tends to
+                                                                 select some of the shadows, leaving others unexplained.
+   The algorithm was also tested against 3 images of natural
+scenes. The parameters used were the same ones used with         7. Conclusions
+our collected dataset. These images were taken outdoors,
+so they involved only one major light source, the sun. How-         In this paper we described a new method to identify
+ever, they also involved texture, complex backgrounds and        cast shadows and model their generation using a mixture
+very complicated geometry, which we approximated with            of vMF distributions. Our model requires a single input
+simple box-like models. The results are shown in Fig.7.          image and a coarse 3D model to describe the scene geom-
+                                                                 etry, and is robust to poor geometry information and poor
+   The mean direction of the light source distributions is es-
+timated accurately under varying textures. The mean error
+Figure 7. Results with photographs from Flickr. Top: original         [6] G. Finlayson, S. Hordley, C. Lu, and M. Drew. On the
+image, Bottom: the rough 3D model used for illumination esti-              removal of shadows from images. IEEE Trans. PAMI,
+mation, rendered with the estimated illumination under the same            28(1):59­68, 2006.
+viewpoint. Notice that despite the inaccuracies of the 3D models
+(mainly boxes), the shadows match well.                               [7] T. Gevers and A. W. M. Smeulders. Color based object
+                                                                           recognition. Pattern Recognition, 32:453­464, 1999.
+initial shadow labeling. Furthermore, the illumination esti-
+mation results are independent of the texture of the surfaces         [8] C. Han, B. Sun, R. Ramamoorthi, and E. Grinspun. Fre-
+on which shadows are cast. The ability to model scene ge-                  quency domain normal map filtering. ACM Trans. on Graph-
+ometry with 3D models as coarse as simple bounding boxes                   ics (Proc. of SIGGRAPH 2007), 26(3):28, 2007.
+would make it possible to use our algorithm in combination
+with e.g. object detectors instead of full geometry, com-             [9] K. Hara, K. Nishino, and K. Ikeuchi. Light source position
+bined with a camera position estimate. Our results show                    and reflectance estimation from a single view without the dis-
+that our method can be useful not only in estimating illumi-               tant illumination assumption. IEEE Trans. PAMI, 27(4):493­
+nation for augmenting a real scene with synthetic objects,                 505, 2005.
+but also for tasks such as segmentation and more general
+reasoning about the 3D scene represented by an image. Our            [10] K. Hara, K. Nishino, and K. Ikeuchi. Mixture of spherical
+work could be extended in the future with a stronger as-                   distributions for single-view relighting. IEEE Trans. Pattern
+sociation of the estimated shadow information with image                   Anal. Mach. Intell., 30(1):25­35, 2008.
+intensity to perform shadow removal.
+                                                                     [11] D. Hoiem, A. A. Efros, and M. Hebert. Putting objects in
+References                                                                 perspective. IJCV, 80(1):3­15, 2008.
+
+ [1] R. Azuma. A survey of augmented reality. In Com-                [12] J. Hsieh, W. Hu, C. Chang, and Y. Chen. Shadow elimination
+      puter Graphics (SIGGRAPH'95 Proceedings, Course Notes                for effective moving object detection by gaussian shadow
+      9: Developing Advanced Virtual Reality Applications, 1995.           modeling. Image and Vision Computing, 21(6):505­516,
+                                                                           2003.
+ [2] A. Banerjee, I. S. Dhillon, J. Ghosh, and S. Sra. Clustering
+      on the unit hypersphere using von mises-fisher distributions.  [13] A. Joshi and N. Papanikolopoulos. Learning to detect mov-
+      Journal of Machine Learning Research, 6:1345­1382, 2005.             ing shadows in dynamic environments. IEEE Trans. PAMI,
+                                                                           30:2055­2063, 2008.
+ [3] S. T. Birchfield, B. Natarajan, and C. Tomasi. Correspon-
+      dence as energy-based segmentation. Image and Vision Com-      [14] T. Kim and K. Hong. A practical approach for estimating
+      puting, 25(8):1329­1340, 2007.                                       illumination distribution from shadows using a single image.
+                                                                           International Journal of Intelligent Systems and Technolo-
+ [4] M. de la Gorce, N. Paragios, and D. Fleet. Model-based hand           gies, 15(2):143­154, 2005.
+      tracking with texture, shading and self-occlusions. In CVPR,
+      pages 1­8, 2008.                                               [15] Y. Li, S. Lin, H. Lu, and H.-Y. Shum. Multiple-cue illumi-
+                                                                           nation estimation in textured scenes. In ICCV, pages 1366­
+ [5] G. Finlayson, M. Drew, and C. Lu. Intrinsic images by en-             1373, 2003.
+      tropy minimization. In ECCV, pages 582­595, 2004.
+                                                                     [16] H. Nicolas and J. Pinel. Joint moving cast shadows segmen-
+                                                                           tation and light source detection in video sequences. Signal
+                                                                           processing:Image communication, 21:22­43, 2006.
+
+                                                                     [17] F. Porikli and J. Thornton. Shadow flow: A recursive method
+                                                                           to learn moving cast shadows. In ICCV, pages I: 891­898,
+                                                                           2005.
+
+                                                                     [18] R. Ramamoorthi, M. Koudelka, and P. Belhumeur. A fourier
+                                                                           theory for cast shadows. IEEE Trans. PAMI, 27(2):288­295,
+                                                                           2005.
+
+                                                                     [19] E. Salvador, A. Cavallaro, and T. Ebrahimi. Cast shadow
+                                                                           segmentation using invariant color features. Comput. Vis.
+                                                                           Image Underst., 95(2):238­259, 2004.
+
+                                                                     [20] I. Sato, Y. Sato, and K. Ikeuchi. Illumination from shadows.
+                                                                           IEEE Trans. PAMI, 25(3):290­300, 2003.
+
+                                                                     [21] Y. Wang and D. Samaras. Estimation of multiple direc-
+                                                                           tional light sources for synthesis of augmented reality im-
+                                                                           ages. Graphical Models, 65(4):185­205, 2003.
+
+                                                                     [22] Y. Yang and A. Yuille. Sources from shading. In CVPR,
+                                                                           pages 534­539, 1991.
+
+                                                                     [23] W. Zhang, X. Fang, and X. Yang. Moving cast shadows de-
+                                                                           tection based on ratio edge. In International Conference on
+                                                                           Pattern Recognition, pages IV: 73­76, 2006.
+
+                                                                     [24] W. Zhou and C. Kambhamettu. A unified framework for
+                                                                           scene illuminant estimation. Image and Vision Computing,
+                                                                           26(3):415­429, 2008.
+

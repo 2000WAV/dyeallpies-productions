@@ -1,0 +1,24 @@
+Optimum window length of Savitzky-Golay filters with arbitrary order. arXiv:1808.10489
+[eess.SP] (author names not printed on the arXiv text extract's first page).
+
+ABSTRACT (as printed in the paper; full text saved in
+papers/arxiv-1808.10489-optimum-savgol-window.pdf, text extract in the .txt of the same
+name):
+
+The Savitzky-Golay (SG) filter is a widely used FIR smoothing filter that fits successive
+sub-sets of adjacent data points with a low-degree polynomial by the method of linear least
+squares. The SG filter has two design parameters: window length and polynomial order. This
+paper derives, for the SG filter with arbitrary order, an analytical expression for the
+optimum window length which minimizes the mean-squared error (MSE) between the filtered
+output and the noise-free signal, as a function of the signal's derivative behaviour and the
+noise power (SNR).
+
+RELEVANCE TO THIS PROJECT: the build smooths landmark tracks with a Savitzky-Golay filter,
+window 7 / order 2, without a derivation of why those specific numbers fit this signal. This
+paper's central result (Section IV-V): the optimal SG window length is not a fixed constant --
+it depends on the local smoothness of the true signal and on the noise level, and "the lower
+the SNR, the larger the optimal window length will be" (Section IV); the paper's own numerical
+comparisons found "there is not much difference between order 2 and higher" for smooth
+signals (Section V), which supports order 2 as a reasonable default, but window length 7 is
+not derived or validated against this project's actual landmark-jitter noise statistics
+anywhere in the build -- it is a common off-the-shelf choice, not a fitted one.

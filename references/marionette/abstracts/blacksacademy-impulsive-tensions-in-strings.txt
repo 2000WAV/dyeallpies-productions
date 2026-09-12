@@ -1,0 +1,35 @@
+blacksacademy.net (undated physics teaching note). Impulsive Tensions in Strings.
+(Also saved: mathspanda.com A2FM lesson "Impulsive tension in strings" -- the same
+topic, independent source, used as a cross-check.)
+
+STATUS: full text saved; see
+papers/blacksacademy-impulsive-tensions-in-strings.pdf/.txt and
+papers/mathspanda-impulsive-tension-lesson.pdf.
+
+SUMMARY: standard mechanics teaching material on what happens when a slack,
+light, inextensible string suddenly becomes taut between two particles (or a
+particle and a fixed/moving anchor) that are moving relative to each other. Because
+the string is treated as perfectly inextensible and massless, going taut is modeled
+exactly like a perfectly INELASTIC collision resolved ALONG the line of the
+string: momentum is conserved along the string's direction, both ends of the
+string are forced to the same velocity component along the string at that instant,
+and kinetic energy IS lost in this component (analogous to a coefficient of
+restitution of 0 along the string's axis) even though no material is literally
+colliding -- only the velocity component perpendicular to the string is
+unaffected. The size of the resulting impulse/tension spike is J = m_eff * v_along,
+where v_along is the relative velocity component along the string just before it
+snaps taut and m_eff is the reduced/effective mass of the system as seen along the
+string.
+
+RELEVANCE: this is the idealized-limit model (perfectly rigid string, instantaneous
+snap, discrete energy loss) for the marionette drop in this project: the mannequin
+falls freely for ~10-15 cm inside the fist, and the moment each of the 5 strings
+reaches its slack length, that string's along-string velocity component is
+killed nearly instantaneously, producing the "snap." A real string/tendon is not
+perfectly rigid, so in a numerical (MuJoCo) simulation this idealized instantaneous
+event becomes a brief but finite-stiffness impulsive event (see
+mujoco-tendon-spatial-section-extract.txt and the notes on solref/solimp/timestep
+in 02-puppet-body-dynamics.md) rather than a true discontinuity -- the finite
+stiffness of the constraint solver is what turns the idealized "energy is simply
+lost" collision into a "spring compresses then releases" bounce, which is also why
+a small bounce after the snap is physically expected rather than a hypothesis.

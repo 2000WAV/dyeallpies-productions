@@ -1,0 +1,1373 @@
+
+
+ <!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="utf-8"/>
+    <title>LearnOpenGL - Phys. Based Bloom</title>	<!--<title>Learn OpenGL, extensive tutorial resource for learning Modern OpenGL</title>-->
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico"  />
+    <meta name="description" content="Learn OpenGL . com provides good and clear modern 3.3+ OpenGL tutorials with clear examples. A great resource to learn modern OpenGL aimed at beginners.">
+	<meta name="fragment" content="!"> 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-51879160-1', 'learnopengl.com');
+      ga('send', 'pageview');
+
+    </script>
+    <script>
+	    </script>
+	<!--<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>-->
+	<script>
+		</script>
+		<script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+	<script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+	<script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+	<script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+	<!--<script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>-->
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7855791439695850"
+     crossorigin="anonymous"></script>
+	<script src="/js/jquery-1.11.0.min.js"></script>
+	<script src="/js/hoverintent.js"></script>
+	<link rel="stylesheet" type="text/css" href="/layout.css">
+    <link rel="stylesheet" type="text/css" href="/js/styles/obsidian.css">
+    <script src="/js/highlight.pack.js"></script>    
+    <script src="/js/functions.js"></script>
+    <script type="text/javascript" src="/js/mathjax/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script>
+    // Has to be loaded last due to content bug 
+    MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+    </script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>  
+        $(document).ready(function() {
+            // check if user visited from the old # based urls, re-direct to ?p= form
+            if(window.location.hash)
+            {
+                var name = window.location.hash.substring(2);
+                // name = name.replace(/-/g," ");
+                var index = name.indexOf('#'); // Remove any hash fragments from the url (Disquss adds hash fragments for comments, but results in 404 pages)
+                if(index >= 0)
+                    name = name.substring(0, index);
+                
+                window.location.href = "https://learnopengl.com/" + name;
+            } else {
+                    // Check if data has been succesfully loaded, if so: change title bar as ajax hash fragment
+                    var title = $('#content-url').text();
+                  
+					// place video tag 
+					 if(title != '' ) {
+											//var videoad = "%3Cdiv id=\'waldo-tag-14070\'%3E %3Cscript%3Egoogletag.cmd.push(function() {googletag.display(\'waldo-tag-14070\'); }); %3C/script%3E%3C/div%3E";
+						//$('#content p:nth-of-type(3)').after(unescape(videoad));
+										}
+					
+                    // Adjust ads for correct bottom positioning based on content size
+                    //window.setTimeout(function() {
+                    //    AdPositioning();
+                    //}, 3000);
+                  
+                  
+                    // set API resets after time-out (once content is properly loaded)
+                    window.setTimeout(function() {  
+                        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);    
+                        
+                        var page_url = title == "" ? "http://www.learnopengl.com/" : "http://www.learnopengl.com/" + title;
+                        if(typeof DISQUS !== 'undefined') {                                              
+                            DISQUS.reset({
+                              reload: true,
+                              config: function () {  
+                                this.page.identifier = title;  
+                                this.page.url = page_url;
+                              }
+                            });
+                            $('#disqus_thread').show();
+                        }
+                           // Refresh callbacks on <function> tags
+                        SetFunctionTagCallbacks();        
+                    }, 1000);
+                                        
+                    // Zet ook de juiste button op 'selected'
+                    $('#nav li span, #nav li a').removeClass('selected');                
+                    if(title != '')
+                    {                    
+                        $('#nav li[id=\'' + title + '\']').children('span, a').addClass('selected');
+                    }
+                    // En open menu waar nodig
+                    var parents = $('#nav span.selected, #nav a.selected').parents('li').children('span.closed, a.closed');
+                    var index = 0;
+                    for(index = parents.length - 1; index >= 0; index--)
+                    {             
+                        
+                        var id = $(parents[index]).attr("id").replace( /^\D+/g, '');
+                        MenuClick(id, false);
+                    }                          
+                
+            }
+
+            // Set up Ezoic ads
+            ezstandalone.cmd.push(function () {
+                ezstandalone.showAds(103, 104, 106, 108, 111, 113 );
+            });
+
+            ezstandalone.cmd.push(function () { ezstandalone.showAds( 107, 110, 112 ); });ezstandalone.cmd.push(function () { ezstandalone.showAds( 109, 114 ); });
+            // Set up DISQUS
+            // $(document).ready(function() {
+            var disqus_shortname = 'learnopengl';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+            // });
+        });
+
+    </script>
+</head>
+<body>
+<a href="https://learnopengl.com">
+<div id="header">
+</div>
+</a>
+
+<div id="supercontainer">
+    <!-- 728x90/320x50 -->
+    <div id="header_ad">
+	<div id="ezoic-pub-ad-placeholder-103"></div>    </div>
+    <div id="rightad_container">
+		<!--<div data-ea-publisher="learnopenglcom" data-ea-type="image" data-ea-style="stickybox"></div>-->
+        <div id="rightad">       
+			<div id="ezoic-pub-ad-placeholder-104"></div>        </div>
+        <div id="admessage">
+            If you're running AdBlock, please consider whitelisting this site if you'd like to support LearnOpenGL (it helps <strong>a lot</strong>); and no worries, I won't be mad if you don't :)
+        </div>
+		
+		<div id="rightonetenthad">
+             <div id="ezoic-pub-ad-placeholder-103"></div>
+        </div>
+        
+        <div id="rightthreetenthad">
+            <div id="ezoic-pub-ad-placeholder-106"></div>
+        </div>
+		
+		<div id="rightfifthtenthad">
+            <div id="ezoic-pub-ad-placeholder-107"></div>		</div>
+		
+		<div id="rightseventhtenthdad">
+            <div id="ezoic-pub-ad-placeholder-108"></div>
+        </div>
+
+        <div id="rightninthtenthdad">
+            <div id="ezoic-pub-ad-placeholder-109"></div>		</div>
+		
+    </div>
+    <div id="container">
+        <div id="loading"></div>
+<script> 
+$(document).ready(function() {
+$('#menu-item4').mousedown(function() { MenuClick(4, true) });
+$('#menu-item48').mousedown(function() { MenuClick(48, true) });
+$('#menu-item56').mousedown(function() { MenuClick(56, true) });
+$('#menu-item63').mousedown(function() { MenuClick(63, true) });
+$('#menu-item100').mousedown(function() { MenuClick(100, true) });
+$('#menu-item102').mousedown(function() { MenuClick(102, true) });
+$('#menu-item113').mousedown(function() { MenuClick(113, true) });
+$('#menu-item116').mousedown(function() { MenuClick(116, true) });
+$('#menu-item78').mousedown(function() { MenuClick(78, true) });
+$('#menu-item81').mousedown(function() { MenuClick(81, true) });
+$('#menu-item85').mousedown(function() { MenuClick(85, true) });
+$('#menu-item125').mousedown(function() { MenuClick(125, true) });
+$('#menu-item128').mousedown(function() { MenuClick(128, true) });
+$('#menu-item129').mousedown(function() { MenuClick(129, true) });
+$('#menu-item133').mousedown(function() { MenuClick(133, true) });
+$('#menu-item134').mousedown(function() { MenuClick(134, true) });
+$('#menu-item138').mousedown(function() { MenuClick(138, true) });
+$('#menu-item142').mousedown(function() { MenuClick(142, true) });
+$('#menu-item143').mousedown(function() { MenuClick(143, true) });
+}); 
+</script>   
+    <div id="nav">
+         <div id="social">
+            <a href="https://github.com/JoeyDeVries/LearnOpenGL" target="_blank">
+                    <img src="/img/github.png" class="social_ico">
+            </a>
+            <a href="https://twitter.com/JoeyDeVriez" target="_blank">
+                <img src="/img/twitter.png" class="social_ico">
+            </a>
+          
+        </div>
+    <img src='img/nav-button_bottom-arrow.png' style='display: none'><ol><li id='Introduction'><a id="menu-item1" href="https://learnopengl.com/Introduction">Introduction </a></li><li id='Getting-started'><span id="menu-item4" class="closed">Getting started </span><ol id="menu-items-of4" style="display:none;"><li id='Getting-started/OpenGL'><a id="menu-item49" href="https://learnopengl.com/Getting-started/OpenGL">OpenGL </a></li><li id='Getting-started/Creating-a-window'><a id="menu-item5" href="https://learnopengl.com/Getting-started/Creating-a-window">Creating a window </a></li><li id='Getting-started/Hello-Window'><a id="menu-item6" href="https://learnopengl.com/Getting-started/Hello-Window">Hello Window </a></li><li id='Getting-started/Hello-Triangle'><a id="menu-item38" href="https://learnopengl.com/Getting-started/Hello-Triangle">Hello Triangle </a></li><li id='Getting-started/Shaders'><a id="menu-item39" href="https://learnopengl.com/Getting-started/Shaders">Shaders </a></li><li id='Getting-started/Textures'><a id="menu-item40" href="https://learnopengl.com/Getting-started/Textures">Textures </a></li><li id='Getting-started/Transformations'><a id="menu-item43" href="https://learnopengl.com/Getting-started/Transformations">Transformations </a></li><li id='Getting-started/Coordinate-Systems'><a id="menu-item44" href="https://learnopengl.com/Getting-started/Coordinate-Systems">Coordinate Systems </a></li><li id='Getting-started/Camera'><a id="menu-item47" href="https://learnopengl.com/Getting-started/Camera">Camera </a></li><li id='Getting-started/Review'><a id="menu-item50" href="https://learnopengl.com/Getting-started/Review">Review </a></li></ol></li><li id='Lighting'><span id="menu-item48" class="closed">Lighting </span><ol id="menu-items-of48" style="display:none;"><li id='Lighting/Colors'><a id="menu-item51" href="https://learnopengl.com/Lighting/Colors">Colors </a></li><li id='Lighting/Basic-Lighting'><a id="menu-item52" href="https://learnopengl.com/Lighting/Basic-Lighting">Basic Lighting </a></li><li id='Lighting/Materials'><a id="menu-item53" href="https://learnopengl.com/Lighting/Materials">Materials </a></li><li id='Lighting/Lighting-maps'><a id="menu-item54" href="https://learnopengl.com/Lighting/Lighting-maps">Lighting maps </a></li><li id='Lighting/Light-casters'><a id="menu-item55" href="https://learnopengl.com/Lighting/Light-casters">Light casters </a></li><li id='Lighting/Multiple-lights'><a id="menu-item58" href="https://learnopengl.com/Lighting/Multiple-lights">Multiple lights </a></li><li id='Lighting/Review'><a id="menu-item57" href="https://learnopengl.com/Lighting/Review">Review </a></li></ol></li><li id='Model-Loading'><span id="menu-item56" class="closed">Model Loading </span><ol id="menu-items-of56" style="display:none;"><li id='Model-Loading/Assimp'><a id="menu-item59" href="https://learnopengl.com/Model-Loading/Assimp">Assimp </a></li><li id='Model-Loading/Mesh'><a id="menu-item60" href="https://learnopengl.com/Model-Loading/Mesh">Mesh </a></li><li id='Model-Loading/Model'><a id="menu-item61" href="https://learnopengl.com/Model-Loading/Model">Model </a></li></ol></li><li id='Advanced-OpenGL'><span id="menu-item63" class="closed">Advanced OpenGL </span><ol id="menu-items-of63" style="display:none;"><li id='Advanced-OpenGL/Depth-testing'><a id="menu-item72" href="https://learnopengl.com/Advanced-OpenGL/Depth-testing">Depth testing </a></li><li id='Advanced-OpenGL/Stencil-testing'><a id="menu-item73" href="https://learnopengl.com/Advanced-OpenGL/Stencil-testing">Stencil testing </a></li><li id='Advanced-OpenGL/Blending'><a id="menu-item74" href="https://learnopengl.com/Advanced-OpenGL/Blending">Blending </a></li><li id='Advanced-OpenGL/Face-culling'><a id="menu-item77" href="https://learnopengl.com/Advanced-OpenGL/Face-culling">Face culling </a></li><li id='Advanced-OpenGL/Framebuffers'><a id="menu-item65" href="https://learnopengl.com/Advanced-OpenGL/Framebuffers">Framebuffers </a></li><li id='Advanced-OpenGL/Cubemaps'><a id="menu-item66" href="https://learnopengl.com/Advanced-OpenGL/Cubemaps">Cubemaps </a></li><li id='Advanced-OpenGL/Advanced-Data'><a id="menu-item69" href="https://learnopengl.com/Advanced-OpenGL/Advanced-Data">Advanced Data </a></li><li id='Advanced-OpenGL/Advanced-GLSL'><a id="menu-item67" href="https://learnopengl.com/Advanced-OpenGL/Advanced-GLSL">Advanced GLSL </a></li><li id='Advanced-OpenGL/Geometry-Shader'><a id="menu-item68" href="https://learnopengl.com/Advanced-OpenGL/Geometry-Shader">Geometry Shader </a></li><li id='Advanced-OpenGL/Instancing'><a id="menu-item70" href="https://learnopengl.com/Advanced-OpenGL/Instancing">Instancing </a></li><li id='Advanced-OpenGL/Anti-Aliasing'><a id="menu-item75" href="https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing">Anti Aliasing </a></li></ol></li><li id='Advanced-Lighting'><span id="menu-item100" class="closed">Advanced Lighting </span><ol id="menu-items-of100" style="display:none;"><li id='Advanced-Lighting/Advanced-Lighting'><a id="menu-item101" href="https://learnopengl.com/Advanced-Lighting/Advanced-Lighting">Advanced Lighting </a></li><li id='Advanced-Lighting/Gamma-Correction'><a id="menu-item110" href="https://learnopengl.com/Advanced-Lighting/Gamma-Correction">Gamma Correction </a></li><li id='Advanced-Lighting/Shadows'><span id="menu-item102" class="closed">Shadows </span><ol id="menu-items-of102" style="display:none;"><li id='Advanced-Lighting/Shadows/Shadow-Mapping'><a id="menu-item103" href="https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping">Shadow Mapping </a></li><li id='Advanced-Lighting/Shadows/Point-Shadows'><a id="menu-item104" href="https://learnopengl.com/Advanced-Lighting/Shadows/Point-Shadows">Point Shadows </a></li></ol></li><li id='Advanced-Lighting/Normal-Mapping'><a id="menu-item106" href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">Normal Mapping </a></li><li id='Advanced-Lighting/Parallax-Mapping'><a id="menu-item107" href="https://learnopengl.com/Advanced-Lighting/Parallax-Mapping">Parallax Mapping </a></li><li id='Advanced-Lighting/HDR'><a id="menu-item111" href="https://learnopengl.com/Advanced-Lighting/HDR">HDR </a></li><li id='Advanced-Lighting/Bloom'><a id="menu-item112" href="https://learnopengl.com/Advanced-Lighting/Bloom">Bloom </a></li><li id='Advanced-Lighting/Deferred-Shading'><a id="menu-item108" href="https://learnopengl.com/Advanced-Lighting/Deferred-Shading">Deferred Shading </a></li><li id='Advanced-Lighting/SSAO'><a id="menu-item109" href="https://learnopengl.com/Advanced-Lighting/SSAO">SSAO </a></li></ol></li><li id='PBR'><span id="menu-item113" class="closed">PBR </span><ol id="menu-items-of113" style="display:none;"><li id='PBR/Theory'><a id="menu-item114" href="https://learnopengl.com/PBR/Theory">Theory </a></li><li id='PBR/Lighting'><a id="menu-item115" href="https://learnopengl.com/PBR/Lighting">Lighting </a></li><li id='PBR/IBL'><span id="menu-item116" class="closed">IBL </span><ol id="menu-items-of116" style="display:none;"><li id='PBR/IBL/Diffuse-irradiance'><a id="menu-item117" href="https://learnopengl.com/PBR/IBL/Diffuse-irradiance">Diffuse irradiance </a></li><li id='PBR/IBL/Specular-IBL'><a id="menu-item118" href="https://learnopengl.com/PBR/IBL/Specular-IBL">Specular IBL </a></li></ol></li></ol></li><li id='In-Practice'><span id="menu-item78" class="closed">In Practice </span><ol id="menu-items-of78" style="display:none;"><li id='In-Practice/Debugging'><a id="menu-item79" href="https://learnopengl.com/In-Practice/Debugging">Debugging </a></li><li id='In-Practice/Text-Rendering'><a id="menu-item80" href="https://learnopengl.com/In-Practice/Text-Rendering">Text Rendering </a></li><li id='In-Practice/2D-Game'><span id="menu-item81" class="closed">2D Game </span><ol id="menu-items-of81" style="display:none;"><li id='In-Practice/2D-Game/Breakout'><a id="menu-item82" href="https://learnopengl.com/In-Practice/2D-Game/Breakout">Breakout </a></li><li id='In-Practice/2D-Game/Setting-up'><a id="menu-item88" href="https://learnopengl.com/In-Practice/2D-Game/Setting-up">Setting up </a></li><li id='In-Practice/2D-Game/Rendering-Sprites'><a id="menu-item83" href="https://learnopengl.com/In-Practice/2D-Game/Rendering-Sprites">Rendering Sprites </a></li><li id='In-Practice/2D-Game/Levels'><a id="menu-item84" href="https://learnopengl.com/In-Practice/2D-Game/Levels">Levels </a></li><li id='In-Practice/2D-Game/Collisions'><span id="menu-item85" class="closed">Collisions </span><ol id="menu-items-of85" style="display:none;"><li id='In-Practice/2D-Game/Collisions/Ball'><a id="menu-item95" href="https://learnopengl.com/In-Practice/2D-Game/Collisions/Ball">Ball </a></li><li id='In-Practice/2D-Game/Collisions/Collision-detection'><a id="menu-item96" href="https://learnopengl.com/In-Practice/2D-Game/Collisions/Collision-detection">Collision detection </a></li><li id='In-Practice/2D-Game/Collisions/Collision-resolution'><a id="menu-item97" href="https://learnopengl.com/In-Practice/2D-Game/Collisions/Collision-resolution">Collision resolution </a></li></ol></li><li id='In-Practice/2D-Game/Particles'><a id="menu-item89" href="https://learnopengl.com/In-Practice/2D-Game/Particles">Particles </a></li><li id='In-Practice/2D-Game/Postprocessing'><a id="menu-item90" href="https://learnopengl.com/In-Practice/2D-Game/Postprocessing">Postprocessing </a></li><li id='In-Practice/2D-Game/Powerups'><a id="menu-item91" href="https://learnopengl.com/In-Practice/2D-Game/Powerups">Powerups </a></li><li id='In-Practice/2D-Game/Audio'><a id="menu-item94" href="https://learnopengl.com/In-Practice/2D-Game/Audio">Audio </a></li><li id='In-Practice/2D-Game/Render-text'><a id="menu-item92" href="https://learnopengl.com/In-Practice/2D-Game/Render-text">Render text </a></li><li id='In-Practice/2D-Game/Final-thoughts'><a id="menu-item93" href="https://learnopengl.com/In-Practice/2D-Game/Final-thoughts">Final thoughts </a></li></ol></li></ol></li><li id='Guest-Articles'><span id="menu-item125" class="closed">Guest Articles </span><ol id="menu-items-of125" style="display:none;"><li id='Guest-Articles/How-to-publish'><a id="menu-item126" href="https://learnopengl.com/Guest-Articles/How-to-publish">How to publish </a></li><li id='Guest-Articles/2020'><span id="menu-item128" class="closed">2020 </span><ol id="menu-items-of128" style="display:none;"><li id='Guest-Articles/2020/OIT'><span id="menu-item129" class="closed">OIT </span><ol id="menu-items-of129" style="display:none;"><li id='Guest-Articles/2020/OIT/Introduction'><a id="menu-item130" href="https://learnopengl.com/Guest-Articles/2020/OIT/Introduction">Introduction </a></li><li id='Guest-Articles/2020/OIT/Weighted-Blended'><a id="menu-item132" href="https://learnopengl.com/Guest-Articles/2020/OIT/Weighted-Blended">Weighted Blended </a></li></ol></li><li id='Guest-Articles/2020/Skeletal-Animation'><a id="menu-item131" href="https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation">Skeletal Animation </a></li></ol></li><li id='Guest-Articles/2021'><span id="menu-item133" class="closed">2021 </span><ol id="menu-items-of133" style="display:none;"><li id='Guest-Articles/2021/CSM'><a id="menu-item137" href="https://learnopengl.com/Guest-Articles/2021/CSM">CSM </a></li><li id='Guest-Articles/2021/Scene'><span id="menu-item134" class="closed">Scene </span><ol id="menu-items-of134" style="display:none;"><li id='Guest-Articles/2021/Scene/Scene-Graph'><a id="menu-item135" href="https://learnopengl.com/Guest-Articles/2021/Scene/Scene-Graph">Scene Graph </a></li><li id='Guest-Articles/2021/Scene/Frustum-Culling'><a id="menu-item136" href="https://learnopengl.com/Guest-Articles/2021/Scene/Frustum-Culling">Frustum Culling </a></li></ol></li><li id='Guest-Articles/2021/Tessellation'><span id="menu-item138" class="closed">Tessellation </span><ol id="menu-items-of138" style="display:none;"><li id='Guest-Articles/2021/Tessellation/Height-map'><a id="menu-item139" href="https://learnopengl.com/Guest-Articles/2021/Tessellation/Height-map">Height map </a></li><li id='Guest-Articles/2021/Tessellation/Tessellation'><a id="menu-item140" href="https://learnopengl.com/Guest-Articles/2021/Tessellation/Tessellation">Tessellation </a></li></ol></li><li id='Guest-Articles/2021/DSA'><a id="menu-item141" href="https://learnopengl.com/Guest-Articles/2021/DSA">DSA </a></li></ol></li><li id='Guest-Articles/2022'><span id="menu-item142" class="closed">2022 </span><ol id="menu-items-of142" style="display:none;"><li id='Guest-Articles/2022/Compute-Shaders'><span id="menu-item143" class="closed">Compute Shaders </span><ol id="menu-items-of143" style="display:none;"><li id='Guest-Articles/2022/Compute-Shaders/Introduction'><a id="menu-item144" href="https://learnopengl.com/Guest-Articles/2022/Compute-Shaders/Introduction">Introduction </a></li></ol></li><li id='Guest-Articles/2022/Phys.-Based-Bloom'><a id="menu-item145" href="https://learnopengl.com/Guest-Articles/2022/Phys.-Based-Bloom">Phys. Based Bloom </a></li><li id='Guest-Articles/2022/Area-Lights'><a id="menu-item146" href="https://learnopengl.com/Guest-Articles/2022/Area-Lights">Area Lights </a></li></ol></li></ol></li><li id='Code-repository'><a id="menu-item99" href="https://learnopengl.com/Code-repository">Code repository </a></li><li id='Translations'><a id="menu-item119" href="https://learnopengl.com/Translations">Translations </a></li><li id='Privacy'><a id="menu-item147" href="https://learnopengl.com/Privacy">Privacy </a></li><li id='About'><a id="menu-item2" href="https://learnopengl.com/About">About </a></li></ol>		<div id="menu_book">
+            <a href="https://geni.us/learnopengl" target="_blank"><img src="/book/below_menu.png" class="clean"/></a>
+        </div>
+       <div id="donate">
+            <a href="https://www.paypal.me/learnopengl/" target="_blank">
+                <div id="donate_img"></div>
+                <img style="display: none" src="/img/donate_button_hover.png"/>
+            </a>
+        </div>       
+		
+		<div id="lefttwotenthad">
+            		</div>
+		
+        <div id="leftfourthtenthad">
+            <div id="ezoic-pub-ad-placeholder-111"></div>
+        </div>
+		
+		<div id="leftsixthtenthad">
+            <div id="ezoic-pub-ad-placeholder-112"></div>		</div>
+		
+        <div id="lefteighttenthad">
+            <div id="ezoic-pub-ad-placeholder-113"></div>
+        </div>
+
+        <div id="lefttenthtenthad">
+            <div id="ezoic-pub-ad-placeholder-114"></div>        </div>
+    </div>
+    
+    <div id="content">
+    <h1 id="content-title">Phys. Based Bloom</h1>
+<h1 id="content-url" style='display:none;'>Guest-Articles/2022/Phys.-Based-Bloom</h1>
+<style layout="text/css">
+  #content-title {
+  	display: none;
+  }
+</style>
+
+<h1>Physically Based Bloom</h1>
+
+<p>
+	<i>"When using PBR the dynamic range is usually very high, so you don’t need
+	  to threshold. The blurred bloom layer is set to a low value (say 0.04), which
+	  means that only very bright pixels will bloom noticeably. That said, the whole
+	  image will receive some softness, which can be good or bad, depending on the
+      artistic direction. But in general, it leads to more photorealistic results."</i><br/>
+	<b style="text-align:right;float:right;">- Jorge Jimenez.</b>
+	</p>
+	
+<br/>
+<img src="/img/guest/2022/physically_based_bloom/intro-image.png">
+
+
+	<h2>Prerequisites</h2>
+	<p>
+	  You should have a solid grasp on HDR-rendering, tonemapping, and gamma correction
+	  before reading this article. Going through the tutorials on this website should
+	  be sufficient.
+	</p>
+
+	<h2>Introduction</h2>
+	<p>
+	  Bloom is cool. It is one of the post-processing effects, or post FX, that are
+	  very sought-after for its nice visual feel. Yet it also has a somewhat tarnished
+	  reputation. Why is that?
+	</p>
+
+	<p>
+	  I know that many gamers have made it a habit to jump into graphics settings and
+	  disable bloom when they install a new game. I have met a few of them, and
+	  besides the increased rendering times, bloom has very often been misused, which
+	  is probably one of the reasons why so many gamers are reluctant to enable it.
+	</p>
+
+	<p>
+	  To understand why we want bloom, we must also understand why we might not want
+	  bloom, as that perspective is equally important in forming a well-informed opinion.
+	  Then, when we have discussed the drawbacks we will have a better understanding
+	  of how to make it right.
+	</p>
+
+	<p>
+	  So without further ado...
+	</p>
+
+	<h2>The bloom disaster</h2>
+
+	<p>
+	  For anyone who wishes to understand bloom or even implement it themselves, this
+	  article is an absolute must-read:
+	  <a href="http://gangles.ca/2008/07/18/bloom-disasters/" target="_blank">Bloom disasters</a>.
+	  This statement cannot be stressed enough. A consistent misuse of the effect
+	  through the pre-HDR gamedev era has given rise to suspicion and outright disdain.
+	  And looking at the images, it is probably not hard to understand why:
+	</p>
+
+	<p>
+	  <ul>
+		<li>Everything that is white or very bright just becomes a mess of light,
+		  actually hurting the eyes.</li>
+		<li>Anything in close vicinity to bright areas is absorbed in a fiery explosion
+		  of brightness.</li>
+		<li>Everything is just too washed-out because of excessive blur.</li>
+		<li>The rendered images lose contrast because of an artificial threshold.
+		  Everything above a certain level is just "white", and aliasing artifacts ("jaggies")
+		  in dark areas become even more noticeable because blur is not applied to those areas.</li>
+	  </ul>
+	</p>
+
+	<p>
+	  Besides these obvious drawbacks, bloom is also very difficult to get right when
+	  applied to a thresholded color image (ie. only to pixels above a certain brightness
+	  level). And the threshold level needs a different value depending on whether or not
+	  bloom is applied on an HDR image. Furthermore, for very bright scenes we might want
+	  a higher threshold, and for darker scenes a lower threshold, as to simulate the
+	  natural adaption to changes in luminance that our eyes perform.
+	</p>
+
+	<p>
+	  That being said, applying a threshold also yields problems when we are using a
+	  physically-based rendering approach, as bloom in the real world is actually applied
+	  to everything - not only bright objects! The perfect lens does not exist, so even
+	  with very high quality cameras bloom effects can still be observed, because light
+	  is scattered in the lens (and thus "bleeds out"). Our eyes are also not perfect,
+	  so all incoming light will scatter. The effect is just clearer with bright objects
+	  because they emit more photons.
+	</p>
+
+	<h2>Bloom done right</h2>
+
+	<p>
+	  We live in a world where everybody in the graphics industry is using
+	  physically-based rendering models with HDR and tonemapping. So it makes sense,
+	  from a "modern" perspective, to compose a bloom effect which fits into such
+	  environments. The finer details differ, but the overall process is this:
+	</p>
+
+	<p>
+	  <ol>
+		<li>Scene with lighting applied is rendered into an HDR color buffer.</li>
+		<li>To mimic how our eyes work, we do not use a color threshold, but instead
+		  downsample and blur directly on the HDR color buffer and store this result into
+		  a bloom buffer.</li>
+		<li>We render a mix between the HDR color buffer and the bloom buffer, which is
+		  usually a linear interpolation with a strong bias (~0.04) towards the HDR
+		  color buffer.</li>
+	  </ol>
+	</p>
+
+	<p>
+	  It may seem counter-intuitive to bloom the entire scene and not only the bright
+	  objects, but since we are composing a bloom effect for an HDR pipeline, this is
+	  not a problem. With HDR we usually have a huge range between dark and bright, and
+	  because the downsampling and blurring automatically favours the brighter colors,
+	  the effect on dark areas of the scene are barely noticable. So we get everything
+	  from a good bloom effect, but it's more physically correct, and we don't have to
+	  worry about defining a good color threshold.
+	</p>
+
+	<p>
+	  By reading <a href="https://web.archive.org/web/20060818101028/http://harkal.sylphis3d.com/2006/05/20/how-to-do-good-bloom-for-hdr-rendering" target="_blank">this article</a>, we can see that very
+	  large filter kernels such as 41x41 can be approximated quite well by applying a
+	  small filter kernel, such as 3x3, on a downsampled version of the image. This
+	  should be an order of magnitude faster since we are performing a lot fewer texture
+	  lookups. Naturally, this will depend on the resolution of the source texture,
+	  the filter kernel size, and the number of times we downsample. But in general,
+	  we will save a lot of computation!
+	</p>
+
+	<p>
+	  The quality of the bloom is highly dependent upon the downsampling filter, so
+	  we need to use a good one. Poorly designed filters lead to pulsating artifacts
+	  and temporal stability issues. The method that inspired this article was
+	  presented at ACM Siggraph in 2014 by Jorge Jimenez for Call of Duty: Advanced
+	  Warfare. The algorithm follows this recipe:
+	</p>
+
+	<p>
+	  <ol>
+		<li>Run a shader which downsamples (downscales) the HDR buffer containing
+		  per-pixel color with light and shadows applied. This shader is run a fixed
+		  number of times to continually produce a smaller image, each time with half
+		  resolution in both X and Y axes.</li>
+		<li>We then run a small 3x3 filter kernel on each downsampled image, and
+		  progressively upsample them until we reach image A (first downsampled image).</li>
+		<li>Finally, we mix the overall bloom contribution into the HDR source
+		  image, with a strong bias towards the HDR source.</li>
+	  </ol>
+	</p>
+
+
+  <img src="/img/guest/2022/physically_based_bloom/bloom-diagram.png" alt="Snow">
+
+	<p>
+	  We can go smaller if we wish, e.g. by also having a texture "F". But for this
+	  drawing that would probably look too small. Also note that we are using the
+	  word "progressively" when we upsample - we are not upsampling from E &#8594; A,
+	  D &#8594; A, etc. - instead we perform the upsampling gradually up through the
+	  image chain. This will result in a much better blur. We also do not need to
+	  worry about running the 3x3 filter kernel several times on each image, as the
+	  downsampling and upsampling will result in blur that closely resembles a gaussian
+	  filter.
+	</p>
+
+<h2>Downsampling</h2>
+
+	<p>
+	  Now that we have the algorithm in place we just need to figure out which filter
+	  kernels to use. Fortunately, the people at Sledgehammer Games did the hard work
+	  for us. They present a customly designed downsample kernel that perform 13
+	  texture lookups around the current pixel and blends the values using a weighted
+	  average. The number 13 really is the number of lookups applied with
+	  <i>bi-linear filtering</i> enabled, so in reality the shader performs 36
+	  lookups. :)
+	</p>
+
+    <img src="/img/guest/2022/physically_based_bloom/downsample-figure.png" alt="Snow">
+	
+
+	<p>
+	  The above image deserves some explanation: The lookup pattern is divided into
+	  5 colored regions. The center pixel, which corresponds to the "current pixel",
+	  has 4 colored rings on top of each other. As shown with text, the 4 red texels
+	  should contribute to 0.5 of the final contribution, such that texels closer to
+	  the center pixel will be weighted higher. You may take a look at the slides
+	  from the 2014 presentation, which provides a little more information. The below
+	  code is the downsample fragment shader. I have added some thorough documentation
+	  (encouraged software development practice btw! :)) to help you understand how
+	  the filtering works:
+	</p>
+
+	<pre><code>#version 330 core
+
+// This shader performs downsampling on a texture,
+// as taken from Call Of Duty method, presented at ACM Siggraph 2014.
+// This particular method was customly designed to eliminate
+// "pulsating artifacts and temporal stability issues".
+
+// Remember to add bilinear minification filter for this texture!
+// Remember to use a floating-point texture format (for HDR)!
+// Remember to use edge clamping for this texture!
+uniform sampler2D srcTexture;
+uniform vec2 srcResolution;
+
+in vec2 texCoord;
+layout (location = 0) out vec3 downsample;
+
+void main()
+{
+    vec2 srcTexelSize = 1.0 / srcResolution;
+    float x = srcTexelSize.x;
+    float y = srcTexelSize.y;
+
+    // Take 13 samples around current texel:
+    // a - b - c
+    // - j - k -
+    // d - e - f
+    // - l - m -
+    // g - h - i
+    // === ('e' is the current texel) ===
+    vec3 a = texture(srcTexture, vec2(texCoord.x - 2*x, texCoord.y + 2*y)).rgb;
+    vec3 b = texture(srcTexture, vec2(texCoord.x,       texCoord.y + 2*y)).rgb;
+    vec3 c = texture(srcTexture, vec2(texCoord.x + 2*x, texCoord.y + 2*y)).rgb;
+
+    vec3 d = texture(srcTexture, vec2(texCoord.x - 2*x, texCoord.y)).rgb;
+    vec3 e = texture(srcTexture, vec2(texCoord.x,       texCoord.y)).rgb;
+    vec3 f = texture(srcTexture, vec2(texCoord.x + 2*x, texCoord.y)).rgb;
+
+    vec3 g = texture(srcTexture, vec2(texCoord.x - 2*x, texCoord.y - 2*y)).rgb;
+    vec3 h = texture(srcTexture, vec2(texCoord.x,       texCoord.y - 2*y)).rgb;
+    vec3 i = texture(srcTexture, vec2(texCoord.x + 2*x, texCoord.y - 2*y)).rgb;
+
+    vec3 j = texture(srcTexture, vec2(texCoord.x - x, texCoord.y + y)).rgb;
+    vec3 k = texture(srcTexture, vec2(texCoord.x + x, texCoord.y + y)).rgb;
+    vec3 l = texture(srcTexture, vec2(texCoord.x - x, texCoord.y - y)).rgb;
+    vec3 m = texture(srcTexture, vec2(texCoord.x + x, texCoord.y - y)).rgb;
+
+    // Apply weighted distribution:
+    // 0.5 + 0.125 + 0.125 + 0.125 + 0.125 = 1
+    // a,b,d,e * 0.125
+    // b,c,e,f * 0.125
+    // d,e,g,h * 0.125
+    // e,f,h,i * 0.125
+    // j,k,l,m * 0.5
+    // This shows 5 square areas that are being sampled. But some of them overlap,
+    // so to have an energy preserving downsample we need to make some adjustments.
+    // The weights are the distributed, so that the sum of j,k,l,m (e.g.)
+    // contribute 0.5 to the final color output. The code below is written
+    // to effectively yield this sum. We get:
+    // 0.125*5 + 0.03125*4 + 0.0625*4 = 1
+    downsample = e*0.125;
+    downsample += (a+c+g+i)*0.03125;
+    downsample += (b+d+f+h)*0.0625;
+    downsample += (j+k+l+m)*0.125;
+}
+</code></pre>
+
+<h2>Upsampling</h2>
+
+	<p>
+	  The upsampling shader works on the opposite way, ie. progressively blur and
+	  upsample. From the previous figure, using the letters A-E, this is the flow:
+	</p>
+
+	<pre><code>E' = E
+D' = D + blur(E', b4)
+C' = C + blur(D', b3)
+B' = B + blur(C', b2)
+A' = A + blur(B', b1)
+Fullres = mix(FullRes, A', bloomStrength)
+</code></pre>
+
+	<p>
+	  This means that we blur as we upsample, using a 3x3 filter kernel. E.g. when
+	  we perform the second line, we have D bound as target (color attachment 0)
+	  and then we sample into E, with a 3x3 kernel around the current pixel, using
+	  b4 as a radius to spread out the lookup texel positions. An important detail
+	  is that we need a different radius for each upsample, with larger radii on
+	  larger mips. So by using a radius in <i>texel space</i>, the radius will
+	  automatically grow during the upsampling procedure. The upsampling fragment
+	  shader is shown here:
+	</p>
+
+	<pre><code>#version 330 core
+
+// This shader performs upsampling on a texture,
+// as taken from Call Of Duty method, presented at ACM Siggraph 2014.
+
+// Remember to add bilinear minification filter for this texture!
+// Remember to use a floating-point texture format (for HDR)!
+// Remember to use edge clamping for this texture!
+uniform sampler2D srcTexture;
+uniform float filterRadius;
+
+in vec2 texCoord;
+layout (location = 0) out vec3 upsample;
+
+void main()
+{
+    // The filter kernel is applied with a radius, specified in texture
+    // coordinates, so that the radius will vary across mip resolutions.
+    float x = filterRadius;
+    float y = filterRadius;
+
+    // Take 9 samples around current texel:
+    // a - b - c
+    // d - e - f
+    // g - h - i
+    // === ('e' is the current texel) ===
+    vec3 a = texture(srcTexture, vec2(texCoord.x - x, texCoord.y + y)).rgb;
+    vec3 b = texture(srcTexture, vec2(texCoord.x,     texCoord.y + y)).rgb;
+    vec3 c = texture(srcTexture, vec2(texCoord.x + x, texCoord.y + y)).rgb;
+
+    vec3 d = texture(srcTexture, vec2(texCoord.x - x, texCoord.y)).rgb;
+    vec3 e = texture(srcTexture, vec2(texCoord.x,     texCoord.y)).rgb;
+    vec3 f = texture(srcTexture, vec2(texCoord.x + x, texCoord.y)).rgb;
+
+    vec3 g = texture(srcTexture, vec2(texCoord.x - x, texCoord.y - y)).rgb;
+    vec3 h = texture(srcTexture, vec2(texCoord.x,     texCoord.y - y)).rgb;
+    vec3 i = texture(srcTexture, vec2(texCoord.x + x, texCoord.y - y)).rgb;
+
+    // Apply weighted distribution, by using a 3x3 tent filter:
+    //  1   | 1 2 1 |
+    // -- * | 2 4 2 |
+    // 16   | 1 2 1 |
+    upsample = e*4.0;
+    upsample += (b+d+f+h)*2.0;
+    upsample += (a+c+g+i);
+    upsample *= 1.0 / 16.0;
+}
+</code></pre>
+
+	<p>
+	  Both the upsampling and downsampling shaders need a vertex shader which fills
+	  out a screen-filled quad:
+	</p>
+
+	<pre><code>#version 330 core
+
+layout (location = 0) in vec2 aPosition;
+layout (location = 1) in vec2 aTexCoord;
+
+out vec2 texCoord;
+
+void main()
+{
+    gl_Position = vec4(aPosition.x, aPosition.y, 0.0, 1.0);
+    texCoord = aTexCoord;
+}
+</code></pre>
+
+	<h2>Writing the program</h2>
+	<p>
+	  Now that we have the shaders and the algorithm out of the way, we need to define
+	  the CPU-side of things as well. We need 1 framebuffer for the downsamping and
+	  upsampling, create some textures to contain the mips, two shader programs,
+	  a prerendered HDR color buffer, and some geometry to render. I will not be
+	  demonstrating in this tutorial how to do the last 2 things, as I consider that
+	  trivial or out of scope :). For the bloom framebuffer I decided to go for a
+	  minimalistic object-oriented approach, but you are welcome to structure this
+	  in any way that you see fit.
+	</p>
+
+	<pre><code>struct bloomMip
+{
+    glm::vec2 size;
+    glm::ivec2 intSize;
+    unsigned int texture;
+};
+
+class bloomFBO
+{
+public:
+    bloomFBO();
+    ~bloomFBO();
+    bool Init(unsigned int windowWidth, unsigned int windowHeight, unsigned int mipChainLength);
+    void Destroy();
+    void BindForWriting();
+    const std::vector&lt;bloomMip&gt;& MipChain() const;
+
+private:
+    bool mInit;
+    unsigned int mFBO;
+    std::vector&lt;bloomMip&gt; mMipChain;
+};
+</code></pre>
+
+	<p>
+	  The most important method here is the <tt>Init</tt> function. It creates mips
+	  from a fixed screen resolution, and a number of mips which corresponds to the
+	  letters A-E described earlier. You may go as small as you wish, though 5 or 6
+	  is usually good enough. If you go too small, make sure that you stop when you
+	  reach 1x1 in mip size!
+	</p>
+
+	<pre><code>bool bloomFBO::Init(unsigned int windowWidth, unsigned int windowHeight, unsigned int mipChainLength)
+{
+    if (mInit) return true;
+
+    <function id='76'>glGenFramebuffers</function>(1, &mFBO);
+    <function id='77'>glBindFramebuffer</function>(GL_FRAMEBUFFER, mFBO);
+
+    glm::vec2 mipSize((float)windowWidth, (float)windowHeight);
+    glm::ivec2 mipIntSize((int)windowWidth, (int)windowHeight);
+    // Safety check
+    if (windowWidth > (unsigned int)INT_MAX || windowHeight > (unsigned int)INT_MAX) {
+        std::cerr &lt;&lt; "Window size conversion overflow - cannot build bloom FBO!\n";
+        return false;
+    }
+
+    for (unsigned int i = 0; i &lt; mipChainLength; i++)
+    {
+        bloomMip mip;
+
+        mipSize *= 0.5f;
+        mipIntSize /= 2;
+        mip.size = mipSize;
+        mip.intSize = mipIntSize;
+
+        <function id='50'>glGenTextures</function>(1, &mip.texture);
+        <function id='48'>glBindTexture</function>(GL_TEXTURE_2D, mip.texture);
+        // we are downscaling an HDR color buffer, so we need a float texture format
+        <function id='52'>glTexImage2D</function>(GL_TEXTURE_2D, 0, GL_R11F_G11F_B10F,
+                     (int)mipSize.x, (int)mipSize.y,
+                     0, GL_RGB, GL_FLOAT, nullptr);
+        <function id='15'>glTexParameter</function>i(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        <function id='15'>glTexParameter</function>i(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        <function id='15'>glTexParameter</function>i(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        <function id='15'>glTexParameter</function>i(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+        mMipChain.emplace_back(mip);
+    }
+
+    <function id='81'>glFramebufferTexture2D</function>(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+                           GL_TEXTURE_2D, mMipChain[0].texture, 0);
+
+    // setup attachments
+    unsigned int attachments[1] = { GL_COLOR_ATTACHMENT0 };
+    glDrawBuffers(1, attachments);
+
+    // check completion status
+    int status = <function id='79'>glCheckFramebufferStatus</function>(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE)
+    {
+        printf("gbuffer FBO error, status: 0x\%x\n", status);
+        <function id='77'>glBindFramebuffer</function>(GL_FRAMEBUFFER, 0);
+        return false;
+    }
+
+    <function id='77'>glBindFramebuffer</function>(GL_FRAMEBUFFER, 0);
+    mInit = true;
+    return true;
+}
+</code></pre>
+
+	<p><div id="in_content_ad_2">
+				<!-- 728x90/300x250/320x50 --><div id="waldo-tag-15502"></div>
+				</div><p>
+	  The code should speak for itself. One thing to note is that we must enable
+	  linear filtering and edge-clamping for all mips. Since we don't need an <!--' -->
+	  alpha channel, we can have some extra color precision by using the internal
+	  storage format <tt>GL_R11F_G11F_B10F</tt> for the textures in the mip
+	  chain.
+	</p>
+
+	  <p>
+		The other methods in the class are given below:
+	  </p>
+
+	  <pre><code>bloomFBO::bloomFBO() : mInit(false) {}
+bloomFBO::~bloomFBO() {}
+
+void bloomFBO::Destroy()
+{
+    for (int i = 0; i &lt; mMipChain.size(); i++) {
+        glDeleteTextures(1, &mMipChain[i].texture);
+        mMipChain[i].texture = 0;
+    }
+    <function id='80'>glDeleteFramebuffers</function>(1, &mFBO);
+    mFBO = 0;
+    mInit = false;
+}
+
+void bloomFBO::BindForWriting()
+{
+    <function id='77'>glBindFramebuffer</function>(GL_FRAMEBUFFER, mFBO);
+}
+
+const std::vector&lt;bloomMip&gt;& bloomFBO::MipChain() const
+{
+    return mMipChain;
+}
+</code></pre>
+
+	<p>
+	  After this, we create another class which contains a <tt>bloomFBO</tt> object
+	  and makes a call to it every frame. I chose this design because the framebuffer
+	  and the shaders are two distinct concerns. The code is given below:
+	</p>
+
+	<pre><code>class BloomRenderer
+{
+public:
+    BloomRenderer();
+    ~BloomRenderer();
+    bool Init(unsigned int windowWidth, unsigned int windowHeight);
+    void Destroy();
+    void RenderBloomTexture(unsigned int srcTexture, float filterRadius);
+    unsigned int BloomTexture();
+
+private:
+    void RenderDownsamples(unsigned int srcTexture);
+    void RenderUpsamples(float filterRadius);
+
+    bool mInit;
+    bloomFBO mFBO;
+    glm::ivec2 mSrcViewportSize;
+    glm::vec2 mSrcViewportSizeFloat;
+    Shader* mDownsampleShader;
+    Shader* mUpsampleShader;
+};
+</code></pre>
+
+	<p>
+	  Again, we start with the <tt>Init</tt> function. This should initialize the
+	  data member that contains the framebuffer and load the shader programs:
+	</p>
+
+	<pre><code>bool BloomRenderer::Init(unsigned int windowWidth, unsigned int windowHeight)
+{
+    if (mInit) return true;
+    mSrcViewportSize = glm::ivec2(windowWidth, windowHeight);
+    mSrcViewportSizeFloat = glm::vec2((float)windowWidth, (float)windowHeight);
+
+    // Framebuffer
+    const unsigned int num_bloom_mips = 5; // Experiment with this value
+    bool status = mFBO.Init(windowWidth, windowHeight, num_bloom_mips);
+    if (!status) {
+        std::cerr &lt;&lt; "Failed to initialize bloom FBO - cannot create bloom renderer!\n";
+        return false;
+    }
+
+    // Shaders
+    mDownsampleShader = new Shader("downsample.vs", "downsample.fs");
+    mUpsampleShader = new Shader("upsample.vs", "upsample.fs");
+
+    // Downsample
+    mDownsampleShader->use();
+    mDownsampleShader->setInt("srcTexture", 0);
+    mDownsampleShader->Deactivate();
+
+    // Upsample
+    mUpsampleShader->use();
+    mUpsampleShader->setInt("srcTexture", 0);
+    mUpsampleShader->Deactivate();
+
+    mInit = true;
+    return true;
+}
+</code></pre>
+
+	<p>
+	  And the rest of the public methods:
+	</p>
+
+	<pre><code>BloomRenderer::BloomRenderer() : mInit(false) {}
+BloomRenderer::~BloomRenderer() {}
+
+void BloomRenderer::Destroy()
+{
+    mFBO.Destroy();
+    delete mDownsampleShader;
+    delete mUpsampleShader;
+    mInit = false;
+}
+
+void BloomRenderer::RenderBloomTexture(unsigned int srcTexture, float filterRadius)
+{
+    mFBO.BindForWriting();
+
+    this->RenderDownsamples(srcTexture);
+    this->RenderUpsamples(filterRadius);
+
+    <function id='77'>glBindFramebuffer</function>(GL_FRAMEBUFFER, 0);
+    // Restore viewport
+    <function id='22'>glViewport</function>(0, 0, mSrcViewportSize.x, mSrcViewportSize.y);
+}
+
+GLuint BloomRenderer::BloomTexture()
+{
+    return mFBO.MipChain()[0].texture;
+}
+</code></pre>
+
+	<p>
+	  The <tt>Destroy</tt> method is for proper cleanup. The <tt>BloomTexture</tt> is
+	  for retrieving the texture handle for the bloom texture after bloom has been
+	  performed - this could e.g. be a sampler2D input for your tonemapping shader.
+	  The <tt>RenderBloomTexture</tt> performs all the action: It binds the bloom
+	  framebuffer, then renders the downsamples from the input <tt>srcTexture</tt>
+	  which contains your HDR color buffer, then progressively upsamples. Finally,
+	  it restores the viewport size and binds the default framebuffer.
+	</p>
+
+	<p>
+	  The only thing that we are missing now is the two private methods, which renders
+	  downsamples and upsamples. I have done my best to add some comments explaining
+	  what is happening:
+	</p>
+
+	<pre><code>void BloomRenderer::RenderDownsamples(unsigned int srcTexture)
+{
+    const std::vector&lt;bloomMip&gt;& mipChain = mFBO.MipChain();
+
+    mDownsampleShader->use();
+    mDownsampleShader->setVec2("srcResolution", mSrcViewportSizeFloat);
+
+    // Bind srcTexture (HDR color buffer) as initial texture input
+    <function id='49'>glActiveTexture</function>(GL_TEXTURE0);
+    <function id='48'>glBindTexture</function>(GL_TEXTURE_2D, srcTexture);
+
+    // Progressively downsample through the mip chain
+    for (int i = 0; i &lt; mipChain.size(); i++)
+    {
+        const bloomMip& mip = mipChain[i];
+        <function id='22'>glViewport</function>(0, 0, mip.size.x, mip.size.y);
+        <function id='81'>glFramebufferTexture2D</function>(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+                               GL_TEXTURE_2D, mip.texture, 0);
+
+        // Render screen-filled quad of resolution of current mip
+        <function id='27'>glBindVertexArray</function>(quadVAO);
+        <function id='1'>glDrawArrays</function>(GL_TRIANGLES, 0, 6);
+        <function id='27'>glBindVertexArray</function>(0);
+
+        // Set current mip resolution as srcResolution for next iteration
+        mDownsampleShader->setVec2("srcResolution", mip.size);
+        // Set current mip as texture input for next iteration
+        <function id='48'>glBindTexture</function>(GL_TEXTURE_2D, mip.texture);
+    }
+
+    mDownsampleShader->Deactivate();
+}
+
+void BloomRenderer::RenderUpsamples(float filterRadius)
+{
+    const std::vector&lt;bloomMip&gt;& mipChain = mFBO.MipChain();
+
+    mUpsampleShader->use();
+    mUpsampleShader->setFloat("filterRadius", filterRadius);
+
+    // Enable additive blending
+    <function id='60'>glEnable</function>(GL_BLEND);
+    <function id='70'>glBlendFunc</function>(GL_ONE, GL_ONE);
+    <function id='72'>glBlendEquation</function>(GL_FUNC_ADD);
+
+    for (int i = mipChain.size() - 1; i > 0; i--)
+    {
+        const bloomMip& mip = mipChain[i];
+        const bloomMip& nextMip = mipChain[i-1];
+
+        // Bind viewport and texture from where to read
+        <function id='49'>glActiveTexture</function>(GL_TEXTURE0);
+        <function id='48'>glBindTexture</function>(GL_TEXTURE_2D, mip.texture);
+
+        // Set framebuffer render target (we write to this texture)
+        <function id='22'>glViewport</function>(0, 0, nextMip.size.x, nextMip.size.y);
+        <function id='81'>glFramebufferTexture2D</function>(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+                               GL_TEXTURE_2D, nextMip.texture, 0);
+
+        // Render screen-filled quad of resolution of current mip
+        <function id='27'>glBindVertexArray</function>(quadVAO);
+        <function id='1'>glDrawArrays</function>(GL_TRIANGLES, 0, 6);
+        <function id='27'>glBindVertexArray</function>(0);
+    }
+
+    // Disable additive blending
+    //<function id='70'>glBlendFunc</function>(GL_ONE, GL_ONE_MINUS_SRC_ALPHA); // Restore if this was default
+    glDisable(GL_BLEND);
+
+    mUpsampleShader->Deactivate();
+}
+</code></pre>
+
+	<p>
+	  For both methods we're<!--'--> relying on <tt>quadVAO</tt>, which is created
+	  before-hand (code snippet below this paragraph). During the downsampling
+	  we fetch the mip chain, activate the shader, and then run a loop through
+	  the mip chain where we perform the downsampling. For each iteration we
+	  must change some parameters, including handle for the input texture and
+	  the target framebuffer color attachment. We also set the viewport to the
+	  size of the target attachment so that the OpenGL rasterizer will create the
+	  correct number of fragments for us.
+	</p>
+
+	<p>
+	  The upsampling is very similar, except it does things in opposite order:
+	  It starts from the low-resolution mips and then works backwards through the
+	  mip chain. We start by fetching the mip chain and activate the shader.
+	  For the filter radius you are free to experiment, but I recommend a small
+	  value like <tt>0.005f</tt>. Then we enable additive blending so that we may perform
+	  the <tt>D' = D + blur(E', b4)</tt> operation described earlier. By using
+	  additive blending, D' is equal to D, and so we don't need to make a copy of
+	  D. In this line, <tt>b4</tt> is the filter radius given in texture
+	  coordinates (and not in pixels!). Note the values <tt>mip</tt> and
+	  <tt>nextMip</tt> - we write from <tt>mip</tt> into <tt>nextMip</tt>, which
+	  for the first iteration means that <tt>mip</tt> is the smallest texture
+	  in the mip chain, and <tt>nextMip</tt> is the second-smallest. Again, we
+	  render to a screen-filled quad with the correct viewport size. After we're<!--'-->
+	  done, we disable additive blending and deactivate the shader.
+	</p>
+
+	<p>
+	  I provide here the code to setup the <tt>quadVAO</tt>, in case you need it:
+	</p>
+
+<pre><code>float quadVertices[] = {
+    // upper-left triangle
+    -1.0f, -1.0f, 0.0f, 0.0f, // position, texcoord
+    -1.0f,  1.0f, 0.0f, 1.0f,
+     1.0f,  1.0f, 1.0f, 1.0f,
+    // lower-right triangle
+    -1.0f, -1.0f, 0.0f, 0.0f,
+     1.0f,  1.0f, 1.0f, 1.0f,
+     1.0f, -1.0f, 1.0f, 0.0f
+};
+unsigned int quadVBO, quadVAO;
+
+void configureQuad() {
+    <function id='33'>glGenVertexArrays</function>(1, &quadVAO);
+    <function id='12'>glGenBuffers</function>(1, &quadVBO);
+
+    <function id='27'>glBindVertexArray</function>(quadVAO);
+    <function id='32'>glBindBuffer</function>(GL_ARRAY_BUFFER, quadVBO);
+    <function id='31'>glBufferData</function>(GL_ARRAY_BUFFER, sizeof(quadVertices), quadVertices, GL_STATIC_DRAW);
+
+    // position attribute
+    <function id='30'>glVertexAttribPointer</function>(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+    <function id='29'><function id='60'>glEnable</function>VertexAttribArray</function>(0);
+
+    // texture coordinate
+    <function id='30'>glVertexAttribPointer</function>(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float),
+                          (void*)(2 * sizeof(float)));
+    <function id='29'><function id='60'>glEnable</function>VertexAttribArray</function>(1);
+    <function id='27'>glBindVertexArray</function>(0);
+}
+</code></pre>
+
+	<p>
+	  I'm<!--'--> just using the VAO as a global variable, because I need the quad data in several
+	  places. You are free to do something better. :)
+	</p>
+
+
+	<h2>Results</h2>
+	<p>
+	  We have been going through the important parts, and you should now have an
+	  overview of how to integrate this technique into your own applications.
+	  Intentionally, I did not touch upon several steps such as what tonemapping
+	  operator to use, how to set up the HDR color buffer, or how to render geometry.
+	  These would be out of scope for this tutorial. Besides, if you visit some of the
+	  other wonderful tutorials on this website, e.g. model loading and light casters,
+	  you should be well covered.
+	</p>
+
+	<p>
+	  Hopefully, the descriptions here should be sufficient to help you implement this
+	  yourself, and otherwise you may have a look at the
+	  <a href="/code_viewer_gh.php?code=src/8.guest/2022/6.physically_based_bloom/physically_based_bloom.cpp" target="_blank">full source code</a>.
+	  I also have a small video on Youtube demonstrating the bloom effect with various
+	  tonemapping operators, link
+	  <a href="https://www.youtube.com/watch?v=zv5U_-ebb5Q" target="_blank"><u>here</u></a>.
+	  The video clip below shows the reference code in action, where the keyboard keys
+	  1-3 switch between no bloom, the "old" bloom implementation, and the technique
+	  described in this tutorial. The results really speak for themselves, I think. :)
+	</p>
+
+	<div class="video paused" onclick="ClickVideo(this)">
+	  <video width="600" height="450" loop>
+		<source src="\img\guest\2022\physically_based_bloom\bloom_demonstration.mp4" type="video/mp4" />
+		<img src="\img\guest\2022\physically_based_bloom\bloom_demonstration.png" class="clean"/>
+	  </video>
+	</div>
+
+
+	<h2>Conclusion & Discussion</h2>
+	<p>
+	  We have been looking at how to implement bloom without threshold, including
+	  progressively downsampling and upsampling an HDR color buffer, applying a
+	  small 3x3 filter kernel on each mip, and how to mix in the bloom in the final
+	  render. I hope you found this interesting and that you learned something.
+	</p>
+
+	<p>
+	  After seeing the difference in visual quality between thresholded/un-thresholded
+	  bloom, it is my conviction that bloom is a technique that has been misunderstood.
+	  Bear in mind that this is purely an opinion, as many games and game developers
+	  have successfully applied bloom with threshold. But when looking at high-quality
+	  camera lenses, and at the adaption to color that our eyes perform, it makes sense
+	  to have a bloom without threshold in an effort to imitate the physics of the real
+	  world. Bloom should not be about making bright things blurry, but rather to make
+	  light bleed out on the camera lens (ie. the screen buffer). And since we have
+	  light everywhere, even in very dark scenes, this approach especially makes sense.
+	  In this regard, bloom should also be used sparingly. Bloom is probably best when
+	  gamers don't<!--'--> notice that it is there, simply because it looks so natural.
+	  Naturally, the strength of the bloom may be adapted to various scenes, lighting
+	  conditions, and visual styles, but a very small value in the range (0.03, 0.15)
+	  works really well.
+	</p>
+
+
+	<h2>Bonus material 0: Graphical debugging</h2>
+
+	<p>
+	  So while the bloom effect was working nicely, I was observing some unwanted
+	  black boxes in a test application I was working on. Below image shows some black
+	  boxes that I definitely did not want in my render:
+	</p>
+
+	<img src="\img\guest\2022\physically_based_bloom\sponza_black_boxes.png"/>
+
+	<p>
+	  So I opened Renderdoc (highly recommended software btw!) and took a snapshot of
+	  the scene. The images below show the result of the first bloom downsampling,
+	  and the same image "normalized" so I can see more clearly the difference between
+	  very dark colors (built-in feature of Renderdoc). The second picture is obtained
+	  by setting the white-point of the image to a very low value (0.00526):
+	</p>
+
+        <img src="\img\guest\2022\physically_based_bloom\downsample-1.png"/>
+<br/>
+        <img src="\img\guest\2022\physically_based_bloom\downsample-1-normalized.png"/>
+
+	<p>
+	  It's not really clear from this picture alone what is wrong, but let's try to
+	  zoom in a bit, which I can do by simply showing some of the later downsamples:
+	</p>
+
+	<img src="\img\guest\2022\physically_based_bloom\downsample-4-normalized.png" style="width: 600px;"/>
+<br/>
+        <img src="\img\guest\2022\physically_based_bloom\downsample-6-normalized.png" style="width: 600px;"/>
+
+	<p>
+	  Now it's<!--'--> clear what is going on. As the first downsample yields some pixels
+	  that are exactly 0 (completely black), then any multiple involving these pixels
+	  will also be black! This effect is then enlarged as the image is downsampled
+	  multiple times.
+	</p>
+
+	<p>
+	  The fix for this problem is really simple (or rather, simple when you understand
+	  the problem). We need to clamp the result of the first downsample to some small value
+	  greater than 0, so we avoid any multiplications that may yield 0. This is the
+	  small fix in the downsample fragment shader:
+	</p>
+
+	<pre><code>void main()
+{
+    // [...]
+    downsample = max(downsample, 0.0001f);
+}
+</code></pre>
+
+	<p>
+	  This completely removes the black boxes. So now you know what to do, should you
+	  experience this annoyance yourselves :). It is also a great demonstration of the
+	  actual blur radius obtained with this technique. A really large blur radius, in
+	  pixel coordinates, may be obtained simply by downsampling to an even smaller
+	  texture. Instead of 20-30 horizontal and vertical blurs, we can actually obtain
+	  a more stable bloom effect with larger radii, by downsampling to very small
+	  textures. Theoretically, we may go as small as we like, as long as the smallest
+	  texture is 1x1 pixels. In contrast to the "old" bloom tutorial on this website,
+	  the blur radius here is not fixated by the blur kernel size, so even a very small
+	  light source may blur the entire screen if we like.
+	</p>
+
+	<p>
+	  If you are curious about learning how to use Renderdoc, János Turánszki has a
+	  great demonstration for his Wicked Engine devlog [8].
+	</p>
+
+
+	<h2>Bonus material 1: Soft threshold</h2>
+	<p>
+	  If you really <b><i>must</i></b>, it is quite possible to add a threshold to the
+	  bloom effect, which softly fades in the threshold instead of having a hard cut.
+	  The article in [5] discusses how to do this for Unity, but you should be able to
+	  implement it in the fragment shader during the first downsample iteration (from
+	  FullRes to A). It will not lead to photo-realistic results, but it may better
+	  follow your art direction.
+	</p>
+
+	<h2>Bonus material 2: Karis average</h2>
+	<p>
+	  If you download the slides found at [1], then at slide 166 there's<!--'--> a video clip
+	  showing the fireflies effect, which are a result of overly bright subpixels. This
+	  can happen with HDR-rendering, and as the slides suggest the solution is to either
+	  add multisampling to the downsampling (not universally available) or to apply a
+	  Karis average to the first downsampling. The slides describe what a Karis average
+	  is and where it was published, if you want to know more. Here, I will simply show
+	  a solution:
+	</p>
+
+	<p>
+	  <ol>
+		<li>For each group of 4 pixels (described in figure 3), compute the Luma value.</li>
+		<li>Calculate the Karis average from the Luma values and divide by 4.</li>
+		<li>Multiply with the weights.</li>
+	  </ol>
+	</p>
+
+	<p>
+	  Luma is equal to how we would compute Luminance from RGB, but Luma is computed
+	  from sRGB. The below code shows the procedure:
+	</p>
+
+	<pre><code>vec3 PowVec3(vec3 v, float p)
+{
+    return vec3(pow(v.x, p), pow(v.y, p), pow(v.z, p));
+}
+
+const float invGamma = 1.0 / 2.2;
+vec3 ToSRGB(vec3 v) { return PowVec3(v, invGamma); }
+
+float RGBToLuminance(vec3 col)
+{
+    return dot(col, vec3(0.2126f, 0.7152f, 0.0722f));
+}
+
+float KarisAverage(vec3 col)
+{
+    // Formula is 1 / (1 + luma)
+    float luma = RGBToLuminance(ToSRGB(col)) * 0.25f;
+    return 1.0f / (1.0f + luma);
+}
+</code></pre>
+
+	<p>
+	  Luminance measures the brightness of a pixel, and has the per-channel weights as
+	  shown in the <tt>RGBToLuminance</tt> function, because we perceive green much
+	  more bright than the other primaries. I multiply Luma with 0.25f because
+	  the input color is a sum of 4 pixel colors (how I designed this shader). We then
+	  multiply with the weights by slightly modifying our downsample shader:
+	</p>
+
+	<pre><code>// Check if we need to perform Karis average on each block of 4 samples
+vec3 groups[5];
+switch (mipLevel)
+{
+case 0:
+    // We are writing to mip 0, so we need to apply Karis average to each block
+    // of 4 samples to prevent fireflies (very bright subpixels, leads to pulsating
+    // artifacts).
+    groups[0] = (a+b+d+e) * (0.125f/4.0f);
+    groups[1] = (b+c+e+f) * (0.125f/4.0f);
+    groups[2] = (d+e+g+h) * (0.125f/4.0f);
+    groups[3] = (e+f+h+i) * (0.125f/4.0f);
+    groups[4] = (j+k+l+m) * (0.5f/4.0f);
+    groups[0] *= KarisAverage(groups[0]);
+    groups[1] *= KarisAverage(groups[1]);
+    groups[2] *= KarisAverage(groups[2]);
+    groups[3] *= KarisAverage(groups[3]);
+    groups[4] *= KarisAverage(groups[4]);
+    downsample = groups[0]+groups[1]+groups[2]+groups[3]+groups[4];
+    break;
+default:
+    downsample = e*0.125;
+    downsample += (a+c+g+i)*0.03125;
+    downsample += (b+d+f+h)*0.0625;
+    downsample += (j+k+l+m)*0.125;
+    break;
+}
+</code></pre>
+
+	<p>
+	  The variable <tt>mipLevel</tt> is a uniform int, set to 0 for the first
+	  downsampling and non-zero for the others. If you notice fireflies in your
+	  renders then you should probably add a Karis average to the first bloom
+	  downsampling. Quite clearly it increases the rendering time, but modern
+	  GPUs should be able to handle that. Also, since adding Karis average will
+	  reduce the dynamic range for the downsampling, the bloom effect will look
+	  slightly weaker (and darker as well). You can, as a compromise, increase
+	  the bloom strength slightly to compensate for this.
+	</p>
+
+	<h2>Bonus material 3: Lens dirt</h2>
+	<p>
+	  Another extension commonly attached to bloom is lens dirt. Where bloom
+	  aims to model the scattering of light in the lens, lens dirt is an overlay
+	  which controls the bloom effect in certain fixed areas of the lens. As you
+	  can imagine, this term is used quite loosely, and while there is no clear
+	  definition as to how lens dirt <i>should</i> be used, the most common
+	  usage is probably as an additive layer on top of the bloom. If you look at
+	  the video clip in [6], you will see a layer mostly visible in bright areas
+	  of the screen. Thus, my immediate motivation was to try to imitate this
+	  effect, by slightly modifying how we add the bloom contribution. I used
+	  <a href="https://docs.unrealengine.com/4.27/Images/RenderingAndGraphics/PostProcessEffects/Bloom/DirtMaskTextureExample.webp" target="_blank"><u>this</u></a>
+	  image (downloaded from [7]), which conveniently is mostly
+	  black or white. We want its bright areas to accentuate the bloom, and its
+	  dark areas to not make any changes to the rendered images (This is purely
+	  my own interpretation!).
+	</p>
+
+	<p>
+	  We add a uniform variable to control the intensity of the lens dirt, a
+	  2D sampler for its image, and then mix this into the bloom contribution of
+	  the shader which processes the bloom effect - in my case this is the
+	  tonemapping shader, but your setup may vary. This is a sketchout of the
+	  fragment shader:
+	</p>
+
+	<pre><code>#version 330 core
+
+in vec2 texcoord;
+out vec4 color;
+
+uniform sampler2D hdrTexture;
+uniform sampler2D bloomTexture;
+uniform sampler2D dirtMaskTexture;
+
+uniform float bloomStrength = 0.04f;
+uniform float dirtMaskIntensity = 20.0f;
+
+vec3 computeBloomMix()
+{
+    vec3 hdr = texture(hdrTexture, texcoord).rgb;
+    vec3 blm = texture(bloomTexture, texcoord).rgb;
+    vec3 drt = texture(dirtMaskTexture, vec2(texcoord.x, 1.0f - texcoord.y)).rgb * dirtMaskIntensity;
+    vec3 col = mix(hdr, blm + blm*drt, vec3(bloomStrength));
+    return col;
+}
+
+void main()
+{
+    vec3 col = computeBloomMix();
+    col = tonemap(col);
+    color = vec4(ToSRGB(col), 1.0f);
+}
+</code></pre>
+
+	<p>
+	  You may or may not want to invert the lens dirt image around the Y-axis,
+	  depending on how you load the image. By using <tt>blm + blm*drt</tt> we can
+	  achieve a multiplication to the bloom effect which is somewhat linearly scaled
+	  between 0 and 1 depending on the lens dirt texel. Whatever this results in,
+	  we add on top of the bloom before performing linear interpolation between
+	  the HDR color buffer and the bloom contribution. There are probably many other
+	  ways of using lens dirt, so please comment and share images in the comments if
+	  you discover some cool effects! :) Below you can see the same render with/without
+	  lens dirt (intensity = 34.451f):
+	</p>
+
+
+	<img src="\img\guest\2022\physically_based_bloom\lens-dirt-overlay-disabled.png"/>
+	
+<br/>
+
+	<img src="\img\guest\2022\physically_based_bloom\lens-dirt-overlay.png"/>
+	
+
+	<p>
+	  Notice how the lens dirt is visible on the entire screen, and not only at the bright
+	  areas. This is because there is bloom everywhere. If we were using thresholded bloom
+	  this would not work, and we would have to blend in the lens dirt in some other way.
+	</p>
+
+	<p>
+	  The effect is exaggerated for the sake of visibility, but should probably be used
+	  with more subtlety in a game. It adds a lot of realism and immersion, especially for
+	  action games or desert environments. Feel tree to experiment!
+	</p>
+	
+	<author>
+  <strong>Article by: </strong>Alexander Christensen<br/>
+  <div>
+				<a href="https://www.linkedin.com/in/alexanderchr/" target="_blank">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="margin-top: 4px;" viewBox="0 0 34 34" class="global-nav__logo">
+						<path d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z" fill="currentColor"></path>
+					</svg>
+				</a>
+			</div>
+</author>
+
+
+	<h2>References</h2>
+	<p>
+	  <ul class="abc-list">
+		<li><span>[1]</span>
+		  <i>&nbsp;&nbsp;Next Generation Post Processing in Call of Duty Advanced Warfare</i>,
+		  ACM Siggraph '14<!--'-->,
+		  <a href="https://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare" target="_blank">blog post</a></li>
+		<li><span>[2]</span>
+		  &nbsp;&nbsp;The Quisotic Engineer: <i>Bloom Disasters</i>, <a href="http://gangles.ca/2008/07/18/bloom-disasters/" target="_blank">blog post</a></li>
+		<li><span>[3]</span>
+		  &nbsp;&nbsp;Interesting discussion about bloom:
+		  <a href="https://wiki.gamedev.net/forums/topic/693388-bloom/#post_5362106" target="_blank">gamedev.net</a></li>
+		<li><span>[4]</span>
+		  &nbsp;&nbsp;Kalogirou: <i>How to do good bloom for HDR rendering</i>,
+		  <a href="https://web.archive.org/web/20060818101028/http://harkal.sylphis3d.com/2006/05/20/how-to-do-good-bloom-for-hdr-rendering/" target="_blank">web.archive.net</a></li>
+		<li><span>[5]</span>
+		  &nbsp;&nbsp;Jasper Flick: <i>Bloom</i>
+		  <a href="https://catlikecoding.com/unity/tutorials/advanced-rendering/bloom/" target="_blank">Unity tutorial series</a></li>
+		<li><span>[6]</span>
+		  &nbsp;&nbsp;Nenad M.: <i>Syndicate - custome shaders, lens dirt, lens flare, tonemap...</i>,
+		  <a href="https://www.youtube.com/watch?v=cCEA7Aru5D8" target="_blank">Youtube</a></li>
+		<li><span>[7]</span>
+		  &nbsp;&nbsp;Bloom,
+		  <a href="https://docs.unrealengine.com/4.27/en-US/RenderingAndGraphics/PostProcessEffects/Bloom/" target="_blank">docs.unrealengine.com</a></li>
+		<li><span>[8]</span>
+		  &nbsp;&nbsp;János Turánszki: <i>Wicked Engine - Render Breakdown</i>,
+		  <a href="https://www.youtube.com/watch?v=53NvFT37HzQ" target="_blank">Youtube</a></li>
+	  </ul>
+	</p><p><div id="in_content_ad_3">
+				<!-- 728x90/300x250/320x50 --><div id="waldo-tag-15503"></div>
+				</div>    </div>
+    
+    <div id="hover">
+        HI
+    </div>
+	
+	
+<!-- 728x90/320x50 sticky footer -->
+<div id="disqus_thread"></div>
+
+</div> <!-- container div -->
+
+
+</div> <!-- super container div -->
+</body>
+</html>

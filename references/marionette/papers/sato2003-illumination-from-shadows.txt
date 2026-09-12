@@ -1,0 +1,763 @@
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002  0
+
+Illumination from Shadows
+
+     Imari Sato, Yoichi Sato, and Katsushi Ikeuchi
+
+   Abstract-- In this paper, we introduce a method for recovering an illu-         ditions, e.g., there were several point light sources in the scene,
+mination distribution of a scene from image brightness inside shadows cast         and those approaches were difficult to be extended for more nat-
+by an object of known shape in the scene. In a natural illumination con-           ural illumination conditions [11], [13], [30], [33], [36], or multi-
+dition, a scene includes both direct and indirect illumination distributed         ple input images taken from different viewing angles were nec-
+in a complex way, and it is often difficult to recover an illumination dis-        essary [17], [23].
+tribution from image brightness observed on an object surface. The main
+reason for this difficulty is that there is usually not adequate variation in         In this study, we present a method for recovering an illumi-
+the image brightness observed on the object surface to reflect the subtle          nation distribution of a scene from image brightness observed
+characteristics of the entire illumination. In this study, we demonstrate the      on an object surface in that scene. To compensate for the in-
+effectiveness of using occluding information of incoming light in estimating       sufficient information for the estimation, we propose to use oc-
+an illumination distribution of a scene. Shadows in a real scene are caused        cluding information of incoming light caused by an object in
+by the occlusion of incoming light, and thus analyzing the relationships be-       that scene as well as the observed image brightness on an ob-
+tween the image brightness and the occlusions of incoming light enables us         ject surface. More specifically, the proposed method recovers
+to reliably estimate an illumination distribution of a scene even in a com-        the illumination distribution of the scene from image brightness
+plex illumination environment. This study further concerns the following           inside shadows cast by an object of known shape in the scene.
+two issues that need to be addressed. First, the method combines the illumi-
+nation analysis with an estimation of the reflectance properties of a shadow          Shadows in a real scene are caused by the occlusion of in-
+surface. This makes the method applicable to the case where reflectance            coming light, and thus contain various pieces of information
+properties of a surface are not known a priori and enlarges the variety of         about the illumination of the scene. However, shadows have
+images applicable to the method. Second, we introduce an adaptive sam-             been used for determining the 3D shapes and orientations of an
+pling framework for efficient estimation of illumination distribution. Using       object which casts shadows onto the scene [19], [16], [32], [3],
+this framework, we are able to avoid unnecessarily dense sampling of the           while very few studies have focused on the the illuminant in-
+illumination and can estimate the entire illumination distribution more ef-        formation which shadows could provide. In our method, image
+ficiently with a smaller number of sampling directions of the illumination         brightness inside shadows is effectively used for providing dis-
+distribution. To demonstrate the effectiveness of the proposed method, we          tinct clues to estimate an illumination distribution.
+have successfully tested the proposed method by using sets of real images
+taken in natural illumination conditions with different surface materials of          The proposed approach estimates an illumination distribution
+shadow regions.                                                                    of a scene using the following procedures. The illumination dis-
+                                                                                   tribution of a scene is first approximated by discrete sampling of
+   Keywords--computer vision, physics based vision, illumination distribu-         an extended light source; whole distribution is represented as a
+tion estimation                                                                    set of point sources equally distributed in the scene. Then this
+                                                                                   approximation leads each image pixel inside shadows to pro-
+                          I. INTRODUCTION                                          vide a linear equation with radiance of those light sources as
+                                                                                   unknowns. Finally, the unknown radiance of each light source
+   The image brightness of a three-dimensional object is the                       is solved from the obtained set of equations. In this paper, we re-
+function of the following three components: the distribution of                    fer to the image with shadows as the shadow image, to the object
+light sources, the shape of a real object; and the reflectance of                  which casts shadows onto the scene as the occluding object, and
+that real object surface [8], [9]. The relationship among them                     to the surface onto which the occluding object casts shadows as
+has provided three major research areas in physics-based vi-                       the shadow surface.
+sion: shape-from-brightness (with a known reflectance and illu-
+mination), reflectance-from-brightness (with a known shape and                        The assumptions that we made for the proposed approach are
+illumination), and illumination-from-brightness (with a known                      as follows.
+shape and reflectance).
+                                                                                      · Known geometry: the 3D shapes of both the occluding ob-
+   The first two kinds of analyses, shape-from-brightness and                            ject and the occluding surface are known as well as their
+reflectance-from-brightness, have been intensively studied using                         relative poses and locations.
+the shape from shading method [10], [12], [11], [24], as well as
+through reflectance analysis research [13], [22], [7], [1], [15],                     · Distant illumination: we assume that light sources in the
+[18], [30], [35].                                                                        scene are sufficiently distant from the objects, and thus all
+                                                                                         light sources project parallel rays onto the object surface.
+   In contrast, relatively limited amounts of research have been                         Namely, the distances from the objects to the light sources
+conducted in the third area, illumination-from-brightness. This                          are not considered in the proposed approach.
+is because real scenes usually include both direct and indirect il-
+lumination distributed in a complex way and it is difficult to an-                    · No interreflection: the proposed method does not take into
+alyze characteristics of the illumination distribution of the scene                      account interreflection between the shadow surface and the
+from image brightness. Most of the previously proposed ap-                               occluding object on the assumption that there is no severe
+proaches were conducted under very specific illumination con-                            interreflection between them and no multiple scattering of
+                                                                                         the interreflected rays from them to the scene. As a con-
+  I. Sato is with Graduate School of Interdisciplinary Information Studies, The          sequence, objects with darker color and weaker specularity
+University of Tokyo, 7-3-1 Hongo, Bunkyo, Tokyo 113-0033, Japan. E-mail:
+imarik@iis.u-tokyo.ac.jp .
+
+  Y. Sato and K. Ikeuchi are with Institute of Industrial Science, The University
+of Tokyo, 4-6-1 Komaba, Meguro, Tokyo 153-8505, Japan. E-mail: {ysato,
+ki}@iis.u-tokyo.ac.jp .
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002                                     1
+
+      are preferred as occluding objects since they do not signif-   Fig. 1. (a) the direction of incident and emitted light rays (b) infinitesimal patch
+      icantly act as secondary light sources, and the method can-    of an extended light source, (c) occlusion of incoming light
+      not handle a scene consisting of shiny occluding objects.
+                                                                     the scene. 1 To take illumination from all directions into ac-
+   This study further concerns the following two issues that
+need to be considered when we tackle this illumination-from-         count, let us consider an infinitesimal patch of the extended light
+brightness problem. The first issue is how to provide reflectance
+properties of the shadow surface in cases where they are not         source, of a size i in polar angle and i in azimuth as shown
+given a priori. Since it is a common situation that reflectance      in Fig. 1.
+properties of a surface are not known, a solution to this prob-
+lem is required to enlarge the variety of images to which the           Seen from the center point A, this patch subtends a solid angle
+proposed method can be applied. In our approach, instead of           = siniii. Let L0(i, i) be the illumination radiance
+assuming any particular reflectance properties of the surface in-    per unit solid angle coming from the direction (i, i); then the
+side shadows, both the illumination distribution of the scene and    radiance from the patch is L0(i, i)siniii, and the total
+the reflectance properties of the surface are estimated simultane-   irradiance of the surface point A is [9]
+ously, based on an iterative optimization framework.
+                                                                                              
+   The second issue is how to efficiently estimate an illumina-                               2
+tion distribution of a scene without losing the accuracy of the          E=                      L0(i, i)cosisinididi
+estimated illumination distribution. To capture the subtle char-                                                            (1)
+acteristics of the illumination distribution of a scene, the entire
+distribution must be discretized densely, and this makes the so-                         - 0
+lution exceedingly expensive in terms of processing time and
+storage requirements. To satisfy both the accuracy and the ef-       Then occlusion of the incoming light by the occluding object is
+ficiency claims, we introduce an adaptive sampling framework         considered as
+to sample the illumination distribution of a scene. Using this
+adaptive sampling framework, we are able to avoid unnecessar-                 
+ily dense sampling of the illumination and estimate overall illu-             2
+mination more efficiently by using fewer sampling directions.        E=                  L0(i, i)S(i, i)cosisinididi (2)
+
+   The rest of the paper is organized as follows. We describe            - 0
+how we first obtain a formula which relates an illumination dis-
+tribution of a scene with the image irradiance of the shadow im-     where S(i, i) are occlusion coefficients; S(i, i) = 0
+age in Section II and Section III. The formula will later be used    if L0(i, i) is occluded by the occluding object; Otherwise
+as a basis for estimating both the illumination distribution of a    S(i, i) = 1 (Fig. 1 (c)).
+real scene and the reflectance properties of the shadow surface.
+Using this formula, we explain how to estimate an illumination          Some of the incoming light at point A is reflected toward the
+radiance distribution from the observed image irradiance of a
+shadow image in Section IV. In this section, we consider the         image plane. As a result, point A becomes a secondary light
+following two cases separately: (1) where the reflectance prop-
+erties of the shadow surface are known, (2) where those prop-        source with scene radiance.
+erties are not known. We also introduce an adaptive sampling
+framework for efficient approximation of the entire illumination,       The bidirectional reflectance distribution function (BRDF)
+and show experimental results of the proposed method applied         f (i, i; e, e) is defined as a ratio of the radiance of a sur-
+to images taken in natural illumination conditions in Section V.     face as viewed from the direction (e, e) to the irradiance re-
+Finally, we discuss some of the related work proposed in the         sulting from illumination from the direction (i, i). Thus, by
+field of computer graphics in Section VI, and present conclud-       integrating the product of the BRDF and the illumination radi-
+ing remarks and future research directions in Section VII. This      ance over the entire hemisphere, the scene radiance Rs(e, e)
+paper is an expanded and more detailed version of the works we       viewed from the direction (e, e) is computed as
+presented in [27], [28].
+                                                                                                 
+   II. RELATING ILLUMINATION RADIANCE WITH IMAGE                                                 2
+                                IRRADIANCE                           Rs(e, e) =                     f (i, i; e, e)L0(i, i)
+
+   In this section, we describe how we obtain a formula which                              - 0
+relates an illumination distribution of a real scene with the image
+irradiance of a shadow image. The formula will later be used as                                     S(i, i)cosisinididi     (3)
+a basis for estimating the illumination distribution of a scene and
+the reflectance properties of a shadow surface.                         Finally, the illumination radiance of the scene is related with
+                                                                     image irradiance on the image plane. Since what we actually
+   First, we find a relationship between the illumination distri-    observe is not image irradiance on the image plane, but rather a
+bution of a real scene and the irradiance at a surface point in      recorded pixel value in a shadow image, it is necessary to con-
+                                                                     sider the conversion of the image irradiance into a pixel value
+                                                                     of a corresponding point in the image. This conversion includes
+
+                                                                       1For a good reference of the radiometric properties of light in a space, see
+                                                                     [21].
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002                                                                        2
+
+several factors such as D/A and A/D conversions in a CCD cam-                 Fig. 2. Each pixel provides a linear equation.
+era and a frame grabber.
+
+   Other studies concluded that image irradiance was propor-
+tional to scene radiance [9]. In our work, we calibrate a linearity
+of the CCD camera by using a Macbeth color chart with known
+reflectivity so that the recorded pixel values also become pro-
+portional to the scene radiance of the surface. From (3) the pixel
+value of the shadow image P (e, e) is thus computed as
+
+                   
+                   2
+
+P (e, e) = k          f (i, i; e, e)L0(i, i)
+
+              - 0                                                             A. Known Reflectance Properties
+
+                      S(i, i)cosisinididi     (4)                             A.1 Lambertian
+
+where k is a scaling factor between scene radiance and a pixel                   Let us start with the simplest case where the shadow surface
+                                                                              is a Lambertian surface whose reflectance properties are given.
+value. Due to the scaling factor k, we are able to estimate un-
+known L0(i, i)(i = 1, 2, · · · ·, n) up to scale. To obtain the scale            BRDF f (i, i; e, e) for a Lambertian surface is known to
+factor k, we need to perform photometric calibration between                  be a constant. From (5), an equation for a Lambertian surface is
+pixel intensity and the physical unit (watt/m2) for the irradi-               obtained as
+
+ance.
+
+                                                                                              n
+
+  III. APPROXIMATION OF ILLUMINATION DISTRIBUTION                             P (e, e) = KdL(i, i)S(i, i)cosii                                                 (6)
+                       WITH DISCRETE SAMPLING
+                                                                                              i=1
+   In our implementation of the proposed method, to solve for
+the unknown radiance L0(i, i) which is continuously dis-                      where Kd is a diffuse reflection parameter of the surface.
+tributed on the surface of the extended light source from the
+recorded pixel values of the shadow surface, the illumination                 From (6), the recorded pixel value P for an image pixel is given
+distribution is approximated by discrete sampling of radiance
+over the entire surface of the extended light source. This can be             as
+considered as representing the illumination distribution of the
+scene by using a collection of light sources with an equal solid                                                                    n
+angle. As a result, the double integral in (4) is approximated as
+                                                                                                 P = aiLi                                                      (7)
+                            n
+                                                                                                   i=1
+  P (e, e) = f (i, i; e, e)L(i, i)S(i, i)cosii
+                                                                              where Li (i = 1, 2, · · · ·, n) are n unknown illumination radi-
+                           i=1                                                ance specified by n node directions of a geodesic dome. As
+                                                                              shown in Fig. 2, the coefficients ai(i = 1, 2, · · · ·, n) represent
+                                                                         (5)  KdS(i, i) cos ii in (6); we can compute these coefficients
+where n is the number of sampling directions, L(i, i) is the il-              from the 3D geometry of a surface point, the occluding object
+lumination radiance per unit solid angle coming from the direc-               and the illuminant direction. In our examples, we use a model-
+tion (i, i), which also includes the scaling factor k between                 ing tool called the 3D Builder from 3D Construction Company
+scene radiance and a pixel value, and i is a solid angle for the              [37] to recover the shape of an occluding object and also the
+sampling direction (i, i).                                                    camera parameters from a shadow image. At the same time, the
+                                                                              plane of z = 0 is defined on the shadow surface. 2
+   For instance, node directions of a geodesic dome can be used
+for uniform sampling of the illumination distribution. By us-                    If we select a number of pixels, say m pixels, a set of linear
+ing n nodes of a geodesic dome in a northern hemisphere as                    equations is obtained as
+a sampling direction, the illumination distribution of the scene
+is approximated as a collection of directional light sources dis-                        n
+tributed with an equal solid angle  = 2/n.
+                                                                              Pj = ajiLi                                               (j = 1, 2, · · · ·, m)  (8)
+
+                                                                                         i=1
+
+ IV. ESTIMATION OF RADIANCE DISTRIBUTION BASED ON                                Therefore, by selecting a sufficiently large number of image
+        REFLECTANCE PROPERTIES OF SHADOW SURFACE                              pixels, we are able to solve for a solution set of unknown Li's. 3
+                                                                              For our current implementation, we solve the problem by using
+   After obtaining the formula that relates the illumination ra-
+diance of the scene with the pixel values of the shadow image,                the linear least square algorithm with non-negativity constraints
+illumination radiance is estimated based on the recorded pixel
+values of the shadow image.                                                   (using a standard MATLAB function) to obtain an optimal solu-
+
+   In (5), the recorded pixel value P (e, e) is computed as a                 tion with no negative components.
+function of the illumination radiance L(i, i) and the BRDF
+f (i, i; e, i). Accordingly, in the following sections, we take                 2It is worth noting that, as long as the 3D shape of the shadow surface is pro-
+different approaches, depending on whether BRDF of the sur-                   vided in some manner, e.g., by using a range sensor, the shadow surface need
+face is given.                                                                not be a planar surface. It is rather reasonable to think that a curved shadow sur-
+                                                                              face has the potential for providing more variation in aji in (8) than an ordinary
+                                                                              planar surface would since cosi term of ai in (7) also slightly changes from
+                                                                              image pixel to pixel. Unless severe interreflection occurs within the surface, our
+                                                                              method can be applied to a curved shadow surface.
+
+                                                                                3More details of the pixel selection are found in the Appendix.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002  3
+
+   It should be noted that each pixel P (e, e) consists of 3 color                   A.3 Experimental Results for Known Lambertian Surface
+bands (R, G, and B) and likewise the diffuse parameter Kd con-
+sists of 3 parameters (Kd,R, Kd,G, Kd,B). Each color band of                            We have tested the proposed approach using an image with an
+L(i, i) is thus estimated separately from the corresponding                          occluding object, i.e., shadow image, taken under usual illumi-
+band of the image pixel and that of the diffuse parameter Kd.                        nation environmental conditions, including direct light sources
+For the sake of simplicity in our discussion, we explain the pro-                    such as fluorescent lamps, as well as indirect illumination such
+posed method by using L(i, i), P (e, e), Kd and do not refer                         as reflections from a ceiling and a wall (Fig. 3 (b)).
+to each of their color bands in the following sections.
+                                                                                        First, an illumination distribution of the scene was estimated
+   We must also draw attention to the importance of shadow                           using the image irradiance inside shadows in the shadow im-
+coefficients for recovering illumination distribution of a scene                     age. Then a synthetic object with the same shape as that of the
+from the observed brightness on an object surface. For instance,                     occluding object was superimposed onto an image of the scene
+consider the case described above where the given shadow sur-                        taken without the occluding object, which is referred as a sur-
+face is a Lambertian surface. If we do not take into account                         face image, using the rendering method described in [29]. Note
+the occlusion of including light, the variation of aji in (8) is                     that our algorithm does not require this surface image in the pro-
+caused only by the cosine factor of incoming light direction and                     cess of illumination estimation in the case where the reflectance
+the surface normal direction of the corresponding point on the                       properties of the shadow surface are given. This surface im-
+shadow surface (cosji). As a result, the estimation of illumi-                       age is used here as a background image for superimposing the
+nation distribution by solving the equation (8) for a solution set                   synthetic occluding object onto the scene.
+of unknown Li's tends to become numerically unstable.
+                                                                                        Synthesized results are shown in Fig. 4 (a), (b), and (c). Also,
+   In contrast, taking into account the occlusion of incoming                        we superimposed another synthetic object of a different shape
+light tells us that the variation of aji becomes much larger since                   onto the scene in Fig. 4 (d). The number of nodes of a geodesic
+the shadow coefficient S(i, i) in (6) changes significantly, i.e.,                   dome used for the estimation is shown under the resulting im-
+either 0 or 1, from point to point on the shadow surface de-                         age.
+pending on the spatial relationships among the location of the
+point, the occluding object, and the sampling direction of the il-                      As we see in Fig. 4, the larger the number of nodes we used,
+lumination distribution, as is well illustrated in Lambert's work                    the more the shadows of the synthetic object resembled those of
+described in [5]. This characteristics of shadows enables us to                      the occluding object in the shadow image. Especially in the case
+reliably recover the illumination distribution of the scene from                     of 520 nodes, the shadows of the synthetic object are nearly in-
+brightness changes inside shadows.                                                   distinguishable from those of the occluding object in the shadow
+                                                                                     image; this shows that the estimated illumination distribution
+A.2 Non-Lambertian surface                                                           gives a good presentation of that of the real scene. 4
+
+   The proposed approach may be extended to other reflection                            Fig. 5 numerically shows the improvement of the accuracy
+models as well. The only condition for a model to satisfy is that                    obtained by increasing the number of samplings. Here, the es-
+it enables us to analytically solve for a solution set of unknown                    timated illumination distribution was evaluated in a different
+illumination radiance from image brightness.                                         scene condition where the occluding object was rotated 45 de-
+                                                                                     grees on its z axis. The vertical axis represents the average error
+   Take a simplified Torrance-Sparrow reflection model [22],                         in pixel values (0 to 255) inside the shadow regions in the syn-
+[34] for example; the pixel value of a shadow image P (e, e)                         thesized images compared with those in the shadow image. The
+is computed as                                                                       horizontal axis represents the number of nodes of a geodesic
+                                                                                     dome used for the estimation. The small pictures right next to
+P (e, e) =     n        KdL(i, i)S(i, i)cosii +                                      the plot show error distributions inside shadow regions in the
+            =  i=1                                                                   synthesized images. Darker color represents larger error in a
+                                                                                     pixel value. The average error at the zero sampling of illumina-
+               n            L(i            )S  (i        )i    1      - (i ,i    )2  tion radiance represents, for reference, the average pixel value
+               i=1                                           cose            22      inside the shadow regions of the shadow image.
+                        Ks       ,  i              ,  i            e
+                                                                                        In this plot, we see that flattening of the error curve before
+               n        (Kdcosi     +      Ks    1       e   - (i ,i )2  )           convergence to the exact solutions occurs. This is likely caused
+               i=1                             cose                 22               by the following factors. The first of these is the errors in the
+                                                                                     measurements of the 3D shapes of the occluding object and the
+                        S(i, i)iL(i, i)                                         (9)  shadow surface. The second factor is the errors in the given
+                                                                                     reflectance properties of the shadow surface; there is some pos-
+   where (i, i) is the angle between the surface normal and                          sibility that the shadow surface is not a perfect Lambertian sur-
+the bisector of the light source direction and the viewing direc-                    face. The third factor is related to our lighting model that ap-
+                                                                                     proximates the illumination distribution of a scene by discrete
+tion, Kd and Ks are constants for the diffuse and specular re-                       sampling of an extended light source on the assumption that
+flection components, and  is the standard deviation of a facet
+                                                                                       4We see some "stair-casting" artifacts inside the synthesized shadows that re-
+slope of the Torrance-Sparrow reflection model.                                      sult from our approximation of continuous illumination distribution by discrete
+                                                                                     sampling of its radiance. One approach to reduce this artifact is to increase the
+From (9), we obtain a linear equation for each image pixel                           number of point light sources used for rendering, whose radiance is given by
+                                                                                     interpolating the estimated radiance Li of the neighboring light sources.
+where L(i, i)(i = 1, 2, · · · ·, n) are unknown illumination ra-
+                                           -(i ,i)2
+diance,  and   (Kdcosi  +  K e 1                  22     )S(i, i)i          (i   =
+
+                              s cose
+1, 2, · · · ·, n) are known coefficients.
+
+Again, if we use a sufficiently large number of pixels for the
+
+estimation, we are able to solve for a solution set of unknown
+
+illumination radiance L(i, i)(i = 1, 2, · · · ·, n) in this case.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002                                                          4
+
+Fig. 3. Input images : (a) surface image (b) shadow image
+
+                                                                      Fig. 5. Error Analysis: The vertical axis represents the average error in pixel
+                                                                      values (0 to 255) inside the shadow regions in the synthesized images compared
+                                                                      with those in the shadow image. The horizontal axis represents the number of
+                                                                      nodes of a geodesic dome used for the estimation. The small pictures right next
+                                                                      to the plot show error distributions inside shadow regions in the synthesized
+                                                                      images. Darker color represents larger error in a pixel value.
+
+              Fig. 4. Synthesized images: known reflectance property  B.2 Non-Uniform Surface Material
+
+light sources in the scene are sufficiently distant from the ob-         The last case is where the BRDF is not given, and the shadow
+jects. The input image used in this experiment was taken in an        surface does not have uniform reflectance properties, e.g., sur-
+indoor environment, this assumption might not perfectly hold.         faces with some textures. Even in this case, we are still able
+The last factor concerns our assumption that there is no inter-       to estimate an illumination distribution of a scene from shad-
+reflection between the occluding object and the shadow surface.       ows if it is conceivable that the shadow surface is a Lambertian
+                                                                      surface.
+
+                                                                         The question we have to consider here is how to cancel the
+                                                                      additional unknown number Kd in (6). An additional image of
+                                                                      the scene taken without the occluding object, called the surface
+                                                                      image, is used for this purpose. The image irradiance of a sur-
+                                                                      face image represents the surface color in the case where none
+                                                                      of the incoming light is occluded. Accordingly, in the case of
+                                                                      the surface image, the shadow coefficients S(i, i) always be-
+                                                                      come S(i, i) = 1. Therefore, the image irradiance P (e, e)
+                                                                      of the surface image is computed from (6) as
+
+                                                                                                       n
+
+                                                                                  P (e, e) = Kd L(j, j)cosjj                                  (10)
+
+B. Unknown Reflectance Properties                                                                      j=1
+
+B.1 Uniform Surface Material                                          From (6) and (10), the unknown Kd is canceled.
+
+   There certainly may be a situation where reflectance proper-       P (e, e)    =      Kd      n     L(i,  i)cosi        S  (i,  i)i
+ties of a surface are not known a priori, and we need to somehow      P (e, e)                   i=1
+provide those properties in advance. To cope with this situation,                                      n
+we combine the illumination analysis with an estimation of the                                 Kd      j=1  L(j  ,  j   )cosj  j
+reflectance properties of the shadow surface. More specifically,
+we estimate both the illumination distribution of the scene and                            n     n      L(i, i)            j  cosi  S  (i  ,  i  )i
+the reflectance properties of the surface simultaneously, based                                  j=1   L(j, j)cosj
+on an iterative optimization framework. We will later explain                     =
+details of this iterative optimization framework in conjunction
+with the adaptive sampling method described in SectionV. This                             i=1
+approach is based on the assumption that the shadow surface
+has uniform reflectance properties over the entire surface.                                                                                   (11)
+
+                                                                      Finally, we obtain a linear equation for each image pixel
+
+                                                                      where  n    L(i ,i )             are unknowns, cosiS(i, i)i                are
+                                                                             j=1
+                                                                                  L(j    ,j  )cosj  j
+
+                                                                      computable  coefficients,  and   P (e,e)      is  a  right-hand  side  quan-
+                                                                                                       P (e,e )
+                                                                      tity. Again, if we use a sufficiently large number of pixels for the
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002                                           5
+
+     Fig. 6. Input images : (a) surface image (b) shadow image
+
+                                                                            Fig. 8. Error Analysis: unknown reflectance property
+
+                                                                            the occluding object in the shadow image. This shows that the
+                                                                            estimated illumination distribution gives a good representation
+                                                                            of the characteristics of the real scene.
+
+                                                                               Fig. 8 numerically shows the improvement of the accuracy by
+                                                                            increasing the number of samplings. The estimated illumination
+                                                                            distribution was evaluated using a new occluding object with a
+                                                                            different shape. From the plot in the figure, we can clearly see
+                                                                            that the accuracy improves as we use more sampling directions
+                                                                            of the illumination distribution. It is likely that the flattening
+                                                                            of the error curve before convergence to the exact solutions is
+                                                                            caused by the same factors described in Section IV-A.3.
+
+     Fig. 7. Synthesized images: unknown reflectance property                       V. ADAPTIVE ESTIMATION OF ILLUMINATION
+                                                                                      DISTRIBUTION WITH UNKNOWN REFLECTANCE
+estimation, we are able to solve the set of linear equations for a
+                                                                                              PROPERTIES OF SHADOW SURFACE
+solution set of unknown  n   L(i ,i )         (i = 1, 2, · · · ·, n).
+                         j=1                                                   This section further concerns the following two issues that
+                                L(j ,j )cosj                                further generalize the proposed approach. The first issue is how
+                                                                            to provide reflectance properties of a surface inside shadows in
+We should point out that the estimated radiance from these                  cases where they are not given a priori, and the shadow surface
+                                                                            is not conceivable as a Lambertian surface.
+equations is a ratio of the illumination radiance in one di-
+                                                                               The second issue is how to efficiently estimate an illumina-
+rection L(i, i) to scene irradiance at the surface point                    tion distribution of a scene without losing the accuracy of the
+n                                                                           estimated illumination distribution. In Section IV, we have es-
+j=1  L(j, j )cosjj.      As  a  result,  we  cannot  relate     the  esti-  timated an illumination distribution of a real scene by sampling
+                                                                            the distribution at an equal solid angle given as node directions
+mated radiance over the color bands unless the ratio of the scene           of a geodesic dome. For more efficiently estimating the illumi-
+                                                                            nation distribution of a scene using fewer sampling directions
+irradiance among color bands is provided. It is, however, not so            of illumination radiance, we propose to increase sampling di-
+                                                                            rections adaptively based on the estimation at the previous itera-
+difficult to obtain this ratio. For instance, if there is a surface         tion, rather than by using a uniform discretization of the overall
+                                                                            illumination distribution in this section.
+with a white color in the scene, the recorded color of the sur-
+                                                                            A. Basic Steps of the Proposed Approach
+face directly indicates the ratio of the scene irradiance among
+                                                                               To take both diffuse and specular reflections of the shadow
+color bands. Otherwise, an assumption regarding total radiance              surface into consideration, a simplified Torrance-Sparrow re-
+                                                                            flection model (9) described in Section IV-A.2 is reused. Based
+is required.                                                                on this reflection model, both the illumination distribution of the
+
+B.3 Experimental Results for Non-Uniform Surface Material
+
+   The input images used in this experiment are shown in Fig. 6.
+The illumination distribution of the scene was estimated using
+the image irradiance of both the shadow image and the surface
+image, and a synthetic occluding object was superimposed onto
+the surface image using the estimated illumination distribution.
+Synthesized results are shown in Fig. 7. Again, in the case of
+520 nodes, the shadows in the resulting image resemble those of
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002  6
+
+scene and the reflectance properties of the shadow surface are                     where Pj is the observed pixel intensity in shadows cast by the
+estimated from image brightness inside shadows as described in                     occluding object, Pj is the pixel value of the corresponding sur-
+the following steps.                                                               face points computed by using the given radiance distribution of
+                                                                                   the scene L(i, i) in (9), m is the number of pixels used for
+   1. Initialize the reflectance parameters of the shadow surface.                 minimization. In our method, the error function in (12) is min-
+      Typically, we assume the shadow surface to be Lambertian,                    imized with respect to the reflectance parameters Kd, Ks, and
+      and the diffuse parameter Kd is set to be the pixel value of                  by the Powell method to obtain the best estimation of those
+      the brightest point on the shadow surface. The specular                      reflectance parameters [25]. As has been noted, this approach
+      parameters are set to be zero (Ks = 0,  = 0). 5                              is based on the assumption that the shadow surface has uniform
+                                                                                   reflectance properties over the entire surface.
+   2. Select image pixels whose brightness is used for estimat-
+      ing both the illumination distribution of a scene and the                    C. Adaptive Sampling of Radiance Distribution
+      reflectance properties of the shadow surface. This selec-
+      tion is done by examining the coefficients ai in (7) in the                     If the estimated radiance distribution for a set of sampling di-
+      manner described in the Appendix.                                            rections does not approximate the illumination distribution of
+                                                                                   the scene with sufficient accuracy, we increase the sampling di-
+   3. Estimate illumination radiance L(i, i). Using the re-                        rections adaptively based on the current estimation of the illu-
+      flectance parameters (Kd, Ks, ) and image brightness in-                     mination radiance distribution.
+      side shadows in the shadow image, the radiance distribu-
+      tion L(i, i) is estimated as described in Section IV-A.2.                       Radiance distribution changes very rapidly around a direct
+                                                                                   light source such as a fluorescent light. Therefore, the radiance
+   4. Estimate the reflectance parameters of the shadow surface                    distribution has to be approximated by using a large number
+      (Kd, Ks, ) from the obtained radiance distribution of the                    of samplings so that the rapid change of radiance distribution
+      scene L(i, i) by using an optimization technique. (Sec-                      around the direct light source is captured. Also, to correctly
+      tion V-B)                                                                    reproduce soft shadows cast by extended light sources, radi-
+                                                                                   ance distribution inside a direct light source has to be sampled
+   5. Proceed to the next step if there is no significant change in                densely.
+      the estimated values L(i, i), Kd, Ks, and . Otherwise,
+      go back to Step 3. By estimating both the radiance distri-                      On the other hand, coarse sampling of radiance distribution is
+      bution of the scene and the reflectance parameters of the                    enough for an indirect light source such as a wall whose amount
+      shadow surface iteratively, we can obtain the best estima-                   of radiance remains small. As a result, the number of sampling
+      tion of those values for a given set of sampling directions                  directions required for accurately estimating an illumination dis-
+      of the illumination radiance distribution of the scene.                      tribution of a real scene becomes exceedingly large.
+
+   6. Terminate the estimation process if the obtained illumi-                        To overcome this problem, we increase sampling directions
+      nation radiance distribution approximates the real radiance                  adaptively based on the estimation at the previous iteration,
+      distribution with sufficient accuracy. Otherwise, proceed to                 rather than by using a uniform discretization of the overall il-
+      the next step.                                                               lumination distribution. In particular, we increase sampling di-
+                                                                                   rections around and within direct light sources. 6
+   7. Increase the sampling directions of the illumination distri-
+      bution adaptively based on the obtained illumination radi-                      Based on the estimated radiance distribution L(i, i) for the
+      ance distribution L(i, i). (Section V-C)                                     sampling directions at the previous step, additional sampling di-
+      Then go back to Step 2.                                                      rections are determined as follows.
+
+In the following sections, each step of the proposed approach                         Suppose three sampling directions with radiance values
+will be explained in more detail.                                                  L1, L2, and L3 are placed to form a triangle M1 as illustrated
+                                                                                   in Fig. 9. To determine whether a new sampling direction needs
+B. Estimation of Reflectance Parameters of Shadow Surface                          to be added between L1 and L2, we consider the following cost
+    based on Radiance Distribution                                                 function.
+
+   In this section, we describe how to estimate the reflectance                                          Fig. 9. Subdivision of sampling directions
+parameters of the shadow surface (Kd, Ks, ) by using the esti-
+mated radiance distribution of the scene L(i, i).                                    6A similar sampling method has been employed in radiosity computation to
+                                                                                   efficiently simulate the brightness distribution of a room [4].
+   Unlike the estimation of the radiance distribution of the scene
+L(i, i), which can be done by solving a set of linear equa-
+tions, we estimate the reflectance parameters of the shadow sur-
+face by minimizing the sum of the squared difference between
+the observed pixel intensities in the shadow image and the pixel
+values computed for the corresponding surface points. Hence,
+the function to be minimized is defined as
+
+m
+
+f = (Pj - Pj)2  (12)
+
+j=1
+
+  5Note that the initial value of Kd is not so important since there is a scaling
+factor between the reflectance parameters and illumination radiance values in
+any case. To fix the scaling factor, we need to perform photometric calibration
+of our imaging system with a calibration target whose reflectance is given a
+priori.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002  7
+
+U (L1, L2) = dif f (L1, L2) + min(L1, L2)angle(L1, L2)
+                                                                      (13)
+
+where dif f (L1, L2) is the radiance difference between L1 and              Fig. 10. Input image : (a) shadow image taken of an indoor scene (b) the
+L2, min(L1, L2) gives the smaller radiance of L1 and L2,                    region which synthesized images with the estimated radiance distribution and
+angle(L1, L2) is the angle between directions to L1 and L2,                 reflectance parameters are superimposed.
+and  is the manually specified parameter which determines the
+
+relative weights of those two factors. The first term is required
+
+to capture the rapid change of radiance distribution around di-
+
+rect light sources, while the second term leads to fine sampling
+of the radiance distribution inside direct light sources. The ad-
+ditional term angle(L1, L2) is used for avoiding unnecessarily
+dense sampling inside direct light sources. In our experiments,
+ is set to 0.5.
+
+   If the cost U is large, a new sampling direction is added be-
+tween L1 and L2. In our experiments, we computed the cost
+function values U for all pairs of neighboring sampling direc-
+tions, then added additional sampling directions for the first 50%
+of all the pairs in the order of the cost function values U .
+
+D. Experimental Results for Adaptive Sampling Method                        Fig. 11. Adaptive refinement of illumination distribution estimation: (a) synthe-
+                                                                            sized images with the estimated radiance distribution and reflectance parameters
+   We have tested the proposed adaptive sampling method by us-              (b) adaptive refinement of sampling directions with a ground truth of an omni-
+ing real images taken in both indoor and outdoor environments.              directional image of the scene (c) the estimated radiance values visualized for
+In the following experiment, the adaptive sampling technique                comparison with the ground truth
+was applied to a uniform unknown reflectance properties case.
+The shadow image shown in Fig. 10 was used here as an input
+of a indoor scene.
+
+   Starting from a small number of uniform sampling directions
+of the illumination distribution, the estimation of the radiance
+distribution of the scene was iteratively refined. At the same
+time, the reflectance parameters (Kd, Ks, and ) of the shadow
+surface were estimated as explained in Section V-B. Then an
+appearance of the shadow surface around the occluding object
+was synthesized using the estimated radiance distribution of the
+scene and the estimated reflectance parameters of the shadow
+surface.
+
+   The region inside the red rectangle in Fig. 10 (b) was replaced
+with the synthesized appearances in the left column in Fig. 11.
+The number of sampling directions of the radiance distribution
+used for the estimation is shown under the resulting images.
+Here, the resulting shadows of the synthetic occluding object re-
+semble more closely those of the occluding object in the shadow
+image as we increase the number of sampling directions based
+on the proposed adaptive sampling technique. Finally, in the
+case of 140 sampling directions, the synthesized shadows of the
+occluding object blend into the input shadow image well, and
+few distinct boundaries in the shadows are seen in the resulting
+composite image.
+
+   To see how well the adaptive sampling of radiance distribu-
+tion works in this example, we took an omni-directional image
+of the office scene as a ground truth. The middle column of
+Fig. 11 shows the omni-directional image of the scene taken
+by placing a camera with a fisheye lens looking upward on
+the shadow surface in Fig. 10 (a). The omni-directional im-
+age shows both direct light sources, i.e., the fluorescent lamps
+in our office, and indirect light sources such as the ceiling and
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002  8
+
+                                                                      Fig. 13. Input image : (a) shadow image taken in an outdoor scene (b) the
+                                                                      region where synthesized images with the estimated radiance distribution and
+                                                                      reflectance parameters are superimposed in Figure 14
+
+Fig. 12. Error Analysis
+
+walls. The right column of Fig. 11 shows the estimated radiance
+values visualized for comparison with the ground truth. In those
+images in Fig. 11 (b) and (c), we can see that sampling directions
+of the radiance distribution were nicely added only around the
+direct light sources at each step by the proposed adaptive sam-
+pling framework, starting from the coarse sampling directions at
+the top row.
+
+   Fig. 12 numerically shows the improvement of the accuracy
+by adaptive refinement of sampling directions and the estimation
+of reflectance properties of the shadow surface. From the plot in
+the figure, we can clearly see that the accuracy improves rapidly
+as we adaptively increase the sampling directions of the radiance
+distribution.
+
+   To confirm the merit of the adaptive sampling framework, we        Fig. 14. Adaptive refinement of illumination distribution estimation: synthe-
+also estimated the illumination radiance distribution with uni-       sized images with the estimated radiance distribution and reflectance parameters
+form sampling. In that case, even 300 uniformly sampled direc-
+tions could not achieve the same level of accuracy as the estima-                                VI. DISCUSSION
+tion result obtained by 80 sampling directions with the proposed
+framework.                                                               In the field of computer graphics, there have also been sev-
+                                                                      eral methods proposed for recovering an illumination distribu-
+   Fig. 13 (a) shows another example image taken outside the en-      tion of a real scene from appearance changes observed on ob-
+trance lobby of our building in the late afternoon. In this image,    ject surfaces in the scene. Most of them have been conducted in
+we used the rectangular pole with two colors as an occluding          fully computer-generated environments where a designer speci-
+object casting shadows. In the same way as the previous exam-         fied the geometry and reflectance of whole scenes and the loca-
+ple, an appearance of the shadow surface around the occluding         tions of all light sources [31], [14]; those methods were mainly
+object, illustrated with a red rectangle in Fig. 13 (b), was synthe-  developed for assisting designers in achieving desirable effects
+sized by using the estimated radiance distribution of the scene       such as highlights and shadows in the synthesized image.
+and the estimated reflectance parameters of the shadow surface.
+Fig. 14 shows the resulting images obtained by the use of our            Some researchers extended similar approaches for real im-
+method. Although the grid pattern on the shadow surface is            ages and estimated radiance of real light sources in the scene.
+missing in those synthesized images due to the assumption of          Fournier et al. [6] estimated radiance of the light sources with
+uniform reflectance on the shadow image, the appearance of the        users' defined fix locations on the assumption that all surfaces
+shadow around the occluding objects is virtually indistinguish-       were Lambertian surfaces. Later, Marschner and Greenberg [20]
+able in the case of 140 sampling directions. This shows that the      introduced to approximate the entire illumination with a set of
+estimated illumination distribution well represents the charac-       basis lights located in the scene. Although this method has an
+teristics of the real scene.                                          advantage over the previous methods of not requiring knowl-
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002  9
+
+edge about the light locations of the scene, the estimation de-            While the effectiveness of the proposed method in estimat-
+pends entirely on the appearance changes observed on an object          ing illumination distributions of usual scenes was demonstrated
+surface assumed to be Lambertian, and therefore some restric-           in this paper, the estimation was based on the assumptions that
+tions are imposed on the shape of the object, e.g., the object must     light sources in the scene were sufficiently distant from the ob-
+have a large amount of curvature. Recently, Ramamoorthi and             jects, and that there was no severe interreflection between a
+Hanrahan [26] introduced a signal-processing framework that             shadow region and an occluding object. The future directions
+described the reflected light field as a convolution of the light-      of this study include extending the method for: (1) considering
+ing and BRDF, and showed under which condition lighting and             the interreflection between a shadow region and an occluding
+BRDF recovery could be done robustly. Simultaneously, Basri             object; and (2) taking distances from the occluding object to
+and Jacobs [2] reported that the images of a convex Lamber-             light sources into account.
+tian object obtained under a wide variety of lighting conditions
+could be approximated with a low-dimensional linear subspace                                    ACKNOWLEDGMENTS
+by using a similar signal-processing approach.
+                                                                           This research was supported in part by the Ministry of Educa-
+   We are currently investigating the analysis of the problem of        tion, Science, Sports and Culture grant-in-Aid for Creative Basis
+illumination estimation from shadows in their signal-processing         Research 09NP1401 and Research Fellowships of the Japan So-
+framework. It was found through our preliminary experiments             ciety for the Promotion of Science for Young Scientists. The
+that high frequency components of the appearance of an object           authors are grateful to the anonymous reviewers whose sugges-
+surface could retain significant energy by taking the shadow co-        tions helped to improve the paper.
+efficients on the object surface as well as its BRDF into account.
+This indicates that the use of shadows for the illumination esti-                                      APPENDIX
+mation has the significant advantage of providing more clues to
+the high frequency components of illumination distribution of a            The proposed method estimates radiance value of the light
+scene.                                                                  sources based on the variations in the computed coefficients ai
+                                                                        in (7); we obtain n coefficients ai (i = 1, 2, · · · ·, n) per image pixel
+                         VII. CONCLUSIONS                               where n is the number of the light sources. For reliable estima-
+                                                                        tion, it is essential that we select image pixels from a shadow
+   In this study, we have presented a method for recovering an          image to maximize variation in the combinations of ai.
+illumination distribution of a scene from image brightness ob-
+served on a real object surface. In a natural illumination condi-          In our approach, the shadow surface is first partitioned into
+tion, it is hard to recover an illumination distribution from image     clusters based on combinations of the coefficients ai. In other
+brightness observed on a real object surface. The main reason           words, pixels that have the same combination of ai are clustered
+for this difficulty is that there is usually not adequate variation in  into the same group. Fig. 15 shows several examples of parti-
+the image brightness observed on the surface to reflect the subtle      tioning based on the coefficients ai with pseudo colors. Here
+characteristics of the entire illumination.                             each color represents an individual class with a different combi-
+                                                                        nation of coefficients of the light sources, and the block region
+   One of the main contributions of our work is to demonstrate          corresponds to the occluding objects.
+the effectiveness of using occluding information of incoming
+light in estimating the illumination distribution of a scene. An-          After the shadow surface are partitioned into clusters, one
+alyzing the relationships between the image brightness and the          pixel is selected from each of those clusters. From this clus-
+occlusions of incoming light enabled us to reliably estimate the        tering process, we are able to avoid selecting redundant pixels
+illumination distribution of a scene even in a complex illumina-        that provide the same information about the illumination of the
+tion environment. In addition, the question of how to provide           scene. This results in significant speedup of the entire estimation
+the reflectance properties of a surface to be used for the estima-      process as well.
+tion still remains from the previously proposed methods. Since
+it is a common situation that reflectance properties of a surface                                       Fig. 15. Clustering results
+are not known, solutions to this problem are required. Another
+contribution of our work is that we have combined the illumi-                                         REFERENCES
+nation analysis with an estimation of the reflectance properties
+of a surface in the scene. This makes the method applicable to          [1] R. Baribeau, M. Rioux, and G. Godin, "Color Reflectance Modeling Using
+the case where reflectance properties of a surface are not known,             a Polychromatic Laser Range Sensor," IEEE Trans. PAMI, vol. 14, no. 2,
+and it enlarges the variety of images to which the method can be              1992, pp. 263-269.
+applied.
+                                                                        [2] R. Basri and D. Jacobs, "Lambertian Reflectance and Linear Subspaces,"
+   We also introduced an adaptive sampling of the illumination                Proc. IEEE Intl. Conf. Computer Vision 01, 2001, pp.383-389.
+distribution of a scene as a solution to the question of how we
+could efficiently estimate the entire illumination with a smaller
+number of sampling directions of the entire distribution in this
+paper. Using the proposed adaptive sampling framework, we
+were able to avoid unnecessarily dense sampling of the illumi-
+nation and to estimate overall illumination more efficiently by
+using fewer sampling directions.
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. Y, NO. Y, MON 2002  10
+
+[3] J. Bouguet and P. Perona, "3D Photography on Your Desk," Proc. IEEE                 tions," Computer Vision, Graphics, and Image Processing, Vol.22, 1983,
+      Intl. Conf. Computer Vision 98, 1998, pp.43-50.                                   No.1, pp. 145-176.
+                                                                                  [33] S. Tominaga and N. Tanaka, "Estimating Reflectance Parameters from a
+[4] M. F. Cohen, D. P. Greenberg, D. S. Immel, and P. J. Brock, "An Efficient           Single Color Image," IEEE Computer Graphics & Applications, vol.20,
+      Radiosity Approach for Realistic Image Synthesis," IEEE CG & A, Vol. 6,           No. 5, 2000, pp.58-66.
+      No.3, Mar. 1986, pp.26-35.                                                  [34] K. E. Torrance and E. M. Sparrow, "Theory for off-specular reflection from
+                                                                                        roughened surface," J. Optical Society of America, vol.57, 1967, pp.1105-
+[5] D. A. Forsyth and J. Ponce, Computer Vision A Modern Approach, Pren-                1114.
+      tice Hall, Upper Saddle River, NJ., 2002, pp. 70.                           [35] Y. Yu, P. Devebec, J. Malik, and T. Hawkins, "Inverse Global Illumination:
+                                                                                        Recovering reflectance Models of Real Scenes from Photographs", Proc.
+[6] A. Fournier, A. Gunawan and C. Romanzin, "Common Illumination be-                   ACM SIGGRAPH 99, Aug. 1999, pp.215-224.
+      tween Real and Computer Generated Scenes,"Proc. Graphics Interface 93,      [36] Y. Zang and Y. Yang, "Illuminant Direction Determination for Multiple
+      1993, pp.254-262.                                                                 Light Sources," Proc. IEEE Conf. Computer Vision and Pattern Recogni-
+                                                                                        tion 00, Jun. 2000, pp. 269-276.
+[7] G. E. Healey, S. A. Shafer, and L. B. Wolff, Physics-Based Vision Prin-       [37] 3D Construction Company, http://www.3dcomstruction.com
+      ciples and Practice, Color, Jones and Bartlett Publishers, Boston, MA.,
+      1992.                                                                                                      Imari Sato is a PhD student in Graduate School of
+                                                                                                                 Interdisciplinary Information Studies at the University
+[8] B. K. P. Horn,"Understanding Image Intensities," Artificial Intelligence,                                    of Tokyo, Tokyo, Japan. She received the BS degree
+      Vol. 8, No.2, 1977, pp.201-231.                                                                            in policy management from Keio University, Kana-
+                                                                                                                 gawa, Japan, in 1994 and the MS degree in interdis-
+[9] B. K. P. Horn, Robot Vision, The MIT Press, Cambridge, MA., 1986.                                            ciplinary information studies from the University of
+[10] B. K. P. Horn, "Obtaining Shape from Shading Information," The psychol-                                     Tokyo in 2002. Previously, she was a visiting scholar
+                                                                                                                 at the Robotics Institute at Carnegie Mellon Univer-
+      ogy of Computer Vision, McGraw-Hill Book Co., New York, N.Y., 1975.                                        sity, Pittsburgh, Pennsylvania, USA. Her research in-
+[11] B. K. P. Horn and M. J. Brooks, "The Variational Approach to Shape from                                     terests include physics-based vision and image-based
+                                                                                                                 modeling. She is a research fellow of the Japan Soci-
+      Shading," Computer Vision, Graphics, and Image Processing, Vol.33.          ety for the Promotion of Science.
+      No.2, 1986, pp.174-208.
+[12] K. Ikeuchi and B. K. P. Horn, "Numerical Shape from Shading and                                             Yoichi Sato received the BS degree in mechanical
+      Occluding Boundaries," Artificial Intelligence, Vol. 17, No.1-3, 1981,                                     engineering from the University of Tokyo, Tokyo,
+      pp.141-184.                                                                                                Japan, in 1990. He received the MS and PhD de-
+[13] K. Ikeuchi and K. Sato, "Determining Reflectance using Range and                                            grees in robotics from the School of Computer Sci-
+      Brightness Images," Proc. IEEE Intl. Conf. Computer Vision 90, 1990,                                       ence, Carnegie Mellon University, Pittsburgh, Penn-
+      pp.12-20.                                                                                                  sylvania, USA in 1993 and 1997, respectively. In
+[14] J. Kawai, J. Painter, and M. Cohen, "Radioptimization - Boal Bawsed Ren-                                    1997, he joined the Institute of Industrial Science at
+      dering"Proc. ACM SIGGRAPH 93, 1993, pp. 147-154.                                                           the University of Tokyo, where he is currently an as-
+[15] G. Kay and T. Caelli, "Estimating the Parameters of an Illumination Model                                   sociate professor. His primary research interests are
+      using Photometric Stereo,"Graphical Models and Image Processing, vol.                                      in the fields of computer vision (physics-based vision,
+      57, no. 5, 1995, pp. 365-388.                                                                              image-based modeling), human-computer interaction
+[16] J. R. Kender and E. M. Smith, "Shape from Darkness: Deriving Surface         (perceptual user interface), and augmented reality. He is a member of the IEEE.
+      Information from Dynamic Shadows," Proc. IEEE Intl. Conf. Computer
+      Vision 87, 1987, pp.539-546.                                                                               Katsushi Ikeuchi received the BEng degree in me-
+[17] T. Kim, Y. Seo, and K. Hong, "Improving AR using Shadows Arising                                            chanical engineering from Kyoto University, Kyoto,
+      from Natural Illumination Distribution in Video Sequence,"Proc. IEEE                                       Japan, in 1973, and the PhD degree in information en-
+      Intl. Conf. Computer Vision 01, July 2001, pp. 329-334.                                                    gineering from the University of Tokyo, Tokyo, Japan,
+[18] J. Lu and J. Little, "Reflectance Function Estimation and Shape Recovery                                    in 1978. He is a professor at the Institute of Industrial
+      from Image Sequence of a Rotating Object,"Proc. IEEE Intl. Conf. Com-                                      Science, the University of Tokyo. After working at
+      puter Vision 95, 1995, pp. 80-86.                                                                          the Artificial Intelligence Laboratory at Massachusetts
+[19] A. K. Mackworth, On the Interpretation of Drawings as Three-                                                Institute of Technology, the Electrotechnical Labora-
+      Dimensional Scenes, doctorial dissertation, University of Sussex, 1974.                                    tory of Ministry of International Trade and Industries,
+[20] S. R. Marschner and D. P. Greenberg, "Inverse Lighting for Photography,"                                    and the School of Computer Science, Carnegie Mel-
+      Proc. IS&T/SID Fifth Color Imaging Conference, 1997, pp.262-265.                                           lon University, he joined the University of Tokyo in
+[21] P. Moon and D. E. Spencer, The Photic Field, The MIT Press, Cambridge,       1996. He has received various research awards, including the David Marr Prize
+      MA., 1981.                                                                  in computational vision in 1990, and IEEE R&A K-S Fu Memorial Best Trans-
+[22] S. K. Nayar, K. Ikeuchi, and T. Kanade, "Surface Reflection: physical and    action Paper award in 1998. In addition, in 1992, his paper, "Numerical Shape
+      geometrical perspectives," IEEE Trans. PAMI, vol. 13, no. 7, 1991, pp.      from Shading and Occluding Boundaries," was selected as one of the most in-
+      611-634.                                                                    fluential papers to have appeared in the Artificial Intelligence Journal within the
+[23] K. Nishino, Z. Zhang, and K. Ikeuchi, "Determining Reflectance Param-        past ten years. He is a fellow of the IEEE.
+      eters and Illumination Distribution from Sparse Set of Images for View-
+      dependent Image Synthesis," Proc. IEEE Intl. Conf. Computer Vision 01,
+      Jul. 2001, pp. 599-606.
+[24] A. P. Pentland, "Linear Shape From Shading," Intl. J. Computer Vision,
+      Vol.4, No.2, 1990, pp.153-162.
+[25] W. H. Press, B. P. Flannery, S. A. Teukolsky, W. T. Vetterling, Numeri-
+      cal Recipes in C: The Art of Scientific Computing, Cambridge University
+      Press, Cambridge, 1988.
+[26] R. Ramamoorthi and P. Hanrahan, "A Signal-Procession Framework for
+      Inverse Rendering", Proc. ACM SIGGRAPH 01, Aug. 2001, pp.117-128.
+[27] I. Sato, Y. Sato, and K. Ikeuchi, "Illumination Distribution from Shadows,"
+      Proc. IEEE Conf. Computer Vision and Pattern Recognition 99, Jun. 1999,
+      pp. 306-312.
+[28] I. Sato, Y. Sato, and K. Ikeuchi, "Illumination Distribution from Bright-
+      ness in Shadows: adaptive estimation of illumination distribution with un-
+      known reflectance properties in shadow regions," Proc. IEEE Intl. Conf.
+      Computer Vision 99, Sep. 1999, pp. 875-882.
+[29] I. Sato, Y. Sato, and K. Ikeuchi, "Acquiring a radiance distribution to su-
+      perimpose virtual objects onto a real scene", IEEE Trans. TVCG, Vol. 5,
+      No. 1, 1999, pp. 1-12.
+[30] Y. Sato, M. D. Wheeler, and K. Ikeuchi, "Object shape and reflectance
+      modeling from observation," Proc. ACM SIGGRAPH 97, 1997, pp. 379-
+      387.
+[31] C. Schoeneman, J. Dorsey, B. Smits, J. Arvo, and D. Greenburg, "Painting
+      with Light,"Proc. ACM SIGGRAPH 93, 1993, pp. 143-146.
+[32] S. A. Shafer and T. Kanade, "Using Shadows in Finding Surface Orienta-
+

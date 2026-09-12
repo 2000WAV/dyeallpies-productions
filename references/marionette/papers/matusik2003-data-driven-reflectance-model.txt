@@ -1,0 +1,582 @@
+                          MITSUBISHI ELECTRIC RESEARCH LABORATORIES
+                                                  https://www.merl.com
+
+                    A Data-Driven Reflectance Model
+
+                                  W. Matusik, H. Pfister, M. Brand, L. McMillan
+                                               TR2003-83 July 28, 2003
+
+                                                           Abstract
+    We present a generative model for isotropic bidirectional reflectance distribution BRDFs.
+
+       ACM SIGGRAPH 2003
+
+c 2003 MERL. This work may not be copied or reproduced in whole or in part for any commercial purpose. Permission
+to copy in whole or in part without payment of fee is granted for nonprofit educational and research purposes provided
+that all such whole or partial copies include the following: a notice that such copying is by permission of Mitsubishi
+Electric Research Laboratories, Inc.; an acknowledgment of the authors and individual contributions to the work; and
+all applicable portions of the copyright notice. Copying, reproduction, or republishing for any other purpose shall
+require a license with payment of fee to Mitsubishi Electric Research Laboratories, Inc. All rights reserved.
+
+                                                 Mitsubishi Electric Research Laboratories, Inc.
+                                                201 Broadway, Cambridge, Massachusetts 02139
+A Data-Driven Reflectance Model
+
+Wojciech Matusik   Hanspeter Pfister                                    Matt Brand  Leonard McMillan 
+
+Figure 1: Renditions of materials generated using our model: steel teapot with greasy fingerprints (left), teapot with rust forming (right).
+Closeup pictures in the center. We used a spatially varying texture to interpolate between reflectance models for each point on the teapot.
+
+Abstract                                                                Bidirectional Reflectance Distribution Functions (BRDFs) charac-
+                                                                        terizes the process where light transport occurs at an idealized sur-
+We present a generative model for isotropic bidirectional re-           face point.
+flectance distribution functions (BRDFs) based on acquired re-
+flectance data. Instead of using analytical reflectance models, we         Traditionally, physically inspired analytic reflection models
+represent each BRDF as a dense set of measurements. This al-            [Cook and Torrance 1982] [He et al. 1991] [He et al. 1992] provide
+lows us to interpolate and extrapolate in the space of acquired         the BRDFs used in computer graphics. These BRDF models are
+BRDFs to create new BRDFs. We treat each acquired BRDF as               only approximations of reflectance of real materials. Furthermore,
+a single high-dimensional vector taken from a space of all possi-       most analytic reflection models are limited to describing only par-
+ble BRDFs. We apply both linear (subspace) and non-linear (mani-        ticular subclasses of materials ­ a given model can represent only
+fold) dimensionality reduction tools in an effort to discover a lower-  the phenomena for which it is designed. Significant efforts have
+dimensional representation that characterizes our measurements.         been expended on improving these models by incorporating the rel-
+We let users define perceptually meaningful parametrization direc-      evant aspects of the underlying physics. Many of these models are
+tions to navigate in the reduced-dimension BRDF space. On the           based on material parameters that in principle could be measured,
+low-dimensional manifold, movement along these directions pro-          but in practice are difficult to acquire.
+duces novel but valid BRDFs.
+Keywords: Light Reflection Models, Photometric Measurements,               An alternative to directly measuring model parameters is to ac-
+Reflectance, BRDF, Image-based Modeling                                 quire actual samples from a BRDF using some version of a gonio-
+                                                                        spectro-reflectometer [Marschner et al. 2000] [Cornell ] [CUReT ]
+1 Introduction                                                          [STARR ] [Dana 2001] [Ward 1992] and then fit the measured data
+                                                                        to a selected analytic model using various optimization techniques
+A fundamental problem of computer graphics rendering is model-          [Ward 1992] [Yu et al. 1999] [Lafortune et al. 1997] [Lensch et al.
+ing how light is reflected from surfaces. A class of functions called   2001]. There are several shortcomings to this measure-and-fit ap-
+                                                                        proach. First, a BRDF represented by the analytic function with the
+    MIT, Cambridge, MA.                                                 computed parameters is only an approximation of real reflectance;
+Email: wojciech@graphics.lcs.mit.edu                                    measured values of the BRDF are usually not exactly equal to the
+                                                                        values of the analytic model. The measure-and-fit approach is of-
+    MERL, Cambridge, MA.                                                ten justified by assuming that there is inherent noise in the mea-
+Email: [pfister,brand]@merl.com                                         surement process and that the fitting process filters out these errors.
+                                                                        This point of view, however, ignores more significant modeling er-
+    UNC, Chapel Hill, NC.                                               rors due to approximations made in the analytic surface reflection
+Email: mcmillan@cs.unc.edu                                              model. Many of the salient and distinctive aspects of an objects
+                                                                        reflection properties might lie within the range of these modeling
+                                                                        errors. Second, the choice of the error function over which the op-
+                                                                        timization should be performed is not obvious. For example, er-
+                                                                        ror based on the Euclidean distance is a poor metric since it tends
+                                                                        to overemphasize the importance of the specular peaks (these are
+                                                                        usually much higher than the rest) and ignore the off-specular val-
+                                                                        ues. Finally, there is no guarantee that the optimization process
+                                                                        will yield the best model. Since most BRDF models are highly
+                                                                        non-linear, the optimization frameworks used in the fitting process
+                                                                        rely heavily on initial guesses of the models parameters. The qual-
+                                                                        ity of these initial guesses can have a dramatic impact on the final
+parameter values of the model.                                          models [Cook and Torrance 1982][He et al. 1991]. An interest-
+   Another approach is to acquire dense measurements of the             ing transition occurred with [Ward 1992], when Ward developed
+                                                                        a BRDF model that, while not strictly physically based, was capa-
+BRDF and use these measurements directly in the rendering pro-          ble of describing most significant reflection phenomena. He went to
+cess. This approach preserves those subtleties of the measured          great effort to ensure that his model obeyed the most basic of physi-
+data that are lost in a data-fitting approach. However, it is time-     cal laws (reciprocity and energy conservation), and significantly, he
+consuming since it requires reflectance measurements for all de-        fit his model's parameters to actual material measurements. More
+sired materials in the scene. Furthermore, we end up with a collec-     recently, the availability of low-cost digital cameras has rekindled
+tion of measured BRDFs and not with a parameterized reflectance         interest in BRDF acquisition and modeling. One particularly ambi-
+model. Any change to the material property would require finding a      tious undertaking is the CUReT BRDF database [Dana et al. 1999]
+real material with the desired property and acquiring its reflectance.  [CUReT ]. The CUReT database represents approximately 200 re-
+                                                                        flectance measurements over varying incident and reflected angles
+   We suggest an alternative sampling-based approach for model-         for a planar patch of 60 different materials. With a uniform material
+ing surface reflectance. We capitalize on the fact that it is feasible  sample this amounts to a relatively sparsely sampled BRDF. Such
+to rapidly acquire accurate reflectance measurements using image-       a sparsely sampled BRDF is not directly useful as a table-based
+based techniques. We acquire BRDFs for a large representative set       BRDF function; thus, it was necessary to fit an analytic function in
+of materials. Materials in our collection include metals, paints, fab-  order to get a useful model.
+rics, minerals, synthetics, organic materials, and others. We intro-
+duce a new approach to BRDF modeling, an approach that is data             Marschner [Marschner et al. 2000] constructed another signifi-
+driven ­ it interpolates/extrapolates new BRDFs from the represen-      cant BRDF measurement system. His system, although limited to
+tative BRDF data. Our approach has the advantage that the pro-          only isotropic BRDF measurements, was both fast and robust. In
+duced BRDFs look very realistic since they are based on the mea-        particular, his system took unique advantage of reciprocity, bilateral
+sured BRDFs. Furthermore, we provide a set of intuitive parameters      symmetry, and multiple simultaneous measurements to achieve un-
+that allow users to change the properties of the output BRDF. We        precedented leverage from each reflection measurement. This of-
+also let users specify their own parameters by labeling a few rep-      fers a significant advantage. It filters measurement noise due to
+resentative BRDFs. We believe that this way of specifying model         minute variations over the surface, errors due to spatial variations
+parameters makes our model much easier to use and control than          in photosite response within the image sensor, and variations in il-
+the analytic models in which the meaning of parameters is often         lumination intensity. In the face of such statistical averaging, one
+non-intuitive [Pellacini et al. 2000].                                  is hard pressed to attribute the inevitable residual errors that occur
+                                                                        when model fitting to additional systematic noise, rather than fail-
+   In our model, we do not want to store all acquired BRDFs ex-         ings of the analytic model.
+plicitly. This leads us to the analysis of the space of all possible
+BRDFs for common materials in the world. A BRDF for these ma-              The inherent dimensionality of a BRDF, combined with the de-
+terials is not an arbitrary function, and we seek a representation for  sire to sample it at high resolutions in order to model specular, inci-
+all possible functions corresponding to physical BRDFs. We treat        dent, and retroreflection effects, leads to an unwieldy sampling and
+each of our acquired BRDFs as a single high-dimensional vector          storage problem. Many researchers have addressed this specific
+where each measurement is an element of this vector. Then we ap-        problem by searching for a more appropriate basis for represent-
+ply both linear and non-linear dimensionality reduction tools to ob-    ing BRDFs. Spherical harmonics [Westin et al. 1992] and spheri-
+tain a low dimensional manifold that characterizes the set of BRDFs     cal wavelets [Schro¨der and Sweldens 1995] are natural choices for
+we measured. In the process we also obtain a mapping between the        representing the angular parameters of the BRDF. Other efficient
+embedding manifold and the original BRDF space. Therefore we            representations include wavelets [Lalonde and Fournier 1997], Zer-
+can always compute the corresponding BRDF for each point on             nicke polynomials [Koenderink et al. 1996],and separable approx-
+the manifold. An interesting side effect of our approach is that it     imations obtained using singular value decomposition [Kautz and
+suggests an inherent dimensionality for the space of all isotropic      McCool 1999] or a purely positive matrix factorization [McCool
+BRDFs.                                                                  et al. 2001]. Furthermore, recent image-based approaches to BRDF
+                                                                        modeling [Lensch et al. 2001] have demonstrated the power of us-
+   To summarize, the main contributions of this paper are:              ing linear combinations of a compact reflectance function basis sets
+   · We introduce a novel model for an isotropic BRDF that is           for modeling spatially varying BDRFs. Such linear decomposi-
+                                                                        tions lead to an interesting question: can the true space of potential
+      based on measured reflectance for a large set of materials.       BRDFs be described as a linear combination of basis functions?
+   · We introduce a set of perceptually-based parameters for this       Clearly, factorizations of the sort used to compress BRDFs are lin-
+                                                                        ear, allowing for arbitrary mixtures of their basis vectors to fit a
+      model. We also let users specify their own parameters.            given set of data. If this decomposition approach were in fact valid,
+   · We analyze both linear and non-linear dimensionality of the        it would imply that linear combinations of actual BRDFs might be
+                                                                        used to model original and physically plausible reflection models.
+      space of isotropic BRDFs.                                         Exploring the ramifications of this hypothesis is one of our motiva-
+   · In our model the parameter values are pre-defined for many         tions for developing a sample-based generative model.
+
+      typical materials ­ the materials we have measured. Using         3 Data Acquisition
+      our model we can also generate difficult to represent effects
+      such as rust, oxidation, or dust.                                 In order to acquire a sufficient number of adequately sampled
+                                                                        BRDFs, it was necessary to build a measurement device. Our mod-
+2 Previous Work                                                         eling approach placed two requirements on the acquired data: first,
+                                                                        that each BRDF be sampled densely enough that it could be used di-
+The value of physically accurate reflectance models has long been       rectly as a table-based model, and second, that the space of BRDFs
+understood within the computer graphics community [Blinn 1977].         be sampled adequately so as to span the range of models that we
+The availability of BRDF models based on the actual physics of          hope to generate. Accordingly, we have built a BRDF measurement
+light transport and validated by empirical measurements were a          device suitable for rapidly acquiring high-quality BRDFs for a wide
+significant catalyst in this realization [Torrance et al. 1966] [Trow-
+bridge and Reitz 1975]. Physical accuracy was an impetus behind
+the development of many subsequent computer graphics reflection
+                                                                         is not possible to reproduce original images (the specular highlight
+                                                                         becomes an oval shape, oriented at different directions). We use
+                                                                         a different coordinate system, described in [Rusinkiewicz 1998]
+                                                                         and shown in Figure 3. This coordinate frame is based on the an-
+                                                                         gles with respect to the half-angle (half-vector between incoming
+                                                                         and outgoing directions). This coordinate frame allows us to vary
+                                                                         the sampling density near the specular highlight. Specifically, we
+                                                                         vary h (angle between the normal and the half-vector), assigning
+                                                                         smaller bins for values near specular reflection and larger bins for
+                                                                         angles far away from the specular reflection.
+
+Figure 2: A photograph of our high-speed BRDF measurement                Figure 3: The standard coordinate frame is shown on the left.
+gantry.                                                                  Rusinkiewicz's coordinate system is shown on the right.
+range of different materials (see Figure 2 ). The image-based BRDF
+measurement device described by [Marschner et al. 2000] inspired            We still discretize h,d into 90 bins and d into 360 bins. This
+our design.                                                              results in a total of 90 x 90 x 360 = 2,916,000 bins for each color
+                                                                         component. We halve this number to 1,458,000 by enforcing the
+   Our acquisition system requires a spherically homogenous sam-         reciprocity constraint:
+ple of the material. The system is placed in a completely isolated
+room painted in black matte. It consists of the following compo-         f (h, d , d ) = f (h, d, d + )                                    (1)
+nents: a QImaging Retiga 1300 (a 10 bit, and a 1300x1030 res-
+olution Firewire camera), a Kaidan MDT-19 (a precise computer-           With this constraint we need only to discretize d into 180 bins.
+controlled turntable), and a Hamamatsu SQ Xenon lamp (a lamp
+with stable light emission output and a continuous and relatively        Figure 4: Two log images of a sphere (alumina oxide). A real
+constant radiation spectrum over the visible light range). The lamp      image is shown on the left. A synthesized image using tabulated
+is mounted on an arm to the turntable. The light orbits the mea-         BRDF data is shown on the right.
+surement sample placed at the center of rotation; the camera is sta-
+tionary. Our camera is geometrically calibrated using the technique         Our measurement process gives us typically 20-80 million
+described in [Zhang 1998]. The position of the light source is de-       BRDF samples for each material. We reduce the noise in our mea-
+termined using a contact digitizer (FARO Arm). We use the same           surements by removing the outliers in each bin (lowest and highest
+digitizer to determine the position of the center of the material sam-   25% of the values), and we average the remaining measurements.
+ple. The radius of the sample is measured with calipers. The light       This statistical smoothing is intended to remove systematic noise as
+source moves in increments of approximately 0.5  from the point          well as compensate for small variations in material properties over
+exactly opposite the camera (the sample is in between the camera         the sample. As a final validation we render a synthesized version
+and the light source) to the point exactly in front of the camera.       of our sample sphere and compare it to the corresponding acquired
+We take a total of 330 high dynamic range pictures to cover the re-      high dynamic range image. We conduct this inspection for all in-
+quired half circle. This process takes about 3 hours. For each high      put light configurations. Pictures for a typical acquired material are
+dynamic range picture we take a total of 18 10-bit photographs. The      in shown in Figure 4. The rendered images reproduce the input
+exposure time ranges from 40 microseconds to 20 seconds. We use          images very well. We have used our device to acquire BRDF mea-
+the fact that our CCD camera has a very linear response curve to         surements of more than 130 different materials, including metals,
+derive the high dynamic measurement. For each pixel in the image         plastics, painted surfaces, and cloth. Figure 5 depicts some of the
+we fit a line to the exposure time vs. radiance values. The slope of     materials that were sampled. We have removed from further anal-
+the line is used as the radiance estimate. The correlation of this line  ysis some materials that exhibited significant subsurface scattering,
+is higher than 0.998.                                                    anisotropy, or non-homogenity.
+
+   Each acquired image of the sample sphere represents many
+BRDF samples. Essentially each pixel of the sphere is treated as
+a separate BRDF measurement. In order to compute the specific
+BRDF value for a given pixel we perform the following steps. First,
+we intersect the ray defined by the pixel with the sphere to deter-
+mine point P. Then, we compute the normal at point P on the sphere,
+the vector and the distance to the light source, and the vector to the
+camera pixel. Next, we compute the irradiance at point P due the
+light source (taking into account distance to the light source and
+foreshortening). Finally, we compute the BRDF value as the ratio
+of the high dynamic range radiance to the irradiance.
+
+4 Data Representation
+
+We found that specular peaks were difficult to represent using the
+natural coordinate system (in,out , di f f ). Even when binning a
+BRDF at a dense grid (every 1  spacing for each dimension), it
+                                                                      Figure 6: Rendered teapots using BRDFs from our database:
+                                                                      nickel, hematite, gold paint, and pink fabric.
+
+         Figure 5: Pictures of 100 of our acquired materials.         Figure 7: Plot of the eigenvalues resulting from PCA of the data
+                                                                      set.
+5 Data Analysis
+                                                                         We perform the analysis in the log space (we apply the natural
+These sampled BRDFs can be used directly by a renderer. Sev-          logarithm to each element of vector X). There are several reasons
+eral examples of that are shown in Figure 6, where a teapot is ren-   for this normalization. First, there is a huge difference (on the order
+dered under natural illumination using the raw acquired data. Our     of a few magnitudes) between the specular and non-specular values
+ultimate goal, however, is to construct an empirical BRDF model       of the BRDF. If used in the original space, the analysis tools would
+that can be used to generate novel, yet plausible, reflectance func-  associate more importance to noise in the specular values than the
+tions directly from this database. We begin with the following as-    actual non-specular components. The linear analysis would depre-
+sumption: if we treat each of our BRDF samples as a high dimen-       ciate importance of these non-specular values (the non-specular val-
+sional vector in an abstract BRDF space, we expect that all physical  ues are perceptually important). Our operation is also justified by
+BRDFs lie upon a lower dimensional manifold within this space         the fact that the human visual system is sensitive to ratios rather
+indicative of their inherent dimensionality. This is a common as-     than absolute radiance values.
+sumption used by others [Cula and Dana 2001] and it is consis-
+tent with the relatively small number of parameters seen in analytic     Singular value decomposition was then applied to X T X (a
+BRDF models. Therefore, we breakdown the task of constructing         104x104 matrix). The singular values in this case are the squares of
+an empirical BRDF model into two phases: discovering this lower       the desired eigenvalue magnitudes. A plot of these eigenvalues is
+dimensional model, and defining an interpolation scheme within        shown in Figure 7. We also show in Figure 8 the reconstruction of a
+this lower-dimensional subspace.                                      typical material using first 1, 5, 10, 20, 30, 45, 60, and all principal
+                                                                      components. We see that good reconstruction is usually obtained
+5.1 Linear Analysis                                                   using the first 30-40 components.
+In the case where the physical BRDF manifold lies on a linear sub-
+space, the analysis tools for both manifold discovery and interpo-       While there is a considerable fall off in the sequential values seen
+lation are well known. In this case, Principal Component Analysis     in this plot, the plateau is reached around 45th eigenvalue (the re-
+(PCA)[Bishop 1995] effectively determines a set of basis vectors      construction error is about 1% at that point). This dimension of
+that span the desired subspace, and linear combinations of sam-       the embedding subspace is considerably higher than our intuition
+ples can be used for interpolation. Linear manifold approaches        would suggest, based on the typical number of parameters used in
+have proven extremely effective in some problem domains, such as      analytic BRDF models. We verified that the 45-dimensional space
+face synthesis [Blanz and Vetter 1999] and radiance interpolation     defined by the first principal components reconstructs all our mea-
+[Chen et al. 2002]. Potential linear manifolds are generally sug-     sured BRDFs well. However, it spans a space that is bigger than the
+gested when there is a noticeable plateau in the magnitudes of the    space of all possible BRDFs. We are able to find the points in this
+sorted eigenvalues. When this plateau occurs on the kth eigenvalue,
+we can model the data as a k-dimensional linear subspace with a
+residual error bounded by the square root of the sum of the squares
+of the remaining eigenvalues.
+
+   We began our analysis of the BRDF samples by searching for a
+linear embedding manifold (a hyperplane). The three color chan-
+nels of each BRDF sample were assembled into a column vector
+and concatenated to form a 4,374,000 by 104 measurement vector
+matrix X.
+Figure 8: Reconstruction of a BRDF from principal components in the order of increasing number of components ­ mean, 5, 10, 20, 30, 45,
+60, and all.
+
+subspace that do not correspond to any physical materials. In other    Figure 10: A simple charting example. Points () sampled from a
+words, using linear combinations of the components, we can obtain      unknown manifold (gray curve) are projected onto three subspaces
+the data samples that do not look like BRDFs. We illustrate this       (red, green, and blue lines) and assigned a probability (indicated
+point in Figure 9. Moreover, in order to span the whole space, we      by size) according to their distance from the point where the chart
+would need to have at least 45 parameterization directions in order    touches the manifold. A minimal-distortion merger of these charts
+to reach all specified BRDFs. This suggests that the space of all      gives a flattening of the manifold in a lower dimensional space,
+possible BRDFs lies on a lower-dimensional manifold that is non-       where the mapped locations of points are the probability-weighted
+linearly embedded in the 45D linear space. In the next section, we     combinations of their chart-specific locations.
+apply recently developed nonlinear dimensionality reduction tech-
+niques to discover this lower dimensional manifold.                    cover the data manifold, in the sense that adjoining Gaussians have
+                                                                       similar orientation. The dominant axes of each Gaussian specify a
+5.2 Nonlinear dimensionality reduction                                 subspace. Projecting the data into this subspace gives a "chart" of
+Nonlinear dimensionality reducers (NLDR) compute low-distortion        one part of the manifold. A chart preserves local structure where
+embeddings of high-dimensional data in low-dimensional target          it touches the manifold and suppresses measurement noise that dis-
+spaces. The nonlinearity usually obtains from the fact that only       places samples off the manifold. A data point has a location and
+local relationships in the ambient space are preserved while long-     a probability in every chart. Due to curvature of the manifold, a
+distance relationships are presumed to be corrupted by the curvature   chart gives a very distorted picture of faraway points; these points
+of the manifold in the ambient space. First-generation NLDRs such      are assigned very low probability.
+as nonmetric MDS [Kruskal and Wish 1978], IsoMap [Tenenbaum
+et al. 2000], and LLE [Roweis and Saul 2000] generalize PCA to            The pancake Gaussians are solved under a criterion that opti-
+give low-dimensional embeddings of the data, but offer no map-         mizes the charts for the ensuing "connection." The connection is
+ping of the data points. Recently, two second-generation methods       an affine merger of all charts in the target space­effectively a flat-
+have been announced that offer continuous mappings between the         tening of the manifold that minimally distorts all charts and max-
+embedding an the original (ambient) space: Automatic Alignment         imizes agreement between overlapping charts of the locations of
+[Teh and Roweis 2003] combines LLE with a set of pre-estimated         points to which they assign high probability. The connection gives
+local dimensionality reducers­each of which is presumed to be fit-
+ted to a relatively flat subset of the manifold­and solves for a mix-
+ture of these projections that globally flattens the data while min-
+imizing barycentric distortion in each point neighborhood. Chart-
+ing [Brand 2003] solves for a kernel-based mixture of projections
+that minimizes Euclidean distortion of local neighborhoods; it in-
+cludes a solution for the local dimensionality reducers needed by
+automatic alignment. We chose to use charting because it is ex-
+plicitly designed to work well with small numbers of samples and
+to suppress measurement noise, two conditions that tend to break
+methods for dimensionality reduction from local relationships.
+
+   Figure 10 gives the main geometric intuition behind charting.
+First one solves for a set of flat "pancake" Gaussians that smoothly
+Figure 9: Nonlinear spaces generate valid BRDFs where linear spaces fail. Original BRDF corresponding to a point A on a 45 dimensional
+hyperplane (left). Physically implausible reflectance (hole in the middle of the specular highlight) corresponding to moving away from a
+point A on the 45 dimensional linear subspace (center). Physically plausible reflectance corresponding to moving equally far away from point
+A on the 15 dimensional non-linear manifold (right).
+
+Figure 11: Data reconstruction error as a function of the dimen-        would flatten the cone into an annulus. Each flattening would sup-
+sionality of the global chart. The sharp drop in this error curve       press the noise in different directions, some more fortuitous than
+indicates that a 10-dimensional chart is sufficient for the BRDF        others.
+data. In fact, that chart has a better reconstruction error than a 25-
+dimensional PCA.                                                           While the 10D manifold exhibits good reconstruction of the orig-
+                                                                        inal data, our goal is to synthesize novel BRDFs. With that in mind
+mappings between the ambient and target spaces, which are simply        we chose to work on a 15D manifold because interpolations on it
+mixtures of affine projections, weighted by the probability that a      pass even closer to the data density (with error comparable to 45D
+point "belongs" to each chart. The dimensionality-reducing map-         PCA reconstruction). Moreover, this dimensionality is roughly con-
+ping from the ambient to the target space effectively imposes a low-    sistent with previous isotropic BRDF models [Ward 1992], [Lafor-
+dimensional coordinate system on the samples, while the inverse         tune et al. 1997], and [Koenderink et al. 1996], which have at least
+mapping gives a smoothly curving low-dimensional surface in the         10 degrees of freedom.
+ambient space, effectively reconstructing the original manifold.
+                                                                           A charted manifold of BRDF data makes it possible to treat the
+   For charting, one must specify a set of chart centers, a width       space of BRDFs as if it were linear, and to identify meaningful
+parameter  for the Gaussians, and a target dimensionality d. We         axes of variation in this embedding space. An interpolating or ex-
+used the default settings: one chart centered on each data point and    trapolating line in this space is a nonlinear curve in the original
+ = half the average distance between each point and its closest         BRDF space that passes closer to the data density that the equiva-
+neighbor. Note that locating a chart on a point does not cause the      lent straight line would (on average), simply because it stays on the
+manifold to pass through that point­only near it. See [Brand 2003]      manifold where a straight line does not. This translates directly to
+for additional details.                                                 superior BRDF synthesis, as will be demonstrated below.
+
+   As with PCA, the data-reconstruction error of a charted data set     6 Model Construction
+gives an indication of the true dimensionality of the manifold. Fig-
+ure 11 shows that our BRDF data probably lies on a 10D manifold.        In order to use our sample-based reflectance model it is necessary
+The reconstruction error does not decline monotonically because         to develop intuitive user interfaces for specifying and exploring
+each dimensionality may merit a different flattening. For example,      new materials. We investigated methods for characterizing material
+if the data were sampled from a truncated cone, the best 1D chart       traits by analogies derived from the existing samples. We believe
+would simply be height along the cone, while the best 2D chart          that such methods provide the best and most intuitive user interface
+                                                                        [Pellacini et al. 2000].
+
+                                                                           Our model is built from actual physical measurements and it re-
+                                                                        produces these measurements. Therefore, we have defined model
+                                                                        parameters for a large collection of materials ­ materials we have
+                                                                        measured. We believe that the most useful scheme of navigation is
+                                                                        when users can choose as a starting point some type of the material
+                                                                        similar to the one they desire. In our case they can pick any of the
+                                                                        measured materials. Then, they would change the reflectance prop-
+                                                                        erties of this material according to one of the following schemes
+                                                                        (these navigation schemes are applicable for both linear and non-
+                                                                        linear manifold models). The simplest method is to choose another
+                                                                        BRDF and move in this direction. Although of limited use, this
+                                                                        method works well for perceptually similar materials.
+
+                                                                           A more useful approach is to define directions corresponding to
+                                                                        a desired trait (the parameterization direction is a 45D vector for
+                                                                        linear space and a 15D vector for nonlinear space). We pick some
+                                                                        arbitrary point on the manifold and then move in the direction de-
+                                                                        fined by the vector by adding it to the current position to increase
+                                                                        the trait, or subtracting it to decrease the trait. We can backproject
+                                                                        the current point onto the original BRDF space to check the corre-
+                                                                        sponding BRDF. Next, we describe various procedures for identi-
+fying trait vectors.                                                     Figure 12: Diffuseness trait vs specularness trait. Observe that the
+   Our modeling approach requires the user to specify a sufficient       diffuseness and specularness traits exhibit a weak inverse correla-
+                                                                         tion. The green, blue, and red vectors denote projections of the
+set of traits. This specification can be as simple as a binary classi-   BRDF interpolations shown in the second, third, and fourth rows of
+fication (i.e., noting whether each acquired BRDF has the specified      Figure 16 respectively.
+trait.) We also allow the user to leave a BRDF unspecified in cases
+where the trait is hard to determine or simply does not apply. Usu-      Figure 13: Metallic-like trait vs specularness trait. Observe that
+ally the more samples we specify for each class the more precise         the metallic-like and specularness traits exhibit a weak correlation.
+the direction is.                                                        The green, blue, and red vectors denote projections of the BRDF
+                                                                         interpolations shown in the second, third, and fourth rows of Fig-
+   There are many different ways to define the parameterization di-      ure 16 respectively.
+rections based on the classification. We have examined and evalu-        metallic-like, plastic-like, roughness, silverness, gold-like, fabric-
+ated a few. (A) Mean difference [Blanz and Vetter 1999]: In this         like, acrylic-like, greasiness, dustiness, rubber-like. In a sense,
+approach we compute the average of each BRDF in each comple-             these parameters are arbitrary since the classification is completely
+mentary pair of clusters associated with a trait (i.e., those samples    based on the subject's interpretation. We could have chosen traits
+with, and those without) in the embedding space. Then the vec-           without physical connotations, such as ugly or pleasing. Alterna-
+tor between these complement averages in the embedding space is          tively, the traits could have been based on actual measurable quan-
+the parameterization direction. This direction vector is then applied    tities, such as conductivity and mean surface variation. Our test
+(added or subtracted) to the current point in the embedding space.       subject characterized each BRDF as one of three choices: 1) pos-
+(B) Support vector machines [Vapnik 1995]: Support vector ma-            sessing the particular trait, 2) not possessing the trait, or 3) unclear.
+chines determine the hyperplane which separates the data points in       We then used the subject's characterizations to build a model in both
+the first material class from the data points in the second class. The   the linear and non-linear embedding spaces using Support Vector
+partitioning hyperplane has maximum distance to the closest points       Machines.
+(called support vectors) in both material classes. The parameteriza-
+tion direction is the normal to this hyperplane. The hyperplane is          The results from this trait-based analysis are shown as projec-
+defined in 15D space for non-linear analysis and 45D for the linear      tions onto the derived trait vectors in Figures 12, 13, and 14. These
+space. This method also tells us on which side of the hyperplane the     projections are computed in the linear embedding space given by
+current point is, and how far the point is from the plane. (C) Fisher's
+linear discriminant [Duda and Hart 1973]: Each material class cor-
+responds to a some distribution of high-dimensional data (15D for
+non-linear analysis and 45D for linear analysis). Fisher's linear dis-
+criminant defines a projection of these distributions on the axis such
+that the distributions projected on this axis are the most separable
+(the projection maximizes the distance between the means of the
+two classes while minimizing the variance of each class). In prac-
+tice, support vector machines performed the best on our data set and
+Fisher's linear discriminant performed the poorest.
+
+   Since we want our model to preserve the basic principles of
+physics, we have to disallow movements on the manifold that do not
+adhere to these principles. We consider the three following princi-
+ples:
+
+   · Reciprocity: As mentioned before, reciprocity in our model is
+      met by default since we store only half of the BRDF vector.
+
+   · Non-negativity: We allow the user to move only in the space
+      so that all the values in the backprojected vector are positive.
+
+   · Energy conservation: A unit of light energy is applied at some
+      incoming light direction. If the sum of energy in all outgoing
+      directions is less than one (we assume that the surface does
+      not emit energy by itself) then the energy is conserved. This
+      has to be true for all incoming light directions in order for a
+      BRDF to follow energy conservation. We enforce this and do
+      not allow the users to produce BRDFs for which the sum of
+      energy for any incoming direction is greater than one.
+
+7 Results
+
+Once the BRDFs are acquired and validated, as described in section
+4, we performed both linear and non-linear dimensionality reduc-
+tion as described section 5. We then set out to construct a perceptual
+BRDF model using the techniques outlined in section 6. This sec-
+tion presents the results from a typical model construction session.
+
+   A test subject was asked to characterize each of the BRDFs
+from our database using 16 different traits. These included red-
+ness, greenness, blueness, specularness, diffuseness, glossiness,
+our non-linear model. Observe that the metallic and specular char-       metallic trait is correlated to the glossiness and specularness traits
+acteristics are weakly correlated, the specular and diffuse traits       used as axis. The fourth row starts with YellowDiffusePaint BRDF
+are weakly inverse-correlated, and the glossy and diffuse traits are     and shows the addition of the glossiness trait, which is depicted as
+inverse-correlated. This is what we would expect. Note that we           the red path in Figures 12, 13, and 14. The direction of this path is
+do not make attempts to model independent traits in either our trait     as we would expect, and it has a large magnitude due to the fact the
+selection or trait vector derivations. Therefore, we expect that addi-   the YellowDiffusePaint BRDF is located far away from the glossy
+tion of a particular trait to an existing BRDF may effect other traits.  examples in the projections shown.
+This lack of parameter independence is a tradeoff that we accept in
+order to establish perceptually meaningful parameters in our mod-           Overall the non-linear basis set results in a more robust model
+eling approach. Despite the fact that the parameterization vectors       than our linear basis set, in that we were able to move large dis-
+are not orthogonal, they did span the whole 15D non-linear embed-        tances within the non-linear embedding space and still generate
+ding space and provide an intuitive set of "dials" for users to design   physically plausible BRDFs with the expected appearance.
+materials.
+                                                                            Our modeling approach also allows us to associate approximate
+Figure 14: Glossiness trait vs diffuseness trait. Observe that the       trait vectors with physical processes. This can be done in one of two
+glossiness and diffuseness traits exhibit an inverse correlation. The    ways, by fitting a least-squares line to a path of specified BRDFs in
+green, blue, and red vectors denote projections of the BRDF inter-       the embedding space, or by computing local piecewise difference
+polations shown in the second, third, and fourth rows of Figure 16       vectors between examples. As an example, we have modeled metal
+respectively.                                                            oxidation. We measured the reflectance changes as a metal was
+                                                                         exposed to an acidic environment. It changed from highly spec-
+   Once trait vectors are established, we can add and subtract them      ular polished material to black matte material. The acquired four
+from our data points in our embedding space. In Figure 15 we             BRDFs determine a path in the embedding space. The intermediate
+demonstrate four examples of varying user-specified traits using the     stages are interpolated in the embedding space and backprojected
+linear model. The first row shows a teapot rendered using our Gold-      to the sample space (Figure 17). Figure 1 illustrates another pro-
+Paint BRDF on the far left, and the effect of adding the redness         cess ­ rust formation. We used a spatially varying texture to select
+trait in successive steps to the right. The second row starts from       rust levels for each point on the teapot. We are currently measuring
+a our SpecularGold BRDF (left) with successive additions of the          more processes like this such as copper patination and other types
+silverness trait. The third row adds the gold-like trait to the Blue-    of rust formation.
+GlossyPaint BRDF (left). Finally, the fourth row shows the addition
+of the specularness trait to the BlackMattePlastic BRDF. It is our       8 Future Work and Conclusions
+experience that the linear model gives reasonable BRDFs if only
+small displacements are permitted. If the displacement is too large,     In this paper we have introduced a new approach for modeling
+physically invalid BRDFs result (as illustrated in Figure 9).            isotropic BRDFs. Our model generates new surface reflectance
+                                                                         models by forming combinations from a set of densely-sampled,
+   We then applied the same trait classifications and Support Vec-       acquired BRDFs. We are hopeful that data-driven reflectance mod-
+tor Machine calculations to the embedding space of our non-linear        eling approaches, like ours, can greatly expand the range of material
+model. Figure 16 demonstrates 4 examples using this approach.            models used in computer graphics rendering.
+The first row of Figure 16 shows our Copper BRDF on the left,
+with successive additions of the roughness trait. The second row            In order to develop an effective and efficient interpolation
+begins with our GreenAcrylic BRDF and shows the addition of the          scheme we choose to first analyze the inherent dimensionality of
+blueness trait. The trajectory of this path is also illustrated in Fig-  our data set. To this end we applied both in linear subspace and non-
+ures 12, 13, and 14. Notice that color-change specification is           linear manifold analysis. The results of this analysis are suggestive
+not particularly correlated with any of traits used for these projec-    of the overall structure of BRDFs. Specifically, we found that the
+tions. Thus, we would expect relatively small movements and no           linear subspace model lent itself to the creation of physically im-
+preferred direction. The third row, on the other hand, represents        plausible BRDFs, and a large number of dimensions (around 45)
+the addition of the metallic trait to the VioletAcryllic BRDF model,     were required to adequately represent our measurements. Nonethe-
+whose path is also illustrated in the projections in Figures 12, 13,     less, we still found the linear subspace model to be useful for in-
+and 14. The path trajectory of this example conforms to our expec-       terpolation over small distances. The nonlinear model, on the other
+tations, and its magnitude is large in these visualizations since the    hand, was much more compact in its dimensionality (around 14
+                                                                         dimensions for the same accuracy as the 45-dimension linear sub-
+                                                                         space model), and more robust in its ability to interpolate plausi-
+                                                                         ble BRDFs over long distances. However, we caution against over
+                                                                         generalizing from our results. We are comfortable in saying that
+                                                                         our modeling approach effectively represents our data set, but our
+                                                                         sample size is still relatively small to draw conclusions regarding
+                                                                         the fundamental nature of isotropic BRDFs. However, we are op-
+                                                                         timistic that techniques like ours can be used to greatly expand our
+                                                                         knowledge in these areas.
+
+                                                                            We also have demonstrated methods for defining intuitive pa-
+                                                                         rameters for navigating within BRDF models. These techniques
+                                                                         can easily be customized for a range of industrial and artistic appli-
+                                                                         cations. Furthermore, they can be personalized for individual use
+                                                                         or made objective by incorporating physical measurements.
+
+                                                                            The advantages of our data-driven BRDF model include a high
+                                                                         degree of realism, a perceptually meaningful parameterization, rel-
+                                                                         ative ease of modeling for complex surface materials, and speed
+                                                                         of evaluation. The main disadvantage of the model is its size.
+                                                                         We believe that the model we propose can easily be incorpo-
+                                                                         rated into existing rendering systems. We also hope to extend our
+Figure 15: Navigation in the linear space. Each row corresponds to changing one parameter of the model. The first row shows an increase
+in the redness trait applied to the GoldPaint BRDF. The second row illustrates an increase in the silverness trait applied to the SpecularGold
+BRDF. Row three applies the gold-like trait to the BlueGlossyPaint BRDF. The fourth row shows an increase in the specularness trait applied
+to the BlackMattePlastic BRDF.
+
+work in sample-based reflectance modeling to include anisotropy           BRAND, M. 2003. Charting a manifold. In To appear, Proc. NIPS-15.
+(4D BRDF), macro-scale surface variations typically described by
+BTFs, and subsurface scattering effects (BSSRDF). Another obvi-           CHEN, W.-C., BOUGUET, J.-Y., CHU, M. H., AND GRZESZCZUK, R.
+ous extension would be to use this model in solving inverse render-          2002. Light Field Mapping: Efficient Representation and Hardware Ren-
+ing problems.                                                                dering of Surface Light Fields. ACM Transactions on Graphics 21, 3
+                                                                             (July), 447­456. ISSN 0730-0301 (Proceedings of ACM SIGGRAPH
+9 Acknowledgments                                                            2002).
+
+We would thank Steven Gortler and Julie Dorsey for helpful discus-        COOK, R., AND TORRANCE, K. 1982. A reflection model for computer
+sions; Fredo Durand for help with writing the shader; Henrik Wann            graphics. ACM Transactions On Graphics 1, 1 (January), 7­24.
+Jensen for the Dali renderer; Joe Marks for his continuing support;
+the anonymous reviewers for their constructive comments; and Jen-         CORNELL.  Light Measurement Laboratory.              Web page.
+nifer Roderick Pfister for proofreading the paper. Parts of this work     http://www.graphics.cornell.edu/ research/measure/.
+were supported by NSF CAREER grant 9875859.
+                                                                          CULA, O. G., AND DANA, K. 2001. Compact representation of bidi-
+References                                                                   rectional texture functions. In Proc. of Computer Vision and Pattern
+                                                                             Recognition, in press.
+BISHOP, C. M. 1995. Neural Networks for Pattern Recognition. Clarendon
+   Press.                                                                 CURET. Columbia-Utrech Reflectance and Texture. Web page.
+                                                                             http://www.cs.columbia.edu/ CAVE/curet/.
+BLANZ, V., AND VETTER, T. 1999. A morphable model for the synthesis
+   of 3D faces. Computer Graphics 33, Annual Conference Series, 187­      DANA, K. J., VAN GINNEKEN, B., NAYAR, S. K., AND KOENDERINK,
+   194.                                                                      J. J. 1999. Reflectance and texture of real world surfaces. ACM Trans-
+                                                                             actions on Graphics 1, 18, 1­34.
+BLINN, J. 1977. Models of light reflection for computer synthesized pic-
+   tures. Computer Graphics 11, Annual Conference Series, 192­198.        DANA, K. 2001. BRDF/BTF measurement device. ICCV, 460­466.
+
+                                                                          DUDA, R. O., AND HART, P. E. 1973. Pattern Classification and Scene
+                                                                             Analysis. Wiley-Interscience Publication, New York.
+
+                                                                          HE, X., TORRANCE, K., SILLON, F., AND GREENBERG, D. 1991. A
+                                                                             comprehensive physical model for light reflection. Computer Graphics
+                                                                             25, Annual Conference Series, 175­186.
+Figure 16: Navigation on the non-linear manifold. Each row corresponds to changing one parameter of the model. The first row shows
+an increase in the roughness trait applied to the Copper BRDF. The second row illustrates an increase in the blueness trait applied to the
+GreenAcrylic BRDF. Row three applies the metallic-like trait to the VioletAcryllic BRDF. The fourth and fifth rows show an increase in the
+glossiness trait applied to the YellowDiffusePaint BRDF (the images in the fifth row are the enlarged versions of the first and last image in the
+fourth row).
+Figure 17: Progression of the steel oxidation process. Our BRDF model also supports interpolation along physically meaningful path. In this
+example we start with a completely polished steel sample (upper left) and progressively oxidize it. The final black-oxidized sample is shown
+on the lower right.
+
+HE, X., HEYNEN, P., PHILLIPS, R., TORRANCE, K., SALESIN, D., AND             RUSINKIEWICZ, S. 1998. A new change of variables for efficient BRDF
+   GREENBERG, D. 1992. A fast and accurate light reflection model. Com-         representation. In Rendering Techniques '98 (Proceedings of Eurograph-
+   puter Graphics 26, Annual Conference Series, 253­254.                        ics Rendering Workshop '98), Springer Wien, New York, NY, G. Dret-
+                                                                                takis and N. Max, Eds., 11­22.
+KAUTZ, J., AND MCCOOL, M. 1999. Interactive rendering with arbi-
+   trary BRDFs using separable approximations. In Rendering Techniques       SCHRO¨ DER, P., AND SWELDENS, W. 1995. Spherical wavelets: Efficiently
+   '99 (Proceedings of the Tenth Eurographics Workshop on Rendering),           representing functions on the sphere. Computer Graphics 29, Annual
+   Springer Wien, New York, NY, 281­292.                                        Conference Series, 161­172.
+
+KOENDERINK, J., VAN DOORN, A., AND STAVRIDI, M. 1996. Bidi-                  STARR. NIST reference reflectometer: STARR facility. Web page.
+   rectional Reflection Distribution Function expressed in terms of surface     http://physics.nist.gov/Divisions/Div844/facilities/brdf/starr.htm.
+   scattering modes. European Conference on Computer Vision.
+                                                                             TEH, Y. W., AND ROWEIS, S. T. 2003. Automatic alignment of hidden
+KRUSKAL, J. B., AND WISH, M. 1978. Multidimensional Scaling. Sage               representations. In To appear, Proc. NIPS-15.
+   Publications, Beverly Hills, CA.
+                                                                             TENENBAUM, J. B., DE SILVA, V., AND LANGFORD, J. C. 2000. A global
+LAFORTUNE, E., FOO, S.-C., TORRANCE, K., AND GREENBERG, D.                      geometric framework for nonlinear dimensionality reduction. Science
+   1997. Non-linear approximation of reflectance functions. Computer            290 (December 22), 2319­2323.
+   Graphics 31, Annual Conference Series, 117­126.
+                                                                             TORRANCE, K., SPARROW, E., AND BIRKEBAK, R. 1966. Polariza-
+LALONDE, P., AND FOURNIER, A. 1997. A wavelet representation of                 tion, directional distribution, and off-specular peak phenomena in light
+   reflectance functions. IEEE Transactions on Visualization and Computer       reflected from roughened surfaces. Journal of the Optical Society of
+   Graphics 3, 4, 329­336.                                                      America 56, 7 (July), 916­925.
+
+LENSCH, H., KAUTZ, J., GOESELE, M., HEIDRICH, W., AND SEIDEL,                TROWBRIDGE, T., AND REITZ, K. 1975. Average irregularity represen-
+   H.-P. 2001. Image-based reconstruction of spatially varying materials.       tation of roughened surfaces. Journal of the Optical Society of America
+   In Proceedings of the 12th Eurographics Workshop on Rendering, 104­          65, 5, 531­536.
+   115.
+                                                                             VAPNIK, V. 1995. The Nature of Statistical Learning Theory. Springer,
+MARSCHNER, S., WESTIN, S., LAFORTUNE, E., AND TORRANCE, K.                      N.Y.
+   2000. Image-based measurement of the Bidirectional Reflection Distri-
+   bution Function. Applied Optics 39, 16.                                   WARD, G. 1992. Measuring and modeling anisotropic reflection. Computer
+                                                                                Graphics 26, Annual Conference Series, 265­273.
+MCCOOL, M., ANG, J., AND AHMAD, A. 2001. Homomorphic factoriza-
+   tion of BRDFs for high-performance rendering. Computer Graphics 35,       WESTIN, S., ARVO, J., AND TORRANCE, K. 1992. Predicting reflectance
+   Annual Conference Series, 171­178.                                           functions from complex surfaces. Computer Graphics 26, Annual Con-
+                                                                                ference Series, 255­264.
+PELLACINI, F., FERWERDA, J., AND GREENBERG, D. 2000. Toward a
+   psychophysically-based light reflection model for image synthesis. Com-   YU, Y., DEBEVEC, P., MALIK, J., AND HAWKINS, T. 1999. Inverse
+   puter Graphics 34, Annual Conference Series, 55­64.                          global illumination: Recovering reflectance models of real scenes from
+                                                                                photographs. In Computer Graphics, SIGGRAPH 99 Proceedings, 215­
+ROWEIS, S. T., AND SAUL, L. K. 2000. Nonlinear dimensionality reduc-            224.
+   tion by locally linear embedding. Science 290 (December 22), 2323­
+   2326.                                                                     ZHANG, Z. 1998. A flexible new technique for camera calibration. Tr98-71,
+                                                                                MSR Redmond.
+

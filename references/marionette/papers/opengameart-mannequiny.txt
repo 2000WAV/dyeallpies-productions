@@ -1,0 +1,177 @@
+Mannequiny The Open 3D Mannequin | OpenGameArt.org
+Skip to main content
+User login
+OpenID
+What is OpenID?
+Username or e-mail
+*
+Password
+*
+Log in using OpenID
+Cancel OpenID login
+Create new account
+Request new password
+Register
+Home
+Browse
+2D Art
+3D Art
+Concept Art
+Textures
+Music
+Sound Effects
+Documents
+Featured Tutorials
+Submit Art
+Collect
+My Collections
+Art Collections
+Forums
+FAQ
+Leaderboards
+All Time
+Total Points
+Comments
+Favorites (All)
+Favorites (2D)
+Favorites (3D)
+Favorites (Concept Art)
+Favorites (Music)
+Favorites (Sound)
+Favorites (Textures)
+Weekly
+Total Points
+Comments
+Favorites (All)
+Favorites (2D)
+Favorites (3D)
+Favorites (Concept Art)
+Favorites (Music)
+Favorites (Sound)
+Favorites (Textures)
+❤ Donate
+Search
+Mannequiny The Open 3D Mannequin
+Author:
+hardboileduser
+Tuesday, February 17, 2026 - 09:36
+Collaborators:
+GDquest
+Art Type:
+3D Art
+Tags:
+base
+humanoid
+mannequin
+animated
+walk
+rigged
+charatcer
+License(s):
+CC-BY 4.0
+Collections:
+3D Art
+3D Models
+Favorites:
+6
+Preview:
+An open-source 3D character controller as part of
+2019 Godot Kickstarter campaign
+and was released by GDQuest in
+2020
+. This submission does not include the code or Godot demo project, but the mannequin character with basic animations.
+ASSET(S):
+The .zip file include .glb file which was exported from the source file in Blender 4.2 LTS with some alpha value change to the materials to make the character visible when shaded.
+The .blend file (v0.4.0) of the character/mannequin which was made in Blender 2.80 which have twelve (12) animation:
+air_jump
+air_jump_anticipation
+air_land
+dash
+fight_idle
+fight_kick
+fight_punch
+idle
+idle_to_fight
+jump_full
+run
+walk
+AUTHOR:
+The project was released and hosted by
+GDQuest
+at Github:
+https://github.com/gdquest-demos/godot-3d-mannequin
+The mannequin is a character made by
+Luciano Muñoz
+In blender 2.80.
+Copyright/Attribution Notice:
+Mannequiny by GDQuest, Luciano Muñoz, and contributors licensed CC-BY 4.0: https://github.com/gdquest-demos/godot-3d-mannequin/releases
+File(s):
+glb-mannequiny-0.4.0.zip
+452.8 Kb
+[
+99
+download(s)]
+mannequiny-0.4.0.blend
+13.6 Mb
+[
+63
+download(s)]
+Log in
+or
+register
+to post comments
+Comments
+MedicineStorm
+joined 14 years 1 week ago
+02/17/2026 - 10:02
+This looks like it was released under MIT, not CC-BY.
+If that is the case, I don't think MIT can be adapted to CC-BY.
+Log in
+or
+register
+to post comments
+hardboileduser
+joined 6 months 4 weeks ago
+02/17/2026 - 10:12
+From the Project's
+README
+:
+This project is dual-licensed:
+The source code is available under the MIT license.
+Art assets (images, audio files) are CC-By 4.0. You can attribute them to GDQuest and contributors (
+https://www.gdquest.com/
+).
+I consider the 3d model and it's animation as art asset and I only include that. If that's not the case than I'll remove it.
+Log in
+or
+register
+to post comments
+hardboileduser
+joined 6 months 4 weeks ago
+02/17/2026 - 10:28
+Also this from Github
+release page
+:
+The Godot project is available under the MIT license.
+The animated character made in Blender is available under the permissive Creative Commons Attribution license. You can do anything you want with it as long as you credit our work:
+Mannequiny CC-By 4.0 GDQuest, Luciano Muñoz, and contributors.
+Log in
+or
+register
+to post comments
+MedicineStorm
+joined 14 years 1 week ago
+02/17/2026 - 11:09
+Yay! Thanks. That covers it.
+Log in
+or
+register
+to post comments
+hardboileduser
+joined 6 months 4 weeks ago
+02/17/2026 - 22:02
+Thanks! Glad it worked out.
+Log in
+or
+register
+to post comments

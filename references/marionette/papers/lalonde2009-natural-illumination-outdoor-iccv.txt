@@ -1,0 +1,449 @@
+Estimating Natural Illumination from a Single Outdoor Image
+
+     Jean-Franc¸ois Lalonde, Alexei A. Efros, and Srinivasa G. Narasimhan
+             School of Computer Science, Carnegie Mellon University
+
+              http://graphics.cs.cmu.edu/projects/outdoorIllumination
+
+                        Abstract
+
+   Given a single outdoor image, we present a method for
+estimating the likely illumination conditions of the scene.
+In particular, we compute the probability distribution over
+the sun position and visibility. The method relies on a com-
+bination of weak cues that can be extracted from different
+portions of the image: the sky, the vertical surfaces, and the
+ground. While no single cue can reliably estimate illumina-
+tion by itself, each one can reinforce the others to yield a
+more robust estimate. This is combined with a data-driven
+prior computed over a dataset of 6 million Internet pho-
+tos. We present quantitative results on a webcam dataset
+with annotated sun positions, as well as qualitative results
+on consumer-grade photographs downloaded from Internet.
+Based on the estimated illumination, we show how to real-
+istically insert synthetic 3-D objects into the scene.
+
+1. Introduction                                                      Figure 1. A synthetic 3-D statue has been placed in a photograph
+                                                                     (top) in an illumination-consistent way. To enable this type of op-
+   The appearance of a scene is determined to a great ex-            eration, we develop an approach that uses information from the
+tent by the prevailing illumination conditions. Is it sunny or       sky, the shading and the shadows to estimate a distribution on the
+overcast, morning or noon, clear or hazy? Claude Monet,              likely sun positions (bottom-left), and is able to generate a syn-
+a fastidious student of light, observed: "A landscape does           thetic sky model (bottom-right) (see Fig. 5 for the original image).
+not exist in its own right (...) but the surrounding atmo-
+sphere brings it to life... For me, it is only the surrounding       ance) from a single outdoor image. To be sure, this is an
+atmosphere which gives subjects their true value." Within            extremely difficult task, even for humans [2]. In fact, the
+the Grand Vision Problem, illumination is one of the key             problem is severely underconstrained in the general case ­
+variables that must be untangled in order to get from pixels         while some images might have enough information for a
+to image understanding.                                              reasonably precise estimate, others will be completely unin-
+                                                                     formative. Therefore, we will take a probabilistic approach,
+   But while a lot of work has been done on modeling and             estimating illumination parameters using as much informa-
+using illumination in a laboratory setting, relatively little is     tion as may be available in a given image and producing the
+known about it "in the wild", i.e. in a typical outdoor scene.       maximum likelihood solution (see Fig. 1).
+In fact, most vision applications treat illumination more as
+a nuisance ­ something that one strives to be invariant to ­            So what information about illumination is available in
+rather than a source of signal. Examples include illumina-           a single image? Unfortunately, there is no simple answer.
+tion adaptation in tracking and surveillance (e.g. [21]), or         When we humans perform this task, we look at different
+contrast normalization schemes in popular object detectors           parts of the image for clues. The appearance of the sky can
+(e.g. [4]). Alas, the search for the ultimate illumination in-       tell us if it's clear or overcast (i.e. is the sun visible?). On
+variant might be in vain [3]. Instead, we believe there is           a clear day, the sky might give some weak indication about
+much to be gained by embracing illumination, even in the             the sun position. The presence of shadows on the ground
+challenging, uncontrolled world of consumer photographs.             plane can, again, inform us about sun visibility, while the
+
+   In this paper, we propose a method for estimating full
+sky dome illumination (sun position and clear sky appear-
+
+                                                                  1
+direction of shadows cast by vertical structures can tell us     shapes are complex or blurred. Our work, for the first time,
+about sun direction. The relative shading of surfaces at dif-    combines such weak cues with other semi-informative cues
+fering orientations (e.g. two building facades at a right an-    to better estimate illumination from a single image.
+gle), can also give a rough indication of sun direction.
+                                                                 Illumination estimation from time-lapse sequences
+   Our approach is based on implementing some of these           Sunkavalli et al. [23] develop techniques to estimate sun di-
+intuitions into a set of illumination cues. Of course, each      rection and scene geometry by fitting a photometric model
+one of these cues by itself is rather weak and unreliable.       of scene reflectance to a time-lapse sequence of an outdoor
+The sky might be completely saturated, or might not even         scene. Lalonde et al. [16, 17] exploit a physically-based
+be present in the image. The ground might not be visible,        model of sky appearance [18] to estimate the sun position
+or be barren of any shadow-casting structures. Shading in-       relative to the viewing direction from a time-lapse sequence.
+formation might, likewise, be inaccessible due to lack of        We will use the same model of the sky but recover the most
+appropriate surfaces or large differences between surface        likely representation of the complete sky dome (sky appear-
+reflectances. Furthermore, computing these cues will in-         ance, sun position, and sun visibility) from a single image.
+evitably lead to more noise and error (misdetected shad-
+ows, poor segmentation, incorrect camera parameters, etc).          Finally, Lalonde et al. [15] use cues such as multi-variate
+Hence, in this work, we combine the information obtained         histograms of color and intensity together with a rough clas-
+from these weak cues together, while applying a data-driven      sification of scene geometry [9] to match illuminations of
+prior computed over a set of 6 million Internet photographs.     different scenes. However, their cues are global in nature
+The result section will show that the combined estimate          and cannot be used to match sun directions. This makes
+yields surprisingly good performance on a wide range of          their approach ill-suited for 3-D object insertion.
+very difficult real-world images.
+                                                                 3. Illumination cues from a single image
+2. Related work
+                                                                    Illumination affects different parts of the scene in very
+   The color and geometry of illuminants can be directly         different ways. In our approach, information about illumi-
+observed by placing probes, such as mirror spheres [22],         nation is captured from three major parts of the image --
+color charts or integrating spheres, within the scene. But,      the sky pixels S, the ground pixels G, and vertical surface
+alas, most of the photographs captured do not contain such       pixels V -- via three separate cues. To partition the image
+probes and thus, we are forced to look for cues within the       in this way, we use the approach of Hoiem et al. [9], which
+scene itself. There is a long and rich history in computer       returns a pixel-wise labeling of the image together with con-
+vision about understanding the illumination from images.         fidences (we use the latter to weight the confidence of our
+We will briefly summarize relevant works here.                   computed features).
+
+Color constancy These approaches strive to extract scene            We represent illumination I = {s, s, vs} using three
+representations that are insensitive to the illumination color.  parameters, where s is the sun zenith angle, s the sun
+For this, several works either derive transformations be-        azimuth angle with respect to the camera, and vs a binary
+tween scene appearances under different source colors            variable for sun visibility. This section describes how we
+(e.g. [6]), or transform images into different color spaces      compute distributions over these parameters given the sky,
+that are insensitive to source colors (e.g. [26]). Our work      the shadows on the ground, and the shading on the verti-
+focuses on a complementary representation of outdoor illu-       cal surfaces individually. Later we combine these cues to
+mination (sun direction, sky appearance, and sun visibility).    estimate the illumination from the entire image.
+
+Model based reflectance and illumination estimation              3.1. Sky
+Several works estimate illumination (light direction and
+location), in conjunction with model-based estimation of            In order to estimate illumination parameters from the
+object shape and reflectances (Lambertian, Dichromatic,          sky, we take inspiration from the work of Lalonde et al. [16,
+Torrance-Sparrow), from one or more images of the scene          17], which shows that a physically-based sky model [18]
+[20, 1]. Our work does not rely on specific reflectance mod-     can be used to estimate the maximum likelihood orientation
+els of outdoor surfaces or exact estimation of 3-D geometry.     of the camera with respect to the sun from a sequence of sky
+                                                                 images. However, we are dealing with only a single image.
+Shadow extraction and analysis Many works detect and             Our solution is to discretize the parameter space and try to
+remove shadows using one or more images [24, 7, 25]. The         fit the sky model for each parameter setting. For this, we
+extracted shadows have also been used to estimate the sun        assume that the sky pixel intensities si  S are condition-
+direction in constrained settings [13] or in webcams [10].       ally independent given the illumination parameters, and are
+But shadows are only weakly informative about illumina-          distributed according to the generative model:
+tion when their sizes in the image are too small or their
+                                                                           si  N (k g(s, s), s2) ,         (1)
+(a) Image and estimated horizon    (b) Sky mask [9]              (c) P (s, s|S)        (d) Inserted sun dial
+
+Figure 2. Illumination cue from the sky only. Starting from the input image (a), we compute the sky mask (b) using [9]. The resulting
+sky pixels are then used to estimate P (s, s|S) (c). The maximum likelihood sun position is shown with a yellow circle. We use this
+position to artificially synthesize a sun dial in the scene (d). Throughout the paper, the sun position probability is displayed as if the viewer
+is looking straight up (center point is zenith), with the camera field of view drawn at the bottom. In this example, the sun (yellow circle)
+appears to be to the top-right of the camera.
+
+where, g(·) is the Perez sky model [18], N (µ, 2) is the         3.2. Cast shadows on the ground
+normal distribution with mean µ and variance 2, and k is
+an unknown scale factor (see [17] for details). We obtain           Shadows cast on the ground by vertical structures can
+the distribution over sun positions by computing                 essentially serve as "sun dials" and are often used by hu-
+                                                                 mans to determine the sun direction. Unfortunately, it is
+P (s, s|S)  exp                  -(si - k g(s, s))2              extremely hard to determine if a particular shadow was cast
+                                                                 by a vertical object. Luckily, it turns out that due to the
+                           si S    2s2                           statistics of the world (gravity makes a many things stand-
+                                                                 up straight), the majority of long shadows are, in fact, pro-
+                                                     (2)         duced by vertical things. Therefore, if we can detect a set of
+                                                                 "strong and long" shadow lines (edges), we can use them in
+for each bin in the discrete (s, s) space, and normaliz-         a probabilistic sense to determine a likely sun azimuth (up
+ing appropriately. Note that since k in (1) is unknown, we       to the directional ambiguity).
+
+also discretize that space, and take the maximum value for          To detect shadows, we apply a series of simple heuris-
+                                                                 tics. First, we compute the image derivatives in x and y
+each color channel independently.                                both in the L and a channels of the CIELAB color space.
+                                                                 As observed in [11], while strong reflectance gradients are
+The above function g(·) requires knowledge of two im-            present in both the L and a channels, strong shadow gra-
+                                                                 dients appear mainly in the L channel. We are therefore
+portant camera parameters: its zenith angle c (with respect      able to reject many strong reflectance edges by subtracting
+to vertical), and its focal length fc. If we assume that fc is   the two. Of the remaining edges, we retain long shadow
+available via the EXIF tag of the photograph, then c can         lines by using the approach in [14]. Finally, we observe
+be computed by finding the horizon line vh in the image.         that shadow edges have similar intensity gradients across
+We circumvent the hard problem of horizon line estimation        the image. Thus, we choose only those edges whose inten-
+                                                                 sity gradients can be clustered together. While these steps
+by making a simple approximation: select the row midway          do not eliminate all reflectance edges, the number of false
+                                                                 positives is greatly reduced.
+between the lowest sky pixel and the highest ground pixel
+                                                                    Given a potential shadow line li  G, we compute its
+as horizon. Fig. 2 demonstrates the sun position result ob-      relative orientation i on the ground plane by rectifying it
+                                                                 via a homography using the camera parameters estimated
+tained using the sky cue.                                        in the previous section. We assume that each shadow line
+                                                                 predicts the sun azimuth in the following way:
+   In order to determine sun visibility vs, we classify the
+sky into one of three categories: clear, partially cloudy, or        P (s|li)  max N (i, g2), N (i + , g2 , (3)
+
+completely overcast. For this, we build a small database of      and combine all the shadow lines by making each one vote
+                                                                 for its preferred shadow direction:
+representative skies for each category from images down-
+
+loaded from the Internet, and compute the illumination con-
+
+text feature [15] on each. We then find the k nearest neigh-
+
+bors in the database, and assign the most common label (we
+
+use k = 5). If the sky is found to be overcast, the sun po-
+
+sition distribution is left uniform. For partly cloudy scenes,
+
+we remove the clouds by a simple binary color segmenta-
+
+tion of the sky pixels (keeping the cluster that is closer to
+
+blue) and fit the sky model described earlier only to the clear
+
+portion of the sky. We found that setting the sun visibility
+
+probability P (vs) to 0.8, 0.6, and 0.4 for the three classes    P (s|G)  P (s|li) .                          (4)
+worked well for our data.
+                                                                                 li G
+(a) Image and estimated horizon (b) Ground mask [9] and shadow lines  (c) P (s, s|G)              (d) Inserted sun dial
+
+Figure 3. Illumination cue from the ground only. Starting from the input image (a), we compute the ground mask (b) using [9] and extract
+shadow lines, which are then used to estimate P (s, s|G) (c). Note that shadow lines alone can only predict the sun relative azimuth
+angle up to a 180 ambiguity. The subtle horizontal sky gradient is however able to disambiguate between the two hypotheses and select a
+
+realistic sun position, shown with a yellow circle. The most likely sun position is used to artificially synthesize a sun dial in the scene (d).
+
+Fig. 3 shows the results obtained using the shadow cues               shadow lines. Since bright vertical surfaces should indi-
+only.                                                                 cate that the sun is visible, we set P (vs|V) = wmax, where
+                                                                      wmax  [0, 1] is the mean intensity of the brightest surface.
+   For vs, a large number of shadow edges on the ground
+indicate that the sun should be visible, but it is uninfor-              The three variances mentioned in this section were ob-
+mative if none are found. Therefore, we set P (vs|G) =
+0.3 min(n, 30)/30 + 0.5 (n is the number of edges).                   tained automatically by cross-validation on a training set of
+                                                                      webcam images (see Sec. 5.1). Their values are s2 = 0.18,
+                                                                      and g2 = w2 = 25.
+
+3.3. Shading on vertical surfaces
+
+   If the rough geometric structure of the scene is known,            4. Estimating illumination
+then analyzing the shading on the main surfaces can often
+provide an estimate for the possible sun positions. For ex-              Now that we are equipped with several weak features
+ample, a brightly lit surface indicates that the sun may be           that can be computed over an image, we show how we com-
+pointing in the direction of its normal, or at least in the           bine them in order to get a more reliable estimate in a prob-
+vicinity. Of course, this reasoning also assumes that the             abilistic framework.
+albedos of the surfaces are either known or equal, neither
+of which is true. However, we have experimentally found               4.1. Cue combination
+that, within a given image, the albedos of the major verti-
+cal surfaces are often relatively similar (e.g. different sides          We are interested in estimating the distribution P (I|P)
+of the same house, or similar houses on the same street),             over the illumination parameters I = {s, s, vs} , given
+while the ground is quite different. Therefore, we use the            the entire image P. We apply Bayes rule, and write
+three coarse vertical surface orientations (front, left-facing,
+and right-facing) computed by [9] and attempt to estimate             P (I|S, G, V)  P (S, G, V|I)P (I) .                (7)
+the azimuth direction only. We assume that a bright surface
+wi  V predicts that the sun is roughly in the direction of            We make the assumption that the image pixels are condi-
+its normal, i. Therefore, each surface predicts:                      tionally independent given the illumination conditions, and
+                                                                      that the priors on each region of the image (P (S), P (G)
+                                                                      and P (V)) are uniform over their own respective domains.
+                                                                      Applying Bayes rule twice, we get
+
+P (s|wi)  N (i, w2 ) ,             (5)                                P (I|S, G, V)  P (I|S)P (I|G)P (I|V)P (I) . (8)
+
+where w2 is proportional to its corresponding surface inten-          We further assume the sun visibility vs to be independent
+sity. Note that i  {-90, 90, 180} since we assume                     of its position, which means (8) can be split into two inde-
+only 3 coarse surface orientations. We combine each sur-              pendent equations: one for (s, s) and for vs. Note that
+face by making each one vote for its preferred sun direction:         while these two independence assumptions greatly reduces
+                                                                      the complexity of the problem, they might not always be
+P (s|V)         P (s|wi) .         (6)                                true. For instance, the sun being blocked entirely by a scene
+                                                                      occluder violates this assumption, but it is a rather rare event
+          wi V                                                        in practice.
+
+Fig. 4 shows the results obtained using the shading on verti-            The process of combining the cues according to (8) for
+cal surfaces only. Although this is a weaker cue, we find             the sun position is illustrated in Fig. 5. We have pre-
+that it can often help resolve the ambiguity arising with             sented how we compute the conditionals P (I|S), P (I|G)
+(a) Image and estimated horizon  (b) Vertical mask [9]        (c) P (s, s|V)  (d) Inserted sun dial
+
+Figure 4. Illumination cue from the vertical surfaces only. Starting from the input image (a), we compute the vertical surfaces mask (b)
+using [9] (blue = facing left, red = facing right, green = facing forward). The distribution of pixel intensities on each of these surfaces are
+then used to estimate P (s, s|V) (c). Note that in our work, vertical surfaces cannot predict the sun zenith angle s. In this example, the
+sky is used to estimate the sun zenith. We then find the most likely sun position (shown with a yellow circle), which is used to artificially
+synthesize a sun dial in the scene (d).
+
+and P (I|V) in Sect. 3.1, 3.2 and 3.3 respectively. Let us    decrease the likelihood of having pictures with the sun taken
+now look at how we can compute the prior P (I) on the il-     close to the horizon (s close to 90). Interestingly, the red
+lumination conditions themselves.                             and green curve overlap almost perfectly, which indicates
+                                                              that the three variables L, D, and T seem to be indepen-
+4.2. Data-driven illumination prior                           dent.
+
+   The prior P (I) = P (s, s, vs) captures the typical           This database captures the distribution of where pho-
+illumination conditions in outdoor scenes. Since we as-       tographs are most likely to be taken on the planet, which
+sumed vs to be independent of the sun position, we can        is indeed very different than considering each location on
+compute P (s, s) and P (vs) independently. Because            Earth as equally likely (as shown in Fig. 6). We will show in
+labelled visibility data is not currently available, we con-  the next section that this distinction is critical to improve our
+servatively take P (vs) = 0.5. We now proceed to show         estimation results. Finally, note that the assumption of uni-
+how we can compute P (s, s) given a large dataset of          form camera azimuth is probably not true in practice since
+consumer photographs.                                         a basic rule of thumb of good photography is to take a pic-
+                                                              ture with the sun to the back. With the advent of additional
+   The sun position (s, s) depends on the latitude L of       sensors such as compasses on digital cameras, this data will
+the camera, its azimuth angle c, the date D and the time of   surely become available in the near future.
+day T expressed in the local timezone:
+                                                              5. Evaluation and results
+P (s, s) = P (f (L, D, T, c)) ,  (9)
+                                                                 We evaluate our technique in two different ways: quan-
+where f (·) is a non-linear function defined in [19]. To es-  titatively using images taken from webcam sequences, and
+timate (9), we can sample points from P (L, D, T, c), and     qualitatively on images downloaded from Internet.
+use f (·) to recover s and s. But estimating this dis-
+tribution is not currently feasible since it requires images  5.1. Quantitative evaluation using webcams
+with known camera orientations c, which are not yet avail-
+able in large quantities. On the other hand, geo- and time-      We use the technique of Lalonde et al. [16, 17] to esti-
+tagged images do exist, and are widely available on photo     mate the positions of the sun in 984 images taken from 15
+sharing websites such as Flickr. The database of 6 million    different time-lapse image sequences, downloaded from the
+images from [8] is used to compute the empirical distribu-    Internet. Two example images from our dataset are shown
+tion P (L, D, T ). We compute (9) by randomly sampling 1      in Fig. 7(a) and 7(b). Our algorithm is applied to every im-
+million points from the distribution P (L, D, T )P (c), as-   age from the sequences independently and the results are
+suming P (c) to be uniform in the [-180, 180] interval.       compared against ground truth. Accordingly, the sun visi-
+As a consequence, (9) is flat along the s dimension and       bility was estimated correctly 98% of the time.
+is marginalized.
+                                                                 Fig. 7 reports the cumulative histogram of errors in sun
+   Fig. 6 shows 4 estimates for P (s, s), computed with       position estimation for different scenarios: chance, making
+slightly different variations. First, a uniform sampling of   a constant prediction of s = 0 (straight up), using only
+locations on Earth and times of day is used as a baseline     the priors from Sec. 4.2 (we tested both the data-driven and
+comparison. The three other priors use data-driven informa-   Earth uniform priors), scene cues only, and using our com-
+tion. Considering non-uniform date and time distributions     bined measure P (s, s|P) with both priors as well. The
+(a) Input image       (b) P (s, s|S) (c) P (s, s|G) (d) P (s, s|V)                                                                                              (e) P (s, s)           (f) P (s, s|P)
+
+Figure 5. Combining illumination features computed from image (a) yields a more confident final estimate (f). We show how (b) through
+(d) are estimated in Sect. 3, and how we compute (e) in Sect. 4.2.
+
+0.12                                                                                                                                                  Ground truth shadow                                Ground truth shadow
+                                                                                                                                                      Our estimate                                       Our estimate
+
+0.1
+
+0.08
+
+P(s)0.06
+                                                                                                       % of images (984 images tota)
+0.04                                                                                                                                       (a) Madrid sequence               (b) Vatican sequence
+
+                                  Earth uniform                                                                                       100
+                                  Latitude only P(L)
+0.02                              Marginals P(L)P(D)P(T)                                                                              90
+    0                             Joint P(L,D,T)
+     0
+        10 20 30 40 50 60 70 80 90                                                                                                    80
+
+                 Sun  zenith      (deg)                                                                                               70
+
+                               s
+
+Figure 6. Illumination priors (9) on the sun position, learned from                                                                   60
+a database of 6M images downloaded from Flickr. The priors
+are obtained by sampling 1 million points (1) uniformly across                                                                        50
+GPS locations and time of day (cyan); from (2) the marginal lati-
+tude distribution P (L) only (blue); (3) the product of independent                                                                   40
+marginals P (L)P (D)P (T ) obtained from data (green); and (4)
+the joint P (L, D, T ), also obtained from data (red). The last two                                                                   30                                     MAP with data-driven prior
+curves overlap, indicating that the three variables L, D, and T
+indeed seem to be independent.                                                                                                                                               MAP with Earth-uniform prior
+
+                                                                                                                                      20                                     Scene cues only (MLE)
+                                                                                                                                                                             Data-driven prior P(L,D,T)
+
+                                                                                                                                                                             Earth-uniform prior
+
+                                                                                                                                      10                                     Constant
+
+                                                                                                                                                                             Chance
+
+                                                                                                                                      0    0  20  40  60        80 100 120 140 160 180
+
+first three curves were obtained by optimizing for the vari-                                                                                                    Error (deg)
+ances from Sec. 3 using 5-fold cross-validation, and taking
+the mean test error for each image across folds. Fig. 7 high-                                                (c)
+lights the performance at errors of less than 22.5 (50% of
+images) and 45 (71% of images), which correspond to ac-              Figure 7. Quantitative evaluation using 984 images taken from 15
+curately predicting the sun position within an octant (e.g.          webcam sequences, calibrated using [16, 17]. Two example im-
+North vs. North-West), or a quadrant (e.g. North vs West)            ages, from (a) Madrid and (b) Vatican City, compare sun dials
+respectively.                                                        rendered using our estimated sun position (gray), and the ground
+                                                                     truth (red). (c) Cumulative sun position error (angle between es-
+   The cues contribute to the end result differently for dif-        timate and ground truth directions) for different methods. Our
+ferent scenes. For instance, the sky in Fig. 7(a) is not in-         result, which combines both the scene cues and the data-driven
+formative, since it is small and the sun is always behind the        illumination prior, outperforms the others. The data-driven prior
+camera. It is more informative in Fig. 7(b), as it occupies a        surpasses the Earth-uniform one (both alone and when combined
+larger area.                                                         with the scene cues), showing the importance of being consistent
+                                                                     with likely image locations. Picking a constant value of s = 0
+                                                                     has an error of at least 20.
+
+5.2. Qualitative evaluation on single images                         usually obtained when one cue is very strong (i.e. bright
+                                                                     facing wall in the top-left example, sky gradient in top-
+   Fig. 8 shows several example results of applying our              right), or when all 3 cues are strongly correlated (as in
+algorithm on typical consumer-grade images, downloaded               Fig. 1). On the other hand, few shadows and surfaces are
+from the Internet. The rows are arranged in order of de-             present (bottom-left), or highly cluttered scenes (bottom-
+creasing confidence in the result. High confidence cases are
+right) usually yield lower confidences, and the most likely     0643628 and ONR grant N00014-08-1-0330. A. Efros is
+sun positions might be uncertain. This is emphasized in         grateful to the WILLOW team at ENS Paris for their hospi-
+Fig. 9, which shows two typical failure cases.                  tality.
+
+5.3. Application: 3-D object insertion                          References
+
+   We now demonstrate how to use our technique to insert         [1] R. Basri, D. Jacobs, and I. Kemelmacher. Photometric stereo with
+a 3-D object into a single photograph with realistic lighting.        general, unknown lighting. IJCV, 72(3):239­257, May 2007.
+This requires generating a plausible environment map [5]
+from the image. To do so, we must estimate the illumina-         [2] P. Cavanagh. The artist as neuroscientist. Nature, 434:301­307,
+tion intensity in all directions, even those not seen by the          2005.
+camera! Consider the image Fig. 10. We first estimate the
+illumination conditions using our approach. Given the most       [3] H. Chen, P. Belhumeur, and D. Jacobs. In search of illumination
+likely sun position and clear sky pixels, we use the tech-            invariants. In CVPR, 2000.
+nique of Lalonde et al. [16, 17] to recover the most likely
+sky parameters, and synthesize its appearance in all direc-      [4] N. Dalal and B. Triggs. Histograms of oriented gradients for human
+tions (Fig. 10, center). The sun is simulated by a bright             detection. In CVPR, 2005.
+circular patch (104 times brighter than the maximum scene
+brightness). For the bottom part of the environment map          [5] P. Debevec. Rendering synthetic objects into real scenes: bridging
+(not shown), we use the spherical projection technique of             traditional and image-based graphics with global illumination and
+Khan et al. [12] on the pixels below the horizon line. A              high dynamic range photography. In SIGGRAPH, 1998.
+realistic 3-D model is relit using an off-the-shelf rendering
+software (see Fig. 10, right). Notice how the shadows on the     [6] G. Finlayson, M. Drew, and B. Funt. Diagonal transforms suffice for
+ground, and shading and reflections on the car are consistent         color constancy. In ICCV, 1993.
+with the image. Another example is shown in Fig. 1.
+                                                                 [7] G. D. Finlayson, S. D. Hordley, and M. S. Drew. Removing shadows
+6. Discussion                                                         from images. In ECCV, 2002.
+
+   Outdoor illumination affects the appearances of scenes        [8] J. Hays and A. A. Efros. im2gps: estimating geographic information
+in complex ways. Untangling illumination from surface                 from a single image. In CVPR, 2008.
+geometry and material properties is a hard problem in
+general. Surprisingly, however, numerous consumer-grade          [9] D. Hoiem, A. A. Efros, and M. Hebert. Recovering surface layout
+photographs captured outdoors contain rich and informative            from an image. IJCV, 75(1):151­172, Oct 2007.
+cues about illumination, such as the sky, the shadows on the
+ground and the shading on vertical surfaces. Our approach       [10] I. N. Junejo and H. Foroosh. Estimating geo-temporal location of
+extracts the "collective wisdom" from these cues to estimate          stationary cameras using shadow trajectories. In ECCV, 2008.
+the complete sky dome (sun position, if it is visible, and sky
+appearance) from a single image. Even when the lighting         [11] E. A. Khan and E. Reinhard. Evaluation of color spaces for edge
+information within an image is minimal, and the resulting             classification in outdoor scenes. In ICIP, September 2005.
+estimates are weak, we believe it can still be a useful result
+for a number of applications. For example, just knowing         [12] E. A. Khan, E. Reinhard, R. Fleming, and H. Bu¨elthoff. Image-based
+that the sun is somewhere on your left might be enough for            material editing. SIGGRAPH, August 2006.
+a point-and-shoot camera to automatically adjust its param-
+eters, or for a car detector to be expecting cars with shad-    [13] T. Kim and K. Hong. A practical single image based approach for
+ows on the right. Several additional pieces of information            estimating illumination distribution from shadows. In ICCV, 2005.
+can also be exploited to help in illumination estimation. For
+instance, GPS coordinates, time of day and camera orien-        [14] J. Kosecka´ and W. Zhang. Video compass. In ECCV, 2002.
+tation are increasingly being tagged in images. Knowing         [15] J.-F. Lalonde, D. Hoiem, A. A. Efros, C. Rother, J. Winn, and A. Cri-
+these quantities can further constrain the position of the sun
+and increase confidences in the probability maps that we              minisi. Photo clip art. SIGGRAPH, 2007.
+estimate. We will explore these avenues in the future.          [16] J.-F. Lalonde, S. G. Narasimhan, and A. A. Efros. What does the sky
+
+Acknowledgements: This work has been partially sup-                   tell us about the camera? In ECCV, 2008.
+ported by NSF grants CCF-0541230, IIS-0546547, IIS-             [17] J.-F. Lalonde, S. G. Narasimhan, and A. A. Efros. What do the sun
+
+                                                                      and the sky tell us about the camera? Technical Report CMU-RI-
+                                                                      TR-09-04, Robotics Institute, Carnegie Mellon University, January
+                                                                      2009.
+                                                                [18] R. Perez, R. Seals, and J. Michalsky. All-weather model for sky lumi-
+                                                                      nance distribution ­ preliminary configuration and validation. Solar
+                                                                      Energy, 50(3):235­245, March 1993.
+                                                                [19] I. Reda and A. Andreas. Solar position algorithm for solar radia-
+                                                                      tion applications. Technical Report NREL/TP-560-34302, Novem-
+                                                                      ber 2005.
+                                                                [20] I. Sato, Y. Sato, and K. Ikeuchi. Illumination from shadows. IEEE
+                                                                      Transactions on PAMI, 25(3):290­300, March 2003.
+                                                                [21] C. Stauffer. Adaptive background mixture models for real-time track-
+                                                                      ing. In CVPR, 1999.
+                                                                [22] J. Stumpfel, A. Jones, A. Wenger, C. Tchou, T. Hawkins, and P. De-
+                                                                      bevec. Direct HDR capture of the sun and sky. In AFRIGRAPH,
+                                                                      2004.
+                                                                [23] K. Sunkavalli, F. Romeiro, W. Matusik, T. Zickler, and H. Pfister.
+                                                                      What do color changes reveal about an outdoor scene? In CVPR,
+                                                                      2008.
+                                                                [24] Y. Weiss. Deriving intrinsic images from image sequences. In ICCV,
+                                                                      2001.
+                                                                [25] T.-P. Wu and C.-K. Tang. A bayesian approach for shadow extraction
+                                                                      from a single image. In ICCV, 2005.
+                                                                [26] T. Zickler, S. P. Mallick, D. J. Kriegman, and P. N. Belhumeur. Color
+                                                                      subspaces as photometric invariants. In CVPR, 2006.
+Figure 8. Sun direction estimation from a single image. A virtual sun dial is inserted in each input image (first and third columns), whose
+shadow correspond to the MAP sun position in the corresponding probability maps P (s, s|P) (second and fourth columns). The rows
+are ordered from most (top) to least (bottom) confidence.
+
+Figure 9. Failure cases. First, the dominating shadow lines are not cast by thin vertical objects, and are not aligned with sun direction. In
+the second case, the strong reflectance edges are being misclassified as shadow lines. In both cases, none of the other cues were confident
+enough to compensate, yielding erroneous estimates.
+
+Figure 10. 3-D object relighting. From a single image (left), we render the most likely sky appearance (center) using the sun position
+computed with our method, and then fitting the sky parameters using [17]. We can realistically insert a 3-D object into the image (right).
+

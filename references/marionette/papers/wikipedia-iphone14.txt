@@ -1,0 +1,1581 @@
+Jump to content
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+Main menu
+ 
+ 
+
+ 
+ 
+
+ 
+ Main menu
+ move to sidebar
+ hide
+
+ 
+
+ 
+ Navigation
+ 
+ 
+ 
+ 
+ 
+ Main page
+Contents
+Current events
+Random article
+About Wikipedia
+Contact us
+Help
+Learn to edit
+Community portal
+Recent changes
+Upload file
+Special pages
+Donate
+
+Create account
+
+Log in
+
+Donate
+
+Create account
+
+Log in
+
+Contents
+
+ 
+ (Top)
+ 
+ 
+
+ 
+ 
+ 1
+ History
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 2
+ Design
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 3
+ Hardware
+ 
+ 
+ 
+ 
+ 
+ Toggle Hardware subsection
+ 
+ 
+ 
+ 
+ 
+ 
+ 3.1
+ Chipset
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 3.2
+ Display
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 3.3
+ Cameras
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 3.4
+ Battery
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 4
+ Software
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 5
+ Specifications
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 6
+ Satellite connectivity
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 7
+ Criticism
+ 
+ 
+ 
+ 
+ 
+ Toggle Criticism subsection
+ 
+ 
+ 
+ 
+ 
+ 
+ 7.1
+ Crash Detection false positives
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 7.2
+ Repairability
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 8
+ Release dates
+ 
+ 
+ 
+ 
+ 
+ Toggle Release dates subsection
+ 
+ 
+ 
+ 
+ 
+ 
+ 8.1
+ iPhone 14
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 8.2
+ iPhone 14 Plus
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 9
+ See also
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 10
+ References
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 11
+ External links
+ 
+ 
+ 
+ 
+ 
+ 
+iPhone 14
+العربية
+বাংলা
+Català
+کوردی
+Čeština
+Deutsch
+Ελληνικά
+Español
+فارسی
+Suomi
+Français
+עברית
+Հայերեն
+Bahasa Indonesia
+Italiano
+日本語
+ಕನ್ನಡ
+한국어
+Lietuvių
+Latviešu
+Bahasa Melayu
+Nederlands
+Norsk bokmål
+Polski
+Português
+Română
+Русский
+Simple English
+Slovenčina
+ไทย
+Türkçe
+Українська
+اردو
+Oʻzbekcha / ўзбекча
+Tiếng Việt
+粵語
+中文
+Article
+
+Talk
+
+Read
+
+View source
+
+View history
+
+Read
+
+View source
+
+View history
+
+What links here
+Related changes
+Upload file
+Permanent link
+Page information
+Cite this page
+Get shortened URL
+Switch to legacy parser
+Download as PDF
+Printable version
+Wikimedia Commons
+Wikidata item
+
+14: 146.7 × 71.5 × 7.8 mm (5.78 × 2.81 × 0.31 in)
+14 Plus: 160.8 × 78.1 × 7.8 mm (6.33 × 3.07 × 0.31 in)
+14: 172 g (6.1 oz)
+14 Plus: 203 g (7.2 oz)
+Dual eSIM (US)
+Dual nano-SIM (Hong Kong, Macau and mainland China)
+nano-SIM and eSIM (elsewhere)
+14: 12.68 Wh (3279 mAh) Li-ion
+14 Plus: 16.68 Wh (4325 mAh)[4]
+MagSafe (up to 15W) and Qi (7.5W) wireless charging
+Wired charging via Lightning (fast-charge capable)
+12 MP, f/1.5, 26mm (wide)
+12 MP, f/2.4, 13mm (ultrawide)
+4K@24/25/30/60fps, 1080p@25/30/60/120/240fps, HDR, Dolby Vision HDR (up to 60fps), Cinematic mode (4K@30fps), stereo sound rec.
+12 MP, f/1.9, 23mm (wide)
+SL 3D, (depth/biometrics sensor)
+4K@24/25/30/60fps, 1080p@25/30/60/120fps, gyro-EIS
+14: 6.1 in (155 mm) 2532 × 1170 resolution, 19.5:9 aspect ratio (~460 ppi density)Super Retina XDR OLED, HDR10, 800 nits (typ), 1200 nits (peak) supplied by Samsung Display,[5] LG Display,[6] and BOE[6]
+14 Plus: 6.7 in (170 mm)2778 × 1284 pixels, 19.5:9 ratio (~458 ppi densitySuper Retina XDR OLED, HDR10, Dolby Vision, 800 nits (HBM), 1200 nits (peak) supplied by Samsung Display[5]
+ Multi-touch screen
+
+ 3 microphones
+
+ Motion coprocessor
+
+ 3-axis gyroscope
+
+ 3-axis accelerometer
+
+ iBeacon
+
+ Barometer
+
+ Digital compass
+
+ Proximity sensor
+
+ Ambient light sensor
+
+ Face ID
+
+References[7][8][9][10]
+.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}.mw-parser-output .sidebar{width:22em;float:right;clear:right;margin:0.5em 0 1em 1em;background:var(--background-color-neutral-subtle,#f8f9fa);border:1px solid var(--border-color-base,#a2a9b1);padding:0.2em;text-align:center;line-height:1.4em;font-size:88%;border-collapse:collapse;display:table}body.skin-minerva .mw-parser-output .sidebar{display:table!important;float:right!important;margin:0.5em 0 1em 1em!important}.mw-parser-output .sidebar-subgroup{width:100%;margin:0;border-spacing:0}.mw-parser-output .sidebar-left{float:left;clear:left;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-none{float:none;clear:both;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-outer-title{padding:0 0.4em 0.2em;font-size:125%;line-height:1.2em;font-weight:bold}.mw-parser-output .sidebar-top-image{padding:0.4em}.mw-parser-output .sidebar-top-caption,.mw-parser-output .sidebar-pretitle-with-top-image,.mw-parser-output .sidebar-caption{padding:0.2em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-pretitle{padding:0.4em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-title,.mw-parser-output .sidebar-title-with-pretitle{padding:0.2em 0.8em;font-size:145%;line-height:1.2em}.mw-parser-output .sidebar-title-with-pretitle{padding:0.1em 0.4em}.mw-parser-output .sidebar-image{padding:0.2em 0.4em 0.4em}.mw-parser-output .sidebar-heading{padding:0.1em 0.4em}.mw-parser-output .sidebar-content{padding:0 0.5em 0.4em}.mw-parser-output .sidebar-content-with-subgroup{padding:0.1em 0.4em 0.2em}.mw-parser-output .sidebar-above,.mw-parser-output .sidebar-below{padding:0.3em 0.8em;font-weight:bold}.mw-parser-output .sidebar-collapse .sidebar-above,.mw-parser-output .sidebar-collapse .sidebar-below{border-top:1px solid #aaa;border-bottom:1px solid #aaa}.mw-parser-output .sidebar-navbar{text-align:right;font-size:115%;padding:0 0.4em 0.4em}.mw-parser-output .sidebar-list-title{padding:0 0.4em;text-align:left;font-weight:bold;line-height:1.6em;font-size:105%}.mw-parser-output .sidebar-list-title-c{padding:0 0.4em;text-align:center;margin:0 3.3em}@media(max-width:640px){body.mediawiki .mw-parser-output .sidebar{width:100%!important;clear:both;float:none!important;margin-left:0!important;margin-right:0!important}}body.skin--responsive .mw-parser-output .sidebar a>img{max-width:none!important}@media screen{html.skin-theme-clientpref-night .mw-parser-output .sidebar:not(.notheme) .sidebar-list-title,html.skin-theme-clientpref-night .mw-parser-output .sidebar:not(.notheme) .sidebar-title-with-pretitle{background:transparent!important}html.skin-theme-clientpref-night .mw-parser-output .sidebar:not(.notheme) .sidebar-title-with-pretitle a{color:var(--color-progressive)!important}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .sidebar:not(.notheme) .sidebar-list-title,html.skin-theme-clientpref-os .mw-parser-output .sidebar:not(.notheme) .sidebar-title-with-pretitle{background:transparent!important}html.skin-theme-clientpref-os .mw-parser-output .sidebar:not(.notheme) .sidebar-title-with-pretitle a{color:var(--color-progressive)!important}}@media print{body.ns-0 .mw-parser-output .sidebar{display:none!important}}.mw-parser-output .idevice-models-sidebar .sidebar-below{font-weight:normal;font-style:italic}This article is part of a series on theiPhone
+
+1st generation
+3G
+3GS
+4
+4s
+5
+5c
+5s
+6 / 6 Plus
+6s / 6s Plus
+7 / 7 Plus
+8 / 8 Plus
+X
+XR
+XS / XS Max
+11
+11 Pro / 11 Pro Max
+12 / 12 Mini
+12 Pro / 12 Pro Max
+13 / 13 Mini
+13 Pro / 13 Pro Max
+14 / 14 Plus
+14 Pro / 14 Pro Max
+15 / 15 Plus
+15 Pro / 15 Pro Max
+16 / 16 Plus
+16 Pro / 16 Pro Max
+16e
+17
+17 Pro / 17 Pro Max
+17e
+Air
+18 Pro / 18 Pro Max
+Duo
+SE
+1st
+2nd
+3rd
+List of iPhone models
+.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}v
+t
+e
+The iPhone 14 and iPhone 14 Plus are smartphones that were developed and marketed by Apple. They are the sixteenth-generation iPhones, succeeding the iPhone 13 and iPhone 13 Mini, and were announced during an Apple Event at Apple Park in Cupertino, California, on September 7, 2022, alongside the higher-priced iPhone 14 Pro and iPhone 14 Pro Max flagships. The iPhone 14 and iPhone 14 Plus feature a 6.1-inch (15 cm) and 6.7-inch (17 cm) display, improvements to the rear-facing camera, and satellite connectivity for contacting emergency services. [11][12] The iPhone 14 was made available on September 16, 2022,[13] and the iPhone 14 Plus was made available on October 7, 2022. The phones were priced at $799 and $899 respectively and both launched with iOS 16.[8][14] Pre-orders for the iPhone 14 and iPhone 14 Plus began on September 9, 2022.[15] Along with the 14 Pro and 14 Pro Max, the iPhone 14 and 14 Plus are the last iPhones to feature the Lightning port, as their successors, the iPhone 15 and 15 Plus (announced on September 12, 2023), use a USB-C port, per European Commission regulation.[16][17]
+The iPhone 14 does not have a "mini" version like its predecessor. Instead, Apple returned to a larger model with the iPhone 14 Plus. Apple had not introduced a "Plus" model iPhone since the iPhone 8 Plus in 2017. All iPhone 14 units sold in the United States ended support for physical SIM cards, making them the first iPhone models since the CDMA variant of the iPhone 4 not to come with a discrete SIM card reader, requiring activation by way of eSIM.[18]
+To comply with mandates, the iPhone 14 series was discontinued in the European Union in 2024, completing the iPhone's transition from Lightning to USB-C. The iPhone 14 models were discontinued worldwide on February 19, 2025, following the release of the IPhone 16e.[19]
+History
+Prior to the release of the phones, rumors indicated Apple was canceling the iPhone mini line introduced with the iPhone 12 series. To replace the 5.4-inch iPhone mini, a 6.7-inch phone was reported to be in development.[20][21] On September 7, 2022, the rumored 6.7-inch variant of the iPhone 14 was announced as "iPhone 14 Plus" at Apple's "Far Out" event, along with the base iPhone 14 model and the two iPhone 14 Pro models.[22][23] "iPhone 14 Max" was an early name for the "Plus" model, as seen in Apple documentation.[24][25]
+Apple started taking pre-orders on September 9, with general availability from September 16 for the iPhone 14 and October 7 for the iPhone 14 Plus.[26]
+Design
+The iPhone 14 and iPhone 14 Plus have an identical design to the iPhone 13, although the US models do not have a physical SIM tray.
+The iPhone 14 and iPhone 14 Plus are available in six colors: Blue, Purple, Midnight, Starlight, Yellow, and Product Red.[27] Purple is a new color replacing Pink used on the iPhone 13 and iPhone 13 Mini. The yellow color option was added on March 7, 2023.[28]
+The iPhone 14 and iPhone 14 Plus, along with the iPhone SE (3rd generation) are the final iPhone models to feature the Product Red color option.
+Hardware
+iPhone 14 and 14 Plus are available in three internal storage configurations: 128, 256, and 512 GB. Both models have 6 GB of RAM, an increase over the previous iPhone 13 and 13 mini models' 4 GB of RAM. The iPhone 14 and 14 Plus have the same IP68 rating for dust and water resistance as their predecessors.[7]
+Chipset
+The iPhone 14 and 14 Plus use a 5-nanometer Apple-designed SOC, the A15 Bionic, while the iPhone 14 Pro and 14 Pro Max have a newer A16 Bionic.[29][30]
+The iPhone 14's A15 chip has a 6-core CPU, 5-core GPU, and a 16-core Neural Engine. It is identical to the A15 in the previous year's iPhone 13 Pro and 13 Pro Max,[29][30] which has more memory (6 GB RAM) and an additional GPU core compared to the A15 in the non-Pro iPhone 13 models (4 GB RAM).[31][32]
+The iPhone 14 was the first flagship model since the 2008 iPhone 3G to have a chip that was unchanged from the previous year.[29] The Verge's Mitchell Clark attributed the unchanged chip to an attempt to maintain costs during the ongoing chip shortage and inflation surge. Clark also said the A15 "still outperforms the latest chips from Qualcomm and Google in most benchmarks", though the older chip may lead to the iPhone 14 receiving fewer updates, similar to what happened with the iPhone 5c from 2013.[29][30]
+Display
+The iPhone 14 features a 6.1-inch (155 mm) display with Super Retina XDR OLED technology at a resolution of 2532 × 1170 pixels and a pixel density of about 460 PPI with a refresh rate of 60 Hz. The iPhone 14 Plus features a 6.7-inch (170 mm) display with the same technology at a resolution of 2778 × 1284 pixels and a pixel density of around 458 PPI. Both models have typical brightness of up to 800 nits, and a max brightness of up to 1200 nits.[7]
+Cameras
+The iPhone 14 and 14 Plus feature the same dual-camera system: one front-facing camera (12MP f/1.9), and two back-facing cameras: a wide (12MP f/1.5) and ultra-wide (12MP f/2.4) camera, with the wide and front-facing cameras having a faster aperture than the iPhone 13. The front-facing camera also has autofocus for the first time.[33]
+The cameras use Apple's latest computational photography engine, called Smart HDR 4. Users can also choose from a range of photographic styles during capture, including rich contrast, vibrant, warm, and cool. Apple clarifies this is different from a filter because it works intelligently with the image processing algorithm during capture to apply local adjustments to an image, and the effects will be baked into the photos, unlike filters which can be removed after applying.[7]
+The camera app contains Cinematic Mode, which allows users to rack focus between subjects and create (simulate) shallow depth of field using software algorithms. It is supported on wide and front-facing cameras in 4K at 30 fps and 60 fps.[7]
+An "Action mode" feature was added to extend the electrical video stabilization. When activated, a smaller crop of the image sensor is read out for video recording. While reducing the field of view, a wider area around it can be used as buffer against shakes. The area read out from the image sensor is moved between frames to counteract hand movements.[34]
+Battery
+The iPhone 14 is equipped with slightly longer battery life compared to the iPhone 13. According to Apple, the iPhone 14 (3,279 mAh) can provide up to 20 hours of video playback,[35] 16 hours of streaming video playback, and 80 hours of audio playback. Its predecessor, the iPhone 13 (3,240 mAh), is rated for up to 19 hours of video playback, 15 hours of streaming video playback, and 75 hours of audio playback. The larger iPhone 14 Plus (4,325 mAh) variant provides up to 26 hours of video playback.[36]
+Software
+The iPhone 14 and 14 Plus originally shipped with iOS 16. The next-generation Qi2 wireless charging standard was added to the iPhone 14 and 14 Plus with the update to iOS 17.2.[37] The latest version of iOS, iOS 26 is compatible with the iPhone 14 and iPhone 14 Plus.[38]
+Specifications
+6.06 by 2.8 in (154 by 71 mm)
+5.54 by 2.56 in (141 by 65 mm)
+2&lt;/sup>"}},"i":0}}]}'/>cd⁄m2)
+1,200
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Outdoor Max brightness ( 2&lt;/sup>"}},"i":0}}]}'/>cd⁄m2)
+-
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Contrast ratio (typical)
+2,000,000:1
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Fingerprint-resistant oleophobic coating
+Yes
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Full sRGB Display
+Yes
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Wide Color Display (Display P3)
+Yes
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>True Tone Display
+Yes
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Night Shift
+Yes
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>.mw-parser-output .tooltip-dotted{border-bottom:1px dotted;cursor:help}An adaptive refresh rate technology that supports up to 120 Hz and automatically adjusts the refresh rate based on the display content&lt;/span>"}]]}'>ProMotion Display
+No
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Always-On Display
+No
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>HDR Display
+Yes
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>HDR 10 Content
+Yes
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Dolby Vision
+With HDR
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Dynamic Island
+No
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Taptic
+Haptic Touch
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Processor
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Chip
+Apple A15 Bionic
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Technology Node
+5 nm (N5P)
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Total Cores
+6
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>High-Performance Cores
+2 x Avalanche
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Energy-Efficiency Cores
+4 x Blizzard
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Clock Speed
+3.23 GHz
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Bit
+64-bit
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Motion Coprocessor
+Embedded in SoC
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Bus width
+64-bit
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Graphics Processor
+Fifth generation Apple designed 5-core GPU
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Neural Engine
+Fifth generation Apple designed 16-core Neural Engine
+(15.8 TOPS)
+No physical SIM card form factor in U.S. models
+12 MP Ultra Wide
+f/2.4 (Ultra Wide)
+Six-element lens (Ultra Wide)
+1080p HD at 25 fps, 30 fps or 60 fps
+1080p HD at 25 fps, 30 fps or 60 fps
+         
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Power
+3.86 V 16.68 W·h (4,323 mA·h)
+3.87 V 12.68 W·h (3,279 mA·h)
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Fast Charging
+20 W, up to 50% charge in 30 minutes (20 W adapter sold separately)
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Wireless Charging
+MagSafe and Qi wireless charging
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Resistant
+IP68 (Maximum depth of 6 meters up to 30 minutes)
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Dimensions
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Height
+160.8 mm (6.33 in)
+146.7 mm (5.78 in)
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Width
+78.1 mm (3.07 in)
+71.5 mm (2.81 in)
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Depth
+7.8 mm (0.31 in)
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Weight
+203 g (7.2 oz)
+172 g (6.1 oz)
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Total greenhouse gas emissions
+68 kg CO2e[40]
+61 kg CO2e[41]
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Hardware strings
+iPhone14,8
+iPhone14,7
+
+style=\"background-color: var(--background-color-neutral,#eaecf0);color: var(--color-base,#202122);font-weight: bold; vertical-align: middle; text-align: left; \" class=\"table-rh\"&lt;/span>"},{"html":""}]]}'>Model number
+A2886
+A2632
+A2885
+A2896
+A2887
+A2649
+A2881
+A2884
+A2883
+Satellite connectivity
+Apple's new Emergency SOS via satellite service for iPhone 14 and iPhone 14 Pro models uses the spectrum in L and S bands designated for mobile satellite services by ITU Radio Regulations. When an iPhone user makes an Emergency SOS via satellite request, the message is received by an orbiting satellite operated by Globalstar. The satellite then sends the message down to ground stations located across the globe.[11]
+As of November 2022, Globalstar operates a constellation of 25 satellites in low Earth orbit, with plans to enhance this in the future via its partnership with Apple.[11][42]
+The service became available to US and Canada on November 15, 2022, and to the UK, Germany, Ireland, and France on December 13, 2022.[43] From May 15, 2023, the service became available in Australia and New Zealand.[44] However, it is not the first mobile phone to combine both cellular and satellite connectivity.[45]
+Criticism
+Crash Detection false positives
+Further information: Crash Detection § False positives
+Crash Detection is a feature built into the iPhone 14 that is designed to detect severe car crashes and automatically initiates an emergency phone call 20 seconds after it is detected unless the user cancels it.[46] Since its release, there have been many reports stating that the feature was automatically turned on during rollercoaster rides, due to the fact that the rides suddenly stop after going at high speeds, as happens in a car crash.[47][48]
+Emergency dispatchers have received many false alarm calls from iPhone 14 and Apple Watch users who have been skiing safely. In Colorado, a wave of false 9-1-1 calls led Aspen Mountain to advise device owners to upgrade their operating systems or disable the feature.[49] In Japan's Hida Mountains, emergency dispatchers reported 134 false emergency calls, more than 14% of the total emergency call volume, between December 16, 2022, and January 23, 2023, attributed to Crash Detection triggering while an iPhone 14 owner was skiing.[50]
+Repairability
+While the iPhone 14 was originally lauded for its innovative new hardware design and recommended by iFixit, concerns over software limitations on parts not authorized by Apple caused iFixit to decrease their evaluation to a 4/10 or "not recommended" in September 2023.[51][52]
+Release dates
+iPhone 14
+Australia
+Austria
+Belgium
+Canada
+China
+Croatia
+Czech Republic
+Denmark
+Finland
+France
+Germany
+Hong Kong
+Hungary
+India
+Italy
+Ireland
+Japan
+Luxembourg
+Netherlands
+New Zealand
+Norway
+Poland
+Portugal
+Romania
+Somalia
+Singapore
+Spain
+Sweden
+Switzerland
+Taiwan
+Thailand
+United Arab Emirates
+United Kingdom
+United States
+Brazil
+Israel
+Bahrain
+Malaysia
+Turkey
+South Korea
+Philippines
+Vietnam
+Bangladesh
+Nigeria
+Indonesia
+Colombia
+Egypt
+iPhone 14 Plus
+Australia
+Austria
+Brazil
+Canada
+Belgium
+China
+Croatia
+Denmark
+France
+Germany
+Hong Kong
+Hungary
+India
+Ireland
+Italy
+Japan
+Luxembourg
+Malaysia
+Netherlands
+New Zealand
+Norway
+Poland
+Portugal
+Singapore
+South Korea
+Spain
+Sweden
+Switzerland
+Taiwan
+Thailand
+United Arab Emirates
+United Kingdom
+United States
+Chile
+Philippines
+Turkey
+Bangladesh
+Israel
+Indonesia
+Colombia
+See also
+List of iPhone models
+History of the iPhone
+Timeline of iPhone models
+References
+↑ .mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}"About iOS 26 Updates". Apple Support.
+↑ Benjamin, Mayo (September 18, 2023). "iPhone 14 satellite connectivity enabled by Qualcomm modem and custom Apple-designed RF components". 9 to 5mac. Archived from the original on January 14, 2023.
+↑ "iPhone 14 and iPhone 14 Pro Models All Feature 6GB of RAM". MacRumors. September 8, 2022. Archived from the original on September 13, 2022. Retrieved September 10, 2022.
+↑ Miller, Chance (September 11, 2022). "iPhone 14 battery capacity: Here's how the numbers compare to iPhone 13". 9to5Mac. Archived from the original on October 21, 2022. Retrieved September 11, 2022.
+1 2 "Samsung Display to provide over 80% of all screens for iPhone 14 series". GSMArena. August 30, 2022. Archived from the original on September 20, 2022. Retrieved December 4, 2022.
+1 2 "Samsung Set To Become Biggest Supplier Of OLED Displays For iPhone 14 Series". abplive. November 24, 2022. Retrieved May 6, 2023.
+1 2 3 4 5 "iPhone 14 and iPhone 14 Plus - Technical Specifications". apple.com. September 7, 2022. Archived from the original on September 7, 2022. Retrieved September 10, 2022.
+1 2 "iPhone 14". Apple. Archived from the original on September 7, 2022.
+↑ "Apple iPhone 14". GSMArena. September 7, 2022. Archived from the original on January 16, 2023.
+↑ "Apple iPhone 14 Plus". GSMArena. September 7, 2022. Archived from the original on September 7, 2022.
+1 2 3 "Emergency SOS via satellite on iPhone 14 and iPhone 14 Pro lineups made possible by $450 million Apple investment in US infrastructure". Apple. November 10, 2022. Archived from the original on November 10, 2022. Retrieved November 10, 2022.
+↑ Leswing, Kif (November 10, 2022). "Apple will spend $450 million with Globalstar and others to enable emergency satellite texting". CNBC. Archived from the original on November 10, 2022. Retrieved November 10, 2022.
+↑ "Apple iPhone 14 series, Apple Watch 8 and Watch SE now on sale". GSMArena. September 16, 2022. Archived from the original on December 18, 2022.
+↑ "The iPhone 14 Plus is now available in stores and online". GSMArena. October 7, 2022. Archived from the original on December 18, 2022.
+↑ Palladino, V. (September 7, 2022). "How to pre-order the iPhone 14 and iPhone 14 Pro". engadget. Archived from the original on September 9, 2022. Retrieved September 9, 2022.
+↑ Warren, Tom (September 12, 2023). "Apple announces iPhone 15 with USB-C, a camera upgrade, and the Dynamic Island". The Verge. Archived from the original on September 15, 2023. Retrieved September 13, 2023.
+↑ Hern, Alex (October 26, 2022). "Apple to put USB-C connectors in iPhones to comply with EU rules". The Guardian. ISSN 0261-3077. Retrieved September 13, 2023.
+↑ Bonifacic, Igor (September 7, 2022). "Apple kills off the SIM tray on the iPhone 14 and 14 Pro in the US". Archived from the original on September 9, 2022. Retrieved September 9, 2022.
+↑ Charlton, Hartley (February 19, 2025). "Apple Discontinues iPhone 14 and 14 Plus". MacRumors. Archived from the original on February 19, 2025. Retrieved July 26, 2026.
+↑ Espósito, Filipe (March 14, 2022). "Exclusive: IPhone 14 coming in four models without 'mini' version, Pro models with taller screen, satellite features advancing". 9to5Mac. Archived from the original on October 22, 2022. Retrieved October 22, 2022.
+↑ Miller, Chance (July 26, 2022). "IPhone 14 mini: Why Apple is discontinuing the 5.4-inch form factor". 9to5Mac. Archived from the original on October 22, 2022. Retrieved October 22, 2022.
+↑ Juli, Clover (September 7, 2022). "Everything Announced at Today's Apple Event in Just 11 Minutes". MacRumors. Archived from the original on September 19, 2022.
+↑ Greg, Kumparak (September 8, 2022). "Here's everything Apple announced at its 'Far Out' iPhone event". Archived from the original on September 18, 2022.
+↑ Miller, Chance (August 19, 2022). "IPhone 14 news: Here's everything we know so far [Update: Price increase, event date]". 9to5Mac. Archived from the original on October 22, 2022. Retrieved October 22, 2022.
+↑ "Apple's Website Suggests iPhone 14 Plus Was Originally Going to be Named 'iPhone 14 Max'". September 29, 2022. Archived from the original on October 6, 2022. Retrieved October 6, 2022.
+↑ "iPhone 14". MacRumors. September 7, 2022. Archived from the original on February 4, 2023.
+↑ Meisenzahl, Mary (September 7, 2022). "The new iPhone 14 will be available in 5 colors — here's how they look". Business Insider. Archived from the original on October 3, 2022. Retrieved September 7, 2022.
+↑ Gurman, Mark (March 7, 2023). "Apple Debuts Yellow iPhone 14 to Boost Interest Until New Model". Bloomberg News.
+1 2 3 4 Clark, Mitchell (September 7, 2022). "The iPhone 14 doesn't have Apple's latest processor". The Verge. Retrieved May 28, 2023.
+1 2 3 Tibken, Shara (September 7, 2022). "How the iPhone 14, 14 Plus and 14 Pro Compare to Apple's iPhone 13 Lineup". Wall Street Journal. Retrieved May 28, 2023.
+↑ Charlton, Hartley (April 5, 2023). "iPhone 13 vs. iPhone 14 Buyer's Guide: Should You Upgrade?". MacRumors. Archived from the original on November 27, 2022. Retrieved May 28, 2023.
+↑ Brecher, Hannes (September 6, 2022). "Das Apple iPhone 14 und das iPhone 14 Plus sollen einen verbesserten A15 Bionic erhalten". NotebookCheck (in German). Archived from the original on May 28, 2023. Retrieved May 28, 2023.
+↑ "Apple introduces iPhone 14 and iPhone 14 Plus". Apple Newsroom. Archived from the original on September 24, 2022. Retrieved September 10, 2022.
+↑ Johnson, Allison (September 21, 2022). "How to use Action mode on the iPhone 14 and iPhone 14 Pro". The Verge. Retrieved September 16, 2023.
+↑ "iPhone 14 from Apple's website". apple. Apple Inc. Archived from the original on January 19, 2023. Retrieved February 6, 2023.
+↑ Clover, Juli (September 7, 2022). "iPhone 14 Models Offer an Additional Hour of Battery Life". macrumors. Juli Clover. Archived from the original on February 7, 2023. Retrieved February 6, 2023.
+↑ "iOS 17.2 Brings Qi2 Wireless Charging Support to Older iPhones". PCMag Middle East. December 6, 2023. Archived from the original on December 26, 2023. Retrieved December 26, 2023.
+↑ "OS - iOS 26". Apple (Australia). Archived from the original on October 25, 2025. Retrieved October 8, 2025.
+1 2 3 "iPhone: Hearing Aid Compatibility (HAC)". Apple Support. Apple Inc. November 23, 2014. Archived from the original on November 23, 2014. Retrieved July 6, 2020.
+↑ "iPhone 14 Plus Product Environmental Report" (PDF). Apple and the Environment. Apple Inc. September 7, 2022. Archived (PDF) from the original on February 4, 2023. Retrieved September 9, 2022.
+↑ "iPhone 14 Product Environmental Report" (PDF). Apple and the Environment. Apple Inc. September 7, 2022. Archived (PDF) from the original on September 9, 2022. Retrieved September 9, 2022.
+↑ "Globalstar M073 - 103 (Globalstar-2)". space.skyrocket.de. Archived from the original on March 10, 2023. Retrieved April 22, 2023. (The 25th Globalstar, M087, was launched out-of-sequence in June 2022 as a spare)
+↑ "Emergency SOS via satellite available today on iPhone 14 lineup". Apple. Archived from the original on November 15, 2022. Retrieved November 15, 2022.
+↑ "iPhone 14's Emergency SOS via Satellite Feature Now Available in Australia and New Zealand". MacRumors. May 14, 2023. Archived from the original on May 15, 2023. Retrieved July 1, 2023.
+↑ "Thuraya's Highly Anticipated X5-Touch Satellite Smartphone Launches in Stores in Less Than a Month" (Press release). Archived from the original on January 25, 2025. Retrieved September 9, 2025.{{cite press release}}: CS1 maint: bot: original URL status unknown (link)
+↑ "Manage Crash Detection on iPhone 14 models". Apple Support. Archived from the original on February 4, 2023. Retrieved October 12, 2022.
+↑ "iPhone 14's Car Crash Detection Feature is Calling 911 About Roller Coaster Rides". Gizmodo. October 10, 2022. Archived from the original on October 21, 2022. Retrieved October 12, 2022.
+↑ Stern, Joanna (October 9, 2022). "'The Owner of This iPhone Was in a Severe Car Crash'—or Just on a Roller Coaster". Wall Street Journal. ISSN 0099-9660. Archived from the original on October 12, 2022. Retrieved October 12, 2022.
+↑ Richtel, Matt (February 3, 2023). "'My Watch Thinks I'm Dead'". The New York Times. Archived from the original on February 4, 2023. Retrieved February 3, 2023.
+↑ "Japan Skiers' Smartphones Making Unnecessary Emergency Calls". The Japan News. The Yomiuri Shimbun. January 29, 2023. Archived from the original on February 4, 2023. Retrieved February 3, 2023.
+↑ Wiens, Kyle (September 20, 2023). "We Are Retroactively Dropping the iPhone's Repairability Score". iFixit.
+↑ Jeffrey, Cal (September 19, 2023). "iFixit retracts its iPhone 14's repairability score of 7 and gives it a "4-not recommended"". TechSpot. Archived from the original on September 20, 2023. Retrieved September 20, 2023.
+External links
+iPhone 14 – official website
+.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox-styles+.navbox,.mw-parser-output .navbox+span.mw-empty-elt+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}v
+t
+e
+History
+iOS
+iPadOS
+Issues
+Outline
+1st
+3G
+3GS
+4
+4s
+5
+5c
+5s
+6 &amp; 6 Plus
+6s &amp; 6s Plus
+7 &amp; 7 Plus
+8 &amp; 8 Plus
+X
+XR
+XS &amp; XS Max
+11
+11 Pro &amp; Pro Max
+12 &amp; 12 Mini
+12 Pro &amp; Pro Max
+13 &amp; 13 Mini
+13 Pro &amp; Pro Max
+14 &amp; 14 Plus
+14 Pro &amp; Pro Max
+15 &amp; 15 Plus
+15 Pro &amp; Pro Max
+16 &amp; 16 Plus
+16 Pro &amp; Pro Max
+16e
+17
+17 Pro &amp; Pro Max
+17e
+18 Pro &amp; Pro Max
+SE
+1st
+2nd
+3rd
+Air
+Duo
+1st
+2
+3rd
+4th
+5th
+6th
+7th
+8th
+9th
+10th
+11th
+Mini
+1st
+2
+3
+4
+5th
+6th
+7th
+Air
+1st
+2
+3rd
+4th
+5th
+6th
+7th
+8th
+Pro
+1st
+2nd
+3rd
+4th
+5th
+6th
+7th
+8th
+1st
+2nd
+3rd
+4th
+5th
+6th
+7th
+Apple TV
+Apple Watch
+HomePod
+Mini
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+26
+27
+watchOS
+tvOS
+iPadOS
+13
+14
+15
+16
+17
+18
+26
+27
+visionOS
+AirDrop
+AirPlay
+AirPrint
+CarPlay
+Control Center
+Crash Detection
+Apple Intelligence
+iTunes
+Night Shift
+Notification Center
+Shazam
+Siri
+Spotlight
+SpringBoard
+VoiceOver
+SDK
+Foundation
+UIKit
+Core Animation
+HomeKit
+Inter-App Audio
+Liquid Glass
+WebKit
+GymKit
+HealthKit
+SwiftUI
+Books
+Calculator
+Calendar
+Clock
+Contacts
+FaceTime
+Freeform
+Files
+Find My
+Fitness
+Workouts
+Games
+Health
+Mindfulness
+Home
+Journal
+Mail
+Maps
+Messages
+Music
+News
+Notes
+Passwords
+Photos
+Podcasts
+Preview
+Reminders
+Safari
+Shortcuts
+Translate
+TV
+Wallet
+Weather
+Newsstand
+Classroom
+GarageBand
+iMovie
+iWork
+Keynote
+Numbers
+Pages
+Invites
+Beats Music
+Clips
+iPhoto
+Nike+iPod
+iTunes Remote
+Arcade
+Card
+App Store
+Music
+FaceTime
+Family Sharing
+Game Center
+iCloud
+iMessage
+iTunes Connect
+iTunes Store
+News
++
+One
+Pay
+Push Notifications
+TestFlight
+TV
+Wallet
+iAd
+iLife
+iTunes Radio
+MobileMe
+Apple silicon
+Controversies
+300-page bill
+Antennagate
+Batterygate
+Bendgate
+Jailbreaking
+Free and open-source apps
+Games
+iFund
+iPhone history
+iPhone hardware
+Metal
+Swift
+ Category
+v
+t
+e
+Hardware lists
+Macs
+grouped by CPU type
+iPhones
+iPads
+eMac
+iMac
+G3
+G4
+G5
+Intel-based
+iMac Pro
+Apple silicon
+Mac Mini
+Mac Pro
+Mac Studio
+Power Mac
+G3
+G4
+G4 Cube
+G5
+Xserve
+iBook
+MacBook (2006–2012)
+12-inch MacBook (2015–2019)
+MacBook Air
+Intel-based
+Apple silicon
+MacBook Neo
+MacBook Pro
+Intel-based
+Apple silicon
+PowerBook
+G3
+G4
+iPhone
+1st
+3G
+3GS
+4
+4s
+5
+5c
+5s
+6, 6 Plus
+6s, 6s Plus
+7, 7 Plus
+8, 8 Plus
+X
+XS, XS Max
+XR
+11
+11 Pro, Pro Max
+12, 12 Mini
+12 Pro, Pro Max
+13, 13 Mini
+13 Pro, Pro Max
+14, 14 Plus
+14 Pro, Pro Max
+15, 15 Plus
+15 Pro, Pro Max
+16, 16 Plus
+16 Pro, Pro Max
+16e
+17
+17 Pro, Pro Max
+17e
+18 Pro, Pro Max
+iPhone SE
+1st
+2nd
+3rd
+iPhone Air
+iPhone Duo
+iPad
+1st
+2
+3rd
+4th
+5th
+6th
+7th
+8th
+9th
+10th
+11th
+iPad Mini
+1st
+2
+3
+4
+5th
+6th
+7th
+iPad Air
+1st
+2
+3rd
+4th
+5th
+6th
+7th
+8th
+iPad Pro
+1st
+2nd
+3rd
+4th
+5th
+6th
+7th
+8th
+Classic
+Mini
+iPod+HP
+Shuffle
+Nano
+Touch
+1st
+2nd
+3rd
+4th
+5th
+6th
+7th
+Apple TV
+Apple Vision Pro
+Apple Watch
+Ultra
+Displays
+Studio (1998–2004)
+Cinema
+Thunderbolt
+Pro Display XDR
+Studio (2022, 2026)
+AirPort
+Express
+Extreme
+Time Capsule
+AirPower (canceled)
+AirTag
+Headphones
+EarPods
+AirPods
+Pro
+Max
+iPad
+Pencil
+iPhone
+Bumper
+Pocket
+iPod
+Click wheel
+Nike+iPod
+Socks
+iSight
+Keyboards
+Wireless
+Magic
+Mice and trackpads
+USB
+Mighty
+Magic
+Magic Trackpad
+Polishing Cloth
+Remote
+Siri Remote
+Speakers
+iPod Hi-Fi
+SoundSticks
+HomePod
+Mini
+SuperDrive
+USB Modem
+Xserve RAID
+A series
+A4
+A5
+A5X
+A6
+A6X
+A7
+A8
+A8X
+A9
+A9X
+A10
+A10X
+A11
+A12
+A12X / A12Z
+A13
+A14
+A15
+A16
+A17 Pro
+A18 / A18 Pro
+A19 / A19 Pro
+A20 Pro
+C series
+C1
+C1X
+H series
+H1
+H2
+M series
+M1
+M2
+M3
+M4
+M5
+M6
+N series
+N1
+R series
+R1
+S series
+S1
+S1P
+S2
+S3
+S4
+S5
+S6
+S7
+S8
+S9
+S10
+T series
+T1
+T2
+U series
+U1
+W series
+W1
+W2
+W3
+v
+t
+e
+Apple I
+Apple II
+II
+II Plus
+IIe
+IIe Card
+Processor Direct Slot
+IIc
+IIc Plus
+IIGS
+Apple III
+Lisa
+Macintosh XL
+Compact
+128K
+512K
+512Ke
+Plus
+SE
+SE/30
+Classic
+Classic II
+Color Classic
+II family
+II
+IIx
+IIcx
+IIci
+IIfx
+IIsi
+IIvi
+IIvx
+LC family
+LC
+LC II
+LC III
+LC 475
+LC 500 series
+LC 630
+5200 LC
+Macintosh TV
+Quadra
+610
+650
+660AV
+605
+630
+700
+900
+950
+800
+840AV
+Performa
+Centris
+Power Macintosh
+4400 and 7220
+5000 series
+5200 LC and 5300 LC
+5260
+5400
+5500
+6000 series
+6100
+6200 and 6300
+6400
+6500
+7000 series
+7100
+7200 and 8200
+7300
+7500
+7600
+8000 series
+8100
+8500
+8600
+9000 series
+9500
+9600
+G3
+G4
+G4 Cube
+G5
+20th Anniversary
+iMac
+G3
+G4
+G5
+Intel
+Pro
+Apple silicon
+eMac
+Mac Pro
+Mac Mini
+Mac Studio
+Macintosh Portable
+PowerBook
+100 series
+100
+140
+170
+160
+180
+150
+190
+Duo
+210
+230
+500 series
+5300
+1400
+3400c
+2400c
+G3
+G4
+iBook
+MacBook
+2006–2012
+2015–2019
+MacBook Air
+Intel
+Apple silicon
+MacBook Neo
+MacBook Pro
+Intel
+Apple silicon
+Workgroup Server
+9150
+Network Server
+Xserve
+1st
+3G
+3GS
+4
+4S
+5
+5C
+5S
+6 / 6 Plus
+6S / 6S Plus
+7 / 7 Plus
+8 / 8 Plus
+X
+XR
+XS / XS Max
+11
+11 Pro / 11 Pro Max
+12 / 12 Mini
+12 Pro / 12 Pro Max
+13 / 13 Mini
+13 Pro / 13 Pro Max
+14 / 14 Plus
+14 Pro / 14 Pro Max
+15 / 15 Plus
+15 Pro / 15 Pro Max
+16 / 16 Plus
+16 Pro / 16 Pro Max
+16e
+17
+17 Pro / Pro Max
+17e
+18 Pro / Pro Max
+iPhone SE
+1st
+2nd
+3rd
+Air
+Duo
+1st
+2
+3rd
+4th
+5th
+6th
+7th
+8th
+9th
+10th
+11th
+iPad Air
+1st
+2
+3rd
+4th
+5th
+6th
+7th
+8th
+iPad Mini
+1st
+2
+3
+4
+5th
+6th
+7th
+iPad Pro
+9.7 / 12.9 (1st)
+10.5 / 12.9 (2nd)
+11 (1st) / 12.9 (3rd)
+11 (2nd) / 12.9 (4th)
+11 (3rd) / 12.9 (5th)
+11 (4th) / 12.9 (6th)
+11 (5th) / 13 (1st)
+11 (6th) / 13 (2nd)
+Classic
+Mini
+Nano
+Shuffle
+Touch
+1st
+2nd
+3rd
+4th
+5th
+6th
+7th
+Apple TV
+Apple Watch
+Ultra
+Beddit
+Newton
+MessagePad
+eMate 300
+Paladin
+Pippin
+Bandai
+PowerCD
+QuickTake
+Vision Pro
+AirPower
+Interactive Television Box
+Mac NC
+W.A.L.T.
+AirPods
+Pro
+Max
+Beats
+Pill
+Headphones
+EarPods
+Speakers
+iPod Hi-Fi
+SoundSticks
+HomePod
+Mini
+Monitor III
+Monitor II
+AppleColor Composite IIe
+AppleColor High-Resolution RGB
+Color
+AudioVision 14
+Multiple Scan 14
+ColorSync 750
+Studio
+1998–2004
+2022
+Cinema
+Thunderbolt
+Pro Display XDR
+Disk II
+Macintosh
+ProFile
+Hard Disk 20
+Hard Disk 20SC
+AppleCD
+PowerCD
+Tape Drive 40SC
+SuperDrive
+Xserve RAID
+Desktop Bus
+iPad accessories
+Pencil
+iSight
+Keyboards
+Extended
+Adjustable
+Wireless
+Magic
+Mice and trackpads
+USB
+Mighty
+Magic
+Magic Trackpad
+Remote
+Siri Remote
+Scanner
+OneScanner
+Click wheel
+Nike+iPod
+AirPort
+Express
+Extreme
+Time Capsule
+Apple II serial cards
+USB Modem
+LocalTalk
+Communication Slot
+GeoPort
+Silentype
+Dot Matrix Printer
+Letter Quality Printer
+ImageWriter
+LaserWriter
+410 Color Plotter
+Color LaserWriter
+StyleWriter
+Hardware lists
+Macs
+iPhones
+iPads
+List of Apple products
+
+Retrieved from "https://en.wikipedia.org/w/index.php?title=IPhone_14&amp;oldid=1373616920"
+ Categories: IPhone
+Mobile phones introduced in 2022
+Mobile phones with 4K video recording
+Mobile phones with multiple rear cameras
+Discontinued iPhones
+Products and services discontinued in 2025
+Discontinued flagship smartphones
+Articles with short description
+Short description is different from Wikidata
+Wikipedia pages semi-protected against vandalism
+Use American English from March 2026
+All Wikipedia articles written in American English
+Use mdy dates from September 2026
+CS1: unfit URL
+Webarchive template wayback links
+CS1 German-language sources (de)
+CS1 maint: bot: original URL status unknown
+ This page was last edited on 6 September 2026, at 22:59&#160;(UTC).
+Page was rendered with Parsoid.
+Text is available under the Creative Commons Attribution-ShareAlike 4.0 License;
+additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Legal &amp; safety contacts
+Code of Conduct
+Developers
+Statistics
+Cookie statement
+Mobile view

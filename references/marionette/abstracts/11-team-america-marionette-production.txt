@@ -1,0 +1,25 @@
+"The World on a String" -- Team America: World Police, American
+Cinematographer / theasc.com (accessed 2026-09-12).
+
+STATUS: full HTML page saved; see
+papers/theasc-team-america-world-on-a-string.html.
+
+SUMMARY: production account of Team America: World Police (2004, Trey Parker
+/ Matt Stone), shot entirely with practical marionettes -- no CGI puppets.
+Confirms the strings were left genuinely visible on screen throughout the
+film (an aesthetic/comedic choice, not a compositing failure); the crew
+deliberately timed shots so the wires would not visibly upstage whatever
+joke was the focus of a given scene, rather than trying to remove or hide
+them. A crew of roughly 200 people supported the shoot, with as many as
+four puppeteers operating a single marionette at once for complex actions.
+
+KEY NUMBERS: ~200-person crew; up to 4 puppeteers per marionette for
+complex moves (both from secondary description of the ASC piece, not a
+verbatim quote confirmed against the saved HTML in this pass).
+
+RELEVANCE: item 11 section 6's clearest counterexample to "strings must be
+invisible to be convincing" -- Team America is proof that visible strings
+do not by themselves break believability; timing, weight, and the puppet's
+OWN motion physics (not string invisibility) carry the illusion, which is
+directly relevant to this project's own visible/glowing-then-dark string
+treatment (item 09's "strings should be dark, not glowing" recommendation).

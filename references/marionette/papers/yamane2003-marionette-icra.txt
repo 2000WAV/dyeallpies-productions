@@ -1,0 +1,586 @@
+Controlling a Marionette with Human Motion Capture Data
+
+          Katsu Yamane, Jessica K. Hodgins, and H. Benjamin Brown
+               The Robotics Institute, Carnegie Mellon University
+                     E-mail: fkyamanejjkhjhbbg@cs.cmu.edu
+
+Abstract                                                       Figure 1: The motor-driven marionette and its model. The
+                                                               marionette is about 60cm tall. The shoulder and elbow
+   In this paper, we present a method for controlling a mo-    joints have cloth stops to prevent unrealistic joint angles.
+torized, string-driven marionette using motion capture data
+from human actors. The motion data must be adapted for         ionette's swing dynamics. These adaptations and dynam-
+the marionette because its kinematic and dynamic proper-       ics compensation are necessary because the marionette has
+ties differ from those of the human actor in degrees of free-  many fewer degrees of freedom and much smaller size than
+dom, limb length, workspace, mass distribution, sensors,       the human actor, strings rather than actuators at the joints,
+and actuators. This adaptation is accomplished via an in-      and no sensors except for the rotation of the motors.
+verse kinematics algorithm that takes into account marker
+positions, joint motion ranges, string constraints, and po-       The method described in this paper consists of four
+tential energy. We also apply a feedforward controller to      steps: (1) identify the swing dynamics of the hands and
+prevent extraneous swings of the hands. Experimental re-       design a feedforward controller to prevent swinging and
+sults show that our approach enables the marionette to per-    obtain a desired response, (2) obtain the translation, ori-
+form motions that are qualitatively similar to the original    entation, and scaling parameters that map the measured
+human motion capture data.                                     marker positions for the human motion into the mari-
+                                                               onette's workspace, (3) apply the controller to modify the
+1 Introduction                                                 mapped marker positions to prevent swing, and (4) com-
+                                                               pute the motor commands to bring the (virtual) markers at-
+   Entertainment is one of the more immediately prac-          tached to the marionette to the revised positions computed
+tical applications of humanoid robots and several robots       in step (3).
+have recently been developed for this purpose [1, 2, 3]. In
+this paper, we explore the use of an inexpensive entertain-       The relationship between the four steps is illustrated in
+ment robot controlled by motion capture data with the goal     Figure 2. In steps (2) and (4), we solve the inverse kine-
+of making such robots readily available and easily pro-        matics problem with many different constraints including
+grammable. The robot is a marionette where the length          marker positions, joint motion ranges, strings, and gravity.
+and pivot points of the strings are controlled by eight servo  This algorithm is an extension of the first author's previ-
+motors that bring the hands and the feet of the marionette     ous work [4]. In step (1), we model the dynamics of swing
+to the desired positions (Figure 1).                           by capturing the response to a step input of each desired
+                                                               marker position and then use that response to design a feed-
+   Standard marionettes are puppets with strings operated      forward controller to compensate for the swing motion.
+by a human performer's hands and fingers. Creating ap-
+pealing motion with such a puppet is difficult and requires       As a demonstration of the algorithm, we include exper-
+extensive practice. Although for our marionette the servo
+motors move the strings, programming a robotic version
+of such a device by hand to produce expressive gestures
+would also be difficult. We solve this problem by using
+full-body human motion data to drive the motion. The hu-
+man motion data is recorded as the positions of markers
+in three dimensions while an actor tells a story with his or
+her hands. After adaptation, the data are used to drive the
+motion of the marionette by taking into account the mar-
+                                                                                                   motor #6                     motor #8 motor #7
+                                                                                                                                                motor #3
+                                                                                        motor #5
+                                                                                                   motor #4                                  motor #1
+
+                                                               motor #2
+
+                                                               Front                                                            Back
+
+                                                                         to right hand  to left hand  to left leg to right leg
+
+                                                               Figure 3: Closeup of the motors and pulleys; front of mar-
+                                                               ionette (left), back (right).
+
+Figure 2: Overview of the marionette control system. The                                pipe
+blocks in the top gray box are processed offline: identifica-                           pipe end
+tion/controller design for each marionette and mapping for
+each motion sequence. Those in the bottom white box is
+processed in realtime during a performance.
+
+imental results to compare the marionette motion to that of    Figure 4: The mechanism for moving the hand in the hori-
+human actors. The motions of the marionette and the hu-        zontal direction.
+man actor are similar enough to distinguish different styles
+for the same story.
+
+2 Related Work                                                 feet for recording the swing dynamics, we do not have this
+                                                               information during a performance. Our accuracy require-
+   Hoffmann [5] developed a human-scale marionette and         ments are much less because the marionette is gesturing in
+controlled it to perform dancing motions using human data.     free space rather than precisely positioning an object.
+The size and controllable degrees of freedom of the mari-
+onette are much closer to those of human than ours. The        3 Experimental Setup
+research is therefore focused more on image processing for
+measuring human motion than on mapping between human              The marionette is modeled as a 17DOF kinematic chain
+and marionette motions.                                        (Figure 1 right). Closeups of the motors and pulleys are
+                                                               shown in Figure 3. The marionette has eight servo mo-
+   Mapping motion data is a common problem in applying         tors (Airtronics Servo 94102); six control the arms and
+motion capture data to a real robot or to a virtual charac-    two control the legs. The motors are controlled by position
+ter. The factors considered in previous work include joint     commands sent from a serial port of a PC via an 8-channel
+angle and velocity limits [6], kinematic constraints [7], and  controller board (Pontech SV203).
+physical consistency [8, 9]. However, the original and tar-
+get human figures are usually more similar in degrees of          Motors 3 and 6 change the length of the strings connect-
+freedom, dimensions, and actuators than the marionette is      ing the hands. Motors 7 and 8 move the knee up and down.
+to a human actor.                                              Motors 1, 2, 4 and 5 move the hands in horizontal direc-
+                                                               tions by rotating the "pipes" and moving the pipe ends via
+   The mechanism and dynamics of a string-driven mari-         four independent planar linkages (Figure 4).
+onette are quite similar to those of wired structures such as
+a crane. A number of researchers have worked on control-          We used a commercially available motion capture sys-
+ling a crane to bring an object to a desired position without  tem from Vicon for capturing the actor's performance and
+significant oscillations [10]. This work assumes that the      the marionette's motion for identification of the swing
+position of the object is known through the direction of the   dynamics. The system has nine cameras, each capable
+wire. Although we measure the position of the hand and
+of recording images of 1000 1000 pixels resolution at                                                                                                   and J 1 and J 2 are the Jacobian matrices of the constraints
+120Hz. We used different camera placements for the
+human subject and the marionette to accommodate the                                                                                                     with respect to .
+smaller workspace of the marionette and to ensure accu-
+rate measurements.                                                                                                                                            We solve this equation for the generalized velocity as
+
+                                                                                                                                                        follows. First, we compute the set of exact solutions of
+
+                                                                                                                                                        Eq.(1) by                             ]  v1des                 ]
+                                                                                                                                                                            ; _
+                                                                                                                                                                            =              J  1         I + (       J  1  J  1  )y           (3)
+
+4 Inverse Kinematics                                                                                                                                     where  J    ]  is  the  pseudo          inverse       of   J1,         I   is  the  identity
+
+                                                                                                                                                                     1
+                                                                                                                                                         ; matrix of the appropriate size, and y is
+   The inverse kinematics algorithm is used to enforce                                                                                                  We can       ,raewndriWte th= 4is  equation        as _ =    _1   + anWarybitwrahreyreve_c1to= 4r.
+constraints to bring the markers representing the desired                                                                                                  ]                                               . Next,
+motion into the workspace of the marionette and to deter-                                                                                               J     v1des                        I J1] J 1                we    compute the y with
+mine the motor angles that satisfy the desired marker po-                                                                                                  1
+sitions and the physical constraints, including the desired
+marker positions, joint motion ranges, length and orien-                                                                                                 which _ would satisfy Eq.(2) as closely as possible by
+tation of the strings, and potential energy. The potential
+energy constraint is introduced to model the effect of grav-                                                                                                                ; y                                des
+ity. The inverse kinematics algorithm computes the joint                                                                                                                         =         (J 2W )         (v          J2 1)                 (4)
+angles and the motor commands that locally optimize the                                                                                                                                                        2
+constraints. Because the algorithm was described in a pre-
+vious paper [4], we present a short outline here.                                                                                                        where (J 2W ) is the SR-inverse of J2W . Finally, the
+                                                                                                                                                         generalized velocity _ is computed by substituting y into
+   Often, all the constraints cannot be satisfied due to the
+singularity of the configuration or to inconsistencies be-                                                                                               Eq.(3), which is then integrated to compute the generalized
+tween the constraints. Therefore, the user is asked to divide                                                                                            coordinates in the next step.
+the constraints into two groups: those that must be satisfied
+and those where some error is acceptable. The algorithm                                                                                                     In order to add a new constraint, we must design a feed-
+applies singularity-robust (SR) inverse [11] (also known                                                                                                 back controller to compute the desired velocity and derive
+as damped pseudo inverse [12]) to the lower-priority con-                                                                                                the corresponding Jacobian matrix. We describe the string
+straints. As described below, the SR-inverse distributes the                                                                                             and potential energy constraints in detail because the other
+error among the lower-priority constraints according to the                                                                                              constraints were described in the earlier paper [4].
+given weights so that the resulting joint velocity does not
+become too large even if there are singularities or inconsis-                                                                                           4.1 String Constraints
+tencies in the constraints.
+                                                                                                                                                              Each string has a start point, an end point, and some
+   We design a feedback controller for each constraint to
+ensure that the lower-priority constraints are satisfied as                                                                                             number of intermediate points (Figure 5 left). The string
+much as possible and to eliminate integration errors in both
+higher- and lower-priority constraints. The controller com-                                                                                             can slide back and forth at the intermediate points. The
+putes the required velocity when constraints are violated.                                                                                              current length of a string, l, must always be equal to or
+                                                                                                                                                        smaller than its nominal length l0. l is computed by sum-
+; irFseofarerpeexonascimetipvpleoesg,iatthiionen, fpeperidsebfthaiceskcp_ucdorernsetn= rot lpkleoprs(ipttoiroebnfr,ianngdpa)p_lwdinehskeirtsoetkihtpes  ming the length of all segments:
+
+desired velocity. Note that this velocity is not always real-                                                                                                        l = NX;1 li = NX;1 jpi+1 ; pij
+ized for lower-priority constraints due to the nature of the                                                                                                                     i=0             i=0
+SR-inverse algorithm.                                                                                                                                                       ; ; NX;1 q
+                                                                                                                                                                        =                        (pi+1         pi)T (pi+1               pi)  (5)
+   With n1 higher-priority constraints and n2 lower-
+priority constraints, we have the following equations in                                                                                                                         i=0
+generalized velocity _ :
+                                                                                                                                                         ; where N is the number of segments, li (0 i N 1) is
+
+                                                                                                                                                         the length of segment i, pi (0 i N ) is the position of
+
+                                                                                                                                                         the i-th point. The Jacobian matrix of l with respect to the
+
+                                                                                                                                                        generalized coordinates is computed by
+
+                                                                                                                                                              J str         @l X @li
+                                                                                                                                                                        =   @=
+                                                                                                                                                                        =                               @
+                                                                                                                                                                        =   X1
+                                                                                                                                                                               ; ; li                      pi)T        @pi+1            @pi
+                      vv21ddeess                                                                                                                                                              (pi+1
+                                                                                                                                                                                                                        @               @
+J1 _                              (1)                                                                                                                                       X1
+J2 _  =                           (2)                                                                                                                                          ; ; li
+      =                                                                                                                                                                                       (pi+1        pi)T (J i+1 J i):                 (6)
+
+where vd1es and v2des are the desired velocities correspond-                                                                                             Note that the Jacobian matrix is not defined for segments
+
+ing to higher- and lower-priority constraints respectively,                                                                                              with li = 0, although we never encounter such situations in
+                                                                              only to adapt to the size of the marionette but also to
+
+                                                                              comply with such physical constraints as the strings. Our
+
+                                                                              marionette, for example, does not have a mechanism to
+
+marionette limb                                                               move the pelvis. Therefore, if the captured motion contains
+
+                                                                              translation or rotation of the pelvis, the motion should be
+
+                                                                              translated or rotated so that the pelvis motion is eliminated.
+
+                                                                              In this section, we describe an algorithm to compute
+
+                                                                              seven parameters for translation, rotation, and scaling that
+
+Figure 5: String models for inverse kinematics (left) and                     map the measured marker positions into new positions that
+swing controller (right).
+                                                                              satisfy the constraints of the inverse kinematics model de-
+
+                                                                              scribed in Section 4. We compute the mapping parameters
+
+                                                                              independently for each frame rather than using the same
+
+; physical                                 law     for       a  string  con-  parameters for all frames. Although it might seem natural
+
+straint is
+mvsdetercsh= anikssmtrs(.l0Thel)f.eedback                                     to fix a parameter such as scaling for a particular human
+
+   In addition to the length, we also constrain the                           actor, we have found that, because of the marionette's lim-
+
+; (N 1)th segment of the string to be vertical due to grav-                   ited range of motion, using the best possible mapping for
+
+ity. The two points pN;1 and pN should then be vertical:                      each frame is preferable to using a fixed mapping bounded
+
+                                                                              by the most difficult posture in the motion clip.
+
+h1 dN;1 N = 0 h2 dN;1 N = 0                                             (7)   Suppose we use N markers in frame k as reference and
+
+where h1 and   (he.2g.arehi1nd=epe(n1de0nt0u)nTit                             denote the positions of the markers attached to the mari-
+                                                   vectors in   the hor-      onette by pkMi, those of the                                 by pkCi
+izontal plane                                                                                               captured    markers                     and
+                                                   h2 = (0            T       those of the mapped markers               = 1:::             N ). We  rep-
+                                                                                                            by pSk i(i
+                                                                10)
+
+; if the gravity is in z direction) and dN;1 N is the unit                    resent the translational, rotational, and scaling parameters
+
+vector from pN;1 to pN , namely dN;1 N = (pN                                  of frame k by a position vector tk, a 3-by-3 rotation matrix
+pN;1)=lN;1. The Jacobian matrix for this constraint is
+                                                                              Rk, and a scalar sk, respectively.   ppUkSSksiiin= ogf  these parameters,
+; J v                   hhT12T                                                                                                        marker i from its
+=                    1          (J N J N;1):                            (8)   we compute the mapped position
+                                                                                                                                      skRkpCk i + tk:
+                 lN;1                                                         original captured position pCk i as
+                                                                              The system first computes the scaling, translation, and
+The desired velocity for this constraint is
+                                                                              orientation parameters that minimize the total square dis-
+vvdes = ;kv hhT2T1 dN;1 N
+                                                                        (9)   tance between the measured markers and the virtual mark-
+
+                                                                              ers on the marionette in a fixed configuration. We can then
+
+where kv is a positive gain.                                                  use the inverse kinematics algorithm to compute the joint
+
+                                                                              angles and string lengths that provide the best match be-
+
+4.2 Potential Energy                                                          tween the two sets of markers. These two steps are re-
+
+                                                                              peated a number of times to refine the result.
+
+Because the joints that do not have strings directly at-                      The system finds the translation, rotation, and scaling
+
+tached to them will bend downward due to gravity, we also                     parameters tk Rk and sk that minimize the evaluation
+
+constrain the potential energy to be as small as possible by                  function  Jk = 1 XN jpSk i ; pMk ij2:
+
+constraining the center of mass of the whole body to be as                                                                                          (10)
+
+low as possible. The  JdagTcJobCiaOnMmwathriexrefodrgth= is  constraint  is             2 i=1
+                                                                         is
+computed as J pe =                                                   T        pkMi are constant because the configuration of the mari-
+
+                                                             (0 0 1)          onette is fixed during this frame by frame computation.
+
+the unit vector in the direction of the gravity and J COM                       2 We combine the unknowns into one variable qk R7,
+
+is the Jacobian matrix of the center of mass with respect                     where the rotation matrix is represented by three inde-
+
+to the generalized coordinates. A method for computing
+
+; J COM can be found in [13]. The desired velocity for this                   pendent variables whose time derivatives correspond to
+
+constraint is a negative constant kpe.                                        the angular velocity. We then use the common gradient
+
+                                                                              method [14] to compute the optimum qk incrementally as
+
+5 Mapping                                                                               qk = qk + qk        qk     =    ;k            @Jk  :        (11)
+                                                                                                                                      @qk
+   Before applying the measured marker positions to a
+marionette, we need to map them into new positions not                        The partial derivative of the mapped position pkS i with re-
+spect to qk is computed as                                                          Some situations occur in which the second and third as-
+                                                                                 sumptions do not hold. The hand marker sometimes moves
+Hi k           4  @pSk i    ;  I3       r ] RkpCk i                        (12)  along a circular trajectory rather than a straight line. The
+                  @qk                                                            markers with fixed inputs inevitably move slightly when
+               =          =                                                      other markers are moved, violating the last assumption.
+                                                                                 Both problems are most likely to occur when the hand is
+where  I3  is  the  3-by-3   identity   matrix,   r  4        skRkpkC  i,  and   relatively close to the body because the stiffness of the
+                                                                                 elbow and shoulder joints forces the hand away from the
+                                                     =                           body.
+
+r ] is the cross product matrix of r. Using Hk i, the
+partial derivative of Jk is computed by
+
+                    @Jk   =  (pkS i  ;  pMk i  T  H  k  i  :               (13)
+                    @qk
+                                               )
+
+                                                                                 6.1 Modeling of Swing Dynamics
+
+   We apply this process to each frame independently by                             In this section we describe the swing dynamics model
+starting from the same initial guess. Using the result of                        that, when combined with the feedback controller of the in-
+previous frame as the initial guess would reduce the com-                        verse kinematics algorithm in Section 4, predicts the swing
+putation time, but the algorithm might not recover from a                        motion.
+failure to obtain good mapping parameters in one frame
+due to, for example, missing markers. Regardless of the                             The inverse kinematics algorithm included a propor-
+initial guess, the resulting mapping parameters may not be                       tional controller, where the velocity of the pipe end x_ is
+continuous because the algorithm is finding only a local                         computed from the current position of the pipe end x and
+minima. Small discontinuities are not a problem, however,
+because the marker positions are "filtered" by the feedback                      ; the desired position u as x_ = k(u x) where k is a con-
+controller and by the SR-inverse used in the inverse kine-
+matics computation.                                                              stant gain. Therefore the transfer function from the marker
+                                                                                 trajectory to the motion of the pipe end takes the form
+
+                                                                                                       x  =          1   u      (14)
+
+                                                                                                             aiks +     1
+
+6 Controlling Swing                                                              where u is the input (marker trajectory), x is the output
+                                                                                 (motion of the pipe end), s is the Laplace transforma-
+   If the mapped motion is applied directly to the mari-
+onette, the hands of the marionette will swing and the mo-                       tion operator, and aik is the parameter that determines the
+tion will not be a good match to that of the human actor.
+We solve this problem by building a simple linear model                          amount of delay.
+for the swing dynamics and experimentally identifying its
+parameters. An alternative approach would be to model the                        The motion of the hand for a given trajectory of the pipe
+full dynamics of the marionette, but this tactic is not prac-
+tical because of uncertainty in the model parameters and                         end can be modeled as a pendulum with a moving base
+the limitations of the motors and sensors. Because mari-                         (Figure 5 right). Using the length of the pendulum l and the
+onette is made of wood and cloth, it is difficult to precisely                   damping term d, the equation of motion of the pendulum
+determine the mass, inertia, and friction parameters of the
+joints. The joints are cleverly designed to prevent unre-                        ; under gravity g is linearized around x = y as y = l=g(x
+alistic joint angles (Figure 1), but this design also makes                      ; y) + d(x_ y_): In general, therefore, the transfer function
+modeling of the system more difficult. The motors are in-
+expensive hobby servos and do not provide precise control.                       from the motion of the pipe end to the marker motion is
+Furthermore, we do not have sensors that measure the cur-
+rent state of the marionette during a performance.                               written as                  bss
+                                                                                                          ass2 +
+   For the simple model of the dynamics, we make three                                       y  =                 +1         x  (15)
+assumptions. (1) Swinging of the hands occurs in the hor-
+izontal plane. Pulling the hands or legs up or down does                                                          bss +     1
+not create a swinging motion. (2) The motion of a hand
+along the x axis (left/right) and the y axis (forward/back)                      where y is the output (actual marker trajectory) and as
+are independently controlled by one motor each. (3) There                        and bs are the parameters that determine the frequency and
+is no coupling between the swinging of the left and right
+hands. These simplifying assumptions allow us to model                           damping respectively.
+swing as four independent systems, two for each hand.
+                                                                                 Combining Eqs.(14) and (15), the system computing the
+
+                                                                                 desired marker trajectory from the actual trajectory will be
+
+                                                                                 a 3rd-order system. We estimate the three parameters from
+
+                                                                                 motion capture data.
+
+                                                                                 The gains of both systems were assumed to be 1, which
+
+                                                                                 turned out to be not true, probably because the joint motion
+
+                                                                                 ranges of the pipe prevented the pipe end from reaching the
+
+                                                                                 desired position or because the stiffness of the arm joints
+
+                                                                                 did not allow the string to be perpendicular. We decided not
+
+                                                                                 to consider these model errors because the desired marker
+position is not achievable if it violates the joint range con-
+straint and the stiffness strongly depends on the configura-
+tion of the arm making the system too complicated.
+
+6.2 Feedforward Controller
+
+The feedforward controller K is formed by connecting
+
+the desired  response    GD    aisn,dKthe=invGeDrsPe m;of1  the   estimated
+             in series,                                     : In  order for
+model Pm                 that
+
+the controller to be proper (the order of the denominator of
+
+the transfer function is larger than that of the numerator),
+
+the order of GD must be larger than 2. We selected a 3rd-                    Figure 6: Postures generated by the interactive interface.
+order GD so that the output of the controller is continuous.                 Above: marionette, below: simulation.
+
+We can also improve the response of the total system by
+
+selecting GD with a smaller delay. In practice, however,                     Table 1: Parameters of the string dynamics models for the
+we cannot use an arbitrarily fast GD because as the gain of                  x direction of the right hand.
+
+the controller increases, it becomes sensitive to modeling
+
+errors.
+
+The parameters of the string dynamics model, as and bs,                      height [m]  -0.59  -0.44  -0.29
+
+depend on the length of the strings; therefore, we repeat the                   aik      0.063   0.8   0.059
+                                                                                 as      0.07   0.061  0.02
+identification process for several different heights for each                    bs             0.06
+
+hand and design a controller for each model. We then apply
+
+the weighted sum of the outputs of the three controllers,
+
+where the weights are determined according to the actual
+
+height during a performance.                                                    Figures 7 and 8 show the results of identification, con-
+                                                                             troller design, and verification processes at the height of
+7 Results
+                                                                             ;0:29m. We used the motion capture system to measure
+   The inverse kinematics computation to obtain the motor
+commands was repeated four times for each frame to en-                       the motion of the pipe end and right hand when a step input
+sure convergence. The total computation time was about                       in x direction (left to right) was given as the desired marker
+36ms per frame on a laptop PC with a Mobile PentiumIII                       trajectory (Figure 7). Then we designed a swing controller
+1GHz processor. Motor commands were sent every 50ms.
+                                                                             with the desired response GD = 1=(0:2s + 1)3:
+   Based on the inverse kinematics computation, we de-
+veloped an online control interface for the marionette. The                     Finally, the designed controller was applied to the same
+model consists of nine string length constraints, joint mo-                  desired marker trajectory used for the identification and the
+tion range constraints for eight joints, two string direction                response was measured (Figure 8). The swing controller
+constraints, and the potential energy constraint. The user                   reduced the width of the first vibration by 40%. The tra-
+can select a marker and drag it to any position. The inverse                 jectory of the hand without the swing controller is differ-
+kinematics algorithm then computes the motor commands                        ent from that used for parameter identification (Figure 7),
+and the joint angles to move the marker to the specified po-                 although we used the same reference trajectory. This dis-
+sition. Figure 6 shows several snapshots of the marionette                   crepancy probably explains why the controller could not
+model and the corresponding postures of the actual mari-                     remove the vibration completely, thereby illustrating that a
+onette.                                                                      small difference in the configuration results in a relatively
+                                                                             large difference in the swing dynamics due to the stiffness
+   The swing controller was designed for three different                     of the arms.
+
+; ; ; heights ( 0:59m, 0:44m, and 0:29m, measured from                          To test the motion of the marionette on a longer per-
+                                                                             formance, we recorded the motions of two actors for two
+the center of the panel where the motors and pulleys are                     stories: "Who Killed Cockrobin?" and "Alaska." Figure 9
+attached). We had a total of twelve controllers for the x                    compares the motions based on "Alaska" performed by ac-
+and y directions of both hands. Table 1 lists the parameter                  tor 1. We used 32 reference markers and the two steps
+sets for the right hand in the x direction. The parameters                   for mapping (computing approximate parameters and com-
+were tuned manually, although it should also be possible to                  puting exact parameters) were repeated up to 500 times at
+apply standard system identification techniques [15].                        each frame. The iteration was suspended if the total error
+                                                                             of the marker positions were larger than the previous iter-
+                                                                             ation. The computation time was approximately 5 seconds
+                                    Pipe end
+
+                            1.5
+
+                            1 input             actual response
+
+              Amplitude     0.5
+
+                                                         model response
+
+                              0
+
+                         -0.5    0     1     2     3  4  5         6     7   8     9     10
+
+                                Hand                     Time [s]
+
+                            1.5                          actual response
+
+              Amplitude     1
+
+                            0.5                          model response
+
+                            0
+
+                         -0.5    0     1     2     3  4  5         6     7   8     9     10
+
+                                                         Time [s]
+
+Figure 7: Actual and model responses to a step input. The
+amplitude of each motion is normalized. The hand of the
+marionette comes close to its head at this height.
+
+              1.2                                                                                Figure 9: From the top: performance of actor 1 for
+                                                                                                 "Alaska," the motion capture data, mapped marker posi-
+                                                hand (with swing controller)                     tions, and the marionette's motion.
+
+                1                                                                                Figure 10: Marionette's motion for "Alaska" performed by
+                                                                                                 actor 2.
+              0.8                                        hand (without swing controller)
+                                                                                                 the limited range of motion of the pipes (for example the
+displacement                                        pipe (without swing controller)              middle column of Figure 9). The marionette also had
+                                                                                                 difficulty with fast motions because of the latency in the
+              0.6                                                                                feedback controller of the inverse kinematics computation.
+                                                                                                 This problem could be solved with a faster computer that
+                                               pipe (with swing controller)                      could execute more iterations per step of the inverse kine-
+                                                                                                 matics computation, thereby increasing the stability of the
+              0.4                                                                                computation and allowing larger gains.
+
+              0.2                                                                                   Although the swing controller had a significant effect in
+                                                                                                 isolated experiments, its effect during longer performances
+              0                                                                                  was quite small. We believe this discrepancy occurred be-
+                                                                                                 cause the stiffness of the arms is highly dependent on the
+              -0.2                                                                               configuration and this effect was not taken into account in
+                                                                                                 the swing model. We could include this effect by testing
+                         0          1     2     3     4  5         6      7     8     9      10  the response of the system for both pipe position and string
+                                                                                                 length.
+                                                         time [s]
+                                                                                                    The examples in this paper were limited to motions
+Figure 8: Response of the pipe and the hand to a step input.                                     where the actor was told to stand in place during the perfor-
+
+per frame.
+   Figures 9 and 10 illustrate the same story performed
+
+by two different actors. The gestures are taken from
+approximately the same point in the story. The mo-
+tion in Figure 11 is based on a different story per-
+formed by actor 1. The video clips are available online
+at http://humanoids.cs.cmu.edu/projects/marionette/.html,
+which also includes comparisons between the motions with
+and without the swing controller. The marionette's feet
+touch the floor as in a real performance.
+
+8 Discussion
+
+   The motions of the actor and the marionette showed
+good correspondence, and we were able to distinguish two
+different styles for the same story (Figures 9 and 10). How-
+ever, significant differences between the actor's and the
+marionette's postures were sometimes visible because of
+Figure 11: Marionette's motion for "Who Killed Cock-           References
+robin?" performed by actor 1.
+                                                                [1] "The Honda Humanoid Robot ASIMO,"
+mance. We could extend the range of feasible motions by              http://world.honda.com/ASIMO/.
+adding more controllable strings and degrees of freedom.
+For example, a motor to control the string connecting the       [2] Y. Kuroki, T. Ishida, J. Yamaguchi, M. Fujita, and T. Doi1,
+back would allow the marionette to bow. We could also                "A Small Biped Entertainment Robot," in Proceedings of
+add a pair of strings and motors to control the elbows in-           Humanoids 2001, Tokyo, Japan, November 2001.
+dependently or to move the entire marionette as a human
+operator would do for walking. In the construction of mar-      [3] "Sarcos High Performance Robots,"
+ionettes for human-operated performances extra strings are           http://www.sarcos.com/entspec highperfrobot.html.
+often added to enable a particular set of behaviors for that
+marionette's character.                                         [4] K. Yamane and Y. Nakamura, "Synergetic CG Choreog-
+                                                                     raphy through Constraining and Deconstraining at Will,"
+   We did not consider self collisions between the puppet            in Proceedings of the IEEE International Conference on
+and the strings or interaction with the environment. In the          Robotics and Automation, Washington DC, May 2002, pp.
+motions shown here we did not encounter situations where             855­862.
+self collisions caused significant change of motion, but this
+issue is a serious concern in the design of performance         [5] G. Hoffmann, "Teach-In of a Robot by Showing the Mo-
+marionettes with clothing that may catch on the strings. We          tion," in IEEE International Conference on Image Process-
+kept the feet in contact with the floor to reduce the swing          ing, 1996, pp. 529­532.
+of the pelvis but did not explicitly consider contact with
+the environment in the control system. If the marionette        [6] N. Pollard, J. Hodgins, M. Riley, and C. Atkeson, "Adapt-
+had the additional degrees of freedom for such whole-body            ing Human Motion for the Control of a Humanoid Robot,"
+motions as walking, modeling of the interaction with the             in Proceedings of the IEEE International Conference on
+environment would be essential.                                      Robotics and Automation, Washington DC, May 2002, pp.
+                                                                     1390­1397.
+   We explored two interfaces for driving the marionette:
+direct input of marker positions for realtime control and       [7] M. Gleicher, "Retargetting Motion to New Characters," in
+offline processing of human motion data. A third alter-              Proceedings of SIGGRAPH '98, 1998, pp. 33­42.
+native would have been to capture a human-operated mari-
+onette performance to take advantage of the talent of a pro-    [8] S. Tak, O. Song, and H. Ko, "Motion balance filtering," Eu-
+fessional operator. The control scheme for this interface            rographics 2000, Computer Graphics Forum, vol. 19, no. 3,
+would presumably be significantly less complex because               pp. 437­446, 2000.
+the motions would already be appropriate to the dynamics
+of the marionette. Such a system, however, could not eas-       [9] K. Yamane and Y. Nakamura, "Dynamics Filter--Concept
+ily be operated by an untrained user. In contrast, the con-          and Implementation of On-Line Motion Generator for Hu-
+trol scheme described in this paper enables a naive user to          man Figures," in Proceedings of the IEEE International
+program a motorized marionette to create entertaining per-           Conference on Robotics and Automation, vol. 1, San Fran-
+formances simply by performing the gestures in a motion              cisco, CA, April 2000, pp. 688­695.
+capture system.
+                                                               [10] C. Rahn, F. Zhang, S. Joshi, and D. Dawson, "Asymptoti-
+Acknowledgments The authors would like to thank                      cally stabilizing angle feedback for a flexible cable gantry
+Rory Macey and Justin Macey for their assistance in cap-             crane," ASME Journal of Dynamic Systems, Measurement,
+turing the human and marionette motions. This research               and Control, vol. 121, pp. 563­566, September 1999.
+was supported in part by NSF 0196089 and 0196217.
+                                                               [11] Y. Nakamura and H. Hanafusa, "Inverse Kinematics Solu-
+                                                                     tions with Singularity Robustness for Robot Manipulator
+                                                                     Control," Journal of Dynamic Systems, Measurement, and
+                                                                     Control, vol. 108, pp. 163­171, 1986.
+
+                                                               [12] A. Maciejewski, "Dealing with the Ill-conditioned Equa-
+                                                                     tions of Motion for Articulated Figures," IEEE Computer
+                                                                     Graphics and Applications, vol. 10, no. 3, pp. 63­71, May
+                                                                     1990.
+
+                                                               [13] T. Sugihara, Y. Nakamura, and H. Inoue, "Realtime Hu-
+                                                                     manoid Motion Generation through ZMP Manipulation
+                                                                     based on Inverted Pendulum Control," in Proceedings of the
+                                                                     IEEE International Conference on Robotics and Automa-
+                                                                     tion, Washington DC, May 2002, pp. 1404­1409.
+
+                                                               [14] W. Press, S. Teukolsky, W. Vetterling, and B. Flannery, Nu-
+                                                                     merical Recipes in C Second Edition. Cambridge, UK:
+                                                                     Cambridge University Press, 1999.
+
+                                                               [15] L. Ljung, System Identification ­ Theory for the User.
+                                                                     Prentice ­ Hall, 1987.
+

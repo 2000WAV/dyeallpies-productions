@@ -1,0 +1,27 @@
+Anthropometric Survey of US Army Personnel (ANSUR II). Measured 2010-2012, released publicly
+2017 by the US Army Natick Soldier Research, Development and Engineering Center (NSRDEC);
+public working databases hosted by the OPEN Design Lab, Penn State University
+(https://www.openlab.psu.edu/ansur2/).
+
+DESCRIPTION (this is a raw dataset, not a journal paper, so there is no printed abstract;
+description assembled from the OPEN Design Lab's own page and the CSV header row):
+
+The ANSUR II working databases contain 93 directly-measured anthropometric dimensions plus 15
+demographic/administrative variables, for 4,082 male and 1,986 female US military personnel.
+Measurements are in millimeters (mass in hectograms). The male file was downloaded as
+papers/ansur-ii-male-public.csv (4,082 data rows + 1 header row; column names include
+`handlength`, `handbreadth`, `handcircumference`, `palmlength`, `forearmhandlength`) via a
+public GitHub mirror (raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II), since
+tools.openlab.psu.edu's own CSV endpoint now serves the lab's React app shell instead of the
+file directly.
+
+RELEVANCE TO THIS PROJECT: independent, much larger-n (4,082 vs. Greiner's 1,003) cross-check
+for the male hand-length norm the build assumed from memory. Computed directly from the CSV
+with Python (mean = arithmetic mean, sd = population standard deviation): handlength mean
+193.28 mm / SD 9.95 mm (19.33 cm / 0.995 cm), n=4082; handbreadth mean 88.26 mm / SD 4.39 mm;
+handcircumference mean 212.28 mm / SD 10.24 mm; palmlength mean 116.46 mm / SD 6.23 mm;
+forearmhandlength mean 480.21 mm / SD 23.28 mm. ANSUR II's own "hand length" landmark
+definition (stylion to the tip of digit III) was not independently re-confirmed against the
+Measurer's Handbook in this pass, but is standard practice among these US military
+anthropometric surveys and its value lines up closely with Greiner's HAND LENGTH MEASURED
+(19.41 cm) using the equivalent definition -- see greiner1991-hand-anthropometry.txt.

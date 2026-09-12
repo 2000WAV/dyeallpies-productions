@@ -1,0 +1,23 @@
+Wikipedia: "Contrast (vision)" (accessed 2026-09-12).
+
+STATUS: full HTML page saved; see papers/wikipedia-contrast-vision.html.
+
+SUMMARY / FORMULAS USED:
+- Michelson contrast: M = (L_max - L_min) / (L_max + L_min). Symmetric;
+  standard for periodic/grating stimuli, ranges 0 (no contrast) to 1 (one of
+  the two luminances is zero).
+- Weber contrast: C = (L_target - L_background) / L_background. Standard
+  for a small feature (a letter, an object) seen against a large, roughly
+  uniform background luminance; asymmetric (can range below -1 is not
+  possible since L_target >= 0, so C is bounded below at -1 when
+  L_target = 0, i.e. a perfectly black object against the background gives
+  Weber contrast exactly -1, "100% dark contrast").
+- Page also confirms: Weber contrast is the appropriate metric "where small
+  features are present on a large uniform background, i.e., where the
+  average luminance is approximately equal to the background luminance" --
+  exactly this project's case (a small puppet against a large plain wall).
+RELEVANCE to item 9: used directly in data/09-colour-numbers.csv to compute
+Weber and Michelson contrast of the wall against candidate puppet colours
+and against the current bright neon-cyan look, to give a numeric account of
+why the bright glow "loses focus" (low contrast, both numerator terms close
+in value) versus a dark saturated colour (high contrast magnitude).

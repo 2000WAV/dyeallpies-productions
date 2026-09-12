@@ -1,0 +1,562 @@
+(function(){try{/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+var e=this||self;var aa=function(a,b,c,d){d=d||{};d._sn=["cfg",b,c].join(".");window.gbar.logger.ml(a,d)};var f=window.gbar=window.gbar||{},h=window.gbar.i=window.gbar.i||{},da;function _tvn(a,b){a=parseInt(a,10);return isNaN(a)?b:a}function _tvf(a,b){a=parseFloat(a);return isNaN(a)?b:a}function _tvv(a){return!!a}function n(a,b,c){(c||f)[a]=b}f.bv={n:_tvn("2",0),r:"",f:".66.",e:"",m:_tvn("1",1)};
+function ea(a,b,c){var d="on"+b;if(a.addEventListener)a.addEventListener(b,c,!1);else if(a.attachEvent)a.attachEvent(d,c);else{var g=a[d];a[d]=function(){var k=g.apply(this,arguments),m=c.apply(this,arguments);return k==void 0?m:m==void 0?k:m&&k}}}var fa=function(a){return function(){return f.bv.m==a}},ha=fa(1),ia=fa(2);n("sb",ha);n("kn",ia);h.a=_tvv;h.b=_tvf;h.c=_tvn;h.i=aa;var q=window.gbar.i.i;var r=function(){},u=function(){},la=function(a){var b=new Image,c=ja;b.onerror=b.onload=b.onabort=function(){try{delete ka[c]}catch(d){}};ka[c]=b;b.src=a;ja=c+1},ka=[],ja=0;n("logger",{il:u,ml:r,log:la});var v=window.gbar.logger;var w={},x={createScript:function(a){return a}};x=self.trustedTypes&&self.trustedTypes.createPolicy?self.trustedTypes.createPolicy("ogb#inline",x):x;
+var ma={},y=[],na=h.b("0.1",.1),oa=h.a("1",!0),pa=function(a,b){y.push([a,b])},qa=function(a,b){w[a]=b},ra=function(a){return a in w},z={},A=function(a,b){z[a]||(z[a]=[]);z[a].push(b)},B=function(a){A("m",a)},C=function(a,b){var c=document.createElement("script");c.src=x.createScript(a);c.async=oa;Math.random()=2E3},Ga=function(a,b){return b};function Ja(a){r=a;n("_itl",Ca,v);n("_aem",Ga,v);n("ml",r,v);a={};w.er=a}h.a("")?Ja(function(a){throw a;}):h.a("1")&&Math.random()0?a[0]:null},Xa=function(){return document.getElementById("gb_70")},P={},Q={},Ya={},R={},S=void 0,cb=function(a,b){try{var c=document.getElementById("gb");N(c,"gbpdjs");T();Za(document.getElementById("gb"))&&N(c,"gbrtl");if(b&&b.getAttribute){var d=b.getAttribute("aria-owns");if(d.length){var g=document.getElementById(d);if(g){var k=b.parentNode;if(S==d)S=void 0,
+O(k,"gbto");else{if(S){var m=document.getElementById(S);if(m&&m.getAttribute){var p=m.getAttribute("aria-owner");if(p.length){var l=document.getElementById(p);l&&l.parentNode&&O(l.parentNode,"gbto")}}}$a(g)&&ab(g);S=d;N(k,"gbto")}}}}B(function(){f.tg(a,b,!0)});bb(a)}catch(t){q(t,"sb","tg")}},db=function(a){B(function(){f.close(a)})},eb=function(a){B(function(){f.rdd(a)})},Za=function(a){var b,c=document.defaultView;c&&c.getComputedStyle?(a=c.getComputedStyle(a,""))&&(b=a.direction):b=a.currentStyle?
+a.currentStyle.direction:a.style.direction;return b=="rtl"},gb=function(a,b,c){if(a)try{var d=document.getElementById("gbd5");if(d){var g=d.firstChild,k=g.firstChild,m=document.createElement("li");m.className=b+" gbmtc";m.id=c;a.className="gbmt";m.appendChild(a);if(k.hasChildNodes()){c=[["gbkc"],["gbf","gbe","gbn"],["gbkp"],["gbnd"]];d=0;var p=k.childNodes.length;g=!1;for(var l=-1,t,Da=0;t=c[Da];Da++){for(var ba=void 0,Ea=0;ba=t[Ea];Ea++){for(;d=0){var Ha=k.childNodes[d-1];M(Ha.firstChild,"gbmh")||fb(Ha,t)||(l=d)}break}d>0&&d+1=0){var ca=document.createElement("li"),Ia=document.createElement("div");ca.className="gbmtc";Ia.className="gbmt gbmh";ca.appendChild(Ia);k.insertBefore(ca,k.childNodes[l])}f.addHover&&f.addHover(a)}else k.appendChild(m)}}catch(ub){q(ub,"sb","al")}},fb=function(a,
+b){for(var c=b.length,d=0;d0?setTimeout(b,0):a()}var c=h.a("1"),d=h.a(""),g=3,k=y,m=0,p=window.gbarOnReady;if(p)try{p()}catch(l){q(l,"ml","or")}d?n("ldb",a):c?ea(window,"load",b):b()}n("rdl",ec);}catch(e){window.gbar&&gbar.logger&&gbar.logger.ml(e,{"_sn":"cfg.init"});}})();
+(function(){try{var b=window.gbar.i.i;var c=window.gbar;var f=function(d){try{var a=document.getElementById("gbom");a&&d.appendChild(a.cloneNode(!0))}catch(e){b(e,"omas","aomc")}};c.aomc=f;}catch(e){window.gbar&&gbar.logger&&gbar.logger.ml(e,{"_sn":"cfg.init"});}})();
+(function(){try{var a=window.gbar;a.mcf("pm",{p:""});}catch(e){window.gbar&&gbar.logger&&gbar.logger.ml(e,{"_sn":"cfg.init"});}})();
+(function(){try{var a=window.gbar;a.mcf("mm",{s:"1"});}catch(e){window.gbar&&gbar.logger&&gbar.logger.ml(e,{"_sn":"cfg.init"});}})();
+(function(){try{window.gbar.rdl();}catch(e){window.gbar&&gbar.logger&&gbar.logger.ml(e,{"_sn":"cfg.init"});}})();
+/* IMPORTANT: Changes to this template need to be tested in all OneGoogle */
+/* enabled frontends! */
+
+/* Explanation of classes and ids... */
+/* #gb - one google container */
+/* #gbw - wrapper element for constraining the bars in fixed-width UIs */
+/* #gbz - navigation bar */
+/* #gbg - gaia bar */
+/* #gbs - shim element (dynamically created by JS) */
+/* #gbx3 - Left bg / bottom border */
+/* #gbx4 - Right bg / bottom border */
+/* #gbb - Google Bar Bottom: an element to anchor things that should be */
+/* aligned relative to the bottom of the sandbar. */
+/* #gbbw - Google Bar Bottom Wrapper: a wrapper for #gbb to allow absolute */
+/* positioning. */
+/* .gbtc - group of tabs container(ol) */
+/* .gbtcb - DEPRECATED IE quirkmode fix, see note with class */
+/* .gbtb2 - tab secondary top border element */
+/* .gbxx - hidden style */
+/* .gbxo - hidden using opacity: 0 */
+/* .gbt - one google tab(li) */
+/* .gbtb - vertical colored spacer between tabs */
+/* .gbto - tab in the gaia bar that is open */
+/* .gbts - the span directly in a tab */
+/* .gbtsa - the span directly in a tab that contains a dropdown arrow */
+/* .gbzt - one google tab link(a) in the nav bar */
+/* .gbgt - one google tab link(a) in the gaia bar */
+/* .gbz0l - selected tab link in the nav bar */
+/* .gbg0l - selected tab link in the gaia bar (nav bar and widgets) */
+/* .gbm0l - selected tab link in the more dropdown */
+/* .gbps - span in the account menu dropdown */
+/* .gbps2 - secondary span in the account menu dropdown */
+/* .gbpd - disabled section in the account menu dropdown */
+/* #gbztms - the span directly in the more tab */
+/* #gbztms1 - the span around the "more" text */
+/* #gb_$id - JESR tab ids in the nav bar ($id corresponds to property id) */
+/* #gb_70 - tab in the gaia bar for sign in (follows gb_$id convention) */
+/* #gbg4 - tab in the gaia bar for profile */
+/* .gbg4a - tab in the gaia bar for the identity avatar (photo) */
+/* #gbg5 - tab in the gaia bar for options */
+/* #gbg6 - tab in the gaia bar for profile name button */
+/* #gbgs4 - span directly in the profile tab */
+/* #gbgs5 - span directly in the options tab */
+/* #gbi4 - wrapper for profile icon */
+/* #gbi4i - gaia bar profile image */
+/* #gbi4id - gaia bar placeholder profile image */
+/* .gbi4p - gaia bar profile image pusher */
+/* #gbi4t - gaia bar profile name */
+/* #gbi4s1 - sign in text without profile picture */
+/* #gbi4t1 - gaia bar profile name without profile picture */
+/* #gbi5 - icon for options */
+/* #gbli - PikePlace loading indicator */
+/* .gbma - dropdown arrow graphic */
+/* .gbxms - dropdown menu shadow effect for non CSS3-enabled UAs. */
+/* .gbm - dropdown menu */
+/* .gbmc - dropdown menu contents */
+/* .gbmcc - dropdown menu item container collection */
+/* .gbmtc - dropdown menu item container */
+/* .gbmt - dropdown menu item */
+/* gbml1 - dropdown menu inline item */
+/* .gbmlb - another dropdown menu inline (link) item */
+/* .gbmlbw - A wrapper for inline (link) items with margin. */
+/* gbmh - dropdown menu horizontal separator */
+/* #gbd - more dropdown */
+/* #gbd4 - sandbar dropdown for profile */
+/* #gbd5 - sandbar dropdown for options */
+/* .gbpa - dropdown profile user info container (name. email, photo) */
+/* .gbpc - dropdown profile user info and profile container */
+/* #gbmpi - dropdown profile photo */
+/* #gbmpiw - wrapper for the dropdown profile photo. */
+/* #gbmpal - dropdown profile authentication links */
+/* .gbmpala - primary dropdown profile authentication link */
+/* .gbmpalb - secondary dropdown profile authentication link. */
+/* Also used for the manaegd account button. */
+/* #gbmpp - dropdown profile entity profiles link (enabled by JS) */
+/* #gbpm - dropdown profile managed account messaging container */
+/* #gbpms - dropdown profile managed account messaging span */
+/* .gbpms2 - dropdown profile managed account messaging secondary span */
+/* #gbmps - dropdown profile account multilogin account info */
+/* #gbmpas - container for the list of multilogin accounts */
+/* .gbpgs - Switch account sign in/out */
+/* #gbmpsb - dropdown profile account switching back link */
+/* .gbp0 - icon for the multilogin entry active */
+/* .gbkc - common options link */
+/* .gbn - internal options link */
+/* .gbnd - dogfood options link */
+/* .gbf - featured options link */
+/* .gbe - extra frontend options link */
+/* .gbkp - privacy options link */
+/* .gbp1 - Used by Oz to handle links in the same window. */
+/* #gbe - extra links container (deprecated, but reserved) */
+/* #gbn - internal extra links container (deprecated, but reserved) */
+/* #gbf - featured extra links container (deprecated, but reserved) */
+/* .gbpdjs - a root class added by inline js and removed in deferred */
+/* .gbrtl - a root class added by inline js to indicate RTL */
+/* .gbiba - A block level item in the identity menu. */
+/* .gbxv - Hides elements in the UI with visibility. */
+/* .gbmpiah - Hides the account switcher avatars. */
+/* .gbmpnw - Wrapping element for names in the account switcher. */
+/* .gbmpiaa - Anchor tag for the large avatar. */
+/* .gbmpia - Avatars in the account switcher (image element). */
+
+/* Root element */
+/* This element is in the flow and is designed to account for the
+ height of OneGoogle without us caring about body padding/margin. */
+#gb {
+ font: 13px/27px Arial, sans-serif;
+ height: 30px;
+}
+
+/* Nav links and the gaia bar. */
+#gbz,
+#gbg {
+ position: absolute;
+ white-space: nowrap;
+ top: 0;
+ height: 30px;
+ /* .gbm's z-index +1 so that we can cover the border-top of the dropdown.
+ For IE in quirksmode we have to apply z-index to all parents of the tab.
+ See http://www.quirksmode.org/bugreports/archives/2006/01/
+ Explorer_z_index_bug.html */
+ z-index: 1000;
+}
+
+/* Nav property links */
+#gbz {
+ left: 0; /* It is essential for menu positioning that this is 0 */
+ /**
+ * 6px tab padding + 4px = 10px from the side.
+ * Note: this distance should match gbarinternal.base.POPUP_MIN_DIST_FROM_EDGE
+ * in google3/webserver/tools/one_google/static/js/sandbar_base.js.
+ */
+ padding-left: 4px;
+}
+
+/* Gaia bar */
+#gbg {
+ right: 0; /* It is essential for menu positioning that this is 0 */
+ padding-right: 5px; /* Match left distance */
+}
+
+/* iframe shim */
+#gbs {
+ background: transparent;
+ position: absolute;
+ top: -999px; /* Fixes b/3178517. */
+ visibility: hidden;
+ /* Overall z-index - 2 */
+ z-index: 998;
+ right: 0; /* Fixes b/8851089. */
+}
+
+.gbto #gbs {
+ background: #fff;
+}
+
+/* The background gradient and bottom border. */
+/* We use two side bg elements to solve a problem unique to quirksmode in IE.
+ An element with left:0 and width:100% will not span the entire width in
+ that case - it will subtract the body's left and right margins and end up
+ short on the side. Having two elements means one can be left and one can be
+ right, thereby solving the problem. Note that these cannot be themselves
+ contained by any element with left or right set. This solution was invented
+ by Tony Gentilcore for the original OneGoogle. */
+#gbx3,
+#gbx4 {
+ background-color: #2d2d2d;
+ background-image: none;
+ /* IE6 and IE quirks. */
+ _background-image: none;
+ background-position: 0 -138px;
+ background-repeat: repeat-x;
+ border-bottom: 1px solid #000;
+ /* TODO(dcarlsson): Verify this is still needed and correct. */
+ font-size: 24px; /* For IE in quirksmode. */
+ /* 29px height + 1px bottom border = 30px Sandbar total height. */
+ height: 29px;
+ _height: 30px; /* IE in quirks mode. */
+ opacity: 1;
+ filter: alpha(opacity=100); /* Opacity for IE = border-width" is true. Since "width" is set to "0", the
+ * "dotted-border" remains invisible to the user, which renders the border
+ * just like how "border-color: transparent" renders.
+ * See http://hedgerwow.appspot.com/demo/arrows
+ */
+ position: relative;
+ top: -1px;
+ border-style: solid dashed dashed;
+ border-color: transparent;
+ border-top-color: #c0c0c0;
+ display: -moz-inline-box; /* Ignored by FF3 and later. */
+ display: inline-block;
+ font-size: 0; /* For IE in quirksmode */
+ height: 0;
+ line-height: 0;
+ width: 0;
+ border-width: 3px 3px 0;
+ padding-top: 1px;
+ left: 4px;
+}
+
+/**
+ * IE6, IE7, and quirksmode fix for height and positioning for tabs
+ * that have a dropdown arrow indicator: "more" and account menus.
+ * The pure-CSS dropdown menu arrows require make this fix necessary.
+ */
+#gbztms1,
+#gbi4m1,
+#gbi4s,
+#gbi4t {
+ zoom: 1; /* IE6, IE7, and quirksmode fix for height and positioning. */
+}
+
+/**
+ * Google bar tab container, dropdown menu container,
+ * dropdown content collection.
+ */
+.gbtc,
+.gbmc,
+.gbmcc {
+ display: block;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+
+/* A wrapper around the contents in the dropdown menu. */
+.gbmc {
+ background: #fff;
+ padding: 10px 0;
+ position: relative;
+ z-index: 2; /* .gbxms + 1 to be on top of the shadow. */
+ /**
+ * IE6, IE7, and quirksmode fix for height and positioning.
+ * Prevents the faux box-shadow from bleeing through into
+ * dropdown menus in IE.
+ */
+ zoom: 1;
+}
+
+/**
+ * Google bar tab.
+ * Because of RTL issues in IE6 and IE7 and Firefox2 we won't float
+ * tab containers to get inline block formatting context, we'll employ a
+ * x-browser display:inline-block.
+ */
+.gbt {
+ position: relative;
+ display: -moz-inline-box; /* Ignored by FF3 and later. */
+ display: inline-block;
+ /**
+ * The line-height inside of the Google bar tab is 2px less than the
+ * perceived line height of 30px because of the secondary (2px) border
+ * that's rendered inside of the Google bar tab by .gbtb2.
+ * 30px total height - 2px top border - 1px bottom border = 27px.
+ */
+ line-height: 27px;
+ padding: 0;
+ vertical-align: top;
+}
+
+/**
+ * IE 
+ * 
+ * 
+ * 
+ * 
+ *
+ */
+
+/**
+ * Explanation of classes used in this file.
+ * .gbsb - The scrollbar bounding box.
+ * .gbsbis - The inline-scroller style for the scrollbar. Apply with .gbsb
+ * .gbsbic - The inner content div for a scrollbar styled element.
+ * .gbsbt - Shadow on the top of the scrollbar bounding box.
+ * .gbsbb - Shadow on the bottom of the scrollbar bounding box.
+ *
+ * #gbmpas - Div for the account switcher.
+ * #gbmm - Contents of the more menu.
+ */
+
+/**
+ * The Account Switcher should trigger scrollbars when the number of accounts
+ * exceeds 4. For the special case of G+, the maxHeight is adjusted to allow
+ * for another link to be added to the bottom of this list without triggering
+ * the scrollbars.
+ */
+#gbmpas {
+ max-height: 220px;
+}
+
+/**
+ * The More Menu should trigger scrollbars when the number of entries exceeds
+ * a certain page size. This CSS supplies a default max-height so that if
+ * the more menu is triggered before the scrollbar classes load in the
+ * deferred bundle, the default scrollbars will show up. This max-height
+ * will be overridden in deferred JS based on the size of the page. This is
+ * a loose bound. Addition of Kennedy links will require this limit to change.
+ */
+#gbmm {
+ max-height: 530px;
+}
+
+/**
+ * The scrollbar bounding box. This is the div that provides the context within
+ * which scrollbars will be rendered. It needs a position: relative context
+ * and block style display.
+ */
+.gbsb {
+ /**
+ * We need the box-sizing rule in the CSS so that our drop shadow overlay
+ * attaches correctly in the space occupied by the border of the scrolling box
+ * if present (in non-inline style mode) and the border effects applied in the
+ * drop shadow elements appear inside the border of the scroll bounding box.
+ */
+ -webkit-box-sizing: border-box;
+ display: block; /* The specific div can also use inline-block if it suits. */
+ position: relative;
+ /**
+ * IE7, prevents the scrollbars from taking up extra space when they are
+ * not being shown.
+ */
+ *zoom: 1;
+}
+
+/**
+ * The inner content's overflow style should be set to auto to allow the
+ * contents inside it to scroll.
+ */
+.gbsbic {
+ overflow: auto;
+}
+
+/**
+ * Common styles for the top and bottom drop shadows.
+ */
+.gbsbis .gbsbt,
+.gbsbis .gbsbb {
+ /* Creates the beautiful thin-thick-thin style of the drop shadow. */
+ -webkit-mask-box-image: -webkit-gradient(linear, left top, right top,
+ color-stop(0.0, rgba(0,0,0,0.1)),
+ color-stop(0.5, rgba(0,0,0,.8)),
+ color-stop(1.0, rgba(0,0,0,0.1)));
+ left: 0;
+ margin-right: 0;
+ opacity: 0;
+ position: absolute;
+ width: 100%;
+}
+
+/**
+ * Common styles for the CSS3 pseudo elements added after the drop
+ * shadow DOM elements.
+ */
+.gbsb .gbsbt:after,
+.gbsb .gbsbb:after {
+ content: "";
+ display: block;
+ height: 0;
+ left: 0;
+ position: absolute;
+ width: 100%;
+}
+
+/**
+ * A shadow that needs to be applied to the top of the scroll bounding box.
+ * This class' opacity needs to be controlled by JS to be applied only when
+ * necessary.
+ */
+.gbsbis .gbsbt {
+ background: -webkit-gradient(linear, left top, left bottom,
+ from(rgba(0, 0, 0, .2)),
+ to(rgba(0, 0, 0, 0)));
+ background-image: -webkit-linear-gradient(top,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ background-image: -moz-linear-gradient(top,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ background-image: -ms-linear-gradient(top,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ background-image: -o-linear-gradient(top,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ background-image: linear-gradient(top,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ height: 6px;
+ top: 0;
+}
+
+/**
+ * A CSS3 pseudo element that supplies a top border to the scroll bounding box
+ * to indicate that more content can be read by scrolling upwards.
+ */
+.gbsb .gbsbt:after {
+ border-top: 1px solid #ebebeb; /*For IE*/
+ border-color: rgba(0, 0, 0, 0.3);
+ top: 0;
+}
+
+/**
+ * A shadow that needs to be applied to the bottom of the scroll bounding box
+ * when there is more content left to be seen. The opacity of this shadow needs
+ * to be controlled by JS. The shadow should disappear when the scroll bar hits
+ * the bottom of the containing div.
+ */
+.gbsb .gbsbb {
+ -webkit-mask-box-image: -webkit-gradient(linear, left top, right top,
+ color-stop(0.0, rgba(0, 0, 0, 0.1)),
+ color-stop(0.5, rgba(0, 0, 0, .8)),
+ color-stop(1.0, rgba(0, 0, 0, 0.1)));
+ background: -webkit-gradient(linear, left bottom, left top,
+ from(rgba(0,0,0,.2)),
+ to(rgba(0,0,0,0)));
+ background-image: -webkit-linear-gradient(bottom,
+ rgba(0,0,0,0.2),
+ rgba(0,0,0,0));
+ background-image: -moz-linear-gradient(bottom,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ background-image: -ms-linear-gradient(bottom,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ background-image: -o-linear-gradient(bottom,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ background-image: linear-gradient(bottom,
+ rgba(0, 0, 0, 0.2),
+ rgba(0, 0, 0, 0));
+ bottom: 0;
+ height: 4px;
+}
+
+/**
+ * A CSS3 pseudo element that provides a bottom border to indicate that there's
+ * more content in the div that can be read by scrolling.
+ */
+.gbsb .gbsbb:after {
+ border-bottom: 1px solid #ebebeb; /*For IE*/
+ border-color: rgba(0, 0, 0, 0.3);
+ bottom: 0;
+}
+
+#gbar { padding:.3em .6em !important;}window.gbar&&gbar.eli&&gbar.eli()Pesquisa
+Imagens
+Maps
+Play
+YouTube
+Notícias
+Gmail
+Drive
+MaisAgenda
+Tradutor
+Livros
+Shopping
+Blogger
+Finanças
+Fotos
+Documentos
+
+Ainda mais
+Account Options
+Fazer login
+
+Livros
+Minha biblioteca
+Ajuda
+Pesquisa de livros avançada
+Nenhum e-book disponível
+Taylor & Francis
+Livraria Cultura
+Livraria Saraiva
+Submarino
+Todos os vendedores&nbsp;&raquo;
+Comprar livros no Google Play
+Procure a maior eBookstore do mundo e comece a ler hoje na web, no tablet, no telefone ou eReader.
+Ir para o Google Play agora &raquo;
+Digital Compositing for Film and Video: Production Workflows and Techniques
+Written by senior compositor, technical director and master trainer Steve Wright, this book condenses years of production experience into an easy-to-read and highly-informative guide suitable for both working and aspiring visual effects artists. 
+
+This expanded and updated edition of Digital Compositing for Film and Video addresses the problems and difficult choices that professional compositors face on a daily basis with an elegant blend of theory, practical production techniques and workflows. It is written to be software-agnostic, so it is applicable to any brand of software. This edition features many step-by-step workflows, powerful new keying techniques and updates on the latest tech in the visual effects industry.
+Workflow examples for:
+ Grain Management
+
+ Lens Distortion Management
+
+ Merging CGI Render Passes
+
+ Blending Multiple Keys
+
+ Photorealistic Color Correction
+
+ Rotoscoping
+
+Production Techniques for:
+ Keying Difficult Greenscreens
+
+ Replicating Optical Lens Effects
+
+ Advanced Spill Suppression
+
+ Fixing Discoloured Edges
+
+ Adding Interactive Lighting
+
+ Managing Motion Blur
+
+With brand new information on:
+ Working in linear
+
+ ACES Color Management
+
+ Light Field Cinematography
+
+ Planar Tracking
+
+ Creating Color Difference Keys
+
+ Premultiply vs. Unpremultiply
+
+ Deep Compositing
+
+ VR Stitching
+
+ 3D Compositing from 2D Images
+
+ How Color Correction ops Effect Images
+
+ Color Spaces
+
+ Retiming Clips
+
+ Working with Digital Cinema Images
+
+ OpenColorIO
+
+A companion website offers images from the examples discussed in the book allowing readers to experiment with the material first-hand.
+Páginas selecionadas
+Outras edições - Ver todos
+Termos e frases comuns
+Sobre o autor&nbsp;(2017)
+Steve Wright is a visual effects pioneer and a 20-year veteran of visual effects compositing on over 70 feature films and many broadcast television commercials. With extensive production experience and a knack for the math and science of visual effects he is a world-recognized expert on visual effects compositing. Since 2005 he has been a master trainer in compositing visual effects, providing staff training to over 25 visual effects studios around the world including Pixar Animation Studios, Disney Feature Animation, Troublemaker Studios, New Deal Studios, and Reliance MediaWorks, along with many others. He has also trained over 1,000 artists in compositing.
+
+Visit Steve’s training website at www.fxecademy.com
+Informações bibliográficas

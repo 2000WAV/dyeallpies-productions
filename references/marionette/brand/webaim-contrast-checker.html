@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WebAIM: Contrast Checker</title>
+	<link rel="shortcut icon" href="/media/favicon.ico">
+	<link rel="home" href="/">
+	<link rel="search" href="/search/">
+	<link rel="alternate" href="https://webaim.org/blog/feed" type="application/rss+xml" title="WebAIM Blog">
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y41PF8WV9X"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+  	gtag('config', 'G-Y41PF8WV9X');
+	</script>
+	
+	<link href="/styles/main.css" rel="stylesheet" type="text/css">
+	<link href="/styles/print.css" rel="stylesheet" type="text/css" media="print">
+	<script src="/media/scripts/jquery.js"></script>
+	<script src="/media/scripts/main.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Kameron:400,700' rel='stylesheet' type='text/css'>
+	<link href="/styles/documents.css?ver=2" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
+<link rel="stylesheet" href="contrast.css?ver=4"><script src="contrast.js?2"></script>
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+
+
+<div id="headcontainer" class="clearfix" style="background-image: url(/media/banners/resources.jpg)">
+<header>
+	<div id="skiptocontent"><a href="#maincontent">skip to main content</a></div>
+	
+	<h2><a href="/"><img src="/media/logo.png" width="315" height="83" alt="WebAIM - Web Accessibility In Mind"></a></h2>
+
+	<nav>
+		<h2 class="hidden">Main Navigation</h2>
+		<ul>
+			<li><a href="/services/">Services</a></li>
+			<li><a href="/articles/">Articles</a></li>
+			<li class="current"><a href="/resources/">Resources</a></li>
+			<li><a href="/projects/">Projects</a></li>
+			<li><a href="/community/">Community</a></li>
+		</ul>
+	</nav>
+	<div id="search">
+		<form method="get" role="search" action="/search/" id="sitesearch">
+			<p class="search"><span><label for="q">Search:</label> <input type="text" name="q" id="q"><input type="image" src="/media/template/search.svg" alt="Submit Search"></span></p>
+		</form>
+		
+		<p class="intro"><a href="/intro">Introduction to Web Accessibility</a></p>
+		
+		<p class="training"><a href="/services/training">WebAIM Training</a></p>
+	</div>
+
+</header>
+</div>
+
+<main id="maincontainer" class="clearfix">
+
+<article id="maincontent">
+
+<h1>Contrast Checker</h1>
+
+<p id="breadcrumbs"><span class="hidden">You are here: </span><a href="/">Home</a> &gt; <a href="/resources/">Resources</a> &gt; Contrast Checker</p>
+
+<div class="section">
+	<noscript>
+		<p><strong>This tool requires Javascript.</strong></p>
+	</noscript>
+	<form id="contrastForm">
+		<fieldset>
+			<legend>Foreground</legend>
+			<p class="error" id="Err1">Please enter a valid <a href="http://en.wikipedia.org/wiki/Web_colors#Hex_triplet">hex value</a> (alpha value optional) or use the color picker.</p>
+			<label>
+				Hex Value
+				<div>#<input id="Hex1" type="text" maxlength="9" required></div>
+			</label>
+			<label>
+				Color Picker
+				<input id="Pic1" type="color">
+			</label>
+			<label>
+				Alpha
+				<input id="Alpha1" type="number" value="1.00" step="0.01" min="0" max="1">
+			</label>
+			<label class="lig" hidden>
+				Lightness
+				<div class="gradient"><input id="Lig1" type="range" min="0" max="100" step="1"></div>
+			</label>
+		</fieldset>
+		<fieldset>
+			<legend>Background</legend>
+			<p class="error" id="Err0">Please enter a valid <a href="//en.wikipedia.org/wiki/Web_colors#Hex_triplet">hex value</a> or use the color picker.</p>
+			<label>
+				Hex Value
+				<div>#<input id="Hex0" type="text" maxlength="7" required></div>
+			</label>
+			<label>
+				Color Picker
+				<input id="Pic0" type="color">
+			</label>
+			<label class="lig" hidden>
+				Lightness
+				<div class="gradient"><input id="Lig0" type="range" min="0" max="100" step="1"></div>
+			</label>
+		</fieldset>
+	</form>
+	
+	<div id="resultsContainer">
+		<div id="ratioContainer">
+			<span>
+				Contrast Ratio
+				<span id="ratio" aria-live="polite" aria-atomic="false"></span>
+			</span>
+			<a id="permalink" class="permalink" href="./?fcolor=0000FF&bcolor=FFFFFF">permalink</a>
+		</div>
+		<h2>Normal Text</h2>
+		<div class="results">
+			<p>WCAG AA: <span id="normalAA"></span></p>
+			<p>WCAG AAA: <span id="normalAAA"></span></p>
+		</div>
+		<span id="normal">The five boxing wizards jump quickly.</span>
+		<h2>Large Text</h2>
+		<div class="results">
+			<p>WCAG AA: <span id="bigAA"></span></p>
+			<p>WCAG AAA: <span id="bigAAA"></span></p>
+		</div>
+		<span id="big">The five boxing wizards jump quickly.</span>
+		<h2>Graphical Objects and User Interface Components</h2>
+		<div class="results">
+			<p>WCAG AA: &nbsp;<span id="uiAA"></span></p>
+		</div>
+		<span id="ui">
+			&#x2605;
+			<input type="text" id="uibox" value="Text Input" aria-label="Sample text input"> 
+		</span>
+	</div>
+	
+	<div class="callout" style="clear:both;">
+		<div class="title">WebAIM Accessibility Testing Services</div>
+		<p>Web accessibility testing can be difficult! The experts at WebAIM can audit your web site and provide a detailed report to help you remediate accessibility and WCAG compliance issues.</p>
+		<p class="calloutlink"><a href="/services/evaluation">Learn more about WebAIM Evaluation Services</a>
+	</div>
+	
+	<h2>Explanation</h2>
+	<p>Enter a foreground and background color in RGB hexadecimal format or choose a color using the Color Picker. Enter an Alpha value to adjust the transparency of the foreground color. Use the Lightness slider to adjust the perceived lightness of the color.</p>
+	<p>WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. WCAG 2.1 requires a contrast ratio of at least 3:1 for graphics and user interface components (such as form input borders). WCAG Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.</p>
+	<p>Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.</p>
+	<p><strong>Hint:</strong> Use the eye dropper tool in the Color Picker to extract the color value from any element on screen. Additionally, <a href="http://wave.webaim.org/">WAVE</a> can analyze contrast ratios for all page text elements at once.</p>
+	<p>Use <a href="/resources/linkcontrastchecker/">our link contrast checker</a> to evaluate links that are identified using color alone.</p>
+	
+	<div class="note" id="api">
+		<div class="title">Contrast Checker API and Bookmarklet</div>
+		<p>This tool also functions as a basic API. Simply append <code>&amp;api</code> to any <a class="permalink" href="./?fcolor=0000FF&bcolor=FFFFFF">permalink</a> to get a JSON object with the contrast ratio and the AA/AAA pass/fail states. For example: <a class="apilink" href="https://webaim.org/resources/contrastchecker/?fcolor=0000FF&bcolor=EEEEEE&api">https://webaim.org/resources/contrastchecker/?fcolor=0000FF&bcolor=EEEEEE&api</a>.</p>
+		<p>A miniature version of this Contrast Checker can be initiated within any web page by installing and using the <a href="bookmarklet">Contrast Checker Bookmarklet</a>. This tool allows easy contrast testing of any content on your screen by using the foreground and background eyedropper tools.</p>
+	</div>
+	
+</div>
+
+</article>
+<!--
+	-->
+<aside id="articlemeta">
+
+	
+		
+				<div id="related">
+			<h2>Related Resources</h2>
+			<ul>
+			<li><a href="/articles/contrast/">Contrast and Color Accessibility</a></li>
+<li><a href="/resources/evalquickref/">Quick Reference: Testing Web Content for Accessibility</a></li>
+<li><a href="/services/evaluation">WebAIM Auditing &amp; Evaluation Services</a></li>
+<li><a href="/resources/designers/">Web Accessibility for Designers</a></li>
+<li><a href="/resources/linkcontrastchecker/">Link Contrast Checker</a></li>
+<li><a href="bookmarklet">Contrast Checker Bookmarklet</a></li>
+			</ul>
+		</div>
+		
+		
+</aside>
+</main>
+
+<footer>
+	<div id="footerresources">
+		<div class="footerblock">
+			<h2 id="copyright">&copy;2026 WebAIM</h2>
+			<p id="contact">			Utah State University<br>
+			6807 Old Main Hill<br>
+			Logan, UT 84322-6807<br>
+			<a class="phone" href="tel:4357977024">435.797.7024</a></p>
+		
+		<div id="checkpage">
+			<h2>Check Your Accessibility</h2>
+			<form action="https://wave.webaim.org/report" novalidate>
+				<label for="waveurl">Web site address:</label>
+				<input type="url" id="waveurl" name="url" title="Web site address">
+				<input type="submit" value="WAVE">
+			</form>
+		</div>
+		</div>
+		<div class="footerblock">
+			<h2 id="blog">From the Blog</h2>
+			<ul><li><a href="/blog/if-you-have-to-ask-is-it-accessible/">If you have to ask, is it accessible?</a></li><li><a href="/blog/an-extension-is-not-an-excuse/">An Extension is Not an Excuse</a></li><li><a href="/blog/tolerating-inaccessibility/">Tolerating Inaccessibility</a></li><li><a href="/blog/ask-aimee/">Ask AIMee: An accessible accessibility-focused AI chatbot</a></li></ul>		</div>
+		<div class="footerblock">
+			<h2 id="popular">Popular Resources</h2>
+			<ul>
+				<li><a href="/services/training/">WebAIM Training</a></li>
+				<li><a href="/standards/wcag/checklist">WCAG 2 Checklist</a></li>
+				<li><a href="/AIMee">Ask AIMee Chatbot</a></li>
+				<li><a href="/resources/contrastchecker">Color Contrast Checker</a></li>
+				<li><a href="/resources/designers/">Web Accessibility for Designers</a></li>
+				<li><a href="http://wave.webaim.org/">WAVE Web Accessibility Evaluation Tool</a></li>
+			</ul>
+		</div>
+		
+		<div id="footerlinks">
+			<ul>
+				<li><a id="footercontact" href="/contact">Contact</a></li>
+				<li><a id="footerabout" href="/about">About</a></li>
+				<li><a id="footerrss" href="/community/rss">RSS Feeds</a></li>
+				<li><a id="footerli" href="https://www.linkedin.com/company/webaim/">LinkedIn</a></li>
+				<li><a id="footercopyright" href="/copyright">Copyright &amp; Terms of Use</a></li>
+			</ul>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+
+</footer>
+
+</body>
+</html>

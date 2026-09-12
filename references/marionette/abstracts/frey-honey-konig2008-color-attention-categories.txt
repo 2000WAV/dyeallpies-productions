@@ -1,0 +1,37 @@
+Frey, H.P., Honey, C., and König, P. (2008). What's color got to do with it?
+The influence of color on visual attention in different categories. Journal
+of Vision, 8(14):6, 1-17. doi:10.1167/8.14.6. PMID: 19146307.
+
+STATUS: abstract only (fetched via NCBI E-utilities efetch). PDF blocked by
+the publisher's page (see downloads-09.md); no file saved beyond this
+abstract text.
+
+ABSTRACT (verbatim from PubMed):
+"Certain locations attract human gaze in natural visual scenes. Are there
+measurable features, which distinguish these locations from others? While
+there has been extensive research on luminance-defined features, only few
+studies have examined the influence of color on overt attention. In this
+study, we addressed this question by presenting color-calibrated stimuli and
+analyzing color features that are known to be relevant for the responses of
+LGN neurons. We recorded eye movements of 15 human subjects freely viewing
+colored and grayscale images of seven different categories. All images were
+also analyzed by the saliency map model (L. Itti, C. Koch, & E. Niebur,
+1998). We find that human fixation locations differ between colored and
+grayscale versions of the same image much more than predicted by the
+saliency map. Examining the influence of various color features on overt
+attention, we find two extreme categories: while in rainforest images all
+color features are salient, none is salient in fractals. In all other
+categories, color features are selectively salient. This shows that the
+influence of color on overt attention depends on the type of image. Also, it
+is crucial to analyze neurophysiologically relevant color features for
+quantifying the influence of color on attention."
+
+RELEVANCE to item 9: colour (including saturation/colour-contrast) measurably
+pulls eye movements beyond what a pure luminance-contrast saliency model
+(Itti, Koch & Niebur 1998) predicts, but HOW MUCH depends on the surrounding
+scene category -- directly supporting the brief's caveat that "a colour is
+salient relative to its surround," i.e. there is no single hue that is
+universally most salient independent of context; against a plain, warm,
+off-white, low-clutter wall (this project's actual "scene category"), colour
+contrast is not competing with other coloured clutter, so a saturated warm
+hue should be comparatively MORE salient here than in a busy/colourful scene.

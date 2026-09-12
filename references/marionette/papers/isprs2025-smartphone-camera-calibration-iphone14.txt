@@ -1,0 +1,551 @@
+ The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-G-2025
+  ISPRS Geospatial Week 2025 "Photogrammetry & Remote Sensing for a Better Tomorrow...", 6­11 April 2025, Dubai, UAE
+
+Evaluating Smartphone Camera Calibration Configurations and their Effects on SLAM
+
+            Rhea Joyce Zambraa, Saurav Uprety a, Ananya Vishwanath a, Favour Iheanyichukwua, Hongzhou Yanga
+                aDept. of Geomatics Engineering, University of Calgary, Alberta, Canada ­ honyang@ucalgary.ca
+
+Keywords: Smartphone Camera Calibration, Calibration Grid Type, Calibration Grid Size, Distortion Model
+
+ABSTRACT:
+
+Smartphones have become increasingly viable for photogrammetric and simultaneous localization and mapping (SLAM) applications
+due to their portability and widespread availability. However, the repeatability of smartphone camera calibration remains a concern,
+as intrinsic orientation parameters (IOPs) can vary significantly between calibration attempts due to innate software and hardware
+corrective mechanisms. This study investigates the impact of calibration grid type, grid size, and distortion modelling on smartphone
+camera calibration uncertainty and its downstream effects on positioning accuracy in monocular SLAM. Using three smartphone
+models (iPhone 14 and two Google Pixel 7 devices), we conducted a comprehensive analysis of 24 calibration configurations processed
+through Kalibr. The estimated IOPs were then applied in a monocular ORB-SLAM3 pipeline, and the resulting trajectories were
+compared against a high-precision integrated LiDAR inertial ground truth. These findings provide insights into optimizing smartphone
+calibration setups, which has effects on SLAM-based applications in mobile mapping, robotics, and augmented reality.
+
+                        1. INTRODUCTION                             smartphone-based SLAM applications, particularly in robotics,
+                                                                    augmented reality (AR), and mobile mapping.
+Due to their ubiquity and compact size, smartphones have            To address this gap, a comprehensive analysis of smartphone
+increasingly been researched for their potential in accurate        camera calibration is performed, evaluating the effects of grid
+photogrammetric (Patonis, 2024) and simultaneous localization       size, grid type, and distortion models on measurement
+and mapping applications (SLAM) (Zambra et al., 2024). In           uncertainty and SLAM positioning. Experiments will be
+traditional photogrammetric surveys, camera calibration is          conducted using three smartphones (iPhone 10, two Google Pixel
+performed in a prior and separate process to determine the          7 devices) to account for variations across different operating
+interior orientation parameters (IOPs), which are stable in metric  systems and same-model inconsistencies, as well as to identify
+and semi-metric cameras due to their specialized design.            consistent calibration trends across devices.
+However, smartphones often exhibit variability in IOPs across
+different calibration attempts (Jasiska et al., 2023). These                                2. RELATED WORK
+variabilities can introduce uncertainties in the downstream
+processes of positioning and 3D reconstruction, as techniques       Prior research has explored various aspects of camera calibration,
+like SLAM and structure from motion (SfM) often assume              but the influence of these factors on the repeatability of IOP
+constant IOPs between frames.                                       estimates and the resulting positioning accuracy for smartphones
+Camera calibration determines the IOPs ­ focal length, principal    has not been extensively studied. The following subsections
+point, and distortion coefficients ­ by analyzing a series of       review relevant literature on key factors affecting calibration
+images to establish an accurate relationship between a 3D scene     performance. By analyzing these factors, this study seeks to
+and its 2D projection onto an image. Contemporary calibration       provide insights into their role in enhancing calibration
+methods typically optimize an overdetermined system of image        consistency and improving positioning accuracy in smartphone
+points with known 2D-to-3D correspondence, such as with a           SLAM applications.
+known set of 3D points through self-calibration, a geometrically
+known planar grid, or geometric constraints on natural features     2.1 Calibration Grid Type
+through SfM. Current state-of-the-art methods follow Zhang's
+flexible approach of using multiple views of a planar grid to       The choice of the type of calibration grid has shown to have
+estimate the camera intrinsic and extrinsic parameters (Zhang,      effects on IOP estimation. In 2007, Mallon and Whelan
+2000). This paradigm is adopted in the popular libraries of Kalibr  conducted a comparative study of two full-visibility calibration
+(Furgale et al., 2012), OpenCV, and the MATLAB Camera               grids ­ the checkerboard and circular dot grid ­ and concluded
+Calibration Toolbox due to the setup simplicity. Additionally,      that the latter is more susceptible to distortion bias, degrading the
+target-based calibration outperforms targetless methods, such as    predicted pixel position of the features (Mallon and Whelan,
+iKalibr (Chen et al., 2024) and ATiPE, (Barazzetti et al., 2012)    2007). However, full-visibility grids require that the entire target
+in terms of repeatability due to the high contrast and easily       remain within the camera's field of view, limiting the range of
+detectable nature of the target grids. However, despite the         calibration poses and reducing coverage around the image edges.
+extensive bodies of work on target-based calibration, the impact    To address this, partially visible grids, such as Aprilgrid (Olson,
+of grid size, grid type, and distortion model on the repeatability  2011) and ChArUco, have been created with uniquely
+of smartphone camera calibration has received limited attention     identifiable markers within the pattern. These grids allow
+in literature. Compared to traditional high-grade                   calibration even when only a portion of the grid is visible and
+photogrammetric cameras, smartphones are subject to greater         provide improved estimation of lens distortion, particularly at the
+IOP variability, due to factors including lens tolerances,          periphery of the image.
+autofocus mechanisms, and software-based corrections.
+Understanding these inconsistencies is important for improving
+
+                                                    This contribution has been peer-reviewed.                     1669
+           https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1669-2025 | © Author(s) 2025. CC BY 4.0 License.
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-G-2025
+ ISPRS Geospatial Week 2025 "Photogrammetry & Remote Sensing for a Better Tomorrow...", 6­11 April 2025, Dubai, UAE
+
+Given the variability in smartphone camera characteristics, it is     be applied as fixed parameters in monocular SLAM through
+important to investigate how different grid types influence           ORB-SLAM3, chosen for its robustness in monocular SLAM.
+calibration repeatability and downstream SLAM performance.            The resulting camera trajectories will be compared against a
+This study extends previous work by evaluating both a full-           LiDAR-inertial based ground truth. The positioning accuracy
+visibility (checkerboard) and a partial-visibility grid (Aprilgrid)   will be assessed using the root mean square error (RMSE) of the
+to assess their impact on positioning accuracy.                       absolute positioning error (APE), to quantify the deviations
+                                                                      between the estimated and reference trajectories.
+2.2 Calibration Grid Size
+                                                                      Table 1. Configurations for smartphone camera calibration.
+Grid size is another factor affecting camera calibration,
+particularly in smartphone cameras with autofocus. Autofocus          Grid Size \      Aprilgrid              Checkerboard
+mechanisms dynamically adjust the lens position, leading to           Grid Type
+subtle variations in focal length across different calibration                      pinhole rad-tan            pinhole rad-tan
+attempts. Smaller grids necessitate a shorter focusing distance          Small     pinhole equi-dist          pinhole equi-dist
+compared to larger grids, introducing inconsistencies in focal                      pinhole rad-tan            pinhole rad-tan
+length estimation. These focal length variations, in turn, can           Large     pinhole equi-dist          pinhole equi-dist
+propagate errors into the estimation of extrinsic parameters
+(EOPs), thereby biasing the estimated IOPs (Ricolfe-Viala and                      3. PRELIMINARIES
+Esparza, 2021).
+Ricolfe-Viala and Esparza's study on autofocus cameras                3.1 Kalibr Camera Intrinsic Estimation
+demonstrated that even when bundle adjustment yields
+reprojection errors close to zero, biases in intrinsic and extrinsic  In Kalibr, the Levenberg-Marquardt (LM) algorithm is used to
+parameter estimates can persist. This highlights the limitations of   optimize the IOPs and EOPs of the camera by minimizing the
+standard calibration pipelines when applied to autofocus systems.     reprojection error , which measures the sum of the difference
+Building on their findings, this study investigates how calibration   between the observed feature points  and predicted location :
+grid size impacts IOP estimate uncertainty, repeatability, and
+positioning accuracy in smartphone-based SLAM by using two                          = || - ||2                           (1)
+significantly different grid sizes. By quantifying the propagation
+of calibration errors into the positioning domain, we aim to                         
+provide insights into optimizing grid size selection for more
+reliable smartphone SLAM.                                             This is done by using a projection model , which maps the 
+
+2.3 Camera Distortion Modelling                                       3D point  to image coordinates  = (, ) using the camera
+                                                                      intrinsic matrix  and its EOP :
+Another common source of smartphone camera calibration error
+is incorrect lens distortion modeling, which has adverse effects                    = (, , )                             (2)
+on 3D reconstruction accuracy (Patonis, 2024). The most widely
+used model in photogrammetry is the Brown-Conrady model               From the observations  (automatically extracted 2D image
+(Duane, 1971), which assumes that radial and tangential               points) and the predicted locations  , the residuals  are
+distortion are functions of the distance from the optical center.
+Kannala and Brandt introduced an alternative approach through         calculated as the difference:
+an equidistant distortion model designed for wide-angle lenses,
+which models distortion as a function of angular deviation from                     =  -                                 (3)
+the optical center (Kannala and Brandt, 2006). While this
+approach has been widely applied in fisheye and panoramic             To update the camera parameters iteratively, the Jacobian  of the
+cameras, its effectiveness for smartphones remains                    residuals with respect to the parameters are computed:
+underexplored. Moreover, most studies on distortion modelling
+focus on image reprojection accuracy and 3D reconstruction,                          =                                   (4)
+rather than its effects on positioning accuracy in SLAM                                 
+applications. This study aims to address this gap by evaluating
+two different distortion models (radial-tangential and                The Levenberg-Marquardt algorithm then uses  to adjust the
+equidistant) and analyzing their influence on smartphone-based        camera parameters  in each iteration, minimizing  . Once
+monocular trajectory estimation.
+                                                                      optimization converges, the uncertainty in the estimated camera
+2.4 Experimental Setup                                                parameters is obtained from the covariance matrix  and
+                                                                      variance of residuals 2:
+Building on the insights from previous studies, this research
+implements an experimental setup to systematically evaluate the                     = 2( )-1                             (5)
+impact of calibration grid type, grid size, and distortion model on
+IOP estimate repeatability and positioning accuracy. The              where the diagonal elements of  provide the uncertainty
+experimental configurations, summarized in Table 1, follow a          (standard deviation) for the camera EOPs and IOPs.
+standardized calibration pipeline using Kalibr, generating eight
+sets of IOP estimates per smartphone, resulting in a total of 24      3.2 Lens Distortion Models
+configurations across three devices.
+Each set of IOP estimates will be analyzed for uncertainty based      3.2.1 Radial-Tangential Model: The Brown-Conrady model is
+on the final covariance estimate, including focal length, principal   widely used in photogrammetry and assumes that distortion is a
+point, and distortion coefficients. The estimated IOPs will then      function of the radial distance from the optical center. It models
+                                                                      both radial distortion (causes straight lines to curve) and
+                                                                      tangential distortion (decentering effects due to misalignment):
+
+                                         This contribution has been peer-reviewed.                                       1670
+https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1669-2025 | © Author(s) 2025. CC BY 4.0 License.
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-G-2025
+ ISPRS Geospatial Week 2025 "Photogrammetry & Remote Sensing for a Better Tomorrow...", 6­11 April 2025, Dubai, UAE
+
+ = (1 + 12 + 24 +  )     (6)                                         Table 2. Configuration of each calibration grid.
+ = (1 + 12 + 24 +  )
+
+  =  + [21 + 2(2 + 22)]                                                              Aprilgrid     Checkerboard
+ =  + [1(2 + 22) + 22]
+                         (7)                                                      Small  Big       Small               Big
+
+                                                                      Columns     6             6  4                   8
+                                                                        Rows
+where 1, 2 are the radial distortion coefficients, 1, 2 are the                   6             6  6                   9
+tangential distortion coefficients, and  = 2 + 2 is the radial       Target Size
+                                                                         (cm)     2.80   9.00      3.60   10.00
+distance from the principal point.
+
+3.2.2 Equidistant Model: On the other hand, the Kannala-
+Brandt equidistant model assumes distortion as being
+proportional to the angle  from the optical axis:
+
+                         (8)
+ =  ()
+
+ = 1 + 23 + 35 + 47 +    (9)
+
+where 1, 2, 3, 4 are equidistant distortion coefficients,  is
+the radial distance,  is the focal length, and  is the radial
+
+distortion from the lens.
+
+Although higher order coefficient parameters can be calculated
+
+for both models, Kalibr outputs [1 2 1 2] for radial-tangential
+and [1 2 3 4] for equidistant distortion calibration.
+
+                        4. METHODOLOGY                                 Figure 1. The four calibration grids used: big Aprilgrid (top
+                                                                     left), small Aprilgrid (top right), big checkerboard (bottom left),
+4.1 Smartphone Camera Calibration
+                                                                                    and small checkerboard (bottom right).
+Images were captured by hand using smartphones in front of four
+distinct calibration grids (Table 2): small Aprilgrid (sAG), large    Figure 2. Data collection platform used for indoor positioning,
+Aprilgrid (bAG), small checkerboard (sCH), and large                                  front (top) and back (bottom) view.
+checkerboard (bCH) (Figure 1). A standardized calibration
+routine was followed for all calibration data collection, using the
+SensorLogger app (Tszheichoi, 2024) with the frame rate set to
+30 frames per second. Using three smartphones -- an iPhone 14
+(iP14), Google Pixel 7 #1 (GP7P1), and Google Pixel 7 #4
+(GP7P4) -- this process resulted in twelve distinct camera
+calibration datasets. Each dataset was processed through Kalibr
+for camera calibration, performed twice for two distortion
+models: radial-tangential (PR) and equidistant (PE), yielding a
+total of twenty-four distinct camera intrinsic calibration
+configurations.
+
+4.2 Smartphone and LiDAR Trajectory
+
+To assess positioning accuracy, smartphone image data and the
+UNIX timestamp (through SensorLogger) was collected
+concurrently with ground truth data. The ground truth positions
+were acquired using a Velodyne 16-channel LiDAR and an
+EPSON EG320N inertial measurement unit (IMU) from a
+NovAtel SPAN (Figure 2), with the data processed via tight-
+coupling with FAST-LIO2 (Xu et al., 2021) (Figure 3). For the
+smartphone trajectories, ORB-SLAM3 (Campos et al., 2021)
+was chosen as the SLAM processor due to its robustness in
+visual-SLAM (Figure 4). All sensors and smartphones were
+mounted on a cart, which was used to carry the equipment during
+data collection. Data from all three smartphones, along with the
+ground truth, were captured during the same run in an indoor,
+texture-rich laboratory environment. The ground truth trajectory
+for the selected data segment is shown in Figure 5.
+
+                                         This contribution has been peer-reviewed.                                        1671
+https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1669-2025 | © Author(s) 2025. CC BY 4.0 License.
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-G-2025
+ ISPRS Geospatial Week 2025 "Photogrammetry & Remote Sensing for a Better Tomorrow...", 6­11 April 2025, Dubai, UAE
+
+                                                                       equidistant distortion model, which lacks a non-symmetric
+                                                                       component, simplifies the estimation of the principal point; and
+                                                                       the radial-tangential distortion model has a more complex
+                                                                       corrective model than equidistant, leading to more accurate focal
+                                                                       length estimates.
+
+Figure 3. FAST-LIO2 processing of LiDAR-inertial data.                 Table 3. Comparison of IOP estimate uncertainty for the two
+                                                                               grid types across all calibration configurations.
+
+                                                                        [px]  Aprilgrid           Checkerboard
+                                                                        [px]     1.19                   1.72
+                                                                        [px]     1.20                   1.71
+                                                                        [px]     0.91                   1.56
+                                                                                 0.96                   1.71
+
+                                                                       Table 4. Comparison of IOP estimate uncertainty for the two
+                                                                          distortion models across all calibration configurations.
+
+Figure 4. ORB-SLAM3 processing of smartphone data.                      [px]  Equidistant  Radial-Tangential
+                                                                        [px]      1.56              1.39
+                                                                        [px]      1.56              1.39
+                                                                        [px]      0.95              1.54
+                                                                                  0.89              1.74
+
+                                                                       Table 5. Comparison of IOP estimate uncertainty for the two
+                                                                               grid sizes across all calibration configurations.
+
+                                                                        [px]  Large                    Small
+                                                                        [px]   1.05                     1.80
+                                                                        [px]   1.07                     1.80
+                                                                        [px]   0.89                     1.58
+                                                                               0.90                     1.74
+
+Figure 5. LiDAR-IMU ground truth trajectory via FAST-LIO2.             Additionally, Table 6 shows the combined uncertainty
+                                                                       breakdown by smartphone, showing that GP7P1 had the least
+                                                                       uncertainty, and that the same model smartphones (GP7P1 and
+                                                                       GP7P4) had sub-pixel level difference in uncertainty.
+
+                  5. RESULTS & DISCUSSION                              Table 6. Comparison of IOP estimate uncertainty for the three
+                                                                              smartphones across all calibration configurations.
+5.1 Smartphone Camera Calibration Uncertainty
+                                                                        [px]  GP7P1        GP7P4       iP10
+The uncertainty in the camera IOP estimates is quantified through       [px]   1.25         1.46       1.69
+the standard deviations provided in the output from the                 [px]   1.27         1.46       1.68
+covariance . Combinations of the standard deviations  are               [px]   1.11         1.15       1.53
+calculated using the pooled standard deviation equation:                       1.29         1.32       1.53
+
+  =  12  +  22  +  +  2  (10)
+                
+
+where 2 is the  variance, and  is the sample size.                     It can be noted that the grid size creates the largest differentiation
+                                                                       in uncertainty, closely followed by the calibration grid type.
+The results indicate that the following configurations reduce          However, it is worth noting that while large grids reduce
+uncertainty: larger grid size, Aprilgrid type, equidistant distortion  uncertainty, it causes the residuals to be stretched along the
+modelling for the principal point, and radial-tangential distortion    phone's long axis after optimization (Figure 6). This suggests that
+modelling for focal length (Tables 3-5). These findings are likely     calibration is more sensitive to distortions in this direction,
+due to several factors: the larger calibration grids enhance           possibly due to more exaggerated camera motion. The
+robustness against motion blur, which improves feature                 anisotropic distribution indicates that the model may not fully
+detection; the Aprilgrid's partial visibility provides more data for   compensate for non-uniform distortions, thus larger grids may
+calibration and allow for more parallax between views; the             reduce uncertainty overall but could introduce localized errors
+                                                                       along the longer axis.
+
+                                         This contribution has been peer-reviewed.                                       1672
+https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1669-2025 | © Author(s) 2025. CC BY 4.0 License.
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-G-2025
+ ISPRS Geospatial Week 2025 "Photogrammetry & Remote Sensing for a Better Tomorrow...", 6­11 April 2025, Dubai, UAE
+
+                                                                     Table 8. Comparison of distortion parameter uncertainty for the
+                                                                            two grid sizes across all calibration configurations.
+
+                                                                         Equidistant           Radial-Tangential
+
+                                                                         Small    Big          Small       Big
+
+                                                                     k1  0.01546 0.00888 0.00272 0.00149
+
+                                                                     k2  0.14677 0.08020 0.00438 0.00261
+
+                                                                     k3  0.57797 0.28820
+
+                                                                     k4  0.79136 0.35267
+
+                                                                     r1                   0.00047 0.00027
+
+                                                                     r2                   0.00041 0.00025
+
+                                                                     Additionally, Table 9 shows the combined distortion uncertainty
+                                                                     breakdown by smartphone, showing that GP7P4 had the least
+                                                                     distortion uncertainty, and that the same model smartphones
+                                                                     (GP7P1 and GP7P4) have similar levels of uncertainty.
+
+                                                                     Table 9. Comparison of distortion parameter uncertainty for the
+                                                                          three smartphones across all calibration configurations.
+
+                                                                                  Equidistant
+
+  Figure 6: Anisotropic distribution of reprojection errors (top)        GP7P1        GP7P4                iP10
+   after calibration using large grids compared to small grids.
+                                                                     k1  0.01066      0.01091              0.01562
+As for distortion modeling, the uncertainty is greatly reduced
+when using an Aprilgrid instead of a checkerboard (Table 7), as      k2  0.09025      0.08933              0.16074
+its partial-visibility allowance provides better camera coverage at
+the edges of the images (Figure 7). Using a larger calibration grid  k3  0.30464      0.29309              0.66855
+also reduces uncertainty by improving robustness against motion
+blur and ensuring better coverage of distortions by increasing       k4  0.34814      0.32670              0.16074
+feature size (Table 8).
+                                                                                  Radial-Tangential
+
+                                                                         GP7P1        GP7P4                iP10
+
+                                                                     k1  0.00171      0.00162              0.00287
+
+                                                                     k2  0.00297      0.00265              0.00652
+
+                                                                     r1  0.00035      0.00032              0.00043
+
+                                                                     r2  0.00028      0.00026              0.00044
+
+Figure 7: Camera coverage plot for the iPhone 10: small              5.2 Smartphone Camera Intrinsics
+     Aprilgrid (left), and small checkerboard (right).
+                                                                     The variability between the IOP estimates show that IOP
+Table 7. Comparison of distortion parameter uncertainty for the      variations due to different calibration setups can exceed 50 pixels
+       two grid types across 24 calibration configurations.          for focal length (, ) and 35 pixels for the principal point
+                                                                     (, ) (Table 10). This highlights the importance of calibrating
+    Equidistant      Radial-Tangential                               for individual phones and not for individual smartphone models.
+                                                                     Additionally, comparisons between the two same-model
+    AG  CH           AG  CH                                          smartphones (GP7P1 vs. GP7P4) suggest that using a large
+                                                                     Aprilgrid and equidistant distortion modelling may help maintain
+k1  0.00319 0.01603 0.00132 0.00273                                  IOP stability between calibration sets (Table 11). Finally, the
+                                                                     standard deviation analysis for calibration grid type and size
+k2  0.02809 0.15245 0.00224 0.00582                                  indicates that larger calibration grids yield more consistent results
+                                                                     (Table 12), whereas differences between checkerboard and
+k3  0.09955 0.59804                                                  Aprilgrid has inconclusive results (Table 13).
+
+k4  0.12106 0.81406                                                     Table 10. Peak-to-peak variation in IOP estimates for each
+                                                                                                    smartphone.
+r1                   0.0002 0.0005
+                                                                                                 [px]  [px]  [px]  [px]
+r2                   0.0002 0.0004                                      iP10 Min 1464.18 1465.24 531.53 911.25
+
+                                                                                     Max 1498.34 1496.92 548.65 943.10
+                                                                                     Diff. 34.17 31.68 17.12 31.85
+                                                                      GP7P1 Min 1328.55 1331.60 518.33 943.39
+                                                                                     Max 1382.44 1378.33 541.44 978.87
+                                                                                     Diff. 53.89 46.73 23.11 35.48
+                                                                      GP7P4 Min 1311.75 1311.15 537.07 927.66
+                                                                                     Max 1359.27 1357.03 559.57 946.49
+                                                                                     Diff. 47.53 45.87 22.50 18.83
+
+                                             This contribution has been peer-reviewed.                                   1673
+    https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1669-2025 | © Author(s) 2025. CC BY 4.0 License.
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-G-2025
+ ISPRS Geospatial Week 2025 "Photogrammetry & Remote Sensing for a Better Tomorrow...", 6­11 April 2025, Dubai, UAE
+
+   Table 11. Summary of same-model absolute differences             APEi = ||Test,i - Tgt,i||                        (11)
+                  (GP7P1-GP7P4) for each IOP.
+                                                                    and the RMSE of the APE is:
+ Calibration  [px]  [px]  [px]  [px]
+Configuration
+
+PE_sAG  55.98 54.15 29.16 21.21                                                                   
+
+PE_bAG  2.10      1.22         3.77         3.86                                   =  1                2
+                                                                                        
+PE_sCH  22.96 20.86 27.45 50.71                                                                                      (12)
+
+                                                                                                 =1
+
+PE_bCH  19.07 16.10            6.53         2.52
+
+PR_sAG  16.22 16.07 10.55 10.74                                     which represents the average deviation between the ground truth
+                                                                    and estimated pose across all timestamps .
+PR_bAG  7.81      8.02  14.42 16.31
+
+PR_sCH  36.87 34.23 14.07 32.19                                     The average RMSE is calculated for each calibration setup group,
+                                                                    and results indicate that the small grid size, checkerboard grid
+PR_bCH  14.66 13.44            2.20         9.25                    type, and equidistant distortion modelling lead to lower
+                                                                    positioning errors (Tables 15-17). The grid configurations are
+Table 12. Summary of standard deviation of IOP estimates by         particularly beneficial because they allow for greater depth
+   calibration grid size across all calibration configurations.     variation during the calibration process. Firstly, smaller grids
+                                                                    enable the user to position the camera very close to the grid,
+              Small                  Big                            which is useful for close-range 3D reconstruction. Secondly, the
+                                                                    checkerboard grid type, unlike the Aprilgrid, remains
+ [px]         15.94                  13.92                          recognizable at larger distances, making it effective for a more
+ [px]         15.21                  12.69                          varied calibration process. Additionally, equidistant distortion is
+ [px]         7.53                   6.05                           a symmetrical, less complex distortion model that may be more
+ [px]         11.38                  6.32                           fitting to the smartphone's wide field of view. Together, these
+                                                                    factors contribute to more accurate positioning estimates, as they
+Table 13. Summary of standard deviation of IOP estimates by         provide better calibration coverage across various depths and
+  calibration grid type across all calibration configurations.      perspectives.
+
+              AG                     CH
+
+ [px]         14.58                  15.34                          Table 15. A comparison of the APE RMSE value between the
+ [px]         14.22                  13.79                                               two calibration grid sizes.
+ [px]         6.87                   6.79
+ [px]         7.37                   10.73                                            Small                    Big
+
+                                                                    APE RMSE [cm]                38.8          41.5
+
+Additionally, the standard deviation of the estimated IOPs for      Table 16. A comparison of the APE RMSE value between the
+each smartphone is summarized in Table 14, showing that GP7P1                            two calibration grid types.
+had the least variability across calibration tests, while iP10 had
+the most homogeneous standard deviations for the  and                              Aprilgrid                 Checkerboard
+directions.
+                                                                    APE RMSE [cm]                41.6          38.7
+
+Table 14. Summary of standard deviation of IOP estimates by         Table 17. A comparison of the APE RMSE value between the
+                                                                                       two camera distortion models.
+
+smartphone across all calibration configurations.                                  Equidistant Radial-Tangential
+
+        GP7P1           GP7P4        iP10                           APE RMSE [cm]     35.1                     45.2
+
+ [px]   12.10           19.00        14.01                          Additionally, the APE RMSE values by smartphones are
+ [px]   12.09           16.52        14.06                          summarized in Table 18, showing that the iPhone 10 had the least
+ [px]   5.49            7.80         7.45                           positioning errors, closely followed by GP7P1.
+ [px]   9.13            11.18        7.61
+                                                                    Table 18. A comparison of the APE RMSE value between the
+                                                                                              three smartphones.
+
+                                                                                   GP7P1               GP7P4   iP10
+
+5.3 Smartphone Camera Positioning Evaluation                        APE RMSE [cm]  38.7                43.4          38.3
+
+To assess positioning accuracy, the RMSE of the APE is used as                    6. CONCLUSION AND OUTLOOK
+the primary metric. APE quantifies the deviation between
+estimated camera poses , and the ground truth poses , at            This study examined how calibration grid type, grid size, and
+corresponding timestamps. Before computing APE, an                  camera distortion model affect smartphone camera calibration
+Umeyama Sim(3) alignment is applied to correct for scale            uncertainty and the effects on monocular SLAM positioning. The
+differences in the monocular SLAM trajectory, which is              results suggest that no single calibration setup is universally
+inherently arbitrary in scale. Example aligned trajectories for     optimal; instead, parameter selection should be tailored to the
+each smartphone is displayed in Figure 8                            application, with a focus on repeatability and depth variation.
+. Mathematically, the APE for a given pose  is defined as:
+
+                                                 This contribution has been peer-reviewed.                                 1674
+        https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1669-2025 | © Author(s) 2025. CC BY 4.0 License.
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-G-2025
+ ISPRS Geospatial Week 2025 "Photogrammetry & Remote Sensing for a Better Tomorrow...", 6­11 April 2025, Dubai, UAE
+
+Figure 8. The aligned trajectory plots across all calibration configurations for the iPhone 10 (left), Google Pixel 7 #1
+(middle) and Google Pixel 7 #4 (right). This shows how each IOP set from different calibration configurations causes
+
+                                       differences in the trajectory estimate for each phone.
+
+Grid Size: Larger grids improve robustness against motion blur,    3. Integration of IMU: Monocular SLAM lacks scale, limiting
+making them preferable for applications requiring consistent       metric accuracy. Investigating the impact of calibration on IMU
+intrinsic and distortion modeling, reducing uncertainty by         extrinsics and metric positioning could expand the use of
+approximately 0.7 pixels for focal length and principal point.     smartphones in high-precision SLAM applications.
+However, they are more prone to axis-specific errors, especially
+in dynamic environments. In contrast, smaller grids are better     Addressing these areas will further refine smartphone-based
+suited for close-range depth estimation in indoor SLAM,            photogrammetry and SLAM methodologies, enhancing the
+reducing positioning errors by 2.7 cm. However, they are more      reliability of mobile mapping, robotics, and augmented reality
+susceptible to motion blur, leading to increased uncertainty.      applications.
+Grid Type: The Aprilgrid outperforms the checkerboard grid in
+modeling intrinsic parameters, reducing uncertainty by                                       Acknowledgements
+approximately 0.6 pixels for focal length and principal point. It
+also provides better distortion modeling due to its partial        We gratefully acknowledge the support of the Alberta Innovates
+visibility and increased image coverage, making it advantageous    in this project.
+for cameras with complex distortion. However, the Aprilgrid is
+less effective in scenarios requiring a wide depth range, such as                                  References
+SLAM in diverse environments. The checkerboard grid, though
+more limited in visibility, is better suited for applications      Barazzetti, L., Mussio, L., Remondino, F., Scaioni, M., 2012.
+requiring depth variation, reducing positioning errors by 2.9 cm.  TARGETLESS CAMERA CALIBRATION. Int. Arch.
+Distortion Model: The equidistant distortion model proves more     Photogramm. Remote Sens. Spat. Inf. Sci. XXXVIII-5-W16.
+effective for smartphone SLAM, likely due to its reduced
+dependence on radial distance and simpler model, lowering          Campos, C., Elvira, R., Rodríguez, J.J.G., M. Montiel, J.M., D.
+positioning errors by 10.1 cm. While the radial-tangential model   Tardós, J., 2021. ORB-SLAM3: An Accurate Open-Source
+is well-suited for general camera lenses, the equidistant model    Library for Visual, Visual­Inertial, and Multimap SLAM. IEEE
+should be consided more for smartphone SLAM applications.          Trans. Robot. 37, 1874­1890.
+
+For future work, several key areas warrant further investigation:  Chen, S., Li, X., Li, S., Zhou, Y., Yang, X., 2024. iKalibr:
+1. Extended smartphone testing: Future research should evaluate    Unified Targetless Spatiotemporal Calibration for Resilient
+a wider range of smartphone models, considering differences        Integrated Inertial Systems.
+across manufacturers, camera hardware generations, and
+repeated calibrations on the same device to assess consistency.    Duane,  C.B.,  1971.  Close-range                camera
+2. Temporal analysis of IOP stability: Smartphone camera
+calibration repeatability may degrade over time due to             calibration. Photogramm. Eng, 37(8), pp.855-866
+environmental factors, component aging, and software updates
+                                                                   Furgale, P., Barfoot, T.D., Sibley, G., 2012. Continuous-time
+                                                                   batch estimation using temporal basis functions. IEEE
+                                                                   International Conference on Robotics and Automation, pp. 2088­
+                                                                   2095.
+
+                                         This contribution has been peer-reviewed.                                        1675
+https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1669-2025 | © Author(s) 2025. CC BY 4.0 License.
+       The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-G-2025
+        ISPRS Geospatial Week 2025 "Photogrammetry & Remote Sensing for a Better Tomorrow...", 6­11 April 2025, Dubai, UAE
+
+Jasiska, A., Pyka, K., Pastucha, E., Midtiby, H.S., 2023. A
+Simple Way to Reduce 3D Model Deformation in Smartphone
+Photogrammetry. Sensors 23, 728.
+
+Kannala, J., Brandt, S.S., 2006. A generic camera model and
+calibration method for conventional, wide-angle, and fish-eye
+lenses. IEEE Trans. Pattern Anal. Mach. Intell. 28, 1335­1340.
+
+Mallon, J., Whelan, P.F., 2007. Which pattern? Biasing aspects
+of planar calibration patterns and detection methods. Pattern
+Recognit. Lett. 28, 921­930.
+
+Olson, E., 2011. AprilTag: A robust and flexible visual fiducial
+system. IEEE International Conference on Robotics and
+Automation, pp. 3400­3407.
+
+Patonis, P., 2024. Comparative Evaluation of the Performance of
+a Mobile Device Camera and a Full-Frame Mirrorless Camera in
+Close-Range Photogrammetry Applications. Sensors 24, 4925.
+
+Ricolfe-Viala, C., Esparza, A., 2021. The Influence of Autofocus
+Lenses in the Camera Calibration Process. IEEE Trans. Instrum.
+Meas. 70, 1­15.
+
+Tszheichoi, 2024. SENSOR LOGGER, Version 1.31.3. Kelvin
+Choi. https://www.tszheichoi.com/sensorlogger (1 April 2024).
+
+Xu, W., Cai, Y., He, D., Lin, J., Zhang, F., 2021. FAST-LIO2:
+Fast Direct LiDAR-inertial Odometry.
+
+Zambra, R.J., Uprety, S., Lee, R., Yang, H., 2024. Smartphone
+HD Map Updates Using Monocular-Inertial ORB-SLAM3 and
+Gaussian Splatting. Proceedings of the 37th International
+Technical Meeting of the Satellite Division of The Institute of
+Navigation (ION GNSS+ 2024), pp. 1885­1900.
+
+Zhang, Z., 2000. A flexible new technique for camera calibration.
+IEEE Trans. Pattern Anal. Mach. Intell. 22, 1330­1334.
+
+                                         This contribution has been peer-reviewed.                                              1676
+https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1669-2025 | © Author(s) 2025. CC BY 4.0 License.
+

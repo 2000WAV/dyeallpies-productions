@@ -1,0 +1,749 @@
+Visual Equivalence: Towards a New Standard for Image Fidelity
+
+Ganesh Ramanarayanan                    James Ferwerda                                                                  Bruce Walter                        Kavita Bala
+
+                                   Program of Computer Graphics and Computer Science Department
+
+                                        Cornell University
+
+(a)                                (c)                                                                             (d)                                 (e)
+
+    Original Illumination Map                                            
+
+(b)
+
+          Warped Illumination Map       Using Original Illumination Map                                                 Using Warped Illumination Map       Visible Differences Predictor Output
+
+Figure 1: Demonstration of visual equivalence. (a) shows an illumination map, and (b) shows a warped version of the same map. The scenes
+shown in (c) and (d) were rendered with the original and warped maps respectively. Notice that in both images the dragon has the same
+appearance; i.e. the images are visually equivalent. (e) shows the output of a visible differences predictor (VDP), indicating the reflection
+patterns in the two images are visibly different.
+
+Abstract                                                                                                                1 Introduction
+
+Efficient, realistic rendering of complex scenes is one of the grand                                                    Realistic and efficient image synthesis, particularly the rendering of
+challenges in computer graphics. Perceptually based rendering ad-                                                       complex scenes, is one of the grand challenges in computer graph-
+dresses this challenge by taking advantage of the limits of human                                                       ics. To address this challenge, researchers have developed percep-
+vision. However, existing methods, based on predicting visible im-                                                      tually based methods that take advantage of the limits of human
+age differences, are too conservative because some kinds of image                                                       vision, performing less computation while assuring visual fidelity.
+differences do not matter to human observers. In this paper, we in-                                                     Existing methods typically incorporate visible differences predic-
+troduce the concept of visual equivalence, a new standard for image                                                     tors (VDPs) [Daly 1993] to determine when an approximate so-
+fidelity in graphics. Images are visually equivalent if they convey                                                     lution will be visually indistinguishable from a reference solution.
+the same impressions of scene appearance, even if they are visi-                                                        While this approach is well-founded, it is too conservative because
+bly different. To understand this phenomenon, we conduct a series                                                       somes kinds of visible image differences simply do not matter to
+of experiments that explore how object geometry, material, and il-                                                      human observers.
+lumination interact to provide information about appearance, and
+we characterize how two kinds of transformations on illumination                                                        In this paper, we introduce the concept of visual equivalence, a new
+maps (blurring and warping) affect these appearance attributes. We                                                      standard for image fidelity in graphics. Two images are visually
+then derive visual equivalence predictors (VEPs): metrics for pre-                                                      equivalent if they convey the same impressions of scene appear-
+dicting when images rendered with transformed illumination maps                                                         ance, even if they are visibly different in a side-by-side comparison.
+will be visually equivalent to images rendered with reference maps.                                                     Figure 1 illustrates the phenomenon.
+We also run a confirmatory study to validate the effectiveness of
+these VEPs for general scenes. Finally, we show how VEPs can be                                                         As a first step in understanding visual equivalence, we focus on
+used to improve the efficiency of two rendering algorithms: Light-                                                      the problem of rendering objects with illumination maps. We con-
+cuts and precomputed radiance transfer. This work represents some                                                       duct a series of psychophysical experiments that explore how object
+promising first steps towards developing perceptual metrics based                                                       geometries, materials, and illumination interact to provide informa-
+on higher order aspects of visual coding.                                                                               tion about appearance, and we quantify how two sets of transfor-
+                                                                                                                        mations on illumination maps, blurring and warping, affect these
+CR Categories: I.3.7 [Computer Graphics]: Three-Dimensional                                                             appearance attributes. Based on these experiments, we develop vi-
+Graphics and Realism;                                                                                                   sual equivalence predictors (VEPs), metrics predicting when im-
+                                                                                                                        ages rendered with the transformed maps will convey the same ap-
+Keywords: perception, human visual system, appearance                                                                   pearance as images rendered with reference maps. We then run
+                                                                                                                        a confirmatory study to validate that these VEPs generalize, accu-
+    {graman,kb}@cs.cornell.edu                                                                                          rately reflecting observers' judgments about visual equivalence for
+    {jaf,bjw}@graphics.cornell.edu                                                                                      new geometries, materials, and illuminations. Finally, we demon-
+                                                                                                                        strate how VEPs can be used to improve the efficiency of two ren-
+ACM Reference Format                                                                                                    dering algorithms: Lightcuts [Walter et al. 2005] and wavelet com-
+Ramanarayanan, G., Ferwerda, J., Walter, B., Bala, K. 2007. Visual Equivalence: Towards a New                           pression for precomputed radiance transfer [Ng et al. 2004].
+Standard for Image Fidelity. ACM Trans. Graph. 26, 3, Article 76 (July 2007), 11 pages. DOI =
+10.1145/1239451.1239527 http://doi.acm.org/10.1145/1239451.1239527.                                                     The research described in this paper represents some promising first
+                                                                                                                        steps toward developing new perceptual metrics for realistic image
+Copyright Notice                                                                                                        synthesis based on higher order aspects of human visual coding.
+Permission to make digital or hard copies of part or all of this work for personal or classroom use is granted          We believe that this work can serve as the foundation of advanced
+without fee provided that copies are not made or distributed for profit or direct commercial advantage                  perceptually based image synthesis algorithms that will dramati-
+and that copies show this notice on the first page or initial screen of a display along with the full citation.         cally lower computational costs while assuring the fidelity of the
+Copyrights for components of this work owned by others than ACM must be honored. Abstracting with                       resulting images.
+credit is permitted. To copy otherwise, to republish, to post on servers, to redistribute to lists, or to use any
+component of this work in other works requires prior specific permission and/or a fee. Permissions may be
+requested from Publications Dept., ACM, Inc., 2 Penn Plaza, Suite 701, New York, NY 10121-0701, fax +1
+(212) 869-0481, or permissions@acm.org.
+© 2007 ACM 0730-0301/2007/03-ART76 $5.00 DOI 10.1145/1239451.1239527
+http://doi.acm.org/10.1145/1239451.1239527
+
+                                        ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+76-2 · Ramanarayanan et al.
+
+2 Prior Work
+
+2.1 Psychophysics of Appearance
+
+Why do things look as they do? This question posed in 1935 by                           (a)  (b)
+psychologist Kurt Koffka [Koffka 1935] has been a central theme
+in the field of perception psychology. The way human vision un-          Figure 2: Material and Geometry. An object's material and geom-
+tangles the patterns of light in the retinal images to perceive the      etry affect how it reflects the incoming illumination field. (a) A
+shapes, materials, and illumination of objects is the subject of a       glossy material blurs the illumination map, producing a blurry re-
+vast research literature (surveyed in [Palmer 1999]).                    flection (see bottom array) of the checkerboard environment. (b)
+                                                                         A shiny, bumpy object disorders the illumination map, as shown in
+Shape perception: The central problem in shape perception is how         the bottom array.
+the visual system recovers the three-dimensional shapes of objects
+from two-dimensional retinal images. Many potential sources of           processing, including perceptual salience [Yee et al. 2001; Anson
+information have been identified, including shading, shadows, per-       et al. 2006], attention and change blindness [Cater et al. 2002; Cater
+spective, reflections, texture, motion, and occlusion [Gibson 1979;      et al. 2003; Chalmers et al. 2003], natural image statistics [Reinhard
+Rock 1983]. Modern work has focused on trying to measure the ef-         et al. 2004], perception of illumination components [Stokes et al.
+ficacy of different sources [Todd and Mingolla 1983; Cavanagh and        2004; Debattista et al. 2005], and task importance [Ferwerda and
+Leclerc 1989; Cutting and Millard 1984; Fleming et al. 2004], and        Pellacini 2003; Sundstedt et al. 2004].
+build computational models of how vision might combine different
+sources [Knill and Richards 1996] to recover shape. Researchers          Researchers have also started to develop perceptual metrics to opti-
+have also discovered how the limitations of fixed viewpoints make        mize and control the appearance of the geometric and material mod-
+it mathematically impossible to recover the exact shape of objects       els used in rendering. There is a large body of work using VDPs,
+under certain conditions [Belhumeur et al. 1997].                        saliency, attention, and related metrics for geometric level-of-detail
+                                                                         schemes [Luebke and Hallen 2001; Williams et al. 2003; Reddy
+Material Perception: Historically, there has been relatively little      2001; Brown et al. 2003; Howlett et al. 2004; Parkhurst and Niebur
+research on material perception [Beck 1972]. However, there is           2004; Lee et al. 2005; Qu and Meyer 2006]. Cleju and Saupe [2006]
+now a growing literature that spans computer graphics and vision         and Watson et al. [2001] have explored higher level metrics for
+research. Active research areas include studies of surface lightness     evaluating model fidelity. Rogowitz and Rushmeier [2001] have
+and color [Gilchrist et al. 1999; Adelson 2000; Brainard and Mal-        characterized the consequences of substituting texture for geome-
+oney 2004], gloss and specularities [Blake and Bu¨lthoff 1990; Fer-      try. Others have developed psychophysically based models for de-
+werda et al. 2001; Westlund and Meyer 2001; Fleming et al. 2003;         scribing and controlling material appearance [Pellacini et al. 2000;
+Fleming et al. 2004; Hartung and Kersten 2002; Todd et al. 2004;         Westlund and Meyer 2001; Khan et al. 2006; Meseth et al. 2006].
+Xiao and Brainard 2006], translucency and subsurface scattering
+[Robilotto et al. 2002; Fleming and Bu¨lthoff 2005], and surface
+texture [Dana et al. 1999; te Pas and Pont 2005; Ho et al. 2006].
+
+Illumination Perception: While accurate rendering of illumination        2.3 The Need for a New Approach
+is a central issue in graphics, in vision research it is often regarded
+as something to be discounted to achieve constancy [Gilchrist et al.     While there are large literatures on the psychophysics of appear-
+1999; Adelson 2000; Brainard and Maloney 2004; Wandell 1993].            ance and perceptually based rendering, efficient rendering of com-
+Recently, greater focus has been placed on understanding percep-         plex scenes remains a difficult, unsolved problem. One reason is
+tion of illumination per se. Many researchers [Todd and Mingolla         that perceptual metrics currently used in graphics (such as VDPs)
+1983; Koenderink et al. 2003; te Pas and Pont 2005; Khang et al.         only consider the earliest levels of visual coding, and are there-
+2006] have looked at the ability to estimate the directionality and      fore too conservative with respect to the kinds of approximations
+complexity of illumination fields. Dror et al. [2004] have charac-       that can be applied in the rendering process. We believe that by
+terized natural illumination statistics, Pont and Koenderink [2004]      understanding the visual coding of higher level scene properties,
+have studied surface illuminance flow, and Ostrovsky et al. [2005]       such as shapes, materials, and lighting, it should be possible to de-
+have studied tolerance for illumination inconsistencies.                 velop powerful new classes of appearance-preserving rendering al-
+                                                                         gorithms that will realistically represent the way scenes look, while
+2.2 Perceptually based rendering                                         aggressively reducing computational costs. In the following sec-
+                                                                         tions we investigate the concept of visual equivalence, which will
+Due to the computational expense of realistic image synthesis, per-      serve as the foundation of our new approach.
+ceptually based rendering has been an active research area over the
+past fifteen years. The central goal of perceptually based render-       3 Visual Equivalence
+ing is to improve the efficiency of realistic image synthesis by tak-
+ing the limits of human vision into account. A popular approach          Scene appearance is determined by the complex interactions of
+has been to use visible differences predictors (VDPs) [Daly 1993],       a scene's geometry and materials with the incoming illumination
+which can determine whether images rendered using an approxi-            field. Our goal is to understand when these interactions result in
+mate light transport simulation will be indistinguishable from a ref-    images that are visually equivalent.
+erence solution. Myszkowski [2002] provides a recent review.
+                                                                         Because the space of interactions between geometry, material, and
+While VDPs offer a principled approach to perceptually based             illumination is so large, in this work we focus on the effects of
+rendering, the overhead of evaluating VDPs and the conservative          illumination. To do this, we need to (a) pick an encoding of the in-
+threshold metrics they incorporate has limited the performance           coming illumination field and (b) define classes of transformations
+gains that have been achieved. Recently a number of researchers          we can apply to the illumination field so that we can measure when
+have been looking for ways to improve the efficiency of perceptu-        visual equivalence occurs. We chose illumination maps as repre-
+ally based rendering by taking advantage of other aspects of visual      sentations of illumination for two reasons. First, HDR environment
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+Visual Equivalence: Towards a New Standard for Image Fidelity · 76-3
+
+maps of natural illumination are widely used and readily available.      M3
+Second, recent research has demonstrated the importance of natu-         M2
+ral illumination (which can be encoded in such maps) for tasks such
+as material appearance perception [Fleming et al. 2003]. Now, we
+must define classes of transformations we can apply to these maps.
+
+3.1 Illumination Transformations
+
+The space of transformations on illumination maps is potentially in-     M1
+finite - how do we decide which ones are worth studying? To pick
+a set of transformations, we drew inspiration from how object ma-        M0
+terial and geometry interact with the illumination field. All opaque
+objects can be thought of as mirrors in the sense that they reflect          G0       G1  G2  G3
+the light they receive from their surroundings. Some objects, such
+as flat metal surfaces, are good mirrors in that they produce regu-      Figure 3: The geometries and materials used in the experiments.
+lar, high contrast, coherent reflections of the environment. Other       Specific parameters are given in the text.
+objects are bad mirrors, though bad mirrors can be bad in different
+ways.                                                                    4 Experiments
+
+Material. A glossy material reflects a blurred version of the incom-     To understand the effects of illumination transformations on visual
+ing illumination field; the degree of the blur depends on the width      equivalence, we conducted a series of psychophysical experiments
+of the material's specular lobe. Figure 2-(a) shows how material         measuring how illumination changes interact with object geome-
+blurs a 1D checkerboard environment map. This effect is exploited        try and material properties to affect appearance. Specifically, we
+in interactive rendering using prefiltered environment maps [Cabral      designed studies to answer the following questions: 1) when do
+et al. 1999; Kautz et al. 2000; Ramamoorthi and Hanrahan 2002].          changes in illumination produce visible differences in images; and
+                                                                         2) when do changes in illumination produce renderings that are vi-
+Geometry. The geometry of an object can also affect how it reflects      sually equivalent despite these differences? In the following sec-
+the incoming illumination field. Figure 2-(b) shows how bumpy            tions, we describe our stimuli and experimental procedure.
+geometry disorders access into the 1D checkerboard environment
+map. Characterizing this access pattern for arbitrary geometry is        4.1 Stimuli
+complex. However, when we look at a small surface patch, we can
+think of how it accesses the incoming illumination as a warp on          First, we created a set of images that would allow us to systemat-
+the illumination map. The extent of the warp depends on the local        ically explore interactions between geometry, materials, and illu-
+curvature of the surface.                                                mination. Figure 3 shows the test objects in our stimulus set. The
+                                                                         scene model consists of a bumpy ball-like test object on a brick pa-
+Choice of Transformations. Based on these insights, we decided           tio flanked by two pairs of children's blocks (see Figure 5). The
+to study the following two transformations on illumination maps:         following paragraphs describe the object, scene, and rendering pa-
+blurs and warps.                                                         rameters we used to generate the images.
+
+Object Complexity. The above discussion, in addition to inspiring        Geometry: We created four object geometries (G0-G3), shown in
+particular illumination transformations, also illustrates the impor-     the rows of Figure 3. G0 is a sphere (approximated by a triangle
+tance of characterizing the effects of illumination on a variety of      mesh with 164k vertices and normal interpolation) while G1-G3 are
+geometries and materials. One would expect that more illumination        modified spheres with bumps of uniform amplitude and increasing
+transformations are permissible on complex objects than on simple        spatial frequency. G1-G3 were created by applying a scaled cube of
+ones. For this reason, we decided to study a high-to-low-gloss range     Perlin noise [Perlin 2002] to the sphere mesh with cube sizes of {8,
+of materials, and a smooth-to-bumpy range of geometries. Our ex-         4, 2}, which was judged to produce objects of roughly uniformly in-
+act set of objects is shown in Figure 3 and discussed in Section 4.1.    creasing "bumpiness". We chose these geometries because: 1) their
+                                                                         functional definitions should facilitate formal analysis of the effects
+3.2 Criteria for Visual Equivalence                                      of geometry on appearance; 2) there is a precedent in the shape per-
+                                                                         ception literature for similar geometries [Todd and Mingolla 1983;
+We want to find illumination transformations that preserve scene         Todd et al. 2004]; and 3) there are recent studies that point to the
+appearance. When do two images convey the "same" scene appear-           importance of mesoscale surface variations in the perception of ma-
+ance? VDPs only predict when observers detect contrast differ-           terial and illumination properties [te Pas and Pont 2005].
+ences between a pair of images. For visual equivalence, we need to
+use higher-level criteria. Given an object, and its associated geom-
+etry and material properties, the images produced by the reference
+and transformed illumination maps are visually equivalent if:
+
+ · The object's shape and material are judged to be the same in
+    both images, and
+
+ · In a side-by-side comparison, a person is unable to correctly
+    identify which object has been rendered with the reference map.
+
+Note that this definition specifically does not require that the images  Materials: The columns of Figure 3 show the materials used in the
+be indistinguishable in the VDP sense.                                   experiments, which represent brushed aluminums with different de-
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+76-4 · Ramanarayanan et al.
+
+Blur1  Blur2  Blur3          Blur4  Blur5
+
+Warp1  Warp2  Warp3          Warp4  Warp5
+
+Figure 4: The illumination transformations used in the experiments,
+and the resulting renderings on object G1/M0.
+
+grees of microscale surface roughness. Materials were defined us-       Figure 5: Browser-based interface used in the experiment. Shown:
+ing an isotropic version of the Ward light reflection model [Ward       Illumination task, G1/M0 object, rendered with warp5 illumination
+1992]. The Ward model uses three parameters to describe sur-            map on left, and reference map on right.
+face reflectance properties: d (diffuse reflectance), s (specu-
+lar reflectance), and  (specular lobe width). For all materials,            ing the warped illumination to an object with geometry G1 and
+d = 0.15 and s = 0.19.  values for M0 through M3 were set to                material M0.
+{0.01,0.06,0.11,0.16} respectively. We chose these parameters to:
+1) span a significant range of high-to-low-gloss reflectance (produc-   Rendering and display: The images were rendered at 484x342
+ing visually salient reflected images); and 2) represent perceptually   using a Monte Carlo path tracer. The test object was illuminated
+equal changes in gloss appearance [Pellacini et al. 2000].              by either the reference map, a blurred map, or a warped map,
+                                                                        while the rest of the scene was always illuminated by the original
+Illumination: Recent studies have demonstrated the importance of        GROVE map. Overall, 176 images were rendered for the stimu-
+real-world illumination for the accurate perception of shape and        lus set (4 geometries x 4 materials x 11 illuminations (reference,
+material properties [Fleming et al. 2004; Fleming and Bu¨lthoff         5 blurs, 5 warps)). For display, the images were tone mapped us-
+2005]. We used Debevec's GROVE (UC Berkeley Eucalyptus                  ing a global sigmoid [Tumblin and Rushmeier 1993] that was tuned
+Grove) HDR environment map [Debevec and Malik 1997]. We                 to the characteristics of the LCD display (Dell 2000FP, 20" diago-
+chose this map in particular because Fleming et al. [2003] found        nal, 1600x1200 resolution, sRGB color space, max luminance 200
+that it allowed subjects to most accurately discriminate material       cd/m2, 60:1 dynamic range, gamma 2.2). The images were viewed
+properties. Starting with the original GROVE map, we first gen-         under dim office lighting conditions. At a nominal 24" viewing dis-
+erated a reference map that incorporated the other components of        tance each image subtended 11.6 degrees of visual angle and each
+our scene (i.e., the brick patio and the children's blocks, which pro-  test object subtended 7 degrees.
+vided high contrast, colored features one would expect to see in ob-
+ject reflections). We then generated two sets of transformed maps,      4.2 Procedure
+via blurring and warping:
+
+· Blurs: We convolved the reference map with progressively              The images in the stimulus set were presented to subjects in pairs
+   larger Gaussian blurring kernels. The sizes of these kernels         using the browser-based interface shown in Figure 5. The pairs
+   roughly corresponded to Ward  values of {0.01, 0.035, 0.06,          always showed objects with the same geometry and material prop-
+   0.085, 0.11}. The top row of Figure 4 shows a section of each        erties. The only difference was that one was lit by the reference
+   blurred illumination map, and below it the result of applying        map and the other by a transformed (blurred or warped) map. In
+   the blurred illumination to an object with geometry G1 and ma-       some cases (Tasks 1 and 4) a third reference image was displayed
+   terial M0.                                                           above the test pair.
+
+· Warps: We wanted to create illumination distortions similar           Separate experiments were conducted for the "blurred" and
+   to those seen in the reflection on a bumpy surface. We first         "warped" map image sets. An experiment consisted of four related
+   created bumpy spheres by applying scaled Perlin noise to a           tasks:
+   sphere, as described for the geometry, using scaling factors of
+   { 2, 1, 1/2, 1/2, 1/8} respectively. Then for each direc-            1. Image differences task: In this task, subjects were shown a
+   tion in a warped map, we found the corresponding surface point           reference image, and a pair of test images, all of the same
+   as seen from the center of the bumpy object and used its surface         object. The reference image and one of the test images were
+   normal to lookup in the reference map. Lastly, we renormal-              rendered with the reference map; these images were identical.
+   ized the warped maps to have the same overall energy as the              The other test image was rendered with one of the transformed
+   reference. The bottom row of Figure 4 shows a section of each            maps. Subjects were asked: "Which test image is the same
+   warped illumination map, and below it and the result of apply-           as the reference image?". The purpose of this task was to de-
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+Visual Equivalence: Towards a New Standard for Image Fidelity · 76-5
+
+    termine when the illumination transformations produce images       other cases, visible differences were detected. The top row sum-
+    that are visibly different (in the VDP sense) from the reference.  marizes the results for the blurred maps, with the blur increasing
+                                                                       across the panels from left to right. Overall, as the blur increases
+2. Shape task: In this task, subjects were shown two images of the     the illumination transform becomes more detectable, as expected.
+    same object. One object was rendered with the reference map        Within this broad trend, visibility of differences is affected by the
+    the other was rendered with a transformed map. Subjects were       object geometry and material. In general, more blur is tolerated as
+    asked: "Are the left and right test objects the same shape?".      the material gloss decreases (i.e., moving up from M0 to M3 within
+    The purpose of this task was to determine if the transformed       each panel). There is also a small effect of geometry; the blur is
+    maps produce illusory changes in the apparent shapes of the        less detectable as surface bumpiness increases (moving right from
+    objects.                                                           G0 to G3 within each panel). Although, as with any psychophysi-
+                                                                       cal experiment, there is some noise in the data, these results are well
+3. Material task: In this task, subjects were shown two images         understood within characterizations of object-illumination interac-
+    of the same object. One object was rendered with the refer-        tions as a filtering operation [Ramamoorthi and Hanrahan 2002].
+    ence map the other was lit with a transformed map. Subjects
+    were asked: "Are the left and right test objects made of the       The results for the warped maps are shown in the bottom row of
+    same material?". The purpose of this task was to determine if      Figure 6. Again, overall detectability of differences between the
+    the transformed maps produce illusory changes in the apparent      test and reference images increases with the warp level. However,
+    material properties of the test objects.                           unlike the blur results, which showed a gradual increase in differ-
+                                                                       ences across the range, here the effect is dramatic. While some im-
+4. Illumination task: In this task, subjects were shown a refer-       ages rendered with warp1 are indistinguishable from the reference,
+    ence image, and a pair of test images. The reference image         virtually all images rendered with warp2 and above were judged to
+    showed an ideal mirror sphere rendered with the reference map.     be visibly different (very few solid green circles). This reflects the
+    The test images showed identical objects, one rendered with the    reports of subjects who said that it was relatively easy to see this
+    reference map and one rendered with a transformed map. Sub-        kind of image difference because it produces distinctly different re-
+    jects were asked: "Which test object is lit the same as the        flection patterns in the surfaces. The detectability of this kind of
+    reference object?". The purpose of this task was to determine      transformation on the illumination map is relatively unaffected by
+    if subjects can use surface reflection patterns to detect differ-  the object geometry, and only modestly affected by material prop-
+    ences in scene illumination.                                       erties.
+
+Each subject performed the image differences task first. To reduce     We also ran an open source VDP1 [Mantiuk et al. 2005] on our test
+the experiment size, if the subject incorrectly identified which im-   pairs to predict the visibility of differences and it generally agreed
+age was the same as the reference, then they could not distinguish     with the judgments of our subjects.
+the reference from the test image, and that pair was not shown in
+later tasks. The shape, material, and illumination tasks were then     The Task 1 results show that: 1) the transformations we have made
+delivered in random order. Within each task both the overall order     on the illumination maps often produce images that are visibly dif-
+of presentation and left/right positions of the images were random-    ferent from reference images, and 2) the blur and warp transforma-
+ized across trials.                                                    tions appear to be different in kind, where the detectability of blur
+                                                                       increases gradually and is affected by object properties, but warping
+Subjects entered their responses with a keyboard and mouse using       is reliably detected at all but the lowest warp level, and detection is
+the buttons shown in the interface. Response times were recorded,      largely independent of object properties.
+but the trials themselves were open-ended and subjects could take
+as much time as they needed. On average, subjects took approxi-        5.2 Tasks 2, 3, and 4 - Changes in Appearance
+mately 45 minutes to complete all four tasks.
+
+Overall, 30 subjects participated in the experiments (15 each in the   The focus of Task 1 was on simple detectability of pixel or region-
+blurred map and warped map conditions). The subjects were uni-         wise image differences without regard for image content (similar
+versity students, staff, and faculty (ages 20 to 50). Many had tech-   to measures produced by VDPs). The focus of Tasks 2, 3, and 4
+nical backgrounds, but none in computer graphics. All were na¨ive      was on how the blur and warp transformations affect the appear-
+to the design and purpose of the experiments, and all had normal or    ance attributes of the test objects (shape, material, and lighting re-
+corrected-to-normal vision.                                            spectively). Since distortion of any appearance attribute indicates a
+                                                                       failure of visual equivalence, in reporting the results we have com-
+5 Results of the Experiments                                           bined the data from the three tasks. Specifically, if for Task 2 or
+                                                                       Task 3 subjects consistently reported that one of the object's at-
+Our results are summarized in Figure 6. Recall that we are inter-      tributes looked different (50% threshold for yes/no design), or if
+ested in answering two questions: 1) when do changes in illumi-        for Task 4 the correctly rendered object was picked at least 75% of
+nation produce images that are visibly different; and 2) when do       the time (2AFC threshold), then the transformed illumination map
+different illuminations produce images that are visually equivalent    did not preserve appearance for that object.
+(i.e. same scene appearance) despite these differences? Task 1 ad-
+dressed the image differences question and Tasks 2, 3, and 4 ad-       We refer again to the top row of Figure 6 for the results of Tasks 2,
+dressed the appearance question.                                       3, and 4 for the blurred maps. Red squares indicate where subjects
+                                                                       saw changes in appearance for that particular object/illumination
+5.1 Task 1 - Image Differences                                         combination; green circles (solid or with a dot) indicate where ap-
+                                                                       pearance was preserved. As with Task 1, there appears to be an
+Task 1 tested if subjects could see any differences between im-        interaction between illumination blur and object material proper-
+ages rendered with the transformed maps and the reference map.         ties. At the lowest blur level (blur1), with one exception, subjects
+Performance on the task was measured using a 75% threshold             saw no differences in appearance between objects rendered with
+(2AFC) [Gescheider 1997]. In Figure 6, the cases where images
+were indistinguishable are indicated with solid green circles; in all      1http://www.mpi-inf.mpg.de/resources/hdr/vdp
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+76-6 · Ramanarayanan et al.
+
+Figure 6: Summary of results for the experiments. The top and bottom rows show results for the blur and warp studies, respectively. Green
+circles mark cases where objects rendered with transformed illumination maps had the same appearance as objects rendered with reference
+maps. Red squares show cases where object appearance was different from from the reference. Among the green circles (same appearance),
+there is a further distinction between the cases where images were indistinguishable (solid circles) and cases where the images were different
+but conveyed the same appearance (circles with a dot). Visual equivalence is represented by this latter set.
+
+the blurred and reference maps, but as blur increases (blur2-blur5)
+more objects were affected.
+
+The results of Tasks 2, 3, and 4 for the warped maps are shown
+in the bottom row of Figure 6. Similar to the blur results, smaller
+warps have less effect on appearance than greater warps; however,
+even at the higher warp levels (warp3-warp5) there are significant
+regions where subjects said the warp and reference rendered objects
+appeared the same.
+
+5.3 Significance of the Results
+
+So what have we learned from the experiments?                           Figure 7: Visual equivalence predictors (VEPs) for illumination
+                                                                        transformations. The dashed lines represent the original SVM plane
+1. First, for the range of objects we tested, it is often possible to   fit, and the blue regions represent a more conservative partitioning.
+    significantly transform the illumination maps used in rendering     For blur, the planes have a shallow slope, indicating the main inter-
+    without affecting the object's appearance (green circles);          action is with material properties. For warp, the planes have a steep
+                                                                        slope, indicating the main interaction is with geometry.
+2. Second, it is not just that the images produced by the reference
+    and transformed maps are visually indistinguishable from each       6.1 Defining the Metrics
+    other, because in many cases the images were clearly different;
+    rather, it is that images could be visually equivalent (i.e. same   For each geometry, material, and illumination transformation in-
+    scene appearance) despite these differences (green circles vs.      cluded in the experiment, we know whether the resulting rendering
+    green circles with dots);                                           was visually equivalent to a reference rendering or not (Figure 6).
+                                                                        To define metrics, we need classifiers that accurately separate the
+3. Third, while the effects of the blur transformation are largely      results into "good" (green) and "bad" (red) for the blur and warp
+    predicted by visible differences (Task 1), the effects of the warp  transformations.
+    transformation depend much more strongly on properties of ap-
+    pearance (Tasks 2, 3, and 4), which are frequently preserved        Support Vector Machines (SVM) [Vapnik 1995] are a well-known
+    even for large warps (many more green circles with dots for the     technique used in machine learning for classification and regres-
+    warp transformation).                                               sion. A support vector machine finds an optimal separating hyper-
+                                                                        plane between members and non-members of a given class in an
+6 Visual Equivalence Predictors                                         abstract space. Depending on the kernel functions used, SVMs can
+                                                                        function as linear or non-linear classifiers. SVMs are good at si-
+To use the findings of the experiments, we would like metrics that      multaneously minimizing classification error and maximizing the
+can predict when images rendered with transformed illumination          geometric margin.
+maps will be visually equivalent with reference renderings. In this
+section, we derive these visual equivalence predictors (VEPs) based     We used the popular SVM software SVMlight2 [Joachims 1999] to
+on our experiment data. We then describe geometry and mate-
+rial measures to apply our VEP metrics to objects other than those          2http://svmlight.joachims.org
+tested in the experiment.
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+Visual Equivalence: Towards a New Standard for Image Fidelity · 76-7
+
+find a linear classification of our data. Figure 7 shows the resulting
+plane fits, which classify the results with 90% accuracy. Given a
+point (g, m, i) in the geometry, material and illumination transfor-
+mation axes, the equations of the original SVM separating planes
+for blur B and warp W are:
+
+B : 0.181g + 0.546m - 0.728i + 1.177 = 0   (1)
+
+W : 0.772g + 0.178m - 0.456i + 0.500 = 0   (2)
+
+These planes are indicated by the dashed lines in Figure 7. Notice                G0               G1             G2  G3
+how most reds (different appearance) lie on one side of these lines,
+and most greens (same appearance) lie on the other side. While             Figure 8: Geometry measure for bunny and dragon.
+this is the best fit, we may want to use more conservative metrics
+since the misclassification penalty for our data is asymmetric (it is   #  Scene                   Predicted/  #      Scene                Predicted/
+worse to misclassify a configuration as visually equivalent when it                                ExpResult                               ExpResult
+actually is not). Conservative plane fits are given by:
+
+BC : 0.181g + 0.546m - 0.728i + 1.027 = 0  (3)                          0 Bunny M1 Blur2 Campus                7 G1 M0 Warp4 Galileo
+
+WC : 0.772g + 0.128m - 0.456i - 0.299 = 0  (4)                          1 Bunny M1 Blur4 Campus                8 Dragon M2 Warp3 Grove
+
+                                                                        2 Dragon M1 Blur2 Grove                9 Dragon M2 Warp5 Grove
+
+which classify the blue regions in Figure 7 as having a different       3 Dragon M1 Blur4 Grove                10 Bunny M1 Warp2 StPeters
+appearance. Our conservative metrics have the property that no
+instance of different appearance is misclassified, except for three     4 Dragon M2 Blur2 Galileo              11 Bunny M1 Warp5 StPeters
+cases in the blur experiment where the difference is so subtle it can-
+not be detected by a VDP. We attribute this to minute changes in        5 Dragon M2 Blur4 Galileo              12 Dragon M1 Warp2 Galileo
+the brightness of certain highlights that users learned to spot during
+the course of the experiment.                                           6 G1 M0 Warp1 Galileo                  13 Dragon M1 Warp5 Galileo
+
+We considered the possibility of obtaining a non-linear fit for our     Figure 10: Results of our follow-up experiment showing the predic-
+data. However, computing higher dimensional fits for datasets of        tive power of our metrics. We achieve 93% accuracy, with our only
+our size (80 points) is not encouraged with SVMs, so we leave this      mismatch being a conservative classification. The visually equiva-
+as future work.                                                         lent image pairs in Figures 1 and 9 were all validated in this exper-
+                                                                        iment.
+
+6.2 Applying the Metrics to Novel Scenes                                Illumination. Once we compute the g and m value for an arbi-
+                                                                        trary model, we can use our metrics to check which illumination
+To apply our metrics to scenes with arbitrary geometries and ma-        transformations lie on the allowed (visually equivalent) side of the
+terials, we need to be able to map these properties into their cor-     separating plane. We can then pick the most advantageous one for
+responding positions in the configuration space defined by the test     the particular application. Blur values directly correspond to a fil-
+objects in the experiment. In particular, given a new object, we        ter width or downsampling that can be used on an illumination map.
+would like to derive the closest corresponding g and m values that      For warps, we computed the average angular displacement of pixels
+describe it. The metrics will then predict levels and types of illu-    in the warped maps ({0.074, 0.123, 0.154, 0.241, 0.310} radians for
+mination transformations that result in visual equivalence for that     warp1 to warp5, respectively) and use this to characterize arbitrary
+object.                                                                 warps.
+
+Geometry. Given a general geometric model, what g value should          6.3 Metric Generalization and Validation
+be associated with it? Many characterizations of geometry are pos-
+sible [Funkhouser and Shilane 2006; DeCarlo et al. 2003]. We use        To test how well our metrics work on objects and illuminations
+a relatively simple measure that proved effective: we compute the       not studied in the experiment, we created new scenes using more
+local standard deviation of the surface normal per degree of visual     of Debevec's HDR environment maps (GALILEO, STPETERS, and
+angle squared (42x42 pixels), and associate the center pixel of that    CAMPUS). We also used the Stanford bunny and dragon geome-
+region with the test object (G0-G3) whose average local standard        tries, which have g values of roughly 1.5 and 2.5 respectively,
+deviation is most similar. Note this measure takes the viewpoint        based on pixel averaging of the geometry measure described ear-
+into consideration, so the same object may correspond to different      lier. Figure 9 shows some examples, using the conservative metrics
+values depending on viewing distance and angle. The average lo-         of Equations 3 and 4. In Figure 9-(a), we generalize across il-
+cal standard deviations were {0.157, 0.245, 0.408, 0.592} for G0        lumination only, replacing GROVE with GALILEO but still using
+to G3, respectively, given the camera view used to render the test      our test geometries. In Figure 9-(b), we generalize across geome-
+stimuli. Figure 8 shows a false colored image of the bunny and          try only, replacing our test geometries with the dragon model. In
+dragon with automatically computed g values. This can be treated        Figure 9-(c), we generalize across both geometry and illumination
+as a pixel-wise measure, or it can be averaged to associate a single    with the bunny in STPETERS. Figure 1 shows full generalization
+g value with a new object.                                              across geometry, illumination, and material for warp2.
+
+Material. Any Ward material can be linearly mapped into our space       To confirm the predictions of our metrics with the new scenes,
+based on its c and d values using the equations from [Pellacini et al.  we performed a follow-up experiment with 10 additional subjects,
+2000], provided that c  0.221, the contrast gloss for our test ma-      identical to the experiment described in Section 4.2. The results
+terial, which is on the upper end of the scale of glossiness. In fact,  for these scenes are summarized in Figure 10. Of 14 test stimuli,
+the less you can see reflected in the object, the more aggressively     7 predicted different and 7 predicted equivalent by our metrics, we
+our metrics can be applied. Mappings for other material models are      achieved 93% accuracy relative to the subjects' judgments, with our
+left as future work.                                                    only mismatch being a conservative classification.
+
+                                           ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+76-8 · Ramanarayanan et al.    Transformation                                           VDP
+
+          Reference
+
+          
+
+(a) Generalization Across Illumination: Galileo, G1, M0, Warp1
+
+          
+
+(b) Generalization Across Geometry: Grove, Dragon, M2, Warp3
+
+                             
+
+ (c) Generalization Across Both: St. Peter's, Bunny, M2, Warp2
+
+Figure 9: Predicting visual equivalence for novel scenes. (a) generalization across illumination; (b) generalization across geometry; (c)
+generalization across both geometry and illumination.
+
+Figure 11: Application of visual equivalence predictors to the       maps, and indirect illumination. It converts these sources into many
+Lightcuts rendering algorithm. Using a warp3 based error threshold   point lights, clusters them into a light hierarchy, and adaptively
+reduced the rendering time in half, while the warp5 based threshold  chooses an appropriate clustering for each point to be illuminated.
+was correctly predicted as not acceptable.                           Ordinarily it refines/splits light clusters until a 2% error criteria is
+                                                                     met. We modified Lightcuts to not refine light clusters whose solid
+7 Using Visual Equivalence Predictors                                angle falls below a fixed threshold based on the angular deviations
+                                                                     derived for the warp metric. The results of this modification of the
+Visual equivalence has a wide variety of potential applications      illumination approximation resemble the effects seen in the warp
+which we have only started to explore. Using new metrics of ap-      experiment. For the dragon model with the M2 material lit by the
+pearance, it should be possible to create algorithms that reduce     GROVE HDR map, our metrics correctly predict that thresholds
+image generation costs and enable greater data compression. We       based on warp3 produce a visibly different but equivalent image,
+have applied our illumination metrics to two such applications with  but thresholds based on warp5 produce objectionable appearance
+promising early results: high quality rendering using Lightcuts      changes (see Figure 11). Rendering using the warp3 based thresh-
+[Walter et al. 2005], and wavelet compression of illumination for    olds reduced the rendering time from 143 to 77 seconds.
+precomputed radiance transfer (PRT) style applications [Ng et al.
+2004].                                                               Precomputed Radiance Transfer techniques use specialized and
+                                                                     highly compressed representations of material and illumination
+Lightcuts is a scalable algorithm for computing the illumination     properties to quickly compute images of complex objects under
+from complex sources including area lights, HDR environment          complex illumination, often at interactive rates. For example, [Ng
+                                                                     et al. 2004] use Haar wavelets and lossy compression where only
+                                                                     a small number of the strongest wavelets coefficients are kept. Us-
+                                                                     ing fewer coefficients reduces memory and computational cost, but
+                                                                     also introduces blurring and reduces the contrast in the illumination,
+                                                                     which can affect material perception. We have started to experiment
+                                                                     with pre-warping of the illumination before the lossy wavelet com-
+                                                                     pression such that the compressed image retains more of the con-
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+Visual Equivalence: Towards a New Standard for Image Fidelity · 76-9
+
+trast of the original image. Currently we swap nearby pixels in the     01, the Intel Corporation, the Eastman-Kodak Corporation, and an
+environment map to better align features with the block boundaries      Affinito-Stewart Award.
+of the Haar basis while ensuring that pixels remain within some
+maximum deviation of their original location, based on the angu-        References
+lar deviations from the warp metric. For the dragon model with
+material M1 and the GROVE map, we have been able to produce             ADELSON, E. H. 2000. Lightness perception and lightness illu-
+PRT-style rendering using an environment map encoded with 2×               sions, 2nd ed. The MIT Press, Cambridge, MA, 339­351.
+fewer coefficients (50 instead of 100) while achieving equivalent
+fidelity.                                                               ANSON, O., SUNDSTEDT, V., GUTIERREZ, D., AND CHALMERS,
+                                                                           A. 2006. Efficient selective rendering of participating media.
+Discussion: So far, using the warp metric, we have demonstrated            In APGV '06: Proceedings of the 3rd symposium on Applied
+gains for fixed-camera renderings of objects under distant light-          perception in graphics and visualization, 135­142.
+ing (the applications of the blur metric are more straightforward).
+These proof-of-concept examples, while promising, are only a first      BECK, J. 1972. Surface Color Perception. Cornell University
+step to leveraging the concept of visual equivalence. We believe           Press, Ithaca, NY.
+much larger gains are possible by incorporating visual equivalence
+into the basic design of new algorithms. Shifting from restrictive      BELHUMEUR, P. N., KRIEGMAN, D. J., AND YUILLE, A. L.
+early vision models to higher level vision metrics will allow much         1997. The bas-relief ambiguity. CVPR '97: IEEE conference
+greater freedom to find more efficient algorithms and solutions.           on Computer vision and pattern recognition 00, 1060­1066.
+
+8 Conclusions and Future Work                                           BLAKE, A., AND BU¨ LTHOFF, H. H. 1990. Does the brain know
+                                                                           the physics of specular reflection? Nature 394, 165­168.
+
+In this paper, we have introduced the concept of visual equivalence     BRAINARD, D. H., AND MALONEY, L. T. 2004. Perception of
+as a new approach for perceptually based rendering. In a series            color and material properties in complex scenes. Journal of Vi-
+of psychophysical experiments, we have characterized conditions            sion 4, 9, 2­4.
+under which two classes of transformations on illumination maps
+(blurring and warping) yield images that are visually equivalent to     BROWN, R., COOPER, L., AND PHAM, B. 2003. Visual attention-
+reference solutions. On the basis of these experiments, we have            based polygon level of detail management. In GRAPHITE '03:
+derived metrics for predicting visual equivalence for these transfor-      Proceedings of the 1st international conference on Computer
+mations, and in a follow-up experiment we have validated that the          graphics and interactive techniques in Australasia and South
+predictive power of the metrics generalizes across different geome-        East Asia, 55­62.
+tries, materials, and illumination maps. Finally, we have shown how
+these metrics can be applied to two existing rendering algorithms to    CABRAL, B., OLANO, M., AND NEMEC, P. 1999. Reflection
+increase efficiency while maintaining image fidelity.                      space image based rendering. In SIGGRAPH '99: Proceedings
+                                                                           of the 26th annual conference on Computer graphics and inter-
+While these initial findings are encouraging, there is still much          active techniques, ACM Press/Addison-Wesley Publishing Co.,
+work to be done. In the short term, we would like to do further            New York, NY, USA, 165­170.
+testing of our metrics and analyses of our data using models of psy-
+chometric functions. We would also like to identify other classes of    CATER, K., CHALMERS, A., AND LEDDA, P. 2002. Selective
+transformations on illumination maps that yield visual equivalence,        quality rendering by exploiting human inattentional blindness:
+such as rotation and blocking. One promising possibility might be          looking but not seeing. In VRST '02: Proceedings of the ACM
+to do energy-based segmentation and then apply different transfor-         symposium on Virtual reality software and technology, 17­24.
+mations to the different segments. Another would be to investigate
+how different kinds of disordering interact with the statistical prop-  CATER, K., CHALMERS, A., AND DALTON, C. 2003. Vary-
+erties of natural illumination.                                            ing rendering fidelity by exploiting human change blindness. In
+                                                                           GRAPHITE '03: Proceedings of the 1st international conference
+In the long term, we would like to use our visual equivalence predic-      on Computer graphics and interactive techniques in Australasia
+tors to develop advanced perceptually based rendering algorithms.          and South East Asia, 39­46.
+This will require an understanding of how exactly our metrics ap-
+ply in the context of global illumination and multiple objects. We      CAVANAGH, P., AND LECLERC, Y. G. 1989. Shape from shad-
+could also investigate the effect of moving cameras, which moti-           ows. Journal of Experimental Psychology: Human Perception
+vates a study of visual equivalence for animation and video. Even-         and Performance 15, 1, 3­27.
+tually, we would like to extend the concept of visual equivalence
+to include transformations on geometry and material properties and      CHALMERS, A., CATER, K., AND MAFLIOLI, D. 2003. Visual at-
+develop comprehensive metrics that could serve as the foundation           tention models for producing high fidelity graphics efficiently. In
+for dramatic advances in realistic and efficient perceptually based        SCCG '03: Proceedings of the 19th spring conference on Com-
+image synthesis.                                                           puter graphics, ACM Press, New York, NY, USA, 39­45.
+
+Acknowledgments                                                         CLEJU, I., AND SAUPE, D. 2006. Evaluation of supra-threshold
+                                                                           perceptual metrics for 3D models. In APGV '06: Proceedings of
+We thank Thorsten Joachims and Filip Radlinski for useful dis-             the 3rd symposium on Applied perception in graphics and visu-
+cussions regarding SVM, the members of the Cornell Program of              alization, 41­44.
+Computer Graphics for valuable suggestions and feedback, and the
+experiment subjects for their time and patience. Finally, we thank      CUTTING, J. E., AND MILLARD, R. T. 1984. Three gradients
+the reviewers for their constructive and helpful comments. This            and the perception of flat and curved surfaces. Journal of Exper-
+work was supported by NSF CAREER 0644175, NSF 0539996,                     imental Psychology: General 113, 2, 198­216.
+NSF ITR 0113310, NSF ITR 0205438, NIH NEI/SBIR EY017238-
+                                                                        DALY, S. 1993. The visible differences predictor: an algorithm for
+                                                                           the assessment of image fidelity. In Digital Images and Human
+                                                                           Vision, A. B. Watson, Ed. MIT Press, 179­206.
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+76-10 · Ramanarayanan et al.
+
+DANA, K. J., VAN GINNEKEN, B., NAYAR, S. K., AND KOEN-                KAUTZ, J., VA´ ZQUEZ, P.-P., HEIDRICH, W., AND SEIDEL, H.-P.
+   DERINK, J. J. 1999. Reflectance and texture of real world sur-        2000. A unified approach to prefiltered environment maps. In
+   faces. ACM Transactions on Graphics 18, 1, 1­34.                      Proceedings of the Eurographics Workshop on Rendering Tech-
+                                                                         niques 2000, Springer-Verlag, London, UK, 185­196.
+DEBATTISTA, K., SUNDSTEDT, V., SANTOS, L. P., AND
+   CHALMERS, A. 2005. Selective component-based rendering.            KHAN, E. A., REINHARD, E., FLEMING, R. W., AND
+   In GRAPHITE '05: Proceedings of the 3rd international confer-         BU¨ LTHOFF, H. H. 2006. Image-based material editing. ACM
+   ence on Computer graphics and interactive techniques in Aus-          Transactions on Graphics 25, 3, 654­663.
+   tralasia and South East Asia, 13­22.
+                                                                      KHANG, B.-G., KOENDERINK, J. J., AND KAPPERS, A. M. L.
+DEBEVEC, P. E., AND MALIK, J. 1997. Recovering high dy-                  2006. Perception of illumination direction in images of 3-D con-
+   namic range radiance maps from photographs. In SIGGRAPH               vex objects: Influence of surface materials and light fields. Per-
+   '97, 369­378.                                                         ception 35, 5, 625­645.
+
+DECARLO, D., FINKELSTEIN, A., RUSINKIEWICZ, S., AND                   KNILL, D. C., AND RICHARDS, W. 1996. Perception as Bayesian
+   SANTELLA, A. 2003. Suggestive contours for conveying shape.           Inference. Cambridge University Press, New York, NY.
+   In ACM Transactions on Graphics.
+                                                                      KOENDERINK, J. J., VAN DOORN, A. J., KAPPERS, A. M. L.,
+DROR, R. O., WILLSKY, A. S., AND ADELSON, E. H. 2004.                    TE PAS, S. F., AND PONT, S. C. 2003. Illumination direction
+   Statistical characterization of real-world illumination. Journal      from texture shading. Journal of the Optical Society of America
+   of Vision 4, 9, 821­837.                                              A 20, 6, 987­995.
+
+FERWERDA, J., AND PELLACINI, F. 2003. Functional differ-              KOFFKA, K. 1935. Principles of Gestalt Psychology. Harcourt,
+   ence predictors (FDPs): Measuring meaningful image differ-            Brace and World, New York, NY.
+   ences. Asilomar Conference on Signals, Systems, and Comput-
+   ers, 1388­1392.                                                    LEE, C. H., VARSHNEY, A., AND JACOBS, D. W. 2005. Mesh
+                                                                         saliency. ACM Trans. Graph. 24, 3, 659­666.
+FERWERDA, J. A., PELLACINI, F., AND GREENBERG, D. P.
+   2001. A psychophysically-based model of surface gloss percep-      LUEBKE, D. P., AND HALLEN, B. 2001. Perceptually driven sim-
+   tion. In Proceedings of the SPIE: Human Vision and Electronic         plification for interactive rendering. In Proceedings of the 12th
+   Imaging VI, vol. 4299, 291­301.                                       Eurographics Workshop on Rendering Techniques, 223­234.
+
+FLEMING, R. W., AND BU¨ LTHOFF, H. H. 2005. Low-level image           MANTIUK, R., DALY, S., MYSZKOWSKI, K., AND SEIDEL, H.-
+   cues in the perception of translucent materials. ACM Transac-         P. 2005. Predicting visible differences in high dynamic range
+   tions on Applied Perception 2, 3, 346­382.                            images - model and its calibration. In Proceedings of the SPIE:
+                                                                         Human Vision and Electronic Imaging X, vol. 5666, 204­214.
+FLEMING, R. W., DROR, R. O., AND ADELSON, E. H. 2003.
+   Real-world illumination and the perception of surface reflectance  MESETH, J., MU¨ LLER, G., KLEIN, R., RO¨ DER, F., AND
+   properties. Journal of Vision 3, 5, 347­368.                          ARNOLD, M. 2006. Verification of rendering quality from mea-
+                                                                         sured BTFs. In APGV '06: Proceedings of the 3rd symposium
+FLEMING, R. W., TORRALBA, A., AND ADELSON, E. H. 2004.                   on Applied perception in graphics and visualization, 127­134.
+   Specular reflections and the perception of shape. Journal of Vi-
+   sion 4, 9, 798­820.                                                MYSZKOWSKI, K. 2002. Perception-based global illumination,
+                                                                         rendering, and animation techniques. In SCCG '02: Proceedings
+FUNKHOUSER, T., AND SHILANE, P. 2006. Partial matching of                of the 18th spring conference on Computer graphics, 13­24.
+   3D shapes with priority-driven search. In Fourth Eurographics
+   Symposium on Geometry Processing, 131­142.                         NG, R., RAMAMOORTHI, R., AND HANRAHAN, P. 2004. Triple
+                                                                         product wavelet integrals for all-frequency relighting. ACM
+GESCHEIDER, G. 1997. Psychophysics: The Fundamentals.                    Transactions on Graphics, 477­487.
+   Lawrence Erlbaum Associates, Mahwah, NJ.
+                                                                      OSTROVSKY, Y., CAVANAGH, P., AND SINHA, P. 2005. Perceiv-
+GIBSON, J. 1979. The Ecological Approach to Visual Perception.           ing illumination inconsistencies in scenes. Perception 34, 11,
+   Houghton Mifflin, Boston, MA.                                         1301­1314.
+
+GILCHRIST, A., KOSSYFIDIS, C., BONATO, F., AGOSTINI, T.,              PALMER, S. E. 1999. Vision science: From Photons to Phe-
+   CATALIOTTI, J., LI, X., SPEHAR, B., ANNAN, V., AND                    nomenology. Bradford Books/MIT Press, Cambridge, MA.
+   ECONOMOU, E. 1999. An anchoring theory of lightness per-
+   ception. Psychological Review 106, 4, 795­834.                     PARKHURST, D., AND NIEBUR, E. 2004. A feasibility test for per-
+                                                                         ceptually adaptive level of detail rendering on desktop systems.
+HARTUNG, B., AND KERSTEN, D. 2002. Distinguishing shiny                  In APGV '04: Proceedings of the 1st Symposium on Applied per-
+   from matte. Journal of Vision 2, 7, 551­551.                          ception in graphics and visualization, 49­56.
+
+HO, Y.-X., LANDY, M. S., AND MALONEY, L. T. 2006. How di-             PELLACINI, F., FERWERDA, J. A., AND GREENBERG, D. P.
+   rection of illumination affects visually perceived surface rough-     2000. Toward a psychophysically-based light reflection model
+   ness. Journal of Vision 6, 5, 634­648.                                for image synthesis. In SIGGRAPH '00: Proceedings of the
+                                                                         27th annual conference on Computer graphics and interactive
+HOWLETT, S., HAMILL, J., AND O'SULLIVAN, C. 2004. An ex-                 techniques, 55­64.
+   perimental approach to predicting saliency for simplified polyg-
+   onal models. In APGV '04: Proceedings of the 1st Symposium         PERLIN, K. 2002. Improving noise. ACM Transactions on Graph-
+   on Applied perception in graphics and visualization, 57­64.           ics 21, 3 (July), 681­682.
+
+JOACHIMS, T. 1999. Making large-scale support vector machine          PONT, S. C., AND KOENDERINK, J. J. 2004. Surface illuminance
+   learning practical. In Advances in kernel methods: support vec-       flow. In 3DPVT '04: Proceedings of the 2nd international sym-
+   tor learning. MIT Press, Cambridge, MA, 169­184.
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+Visual Equivalence: Towards a New Standard for Image Fidelity · 76-11
+
+posium on 3D data processing, visualization and transmission,          on Computer graphics and interactive techniques, vol. 26, 265­
+2­9.                                                                   272.
+
+QU, L., AND MEYER, G. W. 2006. Perceptually driven interac-            WATSON, B., FRIEDMAN, A., AND MCGAFFEY, A. 2001. Mea-
+   tive geometry remeshing. In SI3D '06: Proceedings of the 2006          suring and predicting visual fidelity. In SIGGRAPH '01: Pro-
+   symposium on Interactive 3D graphics and games, 199­206.               ceedings of the 28th annual conference on Computer graphics
+                                                                          and interactive techniques, 213­220.
+RAMAMOORTHI, R., AND HANRAHAN, P. 2002. Frequency space
+   environment map rendering. In ACM Transactions on Graphics,         WESTLUND, H. B., AND MEYER, G. W. 2001. Applying appear-
+   517­526.                                                               ance standards to light reflection models. In SIGGRAPH '01:
+                                                                          Proceedings of the 28th annual conference on Computer graph-
+REDDY, M. 2001. Perceptually optimized 3D graphics. IEEE                  ics and interactive techniques, 501­51.
+   Computer Graphics and Applications 21, 5, 68­75.
+                                                                       WILLIAMS, N., LUEBKE, D., COHEN, J. D., KELLEY, M., AND
+REINHARD, E., SHIRLEY, P., ASHIKHMIN, M., AND TROS-                       SCHUBERT, B. 2003. Perceptually guided simplification of lit,
+   CIANKO, T. 2004. Second order image statistics in computer             textured meshes. In SI3D '03: Proceedings of the 2003 sympo-
+   graphics. In APGV '04: Proceedings of the 1st Symposium on             sium on Interactive 3D graphics, 113­121.
+   Applied perception in graphics and visualization, 99­106.
+                                                                       XIAO, B., AND BRAINARD, D. H. 2006. Color perception of
+ROBILOTTO, R., KHANG, B.-G., AND ZAIDI, Q. 2002. Sensory                  3D objects: constancy with respect to variation of surface gloss.
+   and physical determinants of perceived achromatic transparency.        In APGV '06: Proceedings of the 3rd symposium on Applied
+   Journal of Vision 2, 5, 388­403.                                       perception in graphics and visualization, 63­68.
+
+ROCK, I. 1983. The Logic of Perception. MIT Press, Cambridge,          YEE, H., PATTANAIK, S., AND GREENBERG, D. P. 2001. Spa-
+   MA.                                                                    tiotemporal sensitivity and visual attention for efficient rendering
+                                                                          of dynamic environments. ACM Transactions on Graphics 20,
+ROGOWITZ, B. E., AND RUSHMEIER, H. E. 2001. Are image                     1, 39­65.
+   quality metrics adequate to evaluate the quality of geometric ob-
+   jects? In Proceedings of the SPIE: Human Vision and Electronic
+   Imaging VI, vol. 4299, 340­348.
+
+STOKES, W. A., FERWERDA, J. A., WALTER, B., AND GREEN-
+   BERG, D. P. 2004. Perceptual illumination components: A new
+   approach to efficient, high quality global illumination rendering.
+   ACM Transactions on Graphics 23, 3 (Aug.), 742­749.
+
+SUNDSTEDT, V., DEBATTISTA, K., AND CHALMERS, A. 2004.
+   Selective rendering using task-importance maps. In APGV '04:
+   Proceedings of the 1st symposium on Applied perception in
+   graphics and visualization, 175­175.
+
+TE PAS, S. F., AND PONT, S. C. 2005. A comparison of mate-
+   rial and illumination discrimination performance for real rough,
+   real smooth and computer generated smooth spheres. In APGV
+   '05: Proceedings of the 2nd symposium on Applied perception
+   in graphics and visualization, 75­81.
+
+TODD, J. T., AND MINGOLLA, E. 1983. Perception of surface
+   curvature and direction of illumination from patterns of shad-
+   ing. Journal of Experimental Psychology: Human Perception
+   and Performance 9, 4, 583­595.
+
+TODD, J. T., NORMAN, J. F., AND MINGOLLA, E. 2004. Light-
+   ness constancy in the presence of specular highlights. Psycho-
+   logical Science 15, 1, 33­39.
+
+TUMBLIN, J., AND RUSHMEIER, H. 1993. Tone reproduction for
+   realistic images. IEEE Computer Graphics and Applications 13,
+   6, 42­48.
+
+VAPNIK, V. 1995. The Nature of Statistical Learning Theory.
+   Springer-Verlag, Berlin.
+
+WALTER, B., FERNANDEZ, S., ARBREE, A., BALA, K.,
+   DONIKIAN, M., AND GREENBERG, D. P. 2005. Lightcuts: a
+   scalable approach to illumination. ACM Transactions on Graph-
+   ics 24, 3, 1098­1107.
+
+WANDELL, B. A. 1993. Color appearance: The effects of illumina-
+   tion and spatial pattern. In Proceedings of the National Academy
+   of Sciences, vol. 90, 9778­9784.
+
+WARD, G. J. 1992. Measuring and modeling anisotropic reflection.
+   In SIGGRAPH '92: Proceedings of the 19th annual conference
+
+ACM Transactions on Graphics, Vol. 26, No. 3, Article 76, Publication date: July 2007.
+

@@ -1,0 +1,1609 @@
+-->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ -->
+ -->
+ 
+ 
+ 
+ 
+ 
+ -->
+ 
+ 
+ 
+ 
+ 
+ window.dataLayer = window.dataLayer || [];
+
+ function gtag() {
+ dataLayer.push(arguments);
+ }
+ gtag('consent', 'default', {
+ 'ad_storage': 'denied',
+ 'ad_user_data': 'denied',
+ 'ad_personalization': 'denied',
+ 'analytics_storage': 'denied',
+ 'wait_for_update': 500
+ });
+ document.addEventListener("DOMContentLoaded", function(event) {
+ var cpm = {};
+ window.cookiehub.load(cpm);
+ });
+ 
+
+ 
+
+ 
+ iPhone 15 Pro Lab Test: Rolling Shutter, Dynamic Range and Exposure Latitude | CineD
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ {"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/#article","isPartOf":{"@id":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/"},"author":{"name":"Gunther Machu","@id":"https:\/\/www.cined.com\/#\/schema\/person\/938dcf89587358eab8ec7b76222587ba"},"headline":"iPhone 15 Pro Lab Test: Rolling Shutter, Dynamic Range and Exposure Latitude","datePublished":"2023-11-29T13:51:18+00:00","dateModified":"2024-05-07T18:47:06+00:00","mainEntityOfPage":{"@id":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/"},"wordCount":2889,"commentCount":66,"publisher":{"@id":"https:\/\/www.cined.com\/#organization"},"image":{"@id":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/#primaryimage"},"thumbnailUrl":"https:\/\/www.cined.com\/content\/uploads\/2023\/11\/24mm-ISO1200-Waveform-w-stops-featured.jpg","keywords":["dynamic range","dynamic range test","exposure latitude","iPhoen 15 Pro camera latitude","iPhone 15 dynamic range","iPhone 15 Pro","iPhone 15 Pro camera dynamic range","iPhone 15 Pro camera review","iPhone 15 Pro camera rolling shutter","iPhone 15 Pro dynamic range","iPhone 15 Pro Lab Test","iPhone 15 Pro latitude","iPhone 15 Pro Max","iPhone 15 Pro rolling shutter","lab test","phone test","rolling shutter"],"articleSection":["Lab Tests"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/#respond"]}]},{"@type":"WebPage","@id":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/","url":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/","name":"iPhone 15 Pro Lab Test: Rolling Shutter, Dynamic Range and Exposure Latitude | CineD","isPartOf":{"@id":"https:\/\/www.cined.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/#primaryimage"},"image":{"@id":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/#primaryimage"},"thumbnailUrl":"https:\/\/www.cined.com\/content\/uploads\/2023\/11\/24mm-ISO1200-Waveform-w-stops-featured.jpg","datePublished":"2023-11-29T13:51:18+00:00","dateModified":"2024-05-07T18:47:06+00:00","description":"We performed our standardized Lab Test to the iPhone 15 Pro and 15 Pro Max, testing dynamic range, rolling shutter and latitude.","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/www.cined.com\/iphone-15-pro-lab-test-rolling-shutter-dynamic-range-and-exposure-latitude\/#primaryimage","url":"https:\/\/www.cined.com\/content\/uploads\/2023\/11\/24mm-ISO1200-Waveform-w-stops-featured.jpg","contentUrl":"https:\/\/www.cined.com\/content\/uploads\/2023\/11\/24mm-ISO1200-Waveform-w-stops-featured.jpg","width":1920,"height":1080},{"@type":"WebSite","@id":"https:\/\/www.cined.com\/#website","url":"https:\/\/www.cined.com\/","name":"CineD","description":"","publisher":{"@id":"https:\/\/www.cined.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.cined.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/www.cined.com\/#organization","name":"CineD","url":"https:\/\/www.cined.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/www.cined.com\/#\/schema\/logo\/image\/","url":"https:\/\/www.cined.com\/content\/uploads\/2021\/01\/cined_logo_sm-2.jpg","contentUrl":"https:\/\/www.cined.com\/content\/uploads\/2021\/01\/cined_logo_sm-2.jpg","width":1024,"height":1024,"caption":"CineD"},"image":{"@id":"https:\/\/www.cined.com\/#\/schema\/logo\/image\/"},"sameAs":["http:\/\/www.facebook.com\/C5Dnews","https:\/\/x.com\/c5dnews","https:\/\/www.youtube.com\/user\/cinema5Dnews"]},{"@type":"Person","@id":"https:\/\/www.cined.com\/#\/schema\/person\/938dcf89587358eab8ec7b76222587ba","name":"Gunther Machu","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/secure.gravatar.com\/avatar\/b7fb2e690e9fc9929680706aa385a39c514c972b1ccf05f1ce656189db5799f1?s=96&d=mm&r=g","url":"https:\/\/secure.gravatar.com\/avatar\/b7fb2e690e9fc9929680706aa385a39c514c972b1ccf05f1ce656189db5799f1?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/b7fb2e690e9fc9929680706aa385a39c514c972b1ccf05f1ce656189db5799f1?s=96&d=mm&r=g","caption":"Gunther Machu"},"description":"Gunther heads the CineD Lab and is responsible for our standardized camera tests: dynamic range, exposure latitude, and rolling shutter, measured under identical conditions for every camera we review. He holds a PhD in fluid mechanics and has spent over two decades in engineering leadership and R&amp;D, a background that shapes the rigor of our test methodology. Away from the test charts, he is a passionate filmmaker who cut his teeth on the Panasonic GH series, always keeping his gear as small as possible on his travels around the world.","sameAs":["https:\/\/vimeo.com\/gunthermachu","https:\/\/x.com\/GunMac","https:\/\/www.youtube.com\/@MrGuMac"],"url":"https:\/\/www.cined.com\/author\/gunthermachu\/"}]}
+ 
+
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+
+ #wpdcom .ql-snow .ql-tooltip[data-mode="link"]::before{content:"Enter link:"}#wpdcom .ql-snow .ql-tooltip.ql-editing a.ql-action::after{content:"Save"}
+/*# sourceURL=wpdiscuz-frontend-minimal-css-inline-css */
+
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"/"}};
+//# sourceURL=wpml-cookie-js-extra
+
+@font-face{font-family:Euclid;font-style:normal;font-weight:100;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/light/EuclidCircularB-Light-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:italic;font-weight:100;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/light/EuclidCircularB-LightItalic-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:normal;font-weight:400;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/regular/EuclidCircularB-Regular-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:italic;font-weight:400;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/regular/EuclidCircularB-RegularItalic-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:normal;font-weight:500;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/medium/EuclidCircularB-Medium-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:italic;font-weight:500;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/medium/EuclidCircularB-MediumItalic-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:normal;font-weight:600;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/semi-bold/EuclidCircularB-Semibold-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:italic;font-weight:600;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/semi-bold/EuclidCircularB-SemiboldItalic-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:normal;font-weight:700;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/bold/EuclidCircularB-Bold-WebS.woff2') format('woff2');}
+@font-face{font-family:Euclid;font-style:italic;font-weight:700;font-display:fallback;src:url('https://www.cined.com/content/themes/cinemad/assets/fonts/euclid/bold/EuclidCircularB-BoldItalic-WebS.woff2') format('woff2');}
+
+.rll-youtube-player, [data-lazy-src]{display:none !important;} 
+ 
+ window.dataLayer = window.dataLayer || [];
+ 
+
+ 
+ 
+ (function(w, d, s, l, i) {
+ w[l] = w[l] || [];
+ w[l].push({
+ 'gtm.start': new Date().getTime(),
+ event: 'gtm.js'
+ });
+ var f = d.getElementsByTagName(s)[0],
+ j = d.createElement(s),
+ dl = l != 'dataLayer' ? '&l=' + l : '';
+ j.async = true;
+ j.src =
+ 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+ f.parentNode.insertBefore(j, f);
+ })(window, document, 'script', 'dataLayer', 'GTM-5S6SGX8');
+ 
+ 
+ 
+ 
+ 
+ var googletag = googletag || {};
+ googletag.cmd = googletag.cmd || [];
+ googletag.cmd.push(function() {
+ googletag.pubads().collapseEmptyDivs();
+ googletag.pubads().enableVideoAds();
+
+ googletag.pubads().enableLazyLoad({
+ fetchMarginPercent: 500,
+ renderMarginPercent: 200,
+ mobileScaling: 2.0
+ });
+ })
+ var isDesktop = function() {
+ return (window.screen.width >= 768);
+ };
+ 
+ 
+ 
+ !function(f,b,e,v,n,t,s)
+ {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+ if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+ n.queue=[];t=b.createElement(e);t.async=!0;
+ t.src=v;s=b.getElementsByTagName(e)[0];
+ s.parentNode.insertBefore(t,s)}(window, document,'script',
+ 'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '2630619147152933');
+ fbq('track', 'PageView');
+ 
+ 
+ 
+ 
+ (function(d, s, id){
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) {return;}
+ js = d.createElement(s); js.id = id;
+ js.src = "https://connect.facebook.net/en_US/sdk.js";
+ fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+ window.fbAsyncInit = function() {
+ FB.init({
+ appId : 599871552810465,
+ cookie : true, // Enable cookies to allow the server to access the session.
+ xfbml : true, // Parse social plugins on this webpage.
+ //version : 'v17.0'
+ version : 'v22.0'
+ });
+ } 
+
+ 
+ --> 
+ -->
+ 
+ 
+ (function(h,o,t,j,a,r){
+ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+ h._hjSettings={hjid:1945676,hjsv:6};
+ a=o.getElementsByTagName('head')[0];
+ r=o.createElement('script');r.async=1;
+ r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+ a.appendChild(r);
+ })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
+ 
+ 
+ 
+ 
+ var _mtm = window._mtm = window._mtm || [];
+ _mtm.push({
+ 'mtm.startTime': (new Date().getTime()),
+ 'event': 'mtm.Start'
+ });
+ var d = document,
+ g = d.createElement('script'),
+ s = d.getElementsByTagName('script')[0];
+ g.async = true;
+ g.src = 'https://cdn.matomo.cloud/cined.matomo.cloud/container_ByU9P3nc.js';
+ s.parentNode.insertBefore(g, s);
+ 
+ 
+
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://www.cined.com/app/wp-includes/blocks/heading/style.min.css */
+
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,');mask-image:url('data:image/svg+xml;utf8,');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://www.cined.com/app/wp-includes/blocks/image/style.min.css */
+
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://www.cined.com/app/wp-includes/blocks/list/style.min.css */
+
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://www.cined.com/app/wp-includes/blocks/paragraph/style.min.css */
+
+ 
+ 
+ document.addEventListener('DOMContentLoaded', () => { renderGtagBlock({ slotName: '/2988828/New_Leaderboard', size: [728, 90], slotElemID: 'header_top_widgetsside-ads-46', }) }) document.addEventListener('DOMContentLoaded', () => { renderGtagBlock({ slotName: '/2988828/New_Leaderboard', size: [728, 90], slotElemID: '167009large-ads-149-fQBuv', }) }) document.addEventListener('DOMContentLoaded', () => { renderGtagBlock({ slotName: '/2988828/EN-320x50_Leaderboard_mobile', size: [320, 50], slotElemID: '162772large-ads-509-VgyKA', }) }) Advertisement NEW PODCAST: The SmallRig x CineD OrBrella Light | Sony DP7 and DP5 Announced | IBC 2026 Outlook – Focus Check ep133 →🎙️ WATCH/LISTEN Now
+Watch/Listen Now The SmallRig x CineD OrBrella Light 🎙️NEW PODCAST
+All categorieskeyboard_arrow_downAll categories
+News
+Reviews
+Lab Tests
+Courses
+How To
+Podcast
+In the Spotlight
+Gear Guides
+Education for Filmmakers
+EnLanguage
+English
+Español
+日本語
+
+Log In
+Register
+NewsAll News
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Industry
+Latest News
+ReviewsAll Reviews
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Latest Reviews
+ 
+Lab TestsAll Lab Tests
+Lab Tests
+Latest Lab Tests
+DatabasesDatabases
+Camera Database
+Lens Coverage Tool
+Lens Database
+Newly Added
+Databases
+CoursesAll Courses
+Courses
+Latest Courses
+Gear GuidesAll Gear Guides
+Gear Guides by Type
+Gear Guides by Budget
+Recommended Kits
+Deals
+Cameras of the Year
+Latest Gear Guides
+How ToAll How To
+How To
+Latest How To
+VideosAll Videos
+Videos
+Latest Videos
+PodcastAll Podcast
+Podcast
+Latest Podcast
+SpotlightAll Spotlight
+FUJIFILM
+Canon
+Latest Spotlight
+SearchEnLanguage
+English
+Español
+日本語
+
+Log In
+Register
+NewsAll News
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Industry
+ReviewsAll Reviews
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+MZed
+Lab Tests
+DatabasesCamera Database
+Lens Coverage Tool
+Lens Database
+Courses
+Gear GuidesGear Guides by Type
+Gear Guides by Budget
+Recommended Kits
+Deals
+Cameras of the Year
+How To
+Videos
+Podcast
+SpotlightAll Spotlight
+FUJIFILM
+Canon
+Education for Filmmakers
+The CineD Channels
+Info
+About Us
+Unbiased reviews – our principles
+NewsAll News
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Industry
+Latest News
+ReviewsAll Reviews
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Latest Reviews
+ 
+Lab TestsAll Lab Tests
+Lab Tests
+Latest Lab Tests
+DatabasesDatabases
+Camera Database
+Lens Coverage Tool
+Lens Database
+Newly Added
+Databases
+CoursesAll Courses
+Courses
+Latest Courses
+Gear GuidesAll Gear Guides
+Gear Guides by Type
+Gear Guides by Budget
+Recommended Kits
+Deals
+Cameras of the Year
+Latest Gear Guides
+How ToAll How To
+How To
+Latest How To
+VideosAll Videos
+Videos
+Latest Videos
+PodcastAll Podcast
+Podcast
+Latest Podcast
+SpotlightAll Spotlight
+FUJIFILM
+Canon
+Latest Spotlight
+menu --> -->EnLanguage
+English
+Español
+日本語
+
+Log In
+Register
+NewsAll News
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Industry
+ReviewsAll Reviews
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+MZed
+Lab Tests
+DatabasesCamera Database
+Lens Coverage Tool
+Lens Database
+Courses
+Gear GuidesGear Guides by Type
+Gear Guides by Budget
+Recommended Kits
+Deals
+Cameras of the Year
+How To
+Videos
+Podcast
+SpotlightAll Spotlight
+FUJIFILM
+Canon
+Education for Filmmakers
+EnLanguage
+English
+Español
+日本語
+The CineD Channels
+Info
+About Us
+Unbiased reviews – our principles
+50On this pagefiber_manual_recordCommentsfiber_manual_recordBuy LinksShareiPhone 15 Pro Lab Test: Rolling Shutter, Dynamic Range and Exposure Latitude
+November 29th, 2023mode_comment --> -->Jump to Comment Section50 Subscribe to Lab Tests Log in to subscribe to this category.
+New to CineD?
+Connect with
+ You are logged in as 
+ You are now subscribed to this category: 
+We will send you notifications in your browser, every time a new article is published in this category.
+You can change which notifications you are subscribed to in your notification settings. 
+Upon release of the new iPhone 15 Pro and iPhone 15 Pro Max there was quite a hype around the filmmaking capabilities of this new phone. Looking at the specs and codecs we felt quite intrigued to get our hands on this new iPhone and run it through our lab torture test and test the iPhone 15 Pro&#8217;s dynamic range, rolling shutter and exposure latitude. How will it stack up compared to the recent breed of dedicated hybrid consumer or even professional cinema cameras? Well, let&#8217;s find out&#8230;
+In life there is always a first and that also applies to camera lab testing &#8211; so this is the first time we are testing a phone in the lab. So far it wouldn&#8217;t have made much sense, as typically a lot of image manipulation is happening in phones in an automated way, such as auto tone mapping which tones down bright parts of the image and increases brightness in the shadows. With the introduction of a log mode, namely Apple LOG for the latest iPhone 15 Pro &amp; Max this situation has changed. With LOG, there is now the required consistency for a rigorous test.
+So, let&#8217;s jump right into it &#8211; or not? Well, it&#8217;s not so easy to be honest, because we always try to stick to some very rigid principles in our testing. 
+So first, at that point again a very big &#8220;thank you&#8221; for the nice collaboration with my colleague Florian Milz. Especially when testing the front facing camera things got a bit complicated but he will always find a way &#8230;
+Challenge accepted: adjusting CineD Lab Test standard to iPhone 15 Pro
+Coming back to our rigid standards, for one, we always try to use the same Zeiss 50mm CP2 T/2.1 macro lens for APS-C cameras, or the Zeiss 85mm T1.5 lens for full frame cameras. Using these focal lengths ensures a certain distance from the Xyla 21 stepchart (or subject in the latitude test) to avoid internal reflections from the chart which might impact lower stops in the dynamic range evaluation.
+Please have a look at our article here explaining how we measure dynamic range.
+Secondly we always do a proper research to find out native ISO&#8217;s of sensors, and then obviously dial in the white balance, shutter, ISO and focus plane manually to ensure consistency.
+Now to item one, on the iPhone 15 Pro there are 13mm, 24mm and 77mm equiv. focal lengths available on the three different back facing cameras. On the iPhone 15 Pro Max there is a 120mm focal length instead of the 77mm. Strangely, for the front facing camera there is no focal length mentioned. So you will get all results from us below, with the exception of the 13mm camera. We found just too much reflection from the XYLA 21 chart using this camera.
+Blackmagic Camera App to the rescue
+To the second point, the native Apple camera app does not provide any possibility to set manual parameters. So we had to resort to the Blackmagic Camera app which allows exactly that. Settings in the app for all the lab tests were Apple Log and 4K ProRes HQ.
+The Blackmagic App taps into the hardware image pipeline hence it receives the same information that the native Apple camera app has. Also, we had to find out what the native ISO on each of the four camera&#8217;s sensors (including the front facing one) is.
+Ahead of our Lab Test, we were able to determine that the lowest ISO (which is different on each of the 4 cameras) is always the cleanest (native) ISO. Higher ISO&#8217;s would just push up the code values thus resulting in brighter images, but also noisy shadows. However, higher ISO&#8217;s also bring up the difference between lower stops in Apple Log, so there is a potential benefit of shooting at higher ISO&#8217;s if separation in darker stops is needed. 
+Perfect. Time to get going, right?
+Rolling Shutter of the iPhone 15 Pro / Max Cameras
+Let&#8217;s start with the iPhone 15 Pro 24mm camera. Using our 300Hz strobe light we get 5.3ms (less is better) of rolling shutter:
+The 13mm camera reads 4.7ms, the 77mm camera 5ms and the 120mm camera (Max) again 5ms. The front facing camera reads 9.3ms to our surprise:
+Comparing these full sensor read out values to recent consumer or even professional cinema cameras, the ~5ms is a superb result. There is only one camera in the market that tops it: the Sony Venice 2 with less than 3ms. Alternatively, there are global shutter camera options that have 0ms like the RED KOMODO (and most likely, the newly announced Sony a9 III full frame camera which comes with a global shutter &#8211; but we have yet to get our hands on this camera to verify this). 
+Dynamic Range of the iPhone 15 Pro / Max
+Let me quickly repeat again why we have 3 ways to judge the dynamic range of a camera:
+The waveform&nbsp;plot of the Xyla 21 chart at native sensor resolution on a timeline with that resolution: this gives a visual indication of how many stops can be identified above the noise floor (= the usable stops). Also, it shows the code value distribution of the stops. Very often, the lower stops are very close together in terms of code value (the Y &#8211; axis), hence if you underexpose and raise the shadows later in post (i.e. expanding the shadow stops), you will not have enough code values between the stops and the result is ugly banding (loss of fine color transitions between the stops).
+IMATEST:&nbsp;IMATEST will calculate the signal to noise ratio for each stop. That is a purely mathematical calculation and comes in handy to identify, how “clean” each of the stops is. Cameras that use a lot of internal noise reduction naturally fare better than others with less noise reduction. There is no way to account for that in a meaningful way, as the noise footprint of every camera / sensor is different. Hence, there is also no “standard” noise reduction that you can apply in post to compare cameras. That’s why we at CineD always turn off the noise reduction – as recommended by IMATEST.
+Latitude:&nbsp;exposure latitude is the capability of a camera to retain colors and detail when over- or underexposed. Our CineD studio scene is the real world test (in a controlled environment) of how far a camera can be pushed. The beauty of this test is that it clearly reveals how many stops are usable in our carefully composed standard scene, as the playfield gets equalized – and, it is revealed if a camera is “cheating” by using excessive internal noise reduction. No matter how much internal / or post noise reduction is used, cameras that show a solid 12 stops at a signal-to-noise ratio of 2 typically have 8 stops of latitude in our scene. Cameras like the ARRI ALEXA that show 2 stops more at SNR = 2 also have two stops more latitude. Cameras that try to achieve something close to 12 stops at SNR = 2 by using heavy internal noise reduction only show 6 &#8211; 7 stops of latitude.
+So, this trinity of tests is very revealing and helps to identify if the combination of sensor readout, signal processing, and codec allows to push exposure around over a large range.
+iPhone 15 Pro 24mm camera at ISO55 &#8211; dynamic range
+The waveform shows around 11 stops above the noise floor. Speaking of which, there is almost no such thing as a noise floor &#8211; everything is super clean, hinting at massive noise reduction happening internally (there is no way to turn this &#8220;off&#8221;):
+Wow, 11 stops are really good. Now let&#8217;s run this through IMATEST:
+We are getting 12 stops of dynamic range in the iPhone 15 Pro (Max) for a signal to noise ratio (SNR) of 1, and the same 12 stops for a signal to noise ratio of 2. Also for the &#8220;slope based DR&#8221;. This is a clear sign of &#8220;too much&#8221; noise processing for IMATEST to calculate a meaningful result. It also becomes obvious in the lowest diagram where &#8220;Noise (% of max pixel)&#8221; is shown. Noise values for the shadow stops are super low.
+Now let&#8217;s increase ISO to see if we get some differentiated result with IMATEST. Looking at ISO1200, we get the following waveform for the 24mm camera:
+Comparing this waveform at ISO1200 to the waveform at ISO55 you can see clearly how the code values (Y-axis) are shifted upwards to increase brightness in the image. Now also the darker stops are more differentiated and you can see a 12th stop emerging. It will be interesting to see if the latitude test will reflect this difference as well.
+IMATEST calculates (higher) 13.4 stops at SNR = 2 and 13.4 stops at SNR = 1. 
+Just looking at these results could lead you to conclude that the iPhone 15 Pro reaches ARRI Alexa levels of dynamic range (have a look at our ARRI ALEXA classic and Mini LF test here and our ALEXA 35 test here). Well&#8230;
+My conclusion so far is that IMATEST mainly measures the noise reduction, and not so much the &#8220;real&#8221; dynamic range. We will have clarity once we move to the latitude section. Spoiler alert: at the end of the day it is a cell phone with tiny sensors &#8230;
+Here is a table of IMATEST results for the other cameras of iPhone 15 Pro / Pro Max:
+Exposure Latitude results of the iPhone 15 Pro Max
+As described earlier, latitude is the capability of a camera to retain colors and details when over / underexposed and pushed back to a base reference level.
+For our CineD studio tests, the base exposure level refers to a luma waveform value of around 60% on the forehead of my dear colleague Johnnie. We always establish the clipping level first by overexposing until the red channel is at the cusp of clipping on the forehead of our subject. This means that some colors have already clipped on the colorchecker on the left. From there we then underexpose in 1 stop increments. We did this via the Blackmagic app using the shutter value (1/30s, 1/60s, etc&#8230;). As mentioned earlier everything was shot in Apple Log and 4K ProRes HQ on the iPhone Pro Max phone (at the time of exposure testing we only had this one available).
+For the iPhone 15 tests we used the 24mm and the front facing camera, and we checked exposure levels in the RGB waveform. The beauty is that an external monitor can be connected as a visual reference:
+Now, to develop the shots we used DaVinci Resolve 18.6, via a color space transform (CST, from REC2020 and Apple Log to REC709). Adjustments to exposure or noise reduction were always made on the first node, the second node then did the CST:
+24mm at ISO55 &#8211; our base exposure looks like that:
+Now, at ISO55 can go to 3 stops over and bring back the image to base exposure in post (using the lift / gamma / gain primaries in DaVinci Resolve 18.6) without any issues:
+Now, moving to two stops of underexposure and bringing back the image in post, we get already a rather noisy image:
+This is already at the cusp of being usable. Let&#8217;s push it one stop more:
+Uhh &#8230; that doesn&#8217;t look good. We have reached the latitude limit. Massive banding can be seen, as well as a very blotchy chroma noise distribution. Image sharpness is lost as well. Also, the concentric circles hint at an in &#8211; camera vignetting compensation.
+If our suspicion, derived from the IMATEST results is right we will not be able to do much with noise reduction, as the image is already heavily noise processed by default.
+Hence, let&#8217;s apply noise reduction to the 2 stops under and 3 stops under images:
+Please have a look further down in the article for a table of the noise reduction settings applied in DaVinci Resolve 18.6 for the various ISO&#8217;s and cameras.
+Concluding for the 24mm camera at ISO55, we get 5 stops of exposure latitude (3 above to 2 under). This is actually 2 if not 3 stops below the current crop of consumer APS-C or full frame cameras. Comparing it to the aforementioned ARRI Alexa Mini LF, it is 5 stops less exposure latitude. And compared to the Alexa 35, the difference is even seven stops.
+Now let&#8217;s have a look at higher ISO&#8217;s for the 24mm camera &#8211; at ISO1200
+As mentioned earlier in the dynamic range section, we noticed the phenomenon that at higher ISO&#8217;s code values would shift up and the lower (darker) stops would show a bit more differentiation resulting in potentially less banding.
+Let&#8217;s directly move to the 3 stops under image, for ISO1208 and 24mm camera:
+Well, this actually looks a bit better than at ISO55. Still, I would not consider this usable.
+Now let&#8217;s look at the front facing camera starting with ISO55
+We couldn&#8217;t use the lowest of ISO 20 as it was not possible to clip the forehead of Johnnie with our standard studio lighting.
+Again, 3 stops overexposure from base is easily possible, so lets move directly to 2 stops under:
+Interestingly, the front facing camera has a different, more organic image processing, also the noise is a bit finer, not so blotchy (especially the chroma noise) as with the 24mm camera.
+This image cleans up nicely again:
+Let&#8217;s see if we can push this to 3 stops under:
+This looks better actually than the 24mm at 3 stops under, even at ISO1200.
+Now, let&#8217;s do one more test at 3 stops under, using ISO1207 on the front facing camera:
+It becomes very obvious that the noise is much finer, especially the chroma noise. However, there is much more luma noise in the image. So let&#8217;s apply noise reduction:
+Ok, this is still not usable unfortunately. There is less of the blotchy chroma noise and much more luma noise, but overall there is a pinkish tint and the image is still not usable.
+As a summary, we can conclude that the iPhone 15 Pro / Max is capable of 5 stops of exposure latitude, with some wiggle room towards 6 at higher ISO&#8217;s.
+Summary
+Quite a funny experience to run a phone through our lab tests! The rolling shutter is exceptionally good on the iPhone 15 Pro / Max, with around 5ms for all cameras, the front facing camera has 9.3ms which is still very good. Perfect for handheld video shooting.
+Looking at the waveforms and the iPhone 15 Pro dynamic range in IMATEST, at first glance you could be tricked into believing the very high values that are displayed. In the end it turns out that those high IMATEST values are achieved with a really high internal noise reduction, confirmed by the latitude results of 5 stops (which is on the very low end in our benchmark). Recent Micro four thirds cameras like the GH6 have seven stops of exposure latitude, consumer APS-C cameras like the FUJIFILM X-H2S or the Sony A6700 have 8 stops and the leader of the pack, the ARRI Alexa 35 has 12 stops to give you the benchmark of our testing.
+Nevertheless, we have to keep things in perspective &#8211; we are talking about a phone with tiny image sensors &#8230; So all due respect to Apple in bringing Apple Log with 4k ProRes HQ encoding to their latest phones, which opens up a lot of possibilities for creators. It will only get better from here. Exciting.
+Have you shot video on the iPhone 15 Pro / Max? What are your experiences? Please let us know in the comments section below.
+ 50 Comments 
+
+&#916;document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );
+
+&#916;document.getElementById( "ak_js_2" ).setAttribute( "value", ( new Date() ).getTime() );
+ all 
+ Most reacted comment 
+ Hottest comment thread 
+ latest 
+ Oldest 
+ Most Voted 
+ all 
+ Most reacted comment 
+ Hottest comment thread 
+ latest 
+ Oldest 
+ Most Voted 
+Support CineD.Shop with our affiliates B&H and CVP.
+Support CineD.Shop with our affiliates B&H and CVP.
+You may also like ...
+Most recent CineD Videos
+WEEKLY CineD NEWSLETTER
+Stay current with regular CineD updates about news, reviews, how-to’s and more.
+You can unsubscribe at any time via an unsubscribe link included in every newsletter. For further details, see our Privacy Policy
+Support CineD. Shop with our affiliates B&H and CVP.
+Support CineD. Shop with our affiliates B&H and CVP.
+Latest Reviews
+Latest News
+Subscribe to our Newsletter
+Want regular CineD updates about news, reviews, how-to’s and more?Sign up to our newsletter and we will give you just that.
+You can unsubscribe at any time via an unsubscribe link included in every newsletter. The data provided and the newsletter opening statistics will be stored on a personal data basis until you unsubscribe. For further details, see our Privacy Policy
+Gunther Machu
+Gunther heads the CineD Lab and is responsible for our standardized camera tests: dynamic range, exposure latitude, and rolling shutter, measured under identical conditions for every camera we review. He holds a PhD in fluid mechanics and has spent over two decades in engineering leadership and R&amp;D, a background that shapes the rigor of our test methodology. Away from the test charts, he is a passionate filmmaker who cut his teeth on the Panasonic GH series, always keeping his gear as small as possible on his travels around the world. 
+
+Want regular CineD updates about news, reviews, how-to’s and more?Sign up to our newsletter and we will give you just that.
+You can unsubscribe at any time via an unsubscribe link included in every newsletter. The data provided and the newsletter opening statistics will be stored on a personal data basis until you unsubscribe. For further details, see our Privacy Policy
+
+News
+Reviews
+Lab Tests
+How To
+CineD Videos
+Unbiased reviews – our principles
+About Us
+Contact Us
+Advertise with Us
+News
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Industry
+Reviews
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Lab Tests
+Courses
+How To
+Podcast
+In the Spotlight
+FUJIFILM
+Canon
+Gear Guides
+Gear Guides by Type
+Cameras
+Lenses
+Drones
+Accessories
+Audio
+Gear Guides by Budget
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Recommended Kits
+Deals
+Cameras of the Year
+News
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Industry
+Reviews
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Software
+Lab Tests
+Courses
+How To
+Podcast
+In the Spotlight
+FUJIFILM
+Canon
+Gear Guides
+Gear Guides by Type
+Cameras
+Lenses
+Drones
+Accessories
+Audio
+Gear Guides by Budget
+Cameras
+Lenses
+Accessories
+Lighting
+Audio
+Recommended Kits
+Deals
+Cameras of the Year
+Beastcam
+Magic Cinema
+cinema5D
+Fraunhofer
+TEKE
+Door Robotics
+Wondershare
+Spirit Lab
+Frii Designs
+Beagle Drones
+TourBox Tech
+TDM Audio Pro
+Steinberg
+Lutify.me
+WANDRD
+X-TRA
+Blaupunkt
+Warner Bros.
+Joystock
+Dolby
+Motion Array
+Litchi
+Filmsupply
+Zendure
+ADG
+Magstor LTO
+Crew in a Box
+Krontech
+StoryFolder
+Cinenick
+Martin Kacvinsky
+Musashi-Opt
+Boxfish Research
+Geneinno
+Lenzo
+Ikelite
+OpenROV
+Ewa Marine
+National Geographic
+OceanX
+Mirfak Audio
+Hedén Group
+Women in Film
+AbelCine
+Kyno
+Signiant
+ReelSteady
+Postlab
+Invisage
+Livestream
+Timecode Systems
+naturfoto
+Arca-Swiss
+GigaDrive
+Gudsen Technology
+Beachtek
+Wonder Inventions
+Aurora
+LEE
+Moondog
+Aurora Aperture
+Lindsey Optics
+OnePlus
+SMARTTA
+Disguise
+FAA
+Colourlab
+Marvel
+FloLight
+HGST
+ZeeGee
+Color Trix Ltd
+Formatt
+Prompter People
+Gudsen
+SOONWELL
+NIVIDIA
+ACASIS
+Qumulo
+Movo
+Argineering
+Apogee
+Wristcam
+Rig Wheels
+Final Draft
+Fade In Pro
+CeltX
+WriterDuet
+Highland 2
+Fjorden
+ProCamera
+Backblaze
+FeiyuTech
+Cosyspeed
+YoloLiv
+LAMBOTECH
+Ncam
+Sprolink
+see.inc
+Ray-ban
+Digital Sputnik
+BEAM Dynamics
+LEE Filters
+Centerframe
+Aptolux
+Foolography
+Savage Universal
+Affinity
+Little Snitch
+Better Touch Tool
+DevonThink
+TourBox
+intoPix
+Sonnettech
+Schneider-Kreuznach
+Heinrig
+GoboPlus
+LG
+PWRBOARD
+LaCie
+Spiffy Gear
+Imaging Brands
+DUKEN
+ShareGrid
+Ricoh
+Sonnet Tech
+ASSIMILATE
+PreSonus
+Gyroflow
+Sintech
+Delkin Devices
+EIZO
+Kamlan
+Weeylite
+NANUK
+Universal Audio
+KUVRD
+Spartaqs
+Fangs Film Gear
+Acer Storage
+Imagine Products
+Freelensing Cine
+Rollei
+BSC 2022
+CRLS
+BB&amp;S Lighting
+KINOTEHNIK
+RedBull
+MAGIC SSD Card
+Modern Film Tools
+CJ ENM
+Lightstar
+NODO Film Systems
+Rigpacks
+FuseFX
+Brokeh
+Fomex
+TVLogic
+DigitalGlue
+HEIPI
+American Society of Cinematographers
+CaddxFPV
+Velium
+Jinni tech
+Helios
+MIT
+SPINN.DESIGN
+Raw Converter
+Stable Diffusion
+circle optics
+Maxon
+TPN
+Cinegearfactory
+Intel
+EXPODO
+ZITAY
+QD laser
+Fathom Camera
+Ottoblad
+KKX
+KanDao
+Switcher Studio
+The Lens Cuff
+Kelvin
+Saturation
+Nodal
+Delkin
+PlatePros
+Moonlight Industries
+SHARGE
+RigStand
+Pixera
+Varyostage
+INKEE
+STC Optics
+Astrodesign
+Ncam Technologies Ltd
+ZHONGYI OPTICS
+STG
+Lensbaby
+Videvo
+Knuckle Puck Camera
+OffShoot
+H&amp;Y Filter
+Color Trix
+Schoolpost
+MOVAVI
+Quine
+orion
+Magic Animate
+Rethink TV
+ORICO
+FILMGEAR Maxibrute 12
+HYPERDOLLY
+Kron Technologies
+Big Sky
+Zak Ray
+Prime Gear
+Jupio
+Pod Tech
+Sam Cam
+Fuzzy Door
+Vault Micro
+CineMilled
+Axisflying
+EON
+HYPER
+Hedbox
+wi-fi alliance
+Stability AI
+Pika
+Nauticam
+LateNiteSoft
+One LUT
+NANGUAN
+GL Optics
+LensVid
+LNKcine
+EVRapp
+NANLINK
+Nitecore
+PortraitPro
+Anthropics Technology
+CREWMATE
+borrowlenses
+Veloscura One
+Quip Design
+Galileo
+Yashica
+MusicBed
+Konvision
+Micro Four Thirds
+Focusbug
+Bluff Bounce
+SwitchLens
+photogram
+T-Create
+Fable Studio
+HAWK
+Vantage
+SpecialGuestX
+1stAveMachine
+oconnor
+old fast glass
+Krypton OR
+Halmapixel
+DI
+Microsoft
+IBC 2024
+Play Tracks
+deepeye studio
+Pixelmator
+Pixotope
+K&amp;F
+Vislink
+CineMon
+Krotos
+HDMI Forum
+SLAM
+Chauvet
+Xvive
+Camera Rentals NYC
+National Geographic bags
+Colorama
+Camera Corps
+TCS equipment hire
+Vinte
+autoscript
+Occonor
+Cloudflare
+LK Samyang
+Schneider Kreuznach
+Bun-G-Ring
+BYD
+Blender
+Tilta Tripods
+Tilta Tripods Review
+Eddy.ai
+CoreSWX
+Apple TV+
+raw convertor
+Pearla
+Mobygratis
+Freedman Group
+DXOMARK
+Claypaky
+EK Lights
+Z-CAM
+OCTOPUS RAW
+True Lens Services
+NBCUniversal
+NBC
+Universal
+U2
+Bono
+TRIBE7
+podcasts
+APSARA
+KhanØptic
+Roll Cam
+Bright Tangarine
+movcam
+Leofoto
+Inst360
+Osmo 360
+Insta360 drone
+CHI
+DIYPhotography
+SWISSRIG
+Small Rig
+Amber7Cine
+EcoFlow
+i-cuff
+Behold
+Phantom
+ZOSS
+Hohem ASUS
+Nikon ZR
+Otto Nemenz
+Pocket Dispo
+OFG
+HAL Picture
+Sony A75
+Beeble
+CREE8
+Paramount Studios
+Warner Brothers
+Middle Control
+Imagen AI
+Cartonni
+Sora
+Veo 3
+Oren Soffer
+generative AI
+gen AI
+The Creator
+FX3
+Gen video AI
+generative video AI
+interview
+DP interview
+Hollywood DP
+Creator DP
+Dreame
+TLC
+Sundance
+ProClip
+Eleven Percent
+MOBY TEC
+CineParts
+Apurture
+Kuaishou
+EZCast
+Jaquet
+Nice Touch
+MPA
+RevCut
+InterPositive
+AnamorphicTool
+Audio-Technica
+DSC Labs
+ISO
+Vinten
+SWX
+elevate.io
+Epidemic Sound
+Sekonic
+BFI
+Riedel
+Radient Images
+Radiant Images
+Ghost Kits
+Shade
+CornerCut
+Radiant Imagews
+DZOFilms
+4DV.ai
+Nikkor
+MPTS
+SnorriCam
+LogGate
+Acer
+Threadline Studio
+Stickse
+Blackmagic
+ZR CTL
+The Chronos Project
+Glaswerk
+Cinelux Cinema Tools
+KOCARD
+Kinefintiy
+Iconik
+Blandford Capital
+Omnivision
+FiLMiC Pro
+GlideCam
+LC Tech
+Native Instruments
+Claude
+Lead the Way
+Google DeepMind
+Insta360 Luna
+Brevidy
+Atlas
+FarseerTech
+Interceptor
+Vintage Visual
+Rhinowalk
+Farseer Tech
+Interceptor Inc.
+OpenPocketCine
+Kader
+PTZOptics
+Cirrus
+Metamorphosis 3D
+ILLUVISION
+UGREEN
+Convergent Design
+Pinnacle
+Ambient
+Autokroma
+Full Frame Camera Co.
+G-Technology
+ACHTEL
+MOZA
+Lectrosonics
+MainConcept
+HBO
+technicolor
+Sony Venice
+CyberLink
+FUJONON
+Venus Lens
+Amimon
+Voigtlander
+AJA
+Gates Underwater
+Marbl
+Color.io
+The Vitec Group
+Marumi
+Schneider
+Huawei
+ZY Optics
+Seagate
+Toshiba
+Cinema Devices
+Mark Roberts Motion Control
+timeinpixels
+Kolari Vision
+Neat Video
+Pergear
+MotoCrane
+Facebook
+VEGAS
+Qualcomm
+VIDEOGEAR
+Future Moments
+CAMVATE
+Easyrig
+Snoppa Tech
+Syrp Lab
+Flim.ai
+The Cine Lens Manual
+Rhino
+CHIOPT
+Northwest Camera Co
+Samas Cases
+NDI
+COMAN
+Indiestor
+Westcott
+onsemi
+Cinelist
+Mitakon Zhongyi
+Light Widow
+iFlight
+Desview
+Ikan
+1A Tools
+LumenArc
+SmartSystem
+DPReview
+Hovervolt
+CVW
+Nitze
+Multiturret
+ShiftCam
+Small HD
+Sphere Studios
+RoboCup
+Maxima
+Mitakon
+DPA Microphones
+Brightin Star
+Austrian Audio
+lux optics
+Auron Studios
+motionVFX
+FilmaticAI
+LENSGO
+Insta 360
+lensrentals
+NANGUAN
+Maker Machina
+ZERØ OPTIK
+Logitech
+PROTON Camera Innovations
+GUTEK
+V35 Project
+FreeMe
+DSC Laboratories
+LTX Studio
+Awesome Pixels
+Ottomatic
+Play
+Geek &amp; Sundry
+XLCS Designs
+Rigid.PRO
+AltCineCam
+Getty Images
+Tokina Cinema
+Pansonic
+Savage
+Filmatura
+RealMe
+PMI
+Motorized Precision
+FUIFILM
+CineD podcast
+CineD Focus Check podcast
+magic lantern
+Node Mill
+Moonvalley
+Imagen
+Eurocine
+ORCA
+Lensworks
+Panomicron
+DIGILOG
+Hollywood
+Ruko
+Behringer
+OBS
+LEWITT
+ShotKraft
+TECNO
+Vivo
+rushes
+SG-Image
+Autocut
+CAME TV
+Riedel
+XLCS
+First Rush
+SKYROVER
+RingThing
+SMPTE
+LidarAC
+rsv.repair
+LIGHTFRAMER PRO
+MultiDyne
+A24
+Beat
+Codex
+Clip Sweeper
+TriLife
+XTRA
+LALAL.AI
+EBU
+HD Air Studio
+LIT
+OPENMOON
+bilibili
+Miller
+CineDream
+Phantom LUTS
+Starman Optical
+LumaFusion
+Breakthrough Photography
+Prism Lens FX
+PGYTECH
+AMD
+Volta Cinema
+Media Division
+western digital
+Grass Valley
+BBC
+MASV
+Pomfort
+Middle Things
+Renderro
+Syrp
+Blind Spot Gear
+OM Digital Solutions
+Dulens
+Lomography
+CalDigit
+Amazon
+Creative Solutions
+RigWheels
+Beastgrip
+Sharp
+Zhong Yi Optics
+Skydio
+Digital Anarchy
+Instagram
+H&amp;Y
+Filmic
+Color Intelligence
+Dell
+Formatt Hitech
+Movmax
+Audix
+BLUESHAPE
+Zoom Corp
+LiteGear
+Techart
+PROLIGHTS
+Deep Designs
+HydroH
+Delimex
+Tundra drone
+PAN&#039;S
+Camlist
+SanDisk Professional
+AstrHori
+MAVEN
+GEPRC
+JVC
+CineTreak
+Autocue
+Shure
+Swiss Rig
+CINEFLARES
+OBSBOT
+Ancient Optics
+Nanguang
+OFG Customs
+Lightcraft
+BOYA
+PrimeLight Design
+BLUETTI
+Minifab
+Dockcase
+Focus Check podcast
+SongRaw
+Aiarty
+FilmLA
+Luma AI
+IMAGO
+Paramount
+Kling
+Higgsfield
+TSMC
+XPPen
+Chemical Wedding
+Artemis
+Comica Audio
+Audio Design Desk
+FotodioX
+Duclos Lenses
+Tiltaing
+Vibesta
+Roland
+Simon Says
+Voigtländer
+LockCircle
+Xelmus
+Aladdin
+Gitzo
+Uppbeat
+Sonnet
+K-Tek
+OCTOPUS CINEMA
+Lowepro
+Shutterstock
+NVIDIA
+HPRC
+Oppo
+Lowel
+CRDBAG
+IBC
+Cosina
+BB&amp;S
+Elgato
+ANDYCINE
+Ignite Digi
+IMAX
+COMICA
+Anton Bauer
+VEGAS Creative Software
+Bending Spoons
+ZOLAR
+Pan&#039;s Scheme
+Bosma
+alteon
+DCS
+Module 8
+Camera Foundry
+Sony Burano
+ClouZen
+OM
+podcast
+Focus Check
+Rolux
+Camera Intelligence
+Warner Bros
+Rokinon
+Anton/Bauer
+NAB
+Trexo
+Synco
+Metabones
+LoupeDeck
+Kessler Crane
+Rycote
+Zaxcom
+MAGIX
+Hasselblad
+SUMOLight
+Pelican
+FXhome
+Wise Advanced
+Flanders Scientific
+XEEN
+dedolight
+Exascend
+cineroid
+Hawk-Woods
+Global Dynamics United
+ZEAPON
+ShotDeck
+MOFAGE
+LIT Systems
+Meta
+I'm Back
+Disney
+LVX
+open AI
+PRODUCER
+Teamgroup
+Topaz Labs
+Antigravity
+ByteDance
+Vision Research
+vazen
+Vitec
+Vitec Group
+Boris FX
+Olympus
+Accusonus
+Alice Camera
+CineMatch
+Megadap
+MTF Services
+FiLMiC Inc.
+Simmod
+iZotope
+Irix
+Chrosziel
+GNARBOX
+ZILR
+Music Vine
+Lexar
+pCloud
+ProGrade
+Angenieux
+Dehancer
+Great Joy
+Nextorage
+Osee
+Shimbol
+Revar Cine
+P+S Technik
+COLBOR
+Runway
+Hobolite
+CIPA
+Harlowe
+Knowled
+Nikon/RED
+HOVERAir
+Honor
+INOVATIV
+Lupo
+8Sinn
+Rotolight
+Tentacle Sync
+Rosco
+JOBY
+Atlas Lens Co
+Matthews
+PDMOVIE
+bebob
+ARRI Rental
+midjourney
+CINELUX
+Cadrage
+kessler
+Creamsource
+SLR Magic
+Benro
+MRMC
+Simmod Lens
+LumaTouch
+Lightricks
+Kipon
+Thypoch
+Cooke
+Cartoni
+Sound Devices
+Colourlab Ai
+Moment
+Yongnuo
+Panavision
+Xiaomi
+Quasar Science
+Vocas
+SanDisk
+Freefly
+FALCAM
+Steadicam
+GVM
+LC-Tec
+Nexus
+K&amp;F CONCEPT
+Fxlion
+Sachtler
+OM System
+Mavis
+Videndum
+DaVinci Resolve
+Panasonic LUMIX
+Leitz
+YouTube
+Tascam
+Cooke Optics
+KipperTie
+Profoto
+Hohem
+sennheiser
+Peak Design
+Bright Tangerine
+PolarPro
+Litepanels
+Audiio
+IronGlass
+Vaxis
+Deity
+Vimeo
+Freewell
+MUTINY
+ZGCINE
+ZHIYUN
+Kondor Blue
+Zoom
+SANDMARC
+Atlas Lens Co.
+ASC
+Zacuto
+Samsung
+Lightbridge
+FEELWORLD
+TTArtisan
+CVP
+YC Onion
+B&amp;H
+OpenAI
+Kodak
+Pixboom
+Freefly Systems
+Prolycht
+Filmstro
+Edelkrone
+7artisans
+fylm.ai
+Tokina
+Artlist
+RED Digital Cinema
+MID49
+Strada
+Tiffen
+Avid
+iodyne
+amaran
+Ulanzi
+DIGITALFOTO
+Astera
+RODE
+OWC
+DoPchoice
+Hedge
+Samyang
+Manfrotto
+Wooden Camera
+Z Cam
+Frame.io
+Libec
+Meike
+Google
+Saramonic
+NiSi
+ASUS
+Core SWX
+Shape
+iFootage
+Netflix
+Tamron
+Portkeys
+Venus Optics
+Kinefinity
+ZEISS
+Eddie AI
+CineD
+LUMIX
+RØDE
+FUJINON
+SmallHD
+Blazar
+Teradek
+NANLUX
+CAME-TV
+Insta360
+Viltrox
+Angelbird
+GoPro
+SWIT
+Hollyland
+FilmConvert
+Leica
+Aputure
+DZOFILM
+Godox
+Accsoon
+NANLITE
+Laowa
+SmallRig
+SIRUI
+Adobe
+Atomos
+SIGMA
+RED
+Apple
+ARRI
+Nikon
+Tilta
+Panasonic
+DJI
+FUJIFILM
+Canon
+MZed
+Blackmagic Design
+Sony
+Terms of use
+Privacy Policy
+Tip Us
+RSS Feed
+CineD – Your Digital Cinema Tech ResourceTake part in the CineD community experience
+New to CineD?
+Connect with
+ or Comment as Guest

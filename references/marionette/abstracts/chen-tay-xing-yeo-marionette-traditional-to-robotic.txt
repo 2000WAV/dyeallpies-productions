@@ -1,0 +1,43 @@
+Chen, I-M., Tay, R., Xing, S., and Yeo, S.H. (undated conference paper, cited
+elsewhere as ~2003-2004). Marionette: From Traditional Manipulation to Robotic
+Manipulation. (Related journal version: Chen, I-M., Xing, S.S., Tay, R. and Yeo,
+S.H., "Many strings attached: from conventional to robotic marionette
+manipulation," IEEE Robotics & Automation Magazine, 12(1), pp. 59-74, March 2005 --
+full text of the magazine version was NOT obtained: the IEEE Xplore PDF
+(ieeexplore.ieee.org/iel5/100/30579/01411420.pdf) returned an IEEE sign-in page, not
+the article, when fetched with curl. Recorded as NOT FOUND at full-text level for
+the magazine version; the conference-paper version below was retrievable in full.)
+
+NOTE ON PROVENANCE: this PDF (papers/icdst-marionette-robotic-manipulation.pdf,
+text extract of the same name) was already present in the shared
+references/marionette/papers/ folder, saved by another research item working in
+this same folder; it was not re-downloaded by this item, only read and cited here
+because its content (joint types, ROMS hardware table) is directly relevant to
+this item's brief (puppet body dynamics / joint types and ranges of motion).
+
+ABSTRACT (as printed):
+Marionettes are string-operated puppets. It is an ancient and universal form of
+performing art which still evolves slowly today. From the engineering perspective,
+the marionette is a wire- (or string-) driven multi-limbed under-actuated
+mechanism under gravity influence that exhibits rich kinematic and dynamic
+behaviours. This article introduces the evolution and the engineering aspect of
+traditional marionette design and manipulation skills. Based on the mechanics of
+marionette, a novel robotic marionette system that manipulates the puppet through
+mechatronic means is developed. The marionette may create life-like movements
+according to programmed motion commands issued from the computer and a
+motor-driven puppeteer mechanism. A simple demonstration of the robotic marionette
+performance is shown as well.
+
+KEY NUMBERS pulled from the full text (Table 1, "Specifications of ROMS-I, II, and
+III"): three robotic marionette figures, height 31.2 cm / 30.5 cm / 29.5 cm
+(matching this project's ~30 cm target almost exactly), weight 314 g / 214 g / 259 g,
+with 30 / 35 / 23 joints and 8 / 14 / 16 controlled DOF, driven by 8 / 16 / 16
+motors. Joint types used: "s-joint" (spherical, 3-DOF) x8-9 per figure, "u-joint"
+(universal, 2-DOF) x1, "r-joint" (revolute, 1-DOF) x4-5 -- i.e. a professional-scale
+marionette in this exact size class is built almost entirely from 3-DOF ball joints
+at the main body articulations, with a handful of 1- and 2-DOF joints elsewhere.
+Also states joints in traditional marionettes are commonly realized with "leather,
+cord, or screw-eyes," giving 1-DOF revolute, or 2-/3-DOF spherical motion depending
+on construction (Section 2, Fig. 1b caption). Exact angular range-of-motion numbers
+(degrees) for these joints are NOT given anywhere in the text -- recorded as NOT
+FOUND.

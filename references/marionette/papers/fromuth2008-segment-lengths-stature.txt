@@ -1,0 +1,456 @@
+                                                                                           Proceedings of DETC08
+                                   ASME International Design Engineering Technical Conferences
+
+                                                                  August 3-6, 2008, New York City, NY, USA
+
+                                                             DETC2008-50091
+
+PREDICTING 5TH AND 95TH PERCENTILE ANTHROPOMETRIC SEGMENT
+                       LENGTHS FROM POPULATION STATURE
+
+         Robert C. Fromuth                                                        Matthew B. Parkinson
+The Pennsylvania State University                                              Engineering Design Program
+                                                                        Department of Mechanical Engineering
+     University Park, PA 16802                                             The Pennsylvania State University
+     email: rcf5002@psu.edu
+                                                                                University Park, PA 16802
+                                                                               email: parkinson@psu.edu
+
+ABSTRACT                                                                These ratios of segment lengths to each other are called "propor-
+     Designing for human variability frequently necessitates an         tionality constants" (PCs). They are typically calculated by tak-
+                                                                        ing a large sample of anthropometric data and determining either
+estimation of the spatial requirements of the intended user popu-       the mean or 50th percentile ratio of the length of each measure
+lation. These measures are often obtained from "proportionality         of interest to stature. Drillis and Contini were among the first
+constants" which predict the lengths of relevant anthropometry          to publish mathematical relationships of many body dimensions
+using stature. This approach is attractive because it is readily        to stature in their 1966 report on body segment parameters [1].
+adapted to new populations--only knowledge of a single input,           Since then, these values have been extensively used as a design
+stature, is necessary to obtain the estimates. The most commonly        tool for everything from vehicle packaging to manufacturing lay-
+used ratios are those presented in Drillis and Contini's report         outs. They provide a means of estimating the lengths of many
+from 1966 [1]. Despite the prevalence of their use, these partic-       body segments while knowing only the stature of an individual.
+ular values are limited because the size and diversity of the pop-      Consequently, proportionality constants allow design engineers
+ulation from which these ratios were derived is not in the litera-      to predict the length or range of adjustability of artifact compo-
+ture, and the actual body dimensions that each ratio represents         nents. The attractiveness of using proportionality constants is
+are not clear. Furthermore, they are often misinterpreted and           due to their ease of use and the ready availability of the single
+used inappropriately. This paper introduces a new approach, the         measure, stature, necessary to drive the model. For example the
+"boundary ratio" which mitigates many of these issues. Bound-           United States conducts an ongoing National Health And Nutri-
+ary ratios improve on the traditional application of proportion-        tion Examination Survey (NHANES) for which stature data are
+ality constants by: 1) explicitly defining the body dimensions, 2)      released every two years [3]. This survey reports summary data
+defining constants for the 5th, 50th, and 95th percentile measures,     for the general population by gender and is broken down by age
+and 3) providing distinct constants for males and females when          and ethnicity. Designers can use these data to determine stature
+necessary. This approach is shown to better model the range of          distributions for their target user population.
+variability exhibited in population body dimensions.
+
+INTRODUCTION                                                            Proportionality constant limitations
+     The understanding that an individual's arm length is propor-
+                                                                             A major drawback of Drillis and Contini's proportionality
+tional to their stature has been known for thousands of years, and      constants is caused by the uncertainty regarding which body di-
+the same can be said for many other segments of the body [2].           mensions the ratios predict (Figure 1-simplified diagram). In
+
+                                                                     1  Copyright c 2008 by ASME
+                                                                               1150
+
+                            .259                                                             1050    95th = 1009
+                                                 .186                                                   5th = 854
+                                                                               trochanter
+1.0                                                    .146                      height 950
+    .818                                                                          (mm)
+          .630              .191                             .108
+                                                                                               850
+                                        .530
+                                                                                               750
+
+                .485                                                                          0.58
+
+                      .377        .285                                         trochanter 0.56
+                                                                                 stature 0.54
+                                                              .039               (ratio) 0.52        mean = 0.529
+
+Figure 1. A sample of Drillis and Contini's proportionality constants [1].                      0.5
+
+                                                                                              0.48
+
+their report no formal definitions of the dimensions are provided                                         1500 1600 1700 1800 1900 2000
+[4]. For example, 0.285 is given as the proportionality constant
+for "knee" height. However, it is not known if this number refers                                                           stature (mm)
+to the midpatella height or the lateral femoral epicondyle height.
+Although this results in a bias error of only a few cm, this is often          Figure 2. Trochanteric height (leg length) plotted against stature for the
+quite large relative to the amount of space or adjustability avail-            male ANSUR population (top) with the 5th and 95th percentile values
+able to the designer. For example, 95% of the range of lateral                 marked. The ratios of these two measures for each individual within the
+femoral epicondyle height (a specific "knee height") observed in               population are shown, along with the mean value (bottom).
+an extensive survey of male military personnel (ANSUR) is only
+10 cm [5, 6]. A design that was shifted by 2-3 cm because of the               and 95th percentile values, which can be used to approximate the
+ambiguity in the definition of the constant could result in unex-              requirements for a large percentage of the population. For ex-
+pectedly large amounts of disaccommodation.                                    ample, consider one measure of leg length, trochanteric height.
+                                                                               Figure 2 shows that measure plotted against stature for the male
+     Although proportionality constants have been in the litera-               ANSUR population [5, 6]. Notice that for any given stature the
+ture for over forty years (e.g., [7, 8]), there has been little val-           population will exhibit a large range of lengths for a specific
+idation performed on the accuracy of the ratios themselves [9].                body segment. Similarly there is a large range in the ratios of
+Pheasant released a validation study [10] of the Drillis and Con-              trochanter height to stature. Either the mean or 50th percentile
+tini values, but used a different population to do the assessment.             value is traditionally selected for the proportionality constant. As
+Likewise, Gannon and Moroney performed a study [4] which                       Figure 2 shows, however, there is a range of approximately 20%
+focused on analyzing the accuracy of proportionality constants                 in these values observed in the data for this measure.
+formulated from a different population. Since the ratios in these
+studies were created from different populations, Drillis and Con-                   Users of proportionality constants might account for the
+tini's ratios have not and, due to the ambiguity in their definition,          observed variability by estimating the 5th and 95th percentile
+cannot be validated in the traditional sense. Their accuracy as                segment lengths using the 5th and 95th percentile statures as
+a design tool can be assessed, however, by comparing their pre-                the model inputs. For example, the 5th percentile trochanteric
+dicted segment lengths with actual lengths measured in a target                height might be estimated to be equal to the appropriate propor-
+population.                                                                    tionality constant (e.g., 0.529) multiplied by the 5th percentile
+                                                                               stature in the target population. This is founded in the mis-
+     An additional limitation in the application of proportionality            conception that an nth percentile person by stature is comprised
+constants is the lack of information they provide about variability
+in segment length ratios across a population [11]. Of particular
+interest are values in the tails of the distributions, e.g., the 5th
+
+                                                                            2                        Copyright c 2008 by ASME
+of nth percentile body segments [2, 12]. This assumption may             proportionality constant models included estimates of breadth,
+lead to misallocated adjustability [13], suboptimal designs, and         but the recent increases in the prevalence of obesity have dra-
+unexpected accommodation levels, particularly when applied to            matically increased the amount of residual variance, rendering
+multi-dimensional analyses. For example, the 5th, 50th, and 95th         the use of constants impractical.
+percentile values observed in the ANSUR data in Figure 2 are
+854, 926, and 1009 mm, respectively. Using the 0.530 value                    Accommodation targets often involve the 5th and 95th per-
+corresponding to leg length in Figure 1 and 5th, 50th, and 95th          centile body segment lengths. Consider, for a single gender, a
+percentile statures from the same ANSUR data, values of 874,             design limited by stature that performs in a satisfactory way for
+930, and 990 mm are obtained. If the 50th percentile values are          everyone shorter than the 95th percentile value. Such a design
+adjusted to compensate for the ambiguity surrounding the pre-            would theoretically accommodate 95% of that target population.
+cise measure used for leg length in Drillis and Contini, the cal-        Similarly, a design intended for a target population comprised
+culated 5th and 95th percentile values (870 mm and 986 mm) are           of 50% males and 50% females might have both minimum and
+actually the 10th and 88th percentile values. A designer using           maximum height restrictions. Designing to the 5th percentile fe-
+this constant under the best of circumstances (i.e., the values are      male and 95th percentile male is also assumed to accommodate
+shifted to match the 50th percentile of a known measure) would           95% of the population (95% of men and 95% of women). Be-
+be using measures spanning 78% of the population rather than             cause of their frequency of use, only the 5th and 95th percentile
+the expected 90%.                                                        boundary ratios of each dimension will be analyzed and provided
+                                                                         in this paper.
+     Drillis and Contini's proportionality constants have some
+unique limitations, but many are inherent in them all regardless         Anthropometric database and formulation of ratios
+of their source (e.g., [10, 14]). Any use of proportionality con-             ANSUR will be used as the database from which the bound-
+stants requires that the designer determine the appropriate "pos-
+ture" of the user. This is as much art as science and the selections     ary ratios will be calculated. It is the most comprehensive anthro-
+are often not repeatable within or across designers. Additionally,       pometric survey representing a specific population available, and
+they fail to consider behavior that does not correlate with anthro-      contains more than 240 measures for 1774 males and 2208 fe-
+pometry. In other words, their use typically assumes that two            males. Unfortunately the ANSUR database is not representative
+people of the same size will interact with a designed artifact in        of the civilian populations most often targeted in product design.
+the same way. Finally, they are often used inappropriately to do         Consequently, the ratios derived from ANSUR will be used to
+univariate assessments of designs that are inherently multivari-         predict selected dimensions of a civilian population which has
+ate.                                                                     known dimensions so as to validate their accuracy; this is ex-
+                                                                         plained in the Validation subsection.
+     They remain, however, widely taught and used. This is pri-
+marily because of the ease with which they are explained and                  The ANSUR population is first separated into male and fe-
+implemented and the comparative ease with which the necessary            male sub-populations. For each dimension within these two pop-
+model input (stature) is obtained. While the results of the present      ulations, the corresponding proportionality constant is calculated
+work do not resolve all their many issues, they do address some          by taking the mean of each segment's ratios:
+of them by 1) explicitly defining the body dimensions, 2) defin-
+ing constants for the 5th, 50th, and 95th percentile measures, and       pa  =  Ni=1 li/si  (1)
+3) providing distinct constants for males and females as well as                    N
+a combined population.
+                                                                         where pa is the proportionality constant for segment a, there are
+METHODOLOGY                                                              N values in the database, and li and si are the length of the seg-
+     The current work is neither a replacement nor an update of          ment of interest and stature for the ith person in the database. The
+
+proportionality constants. Instead, it provides ratios, designated       boundary constants are calculated in a slightly different manner.
+throughout this paper as boundary ratios (BRs), which are as             The 5th, 50th, and 95th percentile lengths are extracted, as well
+simple to use as proportionality constants yet provide results that      as the 5th, 50th, and 95th percentile statures. Each nth percentile
+are more accurate and better suited for use in design analyses.          dimension is divided by the nth percentile stature:
+Thirteen measures commonly used in design were selected for
+development. These are depicted graphically and with their spe-              ba,n  =  la,n  (2)
+cific names in Figure 5. A detailed explanation of each segment                       sn
+is available in [5]. No ratio provided is a measure of breadth,
+which is more strongly correlated with body mass index (BMI--            where b is the boundary constant, n is the percentile of interest,
+a measure of weight-for-stature) than measures of length. Early          and the other variables are defined as previously. For the present
+
+                                                                      3               Copyright c 2008 by ASME
+                    Percent error from actual length - NHES males                                          Percent error from actual length - NHES females
+                          01234567
+                                                                                                  8                              01234567                                     8
+
+                 5th                                                                                                        5th
+Buttock-pop.                                                                                               Buttock-pop.
+
+                95th                                                                                                       95th
+
+                 5th                                                                                                        5th
+Popliteal ht.                                                                                              Popliteal ht.
+
+               95th                                                                                                       95th
+
+                 5th  Male BR                                                                                               5th  Female BR
+Sitting ht.                                                                                                Sitting ht.
+                      Averaged BR                                                                                                Averaged BR
+                95th  Male PC                                                                                              95th  Female PC
+
+                                            01234567                                                    8                        01234567                   8
+
+Figure 3. Percent error between predicted lengths and actual lengths of                                 Figure 4. Percent error between predicted lengths and actual lengths
+male 1960-62 U.S. NHES population. BR = boundary ratio, PC = propor-                                    of female 1960-62 U.S. NHES population. BR = boundary ratio, PC =
+tionality constant.                                                                                     proportionality constant.
+
+work, these calculations provide 13 proportionality constants and                                       tion results in products with less accommodation than expected.
+39 (3 levels × 13 measures) boundary constants for each of the                                          Overestimation might provide better-than-expected accommoda-
+male and female populations. A third set of boundary constants                                          tion, but often at additional cost.
+is determined by averaging those obtained for the males and fe-
+males. All are reported in the table shown in Figure 5. Using                                                The first validation example uses anthropometric data from
+the 5th and 95th percentile statures in these ratios allows infor-                                      the 1960-62 U.S. National Health Examination Survey (NHES)
+mation about the range of statures in a target population to be                                         (contained within [9]). The data within the NHES survey are lim-
+captured. This improves the accuracy of the predictions and the                                         ited in some respects. They contain a limited number of anthro-
+extensibility of the model to new populations where the standard                                        pometric measurements so only three measurements (buttock-
+deviations in the stature data are different than those observed in                                     popliteal length, popliteal height, and sitting height) are exam-
+the data from which the model was made.                                                                 ined. Additionally, they contain some error due to variation in
+                                                                                                        measurement technique. These data are a good candidate for val-
+Validation                                                                                              idation, however, since the NHES population is so different than
+     To demonstrate the accuracy of these boundary ratios com-                                          that from from which the model was built (ANSUR). Among
+                                                                                                        the differences are those in ethnicity, fitness, age distribution,
+pared to traditional proportionality constants, two validation                                          and secular increases in stature and BMI that occurred in the
+analyses are performed. Segment lengths were predicted at sev-                                          35 years between the NHES and ANSUR studies. Predicted 5th
+eral percentile levels for each of two populations. The calcula-                                        and 95th percentile values for the NHES population were calcu-
+tions were made using the both the boundary constant approach                                           lated and compared against known values for the measures. The
+and the traditional proportionality constants. In order to make                                         predictions were made using proportionality constants and both
+more useful comparisons, proportionality constants were calcu-                                          gender-specific and averaged boundary ratios.
+lated from the same population as the boundary constants (i.e.,
+ANSUR). These removes the effects of differences across pop-                                                 A more comprehensive validation was performed for all of
+ulations that might be evident were the PCs calculated for one                                          the measures using two sub-populations of ANSUR. These data
+population and the BRs for another. The percentage of absolute                                          are generally not useful for designing for civilian populations be-
+error was used as an indication of the relative effectiveness of the                                    cause they are more "fit" than the general population. To provide
+models. Using absolute error should not impact the significance                                         some indication of the applicability of the boundary ratios to a
+of the validations because overestimation and underestimation of                                        general population, only individuals with BMI  26 (those over
+body dimensions both cause significant problems. Underestima-                                           25 are generally considered to be overweight) are used for the
+                                                                                                        analysis. This yielded data for 843 men and 434 women, sam-
+
+                                                                                                     4                           Copyright c 2008 by ASME
+ple sizes large enough to effectively perform the test. Segment        DISCUSSION
+lengths were calculated using both the proportionality constant             Boundary ratios, as described in this paper, make three prin-
+and boundary ratio approaches. For either approach the length is
+intended to be either the 5th or 95th percentile value. To quan-       cipal contributions. First the segments for which the ratios are
+tify the error in the estimation, the lengths were predicted then      calculated are explicitly defined and are related to a known and
+compared to the actual data to determine the actual percentile         publicly available dataset. Second, ratios for extreme percentiles
+represented. Although data could have been withheld from the           (5th and 95th) where much of the design work is done, are pro-
+model-building to use for the validation exercise, the value of        vided. Third, ratios are provided for both the male and female
+keeping the full diversity of samples within the data set was more     populations in addition to an averaged set of data.
+important. Since both the BRs and PCs were calculated from the
+same full data set, comparisons across the two methodologies                As expected boundary ratios show increased accuracy over
+when using the reduces set should still be a good indication of        equivalent proportionality constants, particularly in the tails of
+their relative accuracy.                                               the distributions. The results of the NHES validation analysis
+                                                                       show both the gender specific and the combined boundary ratios
+RESULTS                                                                have less error. While this study only examines three dimensions,
+                                                                       there is consistency in the results showing increased prediction
+     Using the boundary ratios in Figure 5 and the proportionality     accuracy, and as a result it is reasonable to infer the boundary ra-
+constants derived from ANSUR, segment lengths were predicted           tios of other dimensions (Figure 5) will produce better estimates
+for five populations: NHES, the male and female ANSUR pop-             than proportionality constants. The second, more in-depth anal-
+ulations, and two sub-population of ANSUR: males with BMI              ysis of the male and female ANSUR sub-populations strength-
+ 26 and females with BMI  26. The absolute error for the               ens the conclusions from the NHES analysis regarding gender
+male and female NHES populations are shown in Figures 3 and            specific boundary ratios. The male boundary ratio predictions
+4. Gender-specific boundary ratios show a moderate improve-            provide an average range across 13 measures of 89.2%, which
+ment over proportionality constants in eight of twelve cases.          closely matches the expected range of 90%. Proportionality con-
+                                                                       stants however, produce a range of 78.0%, showing significantly
+     The results from the ANSUR comparisons are much more              less prediction accuracy. Similarly, female boundary ratio pre-
+conclusive and more easily interpreted. Using the procedure out-       dictions estimate an average range of 89.9%, while proportion-
+lined in the Methodology section, the actual percentiles which         ality constants provide a considerably smaller range of 77.6%.
+match the predicted values are calculated for the general male         Based on these results, it is expected that the boundary ratios
+ANSUR and the male ANSUR with BMI  26 sub-populations.                 provided in Figure 5 can be used instead of proportionality con-
+The same procedure is followed for the general female ANSUR            stants to more consistently predict the 5th and 95th percentile di-
+and female ANSUR with BMI  26 sub-populations. This is                 mensions of a population. Additionally, the nearest ratio might
+possible because all the measures for each person within the           be used when other percentiles are desired (e.g., use the 95th per-
+database are reported (rather than just the summary statistics re-     centile ratio with the 97th percentile stature to estimate a 97th
+ported in NHES and other surveys).                                     percentile length).
+
+     Using either the proportionality constant or boundary ratio            There are some limitations in the approach, however. As in
+approaches, the designer would be expecting that the calculated        any proportionality constant approach, the boundary ratios were
+range would indicate 90% of the range of values on that measure.       calculated for a particular population (ANSUR) at a particular
+The actual ranges are different however (Table 2). For the general     moment in time. This population had age, fitness, and ethnicity
+male and female ANSUR populations the boundary ratios per-             distributions which are likely different than those in a target de-
+form exactly as expected. The range should be exactly 90% since        sign population. Although secular trends such as the increase in
+they were calculated from these data directly. The proportional-       stature and weight within a population over time are not likely to
+ity constants, however, which were also calculated from these          affect the boundary ratios (as the HFES example demonstrated)
+data, do not perform very well. The average range using them is        different ethnicities can exhibit different ratios of body dimen-
+78.6% for males and 77.2% for females. For the sub-populations         sions. As such, extending these ratios to vastly different popu-
+the boundary ratio approach still performed well, producing an         lations (e.g., a target population in China or Scandinavia) might
+average range across the 13 measures of 89.2% for males and            produce poor results. Nevertheless this work assumes that ratios
+89.9% for females. The average range for the proportionality           and the relative distributions of segments are somewhat constant
+constants is 78.0% for males and 77.6% for females. In other           across large populations and that is not necessarily the case. Al-
+words, designers are likely to underestimate univariate accom-         though the approach was shown to work well for a very different
+modation for males by 12% and for females by 12.4% using a             population from which it was derived, it is likely that target pop-
+best-case proportionality constant approach.                           ulations that differ significantly (e.g., in ethnicity distribution, in
+                                                                       overall fitness, etc.) from the ANSUR population will experi-
+                                                                       ence more error than those that are similar. The approach also
+
+                                                                    5  Copyright c 2008 by ASME
+does not address measures of breadth such as seated hip breadth                 The Journal of Neuroscience, 14(12), December, pp. 7529­
+or shoulder breadth which are strongly correlated with BMI. This                7540.
+is a critical gap in current approaches that is becoming increas-          [8] Roebuck, J.A., K. K., and Thonson, W., 1975. Engineering
+ingly important as the prevalence of obesity in the U.S. popula-                anthropometry methods. Wiley, New York.
+tion rapidly increases.                                                    [9] Roebuck, J., 1995. Anthropometric Methods. Human
+                                                                                Factors and Ergonomics Society, Inc., Santa Monica, CA,
+     It is important when utilizing the boundary ratios provided                USA.
+in this paper to understand what they represent, how they can be          [10] Pheasant, S., 1982. "A technique for estimating anthro-
+used, and the results that they give. Using boundary ratios, ei-                pometric data from the parameters of the distribution of
+ther gender-specific or averaged, for design purposes is one way                stature". Ergonomics, 25, pp. 981­992.
+to size artifacts which are solely driven by anthropometry (i.e.,         [11] Nag, P., and A., N., 2000. "Anthropometry and man-
+don't include preference [13]. However, more accurate estimates                 machine compatibility - where do the asians stand?". Pro-
+can always be obtained using data from a study of the intended                  ceedings of the IEA 2000/HFES 2000 Congress.
+participants. In particular, gathering information about variabil-        [12] Moroney, W., and Smith, M., 1972. Empirical reduction
+ity that is not correlated with anthropometry is vital to the success           in potential user population as the result of imposed mul-
+of designing for human variability [15, 16].                                    tivariate anthropometric limits. Tech. Rep. NAMRL-1164
+                                                                                (AD 752 032), Naval Aerospace Medical Research Labra-
+ACKNOWLEDGMENT                                                                  tory Report, Pensacola, FL.
+     We gratefully acknowledge the support of The Department              [13] Garneau, C., and Parkinson, M., 2007. "Including prefer-
+                                                                                ence in anthropometry-driven models for design".
+of Mechnical Engineering, the Schreyer Honors College, and the            [14] Barkla, D., 1961. "The estimation of body measurements of
+Engineering Design Program at the Pennsylvania State Univer-                    british population in relation to seat design". Ergonomics,
+sity. This work was partially funded by the National Science                    4(2), pp. 123­132.
+Foundation under award #0729386                                           [15] Parkinson, M., Reed, M., Kokkolaras, M., and Papalam-
+                                                                                bros, P., 2007. "Optimizing truck cab layout for driver
+REFERENCES                                                                      accommodation". ASME Journal of Mechanical Design,
+ [1] Drillis, R., and Contini, R., 1966. Body Segment Param-                    129(11), pp. 1110­1117.
+      eters. Office of Vocational Rehabilitation Engineering &            [16] Parkinson, M. B., and Reed, M. P., 2006. "Improved head
+      Science, New York, cited in [4].                                          restraint design for safety and compliance". Proceedings
+ [2] Pheasant, S., and Haslegrave, C., 2006. Bodyspace: An-                     of the ASME International Design Engineering Technical
+      thropometry, Ergonomics and the Design of Work, 3rd ed.
+      Taylor & Francis.                                                         Conferences. Philadelphia, PA., ASME International.
+ [3] U.S. Centers for Disease Control and Prevention.
+      National Health and Nutrition Examiniation Survey
+      (NHANES). National Center for Health Statistics -
+      http://www.cdc.gov/nchs/nhanes.htm.
+ [4] Gannon, A., and Moroney, W., 1998. "The validity of an-
+      thropometric predictions derived from proportionality mul-
+      tipliers of stature". Proc. Human Factors and Ergonomics
+      Society.
+ [5] Gordon, C. C., Churchill, T., Clauser, C. E., Bradtmiller,
+      B., McConville, J. T., Tebbetts, I., and Walker, R. A.,
+      1989. "1988 anthropometric survey of U.S. Army per-
+      sonnel: Methods and summary statistics. final report".
+      (NATICK/TR-89/027).
+ [6] Clauser, C., Bradtmiller, B., McConville, J., and Gordon,
+      C., 1989. "Measurer's handbook: US Army anthropometric
+      survey 1987-1988". Technical Report NATICK/TR-88/043:
+      United States Army NATICK Research, Development and
+      Engineering Center.
+ [7] Scott, S., and Loeb, G., 1994. "The computation of position
+      sense from spindles in mono- and multiarticular muscles".
+
+                                                                       6  Copyright c 2008 by ASME
+Table 1. Estimated percentile values for the full ANSUR male population and a sub-population consisting of those participants with BMI 26. Predictions
+
+are made using male boundary ratios (BR) and ANSUR proportionality constants (PC). In each case the designer would expect the range to include 90%
+of the data in the population.
+
+                      full ANSUR male population    ANSUR males BMI  26
+
+                      PC %tile  BR %tile  PC %tile  BR %tile 
+
+expected              5 95 90 5 95                  90 5 95 90 5 95 90
+                                                    90 6 92 86 4 94 90
+acromial ht           8 93 85 5 95                  90 12 89 77 6 96 90
+                                                    90 11 88 77 5 94 89
+trochanterion ht      11 88 77 5 95                 90 22 79 57 6 92 86
+                                                    90 8 85 77 4 92 88
+lat femoral epicondyle ht 11 88 77 5 95             90 14 84 70 5 94 89
+                                                    90 11 88 77 4 94 90
+lat malleolus ht      21 80 59 5 95                 90 16 90 74 7 96 89
+                                                    90 11 85 74 5 93 88
+hand ln               11 89 78 5 95                 90 8 88 80 3 93 90
+                                                    90 6 93 87 4 95 91
+radiale-stylion ln    13 86 73 5 95                 90 5 95 90 4 95 91
+                                                    90 10 86 76 5 93 88
+acromion-radiale ln   11 90 79 5 95
+
+popliteal ht          13 87 74 5 95
+
+buttock-popliteal ln  12 88 76 5 95
+
+acromial ht, sit      11 90 79 5 95
+
+eye ht, sit           7 93 86 5 95
+
+sitting ht            6 95 89 5 95
+
+thumbtip reach        11 90 79 5 95
+
+                      mean 78.6     mean 90.0*      mean 78.0  mean 89.2
+
+                  *boundary ratios were calculated directly from this population and are exact by definition
+
+Table 2. Estimated percentile values for the full ANSUR female population and a sub-population consisting of those participants with BMI 26. Predictions
+
+are made using female boundary ratios (BR) and ANSUR proportionality constants (PC). In each case the designer would expect the range to include 90%
+of the data in the population.
+
+                      full ANSUR female population  ANSUR females BMI  26
+
+                      PC %tile  BR %tile  PC %tile  BR %tile 
+
+expected              5 95 90 5 95                90 5 95 90 5 95 90
+                                                  90 6 93 87 5 95 90
+acromial ht           7 93 86 5 95                90 11 90 79 5 96 91
+                                                  90 13 90 77 6 96 90
+trochanterion ht      11 89 78 5 95               90 22 78 56 4 96 92
+                                                  90 7 85 78 3 93 90
+lat femoral epicondyle ht 12 89 77 5 95           90 18 84 66 7 95 88
+                                                  90 10 88 78 5 95 90
+lat malleolus ht      24 78 54 5 95               90 27 93 66 10 97 87
+                                                  90 9 83 74 3 93 90
+hand ln               12 89 77 5 95               90 8 87 79 3 93 90
+                                                  90 7 93 86 5 95 90
+radiale-stylion ln    16 84 68 5 95               90 6 95 89 4 95 91
+                                                  90 7 89 82 4 94 90
+acromion-radiale ln   12 88 76 5 95
+
+popliteal ht          16 86 70 5 95
+
+buttock-popliteal ln  13 88 75 5 95
+
+acromial ht, sit      12 90 78 5 95
+
+eye ht, sit           8 93 85 5 95
+
+sitting ht            7 94 87 5 95
+
+thumbtip reach        11 91 80 5 95
+
+                      mean 77.2     mean 90.0*      mean 77.6  mean 89.9
+
+                    *boundary ratios were calculated directly from this population and are exact by definition
+
+                                 7                             Copyright c 2008 by ASME
+Figure 5. Some anthropometric segments common in designing for human variability. The boundary ratios for estimating the 5th, 50th, and 95th percentile
+lengths for a general population are provided in the table.
+
+                                                          A
+
+H                                                                                 M
+                                                                                L
+G                                            B
+                                                                              K
+F                                                               J
+
+                             C
+
+                                          I
+     D
+   E
+
+                                                                         Jack
+
+Boundary Ratios (fraction of appropriate stature value) for 5th, 50th, and 95th percentile segment lengths
+
+                                                     females           males           averaged
+                                                5 50 95         5 50 95            5 50 95
+
+A stature                                    1.000 1.000 1.000  1.000 1.000 1.000  1.000 1.000 1.000
+B acromial ht                                0.814 0.818 0.823  0.814 0.821 0.827  0.814 0.820 0.825
+C trochanterion ht                           0.517 0.528 0.539  0.518 0.527 0.540  0.518 0.528 0.540
+D lat femoral epicondyle ht                  0.276 0.283 0.290  0.280 0.285 0.292  0.278 0.284 0.291
+E lat malleolus ht                           0.034 0.037 0.040  0.036 0.038 0.041  0.035 0.038 0.041
+F hand ln                                    0.108 0.111 0.113  0.109 0.110 0.112  0.109 0.111 0.113
+G radiale-stylion ln                         0.144 0.149 0.155  0.149 0.153 0.159  0.147 0.151 0.157
+H acromion-radiale ln                        0.186 0.191 0.196  0.190 0.194 0.198  0.188 0.193 0.197
+I popliteal ht                               0.230 0.239 0.247  0.240 0.247 0.255  0.235 0.243 0.251
+J buttock-popliteal ln                       0.288 0.295 0.304  0.278 0.285 0.292  0.283 0.290 0.298
+K acromial ht, sit                           0.334 0.341 0.348  0.333 0.341 0.346  0.334 0.341 0.347
+L eye ht, sit                                0.448 0.453 0.458  0.447 0.451 0.454  0.448 0.452 0.456
+M sitting ht                                 0.520 0.523 0.524  0.518 0.521 0.520  0.519 0.522 0.522
+* thumbtip reach                             0.443 0.450 0.458  0.449 0.456 0.463  0.446 0.453 0.461
+
+* Thumbtip reach is the horizontal distance                     additional information at http://www.dfhv.org
+   from a back wall to the tip of the thumb
+
+                                                8                                  Copyright c 2008 by ASME
+

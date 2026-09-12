@@ -1,0 +1,28 @@
+"Inside the mechanical and 3D printed puppet head process used for
+Guillermo del Toro's Pinocchio", beforesandafters.com (accessed 2026-09-12).
+
+STATUS: full HTML page saved; see
+papers/beforesandafters-pinocchio-puppet-head.html.
+
+SUMMARY: VFX-trade-press account of ShadowMachine's stop-motion puppet
+fabrication for del Toro's Pinocchio (2022). Two puppet techniques used
+side by side: mechanical (Geppetto -- a puppet with an internal moving
+mechanism, animated by adjusting the mechanism between frames) and
+REPLACEMENT (Pinocchio himself -- since the character is meant to look
+literally carved from wood, each facial expression/mouth shape is a
+separate, individually fabricated piece swapped between frames, some
+metal-3D-printed). More than 150 puppets were built in total across the
+production (935 shooting days).
+
+KEY NUMBERS: 150+ puppets; 935 days of filming.
+
+RELEVANCE: item 11 section 6 -- the most directly relevant precedent for
+"a puppet meant to visibly read as CARVED WOOD": del Toro's production
+chose to fabricate discrete wood-textured pieces (replacement technique)
+rather than trying to deform a single continuous material, because a
+believable "wooden" read depends on the surface keeping wood's actual
+visual behaviour (grain, hard edges at joints, no soft deformation) rather
+than smoothly blending like flesh -- directly relevant if the marionette's
+graphics-plan follow-up (HANDOFF.md item 3) pursues a "matte painted wood"
+material with visible joints/seams at each capsule-to-capsule connection,
+rather than a smooth continuous body.

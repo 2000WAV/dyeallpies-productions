@@ -1,0 +1,30 @@
+Lepetit, V., Moreno-Noguer, F., & Fua, P. (2009). EPnP: An Accurate O(n) Solution to the PnP
+Problem. International Journal of Computer Vision, 81(2), 155-166.
+
+ABSTRACT (as printed in the paper; full text saved in papers/lepetit2009-epnp.pdf, text
+extract in the .txt of the same name -- author's own copy, hosted at tugraz.at):
+
+We propose a non-iterative solution to the PnP problem -- the estimation of the pose of a
+calibrated camera from n 3D-to-2D point correspondences -- whose computational complexity
+grows linearly with n. This is in contrast to state-of-the-art methods that are O(n) or even
+O(n^2), without being more accurate. Our method is applicable for all n >= 4 and handles
+properly both planar and non-planar configurations. Our central idea is to express the n 3D
+points as a weighted sum of four virtual control points. The problem then reduces to
+estimating the coordinates of these control points in the camera referential, which can be
+done in O(n) time by expressing these coordinates as weighted sum of the eigenvectors of a
+12x12 matrix and solving a small constant number of quadratic equations to pick the right
+weights. Furthermore, if maximal precision is required, the output of our closed-form solution
+can be used to initialize a Gauss-Newton scheme, which improves accuracy with negligible
+amount of additional time. The advantages of our method are demonstrated by thorough testing
+on both synthetic and real-data.
+
+RELEVANCE TO THIS PROJECT: general method reference for the "solves the pose by PnP" step --
+recovering a rigid camera-to-hand transform from n 3D model points (the scaled world
+landmarks) and their matching 2D image projections (the image landmarks), given known camera
+intrinsics. EPnP (and its many descendants, e.g. OpenCV's SOLVEPNP_ITERATIVE /
+SOLVEPNP_EPNP / SOLVEPNP_SQPNP) is the standard family of algorithms for exactly this
+n-point, single-camera pose problem; this paper is cited as the origin of the widely-used
+O(n) closed-form formulation rather than because the build necessarily uses this exact
+variant (which specific PnP solver/flags the build's code calls was NOT checked against this
+research pass -- that is implementation detail, not literature). Not hand-specific: no
+finger or anthropometric content.

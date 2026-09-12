@@ -1,0 +1,50 @@
+MuJoCo Documentation (Google DeepMind), version "stable"/"latest" as served
+2026-09-11. Pages saved: XMLreference.html (papers/mujoco-tendon-doc.html, 1.29 MB,
+contains the <tendon><spatial> element reference used here), modeling.html
+(papers/mujoco-modeling-doc.html), computation/index.html
+(papers/mujoco-computation-doc.html). A cleaned plain-text excerpt of the
+tendon/spatial section specifically is saved as
+papers/mujoco-tendon-spatial-section-extract.txt.
+
+KEY DOCUMENTED FACTS used in this project (quoted/paraphrased from the saved
+pages, retrieved 2026-09-11):
+
+1. Spatial tendon / cable behaviour (tendon/spatial element, XMLreference.html):
+   "A special kind of visualization is used for unactuated 2-point tendons with
+   range or springlength of the form [0 X], with positive X. Such tendons act like
+   a cable, applying force only when stretched." This is MuJoCo's built-in
+   taut-pulls/slack-does-nothing string behaviour: set stiffness=0, limited=true,
+   range="0 X" on a 2-site spatial tendon and the constraint solver enforces a
+   maximum length X with zero force below it -- exactly the "5 strings, taut
+   pulls, slack does nothing" behaviour specified for this project.
+2. Tendon attributes and defaults (XMLreference.html): limited [false/true/auto,
+   default "auto"], range [real(2), default "0 0"], stiffness [default "0"],
+   damping [default "0"], springlength [real(2), default "-1 -1", meaning rest
+   length is auto-computed from the reference pose if not given], solreflimit /
+   solimplimit (constraint solver parameters for the length-limit constraint
+   specifically, as opposed to a soft spring).
+3. solref / solimp general defaults (modeling.html, "Solver parameters"):
+   solref default "0.02 1" = (timeconst = 0.02 s, dampratio = 1, i.e. critically
+   damped by default); solimp default "0.9 0.95 0.001 0.5 2" = (d0=0.9, dwidth=0.95,
+   width=0.001, midpoint=0.5, power=2). Documented rule: "The timeconst parameter
+   should be at least two times larger than the simulation time step, otherwise the
+   system can become too stiff relative to the numerical integrator" -- i.e.
+   timestep <= timeconst / 2 is required for the default solver formulation to
+   stay stable; for the default timeconst=0.02 s this means timestep <= 0.01 s
+   (MuJoCo's own default timestep of 0.002 s already satisfies this with margin).
+4. Integrators (computation/index.html): Euler integrates joint damping implicitly
+   but not tendon/actuator damping; "implicit" integrates derivatives of all forces
+   except constraint forces and is recommended for systems with "substantial
+   velocity-dependent forces like drag or tendon/actuator damping"; "implicitfast"
+   is documented as the recommended default, a "strict improvement" over Euler at
+   similar cost. The "discrete" integrator makes joint/tendon stiffness
+   "unconditionally stable" by treating it implicitly in position, allowing a
+   stable simulation "far beyond the explicit stability limit of h <~ 2/omega_max."
+5. Mocap bodies (overview.html / general docs): a mocap body has no degrees of
+   freedom of its own and no physics is integrated for it; its pose is set
+   directly by the user each step via mocap_pos/mocap_quat (or interactively), and
+   it still participates in collision filtering as the root of its own body group.
+   Recommended use here: the man's fist and each finger driving a string
+   attachment point should be mocap bodies (or sites welded to mocap bodies) whose
+   pose is driven frame-by-frame from the tracked hand video, rather than
+   simulated joints.

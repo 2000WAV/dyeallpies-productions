@@ -1,0 +1,659 @@
+DeepLight: Learning Illumination for Unconstrained Mobile Mixed Reality
+
+           Chloe LeGendre1,2  Wan-Chun Ma1 Graham Fyffe1 John Flynn1
+                        Laurent Charbonnel1 Jay Busch1 Paul Debevec1
+
+                      1Google Inc. 2USC Institute for Creative Technologies
+
+(a) training data  (b) input image (c) output lighting (d) rendered object (e) real object (f) rendered object (g) real object
+
+Figure 1: Given an arbitrary low dynamic range (LDR) input image captured with a mobile device (b), our method produces omnidirec-
+
+tional high dynamic range lighting (c, lower) useful for rendering and compositing virtual objects into the scene. We train a CNN with
+LDR images (a) containing three reflective spheres, each revealing different lighting cues in a single exposure. (d) and (f) show renderings
+
+produced using our lighting, closely matching photographs of real 3D printed and painted objects in the same scene (e, g).
+
+                        Abstract                                tors. An object "floating in space" rather than placed on a
+                                                                surface will immediately appear fake; similarly, a rendered
+   We present a learning-based method to infer plausible        object that is too bright, too dark, or lit from a direction
+high dynamic range (HDR), omnidirectional illumination          inconsistent with other objects in the scene can be just as
+given an unconstrained, low dynamic range (LDR) image           unconvincing. In this work, we propose a method to esti-
+from a mobile phone camera with a limited field of view         mate plausible illumination from mobile phone images or
+(FOV). For training data, we collect videos of various re-      video to convincingly light synthetic 3D objects for real-
+flective spheres placed within the camera's FOV, leaving        time compositing.
+most of the background unoccluded, leveraging that materi-
+als with diverse reflectance functions reveal different light-     Estimating scene illumination from a single photograph
+ing cues in a single exposure. We train a deep neural net-      with low dynamic range (LDR) and a limited field of view
+work to regress from the LDR background image to HDR            (FOV) is a challenging, under-constrained problem. One
+lighting by matching the LDR ground truth sphere images to      reason is that an object's appearance in an image is the re-
+those rendered with the predicted illumination using image-     sult of the light arriving from the full sphere of directions
+based relighting, which is differentiable. Our inference runs   around the object, including from directions outside the
+at interactive frame rates on a mobile device, enabling re-     camera's FOV. However, in a typical mobile phone video,
+alistic rendering of virtual objects into real scenes for mo-   only 6% of the panoramic scene is observed by the cam-
+bile mixed reality. Training on automatically exposed and       era (see Fig. 2). Furthermore, even light sources within the
+white-balanced videos, we improve the realism of rendered       FOV will likely be too bright to be measured properly in
+objects compared to the state-of-the art methods for both       a single exposure if the rest of the scene is well-exposed,
+indoor and outdoor scenes.                                      saturating the image sensor due to limited dynamic range
+                                                                and thus yielding an incomplete record of relative scene ra-
+1. Introduction                                                 diance. To measure this missing information, Debevec [10]
+                                                                merged omnidirectional photographs captured with differ-
+   Compositing rendered virtual objects into photographs        ent exposure times and lit synthetic objects with these high
+or videos is a fundamental technique in mixed reality, vi-      dynamic range (HDR) panoramas using global illumination
+sual effects, and film production. The realism of a com-        rendering. But in the absence of such measurements, pro-
+posite depends on both geometric and lighting related fac-      fessional lighting artists often create convincing illumina-
+
+     Work completed while interning at Google.
+
+                                                                5918
+tion by reasoning on cues like shading, geometry, and con-       ent reflective spheres. We show on a random subset that our
+text, suggesting that a background image alone may provide       method out-performs the state-of-the-art lighting estimation
+sufficient information for plausible lighting estimation.        techniques for both indoor and outdoor scenes for mobile
+                                                                 phone imagery, as our inferred lighting more accurately ren-
+Figure 2: The field of view (FOV) of mobile phone video          ders synthetic objects. Furthermore, our network runs at in-
+(inset shown in full color), relative to the 360 environment.    teractive frames rates on a mobile device, and, when used
+                                                                 in combination with real-time rendering techniques, enables
+   As with other challenging visual reasoning tasks, con-        more realistic mobile mixed reality composites.
+volutional neural networks (CNNs) comprise the state-of-
+the-art techniques for lighting estimation from a limited-          In summary, our key contributions are:
+FOV, LDR image, for both indoor [14] and outdoor [18]               · A data collection technique and dataset of paired light-
+scenes. Na¨ively, many pairs of background images and
+lighting (HDR panoramas) would be required for training;               ing reference spheres and background images (200k
+however, capturing HDR panoramas is complex and time-                  examples) for training a lighting estimation algorithm.
+consuming, so no such dataset exists for both scene types.
+For indoor scenes, Gardner et al. [14] first trained a net-         · A CNN-based method to predict plausible omnidirec-
+work with many LDR panoramas [55], and then fine-tuned                 tional HDR illumination from a single unconstrained
+it with 2100 captured HDR panoramas. For outdoor scenes,               image. To the best of our knowledge, ours is the first
+Hold-Geoffroy et al. [18] fit a sky model to LDR panora-               to generalize to both indoor and outdoor scenes.
+mas for training data. We also use a CNN, but our model
+generalizes to both indoor and outdoor scenes and requires          · A novel image-based relighting rendering loss func-
+no HDR imagery.                                                        tion, used for training the HDR lighting inference net-
+                                                                       work using only LDR data.
+   In this work, our training data is captured as LDR im-
+ages with three spheres held within the bottom portion of        2. Related work
+the camera's FOV (Fig. 3), each with a different material
+that reveals different cues about the scene's ground truth il-      Debevec [10] rendered synthetic objects into pho-
+lumination. For instance, a mirrored sphere reflects omnidi-     tographs of real-world scenes using HDR panoramas as
+rectional, high-frequency lighting, but, in a single exposure,   lighting. These can be captured by photographing a mir-
+bright light source reflections usually saturate the sensor so   rored sphere or stitching together wide-angle views using
+their intensity and color are misrepresented. A diffuse gray     multiple exposures [10, 46]. Recording HDR video of a
+sphere, in contrast, reflects blurred, low-frequency lighting,   mirror ball [52, 51] has been used for real-time capture of
+but captures a relatively complete record of the total light in  image-based lighting environments. Our goal is to estimate
+the scene and its general directionality. We regress from the    HDR lighting given only a single LDR image with a limited,
+portion of the image unoccluded by the spheres to the HDR        but fixed, FOV. Key to our technique is that spheres with di-
+lighting, training the network by minimizing the difference      verse reflectance functions (BRDFs) reveal different light-
+between the LDR ground truth sphere images and their ap-         ing cues, enabling us to record training data using a standard
+pearances rendered with the estimated lighting. We first         LDR video stream. This has been previously leveraged for
+measure each sphere's reflectance field as in [12]. Then,        sun intensity recovery from clipped panoramas using a dif-
+during training, we render the spheres with the estimated        fuse, gray sphere [39, 11].
+HDR lighting using image-based relighting [12, 35], which
+is differentiable. Furthermore, we add an adversarial loss          The appearance of a scene depends on its geometry, re-
+term to improve recovery of plausible high-frequency illu-       flectance properties, and lighting, as well as the camera's
+mination. As only one exposure comprises each training           exposure, color balance, and depth-of-field. The joint re-
+example, we can capture videos of real-world scenes, which       covery of geometry, reflectance, and lighting, known as the
+increases the volume of training data and gives a prior on the   inverse rendering problem, has been a core computer vision
+automatic exposure and white-balance of the camera.              challenge [59, 38]. Intrinsic image decomposition [4] sep-
+                                                                 arates an image into shading and reflection; however, shad-
+   For a public benchmark, we collect 200k new images in         ing is an effect of lighting, not its direct observation. While
+indoor and outdoor scenes, each containing the three differ-     recent approaches jointly inferred material reflectance and
+                                                                 illumination from an object comprised of an unknown ma-
+                                                                 terial [34, 29], one or more images of a segmented object
+                                                                 [53, 31], specular objects of a known class [40, 15], or with
+                                                                 measured or known geometry [30, 54, 33, 17, 3], we es-
+                                                                 timate lighting from unconstrained images with unknown
+                                                                 geometry and arbitrarily complex scenes.
+
+                                                                    Khan et al. [24] projected a limited-FOV HDR image
+                                                                 onto a hemisphere and flipped it to infer 360 lighting. For
+
+                                                                 5919
+LDR images, Karsch et al. [23] estimated a scene's geom-       Figure 3: Left: Capture apparatus. Center: Example frame.
+etry and diffuse albedo, detected in-view light sources, and,  Right: Processed data (top: input; bottom: ground truth).
+for unseen lights, found a matching LDR panorama from a
+database [55]. They promoted the result to HDR, minimiz-       ing from only LDR images with reference objects in the
+ing a diffuse scene rendering loss. For indoor scenes, Gard-   scene, provided they span a range of BRDFs that reveal dif-
+ner et al. [14] learned a mapping from a limited FOV LDR       ferent lighting cues. Thus, we collect LDR images of in-
+image to HDR lighting using a CNN. Noting the lack of          door and outdoor scenes, where each contains three spheres
+HDR panoramas, they leveraged the same LDR panorama            located in the bottom portion of the camera's FOV, occlud-
+dataset [55] to regress first from the input image to a LDR    ing as little of the background as possible (Fig. 3, center).
+panorama and light source locations and then refined the       The three spheres are plastic holiday ornaments with di-
+model for light source intensities with 2100 new, captured     verse finishes that differently modulate the incident illumi-
+HDR panoramas. Though demonstrating state-of-the-art re-       nation: mirrored silver, matte silver (rough specular), and
+sults, they noted two key limitations. First, the predicted    diffuse gray (spray-painted), measured as 82.7%, 64.4%,
+LDR panorama and HDR light sources were white-balanced         and 34.5% reflective respectively. We built a capture rig
+to match the input image using the Gray World assump-          to fix the sphere-to-phone distance, stabilizing the sphere
+tion [6]. Second, renderings improved when an artist man-      positions in each image (see Fig. 3, left).
+ually tuned the predicted lighting intensity. We propose
+a novel rendering-based loss function that allows our net-        As we require only LDR input imagery, we collect por-
+work to learn both the colors and intensities of the inci-     trait HD (1080 × 1920) video at 30 fps, rather than static
+dent illumination relative to the input image, without HDR     photographs. This increases the speed of training data ac-
+imagery. Furthermore, we propose a lighting model that         quisition compared with HDR panoramic photography, en-
+generalizes to both indoor and outdoor scenes, though out-     abling the capture of millions of images, albeit with signif-
+door HDR lighting estimation from a single image or from       icant redundancy for adjacent frames. The videos feature
+a LDR panorama has also received attention, as the sun         automatic exposure and white balance, providing a prior to
+and sky afford lower dimensional lighting parameteriza-        help disambiguate color, reflectance, and illumination.
+tions [26, 27, 18, 60]. Cheng et al. [8] estimated lighting
+from opposing views within a panorama for indoor and out-         We locate the three spheres in each video frame by de-
+door scenes, but did not consider single image inputs.         tecting circular boundaries in the optical flow field between
+                                                               neighboring frames (see supplemental materials for more
+   Several recent works estimate lighting from faces, mod-     details), though marker-based tracking could also be used.
+eling image formation via rendering within the "decoder"       We re-sample cropped images of the spheres using an ideal-
+of an encoder-decoder architecture [7, 49, 48, 61, 42, 43].    ized camera model oriented towards the sphere center with a
+However, all have relied on simple or low frequency shad-      view frustum tangent to the sphere on all four sides to elimi-
+ing models. In contrast, we render objects during training     nate perspective distortion. For the background images, we
+using image-based relighting (IBRL) [12, 35], forming new      remove the lower 20% of each frame during both training
+images as a linear combination of reflectance basis images,    and inference. The final training data consists of cropped
+avoiding an analytic shading model altogether. Xu et al.       background images, each paired with a set of three cropped
+[56] trained a network to perform IBRL, jointly learning a     spheres, one per BRDF (Fig. 3, right).
+low-dimensional reflectance basis and renderer, rather than
+applying IBRL as a fixed function as we do. Hold-Geoffroy      3.2. Network Architecture
+et al. [18] and Cheng et al. [8] used a synthetic Lambertian
+reflectance basis in a rendering loss term but did not use a      The input to the model is an unconstrained LDR,
+photographed basis or consider multiple BRDFs.                 gamma-encoded image captured with a mobile phone, re-
+                                                               sized from the native cropped resolution of 1080 × 1536
+3. Method                                                      to 135 × 192 and normalized to the range of [-0.5, 0.5].
+                                                               Our architecture is an encoder-decoder type, where the en-
+   Here we describe how we acquire our training data, our      coder includes fast depthwise-separable convolutions [20].
+network architecture, and the loss functions of our end-to-    We use the first 17 MobileNetV2 [41] layers, processing
+end lighting estimation method.
+
+3.1. Training Data Acquisition and Processing
+
+   Gardner et al. [14] fine-tuned a pre-trained network us-
+ing 2100 HDR panoramas, fewer examples than would be
+typically required for deep learning without pre-training.
+However, our key insight is that we can infer HDR light-
+
+                                                               5920
+                                                                                                                    BRDF BASIS                  RECONSTRUCTION LOSS (L1)
+
+               ENCODER                                        DECODER                            HDR LIGHTING  {                  }= ... D
+
+                                                                                                                                                D               GT
+                                                                                                                                                                GT
+       135                                            RESIZE         RESIZE        RESIZE                                         ... MS
+
+192                                                 3X3 CONV         3X3 CONV      3X3 CONV          32                                         MS
+           BG
+                                        256                                                  32
+
+                                                                               64  32                                             ... MB        MB              GT
+
+                                 5 160                               16
+
+                                                4 16          8 128
+
+               MOBILE NET V2  6              4        8              16            32
+
+                                                                                                 32                           16  64            8 128           256         REAL
+                                                                                                                                                                             OR
+                                        FC RESHAPE                                                                         16                                4          FC  FAKE
+                                                                                                                        4X4                                           1024
+                                                                                                                        CONV              8            4
+
+                                                                                                                                          4X4          4X4
+                                                                                                                                          CONV         CONV
+
+                                                                                                                                                ADVERSARIAL
+
+                                                                                                                                                DISCRIMINATOR
+
+Figure 4: Overview of our network. We regress to HDR lighting from an LDR, limited-FOV input image captured with a mobile device.
+We include a multi-BRDF image-based relighting reconstruction loss for a diffuse(D), matte silver(MS), and mirror ball(MB) and an
+adversarial loss for the mirror ball only. Only the part outlined in red occurs at inference time.
+
+the output feature maps with a fully-connected (FC) layer                          the 32 × 32 mirror ball using a Phong lobe (n = 64) and
+to generate a latent vector of size 256. For the decoder, we                       super-sampling with a 4 × 4 grid of directions on a sphere.
+reshape this vector and upsample thrice by a factor of two to
+generate a 32×32 color image of HDR lighting. We regress                           3.4. Loss Function
+to natural log space illumination as the sun can be more
+than five orders of magnitude brighter than the sky [46].                             To train the lighting prediction network, we minimize an
+Although we experimented with fractionally-strided convo-                          image-based relighting loss and add an adversarial loss to
+lutions, bilinear upsampling with convolutions empirically                         ensure inference of plausible high-frequency illumination.
+improved our results. We train the network to produce om-
+nidirectional lighting in the mirror ball mapping [39], where                      Image-based relighting rendering loss: We train the
+each pixel in image space represents an equal solid angular                        network by minimizing the reconstruction loss between the
+portion of a sphere for direction (, ). Thus, the corners                          ground truth sphere images I and rendered spheres lit with
+of the output image are unused, but this mapping allows                            the predicted HDR lighting. With the reflectance fields
+for equal consideration of all lighting directions in the loss                     R(, , x, y), pixel values for each sphere lit by each light-
+function, if desired. For network details, see Fig. 4.                             ing direction (, ) of the 32 × 32 mirror ball, we can com-
+                                                                                   pute a linear image I^ of each sphere under a novel light-
+3.3. Reflectance Field Acquisition                                                 ing environment L^ as a linear combination of its basis im-
+                                                                                   ages. Slicing the reflectance field into individual pixels
+   Debevec et al. [12] introduced the 4D reflectance field                         Rx,y(, ), we generate I^x,y with (1), where Li(, ) rep-
+R(, , x, y) to denote the image of a subject with pixels                           resents the color and intensity of light in the novel lighting
+(x, y) as lit from any lighting direction (, ) and showed                          environment for the direction (, ):
+that taking the dot product of the reflectance field with an
+HDR illumination map relights the subject to appear as they                                                    I^x,y = Rx,y(, )Li(, ).                                            (1)
+would in that lighting. During training, we use this method
+to render spheres with the predicted HDR lighting. We                                                                   ,
+photograph reflectance fields for the matte silver and dif-
+fuse gray spheres using a computer-controllable sphere of                             The network outputs Q, a log space image of omnidirec-
+white LEDs [32], spaced 12 apart at the equator. This pro-                         tional HDR lighting in the mirror ball mapping, with pixel
+duces an anti-aliased reflectance field for the diffuse and                        values Qi(, ). Thus we render each sphere with (2):
+matte silver sphere; however, this LED spacing aliases the
+mirror BRDF. As we infer lighting in a mirror ball map-                                                        I^x,y =            Rx,y(, )eQi(,).                                 (2)
+ping, we instead construct the mirror ball basis as a set of
+32 × 32 one-hot matrices of size 32 × 32, scaled by its                                                                 ,
+measured reflectivity. We convert the lighting bases for the
+other BRDFs to the same geometric and relative radiomet-                              The ground truth sphere images I are LDR, 8-bit,
+ric space. The photographed bases are normalized based on                          gamma-encoded images, possibly with clipped pixels. Ac-
+the incident light source color and converted to the mirror                        cordingly, we clip the rendered sphere images with a differ-
+ball mapping, accumulating energy from the photographs                             entiable soft-clipping function , n = 40:
+for each new lighting direction i for the set of directions on
+                                                                                                         (p)   =  1     -  1      log     1 + e-n(p-1)              .             (3)
+                                                                                                                           n
+
+                                                                                      We then gamma-encode the clipped linear renderings
+                                                                                   with , to match I. We mask out the pixels in the corners
+
+                                                                               5921
+of each ball image with a binary mask M^ , producing the                            lower for D, alternating between training D and G. We set
+masked L1 reconstruction loss Lrec for BRDFs b = [0, 1, 2],                         rec = 0.999, with b = 0.2, 0.6, 0.2 for the mirror, diffuse,
+where b represents an optional weight for each BRDF:                                and matte silver BRDFs respectively, and use  = 2.2, as
+                                                                                    the camera's video mode employs image-dependent tone-
+2    1                                                                              mapping. We use a batch size of 32 and batch normalization
+                                                                                    [22] for all layers but the last of G and D. We use ReLU6
+Lrec = b M^  ((I^b)  - (Ib)) 1.  (4)                                                activations for G and ELU [9] for D. For our mobile demo
+                                                                                    (supplemental materials), we use TFLite. For data augmen-
+b=0                                                                                 tation, we horizontally flip the input and ground truth im-
+                                                                                    ages. We found that data augmentation by modifying white
+Adversarial loss: Minimizing only E[Lrec] produces                                  balance and exposure did not improve results, perhaps since
+blurred, low-frequency illumination. While this might be                            they simulated unlikely camera responses.
+acceptable for lighting diffuse objects, rendering shiny ob-
+jects with realistic specular reflections requires higher fre-                      Datasets: We collected 37.6 hours of training video us-
+quency lighting. Recent works in image inpainting and syn-                          ing a Google Pixel XL mobile phone, in a variety of indoor
+thesis [36, 28, 58, 21, 57, 45] leverage Generative Adver-                          and outdoor locations, times of day, and weather conditions,
+sarial Networks [16] for increased image detail, adding an                          generating 4.06 million training examples. We bias the data
+adversarial loss to promote multi-modal outputs rather than                         towards imagery of surfaces or ground planes where one
+a blurred mean of the distribution. We train our network                            might want to place a virtual AR object. For test data,
+in a similar framework to render plausible clipped mirror                           we collected 116 new one-minute videos (211.7k frames)
+ball images, of which we have many real examples. This is                           with the same camera and separated them into four sets:
+perceptually motivated, as humans have difficulty reasoning                         unseen indoor and outdoor (UI, UO) and seen indoor and
+about reflected light directions [37, 47], which digital artists                    outdoor (SI, SO). "Unseen" test videos were recorded in
+leverage when environment mapping [5] reflective objects                            new locations, while the "seen" were new videos recorded
+with arbitrary images. Furthermore, real-world lighting is                          in previously-observed environments. We evaluate our
+highly regular, statistically [13].                                                 method on the following videos: 28 UI (49.3k frames), 27
+                                                                                    UO (49.7k frames), 27 SI (49.9k frames), and 34 SO (62.7k
+   Similar to Pathak et al. [36], we use an auxiliary discrim-                      frames). Test data will be publicly released.
+inator network D with our base CNN as the generator G.
+During training, G tries to trick D, producing clipped mirror                       4. Evaluation
+ball images appearing as "real" as possible. D tries to dis-
+criminate between real and generated images. We condition                           4.1. Quantitative Results
+D on a few pixels from the original image surrounding the
+ball: we sample the four corners of the cropped ground truth                           Accurate lighting estimates should correctly render ob-
+mirror ball image, and bilinearly interpolate a 32×32 hallu-                        jects with arbitrary materials, so we measure lighting ac-
+cinated background, as if the mirror ball were removed. We                          curacy first using Lrec, comparing with ground truth LDR
+then softclip and composite both the ground truth and pre-                          spheres. We show the average per-pixel L1 loss for each
+dicted mirror ball onto this "clean plate" with alpha blend-                        unseen test dataset for each material and the per-pixel linear
+ing (yielding Ic, I^c) providing D with local color cues and                        RGB angular error rgb for the diffuse ball, a distance metric
+ensuring that samples from both sets have the same percep-                          commonly used to evaluate white-balance algorithms (see
+tual discontinuity at the sphere boundary. Given input im-                          Hordley and Finlayson [19]), in Table 1 (top). (Minimiz-
+age x, G learns a mapping to Q, G : x  Q, used to render                            ing rgb during training did not improve results.) We show
+a mirror ball with (2). The adversarial loss term, then, is:                        results for seen test sets in supplemental material.
+
+Ladv = log D((Ic))                                                                  Ablation studies: We assess the importance of the dif-
+                                                                                    ferent loss terms, Lrec for each BRDF and Ladv, and report
+                                                                                 1  Lrec and rgb for networks supervised using subsets of the
+                                                                                    loss terms in Table 1. Training with only the mirror BRDF
+       + log(1 - D(( , R(, )eG(x;,))  )). (5)                                       or only the diffuse BRDF leads to higher Lrec for the oth-
+                                                                                    ers. However, training with only the matte silver BRDF still
+Joint objective: The full objective is therefore:                                   yields low Lrec for the diffuse sphere, suggesting they reveal
+  G = arg min max (1 - rec)E[Ladv] + recE[Lrec]. (6)                                similar lighting cues. In Fig. 5, we show the ground truth
+                                                                                    images and renderings produced for each loss variant. Visu-
+                       GD                                                           ally, training with only the mirror ball L1(m) fails to recover
+                                                                                    the full dynamic range of lighting, as expected. Training
+3.5. Implementation Details
+   We use TensorFlow [2] and train for 16 epochs using the
+
+ADAM [25] optimizer with 1 = 0.9, 2 = 0.999, a learn-
+ing rate of 0.00015 for G, and, as is common, one 100×
+
+                                                                                    5922
+with only the matte silver L1(s) or diffuse L1(d) fails to pro-                                       UI input (d) (s) (m) UO input (d) (s) (m)25th %
+duce a realistic mirror ball; thus objects with sharp specular
+reflections could not be plausibly rendered. Training with                                                                                                                                gt
+Ladv yields higher frequency illumination as expected.
+                                                                                                                                                                                          pred
+Table 1: Average L1 loss by BRDF: diffuse (d), mirror (m), and                                     50th %
+matte silver (s), and RGB angular error rgb for diffuse (columns),                                                                                                                        gt
+for our network trained with different loss terms (rows). We com-                                  75th %
+pare ground truth images with those rendered using our HDR                                                                                                                                pred
+lighting inference, for unseen indoor and outdoor locations.
+                                                                                                                                                                                          gt
+Loss terms           L1(d)      L1(s)     L1(m)          rgb(d)
+                   UI UO      UI UO      UI UO          UI UO                                                                                                                             pred
+
+L1(m,d,s) + Ladv 0.12 0.13    0.13 0.13  0.17 0.16  9.8 10.8                                 Figure 6: Qualitative comparisons between ground truth spheres
+                              0.12 0.13  0.15 0.14  9.9 11.0                                 and renderings using our HDR lighting inference and IBRL. Ex-
+L1(m,d,s)          0.12 0.13  0.16 0.15  0.14 0.13  11.0 13.5                                amples shown for 25th, 50th, and 75th percentiles for Lrec.
+                              0.13 0.13  0.21 0.20  10.0 11.4
+L1(m)              0.20 0.18  0.15 0.15  0.28 0.27  10.0 11.2                                so it matches the LDR phone image. We fit a linearization
+                                                                                             curve for each LDR input using a color chart, however the
+L1(s)              0.12 0.13                                                                 phone's image-dependent tone-mapping makes radiometric
+                                                                                             alignment challenging. We compare renderings using the
+L1(d)              0.12 0.13                                                                 ground truth and predicted lighting in Fig. 7 (c, g).
+
+            input         L1(all)                                                            4.3. Comparisons with Previous Work
+                   gt + Ladv L1(all) L1(m) L1(s) L1(d)
+                                                                                                We retrain our network for the 3:4 aspect ratio input
+                                                        (d)                                  of the state-of-the-art methods for indoor [14] and outdoor
+                                                                                             [18] scenes, cropping a 1080 × 810 landscape image from
+                                                        (s)                                  the center of each portrait input and resizing to 192 × 144 to
+                                                                                             maintain our FC layer size. (Our comparison network thus
+                                                        (m)                                  observes half of the FOV of our standard network.) Gard-
+                                                                                             ner et al. [14] host a server to predict HDR lighting given
+                                                                                        (d)  an input image; Hold-Geoffroy et al. [18] also predict cam-
+                                                                                             era elevation. We randomly select 450 images from test
+                                                                                        (s)  sets UI and UO and retrieve their lighting estimates as HDR
+                                                                                             panoramas, converting them to the 32 × 32 mirror ball map-
+                                                                                        (m)  ping and rotating them to camera space using the predicted
+                                                                                             camera elevation if given. We render spheres of each BRDF
+Figure 5: Ablation study: Unseen image inputs, ground truth,                                 with IBRL and compare with ground truth, showing the av-
+and rendered images of diffuse(d), matte silver(s) and mirror(m)                             erage L1 loss for each BRDF and rgb for the diffuse ball in
+spheres, lit with HDR lighting inference from networks trained                               Table 2. We also show the relative error in total scene ra-
+using different loss terms(top). Our full method is labeled in bold.                         diance measured by summing all diffuse sphere linear pixel
+                                                                                             values1 in Table 9. We show comparison sphere render-
+4.2. Qualitative Results                                                                     ings in Fig. 8 and bunny renderings in Fig. 7 (e, i), with
+                                                                                             more in supplemental materials along with a perceptual user
+Ground truth comparisons: In Fig. 6, we show exam-                                           study. We show significant improvements compared to both
+ples of ground truth spheres compared with those rendered                                    approaches, while requiring only one model that general-
+using image-based relighting and our HDR lighting infer-                                     izes to both indoor and outdoor scenes. Without a specific
+ence, for each BRDF. These examples correspond to the                                        sun and sky model, our network also infers diverse light
+25th, 50th, and 75th percentiles for the Lrec loss.                                          sources for outdoor scenes. However, we present these re-
+                                                                                             sults with two caveats: first, our training data are generated
+Virtual object relighting: We 3D-print two identical                                         with a fixed FOV camera, which was varied and unknown
+bunnies using the model from [1]. The two are coated with                                    for previous approaches, and second, our training and test
+paints of measured reflectance: diffuse gray (34.5% reflec-
+tive) and matte silver (49.9% reflective), respectively. We                                       1Scene radiance is modulated by the albedo and foreshortening factor
+photograph these "real" bunnies in different scenes using                                    of the diffuse sphere, with greater frontal support, and we use  = 2.2.
+the Google Pixel XL, also capturing a clean plate for light-
+ing inference and virtual object compositing. In Fig. 7 we
+compare the real bunny images (b, f) to off-line rendered
+composites using our lighting estimates (d, h) (IBL ren-
+dering described in the supplemental materials). We also
+record ground truth HDR lighting as in [10] using a Canon
+5D Mark III, color correcting the raw linear HDR panorama
+
+                                                                                             5923
+               (a) unseen input (b) real object (c) GT HDR IBL (d) ours  (e) [14]/[18]  (f) real object (g) GT HDR IBL (h) ours  (i) [14]/[18]
+
+indoor
+
+outdoor shade
+
+outdoor sun
+
+Figure 7: For each input image (a), we photograph a real 3D-printed bunny placed in the scene for two different BRDFs (b, f) and capture
+ground truth HDR panoramas at the bunny's location. Using GI rendering with IBL, we render a virtual bunny into the scene using ground
+truth lighting (c, g), our lighting inference (d, h), and that of the state-of-the-art methods for indoor [14] or outdoor [18] scenes (e, i).
+
+Table 2: Quantitative comparisons with the previous state-of-the-            UI input ours gt [14] UO input ours gt [18]
+art in indoor[14] and outdoor[18] lighting estimation. Average L1
+loss by BRDF: diffuse(d), mirror(m), and matte silver(s), and RGB                                                                                                       (d)
+angular error rgb for the diffuse sphere. n = 450 for each.
+                                                                                                                                                                        (s)
+               unseen indoor (UI)    unseen outdoor (UO)
+                                                                                                                                                                        (m)
+               ours       [14]       ours       [18]
+                                                                                                                                                                        (d)
+L1(d)          0.13±0.07  0.21±0.11  0.13±0.08  0.25±0.12
+L1(s)          0.14±0.05  0.22±0.06  0.14±0.06  0.25±0.07                                                                                                               (s)
+L1(m)          0.18±0.03  0.23±0.06  0.17±0.04  0.34±0.06
+rgb(d)         10.3±8.8   11.9±7.2   11.2±10.9  14.3±6.6                                                                                                                (m)
+
+data are generated with the same camera. Nonetheless, for                                                                                                               (d)
+mobile mixed-reality with a fixed-FOV, we show that opti-
+mizing for accurately rendered objects for multiple BRDFs                                                                                                               (s)
+improves lighting estimation.
+                                                                                                                                                                        (m)
+Temporal consistency: We do not explicitly optimize for
+temporal consistency, but the adjacent video frames in our               Figure 8: Ground truth and rendered spheres produced via IBRL
+training data provide an indirect form of temporal regular-              using our predicted HDR lighting and that of the previous state-
+ization. In Fig. 10 we compare rendered results from four                of-the-art for indoor [14] and outdoor [18] scenes.
+sequential frames for our approach and for that of Gardner
+et al. [14]. While we show qualitative improvement, adding               output lighting resolutions and timing for specific mobile
+a temporal loss term is of interest for future work.                     phones in supplemental materials. We also authored a demo
+                                                                         mobile application to predict lighting and render plausibly-
+4.4. Performance and Demonstration                                       lit virtual objects at interactive frame rates, using real-time
+
+   Our inference runs at 12-20 fps on various mobile phone
+CPUs. We report performance for smaller networks and
+
+                                                                         5924
+                                                                        work. Similarly, our network is trained for a particular cam-
+                                                                        era FOV and may not generalize to others.
+
+                                                                               SI input (d) (s) (m) SO input (d) (s) (m)
+
+                                                                                                                                                                    gt
+
+                                                                                                                                                                    pred
+
+                                                                        Figure 11: Example ground truth spheres and renderings pro-
+                                                                        duced with IBRL using our predicted HDR lighting, with input
+                                                                        images from a different camera.
+
+Figure 9: Boxplot of RGB relative radiance accuracy, measured           Challenging image content: Simple scenes lacking vari-
+by summing linear pixel values of the diffuse ball rendered with        ation in surface normals and albedo (Fig. 12, left) can chal-
+the HDR lighting estimates, and comparing with ground truth:            lenge our inference approach, and scenes dominated by a
+(pred-gt)/gt, n = 450, for our approach and the previous state-         strongly hued material can also pose a challenge (Fig. 12,
+of-the-art methods for indoor[14] and outdoor[18] scenes.               right). Adding knowledge of the camera's exposure and
+                                                                        white balance used for each input image might improve the
+frame 0           frame 1            frame 2    frame 3                 robustness of the inference.
+
+0123 0123 0123                                                                 UI input (d) (s) (m) UI input (d) (s) (m)
+
+                                                         (d)                                                                                                        gt
+
+                                                         (s)                                                                                                        pred
+
+(a) ground truth           (b) ours                                (m)  Figure 12: Example challenging scenes: ground truth spheres and
+                                              (c) [14]                  renderings produced with IBRL using our predicted HDR lighting.
+
+Figure 10: Example ground truth spheres (a) and renderings pro-         Future work: During mobile mixed reality sessions, ob-
+duced with IBRL using our predicted illumination (b) and that of        jects are positioned on planes detected using sensor data
+[14] (c), for four sequential UI video frames (top).                    fused with structure-from-motion [50]. Thus, computa-
+                                                                        tional resources are already devoted to geometric reasoning,
+pre-computed radiance transfer [44] rendering.                          which would be of interest to leverage for improved mixed
+                                                                        reality lighting estimation. Furthermore, inertial measure-
+5. Limitations and Future Work                                          ments could be leveraged to continuously fuse and update
+                                                                        lighting estimates as a user moves a phone throughout an
+Spatially-varying illumination: The reference spheres                   environment. Similarly, as our training data already in-
+of the training data reflect the illumination from a point 60           cludes temporal structure, explicitly optimizing for tempo-
+cm in front of the camera and do not reveal spatially-varying           ral stability would be of interest. Lastly, one could increase
+lighting cues. Virtual AR objects are often placed on sur-              generality by acquiring training data in a raw video format
+faces visible in the scene, and the light bouncing up from              and simulating different camera models during training.
+the surface should be the illumination on the object com-
+ing from below. A potential improvement to our technique                6. Conclusion
+would be to replace the bottom directions of our lighting
+estimate with pixel values sampled from the scene surface                  We have presented an HDR lighting inference method
+below each object, allowing objects placed in different parts           for mobile mixed reality, trained using only LDR imagery,
+of the scene to receive differently colored bounce light from           leveraging reference spheres with different materials to re-
+their environments.                                                     veal different lighting cues in a single exposure. This work
+                                                                        is the first CNN-based approach that generalizes to both in-
+Using a different camera: Our test and training data are                door and outdoor scenes for a single input image, with im-
+captured with the same camera. In Fig. 11 we show results               proved lighting estimation for mobile mixed reality as com-
+for two images captured using a different mobile phone                  pared to previous work developed to handle only a single
+camera (Apple iPhone 6). Qualitatively, we observe dif-                 class of lighting.
+ferences in white balance, suggesting an avenue for future
+
+                                                                        5925
+References                                                                  door illumination from a single image. ACM Trans. Graph.,
+                                                                            36(6):176:1­176:14, Nov. 2017. 2, 3, 6, 7, 8
+ [1] The Stanford 3D Scanning Repository. http://                     [15] S. Georgoulis, K. Rematas, T. Ritschel, M. Fritz,
+      graphics.stanford.edu/data/3Dscanrep/. 6                              L. Van Gool, and T. Tuytelaars. Delight-net: Decomposing
+                                                                            reflectance maps into specular materials and natural illumi-
+ [2] M. Abadi, A. Agarwal, P. Barham, E. Brevdo, Z. Chen,                   nation. arXiv preprint arXiv:1603.08240, 2016. 2
+      C. Citro, G. S. Corrado, A. Davis, J. Dean, M. Devin, S. Ghe-   [16] I. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu,
+      mawat, I. Goodfellow, A. Harp, G. Irving, M. Isard, Y. Jia,           D. Warde-Farley, S. Ozair, A. Courville, and Y. Bengio. Gen-
+      R. Jozefowicz, L. Kaiser, M. Kudlur, J. Levenberg, D. Mane´,          erative adversarial nets. In Advances in neural information
+      R. Monga, S. Moore, D. Murray, C. Olah, M. Schuster,                  processing systems, pages 2672­2680, 2014. 5
+      J. Shlens, B. Steiner, I. Sutskever, K. Talwar, P. Tucker,      [17] L. Gruber, T. Richter-Trummer, and D. Schmalstieg. Real-
+      V. Vanhoucke, V. Vasudevan, F. Vie´gas, O. Vinyals, P. War-           time photometric registration from arbitrary geometry. In
+      den, M. Wattenberg, M. Wicke, Y. Yu, and X. Zheng. Tensor-            Mixed and Augmented Reality (ISMAR), 2012 IEEE Interna-
+      Flow: Large-scale machine learning on heterogeneous sys-              tional Symposium on, pages 119­128. IEEE, 2012. 2
+      tems, 2015. Software available from tensorflow.org. 5           [18] Y. Hold-Geoffroy, K. Sunkavalli, S. Hadap, E. Gambaretto,
+                                                                            and J.-F. Lalonde. Deep outdoor illumination estimation. In
+ [3] J. T. Barron and J. Malik. Intrinsic scene properties from a           IEEE International Conference on Computer Vision and Pat-
+      single rgb-d image. In Proceedings of the IEEE Conference             tern Recognition, volume 2, 2017. 2, 3, 6, 7, 8
+      on Computer Vision and Pattern Recognition, pages 17­24,        [19] S. D. Hordley and G. D. Finlayson. Re-evaluating colour
+      2013. 2                                                               constancy algorithms. In Pattern Recognition, 2004. ICPR
+                                                                            2004. Proceedings of the 17th International Conference on,
+ [4] H. Barrow, J. Tenenbaum, A. Hanson, and E. Riseman. Re-                volume 1, pages 76­79. IEEE, 2004. 5
+      covering intrinsic scene characteristics. Comput. Vis. Syst,    [20] A. G. Howard, M. Zhu, B. Chen, D. Kalenichenko, W. Wang,
+      2:3­26, 1978. 2                                                       T. Weyand, M. Andreetto, and H. Adam. Mobilenets: Effi-
+                                                                            cient convolutional neural networks for mobile vision appli-
+ [5] J. F. Blinn and M. E. Newell. Texture and reflection in                cations. arXiv preprint arXiv:1704.04861, 2017. 3
+      computer generated images. Communications of the ACM,           [21] S. Iizuka, E. Simo-Serra, and H. Ishikawa. Globally and
+      19(10):542­547, 1976. 5                                               locally consistent image completion. ACM Transactions on
+                                                                            Graphics (TOG), 36(4):107, 2017. 5
+ [6] G. Buchsbaum. A spatial processor model for object colour        [22] S. Ioffe and C. Szegedy. Batch normalization: Accelerating
+      perception. Journal of the Franklin Institute, 310:1­26, July         deep network training by reducing internal covariate shift.
+      1980. 3                                                               In Proceedings of the 32Nd International Conference on In-
+                                                                            ternational Conference on Machine Learning - Volume 37,
+ [7] D. A. Calian, J.-F. Lalonde, P. Gotardo, T. Simon,                     ICML'15, pages 448­456. JMLR.org, 2015. 5
+      I. Matthews, and K. Mitchell. From faces to outdoor light       [23] K. Karsch, K. Sunkavalli, S. Hadap, N. Carr, H. Jin, R. Fonte,
+      probes. In Computer Graphics Forum, volume 37, pages                  M. Sittig, and D. Forsyth. Automatic scene inference for 3d
+      51­61. Wiley Online Library, 2018. 3                                  object compositing. ACM Transactions on Graphics (TOG),
+                                                                            33(3):32, 2014. 3
+ [8] D. Cheng, J. Shi, Y. Chen, X. Deng, and X. Zhang. Learning       [24] E. A. Khan, E. Reinhard, R. W. Fleming, and H. H. Bu¨lthoff.
+      scene illumination by pairwise photos from rear and front             Image-based material editing. In ACM SIGGRAPH 2006 Pa-
+      mobile cameras. In Computer Graphics Forum, volume 37,                pers, SIGGRAPH '06, pages 654­663, New York, NY, USA,
+      pages 213­221. Wiley Online Library, 2018. 3                          2006. ACM. 2
+                                                                      [25] D. Kinga and J. Ba. Adam: A method for stochastic opti-
+ [9] D. Clevert, T. Unterthiner, and S. Hochreiter. Fast and accu-          mization. In International Conference on Learning Repre-
+      rate deep network learning by exponential linear units (elus).        sentations (ICLR), volume 5, 2015. 5
+      In International Conference on Learning Representations         [26] J.-F. Lalonde, A. A. Efros, and S. G. Narasimhan. Estimating
+      (ICLR), 2016. 5                                                       natural illumination from a single outdoor image. In Com-
+                                                                            puter Vision, 2009 IEEE 12th International Conference on,
+[10] P. Debevec. Rendering synthetic objects into real scenes:              pages 183­190. IEEE, 2009. 3
+      Bridging traditional and image-based graphics with global       [27] J.-F. Lalonde and I. Matthews. Lighting estimation in out-
+      illumination and high dynamic range photography. In Pro-              door image collections. In 3D Vision (3DV), 2014 2nd In-
+      ceedings of the 25th annual conference on Computer graph-             ternational Conference on, volume 1, pages 131­138. IEEE,
+      ics and interactive techniques, pages 189­198. ACM, 1998.             2014. 3
+      1, 2, 6                                                         [28] C. Ledig, L. Theis, F. Husza´r, J. Caballero, A. Cunningham,
+                                                                            A. Acosta, A. P. Aitken, A. Tejani, J. Totz, Z. Wang, et al.
+[11] P. Debevec, P. Graham, J. Busch, and M. Bolas. A single-               Photo-realistic single image super-resolution using a genera-
+      shot light probe. In ACM SIGGRAPH 2012 Talks, page 10.                tive adversarial network. In CVPR, volume 2, page 4, 2017.
+      ACM, 2012. 2                                                          5
+
+[12] P. Debevec, T. Hawkins, C. Tchou, H.-P. Duiker, W. Sarokin,
+      and M. Sagar. Acquiring the reflectance field of a human
+      face. In Proceedings of the 27th annual conference on Com-
+      puter graphics and interactive techniques, pages 145­156.
+      ACM Press/Addison-Wesley Publishing Co., 2000. 2, 3, 4
+
+[13] R. O. Dror, A. S. Willsky, and E. H. Adelson. Statistical
+      characterization of real-world illumination. Journal of Vi-
+      sion, 4(9):11­11, 2004. 5
+
+[14] M.-A. Gardner, K. Sunkavalli, E. Yumer, X. Shen, E. Gam-
+      baretto, C. Gagne´, and J.-F. Lalonde. Learning to predict in-
+
+                                                                      5926
+[29] G. Liu, D. Ceylan, E. Yumer, J. Yang, and J.-M. Lien. Ma-        [43] Z. Shu, E. Yumer, S. Hadap, K. Sunkavalli, E. Shechtman,
+      terial editing using a physically based rendering network. In         and D. Samaras. Neural face editing with intrinsic image
+      Computer Vision (ICCV), 2017 IEEE International Confer-               disentangling. In Computer Vision and Pattern Recogni-
+      ence on, pages 2280­2288. IEEE, 2017. 2                               tion (CVPR), 2017 IEEE Conference on, pages 5444­5453.
+                                                                            IEEE, 2017. 3
+[30] S. Lombardi and K. Nishino. Reflectance and illumination
+      recovery in the wild. IEEE transactions on pattern analysis     [44] P.-P. Sloan, J. Kautz, and J. Snyder. Precomputed radiance
+      and machine intelligence, 38(1):129­141, 2016. 2                      transfer for real-time rendering in dynamic, low-frequency
+                                                                            lighting environments. ACM Trans. Graph., 21(3):527­536,
+[31] J. Lopez-Moreno, E. Garces, S. Hadap, E. Reinhard, and                 July 2002. 8
+      D. Gutierrez. Multiple light source estimation in a single im-
+      age. In Computer Graphics Forum, volume 32, pages 170­          [45] S. Song, A. Zeng, A. X. Chang, M. Savva, S. Savarese, and
+      182. Wiley Online Library, 2013. 2                                    T. Funkhouser. Im2pano3d: Extrapolating 360 structure and
+                                                                            semantics beyond the field of view. In Computer Vision
+[32] W.-C. Ma, T. Hawkins, P. Peers, C.-F. Chabert, M. Weiss,               and Pattern Recognition (CVPR), 2018 IEEE Conference on,
+      and P. Debevec. Rapid acquisition of specular and diffuse             pages 3847­3856. IEEE, 2018. 5
+      normal maps from polarized spherical gradient illumination.
+      In Proceedings of the 18th Eurographics conference on Ren-      [46] J. Stumpfel, C. Tchou, A. Jones, T. Hawkins, A. Wenger,
+      dering Techniques, pages 183­194. Eurographics Associa-               and P. Debevec. Direct hdr capture of the sun and sky. In
+      tion, 2007. 4                                                         Proceedings of the 3rd international conference on Com-
+                                                                            puter graphics, virtual reality, visualisation and interaction
+[33] D. Mandl, K. M. Yi, P. Mohr, P. M. Roth, P. Fua, V. Lepetit,           in Africa, pages 145­149. ACM, 2004. 2, 4
+      D. Schmalstieg, and D. Kalkofen. Learning lightprobes for
+      mixed reality illumination. In Mixed and Augmented Real-        [47] S. F. te Pas and S. C. Pont. A comparison of material and
+      ity (ISMAR), 2017 IEEE International Symposium on, pages              illumination discrimination performance for real rough, real
+      82­89. IEEE, 2017. 2                                                  smooth and computer generated smooth spheres. In Proceed-
+                                                                            ings of the 2nd Symposium on Applied Perception in Graph-
+[34] A. Meka, M. Maximov, M. Zollhoefer, A. Chatterjee, H.-P.               ics and Visualization, pages 75­81. ACM, 2005. 5
+      Seidel, C. Richardt, and C. Theobalt. Lime: Live intrinsic
+      material estimation. In Proceedings of Computer Vision and      [48] A. Tewari, M. Zollho¨fer, P. Garrido, F. Bernard, H. Kim,
+      Pattern Recognition (CVPR), June 2018. 2                              P. Pe´rez, and C. Theobalt. Self-supervised multi-level face
+                                                                            model learning for monocular reconstruction at over 250 hz.
+[35] J. S. Nimeroff, E. Simoncelli, and J. Dorsey. Efficient re-            In Proceedings of Computer Vision and Pattern Recognition
+      rendering of naturally illuminated environments. In Pho-              (CVPR 2018), 2018. 3
+      torealistic Rendering Techniques, pages 373­388. Springer,
+      1995. 2, 3                                                      [49] A. Tewari, M. Zollho¨fer, H. Kim, P. Garrido, F. Bernard,
+                                                                            P. Pe´rez, and C. Theobalt. Mofa: Model-based deep convo-
+[36] D. Pathak, P. Krahenbuhl, J. Donahue, T. Darrell, and A. A.            lutional face autoencoder for unsupervised monocular recon-
+      Efros. Context encoders: Feature learning by inpainting.              struction. In The IEEE International Conference on Com-
+      In Proceedings of the IEEE Conference on Computer Vision              puter Vision (ICCV), volume 2, page 5, 2017. 3
+      and Pattern Recognition, pages 2536­2544, 2016. 5
+                                                                      [50] S. Ullman. The interpretation of structure from motion. Proc.
+[37] S. C. Pont and S. F. te Pas. Material illumination ambiguities         R. Soc. Lond. B, 203(1153):405­426, 1979. 8
+      and the perception of solid objects. Perception, 35(10):1331­
+      1350, 2006. 5                                                   [51] J. Unger, S. Gustavson, and A. Ynnerman. Densely sampled
+                                                                            light probe sequences for spatially variant image based light-
+[38] R. Ramamoorthi and P. Hanrahan. A signal-processing                    ing. In Proceedings of the 4th international conference on
+      framework for inverse rendering. In Proceedings of the 28th           Computer graphics and interactive techniques in Australa-
+      annual conference on Computer graphics and interactive                sia and Southeast Asia (GRAPHITE), GRAPHITE 06, pages
+      techniques, pages 117­128. ACM, 2001. 2                               341­347. ACM, 2006. 2
+
+[39] E. Reinhard, W. Heidrich, P. Debevec, S. Pattanaik, G. Ward,     [52] J. Waese and P. Debevec. P.: A real-time high dynamic
+      and K. Myszkowski. High dynamic range imaging: acquisi-               range light probe. In In: Proceedings of the 27th an-
+      tion, display, and image-based lighting. Morgan Kaufmann,             nual conference on Computer graphics and interactive tech-
+      2010. 2, 4                                                            niques: Conference Abstracts and Applications, p. 247. ACM
+                                                                            Press/Addison-Wesley Publishing Co, 2002. 2
+[40] K. Rematas, T. Ritschel, M. Fritz, E. Gavves, and T. Tuyte-
+      laars. Deep reflectance maps. In Proceedings of the IEEE        [53] T. Y. Wang, T. Ritschel, and N. J. Mitra. Joint material
+      Conference on Computer Vision and Pattern Recognition,                and illumination estimation from photo sets in the wild. In
+      pages 4508­4516, 2016. 2                                              Proceedings of International Conference on 3DVision (3DV),
+                                                                            2018. selected for oral presentation. 2
+[41] M. Sandler, A. Howard, M. Zhu, A. Zhmoginov, and L.-C.
+      Chen. Inverted residuals and linear bottlenecks: Mobile net-    [54] H. Weber, D. Pre´vost, and J.-F. Lalonde. Learning to es-
+      works for classification, detection and segmentation. arXiv           timate indoor lighting from 3d objects. arXiv preprint
+      preprint arXiv:1801.04381, 2018. 3                                    arXiv:1806.03994, 2018. 2
+
+[42] S. Sengupta, A. Kanazawa, C. D. Castillo, and D. W. Ja-          [55] J. Xiao, K. A. Ehinger, A. Oliva, and A. Torralba. Recogniz-
+      cobs. Sfsnet: learning shape, reflectance and illuminance of          ing scene viewpoint using panoramic place representation.
+      faces in the wild. In Proceedings of the IEEE Conference              In Computer Vision and Pattern Recognition (CVPR), 2012
+      on Computer Vision and Pattern Recognition (CVPR), pages              IEEE Conference on, pages 2695­2702. IEEE, 2012. 2, 3
+      6296­6305, 2018. 3
+
+                                                                      5927
+[56] Z. Xu, K. Sunkavalli, S. Hadap, and R. Ramamoorthi. Deep
+      image-based relighting from optimal sparse samples. ACM
+      Transactions on Graphics (TOG), 37(4):126, 2018. 3
+
+[57] C. Yang, X. Lu, Z. Lin, E. Shechtman, O. Wang, and H. Li.
+      High-resolution image inpainting using multi-scale neural
+      patch synthesis. In The IEEE Conference on Computer Vi-
+      sion and Pattern Recognition (CVPR), volume 1, page 3,
+      2017. 5
+
+[58] J. Yu, Z. Lin, J. Yang, X. Shen, X. Lu, and T. S. Huang.
+      Generative image inpainting with contextual attention. arXiv
+      preprint, 2018. 5
+
+[59] Y. Yu, P. Debevec, J. Malik, and T. Hawkins. Inverse
+      global illumination: Recovering reflectance models of real
+      scenes from photographs. In Proceedings of the 26th an-
+      nual conference on Computer graphics and interactive tech-
+      niques, pages 215­224. ACM Press/Addison-Wesley Pub-
+      lishing Co., 1999. 2
+
+[60] J. Zhang and J.-F. Lalonde. Learning high dynamic range
+      from outdoor panoramas. In IEEE International Conference
+      on Computer Vision, 2017. 3
+
+[61] H. Zhou, J. Sun, Y. Yacoob, and D. W. Jacobs. Label denois-
+      ing adversarial network (ldan) for inverse lighting of faces.
+      In Proceedings of the IEEE Conference on Computer Vision
+      and Pattern Recognition, pages 6238­6247, 2018. 3
+
+                                                                                   5928
+

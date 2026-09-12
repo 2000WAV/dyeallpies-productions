@@ -1,0 +1,34 @@
+Debevec, P. (1998). Rendering Synthetic Objects into Real Scenes: Bridging
+Traditional and Image-Based Graphics with Global Illumination and High
+Dynamic Range Photography. SIGGRAPH 1998, 189-198.
+
+STATUS: full text saved (author-hosted, pauldebevec.com); see
+papers/debevec1998-rendering-synthetic-objects.pdf/.txt.
+
+SUMMARY: the founding paper for image-based lighting and the "shadow
+catcher" / differential rendering technique used throughout modern VFX
+(and already referenced qualitatively in this project's item 05, section
+2.3). Splits a scene into three parts -- the DISTANT scene (captured as an
+HDR light probe, providing incident illumination), the LOCAL scene (the
+real surfaces nearest the inserted object, whose reflectance is estimated
+approximately), and the SYNTHETIC OBJECT itself. DIFFERENTIAL RENDERING:
+render the local scene twice with a global-illumination solver, once with
+the synthetic object present and once without; the difference between the
+two renders is exactly the object's lighting contribution (new shadows,
+reflected/bounced light) to the local scene, which can then be added onto
+the real photograph without needing a fully accurate BRDF for the real
+surfaces -- only their APPROXIMATE reflectance, since errors mostly cancel
+in the differencing.
+
+KEY NUMBERS: none of the form "X% error" -- this is a rendering technique
+paper, not a perceptual study; its contribution is the differential-
+rendering formula/workflow itself (object-present render minus object-
+absent render, added onto the plate), already summarized in item 05's
+shadow-catcher discussion.
+
+RELEVANCE: item 11 section 3's citation for WHY the shadow-catcher approach
+(already flagged as a "nice-to-have" in item 05 for this shot) is the
+standard, correct way to add a plausible contact/cast shadow for the
+marionette onto the real wall without needing to model the wall's exact
+paint BRDF -- only an approximate one, since differential rendering cancels
+most of that error.

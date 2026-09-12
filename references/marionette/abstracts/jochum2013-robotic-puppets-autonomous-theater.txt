@@ -1,0 +1,18 @@
+Jochum, E., Schultz, J., Johnson, E., and Murphey, T.D. (2013). Robotic Puppets and
+the Engineering of Autonomous Theater. In A Body of Knowledge: Embodied Cognition
+and the Arts (or similar edited volume) / chapter also indexed as "Controlling a
+Robotic Stage Crew" -- Springer, 2014, Robots and Art: Exploring an Unlikely
+Symbiosis, pp. 107-128 (DOI 10.1007/978-3-319-03904-6_5).
+(Filename in this archive kept as murphey2013-... for continuity with the download
+log; first author is actually Jochum.)
+
+STATUS: full text saved; see
+papers/murphey2013-robotic-puppets-autonomous-theater.pdf/.txt.
+
+SUMMARY: overview chapter from the Northwestern/Georgia Tech robotic-marionette
+research programme, describing the string-driven "Prince Wen" / stepper-motor
+marionette stand, the mixed dynamic-kinematic model of Johnson & Murphey (2007),
+motion-primitive libraries, and audience/critical reception of robot-performed
+puppet theater. Contains the group's full reference list (used in this project to
+confirm the correct venue and co-authorship of Johnson & Murphey 2007 and Martin
+et al. 2011).

@@ -1,0 +1,597 @@
+    MARIONETTE: FROM TRADITIONAL MANIPULATION TO
+                          ROBOTIC MANIPULATION
+
+            I-Ming Chen Raymond Tay Shusong Xing Song Huat Yeo
+                      School of Mechanical and Production Engineering
+                                Nanyang Technological University
+                                          Singapore 639798
+                                    E-mail: michen@ntu.edu.sg
+
+ABSTRACT- Marionettes are string-operated puppets. It is an ancient and universal
+form of performing art which still evolves slowly today. From the engineering
+perspective, the marionette is a wire- (or string-) driven multi-limbed under-actuated
+mechanism under gravity influence that exhibits rich kinematic and dynamic behaviours.
+This article introduces the evolution and the engineering aspect of traditional marionette
+design and manipulation skills. Based on the mechanics of marionette, a novel robotic
+marionette system that manipulates the puppet through mechatronic means is developed.
+The marionette may create life-like movements according to programmed motion
+commands issued from the computer and a motor-driven puppeteer mechanism. A
+simple demonstration of the robotic marionette performance is shown as well.
+
+KEYWORDS: Puppet. Marionette history. Robotic marionette. Puppeteer mechanism.
+
+I. INTRODUCTION
+
+Puppetry and Puppet Theater are popular art forms having a long and fascinating
+heritage in many cultures. The survival of this art form is due to man's fascination with
+the inanimate object animated in a dramatic manner [1], and human's curiosity to
+"reproduce" an exact artificial copy of him (or her). Recent advances in the humanoid
+robots speak for this quest of curiosity. Most types of puppets in use today fall into four
+broad categories: hand (or glove) puppets, rod puppets, marionettes, and shadow
+puppets [1]. The glove puppet is used like a glove on the operator's hand. The rod
+puppet is held and moved by rods, usually from below but sometimes from above. The
+marionette is a puppet on strings, suspended from a control mechanism held by the
+puppeteer. Shadow puppets are usually flat cut-out figures held against a translucent,
+illuminated screen. There is also a variety of combinations among the four categories:
+hand-rod, glove-rod, rod-hand, and rod-marionette puppets. Though people are mostly
+interested in the theatrical and artistic content of puppetry, basic puppet fabrication and
+manipulation techniques follow the physical laws and engineering principles. From the
+engineering point of view, the puppet, the puppet control device and the puppeteer form
+an interesting complex mechanical system that embodies life-like movement of
+artificially made entities. However, it is rare to see engineering study of the puppet-
+making and manipulation skills. Though there are quite a few literatures dedicated to
+the practice of puppetry, specific puppet making and manipulation skills are usually
+learned from the puppet masters through apprenticeship, and are usually not publicly
+available. This article first introduces the evolution of traditional marionette design and
+manipulation skills from the engineering perspective. Then, a novel robotic marionette
+system (ROMS ­ RObotic Marionette Systems) developed in Nanyang Technological
+University that manipulates the puppet through mechatronic means based on the
+mechanics of marionette instead of human operation, is described. The marionette may
+create life-like movements according to programmed motion commands issued from the
+computer and a motor-driven puppeteer mechanism. The marionette is chosen as the
+object of study for three reasons: 1) mechanically, it is equivalent to a cable-operated
+multiple rigid body system that exhibits rich kinematic and dynamic behaviours; 2)
+theatrically, the marionette performances are graceful, charming, and sometimes mystic
+because of the "invisible" string control; 3) the marionette is versatile and can be simple
+as well as sophisticate in both construction and control. Through this novel system we
+hope to compliment the trade of traditional puppetry in a mechatronic approach.
+
+(a)  (b)  (c)                                    (d)
+
+Fig.1: (a) Anatomy of a marionette. (b) Types of joints [1]. (c) Czech marionette (Hurvinek by
+
+Sotak). (d) Chinese marionette (Zhong Kui) [12]
+
+II. ANATOMY OF MARIONETTES
+
+The term "marionette" was first associated with string puppets in 16th century Europe.
+The origin of the word may be traceable to the Virgin Mary, often the principal
+character of puppet plays during the 1500s, either as a diminutive of "Maria," or in its
+literal translation "little Marys," from the French reference to the Virgin [2]. In China, it
+is called "Xuan Si Mu Ou" () or "Ti Xian Mu Ou" (), which is a direct
+interpretation of the operation of the puppet. In the early history of Europe, the
+marionettes were used to entertain people ­ nobles or walk of all lives, whereas in China,
+the marionettes were mainly used for ceremonial purpose. The marionette theatres were
+used to entertain gods instead of ordinary people [3]. Hence, the appearance and
+fabrication techniques of marinettes have strong cultural influences. Regardless of
+cultural differences, the basic structure and anatomy of the marionettes are similar. In
+fact, this structure also changed very little through the history. A marionette usually
+consists of three essential elements: a puppet figure, a puppet control device, and a
+bundle of strings tied to the control device and various locations on the puppet figure as
+shown in Fig. 1(a). Together they form a string-operated multi-limbed mechanism.
+
+2.1 Puppet Figure
+
+The puppet figure is usually duplication or simplification of a human, an animal, or any
+kind of living creatures. The design of the figure follows three major steps: 1) artistic or
+theatrical feature development, 2) puppet movement or trick design and development,
+and 3) mechanical design of the puppet components. Mechanical design of the puppet
+covers the task of determining the number and shapes of limbs for the figure, types of
+joints connecting the limbs, and additional features on the puppet, such as blinking eyes,
+moveable mouthpieces, articulated palms for human figures, etc. The dexterity of
+puppet movement increases with more segments of limbs added to the figure, such as
+the inclusion of the torso segment in a human figure for the turning and bowing motions.
+The design of puppet joints is versatile. Joints with one degree of freedom (DOF)
+revolute motion, 2- and 3-DOF spherical motions are frequently used in the marionette.
+The DOFs in the joints are realized using different kind of connecting materials, such as
+leather, cord, or screw-eyes. Practical construction methods of puppet figures and joints
+can be found in [1, 4-11]. As shown in Fig. 1(b), the shoulder, torso, and limbs of a
+human puppet are all connected with each other through joints of different DOFs. A
+famous modern Czech marionette and a traditional Chinese marionette ­ Zhong Kui (
+), a ghost-fighting god [12], are shown in Fig. 1(c) and 1(d) respectively. The size of
+marionette figures performed in live is usually between 45 to 75cm in height with
+consideration of the visual effect and convenience for the puppeteer operations.
+
+(a)  (b)
+
+Fig. 2: (a) Functions of strings. (b) Head & backbone strings on a traditional Chinese marionette.
+
+2.2 Strings
+
+In robotics terms, the strings for the marionette allow the puppeteer to "remotely
+operate" the puppet from a control device. By manipulating the control device and
+plucking the strings, the puppet will produce life-like motions. The strings act like
+"actuators" to the puppet. Hence, using proper type of strings for puppetry becomes an
+important issue. From our study [13], it has been noticed that western puppetry did not
+impose a standard type of strings used in the marionette, i.e., the control strings can be
+of any material. However, in the traditional Chinese puppetry, embroidery strings are
+frequently used. The embroidery strings are multi-threaded with little elasticity.
+Therefore, the strings will remain the same length under prolonged or large tension.
+
+Functions of strings. The strings in a marionette can be classified into three categories:
+strings for support/reference , strings for motion control, and strings for special effect.
+The supporting strings hold most of the weight of the puppet figure and are usually kept
+stationary during the performance. In western human marionettes, the two shoulder
+strings usually serve this purpose (Fig. 2a). The traditional Chinese marionette includes
+a single reference string which acts as a backbone to the marionette (Fig. 2b). This is to
+ensure that the marionette is in an upright position. All remaining strings will take
+reference from this string. The strings attached to the arms, legs and the head of the
+figure are mainly for motion control purpose. The manipulation range of these strings
+attached to the limbs may be very large depending on the gesture of the figure. With the
+inclusion of head strings, the marionette may shake or nod his head. For a very basic
+human marionette, at least 8 strings are needed for full body motion: two for the
+shoulders (support), two for the arms, legs and the head each (control). Usually one
+back string is added to the western marionette having a torso joint (Fig. 2a). With this
+additional back string, the puppet figure may perform bowing motion.
+
+Number of Strings. Using 8 to 9 strings in a generic marionette is only a rule of thumb.
+The actual number of strings used in a marionette depends on the desired performance
+of the figure. Western puppeteers tend to keep the number of strings to a minimum by
+using a counter-balanced design which allows gravity to hold a puppet in a "normal"
+pose when at rest. A typical western marionette with human figure uses 8 to 12 strings.
+Traditional Chinese marionettes normally use 16 to 24 strings, sometimes up to 50
+strings, for a fully detailed human-like manipulation. These detail controls usually focus
+on the facial expressions, arm, and palm movements. In a Chinese marionette play
+called "Drunken Zhong Kui" () by the puppet master Mr. Huang Yique ()
+of Quanzhou (), China, the figure of Zhong Kui (Fig. 1d) comprises 50 over strings.
+In the play, the marionette can perform very sophisticated movements like picking up
+wine cups, drinking the wine, pulling out and holding back the sword, etc.
+
+2.3 Control Device
+
+The control device for marionettes, or the "controller" here, is a simple mechanism held
+by the puppeteer to operate the puppet through a bundle of strings. The design and
+geometry of the marionette controllers vary in different cultures but evolve slowly with
+time. The Chinese use a simple platform type of control, termed "Gou Pai" ( or
+hooked plate) which has passed down from Song dynasty for about a thousand years [14]
+whereas the Europeans generally adopt a cross platform control, sometimes called
+"airplane control" which took shape in the late 18th century [15]. Such difference may
+probably due to the design and stringing of the marionettes and the philosophy of
+marionette performance. However, they do have a common feature of symmetric layout,
+which is also the fundamental feature of human body and most of the living beings.
+
+2.3.1 Western marionette controllers
+Unlike modern marionettes controlled by strings hung vertically using the balance of
+the tensions in the strings and the gravity, early in the history string-operated puppets
+were controlled by the strings laid horizontally. Figure 3(a) illustrates that puppets on
+the desktop controlled by horizontal strings were performed in the street in medieval
+France [16]. An early type of European marionette, known as "A La Planchette" in
+French or "fantoccini" in Italian was also controlled by horizontal strings as shown in
+an early 19th century painting (Fig. 3b) [2]. It consisted of a string, secured to a post at
+one end, passing through the body of a jointed puppet or a group of puppets.
+Manipulation of the free end of string tied to the leg of a minstrel, caused movement
+and action thereby bringing the puppet to life.
+
+(a)                                                                        (b)
+
+Fig. 3: (a) Puppets controlled by horizontal strings. (b) A La Planchette
+
+Marionettes with vertical strings came in two forms in the 19th century Europe:
+dramatic marionettes that were designed to perform in the dramatic repertoire and
+variety marionettes that were mainly for tricks and variety. Dramatic marionettes
+adopted a hybrid rod-string puppet design. In early days, the puppet figure was usually
+carved out of wood. Most puppets measured between 70 and 90 cm and, and when fully
+dressed and armed, their weight could be well over 10kg [15]. Using a rod attached to
+the head to support the weight is necessary. Control rods attached to the arms also
+allowed for strong clear expressive movement. However, as puppets adopted more
+dexterous design to give more vivid and lively performance for realism, the rod control
+became awkward for handling due to its rigid structure and number of rods used. In the
+late 19th century, family-run puppet theaters in Europe gradually replaced control rods
+by strings on the puppets. The head rod was replaced with support strings after 1880 in
+English and German theaters. Nevertheless, some French and Italian theaters continued
+using the head rod until the companies ceased to function in 1930s [15]. Some rod-
+string marionette controllers used by European puppet theaters are illustrated in Fig.4.
+
+Variety marionettes were those puppet figures that can dismember, give birth to other
+figures, expand or contract their bodies. Usually they were fully strung figures to
+maintain a sense of wonder because of their "invisible controls" [15]. From the late 18th
+century, fully strung trick marionettes were usually controlled by one or more horizontal
+bars to which the strings were tied (Fig. 4). One bar took the hand and the head or
+support strings and the other, the ones for the legs. Later, British showmen mounted two
+or more of these horizontal bars onto a horizontal central bar making a single composite
+control which may have been one of the features that contributed to the success of the
+so-called "English marionettes". The vertical control for the all-string marionettes
+appeared in the end of 19th century which was probably developed out of the rod-
+marionette grip. The control consisted of a vertical grip, with a horizontal bar at the
+bottom to take head strings, hand strings, and other special ones, and a rocking bar at
+the top for operation of the legs. The vertical control became standard in Germany and
+Britain, where it superseded the horizontal bars [9,15]. Some all-string marionette
+controllers used by European puppet theaters are illustrated in Fig. 4.
+
+                                                         Rod-string type
+
+                                                          Full-string type
+
+                         Fig.4: Various marionette controllers [adopted from 15]
+
+The horizontal controller later proliferated in American in early 20th century through
+European immigrants. Hence, we see a mixture of vertical and horizontal marionette
+controllers in modern puppet troupes. Figure 5(a) and 5(b) demonstrate typical vertical
+and horizontal controllers. They are also called airplane controls for the marionettes
+because their shapes resemble that of aircrafts. A variation of the airplane controller is
+the Angle controller invented by F. H. Bross [6,9]. (Fig. 5c) This controller has a central
+rod to be held by the puppeteer in tilted position. One major horizontal bar is pivoted to
+the central rod to produce rocking movement. Head strings are joined at additional
+horizontal bar on top and shoulder strings may join at the tail which is pivoted to the
+central rod as shown in the figure to produce swinging motion back and forth.
+
+(a)                      (b)  (c)  (d)
+
+Fig. 5: (a): Vertical controller [1]. (b) Horizontal controller [5]. (c) Angle controller [6]. (d)
+
+Paddle controller [10].
+
+A third type of marionette controllers is the paddle controller developed by W. A.
+Dwiggins [17,18] as shown in Fig. 5(d). This tiny (a little over 6 inches) controller is
+shaped like a sweep-wing aircraft and can make the subtlest movements in 12" puppets.
+On the wing are strings for the head, forearm, and hands. On the main bar are strings for
+the forehead, shoulders, and back. The legs are controlled by a small piece of wood,
+vertical to the main bar and fixed on a pivot so the puppeteer can control the legs simply
+by rocking the bar with a finger [2]. For more variations of the vertical, horizontal,
+angle and paddle controllers, please refer to [9].
+
+(a)                                     (b)
+
+Fig.6: Toy type marionette controllers
+
+The advancement of marionette controllers was fueled by commercialization. Until the
+late 19th century, marionettes were not readily available to the public. It was not until
+the 1920s that the first commercially made marionette toys were available in the US.
+which were designed by Tony Sarg [19]. Because of the use of new materials, like
+plastics, for the puppets, the weight of the marionette can be further reduced and new
+types of marionette controllers can be developed. Simple bar control with a central ring
+allows children to use only one hand to handle the marionette [2] (Fig. 6a). An "action
+frame control" made of plastics was designed by Madison Ltd. in 1977 (Fig. 6b). The
+action frame control consists of two 90° arc frame that the two control bars can slide
+through the slots in the respective arcs. The strings are attached to the central bars so
+that the puppeteer can manipulate the marionette by simply turning the central bars.
+
+2.3.2 Chinese marionette controller
+Chinese marionette theaters had been popular for more than a thousand years. Most of
+the repertoires of the marionette theater were adopted from those performed by the
+traditional Chinese theaters like Peking Opera. Hence, the marionette figures had strong
+connections to their human counterparts and the design of marionette figures was for
+realism. Therefore, the number of strings used by Chinese marionettes is usually more
+than the European marionettes. With so many strings to control, Chinese puppeteers
+made use of a controller known as the "Gou Pai", which is a single piece of plate on
+which all strings are nicely tied in systematical and symmetrical sequence (Fig. 7b and
+7c) [20]. The plate is made of wood or halved bamboo segment in rectangular shape
+about 25 cm long and 15 cm wide. The plate is attached to a long handle bar to be held
+by the puppeteer. A hook is nailed to the opposite face of the plate so that the controller
+can be hooked to a beam on the stage for the ease of manipulation. Because the number
+of strings is large and most of the puppet movements are produced by manually
+plucking the strings, using a single plate controller design is a practical and simple
+solution. The puppeteer's attention can be focus on the string manipulations rather than
+doing controller maneuver and string plucking at the same time. This marionette
+controller design has been passed down from Song Dynasty as illustrated by a Chinese
+painting in Song period (AD 960-1279) in Fig. 7(d) [21].
+
+(a)                                                  (b)
+
+(c)                                                       (d)
+
+Fig. 7: (a) Burmese marionette controller. (b) Chinese Gou pai and (c) its operation [20].
+
+(d) Puppet painting from Song Dynasty.
+
+2.3.3 Control devices from other cultures
+Figure 7(a) illustrates the controller of Burmese marionettes [22]. It is a palm-sized
+cross type control tightened with eight to ten strings. Because of its size, the puppeteer
+can manipulate the marionette with only one hand. For a sophisticate marionette with
+more than 10 strings, two such palm-sized controllers are employed. Instead of using
+any assistive device as marionette controllers, some puppeteers in India used their hands
+as the controller for the marionette [4]. Strings are tied to the fingers and the puppet
+figure. Moving the fingers and the hand will create puppet movements.
+
+III. CONVENTIONAL MARIONETTE MANIPULATION
+
+Unlike the humanoid robots where all limb joints are fully actuated and controlled, the
+
+marionettes are only "actuated" and controlled by a handful of strings attached to the
+
+limbs. Usually the number of control strings is less than the total degrees of freedom of
+
+the puppet figure. Assume that the puppet figure consists of n rigid segments (or rigid
+
+bodies) and j joints, and the DOF of each joint is fj. According to Kutzbach criteria for
+
+computing the DOFs of spatial mechanisms [23], the DOF of the puppet figure without
+
+any strings connection, M, can be obtained by
+
+                                               j
+
+ M = 6(n - j) - fi .                                                                        (1)
+
+                                               i =1
+
+From the perspective of mechanisms, each string connection between the puppet figure
+
+and the controller can be considered as a "1-DOF" linear actuator that gives only the
+distance between the two connecting points. Therefore, it is necessary to have M strings
+to fully control and manipulation of the puppet movements. However, in practice, the
+number of strings is always less than M, and there are uncontrollable DOFs in the
+marionette. If the number of strings is k, where k < M, the uncontrollable DOFs will be
+M ­ k. The marionette, then, can be described as an under-actuated string-operated
+multi-limbed mechanism. The configuration of these uncontrollable DOFs will be
+determined by the gravity or other external factors. As the marionette is under-actuated,
+manipulation and control of the marionette movement become a very tricky technique.
+
+(a)  (b)  (c)  (d)                                             (e)  (f)
+
+Fig. 8: Manipulating the controller to (a) nod the head; (b) incline the head; (c) turn the head; (d)
+
+bow the body; (e) keep the head upright; (f) walk the puppet.
+
+                       Fig. 9: Walking a 6-string puppet using self-made Gou Pai
+
+Manipulation of the marionette through the controller usually is achieved in three
+manners: pure manoeuvring of the controller, plucking the strings by hands, and the
+combination of both. With a properly designed controller, a wide range of puppet
+movement can be achieved by simply tilting or turning the controller. For example,
+Figures 8(a), 8(b) and 8(c) show how to nod, incline, and turn the head respectively by
+maneuvering the controller [8]. Such kind of manoeuvring usually produces fine puppet
+movement because string lengths are unchanged. Figures 8(d), 8(e), 8(f) illustrate how
+to use the combined hand and controller motion to make the puppet bow [8], lift his
+head, and walk. To make large and prominent gestures, such as walking, plucking the
+strings or pulling the detachable horizontal bars is necessary (Fig. 8f).
+Usually one puppeteer can only operate one marionette from the controller unless the
+design of the controller can cater for multiple puppet figures. The puppeteer uses one
+hand to hold and maneuver the controller and the other to pluck or pull the strings and
+the detachable bars. With an ergonomically designed paddle controller (Fig. 5d),
+manoeuvring the controller and plucking the strings can be achieved using one hand
+simultaneously [10].
+
+Manipulating the marionette using a Chinese Gou Pai is similar. Figure 9 shows a
+sequence of walking movement using a simple Gou Pai made in our laboratory with
+only six control strings. Because of the special layout, walking the puppet is achieved
+by rolling the Gou Pai clockwise and counter clockwise alternatively. Generally
+sophisticate movements can only be obtained by plucking various strings on the Gou
+Pai. Due to the large number of strings used in Chinese marionettes, maneuvering the
+Gou Pai becomes less obvious [20].
+
+IV. ROBOTIC MARIONETTE SYSTEM
+
+The basic robotic marionette system consists of a puppet figure, a puppeteer mechanism
+hosting an array of inexpensive RC servo motors, pulleys and strings, a motor control
+network, and a Pentium II 200Hz PC running Linux operating system (Fig. 10) [13].
+The puppet can produce life-like movements according to programmed motion
+commands issued from the computer through the puppeteer mechanism. Besides the
+standard human gestures and motions, the robotic marionette can "defy" the gravity and
+"fly" in the air to perform various stunts. Our focus on this system is on the
+development of the robotic puppeteer mechanism. We intend to make it portable and
+universal. Portability means that the system can be used as a standalone unit or can
+perform puppet shows side by side with puppeteers using manually operated
+marionettes. Universality means that the system adopts a generic and modular design so
+that different puppet figures can be mounted under the same puppeteer mechanism to
+perform different shows by simply changing the computer programs. Certain puppet
+figures with strong cultural, artisitc, or historical values can be mounted under the
+puppeteer mechanism to perform dynamic demonstration instead of static exhibition.
+
+Three versions of robotic marionette systems, ROMS-I, II, and III [26] (Fig. 10) are
+developed. ROMS-I was the first prototype used to explore the pulley-motor concept for
+puppeteering tasks and the basic structure of the mechatronic system. The puppet figure
+of ROMS-I was modified from a small wooden human dummy and fishing wires were
+used as the control strings. ROMS-II and ROMS-III were improved versions of ROMS-
+I with feedback from a professional puppet master and were developed simultaneously.
+The puppet figures of ROMS-II and III were life-like figures modified from toy soldiers
+with full clothes on for showing expressive behaviors. Standard embriodery threads
+were used as the control strings. The difference of the later two versions from ROMS-I
+is the design of the puppeteer mechanism. The pulleys were laid horizontally in ROMS-
+I whereas they are in the vertical position in ROMS-II and III. The portability and
+modularity of the puppeteer mechanism were also taken into consideration. Basic
+specifications of the three ROMS are listed in Table 1.
+                 (a)                (b)                                             (c)
+
+                 (d)                      (e)                                       (f)
+
+Fig. 10: (a) Overall marionette system (ROMS-II). (b) Puppet figure. (c) Robotic puppeteer
+
+Mechanism. (d) Motor control network. (e) ROMS-I (f) ROMS-III
+
+                 ROMS-I [24] ROMS-II [13,25] ROMS-III [26]
+
+     Motors      8                  16                           16
+     Strings
+DOF of puppet    8                  14*                          16
+Links of puppet
+Joint of puppet  30                 35                           23
+ Type of joint
+                 9                  11                           10
+  Height (cm)
+   Weight (g)    8                  10                           9
+
+                 8 s-joint (3-dof)  9 s-joint (3-dof)            4 s-joint (3-dof)
+                                    1 u-joint (2-dof)            5 r-joint (1-dof)
+
+                 31.2               30.5                         29.5
+
+                 314                214                          259
+
+                 Table 1: Specifications of ROMS-I, II, and III
+
+4.1 Puppeteer mechanism
+
+Here we focus on the puppeteer mechanism of ROMS-II and III, which becomes our
+reference design for further development. As we intend to develop the puppeteer
+mechanism as a generic platform for both Chinese and Western puppet performance, the
+maximum number of strings is set to be around 24 to 30, and each string is to be
+individually controlled.
+
+String-retracting device. The strokes of strings can be large due to the limb motion of
+the puppet. Various concepts had been proposed for the string-retracting device
+including the linear actuator, a linkage mechanism assisted pulley system, and a simple
+pulley-motor assembly [13]. Considering the stroke of the string, interference of the
+devices in motion, and the space required, the simple pulley-motor unit is chosen as the
+string-retracting device. Each string is controlled by one pulley-motor unit so that the
+length of the strings can be lengthened or shortened by simply rotating the pulley on the
+motor clockwise or counter clockwise. The pulley diameter is determined by the speed
+and resolution of puppet motion which require a balance between large motion range
+and fine smooth motion. The space constraint needs to be addressed as well. Based on
+the size of the puppet figure, the pulley diameter for ROMS-II and III is set to be 50mm.
+The selection of the motor has similar considerations. The motor chosen for the pulley-
+motor assembly is Parallax 900 continuous rotation servo motors. These motors accept
+speed control through continuous pulse-width-modulation (PWM) signals at 50Hz.
+
+Mounting platform with extra DOF. A mounting platform combining the feature of
+Chinese and western marionette controllers is designed to house all pulley-motor units.
+As pulley-motor units can handle large as well as delicate string motions, motor units
+can remain stationary on the platform just like the all strings being tied to the Gou Pai.
+It is not necessary to mimic the manoeuvring of the controller as puppet masters do for
+this automated system. However, as strings drop vertically under gravity, performing
+puppet movements along the vertical plane, such as walking, nodding the head or
+bowing is much easier than sideway movements, such as arm opening and side-kicking,
+etc. Therefore, the two swinging armatures that can rotate horizontally are added to the
+mounting platform of ROMS-II to enable limbs to move sideways (Fig.10c). The
+movement of the two armatures are controlled by the servo motors. Three pulley-motor
+units controlling the arm and leg strings are mounted on each of the armature. The novel
+and extra degrees of freedom introduced on the mounting platform enable the
+marionette to produce more expressive behaviours. (Fig. 11a)
+
+Motor/string functions. The assignment of limb movement to the corresponding
+pulley-motor unit is similar to the traditional marionette control. Among the total 16
+motors installed on ROMS-II, there are two motors on each arm to control the elbow
+and hand respectively, three motors on each leg to control the knee, lower leg, and the
+ankle respectively, two for the head, one for the backbone string, one for the trick string
+for clapping hands, and two for the swinging armatures. The motor assignment on
+ROMS-III is similar to that of ROMS-II except that the two motors controlling the
+swinging armatures now control the shoulder of the puppet figure.
+
+(a)                                                                                           (b)
+
+Fig. 11: (a) Puppet poses ­ Movie "Matrix"-like stunts. (b) Structure of Puppeteer software.
+
+Motor layout issue. The design of the pulley-motor unit is modular. It is possible to
+reconfigure the pulley-motor arrangement for marionette with different number of
+strings and different characters. Due to the space and weight constraint, we adopt a
+layered motor mounting method to save the footprint of the puppeteer mechanism by
+stacking the pulley-motor units on top of each other. ROMS-II has two motor mounting
+layers on and below a single platform whereas ROMS-III has three motor mounting
+layers using extended fixtures.
+
+4.2 Motor control network and interfacing
+
+Motor control network. To cope with the large number (up to 30) of pulley-motor
+units, we develop a networked servo motor controller from scratch instead of off-the-
+shelf products [24,25]. The networked controller allows the RC servo motor to be added
+or removed from the controller easily when the configuration of the marionette changes.
+The networked motor controller consists of 16 PICmicro 16F876 microcontrollers with
+each controlling one servo motor for position and velocity control. The microcontrollers
+communicate through a common I2C bus network. One idle microcontroller with no
+motor attached serves as the bridge between the PC and motor controller on the I2C bus
+through RS-232 serial port. The networked motor controller can incorporate
+heterogeneous devices compatible with the I2C bus protocol, such as various sensors.
+
+Interface programming. Low level servo motor control based on PWM is coded and
+implemented on the PIC microcontroller using the proprietary assembly language for
+this class of chips. The firmware development tools include the MPLAB IDE integrated
+development environment software and the PICSTART Plus programmer from
+Microchip Corporation.
+
+4.3 Puppeteer software
+
+As the marionette is mechanically controlled by an array of pulley-motor units,
+coordination of pulley-motor actions to create marionette movements is achieved
+through a high level marionette motion generation program on the PC, called Puppeteer
+[25]. The Puppeteer software developed on the Linux PC for the robotic marionette
+provides an interface to accept motion control instructions from the user. The user has
+three ways to input and edit the robotic marionette movements: primitives, motion
+synthesis, and motion transformation. Different motion generation methods give the
+user some selections of varied workload in order to make the motion input process
+comfortable and effective [25]. The major modules of the puppeteer software are shown
+in Fig. 11(b). Except for the motor control module, most parts of the software were
+developed in C language and with GCC 2.2 under Redhat 6.1 Linux OS.
+
+4.4 Demonstration of robotic marionette behaviours
+
+The visual results of the robotic puppet engaging behavioural expression are captured in
+a short motion sequence. The postures shown in Fig. 12 are directly obtained by
+combining existing posture primitives. These postures illustrate the diversity of
+behaviours. Feedback from the collaborating puppet master is that pros and cons of
+ROMS ideally compliment traditional puppeteers. ROMS can control delicate
+marionette motion that a human may find very difficult to achieve manually. As human
+hands have limited capacity, the robotic marionette may produce some movement that
+cannot be achieved using the manual marionette controller. For example, the stunt of
+"motion freeze" in the mid air shown in the movie ­ Matrix was coded into ROMS-II by
+one of our students (Fig. 11b) to demonstrate that our marionette can "fly". However,
+ROMS does have drawbacks, mainly in its dynamic behaviour. When the string motion
+becomes very drastic, the marionette may swing in undesirable directions frequently in
+addition to its controlled movement [27]. This is fundamentally similar to the pendulum
+effect that needs to be compensated with more advanced control algorithms.
+
+                                      Fig. 12: ROMS-II Puppet postures
+
+V.CONCLUSION
+Marionette, a disappearing art form in Singapore and also in other countries, is a
+universal cultural theme. The puppeteer techniques involved become a cultural or
+national heritage; the making of marionette figures becomes fine folk arts. In the
+modern elementary education, puppetry is also a very effective tool for shaping
+children's personality, creativity, and thinking. This work examined the basic
+marionette techniques (design, anatomy, and manipulation) in engineering perspective.
+Through the development of robotic marionette systems, ROMS-I, II, and III, we would
+like to explore the possibility of infusing modern robotic and mechatronic technology
+into the traditional art form of marionette, evoke and stimulate public interests in this art
+form, and thus provide the puppetry and puppet theatre new element and new features.
+As addressed by the response from the puppeteer master, the range and features of
+robotic manipulation compliment the traditional marionette due to its system
+characteristics, eventually this kind of technology infusion may stay side by side with
+the traditional puppetry. From the mechanics point of view, multi-cable driven
+marionettes may provide us insight in developing cable-driven multiple rigid body
+systems for engineering applications as well.
+
+Acknowledgement: The authors appreciate invaluable comments and suggestions on the puppeteer
+techniques provided by Ms. Beng Tian Tan of The Finger Players (www.fingerplayers.com), Singapore, and
+encouragement from Prof. M. Ceccarelli. Efforts made by other members in this project, S. K. Tan, Ronald
+Yeu, Stefan Künzler, Wei Ji, Wesley Chia, are also appreciated.
+
+REFERENCES
+
+[1] D. Currell. Puppets and Puppet Theatre, Crowood Press, Wiltshire, UK, 1999.
+[2] D. E. Hodges. Marionettes and String Puppets Collector's Reference Guide, Antique Trader Books, VA,
+USA, 1998.
+[3] K. D. Sun. Origin of Chinese Puppetry (). Shanghai Publishing Co., Shanghai, China, 1952.
+(Chinese)
+[4] C. Flower, A. Fortney. Puppets: Methods and Materials, Davis Publications, MA, USA, 1983.
+[5] G. Latshaw. The Complete Book of Puppetry, Dover Publications, NY, USA, 1978.
+[6] O. Batek. Il Teatro Delle Marionette, Ottaviano, Milan, Italy, 1981.
+[7] H. Fling. Marionettes: How to Make and Work Them, Dover Publications, NY, USA, 1973
+[8] D. Currell. The Complete Book of Puppetry, Pitman Publishing, 1974.
+[9] L. Coad. Marionette Sourcebook, Charlemagne Press, Vancouver, Canada, 1993.
+[10] B. Frascone, D. Frascone. The Art and Technique of Marionette Making, Vol., France, 2002.
+[11] M. Steven. Steven's Course in Puppetry. Charlemagne Press, Vancouver, Canada, 1997.
+[12] Q. Liu, S. L. Jiang. Chinese Puppetry Art (). China World Language Publishing (
+), Beijing, China, 1993. (Chinese)
+[13] B. K. Tay. Development of a Robotic Marionette System. Final Project Report, School of Mechanical and
+Production Engineering, Nanyang Technological University, 2003.
+[14] Q. Y. Yang. History of Puppet Theater in Hong Kong. Cosmos Books, Ltd., Hong Kong, 2001. (Chinese)
+[15] J. McCormick, B. Pratasik. Popular Puppet Theatre in Europe, 1800-1914, Cambridge University Press,
+UK,1998.
+[16] M. Violette, History of French Puppetry, Proc. Int. Puppet Theatre Conf., Taipei, Taiwan, 1999, pp234-
+261. (ISBN 957-02-4287-6)
+[17] W. A. Dwiggins. Marionette in Motion, Puppetry Imprint, Detroit, USA, 1939.
+[18] D. Abbe. The Dwiggins Marionettes, Abrams Inc., NY, USA, 1970.
+[19] J. Bell. Strings, Hands, Shadows: A Modern Puppet History, Detroit Institute of Arts, USA, 2000.
+[20] P. Tso. Puppet Theatre in Hong Kong and Their Origins, Hong Kong Municipal Government, 1987.
+[21] Anon. Children playing with string puppets, Song Dynasty painting, National Palace Musuem, Taiwan.
+[22] M. Thanegi. The Illusion of Life. White Orchid Press, Bangkok, Thailand, 1995.
+[23] J. E. Shigley, J. J. Uickers. Theory of Machines and Mechanisms, 2nd ed., McGraw-Hill, NY, USA, 1995.
+[24] S. S. Xing, I.-M. Chen. Design Expressive Behaviors for Robot Puppets, Proc. 7th Int'l Conf. Control,
+Automation, Robotics, Vision, Singapore, pp378-383, 2002.
+[25] S. S. Xing. Behavior-Based Physical Agents as Information Display Devices, PhD Dissertation, School
+of Mechanical and Production Engineering, Nanyang Technological University, 2003.
+[26] S. Künzler. Development of Programmable Puppeteer Mechanism for Robotic Marionette Theatre,
+Diploma Thesis, School of Mechanical and Production Engineering, Nanyang Technological University and
+Hochschule Rapperswil, Switzerland, 2003.
+[27] K. Yamane, J K. Hodgins, H. B. Brown. Controlling a Marionette with Human Motion Capture Data.
+Proc. IEEE Int. Conf. Robotics Automation, Taipei, Taiwan, 2003, pp3834-3841.
+

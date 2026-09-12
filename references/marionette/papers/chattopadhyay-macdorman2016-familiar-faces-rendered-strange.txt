@@ -1,0 +1,1225 @@
+Journal of Vision (2016) 16(11):7, 1­25                                                                                                                   1
+
+Familiar faces rendered strange: Why inconsistent realism
+drives characters into the uncanny valley
+
+                                                                 Department of Computer Science,
+
+                                         College of Engineering, University of Illinois at Chicago,                                                    $
+
+Debaleena Chattopadhyay                                                                       Chicago, IL, USA
+
+                                                                 Department of Human-Centered Computing,
+
+                                         Indiana University School of Informatics and Computing,                                                       $
+
+Karl F. MacDorman                                                                             Indianapolis, IN, USA
+
+Computer-modeled characters resembling real people               examine how they make us feel. These replicas may
+sometimes elicit cold, eerie feelings. This effect, called the   elicit cold, eerie feelings because of the perceived
+uncanny valley, has been attributed to uncertainty about         salience of their nonhuman features. Mori (1970/2012)
+whether the character is human or living or real.                graphed this effect as a valley of uncanniness in an
+Uncertainty, however, neither explains why                       otherwise positive relation between human likeness and
+anthropomorphic characters lie in the uncanny valley nor         affinity (Mathur & Reichling, 2016).
+their characteristic eeriness. We propose that realism
+inconsistency causes anthropomorphic characters to appear           Ka¨tsyri, Fo¨rger, Ma¨ka¨ra¨inen, and Takala (2015)
+unfamiliar, despite their physical similarity to real people,    identified two main groups of theories in the uncanny
+owing to perceptual narrowing. We further propose that           valley literature: category uncertainty and perceptual
+their unfamiliar, fake appearance elicits cold, eerie feelings,  mismatch (also reviewed in MacDorman & Chatto-
+motivating threat avoidance. In our experiment, 365              padhyay, 2016). While the former concerns the entity as
+participants categorized and rated objects, animals, and         a whole, the latter concerns relations among its features
+humans whose realism was manipulated along consistency-          (Moore, 2012; Pollick, 2010). Category uncertainty
+reduced and control transitions. These data were used to         theories propose uncanniness is caused by doubt about
+quantify a Bayesian model of categorical perception. In          what an entity is, such as whether it is human or
+hypothesis testing, we found reducing realism consistency        nonhuman, living or inanimate, real or simulated
+did not make objects appear less familiar, but only animals      (Jentsch, 1906/1997; MacDorman & Ishiguro, 2006).
+and humans, thereby eliciting cold, eerie feelings. Next,        Category uncertainty theories, as broadly construed,
+structural equation models elucidated the relation among         include explanations based on categorical perception
+realism inconsistency (measured objectively in a two-            (Burleigh, Schoenherr, & Lacroix, 2013; Cheetham,
+dimensional Morlet wavelet domain inspired by the                Pavlovic, Jordan, Suter, & Ja¨ncke, 2013; Looser &
+primary visual cortex), realism, familiarity, eeriness, and      Wheatley, 2010), category ambiguity (Burleigh &
+warmth. The fact that reducing realism consistency only          Schoenherr, 2015), conflicting representations (Ferrey,
+elicited cold, eerie feelings toward anthropomorphic             Burleigh, & Fenske, 2015), cognitive dissonance (Han-
+characters, and only when it lessened familiarity, indicates     son, 2005; MacDorman, Green, Ho, & Koch, 2009a;
+the role of perceptual narrowing in the uncanny valley.          MacDorman, Vasudevan, & Ho, 2009b), balance
+                                                                 theory (Tondu & Bardou, 2011), sorites paradoxes
+Introduction                                                     (Ramey, 2005), and categorization difficulty (Chee-
+                                                                 tham, Wu, Pauli, & Ja¨ncke, 2015; Yamada, Kawabe, &
+Resolving category uncertainty and perceptual                    Ihaya, 2013).
+mismatch theories
+                                                                    Perceptual mismatch theories propose uncanniness is
+   Human replicas in computer-animated films and in              caused by a mismatch in the human likeness of an
+robotics prompt us with increasing frequency to                  entity's features, such as in their visual or multimodal
+                                                                 realism (e.g., human skin paired with computer-
+                                                                 modeled eyes, MacDorman et al., 2009a; robot head
+                                                                 with human voice, Meah & Moore, 2014; Mitchell et
+
+Citation: Chattopadhyay, D., & MacDorman, K. F. (2016). Familiar faces rendered strange: Why inconsistent realism drives
+characters into the uncanny valley. Journal of Vision, 16(11):7, 1­25, doi:10.1167/16.11.7.
+
+doi: 10 .116 7 /1 6. 11 .7               Received March 4, 2016; published September 9, 2016                                                           ISSN 1534-7362
+
+                                    This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        2
+
+Figure 1. Moore (2012) proposed that affinity for a stimulus is its objective familiarity (probability of occurrence) minus its perceptual
+tension, weighted by the viewer's sensitivity to perceptual tension. The affinity curve resembles Mori's (1970/2012) uncanny valley
+graph. This study situates Moore's model for the observational dimension objective realism (fraction of real): Real entities are more
+familiar than their artistic depictions and thus are predicted to engender greater affinity; however, stimuli lying between depiction and
+real may have some features that appear more real than others, thus causing perceptual tension. This study found reverse-scaled
+eeriness ratings of human faces transitioning from computer modeled to real arose from a valley of eeriness with the predicted curve
+(solid blue); by contrast, inanimate objects cleared the valley completely (dashed blue).
+
+al., 2011; or human skin with enlarged eyes, Seyama &      in a feature at a category boundary appears much
+Nagayama, 2007). We have previously proposed               larger than an equal-sized difference within a category
+realism inconsistency theory, a kind of perceptual         (viz., the perceptual magnet effect; Feldman, Griffiths,
+mismatch theory, as an explanation of the uncanny          & Morgan, 2009). In simultaneously perceiving features
+valley. Realism inconsistency theory predicts viewers      of an entity that are closer to and farther from a
+will experience cold, eerie feelings only when perceiving  category boundary, categorical perception causes dif-
+anthropomorphic entities that possess features at          ferences in perceptual distortion among features, which
+different levels of realism (see Figure 1; MacDorman &     Moore defines as perceptual tension. In other words,
+Chattopadhyay, 2016). Our study found that increasing      perceptual tension results from features that differ in
+an entity's overall category uncertainty did not cause     their level on a perceptual dimension, such as
+cold, eerie feelings. These feelings were instead caused   humanness, animacy, or realism. Although Moore
+by reducing consistency in the realism of its features.    attributes the valley of negative affinity in Mori's graph
+Ka¨tsyri and colleagues (2015) likewise found scant        to perceptual tension, he explains the broader positive
+support for category uncertainty theories but strong       trend using an objective measure of familiarity, the
+support for perceptual mismatch theories. We assume        probability of occurrence of the stimulus. Thus, a
+that any computer model that can be distinguished          viewer's affinity for the stimulus is graphed by
+from reality is inherently inconsistent in realism         subtracting from its probability of occurrence the
+because the achievement of realism varies in difficulty    perceptual tension it elicits, weighted by the viewer's
+by feature, thus resulting in some features appearing      sensitivity to perceptual tension (Figure 1; Equation 1
+more realistic than others.                                in the Method section of Quantitative evaluation of the
+                                                           Bayesian model).
+   Moore (2012) proposed a Bayesian model that
+resolves the apparent incompatibility of category          Operationalizing shinwakan
+uncertainty and perceptual mismatch theories. Cold,
+eerie feelings are not caused by uncertainty about an         Moore's (2012) model addresses another conun-
+entity's category but by unequal levels of uncertainty     drum--the multidimensionality of the dependent var-
+about the category of its features. Moore's proposal is
+based on categorical perception: A physical difference
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        3
+
+iable in the uncanny valley graph. The dependent              increased the uncanny valley effect; for plants and
+variable must measure not only affinity for the               artifacts no such effect was found (MacDorman &
+humanlike but also the uncanniness of the nearly              Chattopadhyay, 2016). These results align with the
+human--its characteristic eeriness--because this is the       finding that the face perception network is highly
+experience a theory of the uncanny valley must explain        sensitive to realism in human faces but not to realism in
+(Mangan, 2015).                                               other kinds of objects (James et al., 2015). What
+                                                              Moore's equation does not explain is why an anthro-
+   In his original essay, Mori (1970/2012) referred to        pomorphic appearance is necessary for perceptual
+the dependent variable as shinwakan, which is a               tension to cause the uncanny valley effect (Figure 1).
+Japanese neologism. Shinwakan has been variously
+translated as familiarity, affinity, comfort level, likabil-  Anthropomorphism, perceptual narrowing, and
+ity, and rapport (Ho & MacDorman, 2010). However,             threat avoidance
+as MacDorman and Ishiguro (2006) observed, it is
+incoherent to conceive of the dependent variable simply          We propose that, within Moore's Bayesian frame-
+as familiarity, because the zero crossing in the graph is     work, the effect of anthropomorphic appearance on
+total novelty, and an entity cannot cross below total         eeriness could partly be explained by perceptual
+novelty into negative familiarity. Given the conceptual       narrowing. Although human infants start out discrim-
+problems with operationalizing shinwakan as familiar-         inating human faces and those of other primates
+ity, it is unsurprising that Cheetham and colleagues          equally well, as they mature they become better at
+(Cheetham, Suter & Ja¨ncke, 2014; Cheetham et al.,            discriminating human faces and worse at discriminat-
+2015) were unable to find an uncanny valley effect: In        ing those of other primates (Lewkowicz & Ghazanfar,
+their studies familiarity increased with human likeness       2006; Pascalis, de Haan, & Nelson, 2002; Scott,
+with no decrease for ambiguously humanlike entities.          Pascalis, & Nelson, 2007). Perceptual narrowing also
+                                                              occurs in perceiving faces of other races and faces of
+   Ho and MacDorman (2010) found the eeriness of the          nonprimate animals (Kelly et al., 2007; Simpson,
+uncanny valley to be conceptually and empirically             Varga, Frick, & Fragaszy, 2010). Elsewhere we have
+distinct from the primary dimension of person percep-         proposed various mechanisms that are compatible with
+tion, typically denoted by warmth or likability (Cuddy,       perceptual narrowing to explain how perceiving small
+Fiske, & Glick, 2007). People dislike villainous charac-      deviations from human appearance could produce
+ters, regardless of whether they are human actors,            large prediction errors in brain regions honed for
+computer models, or hand-drawn cartoons, and re-              recognizing human faces, hands, and bodies, thus
+gardless of whether they appear eerie or unfamiliar or        engendering the cold, eerie feelings associated with the
+neither. Likability could also be confounded with             uncanny valley (MacDorman & Chattopadhyay, 2016;
+human likeness, the independent variable in Mori's            MacDorman et al., 2009a; MacDorman & Ishiguro,
+graph. Ho and MacDorman (2010) found human traits             2006; also see Saygin, Chaminade, Ishiguro, Driver, &
+are typically more likable than nonhuman traits; indeed,      Frith, 2012).
+the high correlation between human likeness and
+likability (r ¼ .73, p , .001) raises concerns for studies       Thus, Moore's equation needs to be revised because
+that only use likability as the dependent variable in the     perceptual narrowing can cause a stimulus to appear
+uncanny valley graph (e.g., Ferrey et al., 2015; Yamada       unfamiliar even though its appearance is physically
+et al., 2013). Thus, although Mori (1970/2012) and his        similar to familiar anthropomorphic stimuli. To
+translators use the layman's term affinity to describe the    overcome this issue, in our analysis we replace
+dependent variable, this paper will sidestep the resulting    probability of occurrence in Moore's equation (an
+complications by treating affinity as a technical term        objective measure) with perceived familiarity (a sub-
+defined by Moore's (2012) equation (Equation 1). We           jective measure). We argue that small deviations from
+evaluate predicted affinity primarily in terms of per-        norms look more unfamiliar in anthropomorphic
+ceived eeriness because eeriness is essential to the          entities than deviations of the same magnitude in
+uncanny valley experience (Mangan, 2015).                     nonanthropomorphic entities. Thus, people may be
+                                                              inclined to rate stimuli that are relatively similar to
+   Evaluating Moore's model quantitatively by com-            human as unfamiliar because of perceptual narrowing.
+paring predicted affinity and perceived eeriness (reverse     That effect needs to be captured by the dependent
+scaled) can provide supporting or contrary evidence to        variable affinity.
+refine perceptual mismatch theories. To this end, we
+conducted a pilot study with a subset of data from prior         A second issue with Moore's equation is that
+work (MacDorman & Chattopadhyay, 2016). However,              affinity increases with probability of occurrence,
+Moore's model failed to predict perceived eeriness in         which implies we feel the greatest affinity for what is
+part because it did not include as a factor the entity's      most familiar. However, the familiar is not necessarily
+level of anthropomorphism. Only for human and other
+vertebrate faces had reducing realism consistency
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        4
+
+pleasant but could be boring, while the extremely          alternative forced choice categorization task and
+novel could be terrifying. The relation between            ratings of the task stimuli.
+novelty and pleasure has typically been graphed as an
+inverted U. Pleasure rises as novelty increases to peak    Participants
+at a moderate degree of novelty and then rapidly falls;
+thus, high levels of novelty elicit unpleasant sensations     Participants were recruited by email from a ran-
+and aversive responses (Berlyne, 1970, 1971; Lang,         domized exhaustive list of undergraduates attending a
+Bradley, Sparks, & Lee, 2007; Zuckerman, 1976,             Midwestern public university system. Participants
+2014). A prerequisite for perceiving novelty and, in       received no compensation. The study was approved by
+turn, for responding aversively to excessive or            the Indiana University Office of Research Administra-
+unanticipated novelty is the perceptual narrowing that     tion (Study No. 1210009909).
+comes with the formation of new categories (Hebb,
+1946; exposure learning, Gottlieb, 2002; van Kampen,          A total of 365 participants were recruited. In the first
+2015; for a review, see Bronson, 1968a). For example,      round, Zlatko, Ingrid, dog, and parrot were presented to
+human infants develop a fear of strangers only after       118 participants (Mdnage ¼ 21, IQRage ¼ 1; 67% female);
+they can distinguish a stranger from their mother          in the second round, Clint, Emelie, Juliana, Simona, and
+(Bronson, 1968b).                                          Ferrari were presented to 104 participants (Mdnage ¼ 21,
+                                                           IQRage ¼ 4.5; 58% female); and in the third round,
+   In this paper, we extend realism inconsistency          camera, washer, and water lily were presented to 143
+theory. After introducing our general method (see the      participants (Mdnage ¼ 22, IQRage ¼ 4; 56% female).
+General method section), we quantify Moore's
+Bayesian model of the uncanny valley, replacing               Participants reflected the demographics of the
+probability of occurrence with perceived familiarity.      university system's undergraduate population: 74%
+We evaluate the model by comparing its affinity            White, 7% African American, 6% Hispanic, 3% Asian,
+predictions with participants' reverse-scaled eeriness     3% multiracial, 6% foreign, and 1% unknown. Partic-
+ratings of the stimulus (see the Quantitative evalua-      ipants had no or mild visual impairment with corrective
+tion of the Bayesian model section). The revised           lenses (100%, Mdn ¼ no impairment), were mostly
+model's predictions closely followed participants'         right-handed (82%), native English speakers (91%),
+responses for humans (anthropomorphism: high).             raised (95%) and residing (98%) in the United States.
+Based on this result, we set out to test whether, owing    The three rounds of experiments were conducted
+to perceptual narrowing, realism inconsistency in-         sequentially between October 2013 and March 2014.
+hibits the perceived familiarity of anthropomorphic
+entities (H1), and in turn causes the uncanny valley       Stimuli
+effect (H2; see the Unfamiliar anthropomorphic
+entities elicit eerie feelings section). The results          The task stimuli from MacDorman and Chattopad-
+support these hypotheses. Finally, we define realism       hyay (2016) were used. The dataset contained images
+inconsistency objectively at multiple scales and ori-      (600 3 600 pixels) of 12 entities representing three levels
+entations in a two-dimensional (2-D) Morlet wavelet        of anthropomorphism: low (four nonanimal objects:
+domain inspired by the primary visual cortex and use       car, camera, washing machine, and water lily), inter-
+this concept to elucidate the role of familiarity in the   mediate (two nonhuman animals: dog and parrot), and
+perception of objects, animals, and humans by              high (six humans: Clint, Zlatko, Emelie, Ingrid,
+constructing corresponding structural equation mod-        Simona, and Juliana).
+els (see the Why unfamiliar anthropomorphic entities
+elicit eerie feelings section).                               For each of the 12 entities, a 3-D replica was
+                                                           modeled using computer software (Figure 2), and 17
+General method                                             representations were derived using the original photo-
+                                                           graph and the computer model as follows. First, two
+Design                                                     observational dimensions were defined for each of the
+                                                           12 entities: Feature Set 1 and 2 (Table 1). Then, for
+   This study adopted a within-group design with three     both feature sets, the fraction of real was systematically
+rounds of experiments. In each round unique partici-       varied by sixths along three transitions from 0% real
+pants observed task stimuli derived from four to five      (100% computer modeled) to 100% real (0% computer
+real entities and their three-dimensional (3-D) com-       modeled; Figure 3). For instance, the fraction of real of
+puter models. The experiment consisted of a two-           Feature Set 1 could be 0, 1/6, 1/3, 1/2, 2/3, 5/6, or 1.
+                                                           The three transitions entail only 17 of 49 possible
+                                                           combinations to reduce participant fatigue and attri-
+                                                           tion.
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        5
+
+Figure 2. Objects, animals, and humans constitute the low, intermediate, and high anthropomorphism groups, respectively. The right
+half of a photograph of each entity is shown beside the left half of its 3-D computer model.
+
+Procedure                                                     tory (Oshio, 2009), categorization tasks, task stimuli
+                                                              ratings (see Dependent variables section), and a
+   Using an access-controlled website, participants           demographics survey. A pilot study found each
+completed the following sequence of activities:               round requires approximately 15­30 min to com-
+informed consent, the dichotomous thinking inven-             plete.
+
+Entity                                   Feature Set 1 (FS1)                                                              Feature Set 2 (FS2)
+
+Camera                                   lens mount, reflex mirror, parts                                 front, lens release, mode dial, shutter button
+                                            visible behind the lens
+Car                                                                                                       bumper, hood, outside mirrors, windshield
+Flower                                   headlights, front grilles                                        petals, stem
+Washing machine                          stamen, stigma, style                                            front panel, controls, filter cover, dispenser
+Dog                                      door, door handle, window                                        cheek, foreface, nose, stop
+Parrot                                   eyes, flew, tongue                                               cheek, forehead, lore
+Humans                                   eyes, eyelids, beak, cere, left nostril                          skin, nose, eyebrows
+                                         eyes, eyelashes, mouth
+
+Table 1. Feature sets for objects, animals, and humans.
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        6
+
+Figure 3. The diagonal depicts a consistent change in the objective realism (fraction of real) of all features of an entity, from the 3-D
+model to the original. The lower-right path depicts an inconsistent change in which Feature Set 2 (e.g., skin, nose, and eyebrows)
+changes first and then Feature Set 1 (e.g., eyes, eyelashes, and mouth). The upper-left depicts an inconsistent change in which
+Feature Set 1 changes first and then Feature Set 2. The colored bands indicate the consistency-reduced representations and control
+being compared.
+
+   In the categorization task, participants categorized     On the left of the stimulus was an anchor (e.g., real) with
+the task stimuli as either computer animated or real.       the instruction ``Press e,'' and on the right of the stimulus
+(The term computer animated was used instead of the         was another anchor (e.g., computer animated) with the
+more accurate descriptor computer modeled because           instruction ``Press i.'' Participants were instructed to
+participants were familiar with it.) The order of stimulus  categorize the stimuli as quickly and as accurately as
+presentation was randomized for each participant, and       possible. They could pause and restart the task by
+the first two trials of each block were practice trials.    pressing the spacebar. If no response was provided
+Each trial began with the presentation of a task stimulus.  within 3000 ms, the task paused automatically. The task
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                                     7
+
+restarted with the next stimulus, and the current            Quantitative evaluation of the
+stimulus was randomly inserted into the remaining trials.    Bayesian model
+Each stimulus was presented twice to swap the left­right
+order of the anchors. The task continued until responses     Method
+to all stimuli were provided. Furthermore, after each
+trial, three masks were presented in sequence for 100 ms        Moore (2012) based his Bayesian model of the
+each to suppress the afterimage of the stimulus (a 19 3      uncanny valley on Feldman and colleagues' (2009) model
+19 checkerboard, a 38 3 38 checkerboard, and a 50%           of categorical perception. In his model, Moore defines
+gray panel). Thus, the minimum interval between trials       perceptual tension as the perception of stimuli whose
+was 300 ms. For each trial, the categorization response      features differ in the certainty of their category member-
+was recorded as was the response time (elapsed time in       ship across observational dimensions. Moore's model
+milliseconds between the presentation of the image and       defined affinity (the dependent variable in Mori's graph)
+the registration of an e or i keypress).                     as the probability of occurrence of a stimulus minus the
+                                                             perceptual tension arising from its conflicting features:
+   For task stimuli ratings, participants rated realism,
+eeriness, warmth, and familiarity for 68 stimuli (4          F½S ¼ pðSÞ À kV½S ð1Þ
+entities 3 17 representations) in the first round, 85
+stimuli (5 entities 3 17 representations) in the second,     where F [S] represents affinity for stimulus S, p(S) the
+and 51 (3 entities 3 17 representations) in the third (see
+the Dependent variables section).                            probability of its occurrence, k the viewer's sensitivity to
+
+Independent variables                                        perceptual tension, and V[S] the perceptual tension.
+
+   The independent variables for this study were             Perceptual tension is measured as the variance in
+anthropomorphism (low, intermediate, and high) and
+fraction of real. Fraction of real was varied along one      perceptual distortions for each dimension on which a
+control transition (diagonal) and two consistency-
+reduced transitions (lower right and upper left). For the    stimulus can be perceived:
+diagonal transition, the stimuli had consistent fractions
+of real for Feature Set 1 and 2 (FS1­FS2): 0À0, 1/6À1/6,             h                                    i
+1/3À1/3, 1/2À1/2, 2/3À2/3, 5/6À5/6, and 1--1. For the        V½Si ¼ E ðD½SiÞ2 À ðE½D½SiÞ2 ð2Þ
+lower-right consistency-reduced transition, FS1­FS2
+were 0À0, 0À1/3, 0À2/3, 0À1, 1/3À1, 2/3À1, and 1À1,          where D[S] is along dimension i (Feldman et al., 2009;
+and for the upper-right consistency-reduced transition,      Moore, 2012). D[S] is calculated using the variance of a
+0À0, 1/3À0, 2/3À0, 1À0, 1À1/3, 1À2/3, and 1À1.               feature's category and the probability of perceiving the
+                                                             feature as belonging to that category (see Appendix A).
+Dependent variables
+                                                                This model's predictions were compared with the
+   The dependent variables were the percentage of times      eeriness and warmth ratings from experiments in
+each task stimulus was categorized as real, its mean         MacDorman and Chattopadhyay (2016). These data
+response times, and its rating on indices of realism,        were selected because objects, animals, and humans
+eeriness, warmth, and familiarity. The indices were used     (both male and female) were represented by at least two
+experimentally in hypothesis testing. Each index used        individuals of each group and because the two
+three 7-point semantic differential items, ranging from      observation dimensions, Feature Set 1 and 2, were
+À3 to þ3 (i.e., from left to right: very, moderately,        controlled with seven equidistant levels of objective
+slightly, neutral, slightly, moderately, very). The anchors  realism. Features were designed to be perceived as
+were, for realism: computer animated­real, replica­          either real or computer modeled. Stimuli had either
+original, and digitally copied­authentic; for eeriness:      consistency-reduced or control levels of realism across
+ordinary­creepy, plain­weird, and predictable­eerie; for     the two feature sets. This enabled the model's
+warmth: cold-hearted­warm-hearted, hostile­friendly,         predictions to be tested with both matched cues (less
+and grumpy­cheerful; and for familiarity: rarely seen­       perceptual tension) and mismatched cues (more per-
+common, unfamiliar­recognizable, and unique­familiar.        ceptual tension). We next explain how model param-
+Task stimuli ratings followed the categorization tasks to    eters were computed to predict the empirical data.
+reduce bias from exposure to the realism, eeriness,          Model parameters were calculated separately for each
+warmth, and familiarity indices.                             of the three transitions (two consistency-reduced and
+                                                             one control transition, see the Stimuli section).
+
+                                                                To parametrize the Bayesian model, we adapted the
+                                                             calculations of Feldman and colleagues (2009, pp. 13­
+                                                             15). In our experimental setup, realism was the
+                                                             dimension along which features varied and thus were
+                                                             perceived as either real (category 1) or computer
+                                                             animated (category 2). The two observation dimensions
+                                                             were Feature Set 1 and 2 (Table 1).
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                                                8
+
+   The parameters to be set were                                                                          Maximum        Maximum
+                                                                                                             real   computer modeled
+lreal: mean of the category real
+lcomputer_modeled: mean of the category computer animated    Entity                 Feature Feature Feature Feature
+rc2: category variance                                               Transition Set 1 Set 2 Set 1 Set 2
+r2s : uncertainty in the observed signal
+k: viewer's sensitivity to perceptual tension, and           Humans Diagonal                              100  100  96.41  93.60
+p(S): probability of occurrence of the stimulus.                                                                           90.82
+                                                                     Lower right 100                           100  94.62  94.39
+   Similar to the computation of goodness ratings of                                                                       98.17
+categories in Iverson and Kuhl (1995), we computed                   Upper left 100                            100  96.85  76.90
+the mean of the category real using the categorization                                                                     79.07
+responses and realism ratings. For objects, animals,         Animals Diagonal                             83   83   95.87  99.08
+and humans, lreal was the fraction of real of the                                                                          99.47
+stimulus's Feature Set 1 and 2 that received the highest             Lower right 100                           100  74.33  98.85
+realism ratings, when we rank-ordered realism ratings
+for all stimuli categorized as real.                                 Upper left 100                            100  75.81
+
+   The means of the category computer animated for           Objects Diagonal                             100  100 101.62
+objects, animals, and humans were calculated based on
+lreal and the category identification curves (probability            Lower right 100                           100  99.54
+of belonging to the category computer animated or real,
+see figure 5 in Feldman et al., 2009). Curves were plotted           Upper left 100                            100 100.81
+using the percentage of times stimuli were categorized as
+real (Appendix C, Figure C1). To identify the category       Table 2. Parameters used to evaluate the Bayesian model of the
+boundary, we fitted a logistic function and calculated the   uncanny valley.
+gain g and the bias b of the logistic function. Equations
+for these calculations are described in Appendix B.          fit the data (Figures 4 through 6). Table 2 lists the
+Feldman and colleagues' computations used the empir-         parameters used in the model (derived from the
+ical data of Iverson and Kuhl (1995), whose stimuli,         equations in Appendix A and B). Predicted perceptual
+speech sounds, were expressed orthogonally--in terms         tension and sensitivity to perceptual conflict were
+of their first two formants (F1­F2 space, see figures 1 and  rescaled from 0 to 1. Rescaled sensitivity was approx-
+2 in Iverson & Kuhl, 1995). Similarly, in calculating our    imated using the dichotomous thinking inventory
+logistic parameters, we used eigenvectors to represent       (round 1: M ¼ 0.48, SD ¼ 0.03, round 2: M ¼ 0.57, SD ¼
+orthogonally the two observational dimensions of a           0.04, and round 3: M ¼ 0.54, SD ¼ 0.03).
+stimulus. For each entity, first an eigenface was
+generated using all 17 variants (Turk & Pentland, 1991).        We computed the mean distance between predicted
+Then each image was represented by their reconstruction      affinity and perceived eeriness (reverse scaled) for all three
+errors from projection onto the first and second             transitions in perceiving objects: diagonal, L1 ¼ À0.04,
+eigenvectors, sorted by decreasing eigenvalues. Finally,     lower right, L1 ¼ À0.16, and upper left, L1 ¼ À0.03;
+assuming high category variance, we set the free             animals: diagonal, L1 ¼ À0.41, lower right, L1 ¼ À0.63
+parameter, rS2/r2c to 0.1. (Predictions, however, did not    and upper left, L1 ¼ À0.47; and humans: diagonal, L1 ¼
+change significantly for 0.1 rS2/r2c 1.) To measure          À0.27, lower right, L1 ¼À0.28, and upper left, L1 ¼À0.34.
+individual differences in the viewer's sensitivity to        To assess curve similarity, Fre´chet distance (Alt &
+perceptual tension k, we used the dichotomous thinking       Godau, 1995) between predicted affinity and perceived
+inventory (Oshio, 2009) as a rough analogue, averaging       eeriness (reverse scaled) was computed after subtracting
+all 15 items for each participant. We measured p(S) as       their mean L1 distance. The curves were similar for all
+the perceived familiarity ratings of the stimulus.           three transitions in perceiving objects: diagonal, d ¼ 0.31,
+                                                             lower right, d ¼ 0.43, and upper left, d ¼ 0.29; animals:
+Predictions of the Bayesian model                            diagonal, d ¼ 0.19, lower right, d ¼ 0.24, and upper left, d
+                                                             ¼ 0.30; and humans: diagonal, d ¼ 0.09, lower right, d ¼
+   Predicted affinity and perceived eeriness (reverse        0.07, and upper left, d ¼ 0.16. As these results indicate, the
+scaled) were compared for matched stimuli for low,           Bayesian model of the uncanny valley predicted perceived
+intermediate, and high levels of anthropomorphism            eeriness from the fraction of real of the stimulus for
+(i.e., objects, animals, and humans) and for one control     Feature Set 1 and 2, its perceived realism and familiarity,
+(diagonal) and two consistency-reduced (lower right          its percentage categorized as real, and the viewer's
+and upper left) transitions. The Bayesian model closely      sensitivity to perceptual tension, measured by the
+                                                             dichotomous thinking inventory. (See Appendix D for a
+                                                             comparison of predicted affinity and perceived warmth.)
+
+                                                                Excluding the 100% real representation, realism
+                                                             across the 16 remaining representations was rated higher
+                                                             for object (M ¼ À0.26, SD ¼ 0.89) than animal (M ¼
+                                                             À0.70, SD ¼ 1.75) or human models (M ¼ À0.87, SD ¼
+                                                             1.56). However, 100% real human (2.04) and animal
+                                                             faces (2.14) were perceived as more real than 100% real
+                                                             objects (1.18). The familiarity across 100% or partly
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        9
+
+Figure 4. For objects, perceived familiarity and eeriness ratings of the stimulus are plotted against its fraction of real for the control
+(diagonal) and the consistency-reduced transitions (lower right, upper left). The dashed line represents affinity as predicted by the
+revised Bayesian model. (The lines in Figures 4 through 6 depict cubic spline interpolation.)
+
+computer-modeled representations was rated higher in         entity cause perceptual processes in viewers to make
+object (M ¼ 1.42, SD ¼ 0.09) than animal (M ¼ 0.77, SD       conflicting inferences regarding whether the entity is
+¼ 0.60) and human models (M ¼ 0.53, SD ¼ 0.41). The          real, thus resulting in the uncanny valley effect
+difference in familiarity between fully real objects (1.56)  (MacDorman & Chattopadhyay, 2016). Prior research
+and fully real humans (1.19) and animals (1.75) was          has found realism inconsistency increases eeriness
+much less.                                                   (MacDorman et al., 2009a; Mitchell et al., 2011) or
+                                                             unpleasantness (Seyama & Nagayama, 2007). This
+ Unfamiliar anthropomorphic                                  study extends realism inconsistency theory. We hy-
+ entities elicit eerie feelings                              pothesize that, owing to perceptual narrowing, higher
+                                                             levels of anthropomorphism amplify the inhibitory
+Theory and hypotheses                                        effect of realism inconsistency on perceived familiarity.
+                                                             Put briefly, realism inconsistency makes anthropo-
+   Realism inconsistency theory predicts that features       morphic entities look unfamiliar.
+at inconsistent levels of realism in an anthropomorphic
+                                                                However, this does not explain why anthropomor-
+                                                             phic entities that appear unfamiliar should elicit cold,
+                                                             eerie feelings and avoidance behavior. Eeriness and
+                                                             creepiness are associated with basic emotions, elicited
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        10
+
+Figure 5. For animals, perceived familiarity and eeriness ratings of the stimulus are plotted against its fraction of real for the control
+(diagonal) and the consistency-reduced transitions (lower right, upper left). The dashed line represents affinity as predicted by the
+revised Bayesian model.
+
+by threats, that motivate avoidance behavior--emo-        MacDorman et al., 2009a; Moosa & Ud-Dean, 2010;
+tions like fear, anxiety, and disgust (Ho, MacDorman,     Park, Faulkner, & Schaller, 2003). Alternatively,
+& Pramono, 2008).                                         abnormalities could indicate low fitness in a potential
+                                                          mate, thus activating a mechanism for unfit mate
+The uncanny valley effect could be a symptom of an        avoidance (MacDorman & Ishiguro, 2006; MacDor-
+adaptive mechanism for threat avoidance                   man et al., 2009a). A propensity of threat avoidance
+                                                          mechanisms to register false positives for human
+   Proposed threat avoidance mechanisms vary widely       replicas could be explained by the high fitness cost of
+in their origin and function, from preserving the         not registering existential and reproductive threats
+biological self and its genes to preserving the socially  (Burleigh et al., 2013; Nesse, 2005) and the absence of
+constructed self and its cultural worldview (MacDor-      human replicas in our evolutionary environment. From
+man & Ishiguro, 2006). For example, we could be more      a sociological standpoint, a human replica could
+disturbed by abnormalities in an anthropomorphic          threaten an individual's religious and cultural world-
+entity because they activate a mechanism for pathogen     view and sense of personal and human identity, thus
+avoidance; the entity's physical and behavioral simi-     eliciting psychological defense mechanisms (MacDor-
+larity indicate genetic relatedness and, thus, a higher   man & Entezari, 2015; MacDorman et al., 2009b;
+risk of infection from exposure (Curtis et al., 2004;     Ramey, 2005).
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        11
+
+Figure 6. For humans, perceived familiarity and eeriness ratings of the stimulus are plotted against its fraction of real for the control
+(diagonal) and the consistency-reduced transitions (lower right, upper left). The dashed line represents affinity as predicted by the
+revised Bayesian model.
+
+   We tested our extension of realism inconsistency         effect is operationalized as an increase in eeriness
+theory with two hypotheses:                                 because eeriness is the experience that a theory of the
+H1. The more anthropomorphic the entity, the more           uncanny valley must explain (see the Operationalizing
+reducing consistency in feature realism decreases           Shinwakan section). The index used to measure eeriness
+perceived familiarity.                                      has both discriminant and content validity (Ho &
+H2. Only when reducing realism consistency reduces          MacDorman, 2010). (An analysis of perceived warmth
+perceived familiarity does it also increase the uncanny     is reported in Appendix E.)
+valley effect.
+
+Method                                                      Data analysis preliminaries
+
+   The independent variables remained anthropomor-             H1 was tested using a mixed-design analysis of
+phism and fraction of real, while the dependent variable    variance (ANOVA). H2 was tested using paired-
+familiarity was used from the task stimuli ratings to test  samples t tests and within-group repeated-measures
+H1, and eeriness and familiarity were used to test H2       ANOVAs. Because a preliminary analysis using a
+(see the General method section). The uncanny valley        linear mixed-effects model found little effect of entity
+                                                            as a random factor, the hypotheses were tested using
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        12
+
+Figure 7. Familiarity ratings are plotted against the level of  animals (dog and parrot, n ¼ 1,180, Round 2), and
+anthropomorphism (low: objects, intermediate: animals, and      humans (Clint, Emelie, Juliana, and Simona, n ¼ 2,080,
+high: humans) for the control (diagonal) and the consistency-   Round 1; Figure 7), respectively, and control (diagonal)
+reduced transitions (lower right, upper left).                  and consistency-reduced (lower right, upper left)
+                                                                transitions. The ANOVA confirmed the level of
+only the fixed factor: fraction of real (MacDorman &            anthropomorphism significantly affected the difference
+Chattopadhyay, 2016, supplementary material, sec-               in eeriness ratings between the control and consistency-
+tion 1).                                                        reduced transitions. An interaction effect of anthro-
+                                                                pomorphism 3 realism consistency was found for both
+   Response times were log10-transformed to remove              the lower-right, F(2, 5,391) ¼ 20.06, MSE ¼ 0.87, p ,
+positive skew. Q-Q plots were linear, confirming                .001, gp2 ¼ .007, and upper-left transition, F(2, 5,388) ¼
+normality (Thode, 2002). Test statistics were interpret-        21.16, MSE ¼ 0.89, p , .001, gp2 ¼ .008. These results
+ed with a significance threshold of a ¼ .05. Effect sizes       indicate that reduced realism consistency affected
+for ANOVAs are reported as partial eta-squared (g2p)            familiarity ratings of objects, animals, and humans
+with the thresholds small ¼ .01, medium ¼ .06, and large        differently.
+¼ .14 and for t tests as Cohen's d with the thresholds
+small ¼ .20, medium ¼ .50, and large ¼ .80 (Cohen,                 For the lower-right transition, a post hoc Tukey's
+1992). Pairwise comparisons are reported with Bon-              honest significant difference (HSD) test found that
+ferroni­Holm correction, and violations of sphericity           reduced realism consistency decreased familiarity sig-
+with Greenhouse­Geisser correction.                             nificantly more for humans than for objects and
+                                                                significantly more for animals than for objects, p ,
+Testing H1                                                      .001. For the upper-left transition, a post hoc Tukey's
+                                                                HSD found that reduced realism consistency decreased
+   H1 states that the more anthropomorphic the entity,          familiarity significantly more for humans than for
+the more reducing consistency in feature realism                objects, p , .001, and significantly more for animals
+decreases familiarity. To test H1, we conducted a               than for objects, p , .001, but significantly more for
+mixed-design ANOVA with anthropomorphism as a                   animals than for humans, p ¼ .001.
+between-groups factor and realism consistency as a
+within-group factor. We analyzed low, intermediate,                H1 was supported for four of six comparisons (3
+and high levels of anthropomorphism, namely, objects            levels of anthropomorphism 3 2 transitions). H1 was
+(camera, washer, and water lily, n ¼ 2,145, Round 3),           not supported in comparing humans and animals in the
+                                                                upper-left and lower-right transition.
+
+                                                                Testing H2
+
+                                                                   A nested-factor ANOVA (familiarity ; transition/
+                                                                fraction of real with five levels of fraction of real, except
+                                                                the two endpoints) found that transition significantly
+                                                                affected familiarity in perceiving humans, F(2, 9,753) ¼
+                                                                26.02, MSE ¼ 2.44, p , .001, gp2 ¼ .005, and animals,
+                                                                F(2, 3,517) ¼ 12.43, MSE ¼ 2.52, p , .001, gp2 ¼ .007,
+                                                                but not objects, F(2, 7,975) ¼ 0.12, p ¼ .885.
+
+                                                                Object models
+
+                                                                   For the four object models (n ¼ 533) in the low
+                                                                anthropomorphism group, fraction of real significantly
+                                                                affected familiarity ratings for all three transitions with
+                                                                a small effect size: diagonal, F(5.53, 2,911) ¼ 7.55, MSE
+                                                                ¼ 0.75, p , .001, g2p ¼ .01; lower right, F(5.40, 2,866) ¼
+                                                                8.49, MSE ¼ 0.73, p , .001, g2p ¼ .02; and upper left,
+                                                                F(5.64, 2,995) ¼ 12.03, MSE ¼ 0.73, p , .001, gp2 ¼ .02
+                                                                (Figure 4). Fraction of real also significantly affected
+                                                                eeriness ratings for each transition with a small effect
+                                                                size: diagonal, F(5.18, 2,724) ¼ 9.78, MSE ¼ 0.86, p ,
+                                                                .001, gp2 ¼ .02; lower right, F(5.00, 2,654) ¼ 9.84, MSE ¼
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25          Chattopadhyay & MacDorman                                                           13
+
+Consistency-reduced                             Familiarity                                                          Eeriness
+
+vs. control transition                   t  df               p     d                                      t     df             p     d
+
+0À1/3 vs. 1/6À1/6       À1.19               234              .117                                         0.09  234            .465
+0À2/3 vs. 1/3À1/3
+0À1 vs. 1/2À1/2         2.17                235              .016           À3.65                               235  ,.001           0.24
+1/3À1 vs. 2/3À2/3
+2/3À1 vs. 5/6À5/6       5.45                235  ,.001             0.35     À6.91                               235  ,.001           0.45
+1/3À0 vs. 1/6À1/6
+2/3À0 vs. 1/3À1/3       3.22                235              .001  0.21     À5.83                               235  ,.001           0.38
+1À0 vs. 1/2À1/2
+1À1/3 vs. 2/3À2/3       0.70                233              .243           À2.36                               233            .010  0.15
+1À2/3 vs. 5/6À5/6
+                        1.49                234              .069           À0.87                               234            .192
+
+                        0.87                235              .192           À3.00                               235            .002  0.20
+
+                        5.95                233  ,.001             0.39     À7.55                               233  ,.001           0.49
+
+                        4.29                233  ,.001             0.28     À6.69                               233  ,.001           0.44
+
+                        2.06                232              .021           À1.60                               232            .056
+
+Table 3. Familiarity and eeriness for all 10 comparisons in perceiving animals. Notes: Boldface indicates reduced realism consistency
+significantly increasing eeriness. Fraction pairs indicate the fraction of real for Feature Set 1 and 2. Effect sizes are provided for
+significant outcomes in Tables 3 and 4.
+
+0.94, p , .001, g2p ¼ .02; and upper left, F(5.11, 2,711) ¼        fraction of real) and the control and two between the
+7.69, MSE ¼ 0.92, p , .001, gp2 ¼ .01 (Figure 4).                  upper-left transition (0À2/3 and 2/3À1) and the control.
+
+   Pairwise comparisons showed that for objects,                   Human models
+reduced realism consistency did not significantly affect
+eeriness or familiarity for any pairs, either between the             For the six human models in the high anthropo-
+lower-right or upper-left transition and the control.              morphism group (n ¼ 652), three within-group repeat-
+                                                                   ed-measures ANOVAs confirmed that fraction of real
+Animal models                                                      significantly affected familiarity ratings for all three
+                                                                   transitions with a large effect size: diagonal, F(3.91,
+   For the two animal models (n ¼ 236) in the                      2,529) ¼ 106, MSE ¼ 2.17, p , .001, gp2 ¼ .14; lower
+intermediate anthropomorphism group, fraction of real              right, F(4.14, 2,664) ¼ 114, MSE ¼ 2.09, p , .001, g2p ¼
+significantly affected familiarity ratings for all three           .15; and upper left, F(4.11, 2,634) ¼ 102, MSE ¼ 1.93, p
+transitions with a large effect size: diagonal, F(3.85,            , .001, gp2 ¼ .14 (Figure 6). Fraction of real also
+886) ¼ 80.79, MSE ¼ 2.49, p , .001, gp2 ¼ .26; lower               significantly affected eeriness ratings for each transition
+right, F(3.92, 912) ¼ 82.12, MSE ¼ 2.26, p , .001, gp2 ¼           with a large effect size: diagonal, F(3.71, 2,396) ¼ 186,
+.26; and upper left, F(3.83, 885) ¼ 73.98, MSE ¼ 2.57, p           MSE ¼ 2.53, p , .001, g2p ¼ .22; lower right, F(3.96,
+, .001, g2p ¼ .24 (Figure 5). Fraction of real also                2,553) ¼ 190, MSE ¼ 2.52, p , .001, g2p ¼ .23; and upper
+significantly affected eeriness ratings for each transition        left, F(4.32, 2,792) ¼ 150, MSE ¼ 2.16, p , .001, g2p ¼
+with a large effect size: diagonal, F(4.12, 947) ¼ 149,            .19 (Figure 6).
+MSE ¼ 2.53, p , .001, g2p ¼ .39; lower right, F(4.32,
+1,006) ¼ 129, MSE ¼ 2.40, p , .001, g2p ¼ .36; and upper              Pairwise comparisons showed that for humans
+left, F(4.08, 944) ¼ 131, MSE ¼ 2.6, p , .001, gp2 ¼ .36           reduced realism consistency significantly increased
+(Figure 5).                                                        eeriness for three pairs in the lower-right transition, 1/
+                                                                   3À1/3 and 0À2/3, 1/2À1/2 and 0À1, and 2/3À2/3 and 1/
+   Pairwise comparisons showed that for animals                    3À1, and three pairs in the upper-left transition, 1/2À1/
+reduced realism consistency significantly increased                2 and 1À0, 2/3À2/3 and 1À1/3, and 5/6À5/6 and 1À2/3
+eeriness for four of five pairs in the lower-right                 (Table 4). Pairwise comparisons further showed that
+transition: 1/3À1/3 and 0À2/3, 1/2­1/2 and 0À1, 2/3À2/             for humans reduced realism consistency significantly
+3 and 1/3À1, and 5/6À5/6 and 2/3À1; and three of five              decreased familiarity for three pairs in the lower-right
+pairs in the upper-left transition: 1/3À1/3 and 2/3À0, 1/          transition, 1/3À1/3 and 0À2/3, 1/2À1/2 and 0À1, and 2/
+2À1/2 and 1À0, and 2/3À2/3 and 1À1/3 (Table 3).                    3À2/3 and 1/3­1, and two pairs in the upper-left
+Pairwise comparisons further showed that for animals               transition, 1/2À1/2 and 1À0, and 2/3À2/3 and 1À1/3.
+reduced realism consistency significantly decreased                Thus, H2 was supported in all except one in the upper-
+familiarity for two pairs in the lower-right transition: 1/        left transition (5/6À5/6).
+2À1/2 and 0À1, and 2/3À2/3 and 1/3À1; and two pairs
+in the upper-left transition: 1/2À1/2 and 1À0, and 2/                 These results support H2. Reducing consistency in
+3À2/3 and 1À1/3. Thus, H2 was supported for all pairs              feature realism decreased familiarity significantly in
+except one between the lower-right transition (2/3À0               perceiving humans and animals with a small effect size
+                                                                   but not objects. Reducing consistency in realism also
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25          Chattopadhyay & MacDorman                                                             14
+
+Consistency-reduced                             Familiarity                                                           Eeriness
+
+vs. control transition                   t  df               p     d                                      t      df             p      d
+
+0À1/3 vs. 1/6À1/6       2.09                650              .019                                         À1.48  650            .069
+0À2/3 vs. 1/3À1/3
+0À1 vs. 1/2À1/2         3.66                649  ,.001             0.14                                   À4.46  649            ,.001  0.17
+1/3À1 vs. 2/3À2/3
+2/3À1 vs. 5/6­5/6       8.92                650  ,.001             0.35     À13.22                               650            ,.001  0.52
+1/3À0 vs. 1/6­1/6
+2/3À0 vs. 1/3À1/3       7.36                649  ,.001             0.29                                   À9.60  649            ,.001  0.38
+1À0 vs. 1/2À1/2
+1À1/3 vs. 2/3À2/3       0                   648              .500                                         À1.37  648            .086
+1À2/3 vs. 5/6À5/6
+                        0.38                650              .353                                         1.79   650            .037
+
+                        À0.08               650              .470                                         1.84   650            .033
+
+                        6.01                650  ,.001             0.24                                   À6.98  650            ,.001  0.27
+
+                        6.40                649  ,.001             0.25                                   À6.59  649            ,.001  0.26
+
+                        1.40                649              .081                                         À2.88  649            .002   0.11
+
+Table 4. Familiarity and eeriness for all 10 comparisons in perceiving humans. Note: Boldface indicates reduced realism consistency
+significantly increasing eeriness.
+
+caused a small uncanny valley effect, shown as                        To compare a target representation to its 100% real
+increased eeriness, in perceiving humans and animals               representation, both representations were decomposed
+but not objects. In humans and animals, the results                in a family of 2-D Morlet basis functions, analogous
+show that for nine out of 13 pairwise comparisons, only            to neurons, resulting in wavelet coefficients, analogous
+when reduced realism consistency decreased perceived               to their firing rates. By definition, the realism
+familiarity did it also increase the uncanny valley effect.        inconsistency of the 100% real representation is zero.
+(See Appendix E for a comparison of perceived                      For the 16 remaining representations, we define
+familiarity and warmth.)                                           realism inconsistency as the standard deviation of the
+                                                                   differences between corresponding wavelet coefficients
+Why unfamiliar anthropomorphic                                     of the target representation and the 100% real
+entities elicit eerie feelings                                     representation.
+
+   To confirm the relations among realism inconsis-                   Prior to computing its distance from the 100% real
+tency, realism, familiarity, eeriness, and warmth, a               representation, each image was converted to gray-
+structural equation model was calculated for each level            scale and decomposed in 2-D Morlet basis functions
+of anthropomorphism: low (objects), intermediate                   at four scales (1, 2, 3, and 4) and six orientations (08
+(animals), and high (humans). A first step in this                 to 1508 at 308 intervals) using cwtft2 in Matlab
+process was to define realism inconsistency objectively.           (MATLAB 8.0 [R2016a] and Statistics Toolbox 8.1,
+We define it in a 2-D Morlet wavelet domain                        The MathWorks, Inc., Natick, MA) (Arivazhagan,
+functionally analogous to how the primary visual                   Ganesan, & Priyal, 2006; Lee, 1996). Figure 8 shows
+cortex represents physical properties of the stimulus.             an example. For each of the 24 decompositions of the
+                                                                   target and 100% real representation, the difference in
+                                                                   the values of corresponding wavelet coefficients was
+                                                                   computed to obtain their standard deviation. Then,
+                                                                   the 24 standard deviations were averaged to derive
+                                                                   the realism inconsistency of each representation.
+
+A multiscale and orientation measure for                           Parameter estimates
+realism inconsistency
+                                                                      Figure 9 presents our model, reporting the stan-
+   Daugman (1980) proposed that a parametrized                     dardized path coefficients. The model depicts a causal
+family of 2-D Morlet basis functions (Gabor kernels)               relation from the stimulus variable realism inconsisten-
+could model the anisotropic receptive field profiles of            cy to the perceptual variables realism and familiarity
+single neurons in several areas of the primary visual              (and from realism to familiarity) to the affective
+cortex, including their selective tuning for characteristic        variables eeriness and warmth.
+scale, localization, orientation, and quadrature phase
+relations. Daugman (1985) found using chi-squared                     Model fit and parameter estimates were computed
+tests that this wavelet family fit the profiles of 97% of          with maximum likelihood estimation using the lavaan
+single neurons in the cat visual cortex.                           package in R (Rosseel, 2012). The model had good fit
+                                                                   (root mean square error of approximation [RMSEA] ,
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        15
+
+Figure 8. The desaturated 0% real representation of Clint was decomposed in 2-D Morlet basis functions at four scales (1, 2, 3, and 4)
+and six orientations (08 to 1508 at 308 intervals). Coefficients are visualized from black to white for scales 1­4 in the range 0­0.01, 0­
+0.5, 0­1.0, and 0­2.0, respectively.
+
+.06, nonnormed fit index [NNFI] ! .95, comparative fit     unable to find an uncanny valley effect (Cheetham et
+index [CFI] ! .90; Hu & Bentler, 1999) for humans (n ¼     al., 2014; Cheetham et al., 2015).
+11,070, df ¼ 2, v2 ¼ 59.53, p , .001, RMSEA ¼ .051,
+NNFI ¼ .978, CFI ¼ .996, expected cross validation         Discussion
+index [ECVI] ¼ .0008) but poor fit for animals (n ¼
+4,002, df ¼ 2, v2 ¼ 357.91, p , .001, RMSEA ¼ .211,        Perceptual tension and perceived familiarity
+NNFI ¼ .750, CFI ¼ .950, ECVI ¼ .095) and objects (n       predict the uncanny valley
+¼ 9,055, df ¼ 2, v2 ¼ 675.87, p , .001, RMSEA ¼ .193,
+NNFI ¼ .406, CFI ¼ .881, ECVI ¼ .077).                        Moore (2012) proposed a Bayesian model of the
+                                                           affinity curve in Mori's (1970/2012) uncanny valley
+   We proposed that perceptual narrowing enhances          graph. The model resolves an apparent incompatibil-
+the discriminability of physically similar anthropo-       ity between category uncertainty and perceptual
+morphic entities and, thus, small deviations from          conflict theories of why human replicas appear
+norms can cause an entity to appear unfamiliar. We         uncanny. The uncanniness is not caused by uncer-
+further proposed that, owing to threat avoidance,          tainty about an entity's category but by perceptual
+anthropomorphic entities that look fake or unfamiliar      tension, that is, unequal levels of uncertainty about
+elicit cold, eerie feelings and avoidance behavior. Thus,  the category of the entity's features. In Moore's (2012)
+we hypothesized that anthropomorphism increases the        model, a viewer's affinity for a stimulus is graphed by
+inhibitory effect of realism inconsistency on familiarity  subtracting from its probability of occurrence the
+and of familiarity on eeriness. The structural equation    perceptual tension it elicits, weighted by the viewer's
+models support these hypotheses.                           sensitivity to perceptual tension. But using probability
+                                                           of occurrence to operationalize perceived familiarity
+   As the structural equation models show, perceived       fails to account for perceptual narrowing during early
+realism increases familiarity, especially the familiarity
+of humans and animals. This may explain why studies
+that did not manipulate perceptual tension and
+operationalized affinity solely as familiarity were
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman  16
+
+        Figure 9. To explore the relations among physical, perceptual, and affective variables at low, intermediate, and high levels of
+        anthropomorphism, a structural equation model was calculated for objects, animals, and humans, respectively. Only the model for
+        humans had a good fit (RMSEA ¼ .051, NNFI ¼ .978, CFI ¼ .996). All standardized gammas were significant (p , .001) except realism
+        inconsistency  realism for objects.
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        17
+
+childhood development. Our pilot study found per-           along the control transition. This effect was not found
+ceived familiarity in fact deviates from probability of     in perceiving objects. Thus, H1 was supported. In
+occurrence.                                                 addition, reduced realism consistency increased the
+                                                            uncanny valley effect only when it also reduced
+   Thus, in this study, we revised and quantified           perceived familiarity (see the Testing H2 section).
+Moore's (2012) model of affinity, replacing probability     Again, this effect was not found in perceiving objects.
+of occurrence with perceived familiarity:                   Thus, H2 was also supported.
+
+      F½S ¼ U½S À kV½S ð3Þ                                  A role for threat avoidance
+
+where F [S] represents affinity for stimulus S, U[S]           We assume 3-D computer models are inherently
+familiarity with it, k the viewer's sensitivity to          realism inconsistent. Realism varies by feature, because
+perceptual tension, and V[S] the perceptual tension,        some features are more difficult than others to model,
+operationalized as reduced realism consistency.             texture, light, and render realistically. When a model
+                                                            falls short of 100% realism, it is highly improbable that
+   Affinity, as predicted by the revised model, tracked     every feature would fall short to the same degree. This
+perceived eeriness (reverse scaled) more closely for        means only the 100% real representation is realism
+humans (mean Fre´chet distance 0.11) than for animals       consistent. The 100% computer-modeled representation
+(0.24) or objects (0.34, Figures 4 through 6). These        and the 15 representations derived from it are all realism
+results indicate higher levels of anthropomorphism          inconsistent. The consistency reduction manipulation
+cause perceptual tension to inhibit perceived familiar-     used in the experiment only offers a relative comparison
+ity, thus amplifying cold, eerie feelings.                  of consistency between paired representations in the
+                                                            consistency-reduced and control transitions.
+The effect of perceptual narrowing on
+familiarity                                                    To address this limitation, we sought to define
+                                                            realism inconsistency objectively, drawing inspiration
+   The familiarity of representations decreased as an-      from how the primary visual cortex represents physical
+thropomorphism increased (Figure 7). This result can be     properties of a stimulus at multiple scales and
+explained by perceptual narrowing (Pascalis et al., 2002).  orientations. Both the target and 100% real represen-
+Perceptual narrowing enhances perceptual discrimina-        tation were decomposed in 2-D Morlet basis functions
+tion, rendering abnormalities more apparent. Perceptual     (Gabor kernels), which are analogous to the receptive
+narrowing was strongest in perceiving humans and            field profiles of single neurons (Daugman, 1980, 1985).
+animals, which could enhance the sensitivity of threat      Each basis function's wavelet coefficient, analogous to
+avoidance mechanisms to their replicas. For humans the      a neuron's firing rate, for the target representation was
+difference in realism between the 100% real representation  subtracted from the corresponding wavelet coefficient
+and the rest (2.04 vs. À0.87) was much greater than for     for the 100% real representation. The standard
+objects (1.18 vs. À0.26); the difference in familiarity     deviation of these differences provided a measure of
+followed a similar pattern (100% real humans 1.19 vs. rest  realism inconsistency. This enabled us to explore the
+0.53, 100% real objects 1.56 vs. rest 1.42).                relation among physical, perceptual, and affective
+                                                            variables in structural equation models at three levels of
+   Perceptual narrowing may make it more difficult to       anthropomorphism (Figure 9).
+model realistic looking eyes, skin, fur, or feathers than
+parts of plants and artifacts. Indeed, in comparing 3-D        The structural equation models indicate that percep-
+computer models, realism ratings for objects were           tual narrowing alone cannot explain the uncanny valley
+almost double those for humans and animals, indicat-        effect. As an indicator of perceptual narrowing, realism
+ing viewers find object models far more realistic than      inconsistency inhibited familiarity more in perceiving
+human and animal models. A similar trend appeared           humans (c ¼ À.44) than objects but, nevertheless, still
+for familiarity. In sum, computer-modeled features did      inhibited familiarity in perceiving objects (c ¼ À.29).
+not reduce the realism and familiarity of object models     However, familiarity had a negligible effect on the
+as much as they reduced the realism and familiarity of      eeriness (c ¼À.03) and only a small effect on the warmth
+human and animal models.                                    (c ¼ .12) of objects. By contrast, familiarity inhibited the
+                                                            eeriness (c ¼À.26) of humans and increased their warmth
+   We hypothesized that, due to perceptual narrowing,       (c ¼ .31) with a medium effect size. Judging from the
+reduced realism consistency would decrease familiarity      models, even an unfamiliar object would be unlikely to
+more in anthropomorphic (humans and animals) than           elicit cold, eerie feelings. These results suggest that,
+nonanthropomorphic entities (objects). Our results          although perceptual narrowing is likely to make abnor-
+bore this out (Figure 7 and the Testing H1 section). For    malities more salient in anthropomorphic entities, an
+both humans and animals, the familiarity of represen-
+tations along the consistency-reduced transitions was
+significantly lower than for paired representations
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        18
+
+additional mechanism is necessary to explain why those       ``Simona'' (ID 60775) and ``Zlatko'' (ID 473816) from
+abnormalities are perceived--not only as unfamiliar--but     3D.sk. This research is supported by the US National
+as strange and uncanny.                                      Institutes of Health (P20 GM066402).
+
+   Elsewhere we have proposed a mechanism for threat         Commercial relationships: none.
+avoidance could be elicited by human replicas (Mac-          Corresponding author: Karl F. MacDorman.
+Dorman & Entezari, 2015; MacDorman & Ishiguro,               Email: kmacdorm@indiana.edu.
+2006; MacDorman et al., 2009a; MacDorman et al.,             Address: Indiana University School of Informatics and
+2009b). However, an important area to explore is how         Computing, Indianapolis, IN, USA.
+cold, eerie feelings differ from other emotions that
+motivate threat avoidance, such as fear and disgust.         References
+Mangan (2015) explained these feelings as fringe experi-
+ence, whereby a threat is unconsciously sensed, but its      Alt, H., & Godau, M. (1995). Computing the Fre´chet
+cause is never consciously identified. This analysis echoes      distance between two polygonal curves. Interna-
+Freud's (1919/2003) conception of the uncanny as                 tional Journal of Computational Geometry & Appli-
+something familiar, but long repressed, which elicits            cations, 5(1), 75­91, doi:10.1142/
+morbid anxiety. Ohman (2000) identified this kind of             S0218195995000064.
+anxiety as undirected alarm caused by preattentive
+mechanisms falsely locating a threat that remains            Arivazhagan, S., Ganesan, L., & Priyal, S. P. (2006).
+unconfirmed and unresolved (e.g., by a fight or flight           Texture classification using Gabor wavelets based
+response, cf. Burleigh et al., 2013; Misselhorn, 2009;           rotation invariant features. Pattern Recognition
+Nesse, 2005; Zuckerman & Spielberger, 2015). The                 Letters, 27(16), 1976­1982, doi:10.1016/j.patrec.
+relation between the uncanny valley, its peculiar phe-           2006.05.008.
+nomenology, and the mechanism of threat avoidance are
+left to future work.                                         Berlyne, D. E. (1970). Novelty, complexity and hedonic
+                                                                 value. Perception and Psychophysics, 8, 279­286,
+   Keywords: anthropomorphism, computer animation,               doi:10.3758/BF03212593.
+face perception, familiarity, Gabor kernels, perceptual
+narrowing, threat avoidance                                  Berlyne, D. E. (1971). Aesthetics and psychobiology.
+                                                                 New York: Appleton-Century-Crofts.
+Acknowledgments
+                                                             Bronson, G. W. (1968a). The development of fear in
+   We would like to thank Tyler J. Burleigh, Asif A.             man and other animals. Child Development, 39(2),
+Ghazanfar, Stevan Harnad, Bruce B. Mangan, Maya B.               409­431, doi:10.2307/1126955.
+Mathur, Roger K. Moore, Frank E. Pollick, Christopher
+H. Ramey, Bertrand Tondu, and the anonymous                  Bronson, G. W. (1968b). The fear of novelty. Psycho-
+reviewers for helpful advice on revising the manuscript.         logical Bulletin, 69(5), 350­358, doi:10.1037/
+We are grateful to Ryan Sukale for developing and                h0025706.
+maintaining the experimental applications and website
+used in this study. We greatly appreciate those who have     Burleigh, T. J., & Schoenherr, J. R. (2015). A
+created the 3-D models and artwork used in this study:           reappraisal of the uncanny valley: Categorical
+Clinton T. Koch for ``Emelie,'' Guile Lindroth (CEO,             perception or frequency-based sensitization? Fron-
+NextOS, Curitiba, Brazil, www.nextos.com) for ``Blond            tiers in Psychology, 5(1488), 1­19, doi:10.3389/
+Ann Avatar,'' Vivek Varma Kosuri (Rapra Designing                fpsyg.2014.01488.
+Solutions, Hyderabad, India, www.rapra.in) for ``Nikon,''
+``washing machine,'' and ``water lily,'' and Thomas Rudat    Burleigh, T. J., Schoenherr, J. R., & Lacroix, G. L.
+(Illustrator and 3-D Artist, Hannover, Germany,                  (2013). Does the uncanny valley exist? An empirical
+thomas-rudat.cgsociety.org) for ``Simona.'' The following        test of the relationship between eeriness and the
+royalty free models were obtained from TurboSquid                human likeness of digitally created faces. Comput-
+(www.turbosquid.com): ``Ferrari 599 GTB 2006'' (ID               ers in Human Behavior, 29(3), 759­771, doi:10.1016/
+483862), ``Saint Bernard'' (ID 421846), and ``Lovebird''         j.chb.2012.11.021.
+(ID 659591). We would also like to thank Clinton T.
+Koch for the photographs ``Clint'' and ``Emelie.'' The       Cheetham, M., Pavlovic, I., Jordan, N., Suter, P., &
+following royalty photographs were obtained: ``Saint             Ja¨ncke, L. (2013). Category processing and the
+Bernard'' (ID 10629611) from 123RF (www.123rf.com)               human likeness dimension of the uncanny valley
+and ``Ingrid'' (ID 209863), ``Juliana'' (ID 461057),             hypothesis: Eye-tracking data. Frontiers in Psy-
+                                                                 chology, 4(108), 1­12, doi:10.3389/fpsyg.2013.
+                                                                 00108.
+
+                                                             Cheetham, M., Suter, P., & Ja¨ncke, L. (2014).
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        19
+
+    Perceptual discrimination difficulty and familiarity   Harnad, S. (1987). Category induction and represen-
+    in the uncanny valley: More like a `happy valley.'         tation. In S. Harnad (Ed.), Categorical perception:
+    Frontiers in Psychology, 5(1219), 1­15, doi:10.3389/       The groundwork of cognition (pp. 535­565). New
+    fpsyg.2014.01219.                                          York: Cambridge University Press.
+
+Cheetham, M., Wu, L., Pauli, P., & Ja¨ncke, L. (2015).     Hebb, D. O. (1946). On the nature of fear. Psycholog-
+    Arousal, valence, and the uncanny valley: Psycho-          ical Review, 53(5), 259­276, doi:10.1037/h0061690.
+    physiological and self-report findings. Frontiers in
+    Psychology, 6(981), 1­15, doi:10.3389/fpsyg.2015.      Ho, C.-C., & MacDorman, K. F. (2010). Revisiting the
+    00981.                                                     uncanny valley theory: Developing and validating
+                                                               an alternative to the Godspeed indices. Computers
+Cohen, J. (1992). A power primer. Psychological                in Human Behavior, 26(6), 1508­1518, doi:10.1016/
+    Bulletin, 112(1), 155­159, doi:10.1037/0033-2909.          j.chb.2010.05.015.
+    112.1.155.
+                                                           Ho, C.-C., MacDorman, K. F., & Pramono, Z. D.
+Cuddy, A. J. C., Fiske, S. T., & Glick, P. (2007). The         (2008). Human emotion and the uncanny valley: A
+    BIAS map: Behaviors from intergroup affect and             GLM, MDS, and Isomap analysis of robot video
+    stereotypes. Journal of Personality and Social             ratings. In Proceedings of the Third ACM/IEEE
+    Psychology, 92(4), 631­648, doi:10.1037/0022-3514.         International Conference on Human­Robot Interac-
+    92.4.631.                                                  tion (pp. 169­176). New York: ACM, doi:10.1145/
+                                                               1349822.1349845.
+Curtis, V., Aunger, R., & Rabie, T. (2004). Evidence
+    that disgust evolved to protect from risk of disease.  Hu, L. T., & Bentler, P. M. (1999). Cutoff criteria for
+    Proceedings of the Royal Society of London:                fit indexes in covariance structure analysis: Con-
+    Biological Sciences, 271(Suppl. 4), S131­S133, doi:        ventional criteria versus new alternatives. Struc-
+    10.1098/rsbl.2003.0144.                                    tural Equation Modeling, 6(1), 1­55, doi:10.1080/
+                                                               10705519909540118.
+Daugman, J. G. (1980). Two-dimensional spectral
+    analysis of cortical receptive field profiles. Vision  Iverson, P., & Kuhl, P. K. (1995). Mapping the
+    Research, 20(10), 847­856, doi:10.1016/                    perceptual magnet effect for speech using signal
+    0042-6989(80)90065-6                                       detection theory and multidimensional scaling.
+                                                               Journal of the Acoustical Society of America, 97(1),
+Daugman, J. G. (1985). Uncertainty relation for                553­562, doi:10.1121/1.412280.
+    resolution in space, spatial frequency, and orienta-
+    tion optimized by two-dimensional visual cortical      James, T. W., Potter, R. F., Lee, S. K., Kim, S.,
+    filters. Journal of the Optical Society of America A,      Stevenson, R. A., & Lang, A. (2015). How realistic
+    2(7), 1160­1169, doi:10.1364/JOSAA.2.001160.               should avatars be? An initial fMRI investigation of
+                                                               activation of the face perception network by real
+Feldman, N. H., Griffiths, T. L., & Morgan, J. L.              and animated faces. Journal of Media Psychology,
+    (2009). The influence of categories on perception:         27(3), 109­117, doi:10.1027/1864-1105/a000156.
+    Explaining the perceptual magnet effect as optimal
+    statistical inference. Psychological Review, 116(4),   Jentsch, E. (1997). Zur Psychologie des Unheimlichen
+    752­782, doi:10.1.1.211.3309.                              [On the psychology of the uncanny] (R. Sellars,
+                                                               Trans.). Angelaki, 2(1), 7­16. (Original work
+Ferrey, A. E., Burleigh, T. J., & Fenske, M. J. (2015).        published in 1906), doi:10.1080/
+    Stimulus-category competition, inhibition, and             09697259708571910.
+    affective devaluation: A novel account of the
+    uncanny valley. Frontiers in Psychology, 6(249), 1­    Ka¨tsyri, J., Fo¨rger, K., Ma¨ka¨ra¨inen, M., & Takala, T.
+    15, doi:10.3389/fpsyg.2015.00249.                          (2015). A review of empirical evidence on different
+                                                               uncanny valley hypotheses: Support for perceptual
+Freud, S. (2003). The uncanny (D. McLintock, Trans.).          mismatch as one road to the valley of eeriness.
+    New York: Penguin. (Original work published in             Frontiers in Psychology, 6(390), 1­16, doi:10.3389/
+    1919)                                                      fpsyg.2015.00390.
+
+Gottlieb, G. (2002). Developmental-behavioral initia-      Kelly, D. J., Quinn, P. C., Slater, A. M., Lee, K., Ge,
+    tion of evolutionary change. Psychological Review,         L., & Pascalis, O. (2007). The other-race effect
+    109(2), 211­218, doi:10.1037/0033-295X.109.2.211.          develops during infancy: Evidence of perceptual
+                                                               narrowing. Psychological Science, 18(12), 1084­
+Hanson, D. (2005). Expanding the aesthetic possibili-          1089, doi:10.1111/j.1467-9280.2007.02029.x.
+    ties for humanoid robots. Proceedings of the Views
+    of the Uncanny Valley Workshop, IEEE-RAS               Lang, A., Bradley, S. D., Sparks, J. V., Jr., & Lee, S.
+    International Conference on Humanoid Robots,               (2007). The motivation activation measure (MAM):
+    Tsukuba, Japan.                                            How well does MAM predict individual differences
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                        20
+
+    in physiological indicators of appetitive and aver-     Misselhorn, C. (2009). Empathy with inanimate objects
+    sive activation? Communication Methods and Mea-             and the uncanny valley. Minds and Machines, 19,
+    sures, 1(2), 113­136, doi:10.1080/                          345­459, doi:10.1007/s11023-009-9158-2.
+    19312450701399370.
+                                                            Mitchell, W. J., Szerszen, Sr., K. A., Lu, A. S.,
+Lee, T. S. (1996). Image representation using 2D Gabor          Schermerhorn, P. W., Scheutz, M., & MacDorman,
+    wavelets. IEEE Transactions on Pattern Analysis             K. F. (2011). A mismatch in the human realism of
+    and Machine Intelligence, 18(10), 959­971, doi:10.          face and voice produces an uncanny valley. i-
+    1109/34.541406.                                             Perception, 2(1), 10­12, doi:10.1068/i0415.
+
+Lewkowicz, D. J., & Ghazanfar, A. A. (2006). The            Moore, R. K. (2012). A Bayesian explanation of the
+    decline of cross-species intersensory perception in         `uncanny valley' effect and related psychological
+    human infants. Proceedings of the National Acad-            phenomena. Scientific Reports, 2(864), 1­5, doi:10.
+    emy of Sciences, 103(17), 6771­6774, doi:10.1073/           1038/srep00864.
+    pnas.0602027103.
+                                                            Moosa, M. M., & Ud-Dean, S. M. M. (2010). Danger
+Looser, C. E., & Wheatley, T. (2010). The tipping point         avoidance: An evolutionary explanation of the
+    of animacy: How, when, and where we perceive life           uncanny valley. Biological Theory, 5(1), 12­14, doi:
+    in a face. Psychological Science, 21(12), 1854­1862,        10.1162/BIOT_a_00016.
+    doi:10.1177/0956797610388044.
+                                                            Mori, M. (2012). The uncanny valley (K. F. MacDor-
+MacDorman, K. F., & Chattopadhyay, D. (2016).                   man & N. Kageki, Trans.). IEEE Robotics and
+    Reducing consistency in human realism increases             Automation, 19(2), 98­100. (Original work pub-
+    the uncanny valley effect; increasing category              lished in 1970) doi:10.1109/MRA.2012.2192811
+    uncertainty does not. Cognition, 146, 190­205, doi:
+    10.1016/j.cognition.2015.09.019.                        Nesse, R. M. (2005). Natural selection and the
+                                                                regulation of defenses. A signal detection analysis
+MacDorman, K. F., & Entezari, S. O. (2015).                     of the smoke detector principle. Evolution and
+    Individual differences predict sensitivity to the           Human Behavior, 26(1), 88­105, doi:10.1016/j.
+    uncanny valley. Interaction Studies, 16(2), 141­172,        evolhumbehav.2004.08.002.
+    doi:10.1075/is.16.2.01mac.
+                                                            Ohman, A. (2000). Fear and anxiety: Evolutionary,
+MacDorman, K. F., Green, R. D., Ho, C.-C., & Koch,              cognitive, and clinical perspectives. In Handbook of
+    C. (2009a). Too real for comfort: Uncanny                   emotions (2nd ed., pp. 573­593). New York:
+    responses to computer generated faces. Computers            Guilford Press.
+    in Human Behavior, 25(3), 695­710, doi:10.1016/j.
+    chb.2008.12.026.                                        Oshio, A. (2009). Development and validation of the
+                                                                dichotomous thinking inventory. Social Behavior
+MacDorman, K. F., & Ishiguro, H. (2006). The                    and Personality, 37(6), 729­741, doi:10.2224/sbp.
+    uncanny advantage of using androids in social and           2009.37.6.729.
+    cognitive science research. Interaction Studies, 7(3),
+    297­337, doi:10.1075/is.7.3.03mac.                      Park, J. H., Faulkner, J., & Schaller, M. (2003).
+                                                                Evolved disease-avoidance processes and contem-
+MacDorman, K. F., Vasudevan, S. K., & Ho, C.-C.                 porary anti-social behavior: Prejudicial attitudes
+    (2009b). Does Japan really have robot mania?                and avoidance of people with disabilities. Journal of
+    Comparing attitudes by implicit and explicit                Nonverbal Behavior, 27(2), 65­87, doi:10.1023/
+    measures. AI & Society, 23(4), 485­510, doi:10.             A:1023910408854.
+    1007/s00146-008-0181-2.
+                                                            Pascalis, O., de Haan, M., & Nelson, C. A. (2002). Is
+Mangan, B. B. (2015). The uncanny valley as fringe              face processing species-specific during the first year
+    experience. Interaction Studies, 16(2), 193­199, doi:       of life? Science, 296(5571), 1321­1323, doi:10.1126/
+    10.1075/is.16.2.05man.                                      science.1070223.
+
+Mathur, M. B., & Reichling, D. B. (2016). Navigating a      Pollick, F. E. (2010). In search of the uncanny valley.
+    social world with robot partners: A quantitative            Lecture Notes of the Institute for Computer Scienc-
+    cartography of the uncanny valley. Cognition, 146,          es: Social Informatics and Telecommunications
+    22­32, doi:10.1016/j.cognition.2015.09.008.                 Engineering, 40(4), 69­78, doi:10.1007/
+                                                                978-3-642-12630-7_8.
+Meah, L. F. S., & Moore, R. K. (2014). The uncanny
+    valley: A focus on misaligned cues. In M. Beetz, B.     Ramey, C. H. (2005). The uncanny valley of similarities
+    Johnston, & M.-A. Williams (Eds.), Social Robotics          concerning abortion, baldness, heaps of sand, and
+    (LNAI, vol. 8755, pp. 256­265). Cham, Switzer-              humanlike robots. Views of the Uncanny Valley
+    land: Springer, doi:10.1007/978-3-319-11973-1_26            Workshop, IEEE-RAS International Conference on
+                                                                Humanoid Robots, Tsukuba, Japan.
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman                                                                                            21
+
+Rosseel, Y. (2012). lavaan: An R package for structural    Zuckerman, M., & Spielberger, C. D. (Eds.). (2015).
+    equation modeling. Journal of Statistical Software,        Emotions and anxiety: New concepts, methods, and
+    48(2), 1­36, doi:10.18637/jss.v048.i02.                    applications. New York: Psychology Press.
+
+Saygin, A. P., Chaminade, T., Ishiguro, H., Driver, J.,    Appendix A: Perceptual magnet
+    & Frith, C. (2012). The thing that should not be:      effect
+    Predictive coding and the uncanny valley in
+    perceiving human and humanoid robot actions.              Following Feldman, Griffiths, and Morgan's (2009,
+    Social Cognitive and Affective Neuroscience, 7(4),     appendix A) calculations for the expected category of
+    413­422, doi:10.1093/scan/nsr025.                      the target stimulus, the perceptual magnet effect along
+                                                           a single dimension is calculated as
+Scott, L. S., Pascalis, O., & Nelson, C. A. (2007). A
+    domain-general theory of the development of            D½S ¼ E½TjS À S ðA1Þ
+    perceptual discrimination. Current Directions in
+    Psychological Science, 16(4), 197­201, doi:10.1111/    where D[S] is the displacement function (Equation 2)
+    j.1467-8721.2007.00503.x.
+                                                           and E[TjS] is the expected value of the perceptual target
+Seyama, J., & Nagayama, R. S. (2007). The uncanny
+    valley: The effect of realism on the impression of     T when a physical stimulus S is observed. Numerically,
+    artificial human faces. Presence: Teleoperators and
+    Virtual Environments, 16(4), 337­351, doi:10.1162/     S consists of the values describing the feature set in the
+    pres.16.4.337.
+                                                           observational dimensions. For multiple categories, this
+Simpson, E. A., Varga, K., Frick, J. E., & Fragaszy, D.
+    (2010). Infants experience perceptual narrowing for    expected value is
+    nonprimate faces. Infancy, 16(3), 318­328, doi:10.     X E½TjS ¼
+    1111/j.1532-7078.2010.00052.x.                                                                             pðcjSÞ  r2c S   þ    r2Slc     ðA2Þ
+                                                                                                                         r2c   þ    r2S
+Thode, H. C., Jr. (2002). Testing for normality. In                                                       c
+    Statistics: Textbooks and monographs (vol. 164).
+    New York: CRC.                                         which can be rewritten as
+
+Tondu, B., & Bardou, N. (2011). A new interpretation       E½TjS    ¼  rc2                                rc2  rS2  S  þ  rc2  r2S  r2S  X    pðcjSÞlc  ðA3Þ
+    of Mori's uncanny valley for future humanoid                                                          þ                    þ
+    robots. International Journal of Robotics and                                                                                          c
+    Automation, 26(3), 337­348, doi:10.2316/Journal.
+    206.2011.3.206-3348.                                   which is derived from the posterior probability of
+                                                           membership of a given category c, with lc as the
+Turk, M., & Pentland, A. P. (1991). Face recognition       category mean, rc2 as the category variance, and r2S as
+    using eigenfaces. In Proceedings of the IEEE           the uncertainty of the observed signal. The posterior
+    Computer Society on Computer Vision and Pattern        probability, according to Bayes' theorem is
+    Recognition (pp. 586­591). Piscataway, NJ: IEEE,
+    doi:10.1109/CVPR.1991.139758                           pðcjSÞ   ¼   pðSjcÞpðcÞ                                             ðA4Þ
+
+van Kampen, H. S. (2015). Violated expectancies:                       RcpðSjcÞpðcÞ
+    Cause and function of exploration, fear, and
+    aggression. Behavioural Processes, 117, 12­28, doi:    where the stimulus belongs to the category c with a
+    10.1016/j.beproc.2014.05.005.                          normal distribution N:
+
+Yamada, Y., Kawabe, T., & Ihaya, K. (2013).                      Sjc ; Nðlc; r2c þ rS2 Þ ðA5Þ
+    Categorization difficulty is associated with negative
+    evaluation in the ``uncanny valley'' phenomenon.          D[S] measures the perceptual distortion of a stimulus
+    Japanese Psychological Research, 55(1), 20­32, doi:    towards or away from a category boundary along a
+    10.1111/j.1468-5884.2012.00538.x.                      given dimension. A zero value indicates no perceptual
+                                                           distortion.
+Zuckerman, M. (1976). Sensation seeking and anxiety,
+    traits and states, as determinants of behavior in      Appendix B: Category parameters
+    novel situations. In I. G. Sarason & C. D.             from identification curves
+    Spielberger (Eds.), Stress and anxiety (pp. 141­170).
+    Oxford, England: Hemisphere.                              In the two-alternative forced choice categorization
+                                                           task, participants categorized stimuli as either com-
+Zuckerman, M. (2014). Sensation seeking: Beyond the        puter animated or real. The percentages categorized as
+    optimal level of arousal. Chicago: Psychology Press.
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25           Chattopadhyay & MacDorman                                                              22
+
+real were used to plot the logistic identification curves.                     response times varied with the fraction of real in
+To identify the category boundary, the gain g and the                          humans, animals, and objects. The figures depict a cubic
+bias b of the logistic function were calculated (Feldman,                      spline interpolating the mean responses to facilitate a
+Griffiths, & Morgan, 2009). The mean of the category                           visual comparison with the standard S-shaped logistic
+computer animated was then computed using g, b, and                            function of categorical perception (Harnad, 1987).
+the mean of the category real (see Equation B4).
+                                                                                Appendix D: Comparison of
+   The logistic identification function is an empirical                         predicted affinity and perceived
+measure of p(c1jS), which according to Bayes' rule is                           warmth
+
+pðc1jSÞ  ¼              pðSjc1Þpðc1Þ              ðB1Þ                            Figure D1 compares predicted affinity and perceived
+               pðSjc1Þpðc1Þ þ pðSjc2Þpðc2Þ                                     warmth for matched stimuli at low, intermediate, and
+                                                                               high levels of anthropomorphism for one control and
+   Dividing each part of the fraction by the numerator                         two consistency-reduced transitions. The mean distance
+and applying two inverse functions to the last term                            between predicted affinity and perceived warmth for all
+results in                                                                     three transitions was, in perceiving objects, diagonal, L1
+                                                                               ¼ À1.46, lower right, L1 ¼ À1.59, and upper left, L1 ¼
+pðc1jSÞ  ¼               1                  ðB2Þ                               À1.41; animals: diagonal, L1 ¼ À0.77, lower right, L1 ¼
+                     exp log                                                   À0.66, and upper left, L1 ¼ À0.30; and humans:
+               1  þ           pðSjc2Þpðc2Þ                                     diagonal, L1 ¼À0.61, lower right, L1 ¼À0.17, and upper
+                              pðSjc1Þpðc1Þ                                     left, L1 ¼ À0.53. Curves were similar for all three
+                                                                               transitions in perceiving objects: diagonal, d ¼ 0.64,
+   Now assuming that both categories c1 and c2 have                            lower right, d ¼ 0.77, and upper left, d ¼ 0.60; animals:
+equal prior probability, and using the distribution for                        diagonal, d ¼ 2.12, lower right, d ¼ 2.01, and upper left, d
+p(Sjc) from Equation A5, we can simplify Equation B2 to                        ¼ 2.05; and humans: diagonal, d ¼ 1.63, lower right, d ¼
+                                                                               1.72, and upper left, d ¼ 1.55.
+                        1
+      pðc1jSÞ ¼ 1 þ eÀgSþb ðB3Þ
+
+where g ¼ (l1 À l2) / (rc2 þ rS2 ) and b ¼ (l12 À l22) /
+(2(r2c þ r2S)). Hence, we can compute the mean of the
+second category l2 given the values of g, b, l1 as
+
+l2  ¼  2b  À   l1    ðB4Þ
+       g
+
+   We used Equation B4 to calculate the mean of the                            Appendix E: Comparison of
+                                                                               perceived familiarity and warmth
+category computer animated, and Equation A3 to
+calculate perceptual tension with r2S/r2c set to 0.1.                          In perceiving objects, fraction of real also signifi-
+Percentages categorized as computer animated and real
+
+were used for p(c1jS) and p(c2jS), respectively.
+
+                                                                               cantly affected warmth ratings for each transition:
+
+                                                                               diagonal, F(4.83, 2,540) ¼ 15.73, MSE ¼ 0.51, p , .001,
+
+Appendix C: Response times and                                                 g2p ¼ .03; lower right, F(4.93, 2,620) ¼ 16.09, MSE ¼
+categorization responses                                                       0.49, p , .001, gp2 ¼ .03; and upper left, F(5.02, 2,666) ¼
+                                                                               16.98, MSE ¼ 0.46, p , 0.001, g2p ¼ .03. Pairwise
+                                                                               comparisons showed that for objects reduced realism
+
+A nested-factor ANOVA (categorization responses ;                              consistency did not significantly affect warmth or
+
+transition/fraction of real with five levels of fraction of                    familiarity for any pairs in either the lower-right or
+
+real, except the two endpoints) found that transition                          upper-left transition.
+
+significantly affected categorization responses: Humans,                       In perceiving animals, fraction of real also signifi-
+
+F(2, 9,765) ¼  24.9, MSE ¼ 0.18, p       ¼,0..01051, ,pg,p2 ¼.00.010,5g;p2     cantly affected warmth ratings for each transition:
+animals, F(2,  3,525) ¼ 70.48, MSE
+                                                                            ¼  diagonal, F(4.16, 957) ¼ 69.20, MSE ¼ 1.50, p , .001,
+
+.038; and objects, F(2, 7,980) ¼ 44.51, MSE ¼ 0.24, p ,                        g2p ¼ .23; lower right, F(4.57, 1,064) ¼ 67.79, MSE ¼
+
+.001, g2p ¼ .011. However, a similar nested-factor                             1.32, p , .001, gp2 ¼ .23;  and upper left, F(3.44, 794)  ¼
+ANOVA found that transition significantly affected                             61.59, MSE ¼ 2.07, p ,      .001, gp2 ¼ .21. Pairwise
+
+response times (log10-transformed) in perceiving hu-                           comparisons showed that reduced realism consistency
+mans, F(2, 19,500) ¼ 13.11, MSE ¼ 0.04, p , .001, g2p ¼
+.001, and animals, F(2, 7,035) ¼ 4.00, MSE ¼ 0.03, p ¼                         significantly decreased warmth for one pair in the
+
+                                                                               lower-right transition: 1/2À1/2 and 0À1; and three pairs
+
+.018, g2p ¼ .001, but not objects, F(2, 15,930) ¼ 1.27, p ¼                    in the upper-left transition: 1/3À1/3 and 2/3À0, 1/2À1/2
+.282. Figure C1 shows how categorization responses and
+                                                                               and 1À0, and 2/3À2/3 and 1À1/3 (Table E1).
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman  23
+
+   In perceiving humans, fraction of real also signifi-     showed that reduced realism consistency significantly
+
+cantly affected warmth ratings for each transition:         decreased warmth for four pairs in the lower-right
+                                                            transition, 1/3À1/3 and 0À2/3, 1/2À1/2 and 0À1, 2/3À2/
+diagonal, F(3.42, 2,211) ¼ 167, MSE ¼ 1.77, p , .001,       3 and 1/3À1, and 5/6À5/6 and 2/3À1, and three pairs in
+gp2 ¼ .21; lower right, F(3.88, 2,499) ¼ 152, MSE ¼ 1.56,   the upper-left transition, 1/2À1/2 and 1­0, 2/3À2/3 and
+p , .001, gp2 ¼ .19; and upper left, F(3.99, 2,574) ¼ 128,  1À1/3, and 5/6À5/6 and 1À2/3 (Table E2).
+MSE ¼ 1.44, p , .001, g2p ¼ .17. Pairwise comparisons
+
+        Figure C1. For objects, animals, and humans, the mean response time in milliseconds (dashed curve) and percentage of times the
+        stimulus was categorized as real (vs. computer animated, solid curve) are plotted against its fraction of real for the control (diagonal)
+        and reduced-consistency transitions (lower right, upper left). Error bars indicate the 95% confidence interval of the true mean.
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25  Chattopadhyay & MacDorman  24
+
+        Figure D1. For objects, animals, and humans, warmth ratings of the stimulus are plotted against its fraction of real for the control
+        (diagonal) and the consistency-reduced transitions (lower right, upper left). The dashed line represents affinity as predicted by the
+        revised Bayesian model. Error bars indicate the 95% confidence interval of the true mean.
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+Journal of Vision (2016) 16(11):7, 1­25          Chattopadhyay & MacDorman                                                         25
+
+Consistency-reduced                             Familiarity                                                          Warmth
+
+vs. control transition                   t  df               p     d                                      t     df           p     d
+
+0À1/3 vs. 1/6À1/6       À1.19               234              .117              À0.82                            234          .206
+0À2/3 vs. 1/3À1/3
+0À1 vs. 1/2À1/2         2.17                235              .016                                         0.06  235          .475
+1/3À1 vs. 2/3À2/3
+2/3À1 vs. 5/6­5/6       5.45                235  ,.001             0.35                                   4.15  235  ,.001         0.27
+1/3À0 vs. 1/6­1/6
+2/3À0 vs. 1/3À1/3       3.22                235              .001  0.21                                   0.51  235          .307
+1À0 vs. 1/2À1/2
+1À1/3 vs. 2/3À2/3       0.70                233              .243                                         0.43  233          .334
+1À2/3 vs. 5/6À5/6
+                        1.49                234              .069                                         0.86  234          .196
+
+                        0.87                235              .192                                         2.58  235          .006  0.17
+
+                        5.95                233  ,.001             0.39                                   6.41  233  ,.001         0.42
+
+                        4.29                233  ,.001             0.28                                   4.46  233  ,.001         0.29
+
+                        2.06                232              .021              À0.14                            232          .447
+
+Table E1. Familiarity and warmth for all 10 comparisons in perceiving animals. Note: Fraction pairs indicate the fraction of real for
+Feature Set 1 and 2. Effect sizes are provided for significant outcomes in Tables E1 and E2.
+
+Consistency-reduced                             Familiarity                                                          Warmth
+
+vs. control transition                   t  df               p     d                                      t     df           p     d
+
+0À1/3 vs. 1/6À1/6       2.09                650              .019                                         0.43  650          .335
+0À2/3 vs. 1/3À1/3
+0À1 vs. 1/2À1/2         3.66                649  ,.001             0.14                                   3.42  649  ,.001         0.13
+1/3À1 vs. 2/3À2/3
+2/3À1 vs. 5/6­5/6       8.92                650  ,.001             0.35                                   9.46  650  ,.001         0.37
+1/3À0 vs. 1/6­1/6
+2/3À0 vs. 1/3À1/3       7.36                649  ,.001             0.29                                   8.57  648  ,.001         0.34
+1À0 vs. 1/2À1/2
+1À1/3 vs. 2/3À2/3       0                   648              .500                                         2.37  648          .009  0.09
+1À2/3 vs. 5/6À5/6
+                        0.38                650              .353              À2.12                            650          .014
+
+                        À0.08               650              .470              À2.42                            650          .008
+
+                        6.01                650  ,.001             0.24                                   2.82  650          .003  0.11
+
+                        6.40                649  ,.001             0.25                                   5.98  649  ,.001         0.23
+
+                        1.40                649              .081                                         3.19  649          .001  0.13
+
+Table E2. Familiarity and warmth for all 10 comparisons in perceiving humans.
+
+Downloaded From: http://jov.arvojournals.org/pdfaccess.ashx?url=/data/Journals/JOV/935705/ on 09/12/2016
+

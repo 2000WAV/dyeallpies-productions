@@ -1,0 +1,32 @@
+Johnson, E. and Murphey, T.D. (2007). Dynamic modeling and motion planning for
+marionettes: rigid bodies articulated by massless strings. Proceedings of the 2007
+IEEE International Conference on Robotics and Automation (ICRA), Rome, Italy.
+(Confirmed venue/year from the reference list of Jochum et al. 2013, item 22 --
+see murphey2013-robotic-puppets-autonomous-theater.txt.)
+
+ABSTRACT (as printed):
+We consider the problem of modeling a robotic marionette. Marionettes are highly
+under-actuated systems that can only be controlled remotely by moving strings. We
+present a mixed dynamic-kinematic modeling technique that removes the controller
+dynamics from the marionette, resulting in a clean abstraction that represents the
+dynamics of the marionette in a natural way. As an example, a model is derived for a
+single arm moving in a plane. A model for a three-dimensional marionette is also
+shown. Finally, an expansive-space tree (EST) motion planner is used to plan motions
+for the marionette.
+
+KEY MODELLING POINTS relevant to this project (from the full text,
+papers/johnson2007-dynamic-modeling-marionettes.pdf/.txt):
+- The string is modeled as a UNILATERAL constraint, not a spring: "the string only
+  enforces a maximum distance between two points" and the string force must be
+  positive (pulling only) and is only active when the two endpoints are exactly at the
+  string's length; the constraint is dropped (string goes slack) if the required force
+  to maintain it would be negative.
+- The paper explicitly contrasts this with computer-graphics marionette models that
+  "treat the strings as a chain of small masses joined by stiff springs," calling such
+  spring chains "unnecessary" and numerically undesirable ("stiff springs" force very
+  small integration time steps). This directly supports using a hard length-limited
+  MuJoCo tendon (range = [0, L], limited = true, stiffness = 0) rather than a soft
+  tendon spring for the marionette strings in this project.
+- No numeric stiffness/damping values are reported (the whole point of the paper is to
+  avoid needing them) -- recorded as NOT FOUND for that specific number, by design of
+  their method.

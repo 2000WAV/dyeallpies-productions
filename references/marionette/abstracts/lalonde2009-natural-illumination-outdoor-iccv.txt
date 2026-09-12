@@ -1,0 +1,25 @@
+Lalonde, J.-F., Efros, A. A., and Narasimhan, S. G. (2009). Estimating Natural
+Illumination from a Single Outdoor Image. ICCV 2009. (Journal version: "Estimating
+the Natural Illumination Conditions from a Single Outdoor Image," IJCV 98(2),
+123-145, 2012 -- see downloads-05.md for why the conference PDF was archived
+instead of the paywalled Springer journal version.)
+
+STATUS: full text saved (CMU RI publications mirror), text-extracted; see
+papers/lalonde2009-natural-illumination-outdoor-iccv.pdf/.txt.
+
+SUMMARY: Estimates a probability distribution over sun position and sky
+visibility from a single outdoor photo by combining several weak, independent
+cues extracted from different image regions: sky appearance/gradient, shading on
+vertical surfaces, and shadows/shading on the ground -- each cue alone is
+unreliable, but combined (with a data-driven prior fit over ~6 million internet
+photos) they give a usable illumination estimate. Demonstrates realistic
+insertion of synthetic 3D objects, relit consistently with the recovered sun
+direction.
+
+RELEVANCE: the standard reference for "read the light back out of a single
+photograph using multiple weak shadow/shading cues" -- conceptually the same
+task as reading the window-light direction and size from the one soft shadow
+visible on the wall behind the hand, at outdoor/sun scale rather than a single
+indoor window. Cited for methodology and as the ancestor of Hold-Geoffroy et al.
+2017 "Deep Outdoor Illumination Estimation" and later CNN-based approaches, which
+are NOT needed for this shot (single, simple, known light).

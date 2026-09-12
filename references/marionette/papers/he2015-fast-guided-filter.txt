@@ -1,0 +1,125 @@
+                                          Fast Guided Filter
+
+                                         Kaiming He Jian Sun
+                                                   Microsoft
+
+                                       {kahe,jiansun}@microsoft.com
+
+arXiv:1505.00996v1 [cs.CV] 5 May 2015  Abstract The guided filter is a technique for edge-aware             released code4. This acceleration method is particularly fa-
+                                       image filtering. Because of its nice visual quality, fast speed,     vored for mega-pixel images, for which the filter size is usu-
+                                       and ease of implementation, the guided filter has witnessed          ally set as proportional to the image size in practice. As
+                                       various applications in real products, such as image edit-           such, a local window on the subsampled images can still
+                                       ing apps in phones and stereo reconstruction, and has been           provide enough pixels for computing local statistics. In our
+                                       included in official MATLAB and OpenCV. In this note, we             extensive real applications for image processing, we have
+                                       remind that the guided filter can be simply sped up from             found that this speedup method has almost no visible degra-
+                                       O(N ) time to O(N/s2) time for a subsampling ratio s. In             dation. Considering the growing usage of the guided filter
+                                       a variety of applications, this leads to a speedup of >10×           in real products, we hope this simple speedup will improve
+                                       with almost no visible degradation. We hope this accelera-           the performance of these applications and further popular-
+                                       tion will improve performance of current applications and            ize this filtering technique.
+                                       further popularize this filter. Code is released.
+                                                                                                            2. Method
+                                       1. Introduction
+                                                                                                               We denote the guidance image, filtering input image, and
+                                          The guided filter [1, 2] is one of several popular algo-          filtering output image as I, p and q respectively. The guided
+                                       rithms for edge-preserving smoothing1. Its time complex-             filter is driven by a local linear model:
+                                       ity is O(N ) in the number of pixels N , independent of
+                                       the filter size. The guided filter can effectively suppress          qi = akIi + bk, i  k,      (1)
+                                       gradient-reversal artifacts [1] and produce visually pleas-
+                                       ing edge profiles. Because of these and other properties, the        where i is the index of a pixel, and k is the index of a local
+                                       guided filter has been included in official MATLAB 20142             square window  with a radius r. Given the filtering input
+                                       and OpenCV 3.03 and widely adopted in real products.                 image p, minimizing the reconstruction error [1] between p
+                                                                                                            and q gives:
+                                          Despite its popularity and its various third-party imple-
+                                       mentations, we notice that a simple but significant speedup          ak =   1  ik Iipi - µkp¯k  (2)
+                                       has not been exploited. This speedup strategy was briefly                  ||    k2 +
+                                       mentioned in [2] for joint upsampling but not for other
+                                       generic scenarios. This method subsamples the filtering in-          bk = p¯k - akµk.           (3)
+                                       put image and the guidance image, computes the local lin-
+                                       ear coefficients, and upsamples these coefficients. The up-          where µk and k are the mean and variance of I in the win-
+                                       sampled coefficients are adopted on the original guidance            dow k, and is a regularization parameter controlling the
+                                       image to produce the output. This method reduces the time            degree of smoothness. The filtering output is computed by:
+                                       complexity from O(N ) to O(N/s2) for a subsampling ratio
+                                       s. An actual speedup of >10× can be observed.                              qi = a¯iIi + ¯bi,    (4)
+
+                                          In this note, we revisit this speedup method by provid-           where a¯i and ¯bi are the average of a and b respectively on
+                                       ing more technical details, visual examples, and publicly            the window i centered at i. The main computation is a
+                                                                                                            series of box filters. Algorithm 1 shows the pseudo-code
+                                           1en.wikipedia.org/wiki/Edge-preserving_                          [2] of the guided filter, where fmean(·, r) denotes a mean
+                                       smoothing                                                            filter with a radius r.
+
+                                           2www.mathworks.com/help/images/ref/                                  4http://research.microsoft.com/en-us/um/people/
+                                       imguidedfilter.html                                                  kahe/eccv10
+
+                                           3docs.opencv.org/master/da/d17/group__ximgproc_
+                                       _filters.html
+
+                                                                                                         1
+Algorithm 1 Guided Filter.                                         image                         original GF  Fast GF (s=4)
+
+ 1: meanI = fmean(I, r)                                            Figure 1. Edge-preserving smoothing. r = 4, = 0.22. The
+     meanp = fmean(p, r)
+     corrI = fmean(I.  I, r)                                       subsampling ratio is s = 4.
+     corrIp = fmean(I.  p, r)
+                                                                   image
+ 2: varI = corrI - meanI .  meanI
+     covIp = corrIp - meanI .  meanp                                                             original GF  Fast GF (s=4)
+
+ 3: a = covIp ./ (varI + )                                         Figure 2. Detail enhancement. r = 16, = 0.12. The subsam-
+     b = meanp - a.  meanI
+                                                                   pling ratio is s = 4. Top: edge-preserving smoothed images. Bot-
+ 4: meana = fmean(a, r)
+     meanb = fmean(b, r)                                           tom: enhanced images with ×5 detail.
+
+ 5: q = meana.  I + meanb
+
+Algorithm 2 Fast Guided Filter.
+
+ 1: I = fsubsample(I, s)
+     p = fsubsample(p, s)
+     r = r/s
+
+ 2: meanI = fmean(I , r )
+     meanp = fmean(p , r )
+     corrI = fmean(I .  I , r )
+     corrIp = fmean(I .  p , r )
+
+ 3: varI = corrI - meanI .  meanI
+     covIp = corrIp - meanI .  meanp
+
+ 4: a = covIp ./ (varI + )
+     b = meanp - a.  meanI
+
+ 5: meana = fmean(a, r )
+     meanb = fmean(b, r )
+
+ 6: meana = fupsample(meana, s)
+     meanb = fupsample(meanb, s)
+
+ 7: q = meana.  I + meanb
+
+   In the above, a¯ and ¯b in Eqn.(4) are two smoothed maps,       guide                  input  original GF Fast GF (s=4)
+and the edges and structures in q are mainly given by mod-
+ulating the image I (thus called guidance). But the major          Figure 3. Flash/no-flash denoising. r = 8, = 0.022. The sub-
+computation of guided filter is for the smoothed maps of a¯
+and ¯b, which need not be performed in full-resolution. Al-        sampling ratio is s = 4.
+gorithm 2 describes the subsampled version for Fast Guided
+Filter. We subsample (nearest-neighbor or bilinear) the in-        guide                  input  original GF Fast GF (s=4)
+put p and the guidance I by a ratio s. All the box filters are
+performed on the low-resolution maps, which are the major          Figure 4. Guided feathering. r = 60, = 0.0012. The subsam-
+computation of the guided filter. The two coefficient maps a¯
+and ¯b are bilinearly upsampled to the original size. Finally,     pling ratio is s = 4.
+the output q is still computed by q = a¯I + ¯b. In this last
+step, the image I is the full-resolution guidance that is not      References
+downsampled, and it will still faithfully guide the output.
+                                                                   [1] K. He, J. Sun, and X. Tang. Guided image filtering. In ECCV,
+   The computation of all box filters reduces from O(N )                pages 1­14. 2010.
+complexity to O(N/s2). The last bilinear upsampling and
+output steps are O(N ) complex, but only take a small frac-        [2] K. He, J. Sun, and X. Tang. Guided image filtering. TPAMI,
+tion of overall computation. In practice, we have observed              35(6):1397­1409, 2013.
+a speedup of >10× when s = 4 for both MATLAB and
+carefully optimized C++ implementation (depending on the
+number of channels). Fig. 1-4 show the visual results of
+using s = 4 for various applications in [1].
+
+                                                                2
+

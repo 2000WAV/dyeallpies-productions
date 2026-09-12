@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" data-page="brdf">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MERL BRDF Database | CDFG, MIT CSAIL</title>
+<meta name="description" content="The MERL BRDF database: measured reflectance of 100 materials, free for research use, with the citation to use.">
+<link rel="canonical" href="https://cdfg.mit.edu/wojciech/brdfdatabase/">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CDFG, MIT CSAIL">
+<meta property="og:title" content="MERL BRDF Database">
+<meta property="og:description" content="The MERL BRDF database: measured reflectance of 100 materials, free for research use, with the citation to use.">
+<meta property="og:url" content="https://cdfg.mit.edu/wojciech/brdfdatabase/">
+<meta property="og:image" content="https://cdfg.mit.edu/assets/img/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MERL BRDF Database">
+<meta name="twitter:description" content="The MERL BRDF database: measured reflectance of 100 materials, free for research use, with the citation to use.">
+<meta name="twitter:image" content="https://cdfg.mit.edu/assets/img/share.jpg">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "MERL BRDF Database",
+ "description": "The MERL BRDF database: measured reflectance of 100 materials, free for research use, with the citation to use.",
+ "url": "https://cdfg.mit.edu/wojciech/brdfdatabase/",
+ "isPartOf": {"@type": "WebSite", "name": "CDFG, MIT CSAIL", "url": "https://cdfg.mit.edu/"},
+ "about": {"@type": "ResearchOrganization",
+           "name": "Computational Design and Fabrication Group"}
+}
+</script>
+<link rel="alternate" type="application/atom+xml" title="CDFG news" href="../../feed.xml">
+<link rel="stylesheet" href="../../assets/css/site.css?v=7b04c6ba">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="../../"><b>CDFG</b>&nbsp;/&nbsp;MIT CSAIL</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="../../">Home</a></li>
+        <li><a href="../../research/">Research</a></li>
+        <li><a href="../../publications/">Publications</a></li>
+        <li><a href="../../people/">People</a></li>
+        <li><a href="../../news/">News</a></li>
+        <li><a href="../../join/">Join</a></li>
+      </ul>
+    </nav>
+    <button class="tbtn" id="tt" type="button">Theme: system</button>
+  </div>
+</div>
+
+<div class="shell">
+<main id="main">
+<div class="phead">
+  <h1>MERL BRDF Database</h1>
+  <p class="lede">Measured reflectance of 100 real materials, each stored as a densely sampled
+  bidirectional reflectance distribution function (BRDF). The measurements were taken at
+  Mitsubishi Electric Research Laboratories for the 2003 paper
+  <a href="../../publications/#a-data-driven-reflectance-model">A data-driven reflectance model</a>, and have served since then as a
+  reference dataset for reflectance fitting, rendering, and appearance capture.</p>
+</div>
+
+<section id="dataset">
+  <div class="sec-head"><div class="sec-num">Dataset</div><h2>Download</h2></div>
+  <p class="lead">MERL provides this data for research and academic use only. Each material is one
+  binary file holding a 90 &times; 90 &times; 180 grid over the half-angle parameterization
+  (theta-h, theta-d, phi-d), three channels in double precision, about 33 MB per material.
+  Sample code to read the files is included with the database. Note that the parameterization
+  of theta-h differs from the one described in the paper.</p>
+  <div class="joing">
+    <div class="jcard"><span class="label">Data</span>
+      <p>All 100 materials (one 33 MB file each), the reader code and the notice, hosted at MIT CSAIL.
+      <a href="https://people.csail.mit.edu/wojciech/BRDFDatabase/">Browse and download</a> &middot;
+      <a href="https://www.dropbox.com/sh/yjt3bczfy52gb7o/AAB6_b3ShUSR37gBwbsDVvxoa?dl=0">Dropbox mirror</a></p></div>
+    <div class="jcard"><span class="label">Terms</span>
+      <p>Free for research or academic use. Please read the MERL copyright and permission to use
+      notice before downloading. <a href="https://www.merl.com/brdf/">MERL notice</a></p></div>
+    <div class="jcard"><span class="label">Paper</span>
+      <p>W. Matusik, H. Pfister, M. Brand, and L. McMillan. ACM Trans. Graph. 22(3), 759-769. 2003.
+      <a href="../../pdf/journal/2003-matusik-a-data-driven-reflectance-model.pdf">PDF</a> &middot;
+      <a href="https://doi.org/10.1145/882262.882343">DOI</a></p></div>
+  </div>
+</section>
+
+<section id="citation">
+  <div class="sec-head"><div class="sec-num">Citation</div><h2>If you use the measurements</h2></div>
+  <p class="lead">Please reference the paper the data was collected for:</p>
+  <p>Wojciech Matusik, Hanspeter Pfister, Matt Brand, and Leonard McMillan.
+  <i>A Data-Driven Reflectance Model</i>. ACM Transactions on Graphics 22(3), 759-769, 2003.</p>
+  <pre class="bib">@article{matusik2003adatadrive,
+  author  = {Matusik, W. and Pfister, H. and Brand, M. and McMillan, L.},
+  title   = {{A data-driven reflectance model}},
+  journal = {ACM Trans. Graph.},
+  volume  = {22},
+  number  = {3},
+  pages   = {759--769},
+  year    = {2003},
+  doi     = {10.1145/882262.882343},
+}</pre>
+  <p class="more"><a href="../../publications/#a-data-driven-reflectance-model">The paper in the publication list</a> &middot;
+    <a href="../../">Back to the front page</a></p>
+</section>
+</main>
+
+<footer>
+  <div class="frow">
+    <div class="faddr">Computational Design &amp; Fabrication Group &middot; MIT CSAIL
+      <br>32 Vassar Street, Cambridge, MA 02139</div>
+    <div class="flinks">
+      <a href="../../join/">Join the group</a>
+      <a href="https://people.csail.mit.edu/wojciech/">Wojciech Matusik</a>
+      <a href="https://news.mit.edu/search?keyword=matusik">MIT News</a>
+      <a href="https://www.csail.mit.edu/news/">CSAIL News</a>
+      <a href="mailto:wojciech@mit.edu">Contact</a>
+      <!-- Required on all public MIT.edu pages by the MIT-NAD consent decree: https://accessibility.mit.edu/captioning/mit-nad-agreement/ -->
+      <a href="https://accessibility.mit.edu/">Accessibility</a>
+    </div>
+  </div>
+</footer>
+</div>
+
+<!-- visitor counts; no cookies, no personal data, ignores localhost -->
+<script data-goatcounter="https://cdfg.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('tt');
+  var modes=['system','light','dark'],i=0;
+  btn.addEventListener('click',function(){
+    i=(i+1)%modes.length;var m=modes[i];
+    if(m==='system'){root.removeAttribute('data-theme');}else{root.setAttribute('data-theme',m);}
+    btn.textContent='Theme: '+m;
+  });
+})();
+</script>
+</body>
+</html>

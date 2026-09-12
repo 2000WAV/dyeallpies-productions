@@ -1,0 +1,26 @@
+"LAIKA's 3D Printed Puppets of 'Kubo and the Two Strings'", Inverse.com
+(accessed 2026-09-12).
+
+STATUS: full HTML page saved; see
+papers/inverse-kubo-3d-printed-puppets.html.
+
+SUMMARY: production account of LAIKA's stop-motion puppet fabrication for
+Kubo and the Two Strings (2016). Combines traditional puppet-making
+materials (latex, polyurethane skins over armatures) with large-scale 3D
+printing (the Moonbeast character: 850 individually 3D-printed exterior
+pieces over a 250-part internal armature; over 23,000 3D-printed
+interchangeable face plates used across the production for replacement
+facial animation) and hand craft for non-rigid elements (individual
+feathers laser-cut and hand-woven with piano wire for one character;
+crumpled/uncrumpled Tyvek sheets for a flexible cloth-like surface).
+
+KEY NUMBERS: 850 printed pieces (Moonbeast exterior) + 250-part armature;
+23,000+ printed face plates (whole production).
+
+RELEVANCE: item 11 section 6 -- reinforces the same replacement-animation
+principle as the Pinocchio example (discrete, purpose-built parts per
+pose/expression beat convincing continuous deformation for a rigid-bodied
+character), and shows that large casts of interchangeable RIGID parts (like
+this project's own rigid MuJoCo capsule/ellipsoid segments) is itself an
+established, successful way to build a convincing puppet, not a
+compromise forced by the simulation.

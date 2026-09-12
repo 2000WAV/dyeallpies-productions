@@ -1,0 +1,33 @@
+Hold-Geoffroy, Y., Sunkavalli, K., Hadap, S., Gambaretto, E., and Lalonde,
+J.-F. (2017). Deep Outdoor Illumination Estimation. CVPR 2017. arXiv:
+1611.06403.
+
+STATUS: full text saved (CVF open access); see
+papers/holdgeoffroy2017-deep-outdoor-illumination.pdf/.txt.
+
+SUMMARY: a CNN fits the Hosek-Wilkie physically-based SKY model (sun
+position, atmospheric turbidity, camera exposure) to a single outdoor LDR
+photo. Not directly applicable to this project's INDOOR window-lit shot
+(no sun/sky dome), but included per the brief and useful for calibrating
+how accurate single-image light-DIRECTION estimation can get in the
+easiest case (a single dominant, very bright, well-modeled light source --
+closer in spirit to this shot's single dominant window key than a full
+multi-light indoor scene is).
+
+KEY NUMBERS:
+- Sun angular position error: 80% of test images have combined
+  (elevation+azimuth) error under 45 degrees.
+- Sun ELEVATION error specifically: under 7 degrees for 80% of test images;
+  camera field-of-view error under 11 degrees for 80% of test images.
+- Azimuth precision "in an octant" (within 22.5 degrees) comparable to the
+  prior state of the art (Lalonde et al.); precision "in a quadrant"
+  (within 45 degrees) improved by roughly 10 PERCENTAGE POINTS over that
+  same prior method.
+
+RELEVANCE: even for the EASIEST single-light-source case (a bright outdoor
+sun, well-modeled analytically), single-image estimation error is still
+several degrees to tens of degrees -- reinforcing section 2's conclusion
+that reading the window's direction directly from the plate's own visible
+hand-shadow (item 05's approach) is likely more accurate for this specific
+shot than a general-purpose learned estimator would be, precisely because
+it uses this frame's own shadow evidence rather than a population prior.

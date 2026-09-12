@@ -1,0 +1,603 @@
+Jump to content
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+Main menu
+ 
+ 
+
+ 
+ 
+
+ 
+ Main menu
+ move to sidebar
+ hide
+
+ 
+
+ 
+ Navigation
+ 
+ 
+ 
+ 
+ 
+ Main page
+Contents
+Current events
+Random article
+About Wikipedia
+Contact us
+Help
+Learn to edit
+Community portal
+Recent changes
+Upload file
+Special pages
+Donate
+
+Create account
+
+Log in
+
+Donate
+
+Create account
+
+Log in
+
+Contents
+
+ 
+ (Top)
+ 
+ 
+
+ 
+ 
+ 1
+ History
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 2
+ Description
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 3
+ Straight versus premultiplied
+ 
+ 
+ 
+ 
+ 
+ Toggle Straight versus premultiplied subsection
+ 
+ 
+ 
+ 
+ 
+ 
+ 3.1
+ Comparison
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 3.2
+ Examples
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 4
+ Image formats supporting alpha channels
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 5
+ Gamma correction
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 6
+ Other transparency methods
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 7
+ See also
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 8
+ References
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 9
+ External links
+ 
+ 
+ 
+ 
+ 
+ 
+Alpha compositing
+العربية
+Български
+Deutsch
+Español
+Français
+日本語
+한국어
+Latviešu
+Português
+Українська
+Oʻzbekcha / ўзбекча
+中文
+Article
+
+Talk
+
+Read
+
+Edit
+
+View history
+
+Read
+
+Edit
+
+View history
+
+What links here
+Related changes
+Upload file
+Permanent link
+Page information
+Cite this page
+Get shortened URL
+Switch to legacy parser
+Download as PDF
+Printable version
+Wikidata item
+
+A color spectrum image with an alpha channel that falls off to zero at its base, where it is blended with a crop-out of Wikipedia logo used as a background
+
+In computer graphics, alpha compositing or alpha blending is the process of combining one image with a background to create the appearance of partial or full transparency.[1] It is often useful to render picture elements (pixels) in separate passes or layers and then combine the resulting 2D images into a single, final image called the composite. Compositing is used extensively in film when combining computer-rendered image elements with live footage. Alpha blending is also used in 2D computer graphics to put rasterized foreground elements over a background.
+In order to combine the picture elements of the images correctly, it is necessary to keep an associated matte for each element in addition to its color. This matte layer contains the coverage information—the shape of the geometry being drawn—making it possible to distinguish between parts of the image where something was drawn and parts that are empty.
+Although the most basic operation of combining two images is to put one over the other, there are many operations, or blend modes, that are used.
+History
+The concept of an alpha channel was introduced by Alvy Ray Smith and Ed Catmull in the late 1970s at the New York Institute of Technology Computer Graphics Lab[citation needed]. Bruce A. Wallace derived the same straight over operator based on a physical reflectance/transmittance model in 1981.[2] A 1984 paper by Thomas Porter and Tom Duff introduced premultiplied alpha using a geometrical approach.[3]
+The use of the term alpha is explained by Smith as follows: "We called it that because of the classic linear interpolation formula 
+ 
+ 
+ 
+ α
+ A
+ +
+ (
+ 1
+ −
+ α
+ )
+ B
+ 
+ 
+ {\displaystyle \alpha A+(1-\alpha )B}
+ 
+ that uses the Greek letter 
+ 
+ 
+ 
+ α
+ 
+ 
+ {\displaystyle \alpha }
+ 
+ (alpha) to control the amount of interpolation between, in this case, two images A and B".[4] That is, when compositing image A atop image B, the value of 
+ 
+ 
+ 
+ α
+ 
+ 
+ {\displaystyle \alpha }
+ 
+ in the formula is taken directly from A's alpha channel.
+Description
+In a 2D image, a color combination is stored for each picture element (pixel), often a combination of red, green and blue (RGB). When alpha compositing is in use, each pixel has an additional numeric value stored in its alpha channel, with a value ranging from 0 to 1. A value of 0 means that the pixel is fully transparent and the color in the pixel beneath will show through. A value of 1 means that the pixel is fully opaque.
+With the existence of an alpha channel, it is possible to express compositing image operations using a compositing algebra. For example, given two images A and B, the most common compositing operation is to combine the images so that A appears in the foreground and B appears in the background. This can be expressed as A over B. In addition to over, Porter and Duff[3] defined the compositing operators in, held out by (the phrase refers to holdout matting and is usually abbreviated out), atop, and xor (and the reverse operators rover, rin, rout, and ratop) from a consideration of choices in blending the colors of two pixels when their coverage is, conceptually, overlaid orthogonally:
+
+As an example, the over operator can be accomplished by applying the following formula to each pixel:[2]
+Here 
+ 
+ 
+ 
+ 
+ C
+ 
+ o
+ 
+ 
+ 
+ 
+ {\displaystyle C_{o}}
+ 
+, 
+ 
+ 
+ 
+ 
+ C
+ 
+ a
+ 
+ 
+ 
+ 
+ {\displaystyle C_{a}}
+ 
+ and 
+ 
+ 
+ 
+ 
+ C
+ 
+ b
+ 
+ 
+ 
+ 
+ {\displaystyle C_{b}}
+ 
+ stand for the color components of the pixels in the result of the "over", image A, and image B respectively, applied to each color channel (red/green/blue) individually, whereas 
+ 
+ 
+ 
+ 
+ α
+ 
+ o
+ 
+ 
+ 
+ 
+ {\displaystyle \alpha _{o}}
+ 
+, 
+ 
+ 
+ 
+ 
+ α
+ 
+ a
+ 
+ 
+ 
+ 
+ {\displaystyle \alpha _{a}}
+ 
+ and 
+ 
+ 
+ 
+ 
+ α
+ 
+ b
+ 
+ 
+ 
+ 
+ {\displaystyle \alpha _{b}}
+ 
+ are the alpha values of the respective pixels.
+The over operator is, in effect, the normal painting operation (see Painter's algorithm). The in and out operators are the alpha compositing equivalent of clipping. The two use only the alpha channel of the second image and ignore the color components. In addition, plus defines additive blending.[3]
+Straight versus premultiplied
+If an alpha channel is used in an image, there are two common representations that are available: straight (unassociated) alpha and premultiplied (associated) alpha.
+With straight alpha, the RGB components represent the color of the object or pixel, disregarding its opacity. This is the method implied by the over operator in the previous section.
+With premultiplied alpha, the RGB components represent the emission of the object or pixel, and the alpha represents the occlusion. The over operator then becomes:[3]
+
+ 
+ 
+ 
+ 
+ C
+ 
+ o
+ 
+ 
+ =
+ 
+ C
+ 
+ a
+ 
+ 
+ +
+ 
+ C
+ 
+ b
+ 
+ 
+ (
+ 1
+ −
+ 
+ α
+ 
+ a
+ 
+ 
+ )
+ 
+ 
+ {\displaystyle C_{o}=C_{a}+C_{b}(1-\alpha _{a})}
+ 
+
+ 
+ 
+ 
+ 
+ α
+ 
+ o
+ 
+ 
+ =
+ 
+ α
+ 
+ a
+ 
+ 
+ +
+ 
+ α
+ 
+ b
+ 
+ 
+ (
+ 1
+ −
+ 
+ α
+ 
+ a
+ 
+ 
+ )
+ 
+ 
+ {\displaystyle \alpha _{o}=\alpha _{a}+\alpha _{b}(1-\alpha _{a})}
+ 
+
+Comparison
+The most significant advantage of premultiplied alpha is that it allows for correct blending, interpolation, and filtering. Ordinary interpolation without premultiplied alpha leads to RGB information leaking out of fully transparent (A=0) regions, even though this RGB information is ideally invisible. When interpolating or filtering images with abrupt borders between transparent and opaque regions, this can result in borders of colors that were not visible in the original image. Errors also occur in areas of semitransparency because the RGB components are not correctly weighted, giving incorrectly high weighting to the color of the more transparent (lower alpha) pixels.[5]
+Premultiplied alpha may also be used to allow regions of regular alpha blending (e.g. smoke) and regions with additive blending mode (e.g. flame and glitter effects) to be encoded within the same image.[6][7] This is represented by an RGBA triplet that express emission with no occlusion, such as (0.4, 0.3, 0.2, 0.0).
+Another advantage of premultiplied alpha is performance; in certain situations, it can reduce the number of multiplication operations (e.g. if the image is used many times during later compositing). The Porter–Duff operations have a simple form only in premultiplied alpha.[3] Some rendering pipelines expose a "straight alpha" API surface, but converts them into premultiplied alpha for performance.[8]
+One disadvantage of premultiplied alpha is that it can reduce the available relative precision in the RGB values when using integer or fixed-point representation for the color components. This may cause a noticeable loss of quality if the color information is later brightened or if the alpha channel is removed. In practice, this is not usually noticeable because during typical composition operations, such as OVER, the influence of the low-precision color information in low-alpha areas on the final output image (after composition) is correspondingly reduced. This loss of precision also makes premultiplied images easier to compress using certain compression schemes, as they do not record the color variations hidden inside transparent regions, and can allocate fewer bits to encode low-alpha areas. The same “limitations” of lower quantisation bit depths such as 8 bit per channel are also present in imagery without alpha, and this argument is problematic as a result.
+Examples
+Assuming that the pixel color is expressed using straight (non-premultiplied) RGBA tuples, a pixel value of (0, 0.7, 0, 0.5) implies a pixel that has 70% of the maximum green intensity and 50% opacity. If the color were fully green, its RGBA would be (0, 1, 0, 0.5). However, if this pixel uses premultiplied alpha, all of the RGB values (0, 0.7, 0) are multiplied, or scaled for occlusion, by the alpha value 0.5, which is appended to yield (0, 0.35, 0, 0.5). In this case, the 0.35 value for the G channel actually indicates 70% green emission intensity (with 50% occlusion). A pure green emission would be encoded as (0, 0.5, 0, 0.5). Knowing whether a file uses straight or premultiplied alpha is essential to correctly process or composite it, as a different calculation is required.
+Emission with no occlusion cannot be represented in straight alpha. No conversion is available in this case.
+Image formats supporting alpha channels
+The most popular image formats that support the alpha channel are PNG and TIFF. GIF supports 1-bit transparency by designating one palette entry as transparent. Support for alpha channels is present in some video codecs, such as Animation and Apple ProRes 4444 of the QuickTime format, or in the Techsmith multi-format codec.
+The file format BMP generally does not support this channel; however, in different formats such as 32-bit (888–8) or 16-bit (444–4) it is possible to save the alpha channel, although not all systems or programs are able to read it: it is exploited mainly in some video games[9] or particular applications;[10] specific programs have also been created for the creation of these BMPs.
+Gamma correction
+The RGB values of typical digital images do not directly correspond to the physical light intensities, but are rather compressed by a gamma correction function:
+This transformation better utilizes the limited number of bits in the encoded image by choosing 
+ 
+ 
+ 
+ γ
+ 
+ 
+ {\displaystyle \gamma }
+ 
+ that better matches the non-linear human perception of luminance.
+Accordingly, computer programs that deal with such images must decode the RGB values into a linear space (by undoing the gamma-compression), blend the linear light intensities, and re-apply the gamma compression to the result:[20][21][failed verification]
+When combined with premultiplied alpha, pre-multiplication is done in linear space, prior to gamma compression.[22] This results in the following formula:
+Note that the alpha channel may or may not undergo gamma-correction, even when the color channels do.
+Other transparency methods
+Although used for similar purposes, transparent colors and image masks do not permit the smooth blending of the superimposed image pixels with those of the background (only whole image pixels or whole background pixels allowed).
+A similar effect can be achieved with a 1-bit alpha channel, as found in the 16-bit RGBA high color mode of the Truevision TGA image file format and related TARGA and AT-Vista/NU-Vista display adapters' high color graphic mode. This mode devotes 5 bits for every primary RGB color (15-bit RGB) plus a remaining bit as the "alpha channel".
+Dithering can be used to simulate partial occlusion where only 1-bit alpha is available.
+For some applications, a single alpha channel is not sufficient: a stained-glass window, for instance, requires a separate transparency channel for each RGB channel to model the red, green and blue transparency separately. More alpha channels can be added for accurate spectral color filtration applications.
+Some order-independent transparency methods replace the over operator with a commutative approximation.[23]
+See also
+Alpha to coverage
+Bit blit
+Blend modes
+Digital compositing
+Image masks
+Magic Pink
+Portable Network Graphics
+RGBA color space
+Sandwich printing
+Texture splatting
+Transparency (graphic)
+Transparent color in palettes
+Transparent videos in web browsers
+Truevision TGA
+References
+↑ .mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}"Definition of alpha blending". PCMAG. Retrieved 2021-08-07.
+1 2 Wallace, Bruce A. (1981). "Merging and transformation of raster images for cartoon animation". Proceedings of the 8th annual conference on Computer graphics and interactive techniques - SIGGRAPH '81. Vol. 15. New York City, New York: ACM Press. pp. 253–262. CiteSeerX 10.1.1.141.7875. doi:10.1145/800224.806813. ISBN 0-89791-045-1. S2CID 1147910. {{cite conference}}: Cite uses deprecated parameter |citeseerx= (help)
+1 2 3 4 5 Porter, Thomas; Duff, Tom (July 1984). "Compositing digital images" (PDF). Proceedings of the 11th annual conference on Computer graphics and interactive techniques - SIGGRAPH '84. Vol. 18. New York City, New York: ACM Press. pp. 253–259. doi:10.1145/800031.808606. ISBN 9780897911382. S2CID 18663039. Archived (PDF) from the original on 2011-04-29. Retrieved 2019-03-11.
+↑ Alvy Ray Smith (1995-08-15). "Alpha and the History of Digital Compositing" (PDF). alvyray.com. p. 6. Archived from the original (PDF) on 2021-10-25.
+↑ "Alpha Blending: To Pre or Not To Pre". NVIDIA Developer. 31 January 2013. However, something interesting happens when we generate the next mipmap level...
+↑ "TomF's Tech Blog - It's only pretending to be a wiki". TomF's Tech Blog - It's only pretending to be a wiki. Archived from the original on 12 December 2017. Retrieved 8 May 2018.
+↑ Trebilco, Damian. "To close to draw call (presentation on Pre-multiplied alpha)". GitHub. By switching to pre-multiplied blend mode for all particle effects, and entire scene can be done with one draw call (assuming atlasing/2D array for the textures)... Another neat trick with pre-multiplied alpha is that if you have overlapping textures that are in known positions, you can pre-process them all down to one texture.
+↑ "Premultiplied alpha". Win2D for WinUI3. Retrieved 30 June 2023. Win2D uses straight alpha in its API surface, but premultiplied alpha for internal rendering operations.
+↑ "Creating Textures". www.echos.ch. Retrieved 2023-05-25.
+↑ "Extended Formats". 2016-03-04. Archived from the original on 2016-03-04. Retrieved 2023-05-25.
+↑ Lambrecht, Jordan (2022-12-31). "List of Video/Image Formats Supporting Alpha Channels". Pixel Bakery Design Studio. Retrieved 2023-05-25.
+↑ "Final Cut Pro 6 - Broad Format Support". apple.com. Archived from the original on 2011-06-08. Retrieved 2024-08-13.
+↑ Jie Dong (2010-06-19). "The First JCT-VC Meeting, Dresden, DE". H265.net. Archived from the original on June 25, 2010. Retrieved 2024-08-13.
+↑ Jie Dong (2008-07-01). "Current Status of H.265 (as at July 2008)". H265.net. Archived from the original on July 12, 2008. Retrieved 2024-08-13.
+↑ Yu Liu (2009-04-15). "The Preliminary Requirements for NGVC". H265.net. Archived from the original on May 13, 2009. Retrieved 2024-08-13.
+↑ "AV1 video format | Can I use... Support tables for HTML5, CSS3, etc". caniuse.com. Retrieved 2023-05-25.
+↑ "Digital Audio Broadcasting (DAB); MOT SlideShow; User Application (pdf) Specification" (PDF). ETSI. Retrieved 13 August 2024.
+↑ "SVG specification, "Color"". World Wide Web Consortium. 14 January 2003. Archived from the original on 7 September 2009. Retrieved 13 August 2024.
+↑ @chromium.org, de... (2022-08-24). "JPEG XL decoding support (image/jxl) in blink (tracking bug)". bugs.chromium.org. Retrieved 2024-08-13.
+↑ Minute Physics (March 20, 2015). "Computer Color is Broken". YouTube. Archived from the original on 2021-11-22.
+↑ Novak, John (September 21, 2016). "What every coder should know about gamma".
+↑ "Gamma Correction vs. Premultiplied Pixels – Søren Sandmann Pedersen". ssp.impulsetrain.com.
+↑ McGuire, Morgan; Bavoil, Louis (2013). "Weighted Blended Order-Independent Transparency". Journal of Computer Graphics Techniques. 2 (2): 122–141.
+External links
+Compositing Digital Images - Thomas Porter and Tom Duff (Original Paper)
+Image Compositing Fundamentals
+Understand Compositing and Color extensions in SVG 1.2 in 30 minutes!
+Alpha Matting and Premultiplication
+.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}html.skin-theme-clientpref-night .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .navbar li a abbr{color:var(--color-base)!important}}@media print{.mw-parser-output .navbar{display:none!important}}v
+t
+e
+Diffusion curve
+Pixel
+Alpha compositing
+Layers
+Text-to-image
+Isometric
+Mode 7
+Parallax scrolling
+Ray casting
+Skybox
+3D projection
+3D rendering
+(Image-based
+Spectral
+Unbiased)
+Aliasing
+Anisotropic filtering
+Cel shading
+Fluid animation
+Lighting
+Global illumination
+Hidden-surface determination
+Polygon mesh
+(Triangle mesh)
+Shading
+Deferred
+Surface triangulation
+Wire-frame model
+Affine transformation
+Back-face culling
+Clipping
+Collision detection
+Planar projection
+Reflection
+Ray tracing
+Beam
+Cone
+Path
+Rendering
+Checkerboard
+Scanline
+Rotation
+Scaling
+Shadow mapping
+Shadow volume
+Shear matrix
+Shader
+Texel
+Translation
+Volume rendering
+Voxel
+List
+animation
+modeling
+rendering
+Raster graphics editors
+Vector graphics editors
+List of algorithms
+
+Retrieved from "https://en.wikipedia.org/w/index.php?title=Alpha_compositing&amp;oldid=1366026994"
+ Category: Computer graphics algorithms
+Articles with short description
+Short description matches Wikidata
+All articles with unsourced statements
+Articles with unsourced statements from December 2025
+CS1 errors: deprecated parameters
+CS1: unfit URL
+All articles with failed verification
+Articles with failed verification from October 2022
+ This page was last edited on 25 July 2026, at 21:20&#160;(UTC).
+Page was rendered with Parsoid.
+Text is available under the Creative Commons Attribution-ShareAlike 4.0 License;
+additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Legal &amp; safety contacts
+Code of Conduct
+Developers
+Statistics
+Cookie statement
+Mobile view

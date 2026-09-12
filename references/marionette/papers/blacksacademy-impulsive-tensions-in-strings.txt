@@ -1,0 +1,410 @@
+Impulsive Tensions in Strings
+
+Prerequisites
+
+You should be familiar the definitions of impulse and momentum.
+
+Definition of momentum                  J  mv
+momentum  mass  velocity
+
+Principle of conservation of momentum for a collision between two particles
+When two particles collide
+Total momentum before collision = Total momentum after collision.
+
+The following question essentially involves no new theory but is an application of existing theory
+to a new situation.
+
+           Example (1)
+           Two particles A and B are connected by means of a light, inextensible string and are
+           initially at rest on a smooth, horizontal surface. Particle A has mass 4 kg and particle B
+           has mass 3 kg . Initially the string is slack when particle B is given an impulse of 21 Ns
+           along the line joining the centres of mass of A and B and in a direction away from A. Find
+           the impulse in the string when the string first becomes taut and the subsequent velocity
+           of both A and B at that instant.
+
+Firstly, let us visualise the problem.
+
+Moment before the
+string becomes taut
+
+4 kg       3 kg
+        A           B
+
+                       Direction in which both particles will move
+                       the instant after they become connected
+
+           21 Ns
+
+The diagram shows the instant when the string becomes taut. At this instant the two particles
+become connected. The momentum of B before at that instant is 24 Ns. Part of this momentum
+
+                                        © blacksacademy.net
+                                                      1
+will be communicated to A, which is initially at rest. After the impulse is communicated, that is
+after the jerk of the string, both particles must continue to move in the same direction in which B
+was moving before the string became taut.
+
+This is similar to a problem involving a collision between two particles A and B where one is
+initially at rest. A collision similarly communicates an impulse from one object to another. Yet in
+order to solve a problem involving a collision we would need to know whether any energy was lost
+in the collision, or alternatively we would require information about the elasticity of the collision.
+However, here the impulse is communicated from B to A by means of a light, inextensible string,
+and the surface is smooth, meaning frictionless, so conservation of momentum is sufficient to
+determine the outcome of the interaction. In a collision one particle can "bounce" off the other
+and the direction of motion can be reversed. When the impulse is communicated by means of a
+string, the impulse must be communicated along the string, and in the case we are considering
+here, both particles must move with the same velocity v, that is, with the same speed and in the
+same direction.
+
+Solution
+
+Before impulse             After impulse
+
+4 kg            3 kg       4 kg       3 kg
+        A               B          A          B
+
+           J
+
+                21 Ns      v                    v
+
+The combined mass of the two particles is M  4  3  7 kg
+
+momentum before  momentum after
+21  Mv
+21  7v
+v  3 ms1
+The impulse is shown in the diagram by the triangle positioned along the string. Two
+triangles are shown representing the fact that the impulse communicated to A by B is the
+same as the impulse communicated by B to A. Particle A is accelerated by this impulse
+from rest, so the impulse is the change in momentum of A given by
+J  change in momentum  mAv  4  3  12 Ns
+
+                           © blacksacademy.net
+                                        2
+In two dimensions
+
+In two dimensions the same principles apply. When a string becomes taut an impulse is
+communicated along the line of the string. If one particle is at rest and is subject to an impulsive
+jerk from a string, then at that instant it must move in the direction in which the impulse was
+communicated ­ this being an application of the principle of conservation of momentum.
+
+Example (2)
+The diagram shows two particles, A with mass 3 kg and B with mass 5 kg, connected by a
+light inextensible string of length l m. Initially, both particles are lying at rest on a
+smooth horizontal surface a distance l m apart, with the string just slack. Particle B is
+given a blow of impulse 32.5 Ns in the direction away from A at an angle  to the line
+joining A to B where tan   5 . Determine the magnitude and direction of the velocities
+
+                                          12
+of A and B immediately after the blow.
+
+                     32.5 Ns
+
+            
+
+A        B
+
+The solution to this problem rests upon the following intuition. When the particle B is initially
+struck its momentum (and velocity) have both horizontal and vertical components. Here the
+impulsive jerk in the string acts only in the horizontal direction. Therefore, the momentum of B
+in the vertical direction is unaffected by the jerk of the string. This applies only at the instant of
+the jerk.
+
+Solution
+Let the horizontal and vertical components of the velocity of B the instant after the string
+becomes taut be u ms1 and v ms1 respectively. The velocity of A at that instant is also
+u ms1 in the horizontal direction.
+
+                                         v
+
+3 kg        5 kg
+
+A     u  B        u
+
+            © blacksacademy.net
+                         3
+When B was struck it had a velocity of
+
+momentum = mass  velocity
+
+velocity = momentum  32.5  6.5 ms1
+  mass                       5
+
+The vertical component of the velocity of B after the string becomes taut, which here is v,
+
+is the same as vertical component of this initial velocity.
+
+6.5                               13
+                          v                               5
+
+                                
+
+                                  12
+
+Hence
+v  6.5sin 
+
+    6.5  5
+            13
+
+    2.5 ms1
+
+The horizontal component of the momentum given to B when it was struck is
+J  32.5cos
+
+   32.5  12
+              13
+
+   30 Ns
+
+This is equal to the combined momentum of A and B after the string becomes taut.
+
+30  mA  mB u  8u
+
+u  3.75 ms1
+
+The direction of A is along the line joining A to B.
+
+                                    2.5
+        
+
+               3.75
+
+The direction of B is given by  where
+tan  2.5
+
+           3.75
+
+  33.7 0.1
+
+and the speed of B is
+
+speed  3.752  2.52  20.3125  4.51 ms1 3 s.f.
+
+                                © blacksacademy.net
+                                             4
+Energy considerations
+
+This sub-section is optional; example (3) is not. In order to understand the effect of an impulsive
+
+tension in as string, we shall consider what has happened to the energy in the system of example
+
+(2) as a result of the impulsive tension in the string when it became taut. The energy before this
+
+moment is that of particle B, which was given an impulse of 32.5 Ns, and so was moving with
+
+speed
+
+speed of B before jerk  impulse  32.5  6.5 ms1
+                               mass          5
+
+Hence
+
+Kinetic  energy  of  B  before  jerk     1     vB 2    1  5  6.52   105.625 J
+                                         2 mB
+                                                       2
+
+After the jerk in the string no momentum is lost from the system as a whole. The combined
+
+centre of mass of the two particles A and B moves with this impulse and hence
+
+speed of centre of mass of A and B after jerk  impulse  32.5  4.0625 ms1
+                                                          mass       8
+
+and the energy associated with this is
+
+Kinetic energy of centre of mass after jerk  1 Mv2  1  8  4.06252  66.015625 J
+                                                       2   2
+
+The kinetic energies of A and B after the jerk are
+
+Kinetic  energy  of  A  after  jerk    1     vA 2    1  3  3.752     21.09375  J
+                                       2 mA          2
+
+Kinetic  energy  of  B  after  jerk    1     vB 2    1  5  4.51...2   50.78125    J
+                                       2 mB
+                                                     2
+
+The total kinetic energy of A and B after the jerk is 50.78125  21.09375  71.875 J . It appears
+
+that the two particles have 71.875  66.015625  5.859375 J more linear kinetic energy than that
+
+of their combined centre of mass. This is correct. If we examine the following diagram
+
+                                 v = 2.5 ms­1
+                                         32.5 Ns
+
+u = 3.75 ms­1                                   u = 3.75 ms­1
+
+A                       CM           B
+3 kg                    8 kg         5 kg
+
+         l
+
+we see that particle B is moving around the centre of mass CM  and so has rotational kinetic
+
+energy as well as linear kinetic energy. At this instant, the horizontal components of the velocity
+
+                                                © blacksacademy.net
+                                                             5
+  u  3.75 ms1 do not contribute any rotational momentum or energy. However, the vertical
+  component of the velocity of B v  2.5 ms1 does. We will assert that the missing energy of
+
+5.859375 J is accounted for by the rotational energy of the entire system about the centre of
+
+mass CM  . So after the impulsive jerk the whole system is gyrating about its common centre of
+
+mass, whilst the common centre of mass moves off in the direction of the original impulse.1
+
+            Example (3)
+            Two particles P and Q of mass 2 kg and 3 kg respectively, are attached one to each end of
+            a light inextensible string of length 2 m. Initially, the particles are at rest on a smooth
+            horizontal surface a distance 1 m apart, as shown in the diagram. Particle Q is then
+            projected horizontally with velocity U ms1 in a direction 90 to the line joining the initial
+            positions of P and Q.
+
+                                                     U ms­1
+
+                                         1m
+
+         P                                                                    Q
+
+                              2m
+
+         Some time later the string becomes taut. At the instant of the jerk particle Q is found to
+         be moving with a speed of 5 ms1 . Find (a) the original velocity of projection of particle
+
+1 To show that the rotational energy of A and B (combined) about CM is equal to the missing 5.859375 J is
+
+beyond the scope of this chapter. However, for completeness it is given by E  1 I2 where I is the moment of
+                                                                                                                      2
+
+inertia of the two particles about CM and  is the angular velocity of this moment of inertia about CM. The
+
+centre of mass, CM, is situated 3l from B and 5 l from A. The moment of inertia of A and B together is
+                                                      8                             8
+
+I    mA rA 2    mB    rB 2       3         5  l    2      5      3  l  2      5 3l2
+                                           3                     8              8
+                                                 
+                                                 
+
+Here l is the radius of gyration. The angular velocity of A and B about CM is the same as the angular velocity
+
+of B about the radius of gyration   vB  2.5 . Hence the rotational kinetic energy of the system after the jerk
+                                                        ll
+
+is  E    1 I2    1      3     5    l  2      2.5       2     5.859375         J  .
+         2       2         8     
+                                                      
+                                            l 
+
+                                                                              © blacksacademy.net
+                                                                                           6
+Q, (b) the angle between the velocity of P and the velocity of Q immediately after the jerk,
+and (c) the impulsive tension in the string during the jerk.
+
+Solution
+Let the component of the velocity of Q at the moment of the jerk along the line of the
+string be v and let the component of the velocity of Q at that same moment perpendicular
+to the string be u. Let the impulsive tension in the string during the jerk be J. Let
+V  5 ms1 be the speed of Q after the impulsive jerk.
+
+                               V = velocity of Q after impulse
+
+                            u       v                                      u
+                       J             Q                        5
+
+                                                                           v
+
+          J         2
+
+   v                                                U sin60
+                                    U
+      
+                                                                          U = velocity of Q before impulse
+                                                                  
+
+                                                u = U cos60
+
+P                   1
+
+We are given
+
+V  v2  u2  5 ms1
+v2  u2  25
+
+Let the angle the string makes with the horizontal at the moment of the jerk be  . At the
+
+instant the string becomes taut the distance between P and Q is 2 m. The horizontal
+
+distance     is  1  m,   so    the  angle      cos1    1      60 .  The jerk in the string does alter the
+                                                       2  
+
+momentum of Q in the direction perpendicular to the string. Hence
+
+u  U cos 60  U
+                      2
+
+As the diagram indicates because the impulsive tension in the string is conveyed along
+the line of the string, after the jerk both particles P and Q must be moving with velocity v
+in the direction of the string. The impulse J causes P of mass 2 kg to accelerate from rest
+
+to v ms1 . Hence
+
+J  2v .
+
+                                    © blacksacademy.net
+                                                 7
+This same impulse causes Q of mass 3 kg to decelerate along the line of the string from
+
+U sin 60  3 U ms1 to v ms1 . Hence
+                 2
+
+J  3 U  3v .
+       2
+
+Equating expressions for J, we get
+
+  3U  3v  2v
+ 2
+5v  3 U
+
+        2
+v  3U
+
+     10
+
+(a)   Since v2  u2  25 we have
+
+         3U   2     U     2     25
+        10           2
+                        
+                        
+
+      28 U 2  25
+      100
+
+      U  9.4491...  9.45 ms1 3 s.f.
+
+      This is the original velocity of Q before the jerk.
+
+(b )  Let  be the angle between the velocities of P and Q after the jerk. Then
+
+                        U 
+                                
+      tan   u                2      5
+
+                 v       3   U      3
+                        10        
+
+        70.9 0.1
+
+(c )  v  3 U  3  2500  1.63663...
+        10 10 28
+
+      J  2v  3.27 Ns 3 s.f.
+
+                                    © blacksacademy.net
+                                                 8
+

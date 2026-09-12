@@ -1,0 +1,31 @@
+Adams, W.J., Kucukoglu, G., Landy, M.S., and Mantiuk, R.K. (2018/2019).
+Naturally glossy: Gloss perception, illumination statistics, and tone
+mapping. Journal of Vision, 18(13):4.
+
+STATUS: read via web fetch of the open PMC mirror (PMC6279370); HTML not
+separately downloaded as a standalone file in this pass, cited directly by
+its PMC URL in downloads-09.md.
+
+SUMMARY: glossiness (how "shiny" vs. "matte" a surface reads) is judged
+mainly from the pattern of specular highlights -- their brightness and
+sharpness -- relative to the diffuse body of the object; sharper, brighter
+highlights read as glossier. Perceived gloss depends on the STATISTICS of
+the scene's illumination (natural illumination, with its skewed distribution
+of a few very bright light sources against a darker average, supports
+correct gloss/solidity judgments); removing that skew (e.g. by tone-mapping
+or by reversing the overhead-light direction) makes the same object look
+LESS glossy/less like a real solid lit surface, and this effect is largest
+when the object is viewed in isolation (without a full background scene
+providing context) -- close to this project's situation (isolated puppet on
+plain wall, no complex scene).
+
+RELEVANCE to item 9: reinforces the shape-from-shading/specular-highlight
+argument (see Kleffner & Ramachandran 1992, Fleming Dror & Adelson 2003):
+solidity reads from a physically-plausible, spatially concentrated, single-
+direction highlight/shading pattern, not from uniform brightness -- directly
+against an "emit light from every surface equally" neon-glow look, and in
+favour of directional shading + a small sharp specular highlight + an
+occluding-contour-consistent silhouette.
+
+KEY NUMBERS: **NOT FOUND** -- qualitative/psychophysical-matching paper, no
+single reusable percent/threshold number extracted for this project.

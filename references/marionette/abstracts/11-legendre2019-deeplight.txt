@@ -1,0 +1,35 @@
+LeGendre, C., Ma, W.-C., Fyffe, G., Flynn, J., Charbonnel, L., Busch, J.,
+and Debevec, P. (2019). DeepLight: Learning Illumination for Unconstrained
+Mobile Mixed Reality. CVPR 2019, 5918-5928. arXiv:1904.01175.
+
+STATUS: full text saved (CVF open access); see
+papers/legendre2019-deeplight.pdf/.txt.
+
+SUMMARY: trains a network to infer HDR, omnidirectional illumination from a
+single LDR, limited-FOV image captured by an ORDINARY MOBILE PHONE camera
+(the exact capture modality relevant here) -- i.e. this is the closest of
+the illumination-estimation papers to this project's actual hardware.
+Training data comes from videos of reflective spheres (mirror, matte
+silver, diffuse) held in the phone's frame, so the network learns to map
+the visible background to plausible HDR lighting by matching how each
+sphere type would look under the predicted lighting (a differentiable
+image-based-relighting loss).
+
+KEY NUMBERS: their best configuration (full loss with adversarial term)
+achieves an RGB angular error on a rendered DIFFUSE test sphere of
+approximately 9.8-10.8 degrees (indoor / outdoor unseen locations, n=450
+each) -- i.e. even the best phone-camera single-frame illumination
+estimate is typically off by roughly 10 degrees of light direction on a
+diffuse test object. L1 image losses across mirror/diffuse/matte-silver
+renderings are reported in the 0.12-0.17 range (arbitrary rendered-image
+units, lower is better) across ablations.
+
+RELEVANCE: gives an actual ERROR BAR (~10 degrees) for "how well can a
+single phone photo alone tell you the room's lighting direction" -- useful
+context for section 2's comparison between fully-automatic illumination
+estimation and this project's existing item-05 approach of reading the
+light's direction directly off the hand's own visible cast shadow, which
+for a single, dominant, known light source (the lower-left window) should
+comfortably beat this ~10-degree machine-learned baseline, since it uses
+the SAME frame's own ground-truth shadow evidence rather than a learned
+prior over lighting statistics.

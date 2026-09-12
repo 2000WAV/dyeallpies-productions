@@ -1,0 +1,29 @@
+ISPRS Archives of the Photogrammetry, Remote Sensing and Spatial Information
+Sciences, Vol. XLVIII-G-2025 (ISPRS Geospatial Week 2025), pp. 1669-1677.
+Evaluating Smartphone Camera Calibration Configurations for Close-Range
+Photogrammetry Applications. doi:10.5194/isprs-archives-XLVIII-G-2025-1669-2025.
+
+STATUS: full text saved (Copernicus/ISPRS open access), text-extracted; see
+papers/isprs2025-smartphone-camera-calibration-iphone14.pdf/.txt. Note: the PDF's
+two-column layout garbles pdftotext's extraction in places, for example "iPhone
+14" is mis-read as "iPhone 10" or "iP10" in some lines of the extracted text;
+consult the PDF directly for exact figures if needed.
+
+SUMMARY: Calibrates an iPhone 14 and two Google Pixel 7 units against four
+calibration-grid configurations (small and large AprilGrid, small and large
+checkerboard) and two distortion models (radial-tangential, equidistant) using
+Kalibr, capturing at 1920x1080, 30 fps with the SensorLogger app. Reports the
+standard deviation, i.e. uncertainty, of the recovered focal length and principal
+point across the 24 configurations, roughly 1 to 2 pixels depending on grid,
+model and phone, rather than the absolute fx and fy values themselves. Finds grid
+size matters more than grid type or distortion model for focal-length stability,
+and that different setup choices can shift the recovered focal length by 50-plus
+pixels and the principal point by 35-plus pixels between configurations.
+
+RELEVANCE: confirms that a real checkerboard or AprilGrid calibration of an
+iPhone 14 at 1920x1080, 30 fps is a published, reproducible procedure, supporting
+the use of a pinhole model with a specific fx in pixels for this project rather
+than treating "phone camera" as unmeasurable; the roughly 1-2 pixel calibration
+uncertainty, and the 50-plus pixel configuration-to-configuration spread, are a
+useful error bar on any fx derived analytically from Apple's spec sheet instead
+of an actual chessboard shoot of the same phone.

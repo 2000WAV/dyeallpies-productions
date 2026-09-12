@@ -1,0 +1,842 @@
+Segregation of Form, Color, Movement, and Depth: Anatomy, Physiology, and Perception Author(s): Margaret Livingstone and David Hubel Reviewed work(s): Source: Science, New Series, Vol. 240, No. 4853 (May 6, 1988), pp. 740-749 Published by: American Association for the Advancement of Science Stable URL: http://www.jstor.org/stable/1701543 . Accessed: 22/06/2012 15:20 Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at . http://www.jstor.org/page/info/about/policies/terms.jsp JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of content in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.
+American Association for the Advancement of Science is collaborating with JSTOR to digitize, preserve and extend access to Science.
+http://www.jstor.org
+
+Segregation of Form, Color, Movement, and
+Depth: Anatomy, Physiology, and Perception
+MARGARET LIVINGSTONE AND DAVID HUBEL
+
+Anatomical and physiological observations in monkeys indicate that the primate visual system consists of several separate and independent subdivisions that analyze different aspects of the same retinal image: cells in cortical visual areas 1 and 2 and higher visual areas are segregated into three interdigitating subdivisions that differ in their selectivity for color, stereopsis, movement, and orientation. The pathways selective for form and color seem to be derived mainly from the parvocellular geniculate subdivisions, the depth- and movement-selective components from the magnocellular. At lower levels, in the retina and in the geniculate, cells in these two subdivisions differ in their color selectivity, contrast sensitivity, temporal properties, and spatial resolution. These major differences in the properties of cells at lower levels in each of the subdivisions led to the prediction that different visual functions, such as color, depth, movement, and form perception, should exhibit corresponding differences. Human perceptual experiments are remarkably consistent with these predictions. Moreover, perceptual experiments can be designed to ask which subdivisions of the system are responsible for particular visual abilities, such as figure/ground discrimination or perception of depth from perspective or relative movement-functions that might be difficult to deduce from single-cell response properties.
+
+separate parts whose functions are quite distinct. In this article we summarize some of these anatomical, physiological, and humanperceptual observations.
+Physiological and Anatomical Studies
+Occasionally people with strokes suffersurprisinglyspecificvisual losses-for example, loss of color discrimination without impairment of form perception, loss of motion perception without loss of color or form perception, or loss of face recognition without loss of the ability to recognize most other categories of objects or loss of color or depth perception (1). Such selectivity seems to indicate that the visual pathway is functionally subdivided at a fairly gross level.
+Anatomical and physiological studies in monkeys also support this idea of functional divergence within the visual pathway. They revealmajor anatomicalsubdivisions at the earliestperipheralstages in the visual system as well as segregation of function at the highest known cortical stages, but until recently there was little information about corresponding subdivisions in the intermediatelevels, the first and second cortical visual areas.
+Subdivisionast earlystagesin thevisuapl athwayI.t hasbeenknown for a century that the nerve fibersleaving the eyes diverge to provide input both to the lateral geniculate bodies and to the superior colliculi. The colliculus seems to be relatively more important in lower mammals than it is in primates, in which its main role is probably orientation toward targets of interest; here we will be
+
+EOPLEWITH NORMALCOLORVISION WILLPROBABLYFIND
+
+the left illustration in Fig. 1 less clear and three-dimensional
+
+than the one on the right. But it springs forth if you look at it
+
+through a blue filter, such as a piece of colored glass or cellophane.
+
+In the left version the gray and yellow are equally bright, or
+
+luminant, for the average person, whereas the right version has
+
+luminance-contrast information. The ability to infer distance and
+
+three-dimensional shape from a two-dimensional image is an exam-
+
+ple of a visual function that can use luminance but not color
+
+differences. Depth from perspective and color perception are thus
+
+aspects of vision that seem to be handled by entirely separate
+
+channels in our nervous system.
+
+Even though intuition suggests that our vision can plausibly be
+
+subdivided into several components-color, depth, movement,
+
+form, and texture perception-our perception of any scene usually
+
+seems well unified. Despite this apparent wholeness, studies of anatomy, physiology, and human perception are converging toward the conclusion that our visual system is subdivided into several
+
+Fig. 1. The same image at equiluminance(left) and non-equiluminance (right). Depth from perspective,spatialorganization,and figure/ground yseogurresgealftthioanttahreeledfitmveinrsisiohneddoinesitnhdeeeedqcuoinlutamininthaenstvaemresiinofno.rTmoatcioonnavsitnhcee
+
+other,lookatit throughapieceof bluecellophaneorglass.Thesetwocolors
+
+The authorsare membersof the faculty,Departmentof Neurobiology,Harvard MedicalSchool,Boston,MA 02115.
+
+may not be close enough to your equiluminancepoint to be effective. Changingthe light sourcemayhelp.
+
+740
+
+SCIENCE, VOL. 240
+
+Fig. 2. The primatelateralgeniculatebody.This six-layeredstructure is the firststagein the visualsystem after theretina,and it consists of two distinctsubdivisionst,heventral two magnocellularlayers and the dorsalfourparvocellulalrayers.The ttwheoienyteesrpdrigoijteacttiongfdaisffheiroennslthaoywerns(:icn indicateslayersthat are innervated by the contralateraelye;i indicates. layerswithinputfromthe ipsilateral
+eye.
+
+retinal region and inhibited (impulse rate slowed down) by illumination of a larger surrounding region, whereas others are the reverse, inhibited from the center and excited from the surround.
+.Because of the antagonism between center and surround, large uniform spots produce feeble responses or none. This center\ surround arrangementis found also at earlierlevels, startingwith the retinal bipolar cells. Clearly these cells are wired up so as to convert the information from the photoreceptors into information about
+spatial discontinuities in light patterns. This should not be surprising, since we ourselves are very poor in judging overall levels of illumination, as anyone who tries doing photography without a
+light meter well knows-we are lucky if we can come within an f stop (a factor of 2) of the right exposure. On the other hand we can detect a spot that is as little as a few percent brighter or darkerthan its immediate surround.
+
+The magno and parvo divisions nevertheless differ physiologically in four majorways-color, acuity, speed, and contrast sensitivity (7-
+
+Fig. . Receptive fieldsfor
+
+(left) typical color-oppo-
+
+nent parvocellulagrenicu-
+
+lateneuron,excitedover anat
+
+y ad
+
+small region by red light andinhibitedovera tlatrger
+
+regionby green ight and
+
+(right) typicalbroadband magnocellulanreuron,excitedby allwavelengthsinthe centerandinhibited by allwavelengthsin its surround.
+
+concerned exclusively with the geniculo-cortical part of the visual system, which seems to be directly concered with visual perception (2)-what we think of as seeing.
+The primate lateralgeniculate body is a six-layeredstructure,with two obviously different subdivisions: the four dorsal, small-cell
+(parvocellular)layersand the two ventral, large-c(emllagnocellular) layers; these two subdivisions differ both anatomically and physiologically. In 1920 Minkowski (3) discovered that each eye projects to three of the six layersin the peculiaralternatingfashion shown in Fig. 2: each half-retina is mapped three times onto one geniculate body, twice to the parvocellularlayers and once to the magnocellular, and all six topographic maps of the visual field are in precise
+register (4).
+The four parvocelular layers seem to be very similar if not identical, anatomically and physiologicaly. But the magno- and
+parvocellular divisions are profoundly different implying a major split in the visual pathway. This division is most obvious, and was first recognized, in the geniculate, but it does not originate there; the two geniculate subdivisions receive input from two intermixed but anatomically distinct types of retinal ganglion cells: type A cells are larger and project to the magnocellular division, and the smaller type B cells project to the parvocellular division (5). These two subdivisions of the visual pathway, which we will refer to as magno and parvo, are distinguishable both anatomically and physiologically. Whether this duality in the visual path arises even earlier, at the bipolar or horizontal cells in the retina, is not known. We can at least be reasonably certain that the two components must both derive their inputs from the same rods and cones and that the marked differencesin response properties must therefore depend on the way the photoreceptor inputs are combined.
+Though they differ significantly in their response characteristics, the magno and parvo systems do share some basic physiological properties. Their receptive fields (the regions of retina over which their impulse activity can be influenced) are all circularlysymmetrical, and about 90% show center-surround opponency (6, 7); some cells are excited (impulse rate speeded up) by illumination of a small
+
+10).
+Color. About 90% of the cells in the parvocellular layers of the geniculate are strikingly sensitive to differences in wavelength, whereas cells in the magnocellular layers are not. The three types of cones in the primate retinahave broad, overlapping spectralsensitivities and can be loosely termed red-, green-, and blue-sensitive, to indicate that their peak sensitivities are in the long-, middle-, and short-wavelength regions of the spectrum. Parvo cells are wavelength selective because they combine these cone inputs so as in effect to subtract them (Fig. 3, left). A typical parvo cell may, for example, receive excitatory inputs to its receptive field center from red cones only, and inhibitory inputs to its receptive field surround from green cones only. Such a cell will be excited by long wavelengths (reds), inhibited by short wavelengths (blues and greens), and be unresponsive to some intermediate wavelength (yellow). Besides such red-on center, green-off surround cells, most of the other possibilities also occur, most commonly red cones antagonized by green, and blue versus the sum of red and green (that is, yellow). In contrast to the color selectivity of most parvo cells, magno cells (and also the remaining 10% of the parvo cells) sum the inputs of the three cone types, so that the spectralsensitivity curves are broad, and the response to a change in illumination is of the same type, either on or off, at all wavelengths (Fig. 3, right) (11). The magno system is thus in effect color-blind: as in black-and-white photography, two different colors, such as red and green, at some relative brightness will be indistinguishable.
+Acuity. The second difference between magno and parvo cells is the size of their field centers. For both systems the averagesize of the receptive field center increaseswith distance from the fovea, consistent with the differences in acuity between foveal and peripheral vision. Yet at any given eccentricity, magno cells have larger receptive field centers than parvo cells, by a factor of 2 or 3.
+Speed.Magno cells respond faster and more transientlythan parvo cells. This sensitivity to the temporal aspects of a visual stimulus suggests that the magno system may play a special role in detecting movement. Many cells at higher levels in this pathway are selective for direction of movement.
+Contrast. Shapley et al. (10) found that magno cells are much more sensitive than parvo cells to low-contrast stimuli. Both begin to respond when the center and surround brightnesses differ by only 1 or 2%, but with increasing contrast magno responses increase rapidly and level off at about 10 to 15% contrast, whereas parvo responses increase more slowly, and saturate at far higher contrasts.
+These four major differences between the two subdivisions, in
+color, acuity, quickness, and contrast sensitivity, imply that they contribute to different aspects of vision. Exactly what aspects have become clearer recently, with new anatomical techniques that have
+
+6 MAY 1988
+
+ARTICLES 74I
+
+madeit possibleto followthesesubdivisionsfartherinto the central In the magno pathway, cells in layer 4B are orientation selective;
+
+nervoussystemandto correlatethemwiththeresponseselectivityof that is, they respond best to lines of a particularorientation, and
+
+cells at laterstagesin each subdivisionfor more abstractstimulus most of them also show selectivity for the direction of movement
+
+features.
+
+(18, 19)-for example, a cell preferringhorizontal lines may respond
+
+Continuationof themagnoandparvosubdivisionins visualarea1. when an edge is moved upward but not when it moves downward.
+
+The segregationof the two pathwaysis perpetuatedin the primary Like magnocellulargeniculate cells, cells in 4B lack color selectivity.
+
+visualcortex (12) (Fig. 4). Cells in the magnocellulargeniculate In the interblobs, most, perhaps all, cells are also orientation
+
+layersprojectto layer4Ca, whichprojectsin turnto layer4B, which selective. Unlike cells in layer 4B, most are not direction selective;
+
+then projectsto visualarea2 andto corticalareaMT. Parvocells 10 to 20% areend-stopped, responding to short but not long line or
+
+projectto layer4Cp, andfromtherethe connectionsgo to layers2 edge stimuli. The receptive fields are small, and the optimum line
+
+and 3, and fromthereto visualarea2. The parvocelluladrivision thicknessis similarto the optimum spot size of cells in the geniculate
+
+splitsto forman additionasl ubdivisionin the upperlayersof visual parvocellular layers at the same eccentricity. This system may
+
+area1. The firstevidencefor this furthersubdivisioncamein 1978 therefore be responsible for high-resolution form perception. Al-
+
+when Wong-Riley(13) stainedvisualarea1 for the mitochondrial though anatomical evidence indicates that the interblob system
+
+enzymecytochromeoxidaseandsawalternatingregionsof lightand receives its major input from the color-coded parvocellulargenicu-
+
+darkstaining.The darkregionsare roundor oval in sectionscut late layers,most of the interblob cells are not explicitly color-coded:
+
+parallelto the surface;they aremost prominentin the upperlayers they show no color opponency and respond well to achromatic
+
+(2 and3) but arealsofaintlyvisiblein layers5 and6. Theyturned luminance contrast borders. Nevertheless, many of them respond to
+
+out to representpillar-likestructuresabout 0.2 mm in diameter, an appropriately oriented color-contrast edge regardless of the
+
+spaced0.5 mmapart(14).Wetermthesestructurebs lobsbecauseof colors forming the edge or the relativebrightness of the two colors.
+
+theirthree-dimensionaslhape.Blobsarefoundonly in the primary Similarly,they usually respond to lines or borders of any brightness
+
+visualcortex;theyoccurin allprimatesthathavebeenlookedat,and contrast (light-on-dark or dark-on-light), even though the anteced-
+
+in the prosimianGalago,but havenot been found in otherprosi- ent geniculate cells are either on-center or off-center but not both.
+
+miansor anylowermammals(15).
+
+This suggests that much of the color-coded parvocellularinput is
+
+Since layers2 and 3 receivemost of their inputs from parvo- pooled in such a way that color contrast can be used to identify
+
+recipientlayer4CP, both the blobs and the interblobscould be borders but that the information about the colors (including black
+
+consideredcontinuationsof the parvosubdivisionN. everthelessthe versus white) forming the border is lost (20).
+
+blobs should probablybe thought of as a separatesubdivision, Blob cells are not orientation selective but are either color or
+
+becausethey have somewhatdifferentinputs and very different brightness selective. The blob system thus seems to carryinforma-
+
+responsepropertiesfrom the interblobs(16-18). The visual re- tion complementary to the information carried by the interblob
+
+sponsepropertiesof cells in the blobs suggestthat they may also system. The brightness-selective (non-color-coded or broadband)
+
+receivemagnocellulairnput(17, 18).
+
+blob cells have larger receptive field centers than the broadband
+
+Thus by the output stage of visual area 1 the magno system geniculate cells but are otherwise similar-they are either excited or
+
+remainssegregateda,ndtheparvosystemseemsto havesplitintotwo inhibited by small spots of light, and they respond less well to large
+
+branchesA. llthreesubdivisionsm, agno-4Cx--4B, parvo->4CP-- spots, indicating surround inhibition. These broadband blob cells
+
+interblob,andparvo(+magno?)--4CP--blob,thenprojectto visual could receive input from either the magnocellulargeniculate cells or
+
+area2.
+
+from the broadband parvo cells, but the physiological properties of
+
+These anatomicallydefinedsubdivisionsin the primaryvisual many of them would be more consistent with input from the magno
+
+cortexdifferfromeachotherin the kindsof visualinformationthey system (17, 18). We assume that the color-opponent blob cells
+
+carry(18), as in earlierstages.
+
+receive input from the color-opponent parvocellulargeniculate cells,
+
+Ret
+
+Movement
+
+? \
+
+VVc4ocloorlor Higher visual areas
+
+gan
+
+cell
+
+"s
+
+\
+
+.: .A-
+
+LGN
+NOq80OoO0
+
+Magnocellular
+
+08
+
+color-blind
+
+fast
+
+\
+
+high contrast sensitivity
+
+low resolution \
+
+Fig. 4. Diagramof the functionalsegregationof the primatevisualsystem.MT, middletemporal lobe; V4, visualarea4; LGN, lateralgeniculate body.
+742
+
+Primary visual cortex
+
+2&3
+4A
+4B a
+4C P
+5 6
+
+SCIENCE, VOL. 240
+
+Fig. 5. Section parallelto the surfacethroughvisualareas 1 and 2 of a squirreml onkey, stainedfor cytochromeoxidase. Visualarea1 is on the left; the blobs appear as small round dots. In Visualarea2 the cytochrome-oxidasestain revealsa pattern of alternating thin, thick,andpalestripes.
+though they differ from them in that their receptive field centers are larger and their color coding is doubly opponent-they give opposite responses to differentpartsof the spectrum in the center (say, on to red and off to green), and both types of center response are reduced when the spot is made larger.
+The blob and interblob systems thus work in entirely differentand complementary ways. Blob cells are explicitly color-coded, excited by colors in one region of the spectrum and inhibited by others, and not selective for stimulus orientation. Interblob cells are selective for stimulus orientation but mostly are not color selective, responding to a line or edge of the correctorientation regardlessof its color. The strategy of carrying orientation information in a system that mostly pools color information and color-contrast information in a separate system that does not carryorientation information is probably more efficient than having single cells selective for both the orientation and color of a border. Nevertheless, as emphasized earlier, although most of the interblob cells are not overtly color selective, they probably receive their inputs from explicitly color-coded parvocellular geniculate cells and are most likely not color-blind in the sense that the cells in the magno system probably are. Most interblob cells, even though they lose the information about the colors that form a border or the sign of the contrast of the border, should respond to color-contrast borders in which the two colors are equally bright; such borders would be invisible to magno cells.
+Visual area 2. The main target of visual area 1 is visual area 2 (Brodmann's area 18), which shows an equally intriguing pattern when stained for cytochrome oxidase (Fig. 5) (16, 21). Instead of small round dots, tangential sections show a pattern of stripes, much coarser than the blobs of visual area 1; these alternately dark and light stripes are several millimeters wide and run perpendicular to the border between visual areas 1 and 2, probably extending over the entire 8- to 10-mm width of visual area 2. The dark stripes are themselves of two types, thick and thin. The regularity of this pattern of thick, thin, and pale stripes varies from animal to animal and is clearer in New World monkeys than in Old World ones, at least partly because in Old World monkeys visual area 2 is buried in the lunate sulcus. Given three histologically defined regions in visual area 2 and the fact that visual area 1 has three kinds of subdivisions that project to other cortical areas, it was natural to ask if they were related. And indeed, from tracer injections into the three kinds of stripes in visual area 2, we found that the blobs are reciprocally connected to the thin stripes, the interblob regions to the pale stripes, and layer 4B to the thick stripes (Fig. 4) (18, 22).
+The next step was to record from cells in visual area 2, to learn whether the three subdivisions carry different types of visual information. We did indeed find marked differences,which were consist-
+
+ent with the properties of cells in the antecedent subdivisions of visual area 1 (18, 23).
+Cells in the thin stripesshowed no orientationselectivity,and overhalfwerecolor-coded,justaswe hadfoundin the blobs.As in theblobs,mostof the color-codedcellsweredoublyopponent,with two antagonisticinputsto theircenters,andsurroundantagonism for both of these centerinputs.About halfof the thin-stripecells, both broadbandandcoloropponent,exhibitedan additionalpropertynot seen in the blob cells:the receptivefieldcenterswere bigger, yet optimum spot sizes were about the same.A typicalcell mightrespondbest,say,to a 0.5?diameterspot,giveno responseat all to 2? or 4? spots (indicatingsurroundantagonism),and yet respondactivelyto the 0.5?spotanywherewithinanareaabout4?in diameterT. hesecellscanbe broadbandor coloropponent.Several yearsago Baizer,Robinson,and Dow (24) describedthis kindof broadbandcell, which they called "spot cells," in visual area 2.
+Cellsin the palestripesareorientationselectivebutnot direction selective.At least half of them are end-stopped;this representsa dramaticincreasein the proportionof end-stoppingover what is seenin visualarea1. We havearguedthatend-stopping,likecentersurroundantagonism,is an efficientway of encodinginformation aboutshape(23). Likecellsin theinterblobsp, ale-stripecellsarenot explicitlycolor-coded,and we expectthat they would respondto color-contrasbt ordersat all relativebrightnessest,hough we have not yet testedthis.
+In the thick stripesthe great majorityof cells likewiseshow orientationselectivity, but are seldom end-stopped.The most consistentresponseselectivitywe see in the thick stripesis for stereoscopicdepth-most cells respondpoorly to stimulationof either eye alone but vigorouslywhen both eyes are stimulated together,andfor most cellsthe responsesareextremelysensitiveto variationsin the relativehorizontalpositionsof the stimuliin the two eyes (retinaldisparity).Poggio and Fischer (25) had seen similardisparity-tunedcells in visual area 1 in alert monkeys, predominantliyn layer4B, the layerthatprojectsto thethickstripes of visualarea.2. In the thickstripeswe find the samethreebasic
+
+v ?
+
+g. 6.
+
+fromparaax atequiluminanceT.hepositionofthe
+
+middlebaris madeto varywiththeobserver'hs eadposition.In thiscase,the
+centerbarappearsto lie in frontof the referencebars,exceptwhenthe bars aremadeequiluminanwt ith the background(.B) Two framesof a moviein whichthe movementof dots generatesthe sensationof a three-dimensional object.Thedots appearto lie on the surfaceof a sphere(whichyou cansee by stereo-viewingthesetwo frames).All sensationof depthis lostwhenthe dots areequiluminanwt ith the background.
+
+6 MAY1988
+
+ARTICLES 743
+
+Fig. 7. Computer-generateidmages in whichshapeis generatedby shading. In the middle image the two colors are equiluminant,and the three-dimensionaslhapeis harderto discernthanin theothertwo images, which have luminance-contrast.
+
+classes of cells described by Poggio and Fischer-cells selective for near stimuli, far stimuli, or stimuli falling on exactly corresponding retinal points. Like cells in the pale stripes, these cells show no color selectivity; moreover, we would predict that these cells would be like their magnocellular predecessors and would not respond to colorcontrast borders when the colors are equally bright, though we have not yet tested responses to equiluminant color-contrast borders either in layer 4B of visual area 1 or in the thick stripes of visual area 2.
+Other studies (26, 27) have not reported such a clean segregation of cells with different physiological properties in visual area 2, or as clear a correlation of physiological subtypes with the three types of stripes. How clear the functional segregation is in visual area 2 remains to be resolved, but we suspect that these differencesare due to choice of classification criteria (23).
+Higher visual areas. Meanwhile, explorations of visual areas beyond 1 and 2 are helping close the gap between the functions suggested by electrophysiological studies and what clinical observations imply about the segregation of various functions in the human visual system. The response properties of cells at levels beyond visual area2 suggest that the segregation offunctions begun at the earliestlevels is perpetuated at the highest levels so farstudied. Indeed, the segregation seems to become more and more pronounced at each successive level, so that subdivisions that are
+interdigitated in visual areas 1 and 2 become segregated into entirely separate areas at still higher levels. One higher visual area in the middle temporal lobe, MT, seems to be specializedfor the analysisof movement and stereoscopic depth (28). It receives input not only from layer4B in visual area1 (29), which is also rich in directionality and disparity selectivity, but also from the thick stripes in visual area 2 (26, 30), which, as alreadydescribed, contain many cells selective for binocular disparity (23). Another higher visual area, visual area 4, has been reported to contain a preponderance of color-selective cells (31), but just how specialized visual area 4 is for color is still unclear since many of the cells show some selectivity for orientation. Visual area 4 receives input from the color-coded thin stripes in visual area 2 and possibly from the pale stripes (26, 30, 32). The notion that there is a higher visual area devoted largely to the processing of color information is consistent with the clinical observation that patients with strokes in the posterior inferior occipital lobe (perhaps in a region homologous to visual area4) can lose color perception without impairment of form or movement
+perception. There are strong suggestions that these channels remain segregat-
+ed through still higher levels in the brain (33). From lesion studies Pohl (34) and Ungerleider and Mishkin (35) have defined two
+
+functionally distinct divisions of visual association areas:the temporal-occipitalregion, necessaryfor learningto identify objects by their appearance, and the parieto-occipital region, needed for tasks involving the positions of objects, a distinction they refer to as "where"versus "what." Visual area 4 preferentiallyprojects to the temporal division and MT primarilyto parietalcortex (36). Thus the temporal visual areas may represent the continuation of the parvo system, and the parietal areas the continuation of the magno pathway. There can be little doubt that in the next few yearswork on the dozen or so areasnorth of the striate cortex will greatly enhance our understanding of vision in general.
+Human Perception
+Despite many gaps, the picture beginning to emerge from the anatomical and electrophysiological studies summarized above is that the segregation begun in the eye gives rise to separate and independent parallel pathways. At early levels, where there are two major subdivisions, the cells in these two subdivisions exhibit at least four basic differences-color selectivity, speed, acuity, and contrast sensitivity. At higher stages the continuations of these pathways are selective for quite different aspects of vision (form, color, movement, and stereopsis), thus generating the counterintuitive prediction that different kinds of visual tasks should differ in their color, temporal, acuity, and contrast characteristics.To test this prediction, we asked whether the differences seen in the geniculate can be detected in conscious human visual perception by comparing the color, temporal, spatial, and contrast sensitivities of different visual functions. Many of these questions, not surprisingly, have already been asked, and the answers are wonderfully consistent with the anatomy and physiology. For several decades psychologists have accumulated evidence for two channels in human vision, one chromatic and the other achromatic, by showing that differenttasks can have very different sensitivities to color and brightness contrast. Given what we know now about the electrophysiology and the anatomy of the subdivisions of the primate visual system, we can begin to try to correlate the perceptual observations with these subdivisions (37). Though at higher cortical levels there seem to be three subdivisions, possibly with some mixing of magno and parvo inputs to the blob system, the most important distinction is probably between the magno system (magno->4Cx-->4B--MT) and the parvo-derivedsubdivisions (parvo--4Cp---interblobs--pale stripes-- visual area4?) and [parvo(+magno?)-4C-->blobs--thin stripes--visual area 4]. In our discussion of human perception we will, therefore, stress the distinctions between functions that seem to
+
+744
+
+SCIENCE, VOL. 240
+
+Fig. 8. Gibson'scorridoril-
+
+Findingcellsin the thickstripesof visualarea2 andin MT that
+
+lusion.[From(47) with per-
+
+aretunedto retinaldisparitysuggeststhatthe magnosystemis also
+
+mission, copyright 1950, HoughtonMifflin]At equiluminance the image no longer appears to recede
+
+involvedin stereoscopicdepthperception.Consistentwith this,Lu and Fender (42) found that subjects could not see depth in equiluminantcolor-contrasrt andom-dotstereogramseven though
+
+into the distance, and the cylindersallappearto be the same size, as indeed they actuallyare.
+
+the dots makingup the stereogramremainedperfectlyclear(43).
+
+s
+:7
+
+This findinghas been disputed,but we found that differencesin
+
+F resultscan arisefrom variationsin subjects'equiluminancepoints
+
+with eccentricityw, hich makeit difficultto achieveequiluminance
+
+acrossthevisualfield.Likemovementperceptions, tereopsisfailsfor
+
+stereogramscontainingonly high, but resolvable,spatialfrequen-
+
+//
+
+/ 7 cies, but it is not diminishedfor rapidlyalternatingor very low
+
+contraststereograms(37) (Table1).
+
+"
+
+Deductionoffurthermagnoorparvofunctionfsromperceptuatlests.
+
+Z"
+
+Sincethe functionsthat electrophysiologicasltudieshad suggested
+
+should be carriedby the magno systemdid indeedshow all four
+
+distinguishingcharacteristicosf that system, we decided to ask
+
+whetherother visual functions,ones not predictedby single-cell
+
+response properties,might also manifest some or all of these
+
+be carriedexclusivelybythemagnosystemandthosethatseemto be properties.
+
+carriedby the parvo-derivedpathways.
+
+If a particulamr agnocellsumsredandgreeninputs,therewill be
+
+Fromthe factthat the magnosystemis color-blindandis faster ared: greenratioatwhichtheredandgreenwillbeequallyeffective
+
+thanthe parvosystem,we canpredictthatdiscriminationof color in stimulatingthecell.Thisneednot implythateverymagnocellhas
+
+and discriminationof brightnessshould have differenttemporal the sameratioof redto greeninputsandthereforenecessarilythe
+
+propertiesT. his is indeedso: in 1923 Ives (38) showedthatpeople same equiluminancepoint. Nevertheless,the fact that movement
+
+can follow brightnessalternationsat much fasterratesthan pure and stereopsisfail at equiluminanceimplies that, for a given
+
+color alternations.
+
+observer,the null ratiomustbe verysimilarfor the majorityof his
+
+The high incidenceof movementanddirectionselectivityin MT cells responsiblefor that function.Kriiger(44) found that of 33
+
+suggeststhat this areamay be particularlyconcernedwith move- magnocellulargeniculatecellsstudiedin two monkeys,75%were
+
+mentperceptionB. ecauseanatomicallMy T receivesitsmajorinputs unresponsiveto a moving color-contrastborder at a particular
+
+fromlayer4B of the primaryvisualcortexandfromthethickstripes relativebrightness-a brightnessratio that was very close to a
+
+of visualarea2, bothpartof themagnopathway,one wouldpredict humanobserver'sequiluminanpt oint.Thusnot only do individual
+
+that humanmovementperceptionshouldsomehowreflectmagno cellsin the magnosystemseemto be color-blind,butthe properties
+
+characteristicsc:olor blindness,quickness,high contrastsensitivity, of stereopsisand movementperceptionindicatethat the magno
+
+and low acuity. Perceptualexperimentsindicatethat movement systemasawhole is color-blind.[Thereis, however,currentlysome
+
+perceptiondoes indeed have these characteristicsF.irst, it is im- disagreemenatboutwhetherthe magnosystemis inactiveatequilu-
+
+pairedfor patternsmade up of equiluminantcolors: Cavanagh, minance (45).] People with the most common forms of color
+
+Tyler,andFavreau(39) foundthatif theygeneratedmovingredand
+
+green sinewavestripes, "the perceivedvelocity of equiluminous
+
+gratingsis substantiallsylowed... thegratingsoftenappearto stop
+
+even though their bars are clearly resolved ... the motion is appreciatedonlybecauseit is occasionallynoticedthatthebarsareat
+
+* 00
+
+somenewposition"(39, p. 897;40). Second,movementperception is impairedat high spatialfrequencies,consistentwith the lower
+
+Display *-
+
+acuity of the magno system. Campbelland Maffei (41) viewed
+
+slowlyrotatinggratingsandfoundalossof motionperceptionatthe
+
+highestresolvablefrequencies", Ata spatialfrequencyof 16 and32
+
+cycles/dega strangephenomenonwas experiencedt,he gratingwas perceivedas rotatingextremelyslowly and most of the time it
+
+_ e .. _ .
+
+actuallyappearedstationaryO. f course,the subjectcouldcallupon hismemoryanddeducethatthe gratingmustbe movingforhe was
+
+Perceptat
+
+*
+
+non-equiluminance
+
+* -
+
+00
+,
+
+or
+
+awarethatsomesecondsbeforethe gratinghadbeenat a particular
+
+'clock-faceposition.'Evenwith this additionalinformationthatthe
+
+gratingmustbe rotatingthe illusionof 'stoppedmotion'persisted"
+
+(41, p. 714). Whatis most surprisingaboutthe perceptionof both
+
+theequiluminansttripesandtheveryfinestripesis thateventhough
+
+the sensationof movementis entirely,or almostentirely,lost, the stripesthemselvesarestillclearlyvisible-they areclearenoughthat
+
+Perceptat equiluminance t
+vt .*@
+
+changesin theirpositioncanbe seen,eventhoughtheydo not seem
+
+to be moving.Last,movementcan be vividlyperceivedwith very
+
+rapidlyalternatingor very low contrastimages(37, 41). Thus, as summarizedin Table1, the propertiesof humanmovementperception are remarkablyconsistentwith the propertiesof the magno
+
+Fig. 9. Linkingby movementis lost at equiluminanceA. ll nine of the oanmebsiegeunoaulsomnoetcioounlsdqbuearseeesanpmpeoavritnogmeiothveerihnosryinzcohnrtaolnlyyoe,rvveenrtthicoaulglyhT.ahniys
+
+system.
+
+linkingdisappearas t equiluminancea,ndthe dots moveeverywhichway.
+
+6 MAY1988
+
+ARTICLES 74-5
+
+blindness, due to the lack of one of the three cone pigments, are not nearly as color-blind as the magno system appears to be. They still have two cone types to compare, and so they confuse only a small fraction of possible color pairs and can differentiatemost color pairs at all relative brightnesses.
+Since both motion perception and stereoscopic depth perception are lost at equiluminance, we suspected that the ability to use relative motion as a depth cue might also be lost. Relative motion is a very powerful depth cue: when an observer moves his head back and forth or moves around in his environment, the relative motion of
+objects provides information about their distance. In the experiment shown in Fig. 6A, the position of the middle bar was coupled to head movement, and the middle bar appearedto be either behind or in front of the reference bars, depending on whether its movement was the same as, or contrary to, the head movement. When the bars
+were made equiluminant with the background, all sensation of
+depth disappeared (37). Relative movement of different parts of a three-dimensional
+object is also a powerful depth cue. Figure 6B shows two framesof a movie in which random dots move, some to the right and some to the left, as if they were pasted on a rotating spherical surface. The movie gives a powerful sensation of a rotating spherical surfaceunless the dots are equiluminant with the background, and then all sensation of depth is lost (37), and the dots seem to dance aimlessly. Thus depth from motion, both from viewer parallaxand from object motion, seems also to depend on luminance contrast and could well
+be a function of the magno system. Consistent with this idea, we could see depth from motion at very low levels of luminance contrast(37).
+The retinalimage is of course two-dimensional, and to capturethe three-dimensional relationships of objects the visual systems uses many kinds of cues besides stereopsis and relativemotion-perspective, gradients of texture, shading, occlusion, and relativeposition in the image. We wondered whether the sensation of depth from any of these other cues might also exhibit magno characteristics. It
+
+seemed especially likely that the ability to perceive depth from
+shading might be carriedby an achromaticsystem, because shading is almost by definition purely luminance-contrast information; that is, under naturallighting conditions a shaded region of an object has the same hue as the unshaded parts, simply darker. But in biology just because something could, or seemingly even should, be done in
+a certainway does not mean that it will be. Nevertheless, Cavanagh and Leclerc (46) found that the perception of three-dimensional shape from shading indeed depends solely on luminance contrast. That is, in order to produce a sensation of depth and threedimensionality, shadows can be any hue as long as they are darker
+than unshaded regions of the same surface. Many artists seem to have been awareof this; for example, in some of the self-portraitsof Van Gogh and Matisse the shadows on their faces are green or blue, but they still convey a normally shaped face. Black-and-white photographs of these paintings (taken with film that has approximately the same spectral sensitivity as humans) confirm that the shadows are actually darkerthan the unshaded parts. The converse can be seen in Fig. 7; here the green shadows do not convey a sensation of depth and shape when they are the same brightness as the blue but do when they are darker (when the blue is darker,the
+blue parts are interpreted as shadowed). Perspective was well known to artists by the time of the Renais-
+sance and is a powerful indicator of depth. Converging lines or gradients of texture are automatically interpreted by the visual system as indicating increasing distance from the observer; thus the image in Fig. 8 (47) looks like a corridor receding into the distance despite the conflicting information from other depth cues, the absence of stereopsis or relative motion, which tells us we are looking at a flat surface. The perception of depth from perspective probablyunderliesmany illusions: the two cylindersin Fig. 8 arethe same size (and they each cover the same areaon your retina), but are
+perceived by most people as being unequal. We found that when images with strong perspective are rendered
+in equiluminant colors instead of black and white, the depth
+
+Table 1. Summaryof the correlationsbetweenhumanpsychophysicarlesultsandthe physiologicapl ropertiesof the threesubdivisionsof the primate geniculo-corticavlisualsystem.A checkindicatesthat the psychophysicarlesultsareconsistentwith the physiology,and a blankindicatesthat suchan experimenht asnot beendone.
+
+Magno System
+
+ParvoSystem
+
+Physiology
+Humanperception
+Movementperception Movementdetection Apparentmovement
+Depth cues Stereopsis Interocularrivalry Parallax Depth frommotion Shading Contourlines Occlusion Perspective
+Linkingproperties Linkingby movement Linkingby collinearity (illusoryborders) Figure/ground discrimination
+
+Color selectivity
+no
+
+Contrast Temporal Spatial
+
+sensi-
+
+reso- reso-
+
+tivity lution lution
+
+high
+
+fast
+
+low
+
+/
+
+I
+
+/
+
+/
+
+/I
+
+/
+
+/
+
+v/ /
+
+/
+
+/
+
+/
+
+v/ v/
+
+/
+
+/
+
+I
+
+vi
+
+I
+
+//
+
+/
+/
+
+/
+
+/
+
+Physiology
+Humanperception Shapediscrimination
+Orientation discrimination
+Shapediscrimination
+
+Parvo-> Interblobpathway
+
+Color Contrast Temporal Spatial
+
+selec- sensi-
+
+reso- reso-
+
+tivity tivity
+
+lution lution
+
+yes low
+
+slow high
+
+/
+
+/
+
+/
+
+/
+
+l
+
+/
+
+/
+
+Parvo+(Magno?-)- Blobpathway
+
+Physiology
+Humanperception Color perception
+Color determination Flickerphotometry
+746I
+
+Color Contrast Temporal Spatial selec- sensi- reso- resotivity tivity lution lution
+
+yes high
+
+slow low
+
+/ v
+SIENCE, VOL. 240
+
+74-6
+
+SCIENCE, VOL. 24.0
+
+Fig. 10. Linkingbycolinearity.It is clear which edges are part of the sameobject,evenwhenoccludedby another object. At equiluminance this linkingdisappearsa, ndit looks likeajumbleof linesinsteadof apile of blocks.After(49).
+Fig. 11. Illusorybordersw, hichdisappearat equiluminanceR. edrawn from (52).
+EI I
+sensation is lost or greatly diminished (37). Illusions of size are likewise lost at equiluminance-the cylinders in Fig. 8 are then all correctly perceived as being the same size. As with movement and stereopsis, the most startling aspect of this phenomenon is that even though the sensation of depth and the illusory distortions due to inappropriatescale all disappearat equiluminance, the lines defining the perspective and the individual elements in the image are nevertheless still clearly visible. This seems to us to rule out highlevel, cognitive explanations for depth from perspective and the illusions of perspective; if you see depth because you merely know that converging lines mean increasing distance, you should be able to perceive the depth from the converging lines at equiluminance. Thus at a relatively low level in the visual system some simple interactions must initiate the automatic interpretation of a twodimensional image into three-dimensional information; moreover, these operations seem to be performed only in the achromatic magno system, not in the parvo system.
+Why should the depth and movement functions described above all be carriedby the magno system and not by the parvo system?We at first assumed that it was because they might all be performed best by a system with the special characteristicsof the magno system. But later we wondered if these various functions might be more related than they seemed at first-whether they could all be parts of a more global function. We were struck by the similarity between the list of functions we had ascribed to the magno system and the Gestalt psychologists' list of features used to discriminate objects from each other and from the background-figure/ground discrimination (48). Most scenes contain a huge amount of visual information, information about light intensity and color at every point on the retina and the presence and orientation of discontinuities in the light pattern. The Gestalt psychologists recognized that one important step in making sense of an image must be to correlate related pieces of visual information; that is, to decide whether a series of light/dark discontinuities forms a single edge, whether adjacent edges belong to the same object, whether two parts of an occluded edge are related, and so on. They determined that several kinds of cues are used in this way and to organize the visual elements in a scene into
+
+discreteobjects,to distinguishthem fromeachotherandfromthe backgroundB. arlow(49) hascalledthese"linkingfeatures"because theyareusedto linkor join relatedelements.Theselinkingfeatures include: common movement (objects move against a stationary backgroundc;ontoursmovingin the samedirectionandvelocityare likelyto belong to the same object, even if they are differentin orientationor not contiguous);commondepth(contoursat different distancesfromthe observerareunlikelyto belongto the same object);collinearity(if a straightor continuouslycurvedcontouris interruptedby beingoccludedby anotherobject,it is stillseenas a single contour);and common color or lightness.The resultsdescribedbelow suggest,however,thatonly luminancecontrast,and not colordifferencesi,s used to linkpartstogether.
+RamachandraanndAnstis(50) discovereda powerfulexampleof linkingby movement.If two dots on a diagonalarealternatedwith two otherdots,in mirror-imagpeositions,anobserverseesapparent movement,whichcanbe eitherhorizontalorvertical.The direction of the observedalternatingmovementis completelyambiguous; observersusuallyseeone directionforafewseconds,andthenflipto theother.Witha displayof severalsuchambiguous-motionsquares in an array(Fig. 9) all the squaresareperceivedas moving in the samedirection,likeRockettes,eitherallhorizontallyor allvertically (eventhough anyone of them viewedaloneis equallylikelyto be perceivedas moving in either direction),and when one flips its apparentdirectionof movement,they all flip. When the dots are made equiluminantwith the backgroundthe synchronybreaks down andthey all seemto move independently(37).
+Linkingby collinearity(Fig. 10) alsobreaksdownwhenthe lines areequiluminantwith the background;the figurethen just looks like a jumble of lines instead of a pile of blocks. Linking by collinearityis seenin the phenomenonof illusorycontours(51,52), figuresthatproducea vividperceptionof anedge in the absenceof any realdiscontinuity(Fig. 11). When these figuresaredrawnin equiluminanctolors,the illusorybordersdisappeare,venthoughthe elementsdefiningthem (the pacmen,the spokes,the lines, or the circles)remainperfectlyvisible.Becausethe perceptionof illusory bordersalsomanifestsfasttemporalresolution,high contrastsensitivity, and low spatial resolution, we suspect that it too may representa magno function. Illusory bordershave been called "cognitivecontours"becauseof the suggestionthatthe perception of the borderis dueto a high-leveldeductionthattheremustbe an objectoccludingapartiallyvisiblefigure(53). Wesuspectthatthisis not the casebecausethe illusorybordersdisappearat equiluminance, eventhoughthe realpartsof the figurearestillperfectlyvisible.
+Fifty years ago the Gestaltpsychologistsobservedthat figure/ grounddiscriminationandthe abilityto organizethe elementsin a scene decreaseat equiluminanceE. quiluminantfigureshave been describedas "jazzy,""unstable,""jelly-like,"or "disorganized"(43, 54). Koffka(55) pointedout thatluminancedifferencesarestrikingly moreimportantthancolordifferencesfor figure/groundsegregation: 'Thus two greyswhich look verysimilarwill give a perfectly stableorganizationif one is usedforthe figureandthe otherforthe ground,whereasa deeply saturatedblue and a grey of the same luminositywhichlookverydifferentindeedwill producepractically no suchorganization"(54, p. 127). EdgarRubin'spopulardemonstrationof the problemof figure/grounddiscriminationis the vase/ faces(Fig. 12). At non-equiluminancteheperceptis bistable,so that one seeseitherthefacesor thevase,butusuallynot bothatthe same time. At equiluminancethe two perceptsreverserapidly,and one canoccasionallysee both thevaseandthe facessimultaneouslyT. he distinctionbetween figureand ground thus gets weakeror even
+disappears entirely. Colorcontrastversuscolorbleeding.At any point in the visual field,
+cells in the blobs have receptive field centers that are two to four
+
+6 MAY 1988
+
+ARTICLES 747
+
+Fig. 12. Rubin'sdemonstrationof figure/grounddiscrimination[after (48)]. In a luminance-contraismt age like this you see eitherthe vase or the faces but not both. At equiluminanceyou can see both simultaneously,or theyalternatve eryrapid-
+ly.
+
+tionsmayincludedecidingwhichvisualelements,suchasedgesand discontinuitiesb, elongto anddefineindividuaol bjectsin the scene, aswellasdeterminingthe overallthree-dimensionaolrganizationof the sceneand the positionsof objectsin spaceandmovementsof objects.
+If the magnosystemcoverssucha broadrangeof functions,then whatis the functionof the tenfoldmoremassiveparvosystem?The colorselectivityof the parvosystemshouldenableus to see borders
+
+using color informationalone and thus bordersthat might be camouflagedto the color-blindmagnosystem.But defeatingcamouflage may be only a small part of what the parvo system is
+
+specializedfor.Experimentws ithfadingof low contrastimages(37) timeslargerthanthose in the interblobs(18). Sinceonly the blobs indicatethatthe magnosystemis not capableof sustainedscrutiny, seem to retaininformationabout the sign of color contrast,we sinceimagesthatcan be seen by only the magnosystemdisappear suspectthat they are responsiblefor the perceptionof the actual aftera few secondsof voluntaryfixation.Thus while the magno colorsof objects,asopposedto the abilityto usecoloror luminance systemis sensitiveprimarilyto movingobjectsandcarriesinformacontrastto perceivethe bordersof objects.This impliesthatcolor tion aboutthe overallorganizationof the visualworld,the parvo perceptionshouldhavelower spatialresolutionthanformpercep- system seems to be importantfor analyzingthe scene in much tion.Thisdifferencein spatialresolutionmayexplainaphenomenon greaterandmoreleisurelydetail.Thesepostulatedfunctionswould of colorperceptiondescribedby Chevreul(56) in 1839 andby von be consistentwith the evolutionaryrelationof the two systems:the Bezold (57) in 1876, the phenomenonof bleeding.The way two magnosystemseemsto be more primitivethan the parvosystem adjacentcolorscan affecteachother dependson theirgeometrical (60) and is possiblyhomologous to the entire visual systemof arrangementW. hentwo largeregionsof colorabut,theirapparent nonprimatemammals.If so, it should not be surprisingthat the
+
+colorsandlightnessesrepeleachother,eachmakingthe otherlook magnosystemis capableof whatseemto be the essentialfunctions
+
+morelikeitscomplementa, phenomenonconsistentwiththecenter/ of vision for an animalthat uses vision to navigatein its environ-
+
+surroundantagonismin the blob system.For example,a grayspot ment,catchprey,andavoidpredatorsT. he parvosystem,whichis
+
+surroundedby red will look slightlygreenish,and the samegray well developedonly in primates,seemsto haveaddedthe abilityto
+
+surroundedby greenwill appearslightlyreddish;surroundingthe scrutinizein much more detail the shape, color, and surface
+
+graybywhitewillmakeit appeardark,andsurroundingit by black propertiesof objects,creatingthe possibilityof assigningmultiple
+
+will makeit seemlighter.This is calledsimultaneouscontrastand visualattributesto asingleobjectandcorrelatingitsparts.Indeed,if
+
+can be seen in Fig. 13. Two colorscan have exactlythe opposite the magnosystemneedsto use the variousvisualattributesof an
+
+effecton eachotherif theirgeometricaal rrangemenits suchthatone objectin orderto linkitspartstogether,thiscouldprecludeitsbeing formsa veryfinepattern,suchasfinestripesor dots,with the other ableto analyzethe attributesindependentlyI.t thus seemsreasonas a backgroundI.n the lowerhalfof Fig. 13, the mortarseemsto able to us that the parvo->--temporal lobe system might be bleedinto the surroundinggray;the white mortarmakesthe gray especiallysuitedfor visualidentificationandassociation.
+
+looklighter,andthe blackmortarmakesthe samegraylook darker. Is the existenceof separatepathwaysanaccidentof evolutionor a
+
+We suspectthat bleedingoccurswhen a patternis too fine to be usefuldesignprinciple?Segregatingtheprocessingof differenttypes
+
+resolvedby the low acuitycolor systembut not too fine for the of informationinto separatepathwaysmight facilitatethe interac-
+
+higher-resolutionform system.Thus you see a pattern,but the tionsbetweencellscarryingthe sametypeof informationI.t might
+
+colorsdo not seem to conformto the pattern.We thinkthat the alsoalloweachsystemto developfunctionsparticularlsyuitedto its
+
+interblobsystemandthe magnosystemcanboth defineshape,and specialization.If the parvo system did evolve after the magno
+
+we cannotpredictwhetherone or the otheris moreimportantin system,by duplicationof previouslyexistingstructuresi,t should
+
+definingthe bordersto whichthe coloris assigned.Someobserva- not be surprisingto findsome redundancyin the propertiesof the
+
+tions, however,suggest that the magno systemcan influencethe two systems.Indeed,bothseemto carryinformationaboutorienta-
+
+spreadingof color: color bleeding can be containedby illusory
+
+bordersor by bordersdefinedonly by stereopsis;also, stationary
+
+patchesof colorcanseemto movewith movingluminance-contrast
+
+stimuli (58).
+
+Of coursea patterncanbe too fineto be seenby eithersystem,as
+
+in the microscopicdots used in magazineillustrationsI.n this case
+
+the individualdots cannotbe seen, and the colors simplyblend. Manyartistsof the Impressionispt eriodwereawareof the waythe colorsin a resolvablepatterncan bleed;they often made dots or
+
+Fig. 13. Simultaneous contrastversusbleeding. This phenomenon is shown for black and
+
+dabsof paintlargeenoughto be seen, but smallenoughthattheir white, but it is alsotrue
+
+colorsblended(59).Thetelevisionindustrytakesadvantageof these for colors.Whena spot
+
+differenceisn spatialresolutionby broadcastingthecolorpartof the image at a lower resolutionthan the blackand white part, thus reducingthe amountof informationto be carried.
+
+is surroundedbyanother color or brightness,the apparent color of the spot tends toward the
+
+Whyshouldthe visualsystembe subdividedE?lectrophysiological opposite, or comple-
+
+studiessuggestthat the magno systemis responsiblefor carrying informationabout movementand depth. We extendedour ideas aboutthe possiblefunctionsof the magnosystemwith perceptual studiesand concludedthat the magno systemmay have a more
+
+ment, of the surround. The exactoppositehappens when one color formsa fine patternon the other;then the col-
+
+global functionof interpretingspatialorganization.Magno func- orsbleed.
+
+748
+
+SCIENCE, VOL. 240
+
+tion, and perceptual experiments indicate that both systems can be used to determine shape.
+
+22. M. S. LivingstoneandD. H. Hubel,J. Neurosci7., 3371 (1987). 23. D. H. HubelandM. S. Livingstonei,bid.,p. 3378. 24. J. S. Baizer,D. L. Robinson,B. M. Dow,J. Neurophysio4l0., 1024 (1977).
+
+We have summarized the anatomical, physiological, and psycho- 25. G. F. Poggio andB. Fischer,ibid.,p. 1392; G. F. Poggio, in DynamicAspecotsf
+
+logical evidence for segregation of function in the primate visual system. By comparing our own perceptual abilities with the electro-
+
+NeocorticFalunctionGs .M. EdelmanW, . E. Gall,W.M. Cowan,Eds.(Wiley,New York,1984), pp. 631-632. 26. E. A. DeYoeandD. C. Van Essen,Nature(London3)17, 58 (1985).
+
+physiological properties of neurons in different subdivisions of the
+visual system, we may be able to deduce functions of particular visual areas, functions that might not have been obvious from
+
+27. A. BurkhaltearndD. C. Van Essen,J.Neurosci6., 2327 (1986). 28. R. DubnerandS.M. Zeki,BrainRes3. 5, 528 (1971);J.H. R. Maunselal ndD. C.
+VanEssen,J.Neurophysio4l9., 1148 (1983). 29. J. S. Lund,R. D. Lund,A. E. HendricksonA, . H. Bunt,A. F. Fuchs,J. Comp.
+
+electrophysiological observations alone. We can now go back to physiological experiments to test some of the ideas raised by the
+
+Neurol. 164, 287 (1975); W. B. Spatz, Brain Res 92, 450 (1975); L. G. UngerliederandM. Mishkin,J.CompN. eurol.188, 347 (1979). 30. S. ShippandS. Zeki,Nature(London3)15, 322 (1985).
+
+perceptuael xperiments.
+
+31. S. Zeki,ibid.284, 412 (1980).
+
+32. References(26) and(30) arein agreementthatthethickstripesprojectto MTand
+
+REFERENCESAND NOTES
+
+thatthe thin stripesprojectto visualarea4, but only (26) reportsthatthe pale stripesprojectto visualarea4.
+
+1. H. LissauerA, rch.PsychiatrN. ervenkr2.1, 22 (1890); J. Bodamer,ibid.179, 6 33. Fora review,J. H. R. MaunsellM, attersofIntelligenceL,. M. Vaina,Ed. (Kluwer
+
+(1947);A. R. Damasio,T. YamadaH, . Damasio,J. Corbett,J.McKee,Neurology AcademicN, orwell,MA, 1987), pp. 59-87.
+
+30, 1064 (1980); A. L. PearlmanJ,. Birch,J. C. MeadowsA, nn. Neurol.5, 253 34. W. Pohl,J. CompP. hysiolP. sychol8.2, 227 (1973).
+
+(1979);D. Verrey,ArchO. phthalmo(lP. aris)8,289 (1888);R. Balint,Monatsschr. 35. L. G. UngerleiderandM. Mishkini,nAnalysiosfVisuaBl ehaviorD, . J.Ingle,M.A.
+
+PsychiatNr.eurol2. 5, 51 (1909);J. Zihl,D. Von CramonN, . Mai,Brain106, 313
+
+Goodale,R. J.W. MansfieldE, ds. (MITPress,CambridgeM, A, 1982), pp. 549-
+
+(1983). Corticalossof colorperceptionandlossoffacerecognitionusuallyoccur
+
+586.
+
+together,but eachcanoccurindependently. 2. H. Munk,CentralblP.rakt.Augenheilk3., 255 (1879).
+
+36. K. S. RocklandandD. N. Pandya,BrainRes. 179, 3 (1979); R. Desimone,J. Fleming,C. G. Gross,ibid.184, 41 (1980); J. H. R. MaunsellandD. C. Van
+
+3. M. MinkowskiA, rch.Neurol.Psychiatr6., 201 (1920).
+
+Essen,J.Neurosci3., 2563 (1983).
+
+4. W.E. LeGrosClarkandG.G.PenmanP, rocR. . SocL. ond.Ser.B 114,291 (1934); 37. M. S. LivingstoneandD. H. Hubel,J.Neurosci7. , 3416 (1987).
+
+S. Brody,Proc.Kon.Ned.Akad.Wet.37, 724 (1934); J. G. MalpeliandF. H. 38. H. E. Ives,J. Opt.Soc.Am. Rev.Sci.Instr.7, 363 (1923).
+
+Baker,J.CompN. eurol.161, 569 (1975).
+
+39. P. CavanaghC, . W. Tyler,O. E. Favreau,J.Opt.SocA. m. 8, 893 (1984).
+
+5. A. G. LeventhalR, . W. Rodieck,B. Dreher,Scienc2e13, 1139 (1981). 6. S. W. Kuffler,JN. europhysio1l6. , 37 (1953). 7. T. N. WieselandD. H. Hubel ibid.29, 1115 (1966); P. H. SchillerandJ. G.
+
+40. We found(37) thatapparenmt ovementas well as realmovementdisappearedat equiluminanceT.his resultis controversialb,utwe suspectthatdifferentfindings maybe dueto difficultieisn achievingequiluminancaecrossthevisualfield.
+
+Malpeli,ibid.41, 788 (1978).
+
+41. F. W. Campbelal ndL. Maffei,VisionRes.21, 713 (1981).
+
+8. R. L. DeValois,E. AbramovG, .H. Jacobs,J.Opt.Soc.Am.56,966 (1966);R. L. 42. C. Lu andD. H. Fender,Invest.Ophthalmo1l.1, 482 (1972).
+
+De Valois,D. M. SnodderlyJ, r.,E. W. Yund,N. K. Hepler,Sens.Process1., 244 43. R. L. GregoryP, erceptio6n, 113 (1977).
+
+(1977);A. M. DerringtonJ, . KrauskopfP, . Lennie,J.Physiol(.London3)57, 241 44. J. KriigerE, xp.BrainRes.30, 297 (1979).
+
+(1984);E. KaplanandR. M. Shapleyi,bid.330, 125 (1982);ProcN. atl.Acad.Sci. 45. Derringtonand Lennie (9) have reportedthat magnocellularneuronsare less
+
+U.S.A. 83, 2755 (1986); B. Dreher,Y. Fukada,R. W. Rodieck,J. Physiol.
+
+(London2)58, 433 (1976); T. P. Hicks,B. B. Lee,T. R. 183 (1983); P. Gouras,ibid. 199, 533 (1968); ibid.
+
+Vidyasagari,bid.337, 204, 407 (1969); F.
+
+responsivethanparvocellulanreuronsat equiluminanceb,ut arenot unresponsive. P. H. SchillerandC. L. Colby[VisionRes.23, 1631 (1983)] andA. C. Hurlbert, N. K. Logothetis,E. R. Charles,andP. H. Schiller[SocN. euroscAi. bstr.13, 204
+
+deMonasterioandP. Gouras,ibid.251, 167 (1975). 9. A. M. DerringtonandP. Lennie,J. Pbysiol(.London3)57, 219 (1984).
+
+(1987)] have reportedthat cells in the parvosystem,not the magno system, becomeunresponsiveat equiluminanceT. his issueclearlyremainsto be resolved
+
+10. R. ShapleyE, . Kaplan,R. Soodak,Nature(London2)92, 543 (1981).
+
+andis discussedin (37).
+
+11. Themagnosystemclearlycombinesthe inputsfromthe redandthe greencones, 46. P. Cavanaghand Y. Leclerc,Invest.OphthalmolV. isualSci. (suppl.) 26, 282
+
+butthecontributionfromtheblueconesis so smallthatit is not clearwhetherthe
+
+(1985).
+
+mnoatgcnoomsypstleetmerlyebceriovaedsabnaynidn,pinuttahtaatlltfhreoimr trheecebplutievceofineelds.Asulsror,omunagdnsaorceelolsfaterne
+
+47. J. J. Gibson,ThePerceptioonfthe VisualWorld,L. CarmichaelE, d. (Houghton Mifflin,Boston,1950).
+
+weightedtowardthe red (7). 12. D. H. HubelandT. N. Wiesel,J.CompN. eurol.146,421 (1972);J.S. Lund,ibid.
+
+48. E. Rubin,SynsopleveFdiegurer(GlydendalskaC,openhagen,1915). 49. H. B. Barlow,Proc.R. Soc.London212, 1 (1981).
+
+147, 455 (1973);
+
+andR. G. Boothe,ibid.159, 305 (1975).
+
+50. V. S. RamachandraanndS. A. Anstis,Perceptio1n4, 135 (1985).
+
+13. M. Wong-Riley,personalcommunication. 14. A. E. HendricksonS, . P. Hunt,andJ.-Y.Wu,Nature(London2)92, 605 (1981);
+
+51. F. SchumannZ, . Psychol2.3, 1 (1900). 52. G. KanizsaR, iv.Psicologi4a9, 7 (1955).
+
+15.
+
+J. C. HortonandD. H. Hubel,ibid.,p. 762. J. C. Horton,Philos.Trans.R. Soc.London304,
+
+199 (1984); E. McGuinnessC, .
+
+MacDonaldM, . Sereno,J. Allman,Soc.NeuroscAi. bstr.12, 130 (1986).
+
+16. 17.
+
+M. S. LivingstoneandD. H. Hubel,ProcN. atl.Acad.Sci.U.S.A.79,6098 (1982). C. R. Michael,Soc.NeuroscAi. bstr.13, 2 (1987); D. FitzpatrickK, . Itoh, I. T.
+
+Diamond,JN. eurosc3i., 673 (1983); R. B. H. Tootell,S.L. HamiltonE, . Switkes,
+
+R. L. De Valois,Invest.OphthalmoVl.isualSci.(suppl.)26, 8 (1985).
+
+18. M. S. LivingstoneandD. H. Hubel,J.Neurosci4., 2830 (1984).
+
+19. B. Dow,J. Neurophysio3l7., 927 (1974).
+
+20. P. GourasandJ. Kriiger,ibid.42, 850 (1979).
+
+21. R. B. H. Tootellet al., Scienc2e20, 737 (1983).
+
+53. R. L. GregoryN, ature(London2)38, 51 (1972). 54. S. LiebmannP, sychoFl.orsch9., 300 (1926). 55. K. KoffkaP, rincipleosfGestalPt sycholog(Hy arcourtBrace,New York,1935). 56. M. E. ChevreulD, e la Loi du ContrastSeimultanedesCouleurs(Pitios-Levrault,
+Paris,1839). 57. W.vonBezold,TheTheoroyfColorS, . R. KoehlerT, ransl.(Prang,Boston,1876). 58. H. F. J.M. vanTuijl,ActaPsycho3l.9, 441 (1975); K. NakayamaandS. Shimojo,
+personaclommunicationV;. S. RamachandraNn,ature(London3)28, 645 (1987). 59. M. S. LivingstoneS, ci.Am. 258, 78 (January1988). 60. R. W. GuilleryP, rog.BrainRes.51, 403 (1979); S. M. ShermanP, rog.Psychobiol.
+PhysiolP. sychol2., 233 (1985).
+
+6 MAY1988
+
+ARTICLES 74.9
+
+

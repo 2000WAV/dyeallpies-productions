@@ -1,0 +1,26 @@
+Casiez, G., Roussel, N., & Vogel, D. (2012). 1 (euro) Filter: A Simple Speed-based Low-pass
+Filter for Noisy Input in Interactive Systems. Proceedings of CHI 2012, 2527-2536.
+
+ABSTRACT (as printed in the paper; full text saved in
+papers/casiez2012-one-euro-filter.pdf, text extract in the .txt of the same name):
+
+The 1-euro filter ("one Euro filter") is a simple algorithm to filter noisy signals for high
+precision and responsiveness. It uses a first order low-pass filter with an adaptive cutoff
+frequency: at low speeds, a low cutoff stabilizes the signal by reducing jitter, but as speed
+increases, the cutoff is increased to reduce lag. The algorithm is easy to implement, uses
+very few resources, and with two easily understood parameters, it is easy to tune. In a
+comparison with other filters, the 1-euro filter has less lag using a reference amount of
+jitter reduction.
+
+RELEVANCE TO THIS PROJECT: named in the task brief as the smoothing reference, but NOT what
+the build actually uses (the build applies a 5-frame median + Savitzky-Golay window 7/order 2
+instead). Key numbers from the paper, for comparison/justification of departing from it: the
+filter has two tunable parameters, minimum cutoff frequency `mincutoff` and slope `beta`, plus
+a fixed derivative-stage cutoff of 1 Hz (page 2, "Our implementation uses a fixed value of
+1 Hz"). The paper's own worked example (a 1440x900px mouse cursor at 60 Hz, tuned against a
+Gametrak reference) settled on mincutoff=1 Hz, beta=0.007 (page 2, "Tuning and Applications").
+These are tuned for a specific 60 Hz pointing task, not derived for 30 fps hand-landmark
+video, and the paper explicitly says the two parameters must be re-tuned per device/task via
+its two-step procedure (hold still to set mincutoff, then move fast to set beta) --
+transplanting 1/0.007 to this project's landmarks without retuning would not be justified by
+this source.

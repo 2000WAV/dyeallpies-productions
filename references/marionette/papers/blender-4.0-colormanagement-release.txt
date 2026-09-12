@@ -1,0 +1,1160 @@
+Color Management - Blender Developer Documentation
+Skip to content
+navbar_global.diff
+```
+A copy of https://projects.blender.org/infrastructure/gitea-custom/src/branch/main/templates/custom/body_inner_pre.tmpl
+with the following changes (see `navbar_global.diff`):
+- Add "Heebo" font-face in second style block
+- Add color picker (light/dark theme toggle) and search button.
+- Add hamburger menu for small display sizes
+- Custom style overrides in the second style block (as indicated).
+-->
+Developer
+Developer
+Roadmap
+Projects
+Docs
+Blog
+Forum
+Builds
+Initializing search
+BLENDER.ORG
+Download
+Get the latest Blender, older versions, or experimental builds.
+What's New
+Stay up-to-date with the new features in the latest Blender releases.
+LEARNING & RESOURCES
+Blender Studio
+Access production assets and knowledge from the open movies.
+Manual
+Documentation on the usage and features in Blender.
+DEVELOPMENT
+Developers Blog
+Latest development updates, by Blender developers.
+Documentation
+Guidelines, release notes and development docs.
+Benchmark
+A platform to collect and share results of the Blender Benchmark.
+Blender Conference
+The yearly event that brings the community together.
+DONATE
+Development Fund
+Support core development with a monthly contribution.
+One-time Donations
+Perform a single donation with more payment options available.
+Home
+Developer Handbook
+Features
+Compatibility
+Release Notes
+Summer of Code
+Contribute Documentation
+Blender Developer Documentation
+projects.blender.org
+Home
+Developer Handbook
+Developer Handbook
+New Developers
+New Developers
+Setup
+Get in Contact
+Pick a Project
+Navigating the Code
+Tips
+FAQ
+Communication
+Communication
+Chat
+Forums
+Meetings
+Weekly Updates
+User Feedback
+Code of Conduct
+Copyright Rules
+Building Blender
+Building Blender
+Linux
+macOS
+Windows
+Resolving Build Failures
+Build Options
+Cycles GPU Binaries
+Python Module
+Development Environments
+Development Environments
+Xcode
+Visual Studio
+Visual Studio Code
+QtCreator
+Vim
+Emacs
+Sublime Text
+Contributing Code
+Contributing Code
+Pull Requests
+Using Git
+Using Subversion
+Code Review Playbook
+Commit Rights
+AI Contributions Policy
+Organization
+Organization
+Modules
+Projects
+Task Priorities
+Weekly Reports
+Guidelines
+Guidelines
+C/C++ Style Guide
+C/C++ Best Practices
+Python Style Guide
+GLSL Style Guide
+Commit Messages
+Release Notes Guide
+License Headers
+Code Quality Day
+Blend File Compatibility
+New Committers
+Preferred Technologies
+Reverting Commits
+Testing New Code & Refactors
+Release Process
+Release Process
+Release Cycle
+Release Branch
+Release Branch
+Release Branch
+Merge Playbook
+LTS
+Library Dependencies
+Library Dependencies
+macOS
+Rocky Linux 8
+Windows x64
+Release Checklist
+Release Checklist
+Third Party Licenses
+Stores
+Stores
+Microsoft
+Snap
+Steam
+Automated Tests
+Automated Tests
+Setup
+C/C++ Tests
+Python Tests
+Geometry Node Tests
+Import/Export Tests
+Modifier Tests
+Render Tests
+Performance Tests
+UI Tests
+Code Coverage
+Tooling
+Tooling
+C/C++
+C/C++
+ClangFormat
+clangd
+Address Sanitizer
+Valgrind
+GDB
+Clog: Logging Library
+Doxygen
+Tracy
+Python
+Python
+Profiling
+Tracing
+Py from C
+Building
+Building
+BuildBot
+Unity Builds
+distcc
+Utilities
+Utilities
+Blender Tools
+Git Bisect with Event Simulation
+tea
+Debugging with LLDB
+Design
+Design
+Decision Tree
+Idea, Concept, Design
+Communication and Presentation
+Communication and Presentation
+Communication and Presentation
+UI Toolkit
+UI Toolkit
+Icons
+A4 Design
+Examples
+Examples
+Examples
+Examples
+Assets
+Camera Lens
+Geometry Nodes
+Bug Reports
+Bug Reports
+The Life of a Bug
+Hardware List
+How to help triaging bugs?
+This is not a bug
+Blender Bug Triaging Playbook
+Blender Vulnerability Reporting Policy
+Making good bug reports
+Making good bug reports
+Manually Collecting System Information
+Linux System Information
+macOS System Information
+Windows System Information
+Extensions
+Extensions
+Add-on Development Setup
+VS Code for Add-on Development
+Add-on Guidelines
+Hosting on blender.org
+Translating
+Translating
+Developer Guide
+Translator Guide
+French Team
+Spanish Team
+Features
+Features
+Code Layout
+Core
+Core
+BLI: Blender Library
+BLI: Blender Library
+Any
+Bits
+Containers
+CPP Type
+Disjoint-Set
+Functions
+Index Mask
+Index Range
+Span
+Strings
+Virtual Arrays
+Blender Projects
+Context
+Dependency Graph
+DNA
+Implicit Sharing
+Memory Allocations
+RNA
+Undo System
+Datablocks
+Datablocks
+Embedded IDs
+ID Datablocks
+Main Data-Base
+Runtime IDs
+Management
+Management
+IDs and File Paths
+Relationships Between IDs
+Overrides
+Overrides
+Library
+Library
+Functional Design Library Overrides
+Library Overrides and USD
+Proposals
+Proposals
+Extensible Architecture Proposal
+Asset System
+Asset System
+Fundamentals
+Fundamentals
+Architectural Overview
+From File Browser to Asset System
+Backend
+Backend
+Asset Catalogs
+Asset Indexing
+Asset List API
+User Interface
+User Interface
+Asset Browser
+Asset Shelf
+Asset Editing
+Remote Libraries
+Asset Bundles
+Asset Bundles
+Guidelines
+Human Base Meshes Bundle
+Lighting Bundle
+Materials Bundle
+Brush Assets
+FAQ
+User Interface
+User Interface
+Human Interface Guidelines
+Human Interface Guidelines
+Design Paradigms
+General Patterns
+General Patterns
+Best Practices
+Writing Style
+Layouts
+Accessibility
+Selection
+Icons
+Color
+Modal Interfaces
+User Feedback
+User Feedback
+Reports
+Animations
+Components
+Components
+Editors
+Dialogs
+Menus
+Sidebar Tabs
+Tooltips
+Glossary
+Asset Thumbnails
+Editors
+Experimental Features
+Icons
+Internationalization and localization
+MatCaps
+Operators
+Outliner
+Preferences & Defaults
+Screen
+Interface Text Output
+Window
+Window Manager
+Editors
+Editors
+Spreadsheet Editor
+Module
+Module
+Getting Involved as a Designer
+UI Workboard Notes
+Views
+Views
+Grid Views
+Tree-Views
+Scene & Objects
+Scene & Objects
+Attributes
+Curve
+Curves
+Geometry Sets
+Instances
+Meshes
+Meshes
+Mesh
+BMesh
+Mesh Comparison
+Point Cloud
+Volume
+Transform
+I/O
+I/O
+Alembic
+USD
+Sculpt & Paint
+Sculpt & Paint
+Mesh Painting & Sculpting
+Geometry Nodes
+Geometry Nodes
+Adding a Geometry Node
+Anonymous Attributes
+Fields
+Geometry Socket
+Viewer Node
+XPBD Simulation
+XPBD Solver
+XPBD Solver
+XPBD Method
+Old Proposals
+Old Proposals
+Breaking up the Modifier Stack
+Analysis: Caching
+Collection Nodes
+Curve Support in Geometry Nodes
+Event-Based Simulation Concept
+Everything nodes
+Function System
+Hair Nodes
+Functions System
+Mesh Type Requirements
+Node Interface Framework
+Node Tools Prototype
+Particle Nodes Core Concepts
+Particle System Code Architecture
+Representing Particle Systems with Nodes
+Portals and Pages Prototype
+Simulation Architecture Proposal
+Simulation Framework - First Steps
+Unified Simulation System Proposal
+Updated Particle Nodes UI
+Updated Particle Nodes UI 2
+Animation & Rigging
+Animation & Rigging
+Module
+Module
+Projects
+Active keyframe
+Animation System
+Animation System
+Animato
+Animato
+Layered Actions
+Armatures
+Armatures
+Bone Collections
+B-Bone Vertex Mapping
+Inverse Kinematics
+NLA
+Parenting
+Tools
+Tools
+Copy-Paste in Action Editor
+Pose library
+Rigify
+Rigify
+Feature Set Package Structure
+Main Generator Engine
+Implementing a Rig
+UI Script Generator
+Skin System
+Utils
+Utils
+Bone Utilities
+Mechanism Utilities
+Naming Utilities
+Grease Pencil
+Grease Pencil
+Architecture
+Line Art
+Line Art
+Code Structure
+Desired Functionality
+Project System
+Project System
+Files Overview
+Architecture
+Rendering
+Rendering
+Cycles
+Cycles
+Design Goals
+Node Guidelines
+Source Layout
+Standalone
+Scene Graph
+Scene Graph
+Scene Graph
+BVH
+Device Abstraction
+Device Abstraction
+Devices
+Kernel Language
+Scheduling
+Scheduling
+Render Scheduling
+Kernel Scheduling
+Multi Device Scheduling
+Output
+Output
+Tiling and OpenEXR Cache
+Output and Display Drivers
+Algorithms
+Algorithms
+Sampling Patterns
+Units & Colors
+Light and Shadow Linking
+Outdated
+Outdated
+Threads
+Papers
+Optimization Ideas
+Network Render
+Volume Render
+EEVEE
+EEVEE
+Classes
+Classes
+Views
+Modules
+Modules
+World
+Sphere Light-Probes
+Lookdev
+Pipeline
+Film
+Shadow
+Pipelines
+Pipelines
+Background
+Probe
+World
+Deferred
+Shadow
+Render Passes
+Workbench
+Workbench
+Shadow
+Compositor
+Compositor
+Glossary
+Realtime
+Realtime
+Realtime Compositor UX
+Sequencer
+Sequencer
+Data Storage
+Rendering
+Cache
+Iterator
+Proxy System
+Prefetching
+Retiming
+Render Pipeline
+Render Pipeline
+Color Management
+GPU & Viewports
+GPU & Viewports
+Overview
+Overview (Legacy)
+GLSL Cross Compilation
+Draw Manager
+Shading Language
+Shading Language
+Blender Shading Language
+Difference with C++
+Resource Tables
+Color Management
+Abstractions
+Abstractions
+GPU Viewport
+Viewports
+Viewports
+Color Management
+Image Engine
+Virtual Reality
+Virtual Reality
+OpenXR-SDK Dependency
+Vulkan Backend
+Vulkan Backend
+Render graph
+Barrier management
+Device management
+Descriptor Sets
+Pipelines
+Push Constants
+Workarounds
+Swap chain
+Vertex buffers
+KosmicKrisp
+Tools
+Tools
+RenderDoc
+Shader Builder
+Shader C++ Compilation
+Shader printf
+Monado
+Perfetto
+Vulkan Configurator
+Extensions
+Extensions
+Manifest Schema
+Manifest Schema
+1.0.0
+Listing API
+Listing API
+v1
+CI/CD
+Moderation
+Moderation
+Canned Responses
+Guidelines
+Compatibility
+Compatibility
+Release Notes
+Release Notes
+5.3 (alpha)
+5.3 (alpha)
+Animation & Rigging
+Assets
+Compositor
+Core
+Cycles
+EEVEE & Viewport
+Geometry Nodes
+Grease Pencil
+Modeling & UV
+Motion Tracking
+Physics
+Pipeline & I/O
+Python API
+Rendering
+Sculpt, Paint, Texture
+User Interface
+Video Sequencer
+Virtual Reality
+5.2 LTS
+5.2 LTS
+Animation & Rigging
+Assets
+Compositor
+Core
+Cycles
+EEVEE & Viewport
+Geometry Nodes
+Grease Pencil
+Modeling & UV
+Motion Tracking
+Physics
+Pipeline & I/O
+Python API
+Rendering
+Sculpt, Paint, Texture
+User Interface
+Video Sequencer
+Virtual Reality
+5.1
+5.1
+Animation & Rigging
+Assets
+Compositor
+Core
+Cycles
+EEVEE & Viewport
+Geometry Nodes
+Grease Pencil
+Modeling & UV
+Motion Tracking
+Pipeline & I/O
+Python API
+Rendering
+Sculpt, Paint, Texture
+User Interface
+Video Sequencer
+Virtual Reality
+Corrective Releases
+Bug Fixes
+5.0
+5.0
+Animation & Rigging
+Assets
+Compositor
+Color Management
+Core
+Cycles
+EEVEE & Viewport
+Geometry Nodes
+Grease Pencil
+Modeling & UV
+Motion Tracking
+Physics
+Pipeline & I/O
+Python API
+Rendering
+Sculpt, Paint, Texture
+User Interface
+Video Sequencer
+Virtual Reality
+Corrective Releases
+Bug Fixes
+4.5 LTS
+4.5 LTS
+Animation & Rigging
+Compositor
+Core
+Cycles
+EEVEE & Viewport
+Geometry Nodes
+Grease Pencil
+Modeling & UV
+Motion Tracking
+Physics
+Pipeline & I/O
+Python API
+Rendering
+Sculpt, Paint, Texture
+User Interface
+Video Sequencer
+Bug Fixes
+4.4
+4.4
+Animation & Rigging
+Compositor
+Core
+Cycles
+EEVEE & Viewport
+Geometry Nodes
+Grease Pencil
+Modeling & UV
+Pipeline & I/O
+Python API
+Sculpt, Paint, Texture
+User Interface
+Video Sequencer
+Upgrading
+Upgrading
+Slotted Actions
+Bug Fixes
+Corrective Releases
+4.3
+4.3
+Animation & Rigging
+Compositor
+Core
+Cycles
+EEVEE & Viewport
+Geometry Nodes
+Grease Pencil
+Grease Pencil
+Blender 4.3: Grease Pencil
+Migration Process
+Modeling & UV
+Pipeline, Assets & I/O
+Python API & Text Editor
+Rendering
+Sculpt, Paint, Texture
+User Interface
+Video Sequencer
+Bug Fixes
+Corrective Releases
+4.2 LTS
+4.2 LTS
+Animation & Rigging
+Color Management
+Compositor
+Core
+Cycles
+EEVEE
+EEVEE
+Blender 4.2 LTS: EEVEE
+Migration Process
+Extensions
+Geometry Nodes
+Import & Export
+Modeling & UV
+Physics
+Python API
+Sculpt
+User Interface
+Video Sequencer
+4.1
+4.1
+Animation & Rigging
+Compositor
+Cycles
+EEVEE
+Geometry Nodes
+Import & Export
+Modeling
+Python API
+Rendering
+Sculpting
+Sequencer
+User Interface
+Add-ons
+Corrective Releases
+4.0
+4.0
+Animation & Rigging
+Geometry Nodes
+Modeling
+Sculpt & Paint
+Shading & Texturing
+Cycles
+Color Management
+Color Management
+Table of contents
+AgX View Transform
+HDR Display on macOS
+New Color Spaces
+Removed Features
+Compositor & Sequencer
+Import & Export
+Core
+User Interface
+3D Viewport
+Node Editor
+Keymap
+Add-ons
+Python API
+Asset Bundles
+Corrective Releases
+Upgrading
+Upgrading
+Bone Collections & Colors
+3.6 LTS
+3.6 LTS
+Animation & Rigging
+Asset Bundles
+Core
+Cycles
+Eevee
+Grease Pencil
+Modeling
+Nodes physics
+Pipeline, Assets & I/O
+Sculpt
+User Interface
+Add-ons
+Python API
+3.5
+3.5
+Animation & Rigging
+Core
+Cycles
+Eevee
+Grease Pencil
+Modeling
+Nodes & Physics
+Pipeline, Assets & I/O
+Sculpt
+User Interface
+VFX
+Add-ons
+Python API
+Corrective releases
+3.4
+3.4
+Animation & Rigging
+Core
+Cycles
+Eevee
+Grease Pencil
+Modeling
+Nodes & Physics
+Pipeline, Assets & I/O
+Platforms
+Sculpt
+User Interface
+Add-ons
+Python API
+Corrective releases
+3.3 LTS
+3.3 LTS
+Animation & Rigging
+Core
+Cycles
+Grease Pencil
+Modeling
+More Features
+Nodes & Physics
+Pipeline, Assets & I/O
+Sculpt
+User Interface
+VFX
+Add-ons
+Python API
+3.2
+3.2
+Animation & Rigging
+Core
+Cycles
+Eevee
+Grease Pencil
+Modeling
+Nodes physics
+Pipeline, Assets & I/O
+Platforms
+Sculpt
+User Interface
+VFX
+Virtual Reality
+Add-ons
+Python API
+Corrective Releases
+3.1
+3.1
+Animation & Rigging
+Core
+Cycles
+Eevee
+Grease Pencil
+Modeling
+Nodes & Physics
+Pipeline, Assets & I/O
+Sculpt
+User Interface
+VFX
+Add-ons
+Python API
+Corrective releases
+3.0
+3.0
+Animation & Rigging
+Asset browser
+Core
+Cycles
+Eevee
+Grease Pencil
+Modeling
+Nodes & Physics
+Pipeline, Assets & I/O
+Sculpt
+User Interface
+VFX
+Virtual Reality
+Add-ons
+Python API
+Corrective Releases
+2.93 LTS
+2.93 LTS
+Animation & Rigging
+Core
+Cycles
+Eevee
+Geometry Nodes
+Grease Pencil
+Import & Export
+Modeling
+More Features
+Physics
+Sculpt
+User Interface
+VFX
+Add-ons
+Python API
+2.92
+2.92
+Animation & Rigging
+Asset Browser
+Cycles
+Eevee
+Geometry Nodes
+Grease Pencil
+Import & Export
+Modeling
+More Features
+Physics
+Sculpt
+User Interface
+Add-ons
+Python API
+2.91
+2.91
+Animation & Rigging
+Eevee
+Grease Pencil
+Import & Export
+Modeling
+More Features
+Physics
+Sculpt
+User Interface
+Volumes
+Add-ons
+Python API
+2.90
+2.90
+Animation & Rigging
+Cycles
+Eevee
+Grease Pencil
+Import & Export
+Modeling
+Physics
+Sculpt
+User Interface
+Virtual Reality
+More Features
+Add-ons
+Python API
+Corrective Releases
+2.83 LTS
+2.83 LTS
+Animation
+Cycles
+Eevee
+Grease Pencil
+Modeling
+Physics
+Sculpt
+User Interface
+Virtual Reality
+Volumes
+More Features
+Add-ons
+Python API
+2.82
+2.82
+Cycles
+Eevee
+Grease Pencil
+Import & Export
+Modeling
+Physics
+Rigging
+Sculpt
+Textures
+User Interface
+Add-ons
+Python API
+Corrective Releases
+Corrective Releases
+2.82a
+2.81
+2.81
+Cycles
+Eevee
+Grease Pencil
+Library Overrides
+Rigging
+Sculpt
+Transform
+User Interface
+Viewport
+More Features
+Add-ons
+Python API
+Corrective Releases
+Corrective Releases
+2.81a
+2.80
+2.80
+User Interface
+Tools
+Animation
+Cycles
+Dependency Graph
+EEEVEE
+Grease Pencil
+Import & Export
+Layers
+Modeling
+Viewport
+More Features
+Removed features
+Add-ons
+Python API
+Python API
+Addons
+Animation
+Draw
+Mesh
+Modules
+Preferences
+Scene and Object
+Timer
+User Interface
+User Interface Design
+2.79
+2.79
+Alembic
+Animation
+Cycles
+Grease Pencil
+Modelling
+User Interface
+More Features
+Add-ons
+Python API
+Bugfixes
+Corrective Releases
+Corrective Releases
+2.79a
+2.79b
+Release Archive
+Summer of Code
+Summer of Code
+Getting Started
+Project Ideas
+Application Template
+2026
+Previous Years
+Previous Years
+2025
+2024
+2023
+2022
+2021
+2020
+2019
+Contribute Documentation
+Contribute Documentation
+Build Instructions
+Editing
+Markdown Style Guide
+Submit Changes
+Common Extensions and Plugins
+Table of contents
+AgX View Transform
+HDR Display on macOS
+New Color Spaces
+Removed Features
+Blender 4.0: Color Management
+¶
+AgX View Transform
+¶
+The AgX view transform has been added, and replaces Filmic as the
+default in new files.
+(
+a9053f7efb
+)
+This view transform provides better color handling in over-exposed areas
+compared to Filmic. In particular bright colors go towards white,
+similar to real cameras. Technical details and image comparisons can be
+found in
+PR#106355
+.
+Filmic
+AgX
+Scenes by Eary Chow, Alaska Young and Leonard Siebeneicher. Using assets
+from by Blender Studio, AmbientCG and Poly Haven.
+HDR Display on macOS
+¶
+A new High Dynamic Range option was added in the Color Management >
+Display panel. It enables display of extended color ranges above 1.0 for
+the 3D viewport, image editor and render previews.
+(
+2367ed2ef2
+)
+This requires a monitor that can display HDR colors, and a view
+transform designed for HDR output. The Standard view transform works,
+but Filmic and AgX do not as they were designed to bring values into the
+0..1 range for SDR displays.
+New Color Spaces
+¶
+New linear spaces and display devices were added, together with some
+renaming to improve clarity. Forward compatibility code is included into
+Blender 3.6.
+(
+6923f7a153
+)
+Removed Features
+¶
+Textures and other areas of Blender now always considers the color
+management is enabled. This used to be a compatibility option for the
+"No Color Management" setting in Blender pre 2.64. To achieve the same
+functionality the images need to be set to Non-Color space.
+(
+63e2832057
+)
+Unused color spaces and display devices were removed from the OCIO
+configuration
+(
+b2b7b37139
+)
+The XYZ display was only used to output images in XYZ space, for which
+there is now an option in the image output settings. Instead of the
+None display use Raw vie of the sRGB display. There is a versioning
+code in place to migrate the display settings to the new notation.
+Back to top
+Previous
+Cycles
+Next
+Compositor & Sequencer
+©
+Copyright
+: Content is available under a CC-BY-SA 4.0 Int. license unless otherwise noted. (
+More Info
+)

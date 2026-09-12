@@ -1,0 +1,25 @@
+"All Under-control - Supermarionation without strings!", the Gerry Anderson
+Store / gerryanderson.com (accessed 2026-09-12).
+
+STATUS: full HTML page saved; see
+papers/gerryanderson-supermarionation-without-strings.html.
+
+SUMMARY: background on "Supermarionation," Gerry Anderson's marionette
+technique used for Thunderbirds and related 1960s series. Puppets were
+suspended and controlled by very fine metal filament wires that did DOUBLE
+DUTY as both mechanical suspension/control lines AND electrical conductors,
+carrying signals down to solenoid motors hidden in the puppets' heads that
+opened/closed the mouth in sync with pre-recorded dialogue (the first
+puppet production to use electronic lip-sync at this scale). The fineness
+of the wire was itself a functional requirement (electrical + mechanical in
+one), not purely a wish for invisibility, though thin wire is also harder
+to see on screen than the thick control bars of a traditional stage
+marionette.
+
+KEY NUMBERS: NOT FOUND -- no wire-diameter or voltage/current specification
+was located in the fetched material.
+
+RELEVANCE: item 11 section 6 -- a second historical example (with Team
+America) of a wildly successful, iconic puppet look built on visible
+strings, reinforcing that the film/TV precedent for "convincing marionette"
+does not depend on invisible rigging.

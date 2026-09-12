@@ -1,0 +1,277 @@
+Session: Interactions Beyond the Desktop                                                  CHI 2012, May 5­10, 2012, Austin, Texas, USA
+
+1e Filter: A Simple Speed-based Low-pass Filter
+       for Noisy Input in Interactive Systems
+
+           Géry Casiez1,2,3, Nicolas Roussel3 & Daniel Vogel4
+             1LIFL, 2University of Lille & 3Inria Lille, France
+
+4Cheriton School of Computer Science, University of Waterloo, Canada
+   gery.casiez@lifl.fr, nicolas.roussel@inria.fr, dvogel@uwaterloo.ca
+
+ABSTRACT                                                                                  many different values are observed for a single true one. Jit-
+The 1e filter ("one Euro filter") is a simple algorithm to filter                         ter has a large effect on the way people perceive and act. For
+noisy signals for high precision and responsiveness. It uses a                            example noisy values are harder to read and unstable cursors
+first order low-pass filter with an adaptive cutoff frequency:                            hinder target acquisition [3, 7, 5]. One usually wants to filter
+at low speeds, a low cutoff stabilizes the signal by reducing                             noisy signals to reduce, and possibly remove, the unwanted
+jitter, but as speed increases, the cutoff is increased to re-                            parts of the signal. However, filtering inherently introduces
+duce lag. The algorithm is easy to implement, uses very few                               time latency ­ commonly called lag ­ which reduces system
+resources, and with two easily understood parameters, it is                               responsiveness. Lag may not be an issue in domains like ar-
+easy to tune. In a comparison with other filters, the 1e filter                           tificial perception and decision making, but with interactive
+has less lag using a reference amount of jitter reduction.                                feedback, it is very important. In fact, it is the combination
+                                                                                          of precision and responsiveness that are crucial: people can
+ACM Classification Keywords                                                               point accurately in spite of an offset, but only with minimal
+H.5.2 [Information interfaces and presentation]: User inter-                              lag and jitter. The difficulty is that implementing and tuning
+faces - Input devices and strategies.                                                     a filter to minimize both jitter and lag is challenging, espe-
+                                                                                          cially with little or no background in signal processing.
+General Terms
+Algorithms, Performance, Human Factors                                                    In this paper we describe the 1e filter ("one Euro filter"), a
+                                                                                          tool to improve noisy signal quality with a tunable jitter and
+Author Keywords                                                                           lag balance. It uses a low-pass filter, but the cutoff frequency
+Signal; noise; jitter; precision; lag; responsiveness; filtering                          changes according to speed: at low speeds, a low cutoff re-
+                                                                                          duces jitter at the expense of lag, but at high speeds, the cut-
+INTRODUCTION                                                                              off is increased to reduce lag rather than jitter. The intuition
+Noisy signals occur when an original time varying value un-                               is that people are very sensitive to jitter and not latency when
+dergoes undesirable and unpredictable perturbations. These                                moving slowly, but as movement speed increases, people be-
+may be caused by things like heat and magnetic fields af-                                 come very sensitive to latency and not jitter. We compare
+fecting hardware circuitry, the limits of sensor resolution,                              the 1e filter to alternative techniques and show how it can
+or even unstable numerical computation. Noisy signals are                                 reduce that same amount of jitter with less lag. It is also
+a common problem when tracking human motion, particu-                                     efficient and easy to understand, implement, and tune: the
+larly with custom sensing hardware and inexpensive input                                  algorithm can be expressed in a few lines; it uses only basic
+devices like the Kinect or Wiimote. In addition, even sig-                                arithmetic; and it has only two independent parameters that
+nals from established high-end sensing systems can become                                 relate directly to jitter and lag. Other researchers and our-
+noisy when interaction techniques use large scaling effects.                              selves have already used variations of it in many projects.
+A common example is using a Vicon tracking system to im-                                  In fact, the "dynamic recursive low-pass filter" used by the
+plement ray casting with a wall display [6]: calibration prob-                            third author in [6] established the basic principle, but it re-
+lems and hand tremor add further perturbations to the ones                                quired four parameters and a fixed sample rate. The `1e'
+amplified by the pointing technique.                                                      name is an homage to the $1 recognizer [10]: we believe
+                                                                                          that the 1e filter can make filtering input signals simpler and
+Noise affects the quality of a signal in two primary ways [9].                            better, much like the $1 recognizer did for gestures.
+It can reduce accuracy, by adding an offset between the ob-
+served values and the true ones. More often, it reduces pre-                              After a review of the jitter, lag, and alternative filtering tech-
+cision, where repeated observations of values exhibit jitter ­                            niques, we describe the 1e filter in detail with an implemen-
+                                                                                          tation, discuss tuning with different applications, and con-
+Permission to make digital or hard copies of all or part of this work for                 clude with an illustrative comparison.
+personal or classroom use is granted without fee provided that copies are
+not made or distributed for profit or commercial advantage and that copies                JITTER, LAG, AND FILTERING
+bear this notice and the full citation on the first page. To copy otherwise, or           Several studies show jitter and lag have a negative impact
+republish, to post on servers or to redistribute to lists, requires prior specific        on performance. MacKenzie et al. found mouse movement
+permission and/or a fee.                                                                  times increased 16% with 75 ms lag, and up to 64% with 225
+CHI'12, May 5­10, 2012, Austin, Texas, USA.
+Copyright 2012 ACM 978-1-4503-1015-4/12/05...$10.00.
+
+                                                                                    2527
+Session: Interactions Beyond the Desktop                                        CHI 2012, May 5­10, 2012, Austin, Texas, USA
+
+ms lag [3]. With 3D hand tracking, Ware and Balakrishnan                equation for single exponential smoothing is very similar
+found that only 50 ms lag reduced performance by more than              to Equation 1. As the name suggests, double exponential
+8% [7]. Pavlovych and Stuerzlinger found no performance                 smoothing uses two of these equations to handle trends in the
+degradation below 58 ms lag using a mouse or Wiimote, but               signal. Although not formally documented, the Microsoft
+increasing jitter from 4 to 8 pixels doubled error rates for            Kinect skeleton filters appear to be a variant of this type of
+small targets [5]. Assuming a 100 PPI screen, 4 pixels cor-             smoothing1. LaViola extended double exponential smooth-
+responds to 1mm of jitter mean-to-peak: close to the 0.4 mm             ing for predictive tracking [2], building on Equations 1 and 2
+of jitter they found with the established Optitrack system.             to predict positions  time steps in the future (Equation 3):
+
+Although the precision of an input device may be very good,             X^i[2]  =    X^i  +  (1  - )  X^i[-2]1                    (2)
+it does not take into account scaling effects introduced by in-                                                          
+teraction techniques. Device input is often scaled up, so peo-                                                         
+ple can cover more display distance with less device move-              Pt+ =        2+ 1-       X^i -          1+ 1-    X^i[2] (3)
+ment. For example, default operating system mouse trans-
+fer functions can be scaled up 12× [1] and factors as high              Kalman filters
+as 90× have been used when ray casting on wall sized dis-
+plays [6]. Regardless of native device precision, scaling am-           Unlike the techniques above, Kalman filters make assump-
+plifies even small sensing perturbations, increasing jitter.            tions about the system generating the signal. Typically used
+                                                                        for navigation and tracking, they work well when combining
+These results highlight the importance of balancing jitter and          data from different sensors (e.g. a GPS and a speedometer)
+lag. Jitter should be less than 1mm mean-to-peak, but lag               or when the system can be modeled by equations (e.g. deter-
+should be below 60 ms. As we shall see, any filter introduces           mining vehicle acceleration from accelerator pedal position).
+some lag and considering 40-50 ms of inherent system lag                Kalman filters rely on a process model and a measurement
+[5], that leaves less than 10-20 ms for the filter.                     model. The standard Kalman filter uses a discrete-time lin-
+                                                                        ear stochastic difference equation for the process model and
+Moving average                                                          assumes that process and measurement noise are indepen-
+                                                                        dent of each other, white, and are normally distributed [8].
+By the Central Limit Theorem and reasonable assumptions,                When estimating the true position of a moving object, the
+averaging enough successive values of a noisy signal should             process model is typically a linear function of the speed and
+produce a better estimate of the true one [9]. As a result, a           the previous estimated position. With additional complexity,
+moving average of the last n data values is commonly used               Extended and Unscented variants of Kalman filters can also
+by computer scientists as a kind of filter. For example, Myers          model non-linear processes and observations [8].
+et al. [4] used one for laser pointers and reduced hand tremor
+jitter from ±8 pixels to between ±2 and ±4 pixels using a               In the frequent case where the process and measurement
+0.5s window (n = 10). Since all n values are weighted                   noise covariances are not known, one must determine them
+equally, this creates a lag up to n times the sampling period.          empirically. This task can be challenging, and an improperly
+                                                                        tuned filter can increase and even degrade the signal [9], by
+Low-pass filters and exponential smoothing                              creating artificial "overshooting" movements for example.
+                                                                        Moreover, understanding Kalman filters requires mathemat-
+With human movements, noise typically forms high frequen-               ical knowledge beyond basic linear algebra such as statistics,
+cies in the signal while actual limb movements have lower               random signals, and stochastic methods. Implementing them
+frequencies. A low-pass filter is designed to let these desired         requires a language or library with matrix operations. And,
+low frequency portions pass through, while attenuating high             as demonstrated by LaViola for predictive tracking, they can
+frequency signals above a fixed cutoff frequency. The order             be considerably slower to compute than double exponential
+of a low-pass filter relates to how aggressively it attenuates          smoothing predictors (approximately 135×) with similar jit-
+each frequency: first order filters reduce the signal amplitude         ter and lag performance [2].
+by half every time the frequency doubles, while higher order
+variants reduce the signal amplitude at a greater rate. A dis-          THE 1e FILTER
+crete time realization of a first order low-pass filter is given        The 1e filter is an adaptive first-order low-pass filter: it
+by Equation 1 where Xi and X^i denote the raw and filtered              adapts the cutoff frequency of a low-pass filter for each new
+data at time i and  is a smoothing factor in ]0, 1]:                    sample according to an estimate of the signal's speed, or
+                                                                        more generally, its derivative value. Even though noisy sig-
+X^i =  Xi + (1 - ) X^i-1                  (1)                           nals are often sampled at a fixed frequency, filtering can
+                                                                        not always follow the same pace, especially in event-driven
+The first term of the equation is the contribution of new in-           systems. To accommodate possible fluctuations, we rewrite
+put data value, and the second term adds inertia from pre-              equation 1 to take into account the actual time interval be-
+vious values. As  decreases, jitter is reduced, but lag in-             tween samples. Using a direct analogy with an electrical cir-
+creases since the output responds more slowly to changes in             cuit, where a resistor in series with a capacitor defines a first
+input. Since the contribution of older values exponentially             order low-pass filter,  can be computed as a function of the
+decreases, a low-pass filter will have less lag than a high n           sampling period Te and a time constant  , both expressed
+moving average filter.
+                                                                        1http://cm-bloggers.blogspot.com/2011/07/
+Smoothing techniques used in business and economic fore-                kinect-sdk-smoothing-skeleton-data.html
+casts are similar in approach to a low-pass filter. The
+
+                                                                  2528
+Session: Interactions Beyond the Desktop                                 CHI 2012, May 5­10, 2012, Austin, Texas, USA
+
+in seconds (Equation 4). The resistor and capacitor values               cursor positions. Each filter can be tuned interactively and
+define the time constant ( = RC) and the corresponding                   all filters can be shown simultaneously making it possible to
+cutoff frequency fc, in Hertz, of the circuit (Equation 5).              visually compare jitter reduction and lag across parameter
+                                                                         settings and filters. Once tuned, timestamped positions can
+  =       1                               (4)                            be logged for the system cursor (with and without noise) and
+                                                                         filtered positions of all filters. We used a MacBook Pro with
+       1  +                                                              a 1440 × 900 pixel display (109 PPI).
+              Te
+                                                                         In our comparison, we used independent Gaussian white
+=         1                               (5)                            noises for X and Y with a 50 dB SNR2, a public implemen-
+                                                                         tation of the Kalman filter3, and custom implementations of
+       2  fc                      1                                      a moving average, single exponential, and LaViola's double
+                  Te                                                     exponential smoothing. We tuned moving average first and
+X^i =     Xi  +       X^i-1    1  +       (6)                            used its performance as a baseline. We found that averag-
+                                     Te                                  ing more than 14 data values did not reduce jitter further and
+                                                                         only increased lag, so we used n=14. Then we interactively
+fc = fcmin +  |X^ i|                      (7)                            tuned the other filters to primarily match the jitter reduction
+                                                                         of moving average, and secondarily attempting to reduce lag.
+The sampling period Te (or its inverse, the sampling rate)
+can be automatically computed from timestamps, so the cut-               Tuning single exponential smoothing to match the reference
+off frequency fc is the only configurable parameter in equa-             jitter requires a low alpha value (=0.11) which introduces
+tion 6. As with any low-pass filter, decreasing fc reduces               lag. This highlights the difficulty of tuning with only a sin-
+jitter, but increases lag. Finding a good trade-off between              gle parameter. For LaViola's double exponential smooth-
+the two is difficult since people are more sensitive to jitter at        ing filter, the reference jitter is obtained with a lower alpha
+low speeds, and more sensitive to lag at high speeds. This               value (=0.06) and with lower lag. However, this causes
+is why an adaptive cutoff frequency works well. To reduce                overshooting when the pointer abruptly decelerates. For the
+jitter, a low fc is used at low signal speeds, and to reduce lag,        Kalman filter, we set the measurement noise covariance to
+fc is increased as speed increases. We found that a straight-            the variance of the introduced noise (18.06) as in [2], and
+forward linear relationship between cutoff frequency fc and              adjusted the process noise covariance until we obtained the
+the absolute speed works well (Equation 7). The speed (i.e               reference jitter reduction (at a value of 0.3). The amount of
+the derivative X^i) is computed from raw signal values using             lag for this setting was comparable to the moving average
+the sampling rate and then low-pass filtered with a cutoff fre-          and single-exponential. For the 1e filter, we matched the
+quency chosen to avoid high derivative bursts caused by jit-             reference jitter and optimized lag using the tuning procedure
+ter. Our implementation uses a fixed value of 1 Hz, leaving              described above. In the first tuning step, setting fcmin = 1
+only two configurable parameters: the intercept fcmin and                Hz and  = 0 matched the reference jitter and lag was sim-
+the slope  shown in Equation 7. Details of the algorithm                 ilar to single exponential smoothing. In the second tuning
+are provided in the Appendix.                                            step, increasing  to 0.007 made the lag almost imperceiv-
+                                                                         able yet maintained the reference jitter when stationary or
+Tuning and Applications                                                  moving slowly. A supplementary video demonstrates this
+To minimize jitter and lag when tracking human motion, the               tuning process and visualizes filter performance.
+two parameters can be set using a simple two-step procedure.
+First  is set to 0 and fcmin to a reasonable middle-ground               For a quantitative comparison, we logged the system cursor
+value such as 1 Hz. Then the body part is held steady or                 at 60 Hz for about 1 hour during regular desktop use, then
+moved at a very low speed while fcmin is adjusted to re-                 added white noise and applied the filters using the settings
+move jitter and preserve an acceptable lag during these slow             above. Figure 1 shows the distance from each filtered cur-
+movements. Next, the body part is moved quickly in dif-                  sor position to the true one, binned into four speed intervals.
+ferent directions while  is increased with a focus on min-               Note that since we tuned the filters to match a reference jit-
+imizing lag. Note that parameters fcmin and  have clear                  ter when not moving, the error between filtered position and
+conceptual relationships: if high speed lag is a problem, in-            noiseless position is primarily due to lag when moving. With
+crease ; if slow speed jitter is a problem, decrease fcmin .             higher speeds, the filtered position lags farther and farther
+Rotational input uses a similar tuning process, but rotation             behind, increasing this distance (the small distances in the 0
+axis and angle are filtered separately.                                  mm/s interval are likely due to offset or overshooting). All
+                                                                         filters introduce a similar amount of lag except for the 1e
+Another application of the 1e filter is displaying noisy nu-             filter which has less lag across all speed intervals.
+merical values, such as an unsteady frame rate used to moni-
+tor graphical application performance. The goal is to reduce             As an overall comparison, we computed the Standard Er-
+jitter to make the numerical output legible while minimizing             ror of the Mean (SEM) in mm for each filter for this data
+lag so the value remains timely. Tuning is similar to above:
+adjust fcmin until the text becomes stable, then increase                2This signal-to-noise ratio was estimated from Gametrak data us-
+until just before the text become unstable.                              ing a zero phase shift filter and is consistent with numbers in [2]
+                                                                         3http://greg.czerniak.info/node/5
+COMPARISON WITH OTHER FILTERS
+To compare the 1e filter with other techniques, we created
+a Python application that periodically samples the XY po-
+sition of the system cursor, adds noise, and displays filtered
+
+                                                                   2529
+Session: Interactions Beyond the Desktop                                                    CHI 2012, May 5­10, 2012, Austin, Texas, USA
+
+               (!"                                                            7. Ware, C., and Balakrishnan, R. Reaching for objects in
+                                                                                  vr displays: lag and frame rate. ACM ToCHI 1, 4 (Dec.
+               '!"  moving avg                                                    1994), 331­356.
+
+Distance (mm)       single exp                                                8. Welch, G., and Bishop, G. An introduction to the
+                                                                                  Kalman filter. SIGGRAPH course, ACM, Aug. 2001.
+               &!"  double exp
+                                                                              9. Wilson, A. D. Sensor- and recognition-based input for
+               %!"  kalman                                                        interaction. In The Human Computer Interaction
+                                                                                  handbook. CRC Press, 2007, 177­199.
+                    1! filter
+                                                                             10. Wobbrock, J. O., Wilson, A. D., and Li, Y. Gestures
+               $!"                                                                without libraries, toolkits or training: a $1 recognizer
+                                                                                  for user interface prototypes. In Proc. of UIST '07,
+               #!"                                                                ACM (2007), 159­168.
+
+               !"                                                            APPENDIX A - 1e FILTER
+                                                                             Algorithm 1: 1e filter
+                    0           ]0 - 500]  ]500 - 1000]  > 1000
+                                                                                EXT : First time flag: firstTime set to true
+                                Speed interval (mm/s)                                   Data update rate: rate
+                                                                                        Minimum cutoff frequency: mincutoff
+Figure 1. Mean distance between filtered and true cursor position for                   Cutoff slope: beta
+each speed interval and filter. Error bars represent 95% CI.                            Low-pass filter: xfilt
+                                                                                        Cutoff frequency for derivate: dcutoff
+set. The 1e filter has the smallest SEM (0.004) followed by                             Low-pass filter for derivate: dxfilt
+LaViola's double exponential smoothing (0.013), the mov-
+ing average and the Kalman filter (0.015), and single expo-                     IN : Noisy sample value: x
+nential smoothing (0.016). Our intention for this evaluation                    OUT: Filtered sample value
+is to illustrate the performance of the 1e filter in an intuitive
+way under realistic conditions. We are exploring alterna-                    1 if firstTime then
+tive comparisons with user experiments, synthetic reference                  2 firstTime  false
+movements, different noise configurations, and examples of                   3 dx  0
+"noisy" hardware.
+                                                                             4 else
+CONCLUSION                                                                   5 dx  (x - xfilt.hatxprev()) * rate
+                                                                             6 end
+Human-Computer Interaction researchers and practitioners                     7 edx  dxfilt.filter(dx, alpha(rate, dcutoff ))
+should stop filtering noisy input with a moving average. In                  8 cutoff  mincutoff + beta * |edx|
+most cases, they do not need to wrestle with low-level sig-                  9 return xfilt.filter(x, alpha(rate, cutoff ))
+nal processing issues or with more complex techniques like
+Kalman filtering ­ which can be difficult to understand, tune,               Algorithm 2: Filter method of Low-pass filter
+and implement. The 1e filter is an intuitive and practical al-                  EXT : First time flag: firstTime set to true
+ternative since it is easy to understand, implement, and tune                   IN : Noisy sample value : x
+for low jitter and lag. Best of all, it produces better results.                        Alpha value : alpha
+                                                                                OUT: Filtered value
+REFERENCES
+ 1. Casiez, G., and Roussel, N. No more bricolage!                           1 if firstTime then
+     Methods and tools to characterize, replicate and                        2 firstTime  false
+     compare pointing transfer functions. In Proc. of                        3 hatxprev  x
+     UIST'11, ACM (2011), 603­614.
+                                                                             4 end
+ 2. LaViola, J. J. Double exponential smoothing: an                          5 hatx  alpha * x + (1 - alpha) * hatxprev
+     alternative to kalman filter-based predictive tracking. In              6 hatxprev  hatx
+     Proc. of EGVE '03, ACM (2003), 199­206.                                 7 return hatx
+
+ 3. MacKenzie, I. S., and Ware, C. Lag as a determinant of                   Algorithm 3: Alpha computation
+     human performance in interactive systems. In Proc. of                      IN : Data update rate in Hz: rate
+     CHI '93, CHI '93, ACM (1993), 488­493.                                             Cutoff frequency in Hz: cutoff
+                                                                                OUT: Alpha value for low-pass filter
+ 4. Myers, B. A., Bhatnagar, R., Nichols, J., Peck, C. H.,
+     Kong, D., Miller, R., and Long, A. C. Interacting at a                  1 tau  1.0 / (2**cutoff )
+     distance: measuring the performance of laser pointers                   2 te  1.0 / rate
+     and other devices. In Proc. of CHI '02, 33­40.                          3 return 1.0 / (1.0 + tau/te)
+
+ 5. Pavlovych, A., and Stuerzlinger, W. The tradeoff
+     between spatial jitter and latency in pointing tasks. In
+     Proc. of EICS '09, ACM (2009), 187­196.
+
+ 6. Vogel, D., and Balakrishnan, R. Distant freehand
+     pointing and clicking on very large, high resolution
+     displays. In Proc. of UIST '05, ACM (2005), 33­42.
+
+                                                                       2530
+

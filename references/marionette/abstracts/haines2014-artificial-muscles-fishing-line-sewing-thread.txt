@@ -1,0 +1,31 @@
+1. Science. 2014 Feb 21;343(6173):868-72. doi: 10.1126/science.1246906.
+
+Artificial muscles from fishing line and sewing thread.
+
+Haines CS(1), Lima MD, Li N, Spinks GM, Foroughi J, Madden JD, Kim SH, Fang S, 
+Jung de Andrade M, Göktepe F, Göktepe Ö, Mirvakili SM, Naficy S, Lepró X, Oh J, 
+Kozlov ME, Kim SJ, Xu X, Swedlove BJ, Wallace GG, Baughman RH.
+
+Author information:
+(1)The Alan G. MacDiarmid NanoTech Institute, University of Texas at Dallas, 
+Richardson, TX 75083, USA.
+
+Comment in
+    Science. 2014 Feb 21;343(6173):845-6. doi: 10.1126/science.1250471.
+
+The high cost of powerful, large-stroke, high-stress artificial muscles has 
+combined with performance limitations such as low cycle life, hysteresis, and 
+low efficiency to restrict applications. We demonstrated that inexpensive 
+high-strength polymer fibers used for fishing line and sewing thread can be 
+easily transformed by twist insertion to provide fast, scalable, nonhysteretic, 
+long-life tensile and torsional muscles. Extreme twisting produces coiled 
+muscles that can contract by 49%, lift loads over 100 times heavier than can 
+human muscle of the same length and weight, and generate 5.3 kilowatts of 
+mechanical work per kilogram of muscle weight, similar to that produced by a jet 
+engine. Woven textiles that change porosity in response to temperature and 
+actuating window shutters that could help conserve energy were also 
+demonstrated. Large-stroke tensile actuation was theoretically and 
+experimentally shown to result from torsional actuation.
+
+DOI: 10.1126/science.1246906
+PMID: 24558156 [Indexed for MEDLINE]

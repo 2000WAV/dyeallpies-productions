@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<!--
+  ___ ______   _____  _  ___   _    ____  ___  __  __ 
+ |_ _|  _ \ \ / / _ \| |/ / | | |  / ___|/ _ \|  \/  |
+  | || |_) \ V / | | | ' /| | | | | |   | | | | |\/| |
+  | ||  _ < | || |_| | . \| |_| |_| |___| |_| | |  | |
+ |___|_| \_\|_| \___/|_|\_\\___/(_)\____|\___/|_|  |_|
+
+ -->
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Jorge Jimenez &#8211; Game Developer &#8211; Next Generation Post Processing in Call of Duty: Advanced Warfare</title>
+<meta name="description" content="Official website of Jorge Jimenez A.K.A. IRYOKU. Studio Head and President of Technology of Striking Distance Studios Spain. The Callisto Protocol. Call of Duty. Game Developer. Gamer at heart.">
+<link rel="icon" href="https://www.iryoku.com/wp-content/themes/iryoku/favicon.ico">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="https://www.iryoku.com/wp-content/themes/iryoku/style.css">
+<link rel="stylesheet" type="text/css" media="all" href="https://www.iryoku.com/wp-content/themes/iryoku/mobile.css">
+<link href="https://www.iryoku.com/wp-content/themes/iryoku/js/jquery.featherlight.css" type="text/css" rel="stylesheet">
+<link href="https://www.iryoku.com/wp-content/themes/iryoku/js/jquery.featherlight.gallery.css" type="text/css" rel="stylesheet">
+<link href="https://www.iryoku.com/wp-content/themes/iryoku/js/sh_bluelcd.css" type="text/css" rel="stylesheet">
+<link rel="pingback" href="https://www.iryoku.com/xmlrpc.php">
+<link rel="alternate" type="application/rss+xml" title="Jorge Jimenez Feed" href="https://www.iryoku.com/feed/">
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.iryoku.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.iryoku.com%2Fnext-generation-post-processing-in-call-of-duty-advanced-warfare%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.iryoku.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.iryoku.com%2Fnext-generation-post-processing-in-call-of-duty-advanced-warfare%2F&#038;format=xml" />
+<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="https://api.w.org/" href="https://www.iryoku.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.iryoku.com/wp-json/wp/v2/posts/1707" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.iryoku.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.7" />
+<link rel="canonical" href="https://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare/" />
+<link rel='shortlink' href='https://www.iryoku.com/?p=1707' />
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/jquery.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/jquery.cookie.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/jquery.featherlight.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/jquery.featherlight.gallery.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/velocity.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/iryoku.collapsible.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/iryoku.utils.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/sh_main.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/sh_hlsl.js"></script>
+<script src="https://www.iryoku.com/wp-content/themes/iryoku/js/scrollreveal.js"></script>
+<script>
+main();
+blog();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Person",
+  "name": "Jorge Jimenez",
+  "alternateName": "IRYOKU",
+  "jobTitle": "Game Developer",
+  "description": "Jorge Jimenez A.K.A. IRYOKU. Studio Head and President of Technology of Striking Distance Studios Spain. The Callisto Protocol. Call of Duty. Game Developer. Gamer at heart.",
+  "url": "https://www.iryoku.com/",
+  "image": "https://www.iryoku.com/images/presentation/Jorge-Jimenez.jpg",
+  "sameAs": [
+    "https://x.com/iryoku1",
+    "https://www.linkedin.com/in/iryoku",
+    "https://www.mobygames.com/person/468978/jorge-jimenez/",
+    "https://github.com/iryoku",
+    "https://scholar.google.com/citations?user=IRCa3k4AAAAJ&hl=es",
+    "https://www.researchgate.net/profile/Jorge-Jimenez-11",
+    "https://orcid.org/0009-0006-3704-6477",
+    "https://www.behance.net/iryoku",
+    "https://www.artstation.com/iryoku",
+    "https://www.facebook.com/iryoku"
+  ]
+}
+</script>
+</head>
+
+<body class="wp-singular post-template-default single single-post postid-1707 single-format-standard wp-theme-iryoku">
+<div id="background"></div>
+<div id="wrapper" class="hfeed">
+
+<div id="header">
+<div id="masthead">
+<div id="branding" role="banner">
+<div id="site-title">
+<a href="https://www.iryoku.com/" rel="home">
+<img src="https://www.iryoku.com/wp-content/themes/iryoku/images/Jorge-Jimenez.png" width="450" height="38" alt="Jorge Jimenez">
+<span>Jorge Jimenez</span>
+</a>
+</div>
+<div id="site-subtitle">
+<img src="https://www.iryoku.com/wp-content/themes/iryoku/images/Game-Developer.png" width="276" height="12" alt="Game Developer">
+</div>
+</div><!-- #branding -->
+<div id="menu">
+<div class="line"></div>
+<div id="access" role="navigation">
+<div class="skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+<div class="menu-header"><ul id="menu-main-menu" class="menu"><li id="menu-item-503" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-503"><a href="https://www.iryoku.com/" title="Know more about Jorge Jimenez">Presentation</a></li>
+<li id="menu-item-437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-437"><a href="https://www.iryoku.com/publications/" title="See my publications in journals and books">Publications</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="https://www.iryoku.com/achievements/" title="Take a look into my achievements">Achievements</a></li>
+<li id="menu-item-499" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-499"><a href="https://www.iryoku.com/blog/" title="Check out my newest entries!">Blog</a></li>
+</ul></div></div><!-- #access -->
+<div id="contact">
+<a href="https://x.com/iryoku1" title="X" id="x"><div></div></a>
+<a href="https://www.linkedin.com/in/iryoku" title="LinkedIn" id="linkedin"><div></div></a>
+<a href="https://www.mobygames.com/person/468978/jorge-jimenez/" title="MobyGames" id="mobygames"><div></div></a>
+<a id="email"><div></div><span><span></span></span></a>
+</div>
+<div class="line"></div>
+</div><!-- #menu -->
+</div><!-- #masthead -->
+</div><!-- #header -->
+
+<div id="main">
+
+<div id="container">
+<div id="content" role="main">
+<div id="post-1707" class="post-1707 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-featured category-publications">
+<h1 class="entry-title">Next Generation Post Processing in Call of Duty: Advanced Warfare</h1>
+<div class="entry-meta">August 28, 2014</div>
+<div class="entry-content">
+<a href="https://www.iryoku.com/wp-content/uploads/2023/11/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare.jpg" class="noborder overlay" data-featherlight="image"><img width="640" height="360" src="https://www.iryoku.com/wp-content/uploads/2023/11/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare-640x360.jpg" class="attachment-medium size-medium wp-post-image" alt="Next Generation Post Processing in Call of Duty: Advanced Warfare" title="Next Generation Post Processing in Call of Duty: Advanced Warfare" decoding="async" srcset="https://www.iryoku.com/wp-content/uploads/2023/11/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare-640x360.jpg 640w, https://www.iryoku.com/wp-content/uploads/2023/11/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare-1280x720.jpg 1280w, https://www.iryoku.com/wp-content/uploads/2023/11/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare-320x180.jpg 320w, https://www.iryoku.com/wp-content/uploads/2023/11/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare-768x432.jpg 768w, https://www.iryoku.com/wp-content/uploads/2023/11/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare-1536x864.jpg 1536w, https://www.iryoku.com/wp-content/uploads/2023/11/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare.jpg 1920w" sizes="(max-width: 640px) 100vw, 640px" /></a><p>Proud and super thrilled to announce that the slides for our talk &#8220;Next Generation Post Processing in Call of Duty: Advanced Warfare&#8221; in the SIGGRAPH 2014 <a href="https://advances.realtimerendering.com/s2014/index.html">Advances in Real-Time Rendering in Games</a> course are finally online. Alternatively, you can also download them in the link below.</p>
+<p>Post effects temporal stability, filter quality and accuracy are, in my opinion, one of the most striking differences between games and film. Call of Duty: Advanced Warfare art direction aimed for photorealism, and generally speaking, post effects are a very sought after feature for achieving natural looking, photorealistic images. This talk describes the post processing techniques developed for this game, which aim to narrow the gap between film and games post FX quality and to help building a more cinematic experience. Which is, as you can imagine, a real challenge given our very limited time budget (16.6 ms for a 60 fps game, which is orders of magnitude less of what can be typically found in films).</p>
+<p>In particular, the talk describes how scatter-as-you-gather approaches can be leveraged for trying to approximate ground truth algorithms, including the challenges that we had to overcome in order for them to work in a robust and accurate way. Typical gather depth of field and motion blur algorithms only deal with color information, while our approaches also explicitly consider transparency. The core idea is based on the observation that ground truth motion blur and depth of field algorithms (like stochastic rasterization) can be summarized as:</p>
+<ul class="star star-indent">
+<li>Extending color information, according to changes in time (motion blur) and lens position (depth of field).</li>
+<li>Creating an alpha mask that allows the reconstruction of accurate growing and shrinking gradients on the object silhouettes.</li>
+</ul>
+<p>This explicit handling of transparency allows for more realistic depth of field focusing effects, and for more convincing and natural-looking motion blur.</p>
+<p>In the slides you can also find our approaches to SSS and bloom, and as a bonus, our take on shadows. I don&#8217;t want to spoil the slides, but for SSS we are using separable subsurface scattering, for bloom a pyramidal filter hierarchy that improves temporal stability and robustness, and for shadow mapping a 8-tap filter with a special per-pixel noise A.K.A. &#8220;Interleaved Gradient Noise&#8221;, which together with a spiral-like sampling pattern, increases the temporal stability (like dither approaches) while still generating a rich number of penumbra steps (like random approaches).</p>
+<p>During the actual talk in SIGGRAPH, I didn&#8217;t had time to cover everything, but as promised every single detail is in the online slides. Note that there are many hidden slides, and a bunch of notes as well; you might miss them if you read them in slide show mode.</p>
+<p>Hope you like them!</p>
+</div><!-- .entry-content -->
+<div class="entry-menu">
+<div class="entry-utility">
+
+    <span class="projectpage-link"><a href="/downloads/Next-Generation-Post-Processing-in-Call-of-Duty-Advanced-Warfare-v18.pptx">Powerpoint [407.8 MB]</a></span>
+    <div class="stargold"></div>
+        <span class="tweet-link"><a href="https://twitter.com/iryoku1/status/505011092779585537" title="Tweet for this publication">Tweet</a></span>
+</div><!-- .entry-utility -->
+</div><!-- .entry-menu -->
+</div><!-- #post-1707 -->
+
+<div id="nav-below" class="navigation">
+    <div class="nav-next"><a href="https://www.iryoku.com/research-impact-retrospective-mlaa-from-2009-to-2017/" rel="next"><span class="meta-nav">&larr;</span> <span class="overflow" title="Research Impact Retrospective: MLAA from 2009 to 2017">Research Impact Retrospective: MLAA from 2009 to 2017</span></a></div>
+    <div class="nav-previous"><a href="https://www.iryoku.com/starry-eyed-where-game-graphics-go-next/" rel="prev"><span class="overflow" title="Starry Eyed: Where Game Graphics Go Next">Starry Eyed: Where Game Graphics Go Next</span> <span class="meta-nav">&rarr;</span></a></div>
+</div><!-- #nav-below -->
+
+<div id="comments">
+<div class="entry-meta">Comments</div>
+<ol class="commentlist">
+
+<li class="comment even thread-even depth-1" id="li-comment-28312">
+<div id="comment-28312">
+<div class="comment-author vcard">
+<cite class="fn">Stephanus</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+August 28, 2014 at 6:51 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>This is amazing work!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-28312  -->
+</li><!-- #comment-## -->
+<li class="post pingback">
+<p>Pingback: <a href="http://davidbmsena.com/interesting-links-3/" class="url" rel="ugc external nofollow">Interesting Links - David&#039;s Web Corner</a></p>
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-29437">
+<div id="comment-29437">
+<div class="comment-author vcard">
+<cite class="fn">Erik Faye-Lund</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+September 21, 2014 at 1:29 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Nice work, thanks a lot! But I have one question &#8211; slide 90 says &#8220;Background reconstruction &#8211; See online slides&#8221;, &#8220;How to use bilinear filtering? &#8211; See online slides&#8221; and &#8220;Half-res rendering &#8211; See online slides&#8221;. Slide 38 also contains a similar remark. Which slides does those bullets refer to? I can&#8217;t seem to find any course notes or similar&#8230;</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-29437  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor even thread-even depth-1" id="li-comment-29446">
+<div id="comment-29446">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+September 22, 2014 at 10:38 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thanks for the comments!</p>
+<p>That &#8220;See online slides&#8221; remark was meant for the actual presentation itself in SIGGRAPH, what you downloaded are the online slides. This extra information is in hidden slides, so be sure to not trigger the slideshow mode or you might miss them!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-29446  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-29839">
+<div id="comment-29839">
+<div class="comment-author vcard">
+<cite class="fn">sizwk</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+October 6, 2014 at 1:32 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>This is great work!But I have two questions.</p>
+<p>About function DepthCmp2(float depth, float tileMaxDepth) in slide 99, is the tileMaxDepth correct?<br />
+I think I should use tileMinDepth instead of tileMaxDepth.</p>
+<p>And is function SampleAlpha(float sampleCoc) in slide 99 correct?<br />
+I think the following equation is correct.<br />
+return rcp(PI * max(sampleCoC * sampleCoC, DOF_SINGLE_PIXEL_RADIUS * DOF_SINGLE_PIXEL_RADIUS));</p>
+<p>Sorry if I&#8217;m wrong.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-29839  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor even thread-even depth-1" id="li-comment-29892">
+<div id="comment-29892">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+October 7, 2014 at 2:09 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thanks!</p>
+<p>In your case it might me tileMinDepth, it will depend on how the depth values are setup. It should be the closest depth to the camera. I&#8217;ve updated the slides, renaming that variable to closestDepth.</p>
+<p>Regarding the alpha calculation, I think they both yield the same results, but probably yours is more legible!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-29892  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-29977">
+<div id="comment-29977">
+<div class="comment-author vcard">
+<cite class="fn">sizwk</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+October 9, 2014 at 6:20 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thank you for the answer!<br />
+I understand the first answer.</p>
+<p>But I&#8217;m still little confused about the alpha calculation.<br />
+I think both yield different result.<br />
+(yours)=min(<br />
+		rcp(PI * sampleCoC * sampleCoC),<br />
+		PI * DOF_SINGLE_PIXEL_RADIUS * DOF_SINGLE_PIXEL_RADIUS)<br />
+(mine)=rcp(PI * max(<br />
+		sampleCoC * sampleCoC,<br />
+		DOF_SINGLE_PIXEL_RADIUS * DOF_SINGLE_PIXEL_RADIUS))<br />
+	=rcp(max(<br />
+		PI * sampleCoC * sampleCoC,<br />
+		PI * DOF_SINGLE_PIXEL_RADIUS * DOF_SINGLE_PIXEL_RADIUS))<br />
+	=min(<br />
+		rcp(PI * sampleCoC * sampleCoC),<br />
+		rcp(PI * DOF_SINGLE_PIXEL_RADIUS * DOF_SINGLE_PIXEL_RADIUS))</p>
+<p>Why didn&#8217;t you use rcp() for (PI*DOF_SINGLE_PIXEL_RADIUS*DOF_SINGLE_PIXEL_RADIUS)?</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-29977  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor even thread-even depth-1" id="li-comment-30012">
+<div id="comment-30012">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+October 10, 2014 at 2:45 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>I see what you mean and you are right! It should be:<br />
+min(<br />
+rcp(PI * sampleCoC * sampleCoC),<br />
+rcp(PI * DOF_SINGLE_PIXEL_RADIUS * DOF_SINGLE_PIXEL_RADIUS))</p>
+<p>The difference is from 1.57->0.63. Fortunately, it is not a terrible bug visually (as the very important thing is to avoid the division by zero).</p>
+<p>I&#8217;ll update the slides, thanks a lot for pointing it out!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-30012  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-30445">
+<div id="comment-30445">
+<div class="comment-author vcard">
+<cite class="fn">MagicMike</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+October 15, 2014 at 5:35 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thank you for posting the presentation. Its great to be able to learn from production techniques!</p>
+<p>I&#8217;m a little confused about how the background/foreground categorization works. Looking at the background image under &#8220;Big Picture&#8221;, all the pixels appear to be categorized as background. Considering the character is standing in front of a flat wall, shouldn&#8217;t all those pixels have been considered foreground, but with very small circle of confusion?</p>
+<p>The foreground image does make sense, as tiles with high depth disparity have missing pixels as they contribute from the background.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-30445  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor even thread-even depth-1" id="li-comment-30753">
+<div id="comment-30753">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+October 19, 2014 at 5:32 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Sorry, these screenshots were incorrectly captured! I&#8217;ve fixed them and uploaded new slides. However, even the new captures might still look confusing, so I&#8217;ve added some explanations to the slide 96:<br />
+<i></p>
+<p>Whereas it is possible to have no foreground accumulation (and hence have black pixels), it&#8217;s much harder to find the same situation for the background (not impossible but almost).
+</p>
+<p>The reason is that big DepthCmp2 deltas turn the pixel into background completely (see slide 100), which explains the black tiles in this foreground image.
+</p>
+<p>On the other hand, any pixel that is just a bit further away from the closest depth will be classified as foreground, but it will still have a small background weight. And because the background color accumulation is renormalized at the end of the loop, the color will be recovered in that areas (foreground and background colors are normalized by dividing by their respective total accumulated weights). In other words, unless all samples have exactly the same depth as the tile’s closest depth (and hence the background weight is exactly 0.0), there will be “leak” into the background.
+</p>
+<p>Note that this is not an issue in practice, given that the alpha values take care of properly eliminating the background where needed.
+</p>
+<p></i></p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-30753  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-32560">
+<div id="comment-32560">
+<div class="comment-author vcard">
+<cite class="fn">Giacomo</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+November 9, 2014 at 10:54 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Congratulations for the amazing work! so close to photorealism. did you contribute to the new cod:aw graphics? if yes, it&#8217;s a movie like experience like no other</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-32560  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor even thread-even depth-1" id="li-comment-33440">
+<div id="comment-33440">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+November 21, 2014 at 9:52 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thanks for the nice comments! My contribution to the game was more or less what I presented in SIGGRAPH, which is contained in these slides!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-33440  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-34942">
+<div id="comment-34942">
+<div class="comment-author vcard">
+<cite class="fn">caq</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 15, 2014 at 7:41 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Great Work!<br />
+I have one question on bloom part.<br />
+As mentioned in doc, there is no threshold as input, how did you control the non-bright part in the scene image? If we don&#8217;t care about it, does it cause the whole image blurred? Thanks!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-34942  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor even thread-even depth-1" id="li-comment-34951">
+<div id="comment-34951">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 15, 2014 at 9:52 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thanks!</p>
+<p>When using PBR the dynamic range is usually very high, so you don&#8217;t need to threshold. The blurred bloom layer is set to a low value (say 0.04), which means that only very bright pixels will bloom noticeably. That said, the whole image will receive some softness, which can be good or bad, depending on the artistic direction. But in general, it leads to more photorealistic results.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-34951  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-35173">
+<div id="comment-35173">
+<div class="comment-author vcard">
+<cite class="fn">caq</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 18, 2014 at 9:43 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi,</p>
+<p>Tons of thanks for your reply. One more question:</p>
+<p>A fix for firefly is mentioned in the doc, weight = 1 / (1 + luma) is used when mip0 to mip1 downsample. I tried to follow this, but the color channel&#8217;s range is shrink to 0 ~ 1 if I choose the max color channel as luma, after that, there is no very bright pixels, and the bloom effect is very weak. I tried to apply the inversion function weight = 1 / (1 &#8211; luma) to the bloom layer when add bloom layer to the original lighted scene image, but there is no obvious effect, the bloom is still weak. Is there anything I missed?</p>
+<p>Thanks!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-35173  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-35214">
+<div id="comment-35214">
+<div class="comment-author vcard">
+<cite class="fn">caq</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 19, 2014 at 3:27 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thanks for the reply! It&#8217;s really helpful!<br />
+Another question on bloom:<br />
+In the doc, 3&#215;3 tent filter is mentioned when upsample, I want to know how many passes of tent filter to converge to a Gaussian? Only one pass? And if scaled radius (use this to control kernel size, right?) is used, how to solve the holes?</p>
+<p>Thanks in advance!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-35214  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-35660">
+<div id="comment-35660">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 24, 2014 at 3:56 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Regarding the fireflies:</p>
+<p>Sorry, that slide was possibly not too clear. You need to renormalize afterwards, it&#8217;s a weighted average:</p>
+<p><code>float4 sum = 0.0;<br />
+for each sample: sum += (1.0 / (1.0 + luma)) * float4(sampleColor.rgb, 1.0);<br />
+sum.rgb /= sum.w;</code></p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-35660  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor even thread-even depth-1" id="li-comment-35661">
+<div id="comment-35661">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 24, 2014 at 4:03 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Regarding the tent filter:</p>
+<p>You need a few iterations to converge to a Gaussian, but given that the lower mips (the ones that need more filtering) will be successively upscaled (say mip 6 will be scaled to mip 5 size, then to mip 4 size, and so on), they will pretty much look like a Gaussian in the end.</p>
+<p>If you push the radius too much you might find undersampling issues due to the holes, as you mentioned. But the downsample is already blurring the input (that is, removing high frequencies to a substantial degree), which means that it is hard to find undersampling problems in practice even when using such a small 3&#215;3 kernel size.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-35661  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-35743">
+<div id="comment-35743">
+<div class="comment-author vcard">
+<cite class="fn">caq</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 25, 2014 at 8:40 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Great!<br />
+I think I understand how to fix fireflies finally.For each block of 4 samples, do the sum with weight, right?</p>
+<p>For tent filter, I should use different radius on different mip levels (mip6 is large, mip5 is smaller, mip4 is smaller&#8230;), right? On mip0, I have to choose a very small radius?</p>
+<p>Thanks for your great help! I think I am close to the target!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-35743  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-37753">
+<div id="comment-37753">
+<div class="comment-author vcard">
+<cite class="fn">Xiangming</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+February 3, 2015 at 10:22 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi Jorge,<br />
+I don&#8217;t understand the following part of your slides.<br />
+E&#8217; = blur(E,b5)<br />
+D&#8217; = blur(D,b4) + E&#8217;<br />
+C&#8217; = blur(C,b3) + D&#8217;<br />
+B&#8217; = blur(B,b2) + C&#8217;<br />
+A&#8217; = blur(A,b1) + B&#8217;<br />
+Could you please give more explanation about it?<br />
+What do b1,b2,b3,b4,b5 and A,B,C,D,E represent?<br />
+Thank you very much,</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-37753  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-38284">
+<div id="comment-38284">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+February 18, 2015 at 10:28 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>@caq: that is correct, we apply the weighted average on each 2&#215;2 block. We use a custom per-mip radius for the tent filter, but by default it uses the same radius in UV space for each level (as opposed to same radius in pixels) which works great. That is, a fixed scale in texture coordinates.</p>
+<p>@Xiangming: that is from Unreal 4 slides (The Technology Behind the Elemental Demo). A, B, &#8230;, E are different mip levels (where E is lowest resolution one). You first blur E into E&#8217; using the radius b5, then you blur D using radius b4 and add E&#8217;, and so on.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-38284  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-39879">
+<div id="comment-39879">
+<div class="comment-author vcard">
+<cite class="fn">MagicMike</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+March 28, 2015 at 3:24 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>One thing I still don&#8217;t understand about the DoF technique is how the final blend between the half res buffer and full res buffer is computed. </p>
+<p>As I understand it the &#8220;Background Factor&#8221; derived from the full res coc means &#8211; identify the pixels where the focus pixels should sit sharply on top. i.e. Focus pixels will have a sharp silhouette against the blurry background.</p>
+<p>However, the &#8220;Foreground Factor&#8221; I&#8217;m confused about. Obviously we want the blurry foreground to partially obscure the in focus pixels. How can you compute this from the tile max CoC?</p>
+<p>Thanks again</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-39879  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-40439">
+<div id="comment-40439">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+April 13, 2015 at 4:53 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>In a sharp pixel, the maximum tile circle of confusion gives you an intuition about if there might be other pixels bleeding into it.</p>
+<p>However, using the maximum tile circle of confusion alone would lead to blocky foreground areas on top of sharp areas (given the tiled nature of the max tile circle of confusion).</p>
+<p>With the UpscaledAlpha() lerp, this blockiness goes away. Also, this lerp makes the maximum tile circle of confusion to only affect to foreground pixels (turning it foreground, in a sense).</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-40439  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-45877">
+<div id="comment-45877">
+<div class="comment-author vcard">
+<cite class="fn">J.M.</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+November 24, 2015 at 3:52 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi Jorge. I don’t know how to contact you, so I’ll post a comment here and hope for you to see this.<br />
+Some guy just released this mod of yours on the Nexus:<br />
+<a href="http://www.nexusmods.com/skyrim/mods/71535/" rel="nofollow ugc">http://www.nexusmods.com/skyrim/mods/71535/</a>?<br />
+Honestly, I doubt this was done with your permission. Otherwise I’ll apologize for the inconvenience.</p>
+<p>Gr8 Work, mate! Keep going !</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-45877  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-47457">
+<div id="comment-47457">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+February 28, 2016 at 6:33 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Sorry for the delay, just seen this message; as long as they comply with the license, it should be fine!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-47457  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-47888">
+<div id="comment-47888">
+<div class="comment-author vcard">
+<cite class="fn">mag</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+April 6, 2016 at 7:25 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi Jorge, I have a question about how you incorporated translucency into your DOF results.  Was the effect applied post composite using opaque depth values, or perhaps nearest(opaque depth,trans depth)?  Or did you run a separate translucency DOF pass and composite after the fact?</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-47888  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-48135">
+<div id="comment-48135">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+May 3, 2016 at 3:51 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>That is still a problem. We had a checkbox that allowed to select when to render a transparent object: before or after post effects. But this was really a workaround.</p>
+<p>The ideal solution is to run a separate translucency DOF pass as you pointed out, but that was too expensive for us.</p>
+<p>Another idea could be to render transparent objects after DOF, and then do in-shader DOF blurring while rendering them by reading multiple times from the texture maps (or using mip mapping for faster results).</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-48135  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-48365">
+<div id="comment-48365">
+<div class="comment-author vcard">
+<cite class="fn">bruce</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+May 18, 2016 at 8:29 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>How do you deal with neighboring objects that have orthogonal velocity vectors (but similar magnitudes)? The one that wins the max tile will look great, but the other ends up blurring the wrong way until you pop into its dominant tile.</p>
+<p>McGuire&#8217;s alternating tile/center vel helps, but it&#8217;s still pretty noticeable.  I feel like I must be missing something&#8230;</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-48365  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-48669">
+<div id="comment-48669">
+<div class="comment-author vcard">
+<cite class="fn">leo</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+June 10, 2016 at 10:40 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi Jorge,<br />
+Your great presentation is very useful to me(I am plagued by fireflies).<br />
+I have one questions about bloom;<br />
+Should order of expose,bloom and tonemap be below?<br />
+   1.expose the original picture<br />
+   2.do bloom on the exposed picture<br />
+   3.integrate the exposed picture and bloomed picture<br />
+   4.tonemap the integrate picture</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-48669  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-48985">
+<div id="comment-48985">
+<div class="comment-author vcard">
+<cite class="fn">maxest</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+August 2, 2016 at 10:35 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Just a short comment regarding the:<br />
+E’ = blur(E,b5)<br />
+D’ = blur(D,b4) + E’<br />
+C’ = blur(C,b3) + D’<br />
+B’ = blur(B,b2) + C’<br />
+A’ = blur(A,b1) + B’<br />
+part.<br />
+We got more stable and faster results doing it this way:<br />
+E’ = E<br />
+D’ = D + blur(E’)<br />
+C’ = C + blur(D’)<br />
+B’ = B + blur(C’)<br />
+A’ = A + blur(B’)</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-48985  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-48986">
+<div id="comment-48986">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+August 2, 2016 at 1:31 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>@bruce: we remove camera rotation motion blur, so this didn&#8217;t happened often for us in a first person shooter, but I can see it being problematic in some cases.</p>
+<p>@leo: the order you wrote above sounds good to me. We expose after bloom, but it is equivalent to your proposal.</p>
+<p>@maxest: this is what we actually do both for both the downsample and upsample (filter on the flight), but the slides are totally misleading right now. For some reason, I understood [Mitring2012] approach as also doing the blur on the flight, but looking at you what you wrote above, they blur each mip and afterwards perform the upsample. I&#8217;ll fix the slides, thanks for the comment!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-48986  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-49564">
+<div id="comment-49564">
+<div class="comment-author vcard">
+<cite class="fn">Yaro</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+November 14, 2016 at 11:52 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi Jorge,</p>
+<p>Sorry for digging out an old project but I can&#8217;t find a way to properly test your incredible DoF algorithm in OpenGL.<br />
+Firstly, I&#8217;ve tried looping/sampling using the tile_max_CoC as well as current_pixel_CoC and neither seems to work as intended:<br />
+1) when using tile_max_CoC the Background becomes too blurry,<br />
+2) using the current_pixel_CoC gives better results but the foreground isn&#8217;t bleeding onto focused background (the foreground object&#8217;s blurry edge &#8220;shrinks down&#8221; when background becomes focused). </p>
+<p>I&#8217;m certain I need to loop over the tile_max_CoC since it contains data about the current pixel&#8217;s neighborhood but the background is always too blurry (or isn&#8217;t reconstructed properly). I figure this has something to do with the SpreadCmp function which is supposed to throw away samples that aren&#8217;t meant to be used for reconstructing the background but I can&#8217;t seem to find proper values to feed it &#8211; simply using the distance between the current sample and the main pixel as well as the sample&#8217;s CoC value doesn&#8217;t do anything specific, I can just as well return a &#8220;1.&#8221; from this function and it will look exactly the same. Does this have something to do with the fact that my CoC values are in view space (0..1) instead of pixels? I&#8217;ve tried changing this as well but the results weren&#8217;t good either (a bunch of other artefacts on both layers).</p>
+<p>Or maybe I&#8217;m thinking about it wrong and the background shouldn&#8217;t be reconstructed but the alpha should start fading from the point where background still has some real data and move outwards, thus revealing more of the foreground.. BUT the SpreadCmp function doesn&#8217;t allow me to achieve this either.</p>
+<p>I&#8217;ve created a test scene similar to what you&#8217;ve used in your slides (although much less complex) so here&#8217;s my input data and results:</p>
+<p>INPUT:<br />
+Tile Max CoC (normalized for viewing) &#8211; <a href="http://oi67.tinypic.com/mtkwas.jpg" rel="nofollow ugc">http://oi67.tinypic.com/mtkwas.jpg</a><br />
+Current Pixel CoC (normalized for viewing) &#8211; <a href="http://oi64.tinypic.com/2dulab7.jpg" rel="nofollow ugc">http://oi64.tinypic.com/2dulab7.jpg</a><br />
+Background + Foreground Classification &#8211; <a href="http://oi67.tinypic.com/m8fznn.jpg" rel="nofollow ugc">http://oi67.tinypic.com/m8fznn.jpg</a><br />
+Color Input &#8211; <a href="http://oi64.tinypic.com/2pysw0k.jpg" rel="nofollow ugc">http://oi64.tinypic.com/2pysw0k.jpg</a></p>
+<p>LAYERS:<br />
+When sampling using the current pixel CoC:<br />
+Background &#8211; <a href="http://oi67.tinypic.com/vmysqs.jpg" rel="nofollow ugc">http://oi67.tinypic.com/vmysqs.jpg</a><br />
+Foreground &#8211; <a href="http://oi66.tinypic.com/11mc01z.jpg" rel="nofollow ugc">http://oi66.tinypic.com/11mc01z.jpg</a><br />
+Alpha &#8211; <a href="http://oi66.tinypic.com/dc39ft.jpg" rel="nofollow ugc">http://oi66.tinypic.com/dc39ft.jpg</a><br />
+Final &#8211; <a href="http://oi63.tinypic.com/2mzzbif.jpg" rel="nofollow ugc">http://oi63.tinypic.com/2mzzbif.jpg</a></p>
+<p>When sampling using the tile max CoC:<br />
+Background &#8211; <a href="http://oi68.tinypic.com/21b3tkj.jpg" rel="nofollow ugc">http://oi68.tinypic.com/21b3tkj.jpg</a><br />
+Foreground &#8211; <a href="http://oi63.tinypic.com/2lutht0.jpg" rel="nofollow ugc">http://oi63.tinypic.com/2lutht0.jpg</a><br />
+Alpha &#8211; <a href="http://oi64.tinypic.com/ckhlz.jpg" rel="nofollow ugc">http://oi64.tinypic.com/ckhlz.jpg</a><br />
+Final &#8211; <a href="http://oi63.tinypic.com/2zr3qso.jpg" rel="nofollow ugc">http://oi63.tinypic.com/2zr3qso.jpg</a></p>
+<p>Help please!</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-49564  -->
+</li><!-- #comment-## -->
+<li class="post pingback">
+<p>Pingback: <a href="https://kosmonautblog.wordpress.com/2017/03/17/motion-blur-order-independent-transparency/" class="url" rel="ugc external nofollow">Motion BLUR &amp; ORDER INDEPENDENT TRANSPARENCY | kosmonaut games</a></p>
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-57449">
+<div id="comment-57449">
+<div class="comment-author vcard">
+<cite class="fn"><a href="https://beta.observablehq.com/@jrus" class="url" rel="ugc external nofollow">Jacob Rus</a></cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+June 22, 2018 at 9:54 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Check out this version:</p>
+<p><a href="http://extremelearning.com.au/unreasonable-effectiveness-of-quasirandom-sequences/" rel="nofollow ugc">http://extremelearning.com.au/unreasonable-effectiveness-of-quasirandom-sequences/</a></p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-57449  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-64017">
+<div id="comment-64017">
+<div class="comment-author vcard">
+<cite class="fn">brazzjazz</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 12, 2018 at 9:16 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thanks for sharing all this with us! I love in-depth computer graphics stuff (I&#8217;m a gamer).</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-64017  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-64018">
+<div id="comment-64018">
+<div class="comment-author vcard">
+<cite class="fn">brazzjazz</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+December 12, 2018 at 9:24 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>P.S. Fooling around with ReShade a lot though.<br />
+<a href="https://sfx.thelazy.net/users/u/brazzjazz/" rel="nofollow ugc">https://sfx.thelazy.net/users/u/brazzjazz/</a></p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-64018  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-74836">
+<div id="comment-74836">
+<div class="comment-author vcard">
+<cite class="fn">Puscasu Robert</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+February 22, 2020 at 10:40 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Can someone post the source code that implements this bloom? Ive tried for the last 2 months to replicate this, and i have multiple problems.</p>
+<p>The way i understood the algoritm was like this:<br />
+First you render the scene to a framebuffer. Then you downsample 6 times(you render the scene each time to a framebuffer that is 2 times smaller in width and height, and at each render, for every pixel, the formula liniar combination neighbours found in the slides). Then, you unsample 6 times(you render to a framebuffer 2 times larger in width and height then the current buffer. The formula for each pixel is the tent filter made out of 9 elements, found in the slides. You also multiply this result by a radius, meaning that you multiply with a radius each time you unsample).<br />
+After each unsampling, you apply a box filter.</p>
+<p>My problem is when i move the camera in a way that the bloom is outside partially outside of reach. When i do this, the bloom curves in a weird way. You can see this here:</p>
+<p><a href="https://youtu.be/JBhpJZ5_RLU" rel="nofollow ugc">https://youtu.be/JBhpJZ5_RLU</a></p>
+<p>Did i misunderstood the algorithm presented here?</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-74836  -->
+</li><!-- #comment-## -->
+<li class="post pingback">
+<p>Pingback: <a href="https://habr.com/ru/post/508934/" class="url" rel="ugc external nofollow">Анализ графики Red Dead Redemption 2 / Хабр</a></p>
+</li><!-- #comment-## -->
+<li class="post pingback">
+<p>Pingback: <a href="http://flmarket.ru/graphics-study-red-dead-redemption-2/" class="url" rel="ugc external nofollow">Graphics Study: Red Dead Redemption 2 &#8212; FLMarket</a></p>
+</li><!-- #comment-## -->
+<li class="post pingback">
+<p>Pingback: <a href="https://developer.nvidia.com/blog/rendering-in-real-time-with-spatiotemporal-blue-noise-textures-part-2/" class="url" rel="ugc external nofollow">Rendering in Real Time with Spatiotemporal Blue Noise Textures, Part 2 | NVIDIA Developer Blog</a></p>
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-89891">
+<div id="comment-89891">
+<div class="comment-author vcard">
+<cite class="fn">Alexander</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+March 30, 2022 at 6:31 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hey if you are still reading comments in here &#8211; do you have a list of references used in the slides?</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-89891  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-107550">
+<div id="comment-107550">
+<div class="comment-author vcard">
+<cite class="fn"><a href="https://github.com/NickDriscoll" class="url" rel="ugc external nofollow">Nick</a></cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+April 7, 2023 at 4:54 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Thanks for sharing these slides. I was wondering, there are references such as [McGuire2010] and [Karis2013], but there doesn&#8217;t appear to be a bibliography of any sort. I&#8217;ve read your earlier comments about hidden slides and I&#8217;m looking at the slides with notes, but still nothing. I would really like to read more about this Karis averaging used in bloom. Thank you.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-107550  -->
+</li><!-- #comment-## -->
+
+<li class="comment byuser comment-author-iryoku bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-114498">
+<div id="comment-114498">
+<div class="comment-author vcard">
+<cite class="fn">Jorge Jimenez</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+October 19, 2023 at 1:09 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi, the references were right before the bonus slides. I have moved them now to the end of the slides instead to make it easier to find them.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-114498  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-116715">
+<div id="comment-116715">
+<div class="comment-author vcard">
+<cite class="fn">Ivan</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+January 6, 2024 at 5:25 pm 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hey, can you explain in other words what the rawVelocityDepth1.b is supposed to be? This is from slide 70 about motion blur mirror filter.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-116715  -->
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-117112">
+<div id="comment-117112">
+<div class="comment-author vcard">
+<cite class="fn">Ivan Georgiev</cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+February 9, 2024 at 10:59 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi, can you please clarify what is the idea behind the SpreadCmp function calculation for the Motion Blur? Since it is `saturate(pixelToSampleUnitsScale * spreadLen &#8211; offsetLen + 1.0f)` and lets assume that the total samples are 10 and the offsetLen is 2 &#8211; in that case the calculation would become something like `saturate(10 &#8211; 2 + 1)` which is obviously much more than 1. Since you `saturate` the results that makes me think that I&#8217;m not understanding the units that should be used for (pixelToSampleUnitsScale * spreadLen) and offsetLen. If you meant for ratio to be used (so it becomes saturate(10/10 &#8211; 2/10 + 1) ), it still doesn&#8217;t make sense to me.</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-117112  -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-133493">
+<div id="comment-133493">
+<div class="comment-author vcard">
+<cite class="fn"><a href="https://fauder.github.io/" class="url" rel="ugc external nofollow">octocamo</a></cite>:</div><!-- .comment-author .vcard -->
+<div class="comment-meta commentmetadata">
+January 24, 2026 at 10:14 am 
+</div><!-- .comment-meta .commentmetadata -->
+<div class="comment-body">
+<p>Hi Jorge, thanks for the detailed slides, they were very helpful.</p>
+<p>Quick question about the upsampling radius parameter: is it mainly for artistic tuning, or is there a technical reason it can’t be derived from the source mip resolution when upsampling from mip i to i + 1 (e.g. 1 / mip_i_resolution)?</p>
+</div>
+<div class="reply">
+</div><!-- .reply -->
+</div><!-- #comment-133493  -->
+</li><!-- #comment-## -->
+<li class="post pingback">
+<p>Pingback: <a href="https://pedronunes.net/hexterminate-in-2026/" class="url" rel="ugc external nofollow">HEXTERMINATE in 2026 &#8211; SOLACE-10</a></p>
+</li><!-- #comment-## -->
+</ol>
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"></h3><form action="https://www.iryoku.com/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required="required" /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" autocomplete="email" required="required" /></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='1707' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="2ac04772a2" /></p><p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="26"/><script type="text/javascript">
+/* <![CDATA[ */
+document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );
+/* ]]> */
+</script>
+</p></form>	</div><!-- #respond -->
+	</div><!-- #comments -->
+
+</div><!-- #content -->
+</div><!-- #container -->
+
+<div id="primary" class="widget-area" role="complementary">
+<ul class="xoxo">
+</ul>
+</div><!-- #primary -->
+</div><!-- #main -->
+
+<div id="footer" role="contentinfo">
+<div class="line"></div>
+<div id="site-info">Copyright &copy; 2026 Jorge Jimenez</div>
+<div id="site-generator">Powered by <a href="https://www.wordpress.org">WordPress</a></div>
+</div><!-- #footer -->
+
+</div><!-- #wrapper -->
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/iryoku/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script defer type="text/javascript" src="https://www.iryoku.com/wp-content/plugins/akismet/_inc/akismet-frontend.js?ver=1778241675" id="akismet-frontend-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.iryoku.com/wp-includes/js/wp-emoji-release.min.js?ver=6.9.7"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://www.iryoku.com/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+</body>
+</html>
+
+
+<!-- Page cached by LiteSpeed Cache 7.8.1 on 2026-09-07 23:42:09 -->

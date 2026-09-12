@@ -1,0 +1,19 @@
+Martin, P., Johnson, E., Murphey, T., and Egerstedt, M. (2011). Constructing and
+implementing motion programs for robotic marionettes. IEEE Transactions on
+Automatic Control, 56(4), pp. 902-907.
+
+STATUS: full text NOT obtained -- paywalled on IEEE Xplore
+(ieeexplore.ieee.org/document/5685259/); WebFetch of that URL returned an empty
+page (no abstract text served without login). No open-access mirror was found in
+the time available (searched IEEE Xplore, the co-authors' personal/lab pages --
+drpjm.github.io/publications lists the citation only, no link). Recorded as NOT
+FOUND at full-text and abstract level; citation-only entry.
+
+WHAT IS KNOWN (from citing papers, e.g. Jochum et al. 2013 reference 29, and the
+Georgia Tech "Robotics at Georgia Tech" project description found via web search):
+this paper is part of the Georgia Tech / Atlanta Center for Puppetry Arts /
+Northwestern collaboration on robotic marionettes (the same group as Johnson &
+Murphey 2007 and Jochum et al. 2013). It develops an abstraction-based approach to
+specifying and optimizing "motion programs" for robotic marionette control, built
+from concatenated motion primitives, using optimal switch-time control. No
+numerical joint/string parameters from this paper could be recovered.

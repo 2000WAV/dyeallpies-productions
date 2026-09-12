@@ -1,0 +1,1066 @@
+      Robotic Puppets and the Engineering of
+                    Autonomous Theater
+
+     Elizabeth Jochum , Jarvis Schultz, Elliot Johnson, and T.D. Murphey
+
+                                         Northwestern University,
+                                              Evanston IL USA
+
+         Abstract. This paper outlines the design of software for embedded con-
+         trol of robotic marionettes using choreography. In traditional marionette
+         puppetry, the puppets often possess dynamics that are quite different
+         from the creatures they imitate. Puppeteers must therefore understand
+         and leverage the inherent dynamics of the puppets to create believable
+         and expressive characters. Because marionettes are actuated by strings,
+         the mechanical description of the marionettes either creates a multi-scale
+         or degenerate system--making simulation of the constrained dynamics
+         challenging. Moreover, marionettes have 40-50 degrees of freedom with
+         closed kinematic chains. Generating puppet choreography that is mimetic
+         (that is, recognizably human) results in a high dimensional nonlinear
+         optimal control problem that must be solved for each motion. In perfor-
+         mance, these motion primitives must be combined in a way that preserves
+         stability, resulting in an optimal timing control problem. Our software
+         accounts for the efficient computation of the 1) discrete-time dynamics
+         that preserve the constraints and other integrals of motion, 2) nonlinear
+         optimal control policies (including optimal control of LTV systems), and
+         3) optimal timing of choreography, all within a single framework. We
+         discuss our current results and the potential application of our findings
+         across disciplines, including the development of entertainment robots and
+         autonomous theater.
+
+         Keywords: Robotic Puppets, Control and Art
+
+1 Puppets Manipulated By Machines Manipulated by
+     Engineers
+
+Creating autonomous machines that have artistic or aesthetic functions has been
+a subject of inquiry since antiquity. The merging of control theory with artistic
+practice has shifted the approach of artists and engineers away from creating
+systems that merely imitate artful or expressive gestures towards those in which
+the actions or behaviors are directly related to the environment and the system
+
+   This material is based upon work supported by the National Science Foundation un-
+   der award IIS-0917837. Any opinions, findings, and conclusions or recommendations
+   expressed in this material are those of the author(s) and do not necessarily reflect
+   the views of the National Science Foundation.
+2  E. Jochum et al.
+
+dynamics. Ideally, this research will contribute to a deeper understanding of the
+relationship between art and the behavior of dynamical systems. However as the
+experiments in this book demonstrate, it can be difficult to differentiate those
+features which distinguish artistic function from utilitarian function. Rather than
+precisely defining what makes a work of art artful --itself an elusive task that
+has occupied art historians and aesthetic philosophers for centuries [1­3] --it
+can be advantageous to use an established art form or practice as the basis for
+criteria and evaluation of experiments. The aesthetic frameworks of established
+art forms such as dance [4], musical composition [5], or puppetry [6] provide
+external referents that enable researchers to measure the degree to which systems
+are able to generate artistic behaviors or artifacts.
+
+    Out project uses marionette puppetry as a testbed for exploring the au-
+tomated synthesis of control strategies for complex, highly-dynamic, underactu-
+ated systems. Marionette puppetry has a unique approach to creating expressive,
+mimetic behaviors that approximate human gestures and behaviors using a range
+of abstracted motions that indicate --but do not replicate --recognizably hu-
+man motions. In performance, puppets acquire a grace and agility not often seen
+in animatronics, themselves automated systems that aim at mimicry but whose
+movements are typically heavy, slow, and perfunctory. The goal of our project is
+to emulate the control technique of human puppeteers and to develop automated
+puppets while maintaining the natural dynamics of marionettes. Controls strate-
+gies that preserve the marionette's dynamics are important as puppets create
+the illusion of life through the art of indication rather than precise mechanical
+reproduction. We anticipate that our robotic marionette platform will allow for
+a wider, more artistic range of automated motions for entertainment robots.
+
+    Artists and engineers have long experimented with developing efficient meth-
+ods for simulating highly articulated rigid body systems [7­12]. However, these
+efforts have typically focused on designing stable physical motions rather than
+on control calculations. This paper focuses on the question of how to both sim-
+ulate and control an arbitrarily complex rigid body system while maintaining
+scalability and convergence of the resulting numerical routines. Recognizing the
+potential of this research for entertainment, industrial, and medical applications,
+we use a robotic marionette system (seen in Fig. 1) as an example of a complex
+system that requires carefully embedded control that can handle many degrees
+of freedom. String marionettes are interesting because they partly resist the pup-
+peteers attempts to direct them: puppeteers are forced to compromise with the
+dynamics of the underactuated puppet to create recognizable representations of
+human motion. A control-based analysis of string puppetry prompts the ques-
+tion of whether or not puppets can be programmed to perform autonomously--a
+question that has been considered with great vigor by theater artists [13­16] and
+is of increasing relevance given contemporary theatrical productions that com-
+bine animatronic technology with marionette control systems, such as Global
+Creatures' How To Train Your Dragon (2012) and King Kong (2013).
+
+    This project is a collaboration with Georgia Tech, the Atlanta Center for
+Puppetry Arts, and Walt Disney Imagineering/ Disney Research. Disney Imag-
+     Robot Puppets  3
+
+(a)  (b)
+
+Fig. 1: The robotic marionette system in (a) is actuated by small wheeled robots
+that run on the underside of a tarp. The goal is to use motion captured from the
+dancers in (b) as reference data for the marionettes. Software must transform
+the dancers' motion into dynamically admissible motion for the marionettes and
+combine these motions together using choreography.
+
+ineering has played a central role in developing the hardware platform. While
+the use of animatronics is widespread in film, museums, and theme-parks its
+influence on live performance has been largely negligible. The absence of an-
+imatronics from theater stages can be attributed to the tremendous technical
+difficulties and safety risks posed by combining massive robots alongside human
+performers. However the more likely explanation for their absence is that an-
+imatronics lack the human-feeling and artistry found in the live performance
+of direct-contact puppetry. When compared to marionettes, traditional anima-
+tronics are heavy, slow, and expensive. Robotic marionettes promise to be both
+more agile and less costly, and could potentially expand the possibilities for auto-
+mated theatrical performances. For example Global Creatures 2013 production
+of the stage musical King Kong combined traditional puppetry techniques with
+automated marionette control to manipulate a six-meter tall silverback gorilla
+alongside human performers. While the partially-automated performance sig-
+naled a new paradigm for robotic puppets, the refined gestures and expressive
+behaviors still relied heavily on real-time operation by human puppeteers [17]. In
+this case, the reliance on human puppeteers indicates the tremendous technical
+4  E. Jochum et al.
+
+challenges of automating a process that, through training, happens intuitively
+for humans.
+
+    Controlling marionettes is a very challenging technical problem: string mar-
+ionettes have many degrees of freedom, have mechanical degeneracy due to the
+strings, are very lowly damped, and are highly constrained. However, human
+puppeteers have demonstrated a reliable ability for controlling string marionettes
+and solving these high-dimensional motion planning problems--puppeteers con-
+vincingly imitate human motion using marionettes--so we know the problems
+are solvable.
+
+    Part of this project involved the authors working with professional puppeteers
+to formally understand how they prepare for performance and what decisions
+they make during performances. Working alongside puppeteers at the Center
+for Puppetry Arts in Atlanta, Disney Research, and the Denver Puppet The-
+ater provided an opportunity to discover, in practical terms, how puppeteers see
+their jobs as a combination of algorithmic concerns (e.g., how does one organize
+motion) and design concerns (e.g., how does one produce mechanical objects
+that are easily manipulated to produce desired motions). Puppets are complex
+mechanisms --controlling them involves constant trade-off between mechanical
+capacity and sophistication of expression. Puppeteers emphasize three phases
+of motion imitation --Imitate, Simplify, Exaggerate --that represent the need
+to capture a motion, to then simplify it for reliable mechanical reproduction,
+and then exaggerate it for performance. Puppeteers also make strategic deci-
+sions about how to build a puppet that will be amenable to certain motions and
+how to best coordinate the physical relationship between the puppeteer and the
+performing object. Puppeteers coordinate the timing of a motion so they can
+interact with other puppeteers, sometimes collaborating to control a single mar-
+ionette or groups of puppets, ensuring that the marionettes remain animated
+throughout the performance. Scripts of puppet plays describe the action using
+four parameters: temporal duration, agent, space, and motion (i.e., when, who,
+where, and what). These motions are grouped and executed according to counts
+that specify when each motion begins and ends. During rehearsals and perfor-
+mance, the puppeteer makes decisions about the use of force, dynamics, and
+movement qualities that determine the expressive characteristics and the overall
+visual effect, handling complex choreographic sequences and solving problems of
+uncertainty, often before they arise. These are the processes that we set out to
+understand.
+
+    Using a control-based analysis, we aim to understand how puppeteers man-
+age complexity and uncertainty and apply these insights to autonomous theater
+productions and optimization problems in other critical areas. Our current hy-
+pothesis is that choreography plays a critical role in how puppeteers manage
+complexity, and that the study of marionette choreography will further our un-
+derstanding of other complex applications, such as embedded control of pros-
+thetics (briefly discussed at the end of this article). Our goals are to synthesize
+motion control for complex systems. To that end, choreography provides a way of
+categorically identifying useful and recognizable motions (e.g., walking, running,
+Robot Puppets  5
+
+waving, reaching) that can be combined together in phrases. How one combines
+and orders these motions determines the stability and smoothness of transitions
+between motions.
+
+    This paper is organized as follows: Section 2 introduces marionette puppetry
+and articulates the distinct technical challenges of generating recognizable and
+artistic motions using marionettes. Section 3 describes typical analytical ap-
+proaches in dynamic simulation and optimal control and the specific software
+requirements these approaches create. Section 4 discusses which special consid-
+erations should be taken into account when working in discrete time. Section 5
+illustrates our software approach and briefly discusses examples of systems that
+the software automatically optimizes successfully. Section 6 discusses the rele-
+vant features of the current framework and the broader impacts for automated
+puppetry and the engineering of autonomous theater.
+
+2 Puppets: Aesthetic and Mechanical Considerations
+
+From antiquity to the present, artists and engineers have sought to create me-
+chanical figures that generate expressive and lifelike behaviors [18, 13]. Puppets
+are part of this lineage, and are representatives par excellence of humanity's in-
+satiable thirst for bringing ordinary object to life through motion. As art and
+technology scholar Chris Salter has observed, the histories of performing ma-
+chines and robotic art have often involved a continual mingling between mimetic
+aspects (that is, objects that are imitative of lifelike behavior in appearance) and
+machinic aspects (electromechanical behavior that, though animate, is not an-
+thropomorphic) rather than a disambiguation [19]. That is, human artists are
+interested in designing machines that emulate aspects of human creativity. Be-
+fore the advent of computing and electronics, the approach was to design objects
+that appeared lifelike and imitated human actions, such as the 18th century hu-
+manoid automata built by Jacques de Vaucanson and Henri-Louis and Pierre
+Jaquet-Droz [20]. Puppets are the progenitors to these and other attempts to
+create mechanical life, and are part of a lineage that extends to present-day
+animatronics.
+
+    Puppets can take the shape of realistic or abstract figures, and are designed
+for use in theatrical settings. A puppet is generally defined as a material ob-
+ject that makes temporal use of sources of power that exist outside of itself,
+and that are not its own attributes [13, 21]. Animatronics are puppets that are
+electronically controlled through various actuators (electrical, hydraulic, pneu-
+matic), however the absence of a human performer and repetitive or open-loop
+performance means that they are not typically regarded in the same way that
+human-powered puppets are. Setting aside for a moment the question of human
+agency, we recognize that the main purpose of a puppet is movement: to estab-
+lish a meaningful presence the puppet relies on motions to create a character or
+presence that is both recognizable to the spectator and conveys a certain artistic
+truth. The puppet's power of expression is therefore not determined by how well
+it precisely mimics human behavior, but rather by its ability to abstract human
+6  E. Jochum et al.
+
+motions and offer an artistic projection of those motions and behaviors. In other
+words, the goal of puppetry motion is not to copy but to create. As Kingston et
+al. have also observed, a puppets primary purpose is to communicate through
+motion [6].
+
+    Puppeteers are extremely inventive, and have developed numerous methods
+for controlling (often called "manipulating") and constructing expressive, moving
+objects. String marionettes are dynamically unique among puppets, and more
+than other types of puppets have the potential to teach us about optimal control.
+Unlike glove puppets or rod puppets which are controlled through direct, corpo-
+real contact (hands-on, hands-in), string marionettes are operated from above by
+a varying number of strings. For humanoid puppets, these strings are usually at-
+tached to the puppet's head, torso, shoulders, arms, and legs, and can be strung
+to generate specific actions based on the specifications of the choreography. The
+strings can be manipulated with a variety of controls--the most common is the
+multi-stringed wooden control or "airplane" (crossbar) mechanism. This tech-
+nique is used in Asian and European puppetry forms, and puppeteers can opt
+to vary the string lengths and attachment points according to the needs of each
+production or scene. The precision of the puppet's motions is relative to the
+control of the figures--the longer the strings, the weaker the impetus, which re-
+sults in softer, less precise movements [13]. Puppeteers can control marionettes
+at ground level working alongside the puppet and in full view of the audience,
+or from a position high above the stage from a bridge and out of the audi-
+ence's sight lines. In either arrangement, the puppeteer must learn to balance
+the dynamics of the puppet against the need to execute expressive choreography
+that convincingly imitates--but does not replicate--human motions. Because
+string marionettes resist the puppeteer's attempts to direct them, puppeteers
+have developed highly-evolved strategies for generating sequences of complex
+motions--this is what is known as marionette choreography. Because of their
+dynamics, string marionettes are arguably the most difficult type of puppet to
+operate. This also makes them a good testbed for a control-based analysis.
+
+3 Typical Approach
+
+In this section we discuss typical analytical approaches to optimal control and
+the types of software infrastructure these approaches assume. We start with a
+discussion of how one might describe the dynamics of a mechanical system and
+then discuss computing optimal controllers for that system.
+
+3.1 Dynamics
+
+Marionettes are subject to the physics of the world: they swing and sway ac-
+cording to the forces of gravity and the interplay between the different bodies
+--individual units such as the torso, forearms, and legs --in the marionette. This
+interplay between the bodies falls within the realm of dynamics and simulation,
+where the dynamic description comes from a physics-based understanding of
+                                                                  Robot Puppets            7
+
+puppet motion. When computing dynamics we are typically trying to compute
+equations of the form
+
+                                         x = f (x, u)                                      (1)
+
+where x = (q, q) and q  Q describes the configuration of the system. For rigid
+body systems, it has historically been convenient to write down the rigid body
+system in Newton-Euler coordinates (i.e., Q = SE(3)n, where n is the number
+of rigid bodies in the system. This yields a state space of dimension 12n that
+is subject to constraints. For a typical humanoid marionette, for instance, the
+marionette alone (no actuators) has 10 rigid bodies, so the state space would
+be more than 120 dimensions. If one includes string actuation in the degree
+count, that adds one degree of freedom for each string's length and an additional
+element of SE(3) for each string endpoint (treating the inputs as "kinematic
+inputs" [22]). For a typical marionette with 6 strings of variable lengths, this
+brings the total nominal dimension of the state space up to 12 · 10 + 2 · 6 + 12 ·
+6 = 204. Naturally, we don't want to be solving for feedback controllers in a
+204 dimensional space if it can be avoided. To avoid such high dimensions, we
+
+                        (a)                                       (b)
+
+Fig. 2: Simulation of complex rigid bodies can take advantage of the mechanical
+topology of the system. For instance, a marionette is being simulated in (a) using
+a tree structure representation of the humanoid form in (b) and representing the
+constraints by cycles in the graph (see [23]).
+
+don't want to represent Eq. (1) as Newton-Euler equations and instead insist on
+
+working in generalized coordinates. In the case of the marionette, this reduces the
+
+dimension of the state to 2m, where m is the number of generalized coordinates.
+
+This yields 22 configuration variables for the marionette itself and another 18
+
+degrees of freedom for the string actuators (6 strings with endpoints moving in
+
+   2  ×  R),  yielding  80  states.  By  utilizing  a  kinematic  reduction  [24, 25]  we  can
+
+R
+
+reduce the state of the actuators down to 18 because they are fully actuated.
+8  E. Jochum et al.
+
+This gives us equations of motion of the following form:
+
+                     x a = u
+
+                     x p = f (xp, xa)                     (2)
+
+where xa is the kinematic configuration of the actuators and xp = (qp, qp) is
+the dynamic configuration and velocity of the marionette itself. (For details on
+this, see [22].) This leaves us with a much smaller, more manageable system to
+work with that only has a total of 62 dimensions in its state space. Crucially, the
+strings are modeled as holonomic constraints, relating the lengths of the strings
+to the dynamic configurations, of the form
+
+                     h(xa, qp) = 0                        (3)
+
+which must be maintained during simulation and control. Assuming for the mo-
+ment that Eqs (2) and (3) can be stably simulated in an efficient manner, how
+do we then construct the differential equation and constraints in a systematic
+manner? The standard way to do this is based on Featherstone's early work
+[12] on articulated body dynamics. This work was largely used in the context
+of animation and digital puppetry, where the requirements are substantially dif-
+ferent than embedded control. For example, animation requires a simulation to
+"look right" only once, while controlled physical systems must be repeatable.
+Recursive approaches to calculating dynamics [26, 12] take advantage of special
+representations of mechanical systems that allow the values needed for simula-
+tion to be calculated quickly and avoid redundant calculations. The work in this
+paper is based on the methods presented in [23] (based on [12]). Here, systems
+are represented as graphs where each node is a coordinate frame in the mechan-
+ical system and the nodes are connected by simple rigid body transformations
+(typically translations along and rotations about the X, Y , and Z axes, though
+any rigid body screw motion can be used). Transformations are either constant
+or parameterized by real-valued variables. The set of all variables establishes the
+generalized coordinates for the system. Figure 2 is an example of a simulated
+marionette. The graph description can include closed kinematic chains, but in
+practice the graph is converted to an acyclic directed graph (i.e. a tree) and aug-
+mented with holonomic constraints to close the kinematic chains. This approach
+leads to fast calculations of f (·, ·) in Eq. (2) and h(·) in Eq. (3). Moreover, one
+can use the same structure to efficiently calculate the linearization [27], which is
+critical to nonlinear optimal control calculations, discussed in the next section.
+
+3.2 Nonlinear Optimal Control
+
+Controlling marionettes involves choosing how the strings must be operated in
+order to achieve some desired trajectory. For instance, if we wish a marionette
+to generate a walking motion, the strings must pull the limbs in such a way
+that the body of the marionette indicates walking. The choice of string motions
+will, of course, depend on the physics-based description of the marionettes. For
+                                                       Robot Puppets                  9
+
+instance, if the masses of the legs are very high, we might have to pull on the
+strings differently than if the masses were very low. Optimal control plays a
+significant role in determining the outcome because it provides an algorithmic
+means of choosing string lengths and endpoint positions in a manner that takes
+the physics-based description of the marionettes into account. Optimal control
+typically starts out with a cost function of some sort, often of the form
+
+                   tf
+
+               J = L(x(t), xref(t), u(t))dt + m(x(tf ), xref(tf ))                    (4)
+
+                   t0
+
+where L(·) represents a weighted estimate of the error between the state and the
+
+reference state (which is potentially not a feasible trajectory for the system) such
+
+as in the imitation problem mentioned above. We can minimize this cost function
+
+subject to the dynamics in Eqs. (2) and (3) by using iterative descent methods.
+
+In particular, one uses the equivalence between the constrained minimization
+
+and the unconstrained minimization of the objective function composed with a
+
+differentiable projection P(·) onto the constrained subspace. That is, the two
+
+minimizations
+
+                           min g(v) = min g(P(v))
+                           vW V      vV
+
+(where V is the vector space and W is the differentiable submanifold of ad-
+missible vectors) are equivalent [28]. The projection operator P(·) comes from
+computing a feedback law (discussed in more detail in the next section). In par-
+ticular, if one interprets the "gradient" descent algorithm as starting at some
+nominal trajectory  = (x(t), u(t)) and solving for a descent direction  = (z, v)
+that optimizes the local quadratic model
+
+                    = arg min Dg() · DP() ·  +  2,
+
+                                    
+
+then one must only solve a standard time-varying LQR problem. This means
+that one must be able to compute the time-varying linearization
+
+                                  z = A(t)z + B(t)v                                   (5)
+
+where A(t)  =  f   (x(t),  u(t))  =  D1f (x(t), u(t)) and B(t)  =  f   (x(t),  u(t))  =
+               dx                                                  du
+D2f (x(t), u(t)). One has to be able to do so for arbitrary trajectories in the
+
+state space, potentially including infeasible trajectories (in the case of linearizing
+
+about the desired trajectory). Solving for the descent direction involves comput-
+
+ing the Riccati equations
+
+               P + A(t)T P + P A(t) + Q - P B(t)R-1B(t)T P = 0.                       (6)
+
+If we additionally want to guarantee quadratic convergence, then we can find a
+descent direction by solving a different LQR problem
+
+                    = arg min Dg() · DP() ·  +         2
+                                                       D2J
+                                    
+10        E. Jochum et al.
+
+where
+
+                D2J () · (1, 2) = D2g() · (DP() · 1, DP() · 2)
+
+                                        +Dg() · D2P() · (1, 2).                               (7)
+
+The     second  derivative  D2 P (·)    requires    that  we  be  able  to   also  calculate  2f   ,
+                                                                                              dx2
+2f           2f
+du2  ,  and  dxdu  .  The  details  of  this  approach  can  be  found  in   [28]  and  elsewhere,
+
+but for our purposes we should be able to compute Eqs. (2), (3), (4), (5), (6),
+
+and (7) in software. The difficulty of this approach is that we are representing
+
+the optimal control problem in continuous time while the actual computations
+
+are in discrete time. We will discuss this further in Section 4 and we see that it
+
+is only when we perform optimal control calculations in discrete time that we
+
+arrive at convergence of the algorithms that provide motion imitation.
+
+3.3 Choreography and Hybrid Optimal Control
+
+In [29­31] we developed an optimal control interpretation of puppet choreogra-
+phy. In particular, we formalized choreography as a sequence of modes that can
+be pieced together to form a script of motions. Each mode has its own dynamics,
+creating a system with dynamics
+
+                      x = f(x(t), u(t)) = fi(x(t), u(t)) t  (i, i+1)
+
+where each i corresponds to a different mode of the system. To optimize such a
+
+system, one needs to be able to minimize an objective function J with respect to
+
+the switching times i of the system. For a gradient descent algorithm, one must
+
+be  able  to  compute      the  derivative    J  --the  derivative  of  the  cost  function   with
+                                              i
+respect to the switching times--which depends on the switching time adjoint
+
+equation                                            L
+                                                    x
+                                        + A(t)T  +        =   0                               (8)
+
+along with a boundary condition at (tf ) (see [32­35]). This adjoint equation
+only needs to be computed once to compute all the derivatives of J. If one wants
+
+to compute the second derivative of J, e.g. to utilize Newton's method, then the
+
+second-order switching time adjoint equation
+
+                      P  +  A(t)T P  +  P A(t)   +  2L    +      k  2fk  =   0                (9)
+                                                    x2              x2
+                                                              k
+
+along with its boundary condition P (tf ) must be solved [33]. This adjoint equa-
+tion, along with a solution to Eq. (8), needs to be computed only once to ob-
+tain all the derivatives of J. Note that the second-order switching time adjoint
+equation is the same as the Riccati equation in Eq. (6) except that the Riccati
+equation has a different final term. Indeed, both Eq. (8) and Eq. (9) only require
+first and second derivatives of fi with respect to the state, so those are all that
+are needed for software; hence, the choreographic optimization requires the same
+software capabilities as the smooth optimization described in Section 3.2.
+                                  Robot Puppets  11
+
+4 Discrete time with scalability
+
+As previously mentioned, the continuous representation of dynamics found in
+Eq. (1) is not what we actually use to do computations. Moreover, when there
+are constraints, such as those seen in Eqs. (2) and (3), standard methods such
+as Runge-Kutta methods fail to preserve the constraints. Typically one would
+use solvers designed for Differential Algebraic Equations (DAEs) that project
+the numerical prediction onto the set of constrained solutions defined by the
+constraint in Eq. (3). We have found, however, that for high-index DAEs such
+as the marionette a tremendous amount of "artificial stabilization" is required
+to make the simulation of the DAE stable. This artificial stabilization--which
+typically takes the constraint h(q) as a reference and introduces a feedback law
+that "stabilizes" the constraint--changes the dynamics of the system, and if the
+feedback gain is high, this often creates a multi-scale simulation problem that
+is incompatible with real-time operation. As an alternative, we consider vari-
+ational integrators [36­42]. Variational integration methods use the stationary
+action principle as a foundation for numerical integration that does not involve
+differential equations. This approach has several advantages such as guarantees
+about conservation of momenta, the Hamiltonian, and the constraints, as well
+as guaranteed convergence to the correct trajectory as the time step converges
+to zero. More importantly, variational integration techniques exactly simulate a
+modified Lagrangian system where the modified Lagrangian is a perturbation of
+the original Lagrangian. The Discrete Euler-Lagrange (DEL) equations are
+
+D1Ld(qk, qk+1, k) + D2Ld(qk-1, qk, k) = Fk       (10)
+
+                                  h(qk+1) = 0    (11)
+
+where Ld is a discretized form of the Lagrangian and Fk is an external force
+integrated over the k time step. This forms a root solving problem in which,
+given qk-1 and qk, one solves for qk+1. Alternatively, one can utilize the discrete
+Legendre transform to define the discrete generalized momentum pk, and then
+convert the root solving problem of Eq. 11 into a one-step rootsolving problem
+where given the pair (qk, pk) one implicitly solves for the next timestep pair
+(qk+1, pk+1). Repeating this rootsolving procedure forms the basis of simulation.
+Using this method, we can (using a recursive tree description similar to the one
+described in Section 3.1), simulate the marionette in real-time using time steps
+of 0.01 s without adding any sort of numerical heuristics, such as artificial stabi-
+lization. Let's say we start from the DEL equations and assume, by application
+of the implicit function theorem, that the solution exists and is locally unique
+[43]. Once we have made a choice of state (we choose xk = (qk, pk)), we have an
+update equation of the form
+
+xk+1 = fk(xk, uk)
+
+just as we would if we had started from a differential equation. That is, the
+general form of the discrete time equation we wish to optimize is in principle no
+different in the variational integrator case than it is in the standard ODE case.
+12  E. Jochum et al.
+
+Fig. 3: Software using variational integrators as the basis for simulation can ac-
+curately predict marionette motion using comparatively large time steps. In this
+case, the time step is dt = 0.01s.
+
+More importantly, the fact that fk is implicitly defined by the DEL equations
+does not affect whether the linearization is implicitly defined. In fact, one can
+calculate an exact linearization of the DEL equations, including constraints and
+closed kinematic chains [27]. So we may wish to know what the discrete-time
+version of Eqs. (6) and (7) are. (These can be found in [44].) The difficulty is
+that one cannot linearize Eq. (1) directly because that is the infinitesimal lin-
+earization; to get a discrete-time linearization one would nominally have to solve
+the state transition matrix (STM) locally over the time step. Approximating
+the STM leads to a linearization that does not respect the constraints, leading
+to a local optimal controller that essentially fights the constraints. In contrast,
+taking variations directly with respect to xk yields an algebraic calculation for
+the linearization and higher-order derivatives with respect to the state. As with
+variational integration, the key to linearization is to take variations with respect
+to the discrete state rather than the continuous state. For nonlinear optimal
+control in the discrete time setting, we need to know if the resulting projection
+operator (as discussed in Sec. 3.2) is in fact a projection and whether it is differ-
+entiable. To see that such a projection is valuable, consider Fig. 4 [45], where a
+planar double pendulum trajectory is being optimized. The initial guess for the
+optimal solution is the "zero" solution, the optimal solution is the solid black
+line, and the first iteration of Newton's method using the projection operation
+is the dotted line. Hence, one step of Newton's method almost solves the global
+optimization in this case. Naturally, that will not always be the case, but this
+is an indication of how much generating a differential projection operation can
+help. Let  = (x, u) be a desired, potentially infeasible, curve in the space the
+trajectories reside in and let  = (x, u) be feasible trajectories. The continuous
+                                                        Robot Puppets  13
+
+    !'&                                                  (
+
+           *0!
+
+           *0"
+
+!"                          12)*+34
+
+    !
+
+    !!'&(  "                         #
+    !                                             $  %   &
+
+    "
+
+!#  !
+
+    !"!    "                         #            $  %   &
+
+                                        )*+,(-./
+
+Fig. 4: Projection-based variational optimization of a planar double pendulum
+[45]
+
+time projection operator is defined by  = P() such that
+
+           x(t0) = x(t0)
+               x = f (x, u)
+               u = u - K(t)(x - x)
+
+where the feedback gain K(t) comes from solving the Riccati equation in Eq. (6).
+One can verify that P(·) is a projection and that it is C if f is C. What do
+
+we do if we are using Eqs. (10) and (11) instead of Eqs. (2) and (3)? Then the
+
+discrete projection operator Pd(·) is d = Pd(d) such that
+
+           x0 = x0
+
+           xk+1 = fk(xk, uk)                                           (12)
+
+           uk = uk - Kk(xk - xk)
+
+where the discrete time feedback gain Kk comes from solving a discrete time
+Riccati equation. To see that it is a differentiable projection, we introduce the
+following Lemma.
+
+Lemma 1. Pd(·) is a projection.
+
+Proof. We need to show that the projection satisfies the property Pd(¯d) =
+Pd(Pd(¯d)). First we calculate several terms of (a, b) = Pd(, µ) and get a0 =
+0, b0 = µ0 - K0(a0 - 0) = µ0, a1 = f0(a0, b0) = f0(0, µ0), and b1 = µ1 -
+K1(a1 - 1). Now calculate several terms of (x, u) = Pd(a, b) and find that
+x0 = a0 = 0, u0 = b0 - K0(x0 - a0) = b0 = µ0, x1 = f0(x0, u0) = f0(0, µ0) =
+a1, and u1 = b1 - K1(x1 - a1) = b1 - K1(a1 - a1) = b1. By induction we
+find Pd  (, µ) = Pd  Pd  (, µ). Hence, Pd(·) is a projection operation
+from discrete-time representations of curves d to discrete-time representations
+of trajectories d.
+14     E. Jochum et al.
+
+Next we need to calculate the derivative of Pd(·), starting with d = Pd(d)
+(we are going to drop the d from d for notational convenience).
+
+                          = DPd(¯)  ¯
+                           So, by Eq. (12), we get
+
+                      x0 = x¯0
+
+               xk+1       =    fk   xk     +      fk     uk    =  Dfk    k
+                               xk                 uk
+
+                      uk = u¯k - Kk(xk - x¯k).
+
+where  fk  is  shorthand  for  fk  (xk  ,  uk  ,  k  ).  (The  same  applies  to  fk  and  Dfk .)
+       xk                      x                                                  uk
+As in the continuous case, the derivative of the discrete projection is a discrete
+linear system. The second derivative is also straightforward (here we let ¯1 and
+¯2 be two independent perturbations to ¯).
+
+               2 = D2P(¯)  (¯1, ¯2)
+
+                      which implies, again by Eq. (12), that
+
+               2x0 = 0
+
+               2xk+1 = D2fk  (k1, k2) + Dfk  2k
+
+                      =   fk   2   xk  +   fk        2uk  +    D2fk    (k1, k2)
+                          xk               uk
+
+               2uk = -Kk2xk.
+
+Rewriting the second derivative, we get:
+
+               2xk+1  =   fk   2xk  +      fk     2uk    +   D2fk      (k1, k2)
+                          xk               uk
+
+                      =   fk   -   fk      Kk        2xk + D2fk  (k1, k2).
+                          xk       uk
+
+This is a discrete affine system, equivalent to a discrete linear system with an
+input:
+
+           2xk+1 = A^k2xk + B^k
+
+               A^k =      fk   -   fk      Kk             B^k = D2fk  (k1, k2).
+                          xk       uk
+
+Hence, the projection operation Pd is twice differentiable with derivatives that
+are represented by discrete-time linear difference equations, allowing us to apply
+Newton's method to optimal control problems.
+
+5 Examples
+
+We now consider the model of a humanoid marionette shown in Fig. 5. The mar-
+ionette has 40 configuration variables and is actuated by 6 strings. The strings
+Robot Puppets  15
+
+                 Fig. 5: The 3D Marionette is actuated by six strings.
+
+are modeled as holonomic constraints. Kinematic configuration variables--those
+that we assume satisfy first-order dynamics where we control the velocity of
+the variable directly--control the two-dimensional position of the end-point of
+each string as well as the string length. There are no joint torques and only
+slight damping applied to each dynamic configuration variable equally. In order
+to indicate the real-time feasibility of the algorithms discussed in the previous
+sections, we now provide some timing data for the marionette simulation in
+Fig. 5 we have a system that has 22 dynamic degrees-of-freedom, 18 kinematic
+degrees of freedom (corresponding to the actuation of the strings), and 6 total
+holonomic constraints. To evaluate the continuous dynamics that would be used
+in a standard integrator, one evaluation of f (x, u) requires 2.7 ms, while the first
+derivative with respect to the state (i.e., the linearization) requires 24 ms and
+the second derivative with respect to the state requires 400 ms. Note that this
+does not indicate how long it will take to simulate a particular length of time
+because the time step is not included here as we are not working in discrete time.
+With the variational integrator from Eqs. (10) and (11) with a time step of 0.01
+(no other parameters are needed when using variational integrators, even with
+the degeneracies and constraints the strings introduce), the update step requires
+5.53 ms while the first derivative with respect to the state (i.e., the exact dis-
+crete linearization) takes 2.4 ms and the second derivative with respect to the
+state takes 130 ms. This means that, at minimum, we can simulate and evalu-
+ate controllability in real-time. Two optimizations are discussed in the following
+subsections. The optimization in Sec. 5.1 uses a desired trajectory that was gen-
+16           E. Jochum et al.
+
+erated separately by simulating the system. Sec. 5.2 discusses an optimization
+with a reference generated from motion capture data.
+
+5.1 Desired Motion: Simulated Trajectory
+
+A desired trajectory was generated by simulating the system forward in time. The
+lengths of the arm and leg strings were varied sinusoidally to create a "walking"
+motion. The configurations of the trajectory were saved. The rest of the state
+(e.g, configuration velocity or discrete momentum) and the simulation inputs
+were discarded and replaced with uniformly zero trajectories. This results in a
+smooth desired trajectory that we expect the puppet to be able to track, but
+remains an infeasible trajectory. The marionette was optimized to the desired
+trajectory in both continuous and discrete time. Both optimizations successfully
+converged to solutions that track the desired configuration very well. Conver-
+gence plots for both optimizations are shown in Fig. 6. The source code for the
+discrete optimization is distributed with trep at http://trep.googlecode.com in
+the file /examples/puppet-optimization.py. Fig. 6 shows that the continu-
+
+    102                                                                                                                 102
+
+    100                                                                                                                 100
+
+    |Dg|
+                                                                                                                  |Dg|
+
+    10-2                             10-2
+
+    10-4                             10-4
+
+          0  2  4              6  8                                                                                          0  2  4          6    8
+
+                Iteration                                                                                                          Iteration
+
+             (a) Continuous Time                                                                                                (b) Discrete Time
+
+Fig. 6: Convergence plots for continuous and discrete time optimizations from a
+simulated desired trajectory.
+
+ous optimization initially converges drastically faster than the discrete one: it
+tracks the desired trajectory almost perfectly after a single step. The discrete
+optimization makes slow progress initially but converges quickly after about five
+iterations. The discrete optimization takes 5:50s to finish. Each iteration takes
+between 15 and 60 seconds depending on the descent direction type and number
+of Armijo steps. Although the convergence plot is flattering for the continuous
+optimization, there were numerous problems. Unlike the discrete optimization,
+the continuous optimization was highly sensitive to the optimization parameters.
+Large ratios between the maximum and minimum state cost cause the optimiza-
+tion to fail. Additionally, for a successful continuous optimization, the terminal
+Robot Puppets  17
+
+conditions must be significantly relaxed. The discrete time optimization suffers
+from neither of these problems.
+
+Fig. 7: These three images show a single frame from the motion-capture opti-
+mization. The left-most picture shows an RGB image recorded by a Microsoft
+Kinect R . The middle figure is the motion capture data found from the Kinect's
+depth map. The right-most figure is the optimized trajectory.
+
+5.2 Desired Motion: Motion Capture Data
+
+A more practical application of the trajectory optimization is finding trajectories
+to track data acquired from a motion capture system. In this example, a desired
+trajectory was generated using a Microsoft Kinect R to record a student walking
+in place. This process is illustrated in Fig. 7. In this case, the continuous opti-
+mization was unable to converge. The discrete optimization converged success-
+fully and found a trajectory that closely approximates the student's movement.
+Figure 8 plots the desired trajectory and optimization result for the angle of the
+right elbow as an example. The trajectory found by the optimization tracks the
+desired trajectory very well. However, a large amount of noise was introduced.
+This is most likely caused by too large of a ratio between the weight of the con-
+figuration portion of the state compared the discrete momentum portions and
+the cost of the inputs.
+18  E. Jochum et al.
+
+       0
+
+    -  
+       4
+
+    
+
+    -                                    Optimized
+       2
+
+                                         Desired
+
+          0           2  4            6  8          10
+
+                            Time [s]
+
+Fig. 8: The optimal trajectory for the right arm elbow tracks the desired trajec-
+tory well.
+
+6 Conclusions
+
+The robotic marionette project is an example system that forces us to create
+software that can both simulate and control complex mechanical systems. The
+marionettes play a vital role in driving the system development--they have me-
+chanical degeneracies, closed kinematic chains, and are high dimensional, but
+despite these features puppeteers are able to successfully and reliably control
+them. Therefore, marionettes make a good testbed for understanding whether
+or not our software is producing reasonable results. Evaluating the efficacy of
+the control system can be determined immediately by observing whether or not
+the motions and choreographic phrases are recognizable, smooth, and approxi-
+mate the reference data. Viewed this way, we see how a control-based analysis of
+an existing art form allows us to conceptualize new approaches in optimal con-
+trol, and also increases the likelihood that such a system will be used by artists
+to develop choreography for marionettes or other artificial, articulated bodies.
+The techniques we use provide both optimal trajectories and control laws that
+help stabilize those trajectories. Moreover, because we formulate the optimal
+control problem using a differentiable projection, we can analytically guarantee
+quadratic convergence locally around the optimal trajectory. It is also important
+to note that the techniques we have applied to the marionettes are also appli-
+cable to many other fields. For example, we have used these software techniques
+for the tendon-articulated hand in Fig. 9 and can compute linearizations and
+local LQR controllers for the hand. (This simulation capability is now being
+used with prosthetic control in a collaboration with the Rehabilitation Institute
+of Chicago.)
+Robot Puppets  19
+
+Fig. 9: The graph-based approach to calculating linearizations scales to complex
+mechanical systems like this dynamic model of a tendon-articulated human hand
+holding an object. The linearization at this configuration shows that the system
+is locally controllable.
+
+    Puppeteers use marionettes in dynamic, expressive ways, so we presume that
+extremely conservative motions based on a "quasi-static" approach or an inverse-
+kinematics approach are unlikely to produce interesting, artistic motions. Pup-
+petry privileges imitation over precise replication, but to be considered "artis-
+tic" the imitation must rise above perfunctory or routine motions. Typically, the
+artistic quality of puppetry has been assumed to be the result of the interpre-
+tation and execution of the human puppeteer, but our automated marionette
+platform provokes the question of whether or not human operation is essential
+to a marionette's expressiveness and theatrical value. Although we can produce
+an optimal "imitation" of a human motion in the case of a simple walking mo-
+tion captured by the Kinect sensor, we must first solve the calculations for the
+full marionette for a variety of motions before we can claim that marionette
+imitation can be defined as an optimization problem. We are currently working
+on solving these problems. It remains to be seen whether or not a fully auto-
+mated marionette can execute choreography in such a way that transcends mere
+imitation and achieves artful or aesthetic resonance.
+
+    One potential application of the automated marionettes is live entertain-
+ment and theater productions that utilize large-scale animatronics and auto-
+mated performers. While Disney pioneered the technologies of animatronics,
+enabling artists and engineers to partially realize their shared vision of creating
+an autonomous theater, Creature Technology Company and Global Creatures
+20  E. Jochum et al.
+
+are developing sophisticated animatronics for use in live performance. The 2012
+production based on Dreamworks' animated film How To Train Your Dragon
+and the 2013 King Kong are two recent productions that combine large scale
+animatronics with human performers in a live production. Unlike traditional an-
+imatronics, these shows are purposefully designed for international tours. The
+demands of an international touring production present considerable challenges:
+the animatronics must be able to perform reliably in a wide range of venues,
+the choreography of these productions brings live actors into close contact with
+heavy, dangerous machines, and audiences expect the machines to be as interac-
+tive and agile as live performers. Perhaps not surprisingly, Global Creatures has
+opted to work with expert puppeteers to develop choreography for large scale
+animatronics in the shape of flying dinosaurs, dragons, and a six-meter tall silver-
+back gorilla. The machines are controlled through a combination of marionette-
+automation and tele-operated controls (known at Global Creatures as "voodoo
+puppeteering") [46]. A team of puppeteers works together to control a single
+puppet (sometimes with a puppeteer seated in a chassis inside of the puppet),
+while the marionette-automation enables these large puppets to execute expres-
+sive choreography such as flying and aerial stunts--even scaling the side of a
+replica of the Empire State building. This unique hybrid control system expands
+the range and quality of motions that are available to the puppet, allowing the
+puppeteer to develop choreography on a larger scale than has previously been
+imaginable: animatronic choreography can now utilize the entire stage space.
+The level of automation and sensing technologies used to control the puppets
+further distance the human operator from the physical act of puppeteering, re-
+sulting in increasingly automated performances that are not rote or perfunctory
+but are rather perceived as lively and entertaining. This arrangement challenges
+the notion that autonomous theater can only be pre-programmed or repetitive,
+and reignites the debate of whether or not human operators are essential for live
+theater performances.
+
+    In his famous essay What is Art? the Russian novelist Leo Tolstoy wrote
+"To evoke in oneself a feeling one has once experienced and having evoked it in
+oneself then by means of movements, lines, colours, sounds, or forms expressed
+in words, so to transmit that feeling that others may experience the same feel-
+ing--this is the activity of art." As artists and engineers focus their attention
+on emulating artistic process through the generation of performances and arti-
+facts based on system dynamics and control theory, established art forms such
+as music, dance, and puppetry provide important frameworks for modeling and
+evaluating the aesthetic or artistic outcomes. The research projects discussed in
+this volume are illustrative of the urge to understand and emulate the intangible
+aspects of aesthetics while evaluating the tangible outcomes of these investiga-
+tions. Whether it is through the creation of aesthetic or communicative gestures
+[6], generating appealing or interesting musical compositions [5], or expressive
+and engaging choreography [4], the goal is to generate aesthetic behaviors that
+are emergent and are evocative of some human feeling. Whether the application
+Robot Puppets  21
+
+of control theory can engender similar aesthetic responses as works of art gener-
+ated by human artists remains to be seen, but it is a question worth considering.
+
+References
+
+ 1. N. Goodman, Ways of Worldmaking. Indianapolis, IN: Hackett Publishing, Jan.
+     1978.
+
+ 2. I. Kant, Critique of Aesthetic Judgement (1790). Oxford, UK: Oxford University
+     Press, Aug. 1911.
+
+ 3. F. Schiller, On the Aesthetic Education of Man. Oxford, UK: Oxford University
+     Press, 1794.
+
+ 4. A. P. Schoellig, H. Siegel, F. Augugliaro, and R. D'Andrea, "So you think you can
+     dance? rhythmic flight performances with quadrocopters," in Control and Arts,
+     A. LaViers and M. Egerstedt, Eds. Springer-Verlag, 2013.
+
+ 5. C. Huepe, M. Colasso, and R. F. Ca´diz, "Generating music from flocking dynam-
+     ics," in Control and Arts, A. LaViers and M. Egerstedt, Eds. Springer-Verlag,
+     2013.
+
+ 6. P. Kingston, J. von Hinezmeyer, and M. Egerstedt, "Metric preference learning
+     with applications to motion imitation," in Control and Arts, A. LaViers and
+     M. Egerstedt, Eds. Springer-Verlag, 2013.
+
+ 7. R. Smith, "Open Dynamics Engine," 2008, http://www.ode.org.
+ 8. ----, "Dynamics Simulation: A whirlwind tour (current state, and new frontiers),"
+
+     2004, http://ode.org/slides/parc/dynamics.pdf.
+ 9. D. Baraff, "Linear-time dynamics using Lagrange multipliers," in SIGGRAPH,
+
+     1996, pp. 137­146.
+10. ----, "Fast contact force computation for nonpenetrating rigid bodies," in SIG-
+
+     GRAPH, 1994.
+11. ----, "Non-penetrating rigid body simulation," in State of the Art Reports, 1993.
+12. R. Featherstone, Robot Dynamics Algorithms. Kluwer Academic Publishers, 1987.
+13. P. Francis, Puppetry. Palgrave Macmillan, 2012.
+14. H. Kleist, "On the marionette theatre," The Drama Review, vol. 16, no. 3, pp.
+
+     22­26, 1972.
+15. E. G. Craig, On the Art of the Theatre. Routledge, 2009.
+16. S. Kaplin, "A puppet tree: A model for the field of puppet theatre," TDR, vol. 43,
+
+     no. 3, pp. 28­35, 1999.
+17. E. Jochum, "King kong," Theatre Journal, Dec. 2013, Johns Hopkins University
+
+     Press.
+18. J. Burnham, Beyond modern sculpture: the effects of science and technology on the
+
+     sculpture of this century. New York, NY: George Braziller, June 1968.
+19. C. Salter, Entangled: Technology and the Transformation of Performance. MIT
+
+     Press, 2010.
+20. G. Wood, Edison's Eve: a magical history of the quest for mechanical life. New
+
+     York, N.Y.: A.A. Knopf, 2002.
+21. H. Jurkowski, Aspects of Puppet Theatre. Puppet Centre Trust, 1988.
+22. E. Johnson and T. Murphey, "Dynamic modeling and motion planning for mari-
+
+     onettes: Rigid bodies articulated by massless strings," in International Conference
+     on Robotics and Automation, Rome, Italy, 2007.
+23. E. R. Johnson and T. D. Murphey, "Scalable variational integrators for constrained
+     mechanical systems in generalized coordinates," IEEE Transactions on Robotics,
+     2010.
+22  E. Jochum et al.
+
+24. F. Bullo and A. Lewis, "Low-order controllability and kinematic reductions for
+     affine connection control systems," SIAM Journal on Control and Optimization,
+     vol. 44, no. 3, pp. 885­908, 2005.
+
+25. ----, Geometric Control of Mechanical Systems, ser. Number 49 in Texts in Ap-
+     plied Mathematics. Springer-Verlag, 2004.
+
+26. Y. Nakamura and K. Yamane, "Dynamics computation of structure-varying kine-
+     matic chains and its application to human figures," IEEE Transactions on Robotics
+     and Automation, vol. 16, no. 2, 2000.
+
+27. E. Johnson and T. D. Murphey, "Linearizations for mechanical systems in gener-
+     alized coordinates," in American Controls Conf. (ACC), 2010, pp. 629­633.
+
+28. J. Hauser, "A projection operator approach to optimization of trajectory function-
+     als," in IFAC World Congress, Barcelona, Spain, 2002.
+
+29. P. Martin, E. Johnson, T. D. Murphey, and M. Egerstedt, "Constructing and
+     implementing motion programs for robotic marionettes," IEEE Transactions on
+     Automatic Control, 2010, accepted for Publication.
+
+30. M. Egerstedt, T. D. Murphey, and J. Ludwig, Hybrid Systems: Computation and
+     Control, ser. Lecture Notes in Computer Science. Springer-Verlag, 2007, vol. TBD,
+     ch. Motion Programs for Puppet Choreography and Control, pp. 190­202, eds. A.
+     Bemporad, A. Bicchi, and G. C. Buttazzo.
+
+31. T. D. Murphey and M. E. Egerstedt, "Choreography for marionettes: Imitation,
+     planning, and control," in IEEE Int. Conf. on Intelligent Robots and Systems
+     Workshop on Art and Robotics, 2007, 6 pages.
+
+32. E. Johnson and T. D. Murphey, "Second-order switching time optimization for
+     nonlinear time-varying dynamic systems," IEEE Transactions on Automatic Con-
+     trol, 2010, accepted for Publication.
+
+33. T. Caldwell and T. D. Murphey, "Switching mode generation and optimal estima-
+     tion with application to skid-steering," Automatica, 2010, in Press.
+
+34. M. Egerstedt, Y. Wardi, and F. Delmotte, "Optimal control of switching times in
+     switched dynamical systems," in IEEE Conference on Decision and Control, Maui,
+     Hawaii, Dec. 2003.
+
+35. M. Egerstedt, Y. Wardi, and H. Axelsson, "Optimal control of switching times
+     in hybrid systems," in IEEE Methods and Models in Automation and Robotics,
+     Miedzyzdroje, Poland, Aug. 2003.
+
+36. E. Johnson and T. D. Murphey, "Scalable variational integrators for constrained
+     mechanical systems in generalized coordinates," IEEE Transactions on Robotics,
+     vol. 25, no. 6, pp. 1249­1261, 2009.
+
+37. K. Nichols and T. D. Murphey, "Variational integrators for constrained cables,"
+     in IEEE Int. Conf. on Automation Science and Engineering (CASE), 2008, pp.
+     802­807.
+
+38. L. Kharevych, W. Yang, Y. Tong, E. Kanso, J. E. Marsden, P. Schroder, and
+     M. Desbrun, "Geometric, variational integrators for computer animation," Euro-
+     graphics/ACM SIGGRAPH Symposium on Computer Animation, 2006.
+
+39. A. Lew, J. E. Marsden, M. Ortiz, and M. West, "Variational time integrators,"
+     Int. J. Numer. Methods Engrg, vol. 60, pp. 153­212, 2004.
+
+40. ----, "An overview of variational integrators," in Finite Element Methods: 1970's
+     and Beyond, 2004, pp. 98­115.
+
+41. M. West, "Variational integrators," California Institute of Technology Thesis, 2004.
+42. A. Lew, J. E. Marsden, M. Ortiz, and M. West, "Asynchronous variational inte-
+
+     grators," Arch. Rational Mech. Anal., vol. 167, pp. 85­146, 2003.
+43. J. E. Marsen and M. West, "Discrete mechanics and variational integrators," Acta
+
+     Numerica, pp. 357­514, 2001.
+Robot Puppets  23
+
+44. B. Anderson and J. Moore, Linear Optimal Control. Prentice Hall, Inc, 1971.
+45. K. Snyder and T. D. Murphey, "Second-order DMOC using projections," in IEEE
+
+     Int. Conf. on Decision and Control (CDC), 2010.
+46. B. Paynter, "Robodinos: What could possibly go wrong?" Wired Magazine, 2009.
+

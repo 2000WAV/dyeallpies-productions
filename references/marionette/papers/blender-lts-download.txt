@@ -1,0 +1,134 @@
+LTS — Blender
+Toggle navigation
+Features
+Download
+Support
+Get Involved
+About
+Jobs
+Store
+Donate
+Download
+LTS
+Release Notes
+Previous Versions
+Requirements
+Daily Builds
+Demo Files
+Benchmark
+Extensions
+Features
+Download
+Support
+Get Involved
+About
+Jobs
+Store
+Donate
+Download
+LTS
+Release Notes
+Previous Versions
+Requirements
+Daily Builds
+Demo Files
+Benchmark
+Extensions
+Power to last
+Your long-lasting projects are safe with Blender LTS.
+Artwork by Ian Hubert
+LTS Releases Currently Maintained
+Current Blender LTS releases that continue to receive bug-fix updates and support.
+Long-Term Support
+Blender 5.2 LTS
+Last updated to
+5.2.1
+on August 25, 2026
+Long-Term Support
+Blender 4.5 LTS
+Last updated to
+4.5.13
+on August 25, 2026
+Previous LTS Releases
+Blender 4.2 LTS
+Released July 14, 2024. Last updated to 4.2.23 on July 2026.
+READ MORE
+Blender 3.6 LTS
+Released June 27, 2023. Last updated to 3.6.22 on April 2025.
+READ MORE
+Blender 3.3 LTS
+Released September 7, 2023. Last updated to 3.3.21 on July 2024.
+READ MORE
+Blender 2.93 LTS
+The second installment of the LTS program. 18 releases supported until June 2023.
+READ MORE
+Blender 2.83 LTS
+Initially released in June 2020, Blender 2.83 LTS is the first long-term support version released.
+READ MORE
+About Blender LTS
+The Blender LTS program is aimed at ensuring that long-lasting projects can be executed using a stable Blender version, which will provide critical fixes throughout a 2-year time span.
+The LTS version will not have any new features, API changes or improvements. Any critical fix that is applied to the latest stable version, will be regularly ported over to active Blender LTS releases.
+Learn more
+about Blender LTS.
+Enterprise Support
+Canonical offers professional, enterprise-grade support services for the Blender LTS releases.
+Learn more about this product at
+ubuntu.com
+and read the
+announcement on blender.org
+About
+Blender Foundation
+Blender Institute
+Blender Studio
+License
+Logo & Trademark
+Credits
+Privacy Policy
+Code of Conduct
+Organization
+People
+Jobs
+Blender Network
+Download
+Latest Blender
+Blender LTS
+Previous Versions
+Experimental Builds
+Source Code
+Requirements
+Benchmark
+Flamenco
+Extensions
+Add-ons
+Themes
+Developers
+Get Started
+Roadmap
+Projects
+Docs
+Blog
+Forum
+YouTube
+Python API
+Blender Studio
+Films
+Training
+Tools & Pipeline
+Support
+Manual
+Community
+FAQ
+Get Involved
+Documentation
+Education
+News
+Press Releases
+User Stories
+Blender Conference
+Follow Blender
+Support Blender
+Donate
+One-time Donation
+Artistic freedom starts with Blender
+The Free and Open
+Source 3D Creation Suite

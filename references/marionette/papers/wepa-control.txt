@@ -1,0 +1,127 @@
+World Encyclopaedia of Puppetry Arts
+-->
+-->
+FR
+EN
+ES
+Presentation
+Préface
+To the reader
+History of WEPA 1978-2017
+Hard copy edition
+Contributors
+Fiche technique
+Writers
+Written by
+Marcel Violette
+(2012)
+Translation
+Richard March
+(2012)
+Related articles
+Manipulation
+Secrecy
+Scenography
+Chesnais
+Ensecrètement
+Booth
+Royal de Luxe
+Salzburger Marionettentheater
+Harlequin Puppet Theatre
+Takeda Sennosuke
+Albrecht Roser
+Louis Valdès
+Josef Skupa
+Walter Wilkinson
+Jacques Chesnais
+Thomas Holden
+Puppet
+Contemporary
+Johann Georg Geisselbrecht
+(1762-c.1826)
+Alexandre Bertrand
+(End of 17th-France)
+Informations
+Report an error
+Article CC-BY-NC-SA
+Control
+The sum of fixed or mobile pieces used to attach the strings of a puppet, to suspend it, and to manipulate its different parts.
+These pieces, which serve to control the puppet, can be made of wood, metal or a plastic material and can contain bits of leather, rubber or springs. The control is also referred to as a “cross brace”. It is commonly regarded as being essentially used for
+string puppets
+, but it can also be used to operate certain rod marionettes. In this case, it is attached to the
+manipulation
+handle or mounted onto a pivot, and situated on the upper end of the rod. The simplest of string puppets – like the Rajasthani
+kathputli
+of India – do not possess controls: in this case, a looped string is attached to the lower back and the head of the puppet, and is held directly by the puppeteer.
+The construction of a string puppet starts with its aesthetic conception, the deciding of its capabilities and the choice of
+scenography
+, such as the height of the stage or puppet
+booth
+’s play-stage, or in the absence of this, of the height from which the visible manipulation takes place. The latter technical decision determines the length of the strings. After this, there is the fabrication of the puppet, and then of the control, whose constitutive elements can be modified during the process of
+ensecrètement
+, a French term referring to the operation involved in the placing of the strings, named thus for the epoch when puppeteers, desiring to keep their knowledge to themselves or within their profession, made a vow of secrecy to keep this part of their work secret (see
+Secrecy
+).
+Without disregarding various traditional puppet control shapes, the task of creating a control involves addressing problems of applied physics, taking into account the force exerted vertically by gravity proportional to the mass of the puppet to be manipulated (hence the ballasting of certain parts with lead) as well as the amplitude of the movement it is to be given. The control is made up of levers of all sizes that move around their axis: the longer the arm of the lever, the larger the effect on the string, and thus, the greater the movement of the animated element. However, if we follow this principle to the letter, controls would become somewhat gigantic.
+The Burmese, for instance, have found a way to control a puppet with a horizontal piece of wood in the shape of an H (or a T) that is a mere 10 centimetres long. The suspension strings attached to the puppet’s back are fixed to the extremities of the bottom of the H, whilst the strings attached to various points in the head are attached to the extremities of the top of the H. All the other strings are placed directly onto the control: they are looped from one elbow to the other, one hand to the other, one knee to the other, one heel to the other. The manipulator chooses one string out of the five possible, takes it in his hand and moves it in the direction of the movement he desires to enact. Other strings can be attached to the front of the control, if the mouth or the eyes are mobile, or at the back if the character is supposed to lean, assisted by strings attached to the area of the lower back. Another trick for repairing or modifying the length of a string involves using two strings entwined at the control, with a small, tight loop, 10 or 15 centimetres further down, through which another string connecting to the puppet can be knotted. With this configuration, modifying the string simply requires untwining the top strings to undo the knot.
+In Sri Lanka, the control is reduced to a horizontal stick about 40 centimetres long, with suspension strings running from the edges of the stick down to the puppet’s head and other strings attached to other points along the control. For some feminine characters that must be able to dance, two other sticks jut out perpendicularly from each extremity of the principal stick, supporting the hand and arm strings with, for some controls, a small crossbar at the end, enabling the puppeteer to position the puppet’s hands.
+The Middeltons, a family of English marionettists from the beginning of the 19th century, whose puppets were shown until 1923, used – except for “special effect” characters such as nesting heads (
+têtes gigones
+), jugglers, acrobats – simple controls, made of a horizontal bar, with strings attached to the extremities, and a vertical handle situated in the middle used to hold the puppet, which enabled them to manipulate two puppets simultaneously. The American Mantells, from the beginning of the 20th century, performed with string puppets simply controlled by two horizontal sticks: one held in one hand, positioned behind the other, controlling the shoulders, arms and small of the back, the other held in front controlling the knees and hands of the puppet.
+Types of Controls
+Controls can take on a great diversity of forms. In China, small string puppets are manipulated by a control in the shape of a racket onto which all the strings are attached. Large string puppets (about 1 metre tall), from the Fujian province are controlled by a number of strings, varying from five to twenty-odd. They are attached to a bamboo control about ten to twenty centimetres in diameter, cut in two, about twenty centimetres long, with the convex part towards the top and holes pierced around the perimeter. A wooden or bamboo hook, of around 15 to 20 centimetres, fixed on top of the convex part, enables the suspension and holding of the puppet. The
+Royal de Luxe
+troupe manipulate disproportionately large string puppets carried by controls mounted on automobile engines, rolling bridges (the large giant is 8 metres tall), and self-propelled cranes (the small giant measures 5.50 metres tall). For characters of such dimensions, however, they are manipulated with a surprising degree of delicacy and precision. Their manouevring requires many operators: some control hydraulic jacks (for the large and small giraffes) that completes a complex and very technical apparatus comprising of halyards, pulleys and mittens (the giants) that can be connected, on an entirely different scale, to strings. The Japanese puppeteer
+Takeda Sennosuke
+gives his horizontal controls a square, flat form, the inside of which is covered in pivoting levers. The German
+Albrecht Roser
+can make three puppets dance together, due to a horizontal control over 60 centimetres long.
+The technical virtuosity can also have its limits: it is said that in Salzburg, certain puppets have up to eighty strings (see
+Salzburger Marionettentheater
+). To perform the “dislocating skeleton” (which was apparently developed by the British
+Thomas Holden
+) without tangling the strings and ensuring that the figure will be reconstituted with all its body parts in the right place, one must remember that the puppet’s separation and re-assembly is caused by a simple shake of the control. Another example is given by puppets
+en abîme
+– a French term referring to a work of art that contains an additional version of itself within itself – such as the string Harlequin of the
+Harlequin Puppet Theatre
+, in Colwyn Bay (North Wales, Great Britain) made by Eric Bramall, who holds the control of a Harlequin who manipulates, in his turn, another string Harlequin; or the Pierrot of
+Louis Valdès
+, who used the same system but in an even more complex manner, with a total of four puppets.
+In the 1970s, a stonecutter from Angles in France named Master Aubert, who was passionate about string puppets, went to his neighbouring town, Villeneuve-lès-Avignon, to perform manipulation demonstrations at the Carrefour du Théâtre d’Animation. One of his puppets took off his jacket, put it down, and then put it back on again. Separate from the design of the control, the high level of technical prowess in the puppet’s design and the manipulator’s dexterity are also essential elements of puppetry.
+Controls are either horizontal, as is the case in the Compagnie Blin, the
+Salzburger Marionettentheater
+, or the Airplane control in the United States, or vertical like those of
+Josef Skupa
+, the Englishman
+Walter Wilkinson
+, or
+Jacques Chesnais
+, who described his technique thus: “The most delicate part for this kind of puppet is the attaching of the strings, but I am going to give you the secret. Make a Lorraine cross. Put the largest bracket up top and in a way that it can pivot, that is to say that the screw which holds it is slack enough to manoeuvre. Then, put an open hook at the top of the cross and attach it about a metre from the ground. Take your actor
+puppet
+, screw him on using small closed hooks, one in each wrist, one in each knee, one in the lower back and one hook on each side of the head. Join each side of the puppet’s head using strings attached to the bracket. Your puppet will stay standing and upright. All that is left to do is attach the other strings by joining the bottom of the back to the bottom of the cross, both knees to two ends of the bracket, then the hand to the centre of the bracket. Your puppet is made.” (Jacques Chesnais,
+Marionnettes
+, La Flamme, 1936.)
+(See
+Chesnais
+.)
+Bibliography
+Temporal, Marcel.
+Comment construire et animer nos marionettes
+[How to Build and Animate Our Puppets]. Paris, Bourrelier. (7 editions from 1938 to 1973).
+A project of
+Unima Internationale
+Follow UNIMA
+Réseaux Sociaux
+Subscribe to newsletter
+© Copyright 2009-2026 |
+Unima Internationale
+|
+Legal notice
+Alphabetical index
+Geographical areas
+Organisations
+Characters
+People
+Shows
+Techniques
+Thematics

@@ -1,0 +1,14 @@
+He, K. and Sun, J. (2015). Fast Guided Filter. arXiv:1505.00996.
+
+STATUS: full text saved (arXiv), text-extracted; see
+papers/he2015-fast-guided-filter.pdf/.txt.
+
+SUMMARY: Speeds up the guided filter (He, Sun and Tang 2010) from O(N) to
+O(N/s^2) for a subsampling ratio s, by computing the local linear coefficients on
+a downsampled version of the guidance/input pair and then upsampling the
+coefficient maps back to full resolution before applying them, with almost no
+visible quality loss (10x-plus speedup reported).
+
+RELEVANCE: makes guided-filter edge refinement of the hand matte, and any guided
+denoising or detail steps, cheap enough to run per-frame on the full 1080x1920,
+270-frame clip without a heavy per-frame cost.

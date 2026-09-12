@@ -1,0 +1,34 @@
+Dempster, W.T. (1955). Space requirements of the seated operator: geometrical,
+kinematic, and mechanical aspects of the body with special reference to the limbs.
+WADC Technical Report 55-159, Wright-Patterson Air Force Base, OH.
+
+STATUS: the original 1955 WADC technical report PDF was NOT obtained -- the DTIC
+mirror (apps.dtic.mil/sti/pdfs/AD0600618.pdf, a related 1963 "Human Mechanics"
+compilation that reprints Dempster's tables) returned an HTTP block page
+("The request is blocked") from this network, the University of Michigan Deep Blue
+bitstream link (deepblue.lib.umich.edu/bitstream/2027.42/4540/...) returned 404, and
+the ResearchGate-hosted extract was blocked ("temporarily unavailable"). No other
+open copy was found in the time available. This is recorded as NOT FOUND at the
+primary-source level.
+
+WHAT WAS OBTAINED INSTEAD: Dempster's actual numbers, as reprinted verbatim in
+Winter, D.A., Biomechanics and Motor Control of Human Movement, Table 4.1
+("Anthropometric Data"), saved from a course PDF at
+papers/winter-anthro-table-illinois-me481.pdf (text extract in the .txt of the same
+name). Winter's table cites each row's ultimate source as Dempster via Miller &
+Nelson (1973) or Dempster via Plagenhoef (1971) -- coded M, P, L, C in the table's
+footnote. It gives, per segment: segment weight / total body weight; center-of-mass
+position as a fraction of segment length from the proximal and distal ends; radius of
+gyration about the segment's own CG, and about the proximal and distal ends, each as
+a fraction of segment length; and segment density. These are the numbers transcribed
+into data/02-segment-parameters.csv as the "Dempster (via Winter Table 4.1)" rows,
+used as a second, independent check against de Leva (1996) for the same segments.
+
+Also NOT FOUND: an open numeric table for Drillis, R. and Contini, R. (1966), Body
+Segment Parameters, Report 1166-03, NYU School of Engineering and Science (the
+usual source for segment LENGTH as a fraction of stature, reproduced only as a
+figure -- not extractable as text -- in Winter's book). As a substitute with real
+numbers, see fromuth2008-segment-lengths-stature.txt below, which reports very
+close proportionality constants (e.g. hand length 0.111 x stature, matching the
+commonly cited Drillis-Contini value of ~0.108-0.11) derived from the ANSUR
+anthropometric survey.

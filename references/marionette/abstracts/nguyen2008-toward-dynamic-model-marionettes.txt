@@ -1,0 +1,24 @@
+Nguyen, K.D., Lim, K.Y., Dong, W., Goh, Y.K., Chen, I-M., Yeo, S.H., Duh, H.B.L.,
+Li, K., and Su, C.H. (2008). Toward a dynamic model of robotic marionettes. IEEE
+Conference on Robotics, Automation and Mechatronics (RAM 2008), Chengdu, China.
+(Confirmed as RAM 2008 from the IEEE copyright line printed on the extracted PDF:
+"978-1-4244-1676-9/08 / $25.00 (c) 2008 IEEE ... RAM 2008".)
+
+ABSTRACT (as printed):
+Robotic marionettes are those mechatronic systems in which strings that control
+motion of a puppet are driven by a puppeteer platform including motor-pulley
+modules. Systematic control of robotic marionettes is now still a tough problem,
+which several research groups have been attempting to solve. In this paper, we
+present dynamic models of the robotic marionette developed from the Lagrange
+equation. Feed-forward control and feedback control are studied based on the
+dynamic models with the illustration of block diagrams. A process of identifying the
+parameters appearing in the dynamic models is presented in detail. The modeling
+provides better insight of the system, and builds a mathematical platform to
+research the control and design of robotic marionette systems.
+
+RELEVANCE: this is the Nanyang Technological University "ROMS" (Robotic Marionette
+System) group's own dynamic-modeling paper; see also
+icdst-marionette-robotic-manipulation.txt (Chen, Tay, Xing & Yeo, "Marionette: From
+Traditional Manipulation to Robotic Manipulation") for the ROMS-I/II/III hardware
+specification table used for the size/mass/joint-count numbers in
+data/02-dynamics-numbers.csv.

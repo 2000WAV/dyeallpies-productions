@@ -1,0 +1,253 @@
+1254
+
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 20, NO. 11, NOVEMBER 1998
+
+Short Papers
+
+A Model of Saliency-Based Visual Attention for Rapid Scene Analysis
+
+Laurent Itti, Christof Koch, and Ernst Niebur
+
+Abstract--A visual attention system, inspired by the behavior and the neuronal architecture of the early primate visual system, is presented. Multiscale image features are combined into a single topographical saliency map. A dynamical neural network then selects attended locations in order of decreasing saliency. The system breaks down the complex problem of scene understanding by rapidly selecting, in a computationally efficient manner, conspicuous locations to be analyzed in detail.
+Index Terms--Visual attention, scene analysis, feature extraction, target detection, visual search.
+---------------- F ----------------
+
+1 INTRODUCTION
+PRIMATES have a remarkable ability to interpret complex scenes in real time, despite the limited speed of the neuronal hardware available for such tasks. Intermediate and higher visual processes appear to select a subset of the available sensory information before further processing [1], most likely to reduce the complexity of scene analysis [2]. This selection appears to be implemented in the form of a spatially circumscribed region of the visual field, the so-called "focus of attention," which scans the scene both in a rapid, bottom-up, saliency-driven, and task-independent manner as well as in a slower, top-down, volition-controlled, and task-dependent manner [2].
+Models of attention include "dynamic routing" models, in which information from only a small region of the visual field can progress through the cortical visual hierarchy. The attended region is selected through dynamic modifications of cortical connectivity or through the establishment of specific temporal patterns of activity, under both top-down (task-dependent) and bottom-up (scene-dependent) control [3], [2], [1].
+The model used here (Fig. 1) builds on a second biologicallyplausible architecture, proposed by Koch and Ullman [4] and at the basis of several models [5], [6]. It is related to the so-called "feature integration theory," explaining human visual search strategies [7]. Visual input is first decomposed into a set of topographic feature maps. Different spatial locations then compete for saliency within each map, such that only locations which locally stand out from their surround can persist. All feature maps feed, in a purely bottom-up manner, into a master "saliency map," which topographically codes for local conspicuity over the entire visual scene. In primates, such a map is believed to be located in the posterior parietal cortex [8] as well as in the various visual maps in the pulvinar nuclei of the thalamus [9]. The model's saliency map is endowed with internal dynamics which generate attentional shifts. This model consequently represents a complete account of
+²²²²²²²²²²²²²²²²
+· L. Itti and C. Koch are with the Computation and Neural Systems Program, California Institute of Technology--139-74, Pasadena, CA 91125. E-mail: {itti, koch}@klab.caltech.edu.
+· E. Niebur is with the Johns Hopkins University, Krieger Mind/Brain Institute, Baltimore, MD 21218. E-mail: niebur@jhu.edu.
+Manuscript received 5 Feb. 1997; revised 10 Aug. 1998. Recommended for acceptance by D. Geiger. For information on obtaining reprints of this article, please send e-mail to: tpami@computer.org, and reference IEEECS Log Number 107349.
+0162-8828/98/$10.00 © 1998 IEEE
+
+Fig. 1. General architecture of the model.
+bottom-up saliency and does not require any top-down guidance to shift attention. This framework provides a massively parallel method for the fast selection of a small number of interesting image locations to be analyzed by more complex and timeconsuming object-recognition processes. Extending this approach in "guided-search," feedback from higher cortical areas (e.g., knowledge about targets to be found) was used to weight the importance of different features [10], such that only those with high weights could reach higher processing levels.
+2 MODEL
+Input is provided in the form of static color images, usually digitized at 640 ¥ 480 resolution. Nine spatial scales are created using dyadic Gaussian pyramids [11], which progressively low-pass filter and subsample the input image, yielding horizontal and vertical image-reduction factors ranging from 1:1 (scale zero) to 1:256 (scale eight) in eight octaves.
+Each feature is computed by a set of linear "center-surround" operations akin to visual receptive fields (Fig. 1): Typical visual neurons are most sensitive in a small region of the visual space (the center), while stimuli presented in a broader, weaker antagonistic region concentric with the center (the surround) inhibit the neuronal response. Such an architecture, sensitive to local spatial discontinuities, is particularly well-suited to detecting locations which stand out from their surround and is a general computational principle in the retina, lateral geniculate nucleus, and primary visual cortex [12]. Center-surround is implemented in the model as the difference between fine and coarse scales: The center is a pixel at scale c OE {2, 3, 4}, and the surround is the corresponding pixel at scale s = c + d, with d OE {3, 4}. The across-scale difference between two maps, denoted "" below, is obtained by interpolation to the finer scale and point-by-point subtraction. Using several scales not only for c but also for d = s - c yields truly multiscale feature extraction, by including different size ratios between the center and surround regions (contrary to previously used fixed ratios [5]).
+2.1 Extraction of Early Visual Features
+With r, g, and b being the red, green, and blue channels of the input image, an intensity image I is obtained as I = (r + g + b)/3. I is
+
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 20, NO. 11, NOVEMBER 1998
+
+1255
+
+used to create a Gaussian pyramid I(s), where s OE [0..8] is the scale. The r, g, and b channels are normalized by I in order to decouple hue from intensity. However, because hue variations are not perceivable at very low luminance (and hence are not salient), normalization is only applied at the locations where I is larger than 1/10 of its maximum over the entire image (other locations yield zero r, g, and b). Four broadly-tuned color channels are created: R = r - (g + b)/2 for red, G = g - (r + b)/2 for green, B = b - (r + g)/2 for blue, and Y = (r + g)/2 - |r - g|/2 - b for yellow (negative values are set to zero). Four Gaussian pyramids R(s), G(s), B(s), and Y(s) are created from these color channels.
+Center-surround differences ( defined previously) between a "center" fine scale c and a "surround" coarser scale s yield the feature maps. The first set of feature maps is concerned with intensity contrast, which, in mammals, is detected by neurons sensitive either to dark centers on bright surrounds or to bright centers on dark surrounds [12]. Here, both types of sensitivities are simultaneously computed (using a rectification) in a set of six maps ,(c, s), with c OE {2, 3, 4} and s = c + d, d OE {3, 4}:
+
+,(c, s) = |I(c)  I(s)|.
+
+(1)
+
+A second set of maps is similarly constructed for the color channels, which, in cortex, are represented using a so-called "color double-opponent" system: In the center of their receptive fields, neurons are excited by one color (e.g., red) and inhibited by another (e.g., green), while the converse is true in the surround. Such spatial and chromatic opponency exists for the red/green, green/red, blue/yellow, and yellow/blue color pairs in human primary visual cortex [13]. Accordingly, maps 5*(c, s) are created in the model to simultaneously account for red/green and green/red double opponency (2) and %<(c, s) for blue/yellow and yellow/blue double opponency (3):
+
+5*(c, s) = |(R(c) - G(c))  (G(s) - R(s))|
+
+(2)
+
+%<(c, s) = |(B(c) - Y(c))  (Y(s) - B(s))|.
+
+(3)
+
+Local orientation information is obtained from I using oriented Gabor pyramids O(s, q), where s OE [0..8] represents the scale and q OE {0o, 45o, 90o, 135o} is the preferred orientation [11]. (Gabor filters, which are the product of a cosine grating and a 2D Gaussian envelope, approximate the receptive field sensitivity profile (impulse response) of orientation-selective neurons in primary visual cortex [12].) Orientation feature maps, 2(c, s, q), encode, as a group, local orientation contrast between the center and surround scales:
+
+2(c, s, q) = |O(c, q)  O(s, q)|.
+
+(4)
+
+In total, 42 feature maps are computed: six for intensity, 12 for color, and 24 for orientation.
+
+2.2 The Saliency Map
+The purpose of the saliency map is to represent the conspicuity-- or "saliency"--at every location in the visual field by a scalar quantity and to guide the selection of attended locations, based on the spatial distribution of saliency. A combination of the feature maps provides bottom-up input to the saliency map, modeled as a dynamical neural network.
+One difficulty in combining different feature maps is that they represent a priori not comparable modalities, with different dynamic ranges and extraction mechanisms. Also, because all 42 feature maps are combined, salient objects appearing strongly in only a few maps may be masked by noise or by less-salient objects present in a larger number of maps.
+In the absence of top-down supervision, we propose a map normalization operator, 1(.), which globally promotes maps in which a small number of strong peaks of activity (conspicuous locations) is present, while globally suppressing maps which contain numerous comparable peak responses. 1(.) consists of (Fig. 2):
+
+Fig. 2. The normalization operator 1(.).
+
+1) normalizing the values in the map to a fixed range [0..M], in order to eliminate modality-dependent amplitude differences;
+2) finding the location of the map's global maximum M and computing the average m of all its other local maxima; and
+1 6 3) globally multiplying the map by M - m 2 .
+
+Only local maxima of activity are considered, such that 1(.)
+
+compares responses associated with meaningful "activitation spots" in the map and ignores homogeneous areas. Comparing the maximum activity in the entire map to the average overall activation measures how different the most active location is from the
+
+average. When this difference is large, the most active location
+
+stands out, and the map is strongly promoted. When the difference
+
+is small, the map contains nothing unique and is suppressed. The biological motivation behind the design of 1(.) is that it coarsely
+
+replicates cortical lateral inhibition mechanisms, in which neigh-
+
+boring similar features inhibit each other via specific, anatomically
+
+defined connections [15].
+
+Feature maps are combined into three "conspicuity maps," ,
+
+for intensity (5), & for color (6), and 2 for orientation (7), at the
+
+scale (s = 4) of the saliency map. They are obtained through
+
+across-scale addition, "," which consists of reduction of each
+
+map to scale four and point-by-point addition:
+
+3 2 78 4 c = 4
+, =   1 , c, s
+
+(5)
+
+c=2 s=c+3
+
+3 2 78 3 2 78   4 c + 4
+
+&=
+
+1 5* c, s + 1 %< c, s
+
+.
+
+(6)
+
+c=2 s=c+3
+
+For orientation, four intermediary maps are first created by
+
+combination of the six feature maps for a given q and are then
+
+combined into a single orientation conspicuity map:
+
+4 c+4
+
+   3 2 78 2 =
+
+1
+
+1 2 c, s, .
+
+  ; @   0°,45°,90°,135°
+
+c=2 s=c+3
+
+(7)
+
+The motivation for the creation of three separate channels, , , & , and 2 , and their individual normalization is the hypothesis that similar features compete strongly for saliency, while different modalities contribute independently to the saliency map. The three conspicuity maps are normalized and summed into the final input 6 to the saliency map:
+
+6
+
+=
+
+1 3
+
+41
+
+3, 8
+
++
+
+1
+
+3&
+
+8
+
++
+
+31 2
+
+89.
+
+(8)
+
+At any given time, the maximum of the saliency map (SM) defines the most salient image location, to which the focus of attention (FOA) should be directed. We could now simply select the most active location as defining the point where the model should next attend. However, in a neuronally plausible implementation, we model the SM as a 2D layer of leaky integrate-and-fire neurons at scale four. These model neurons consist of a single capacitance which integrates the charge delivered by synaptic input, of a leakage conductance, and of a voltage threshold. When the threshold is
+
+1256
+
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 20, NO. 11, NOVEMBER 1998
+
+scale s = 4, in which synaptic interactions among units ensure that only the most active location remains, while all other locations are suppressed.
+The neurons in the SM receive excitatory inputs from 6 and are all independent. The potential of SM neurons at more salient locations hence increases faster (these neurons are used as pure integrators and do not fire). Each SM neuron excites its corresponding WTA neuron. All WTA neurons also evolve independently of each other, until one (the "winner") first reaches threshold and fires. This triggers three simultaneous mechanisms (Fig. 3):
+1) The FOA is shifted to the location of the winner neuron; 2) the global inhibition of the WTA is triggered and completely
+inhibits (resets) all WTA neurons; 3) local inhibition is transiently activated in the SM, in an area
+with the size and new location of the FOA; this not only yields dynamical shifts of the FOA, by allowing the next most salient location to subsequently become the winner, but it also prevents the FOA from immediately returning to a previously-attended location.
+Such an "inhibition of return" has been demonstrated in human visual psychophysics [16]. In order to slightly bias the model to subsequently jump to salient locations spatially close to the currently-attended location, a small excitation is transiently activated in the SM, in a near surround of the FOA ("proximity preference" rule of Koch and Ullman [4]).
+Since we do not model any top-down attentional component, the FOA is a simple disk whose radius is fixed to onesixth of the smaller of the input image width or height. The time constants, conductances, and firing thresholds of the simulated neurons were chosen (see [17] for details) so that the FOA jumps from one salient location to the next in approximately 30­70 ms (simulated time), and that an attended area is inhibited for approximately 500­900 ms (Fig. 3), as has been observed psychophysically [16]. The difference in the relative magnitude of these delays proved sufficient to ensure thorough scanning of the image and prevented cycling through only a limited number of locations. All parameters are fixed in our implementation [17], and the system proved stable over time for all images studied.
+
+Fig. 3. Example of operation of the model with a natural image. Parallel feature extraction yields the three conspicuity maps for color contrasts (& ), intensity contrasts ( , ), and orientation contrasts (2 ). These are combined to form input 6 to the saliency map (SM). The most salient location is the orange telephone box, which appeared very strongly in & ; it becomes the first attended location (92 ms simulated time). After the inhibition-of-return feedback inhibits this location in the saliency map, the next most salient locations are successively selected.
+reached, a prototypical spike is generated, and the capacitive charge is shunted to zero [14]. The SM feeds into a biologicallyplausible 2D "winner-take-all" (WTA) neural network [4], [1] at
+
+2.3 Comparison With Spatial Frequency Content Models
+Reinagel and Zador [18] recently used an eye-tracking device to analyze the local spatial frequency distributions along eye scan paths generated by humans while free-viewing gray-scale images. They found the spatial frequency content at the fixated locations to be significantly higher than, on average, at random locations. Although eye trajectories can differ from attentional trajectories under volitional control [1], visual attention is often thought as a preocculomotor mechanism, strongly influencing free-viewing. It was, hence, interesting to investigate whether our model would reproduce the findings of Reinagel and Zador.
+We constructed a simple measure of spatial frequency content (SFC): At a given image location, a 16 ¥ 16 image patch is extracted from each I(2), R(2), G(2), B(2), and Y(2) map, and 2D Fast Fourier Transforms (FFTs) are applied to the patches. For each patch, a threshold is applied to compute the number of nonnegligible FFT coefficients; the threshold corresponds to the FFT amplitude of a just-perceivable grating (1 percent contrast). The SFC measure is the average of the numbers of nonnegligible coefficients in the five corresponding patches. The size and scale of the patches were chosen such that the SFC measure is sensitive to approximately the same frequency and resolution ranges as our model; also, our SFC measure is computed in the RGB channels as well as in intensity, like the model. Using this measure, an SFC map is created at scale four and is compared to the saliency map (Fig. 4).
+
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 20, NO. 11, NOVEMBER 1998
+
+1257
+
+(1)
+
+(2)
+
+(3)
+
+Fig. 4. (a) Examples of color images. (b) The corresponding saliency map inputs. (c) Spatial frequency content (SFC) maps. (d) Locations at which input to the saliency map was higher than 98 percent of its maximum (yellow circles) and image patches for which the SFC was higher than 98 percent of its maximum (red squares). The saliency maps are very robust to noise, while SFC is not.
+
+3 RESULTS AND DISCUSSION
+Although the concept of a saliency map has been widely used in FOA models [1], [3], [7], little detail is usually provided about its construction and dynamics. Here, we examine how the feedforward feature-extraction stages, the map combination strategy, and the temporal properties of the saliency map all contribute to the overall system performance.
+
+3.1 General Performance
+The model was extensively tested with artificial images to ensure proper functioning. For example, several objects of the same shape but varying contrast with the background were attended to in the order of decreasing contrast. The model proved very robust to the addition of noise to such images (Fig. 5), particularly if the properties of the noise (e.g., its color) were not directly conflicting with the main feature of the target.
+
+1258
+
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 20, NO. 11, NOVEMBER 1998
+
+Fig. 5. Influence of noise on detection performance, illustrated with a 768 ¥ 512 scene in which a target (two people) is salient by its unique color contrast. The mean ± S.E. of false detections before target found is shown as a function of noise density for 50 instantiations of the noise. The system is very robust to noise which does not directly interfere with the main feature of the target (left; intensity noise and color target). When the noise has similar properties to the target, it impairs the target's saliency and the system first attends to objects salient for other features (here, coarse-scale variations of intensity).
+
+The model was able to reproduce human performance for a number of pop-out tasks [7], using images of the type shown in Fig. 2. When a target differed from an array of surrounding distractors by its unique orientation (as in Fig. 2), color, intensity, or size, it was always the first attended location, irrespective of the number of distractors. Contrarily, when the target differed from the distractors only by a conjunction of features (e.g., it was the only red horizontal bar in a mixed array of red vertical and green horizontal bars), the search time necessary to find the target increased linearly with the number of distractors. Both results have been widely observed in humans [7] and are discussed in Section 3.2.
+We also tested the model with real images, ranging from natural outdoor scenes to artistic paintings and using 1(.) to normalize
+
+the feature maps (Fig. 3 and [17]). With many such images, it is difficult to objectively evaluate the model, because no objective reference is available for comparison, and observers may disagree on which locations are the most salient. However, in all images studied, most of the attended locations were objects of interest, such as faces, flags, persons, buildings, or vehicles.
+Model predictions were compared to the measure of local SFC, in an experiment similar to that of Reinagel and Zador [18], using natural scenes with salient traffic signs (90 images), a red soda can (104 images), or a vehicle's emergency triangle symbol (64 images). Similar to Reinagel and Zador's findings, the SFC at attended locations was significantly higher than the average SFC, by a factor decreasing from 2.5 ± 0.05 at the first attended location to 1.6 ± 0.05
+
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, VOL. 20, NO. 11, NOVEMBER 1998
+
+1259
+
+at the eighth attended location. Although this result does not necessarily indicate similarity between human eye fixations and the model's attentional trajectories, it indicates that the model, like humans, is attracted to "informative" image locations, according to the common assumption that regions with richer spectral content are more informative. The SFC map was similar to the saliency map for most images (e.g., Fig. 4.1). However, both maps differed substantially for images with strong, extended variations of illumination or color (e.g., due to speckle noise): While such areas exhibited uniformly high SFC, they had low saliency because of their uniformity (Fig. 4.2 and Fig. 4.3). In such images, the saliency map was usually in better agreement with our subjective perception of saliency. Quantitatively, for the 258 images studied here, the SFC at attended locations was significantly lower than the maximum SFC, by a factor decreasing from 0.90 ± 0.02 at the first attended location to 0.55 ± 0.05 at the eighth attended location: While the model was attending to locations with high SFC, these were not necessarily the locations with highest SFC. It consequently seems that saliency is more than just a measure of local SFC. The model, which implements withinfeature spatial competition, captured subjective saliency better than the purely local SFC measure.
+3.2 Strengths and Limitations
+We have proposed a model whose architecture and components mimic the properties of primate early vision. Despite its simple architecture and feed-forward feature-extraction mechanisms, the model is capable of strong performance with complex natural scenes. For example, it quickly detected salient traffic signs of varied shapes (round, triangular, square, rectangular), colors (red, blue, white, orange, black), and textures (letter markings, arrows, stripes, circles), although it had not been designed for this purpose. Such strong performance reinforces the idea that a unique saliency map, receiving input from early visual processes, could effectively guide bottom-up attention in primates [4], [10], [5], [8]. From a computational viewpoint, the major strength of this approach lies in the massively parallel implementation, not only of the computationally expensive early feature extraction stages, but also of the attention-focusing system. More than previous models based extensively on relaxation techniques [5], our architecture could easily allow for real-time operation on dedicated hardware.
+The type of performance which can be expected from this model critically depends on one factor: Only object features explicitly represented in at least one of the feature maps can lead to pop-out, that is, rapid detection independent of the number of distracting objects [7]. Without modifying the preattentive feature-extraction stages, our model cannot detect conjunctions of features. While our system immediately detects a target which differs from surrounding distractors by its unique size, intensity, color, or orientation (properties which we have implemented because they have been very well characterized in primary visual cortex), it will fail at detecting targets salient for unimplemented feature types (e.g., T junctions or line terminators, for which the existence of specific neural detectors remains controversial). For simplicity, we also have not implemented any recurrent mechanism within the feature maps and, hence, cannot reproduce phenomena like contour completion and closure, which are important for certain types of human pop-out [19]. In addition, at present, our model does not include any magnocellular motion channel, which is known to play a strong role in human saliency [5].
+A critical model component is the normalization 1(.), which provided a general mechanism for computing saliency in any situation. The resulting saliency measure implemented by the model, although often related to local SFC, was closer to human saliency, because it implemented spatial competition between salient locations. Our feed-forward implementation of 1(.) is faster and simpler than previously-proposed iterative schemes [5]. Neuronally, spatial competition effects similar to 1(.) have been observed in the nonclassi-
+
+cal receptive field of cells in striate and extrastriate cortex [15]. In conclusion, we have presented a conceptually simple com-
+putational model for saliency-driven focal visual attention. The biological insight guiding its architecture proved efficient in reproducing some of the performances of primate visual systems. The efficiency of this approach for target detection critically depends on the feature types implemented. The framework presented here can consequently be easily tailored to arbitrary tasks through the implementation of dedicated feature maps.
+ACKNOWLEDGMENTS
+We thank Werner Ritter and Daimler-Benz for the traffic sign images and Pietro Perona and both reviewers for excellent suggestions.
+This research was supported by the U.S. National Science Foundation, the Center for Neuromorphic Engineering at Caltech, and the U.S. Office of Naval Research.
+REFERENCES
+[1] J.K. Tsotsos, S.M. Culhane, W.Y.K. Wai, Y.H. Lai, N. Davis, and F. Nuflo, "Modelling Visual Attention via Selective Tuning," Artificial Intelligence, vol. 78, no. 1-2, pp. 507­545, Oct. 1995.
+[2] E. Niebur and C. Koch, "Computational Architectures for Attention," R. Parasuraman, ed., The Attentive Brain, pp. 163­186. Cambridge, Mass.: MIT Press, 1998.
+[3] B.A. Olshausen, C.H. Anderson, and D.C. Van Essen, "A Neurobiological Model of Visual Attention and Invariant Pattern Recognition Based on Dynamic Routing of Information," J. Neuroscience, vol. 13, no. 11, pp. 4,700­4,719, Nov. 1993.
+[4] C. Koch and S. Ullman, "Shifts in Selective Visual Attention: Towards the Underlying Neural Circuitry," Human Neurobiology, vol. 4, pp. 219­227, 1985.
+[5] R. Milanese, S. Gil, and T. Pun, "Attentive Mechanisms for Dynamic and Static Scene Analysis," Optical Eng., vol. 34, no. 8, pp. 2,428­2,434, Aug. 1995.
+[6] S. Baluja and D.A. Pomerleau, "Expectation-Based Selective Attention for Visual Monitoring and Control of a Robot Vehicle," Robotics and Autonomous Systems, vol. 22, no. 3-4, pp. 329­344, Dec. 1997.
+[7] A.M. Treisman and G. Gelade, "A Feature-Integration Theory of Attention," Cognitive Psychology, vol. 12, no. 1, pp. 97­136, Jan. 1980.
+[8] J.P. Gottlieb, M. Kusunoki, and M.E. Goldberg, "The Representation of Visual Salience in Monkey Parietal Cortex," Nature, vol. 391, no. 6,666, pp. 481-484, Jan. 1998.
+[9] D.L. Robinson and S.E. Peterson, "The Pulvinar and Visual Salience," Trends in Neurosciences, vol. 15, no. 4, pp. 127­132, Apr. 1992.
+[10] J.M. Wolfe, "Guided Search 2.0: A Revised Model of Visual Search," Psychonomic Bull. Rev., vol. 1, pp. 202­238, 1994.
+[11] H. Greenspan, S. Belongie, R. Goodman, P. Perona, S. Rakshit, and C.H. Anderson, "Overcomplete Steerable Pyramid Filters and Rotation Invariance," Proc. IEEE Computer Vision and Pattern Recognition, pp. 222-228, Seattle, Wash., June 1994.
+[12] A.G. Leventhal, The Neural Basis of Visual Function: Vision and Visual Dysfunction, vol. 4. Boca Raton, Fla.: CRC Press, 1991.
+[13] S. Engel, X. Zhang, and B. Wandell, "Colour Tuning in Human Visual Cortex Measured With Functional Magnetic Resonance Imaging," Nature, vol. 388, no. 6,637, pp. 68­71, July 1997.
+[14] C. Koch, Biophysics of Computation: Information Processing in Single Neurons. New York: Oxford Univ. Press, 1998.
+[15] M.W. Cannon and S.C. Fullenkamp, "A Model for Inhibitory Lateral Interaction Effects in Perceived Contrast," Vision Res., vol. 36, no. 8, pp. 1,115­1,125, Apr. 1996.
+[16] M.I. Posner and Y. Cohen, "Components of Visual Orienting," H. Bouma and D.G. Bouwhuis, eds., Attention and Performance, vol. 10, pp. 531­556. Hilldale, N.J.: Erlbaum, 1984.
+[17] The C++ implementation of the model and numerous examples of attentional predictions on natural and synthetic images can be retrieved from http://www.klab.caltech.edu/~itti/attention/.
+[18] P. Reinagel and A.M. Zador, "The Effect of Gaze on Natural Scene Statistics," Neural Information and Coding Workshop, Snowbird, Utah, 16-20 Mar. 1997.
+[19] I. Kovacs and B. Julesz, "A Closed Curve Is Much More Than an Incomplete One: Effect of Closure in Figure-Ground Segmentation," Proc. Nat'l Academy of Sciences, U.S.A., vol. 90, no. 16, pp. 7,495­ 7,497, Aug. 1993.
+
+

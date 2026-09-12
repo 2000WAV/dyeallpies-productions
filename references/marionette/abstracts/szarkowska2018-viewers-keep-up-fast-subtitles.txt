@@ -1,0 +1,28 @@
+Szarkowska, A. and Gerber-Moron, O. (2018). Viewers can keep up with fast
+subtitles: Evidence from eye movements. PLOS ONE 13(6): e0199331.
+https://doi.org/10.1371/journal.pone.0199331 (open access, CC BY).
+
+STATUS: full text saved (PLOS printable PDF), text-extracted; see
+papers/szarkowska2018-viewers-keep-up-fast-subtitles.pdf/.txt.
+
+SUMMARY: Eye-tracking study, 74 English/Polish/Spanish viewers watching clips
+subtitled at 12, 16 and 20 characters per second (cps) — i.e. testing well above
+the traditional "six-second rule" (~12 cps). Viewers coped well even at 20 cps:
+most could read the subtitles fully AND still follow the on-screen action: no
+loss of image-scene recognition at the fastest speed tested. Slower subtitles
+(12 cps) triggered MORE re-reading and were rated as more boring/frustrating in
+the English-soundtrack condition, i.e. slow is not automatically safer. Faster,
+unreduced-text subtitles were preferred for the English clips; slower,
+edited-down text was preferred for the Hungarian (unknown-language) clips.
+
+RELEVANCE: the caption's URL (github.com/DyeAllPies/dyeallpies-productions) is
+read once, at reel size, with no dialogue-comprehension task competing for
+attention, which is an easier case than film subtitling. This paper is the
+counter-evidence to the "give it lots of hold time or nobody reads it" instinct:
+a modern viewer accustomed to fast subtitles can read short strings well above
+BBC's 160-180 wpm broadcast-caption baseline (Section 4 of
+brand/bbc-accessibility-subtitles-guide.html) without extra hold time — but the
+one-time, unrepeatable exposure of a 1-second sting (no rewind, no second
+subtitle event a moment later) is the opposite of the repeated-exposure film
+context this paper measures, so its cps numbers are a floor for attention, not
+a substitute for the sting's own on-screen hold-time budget.

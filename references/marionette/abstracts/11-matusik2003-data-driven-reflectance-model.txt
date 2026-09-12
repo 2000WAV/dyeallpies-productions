@@ -1,0 +1,39 @@
+Matusik, W., Pfister, H., Brand, M., and McMillan, L. (2003). A Data-Driven
+Reflectance Model. ACM Transactions on Graphics (SIGGRAPH 2003) 22(3),
+759-769.
+
+STATUS: full text saved (MERL, publisher copy); see
+papers/matusik2003-data-driven-reflectance-model.pdf/.txt. The underlying
+MEASURED DATA (100 real materials' dense BRDFs) is documented separately at
+papers/merl-brdf-database.html, papers/merl-mit-brdf-database.html and the
+actual per-material file list at papers/merl-brdf-filelist.html (a fetched
+directory listing of the 100 .binary BRDF files, not a paper).
+
+SUMMARY: introduces the MERL BRDF database -- 100 real, isotropic materials
+(metals, paints, plastics, fabrics, some woods) each densely measured as a
+BRDF (90x90x180 grid over the half-angle parameterization) at MERL, plus a
+low-dimensional PCA-based generative model fit to the measurements
+(represented as "traits" like metallic-like, plastic-like, roughness,
+silverness, gold-like, fabric-like that can be interpolated/edited). The
+file list (merl-brdf-filelist.html) confirms real wood-finish samples
+directly relevant to item 4's "matte painted wood vs lacquered wood"
+question: cherry-235, colonial-maple-223, fruitwood-241, ipswich-pine-221,
+natural-209, pickled-oak-260, special-walnut-224 (all names consistent with
+a furniture-finish reference set, i.e. FINISHED/lacquered wood samples, not
+raw unfinished wood), alongside a large set of paints (white-paint,
+dark-blue/red paint, gold/silver/pearl "metallic-paint" variants -- these
+read as the LACQUERED/glossy end) and plastics (gray-plastic, red-plastic,
+yellow-matte-plastic, pvc, delrin, teflon -- covering both glossy and matte
+plastic).
+
+KEY NUMBERS: NOT FOUND as simple scalar roughness values in this paper
+itself -- the model represents each material as a set of PCA weights over
+measured BRDF lobes, not a single Beckmann/GGX roughness number; a fitted
+ANALYTIC roughness per material is instead available from Ngan et al. 2005
+(below), which explicitly fits standard microfacet models (Cook-Torrance,
+Ward, etc.) to these same 100 measured materials.
+
+RELEVANCE: the primary measured-data source for item 11 section 4's
+material claims (matte vs lacquered wood vs plastic vs the current solid
+red) -- confirms real reference BRDFs exist for exactly the material
+categories under discussion, rather than relying on assumed/typical values.

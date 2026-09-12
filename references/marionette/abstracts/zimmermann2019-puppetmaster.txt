@@ -1,0 +1,35 @@
+Zimmermann, S., Poranne, R., Bern, J.M., and Coros, S. (2019). PuppetMaster:
+Robotic Animation of Marionettes. ACM Transactions on Graphics, 38(4), Article 103
+(SIGGRAPH 2019).
+
+STATUS: full text saved (open PDF from the authors' ETH Zurich lab page); see
+papers/zimmermann2019-puppetmaster.pdf/.txt.
+
+SUMMARY: presents a computational framework and a physical dual-arm robot (ABB
+YuMi) that animates real marionettes. Devises a predictive/trajectory-optimization
+control model coupling the dynamics of the marionette (a mass-spring system) to the
+kinematics of the robot puppeteer.
+
+KEY NUMBERS pulled from the full text:
+- The marionette's own rigid body parts (limbs/links) are modeled as very stiff
+  point-to-point springs to approximate rigid links: energy term
+  W_puppet = sum over linked joint pairs of k * (|x_j1 - x_j2| - l0_j1j2)^2, with
+  spring constant k = 10^4 "for all our experiments," chosen so the resulting
+  deformation of the rigid body parts is imperceptible (i.e. this k is a numerical
+  rigidity constant standing in for a truly rigid link, not a string/tendon
+  stiffness in the physical sense).
+- The strings themselves (connecting a marionette joint to a robot-held attachment
+  point) are modeled with an analogous but ONE-SIDED (unilateral) tension energy
+  term, W_string, of the same spring form but active only when the string is
+  stretched beyond its rest/attachment length (their Eq. 20); exact bracket
+  notation for the one-sided cutoff was not perfectly recoverable from the PDF text
+  extraction (the "[.]+" positive-part operator did not survive extraction cleanly)
+  -- recorded as a caveat rather than invented. Whether the same k=10^4 value or a
+  different constant is used for the string energy specifically is NOT explicitly
+  disambiguated in the extracted text; treat k=10^4 as a rigid-link constant with
+  medium confidence it is reused for strings, not as a directly confirmed
+  string-only number.
+- Uses BDF-2 (second-order backward differentiation) as the time integrator, noted
+  as exhibiting "much less numerical damping than Implicit Euler" -- relevant to
+  choosing a MuJoCo integrator (implicit/implicitfast) for a stiff marionette
+  simulation without over-damping the swing.

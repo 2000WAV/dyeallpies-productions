@@ -1,0 +1,16 @@
+quantity,male_mean,male_sd,n,unit,source_file,table_or_page
+"Hand length (digit 3 tip to stylion, ""HAND LENGTH MEASURED"")",19.41,0.99,1003,cm,greiner1991-hand-anthropometry-of-us-army-personnel.txt,item 59 p.157-158
+Digit 3 tip to wrist crease length,19.45,1.03,1003,cm,greiner1991-hand-anthropometry-of-us-army-personnel.txt,item 24 p.87-88
+Palm length (base of digit 3 to wrist crease),11.05,0.60,1003,cm,greiner1991-hand-anthropometry-of-us-army-personnel.txt,item 61 p.161-162
+Hand breadth measured,9.04,0.42,1003,cm,greiner1991-hand-anthropometry-of-us-army-personnel.txt,item 63 p.165-166
+Digit 3 (middle finger) distal phalanx link length (DIP joint to tip),2.84,0.23,1003,cm,greiner1991-hand-anthropometry-of-us-army-personnel.txt,item 31 p.101-102
+Digit 3 (middle finger) distal interphalangeal joint breadth,1.98,0.14,1003,cm,greiner1991-hand-anthropometry-of-us-army-personnel.txt,item 27 p.94-95
+"Hand length (stylion to tip of digit III, ANSUR ""handlength"")",19.33,0.995,4082,cm,ansur-ii-male-public.csv,"column handlength; mean/SD computed from raw CSV, not a printed table"
+Hand breadth (ANSUR "handbreadth"),8.83,0.439,4082,cm,ansur-ii-male-public.csv,"column handbreadth; computed"
+Hand circumference (ANSUR "handcircumference"),21.23,1.024,4082,cm,ansur-ii-male-public.csv,"column handcircumference; computed"
+Palm length (ANSUR "palmlength"),11.65,0.623,4082,cm,ansur-ii-male-public.csv,"column palmlength; computed"
+Forearm-hand length (ANSUR "forearmhandlength"),48.02,2.328,4082,cm,ansur-ii-male-public.csv,"column forearmhandlength; computed"
+"Hand length (50th percentile -- median, not mean)",19.3,"NOT FOUND (percentile table gives no SD; 5th/95th = 17.9/20.6 cm)",NOT FOUND,cm,nasa-std-3000-vol1.txt,"Fig 3.3.1.3-1, American male column, ref codes 274/308/351 p.121-128"
+"Hand breadth (50th percentile -- median, not mean)",8.9,"NOT FOUND (5th/95th = 8.2/9.6 cm)",NOT FOUND,cm,nasa-std-3000-vol1.txt,"Fig 3.3.1.3-1, American male column"
+"Hand circumference (50th percentile -- median, not mean)",21.8,"NOT FOUND (5th/95th = 20.3/23.4 cm)",NOT FOUND,cm,nasa-std-3000-vol1.txt,"Fig 3.3.1.3-1, American male column"
+Fingertip pulp thickness (periosteum of distal phalanx to palmar skin surface),0.64,0.08,NOT FOUND,cm,hauck2004-pulp-nonfiction.txt,"figure widely secondary-cited from the paywalled full text (Plast Reconstr Surg 113(2):536-9); abstract itself (saved, europepmc-hauck2004.json) does not print this number -- primary full text NOT independently verified; also reports phalanx bone height 4 +/- 1 mm in the same cross-section"

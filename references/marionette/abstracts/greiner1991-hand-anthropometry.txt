@@ -1,0 +1,32 @@
+Greiner, T. M. (1991). Hand Anthropometry of U.S. Army Personnel. Technical Report
+NATICK/TR-92/011. U.S. Army Natick Research, Development and Engineering Center,
+Natick, MA. (DTIC accession ADA244533.)
+
+ABSTRACT (as printed in the report, block 13; full OCR text saved in
+papers/greiner1991-hand-anthropometry-of-us-army-personnel.txt, sourced via the Internet
+Archive mirror of the DTIC scan since apps.dtic.mil blocks scripted downloads):
+
+This report presents the results of the analysis of data on the hand gathered during the
+1987-1988 anthropometric survey of Army personnel. Data are presented in the form of summary
+statistics and percentile tables. In addition, correlations, regressions, analyses of
+variance and principal components for sex and racial groups, nonmetric trait frequencies, and
+observer error magnitudes are reported. These data summaries are presented for a subset of
+the actual data base (1003 men and 1304 women) that match the working data bases summarized
+in the Anthropometric Survey's Final Report. The dimensions given in this report include 64
+hand measurements that were obtained using a special photometric system. An additional 22
+dimensions, obtained through direct measurement during the Anthropometric Survey, were added
+to the hand data base. Therefore, a total of 86 dimensions are presented in this report.
+
+RELEVANCE TO THIS PROJECT: the primary male hand-size source, n=1003 men. Tables transcribed
+into data/04-hand-norms.csv: (24) DIGIT 3 TIP TO WRIST CREASE LENGTH, males mean 19.45 cm /
+SD 1.03 cm (closest published analog to MediaPipe's wrist-landmark-to-middle-fingertip
+distance, since both endpoints are a crease/joint-level landmark, not a bone landmark); (59)
+HAND LENGTH MEASURED (digit-3 tip to stylion), males mean 19.41 cm / SD 0.99 cm; (61) PALM
+LENGTH (base of digit 3 to wrist crease), males mean 11.05 cm / SD 0.60 cm; (63) HAND BREADTH
+MEASURED, males mean 9.04 cm / SD 0.42 cm; (31) DIGIT 3 DISTAL PHALANX LINK LENGTH (DIP joint
+to tip), males mean 2.84 cm / SD 0.23 cm; (27) DIGIT 3 DISTAL INTERPHALANGEAL JOINT BREADTH,
+males mean 1.98 cm / SD 0.14 cm. The report's own hand-measurement glossary (Chapter II) lists
+no "depth" or "thickness" dimension for any digit or the fingertip pulp -- every distal-digit
+measurement it has is a length, a mediolateral breadth, or a circumference (checked against
+the full table of contents, items 1-86) -- so this source cannot supply the palmar-normal
+fingertip-pad offset; see hauck2004-pulp-nonfiction.txt for that number instead.

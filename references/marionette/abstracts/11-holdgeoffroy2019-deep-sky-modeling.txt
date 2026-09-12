@@ -1,0 +1,25 @@
+Hold-Geoffroy, Y., Athawale, A., and Lalonde, J.-F. (2019). Deep Sky
+Modeling for Single Image Outdoor Lighting Estimation. CVPR 2019,
+6927-6935. arXiv:1905.03897.
+
+STATUS: full text saved (arXiv); see
+papers/holdgeoffroy2019-deep-sky-modeling.pdf/.txt.
+
+SUMMARY: replaces the fixed analytic Hosek-Wilkie sky model used in
+Hold-Geoffroy et al. 2017 with a DATA-DRIVEN learned sky model, solving
+both "what does plausible sky radiance look like" and "which sky matches
+this one photo" jointly/end-to-end, improving relighting quality over the
+2017 fixed-model approach. Outdoor/sun-dome scenario, same caveat as the
+2017 paper re: limited direct relevance to this project's indoor window-lit
+shot.
+
+KEY NUMBERS: NOT extracted in this pass beyond the general framing above
+-- given the outdoor sky-dome scenario is only tangentially relevant to
+this shot, the paper is cited for completeness (the brief names it) rather
+than mined for every reported metric; see the 2017 paper's numbers above
+for the same research group's outdoor-illumination error bars.
+
+RELEVANCE: same as the 2017 paper -- background context establishing that
+even single-dominant-light-source illumination estimation carries real,
+non-trivial error, supporting the recommendation to use this shot's own
+visible shadow evidence (item 05) over a general learned prior.

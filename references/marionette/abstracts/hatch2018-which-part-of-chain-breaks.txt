@@ -1,0 +1,27 @@
+Hatch, D.M. and Marchetti, F. (or listed single author on arXiv), (2018). Which
+part of a chain breaks? arXiv:1808.08668.
+
+ABSTRACT (as printed):
+This work investigates the dynamics of a one-dimensional homogeneous harmonic
+chain on a horizontal table. One end is anchored to a wall; the other (free) end is
+pulled by external force. A Green's function is derived to calculate the response
+to a generic pulling force. As an example, I assume that the magnitude of the
+pulling force increases with time at a uniform rate lambda. If the number of beads
+and springs used to model the chain is large, the extension of each spring takes a
+simple closed form, which is a piecewise-linear function of time. Under an
+additional assumption that a spring breaks when its extension exceeds a certain
+threshold, results show that for large lambda the spring breaks near the pulling
+end, whereas the breaking point can be located close to the wall by choosing small
+lambda. More precisely, the breaking point moves back and forth along the chain as
+lambda decreases, which has been called "anomalous" breaking in the context of the
+pull-or-jerk experiment. Although the experiment has been explained in terms of
+inertia, its meaning can be fully captured by discussing the competition between
+intrinsic and extrinsic time scales of forced oscillation.
+
+RELEVANCE (limited): this is a study of a pulled multi-spring chain, not a falling
+suspended body -- it is only loosely analogous to the marionette drop/snap. It is
+kept in this archive as supporting context for the general "jerk" phenomenon (why a
+fast load application behaves qualitatively differently from a slow one, in terms
+of which time-scale -- the loading rate vs. the system's natural period -- controls
+the outcome), not as a source of any number used directly in the model. No number
+from this paper is used in data/02-dynamics-numbers.csv.

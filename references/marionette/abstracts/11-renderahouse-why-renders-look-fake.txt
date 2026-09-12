@@ -1,0 +1,31 @@
+"How to Make Renders Look Realistic: 6 Fixes for Fake-Looking Images",
+renderahouse.com (accessed 2026-09-12).
+
+STATUS: full HTML page saved; see
+papers/renderahouse-why-renders-look-fake.html. Commercial
+architectural-visualization blog, no explicit reuse licence -- cited for
+its practitioner checklist, not as peer-reviewed evidence (consistent with
+how item 07/08's creator-economy blog sources were flagged in this shared
+folder).
+
+SUMMARY: a working-practitioner checklist of why CG renders/composites read
+as fake, converging closely with several other items already in this
+folder: (1) weak or missing CONTACT SHADOWS make an object look like it is
+floating rather than resting/hanging in the scene -- explicitly named as
+one of the most common and most fixable mistakes; recommends a TWO-PART
+shadow (a broad soft ambient shadow plus a tighter, darker occlusion
+shadow right at the actual contact point) rather than one uniform soft
+shadow; (2) lighting/exposure mismatch between the CG element and the
+plate; (3) over-perfect, noise-free CG surfaces next to a real photo's
+natural imperfection/noise (converges with item 05 section 4.2's grain-
+matching argument and this document's Rademacher 2001 citation on surface
+smoothness).
+
+KEY NUMBERS: none (qualitative practitioner checklist, not a study).
+
+RELEVANCE: item 11 sections 3 and 6 -- the "floating object, no contact
+shadow" failure mode is exactly the generic AR/VFX-insertion mistake this
+project must avoid for the marionette hanging 30 cm off the wall; the
+two-part shadow recommendation (broad soft + tight dark contact shadow)
+gives a concrete, cheap structure for the shadow-catcher pass flagged as
+"nice-to-have" in item 05 section 2.3, if it is built.

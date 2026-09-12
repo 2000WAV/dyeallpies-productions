@@ -1,0 +1,22 @@
+NASA-STD-3000, Man-Systems Integration Standards, Volume I, Section 3.3 "Anthropometry and
+Biomechanics". NASA, revision current as archived at standards.nasa.gov.
+
+DESCRIPTION (a standards document, not a journal paper -- no printed abstract; description
+assembled from the document's own section headers):
+
+NASA-STD-3000 Volume I compiles anthropometric design data for spacecraft and equipment
+design, including 5th/50th/95th-percentile body-segment dimension tables for named reference
+populations (e.g. "40-Year-Old American Male", "40-Year-Old Japanese Female"), in Figure
+3.3.1.3-1 and surrounding sections. Full text saved as papers/nasa-std-3000-vol1.pdf (953
+pages) with a pdftotext -layout extract in the .txt of the same name.
+
+RELEVANCE TO THIS PROJECT: a third, independent corroboration (after Greiner 1991 and ANSUR
+II 2012) of the male hand-length figure the build assumed from memory. Figure 3.3.1.3-1
+("Body Size of the 40-Year-Old American Male and 40-Year-Old Japanese Female for Year 2000 in
+One Gravity Conditions"), American male column, reference codes checked against Reference 16
+Volume II per the document's own notes: Hand length 5th/50th/95th percentile = 17.9 / 19.3 /
+20.6 cm (7.0 / 7.6 / 8.1 in); Hand breadth 5th/50th/95th = 8.2 / 8.9 / 9.6 cm; Hand
+circumference 5th/50th/95th = 20.3 / 21.8 / 23.4 cm (nasa-std-3000-vol1.txt, lines ~955-965).
+The 50th-percentile hand length of 19.3 cm matches the project's assumed norm digit-for-digit;
+note this is a percentile (median), not a mean +/- SD, so it is reported separately from the
+Greiner/ANSUR II mean+SD figures in data/04-hand-norms.csv rather than pooled with them.

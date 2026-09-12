@@ -1,0 +1,29 @@
+Google. Filament Materials Guide (filament PBR renderer documentation),
+https://google.github.io/filament/Materials.md.html (accessed 2026-09-12).
+
+STATUS: full HTML page saved; see papers/filament-materials-guide.html.
+
+SUMMARY: a widely-used, open-source (Apache-2.0 project) physically-based
+rendering material reference. Documents the standard metallic/roughness
+PBR parameterization: `roughness` in [0,1] controls perceived surface
+smoothness (0=mirror-glossy, 1=fully rough/matte), for both dielectric
+(non-metal, e.g. plastic/paint/wood-with-clearcoat) and conductor (metal)
+surfaces, plus a dedicated CLEAR COAT layer model explicitly intended for
+"car paint, soda cans, lacquered wood, and coated metals" -- i.e. Filament's
+own documentation explicitly names lacquered wood as the canonical
+clear-coat use case: a rough/matte or textured base layer (the wood) plus a
+thin, separate, near-perfectly-smooth (very low roughness) clear coat on
+top, each with its own roughness value, rather than one single roughness
+number for the whole surface.
+
+KEY NUMBERS: NOT FOUND as a single "roughness = 0.X for wood/plastic/paint"
+lookup table in the fetched page (the guide teaches the model and shows
+qualitative roughness-sweep example images, not a numeric per-material
+table) -- flagged NOT FOUND for a citable scalar; the qualitative
+CLEAR-COAT-AS-TWO-LAYERS point above is what is used.
+
+RELEVANCE: item 4's basis for treating "lacquered wood" as two shading
+layers (a rougher coloured base + a separate, much smoother clear coat
+specular response) rather than a single glossy material -- directly
+actionable if the graphics-plan follow-up (HANDOFF.md item 3) moves the
+puppet's material from flat solid red toward a lacquered look.

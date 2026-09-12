@@ -1,0 +1,34 @@
+Kersten, D., Mamassian, P., and Knill, D.C. (1997). Moving Cast Shadows
+Induce Apparent Motion in Depth. Perception 26(2), 171-192.
+DOI: 10.1068/p260171. PMID: 9274752.
+
+STATUS: abstract only, fetched via NCBI E-utilities (PubMed is the primary
+index; the journal Perception is a SAGE title, full text paywalled, and the
+paper's own historical host (vision.psych.umn.edu, the Kersten Lab) no
+longer resolves from this machine -- DNS failure, not a paywall). See
+abstracts/kersten1997-moving-cast-shadows-apparent-motion-depth.txt for the
+raw efetch output.
+
+SUMMARY (from the abstract): psychophysics using 3-D computer graphics
+shows that a ball's perceived 3-D trajectory is determined almost entirely
+by the motion of its CAST SHADOW, not by the ball's own on-screen path --
+the "ball-in-a-box" demonstration: a ball on a fixed diagonal on-screen path
+appears to slide along the floor when its shadow moves diagonally in
+lockstep, but appears to RISE OFF THE FLOOR when the same ball's shadow
+instead moves horizontally underneath it. Cast-shadow motion overrides
+other strong depth cues and priors (constant object size, generic
+viewpoint). The visual system assumes shadows come from a light source that
+itself does not move, and misattributes shadow motion caused by a moving
+light to object motion instead.
+
+KEY NUMBERS: none quantitative in the abstract (the effect is reported as a
+strong, qualitative illusion, not a percentage or threshold) -- NOT FOUND
+for a numeric effect size from this abstract-only source.
+
+RELEVANCE: the classical demonstration, alongside Wanger et al. 1992, that
+a cast shadow is disproportionately load-bearing for a viewer's read of an
+object's position/depth relative to a surface -- directly motivates why
+the marionette's shadow on the wall (item 11 section 3, and item 05's own
+penumbra-from-shadow recipe) matters more than almost any other single cue
+for "the puppet is really there, 30 cm off the wall" rather than "pasted on
+top of the footage."

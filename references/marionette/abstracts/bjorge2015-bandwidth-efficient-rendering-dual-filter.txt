@@ -1,0 +1,20 @@
+Bjorge, M. (2015). Bandwidth-Efficient Rendering (dual-filter Kawase-style
+blur/bloom). SIGGRAPH 2015 "Advances in Real-Time Rendering" course slides, ARM.
+
+STATUS: full text saved (ARM community mirror), text-extracted; see
+papers/bjorge2015-bandwidth-efficient-rendering-dual-filter.pdf/.txt.
+
+SUMMARY: Presents dual filtering, a mobile-GPU-friendly reformulation of Kawase's
+iterative blur (Kawase 2003) that alternates a small downsample-blur kernel while
+progressively halving resolution, then an upsample-blur kernel while
+progressively doubling resolution back up, minimizing texture bandwidth. A chain
+of about five to six dual-filter passes approximates a very large-radius Gaussian
+blur (the slides compare it to roughly a 35-pixel-radius Gaussian) at a fraction
+of the cost, and is the technique behind Unity's and several mobile engines'
+bloom implementations.
+
+RELEVANCE: the practical bloom-blur implementation recommended for the neon
+marionette's glow: cheap enough to run per-frame in a NumPy or offline
+compositing pipeline (a handful of box or small-Gaussian downsample and upsample
+passes) while giving a smooth, large-radius glow without the cost of a literal
+large kernel.

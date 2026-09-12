@@ -1,0 +1,25 @@
+Fromuth, R.C. and Vance, J.M. (Parkinson, M.B., co-author on related OPEN Design
+Lab work) (2008). Predicting 5th and 95th percentile anthropometric segment lengths
+from population stature. Proceedings of IDETC/CIE 2008, ASME International Design
+Engineering Technical Conferences.
+
+STATUS: full text saved (open PDF mirror), text-extracted; see
+papers/fromuth2008-segment-lengths-stature.pdf /.txt.
+
+SUMMARY (from the paper's own text and its Figure 5 / boundary-ratio table):
+Proportionality constants ("boundary ratios") relate individual body segment
+landmark heights and lengths to total stature, following the method introduced by
+Drillis and Contini (1966). The paper's Figure 5 lists, for females/males/averaged,
+the 5th/50th/95th-percentile ratio of each landmark to stature, derived from the
+ANSUR anthropometric survey. The 50th-percentile "averaged" values used in this
+project's data/02-segment-parameters.csv (length-fraction rows) are: acromial
+(shoulder) height 0.820 x stature; trochanterion (hip) height 0.528; lateral femoral
+epicondyle (knee) height 0.284; lateral malleolus (ankle) height 0.038; hand length
+0.111; radiale-stylion (forearm) length 0.151; acromion-radiale (upper arm) length
+0.193. Thigh length and shank length are not given directly and were computed in
+this project as the difference of two landmark heights (trochanterion - knee, and
+knee - ankle respectively) -- see notes column in the CSV.
+
+RELEVANCE: cross-check and fill-in for segment length fractions not tabulated
+directly by de Leva (1996), which reports absolute lengths in mm for a single
+reference stature rather than a general fraction-of-stature table.

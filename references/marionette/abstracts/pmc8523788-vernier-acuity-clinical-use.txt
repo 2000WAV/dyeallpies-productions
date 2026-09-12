@@ -1,0 +1,26 @@
+The Clinical Use of Vernier Acuity: Resolution of the Visual Cortex Is More
+Than Meets the Eye. (2021). PMC8523788 (open access, PubMed Central).
+
+STATUS: full HTML page saved; see
+papers/pmc8523788-vernier-acuity-clinical-use.html.
+
+SUMMARY / KEY NUMBERS (for the string-visibility calc):
+- Standard resolution acuity (the ordinary "sharpness" limit, e.g. 20/20):
+  minimum angle of resolution = 1 ARCMINUTE of visual angle (stated
+  equivalently as 2 mm resolvable at 6 m). This is the threshold for
+  resolving two separate points/lines as distinct.
+- Vernier acuity / hyperacuity (detecting a small MISALIGNMENT or the mere
+  presence of a fine line/edge, not resolving two separate points): as low
+  as 2-5 ARCSECONDS in normal observers (untrained observers still reach
+  ~10 arcsec) -- roughly 12-30x finer than the 1-arcmin resolution limit,
+  and finer than the ~30-arcsec centre-to-centre spacing of foveal cone
+  photoreceptors. This "hyperacuity" is explained by cortical pooling
+  across many photoreceptors/orientation-tuned V1 cells, not by the raw
+  optics of the eye.
+RELEVANCE to item 9 (string visibility): a taut string is a LINE-detection
+target, not a two-point-resolution target, so its effective visibility
+threshold is much closer to the ~2-30 arcsec hyperacuity regime than to the
+1-arcmin resolution regime -- i.e., a thin high-contrast line can be seen far
+below the angular width that a "resolution acuity" number alone would
+suggest. See data/09-colour-numbers.csv for the resulting arcsec-per-pixel
+conversion at a typical phone viewing distance.

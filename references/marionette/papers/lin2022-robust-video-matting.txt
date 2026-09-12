@@ -1,0 +1,713 @@
+  Robust High-Resolution Video Matting with Temporal Guidance
+
+      Shanchuan Lin1* Linjie Yang2 Imran Saleemi2 Soumyadip Sengupta1
+                        1University of Washington 2ByteDance Inc.
+
+{linsh,soumya91}@cs.washington.edu {linjie.yang,imran.saleemi}@bytedance.com
+
+Figure 1: Our method produces robust and coherent results on all videos without requirements for trimaps or pre-captured backgrounds.
+
+Abstract                                                     Neural models are used for this challenging problem but
+                                                             the current solutions are not always robust and often gener-
+   We introduce a robust, real-time, high-resolution hu-     ate artifacts. Our research focuses on improving the matting
+man video matting method that achieves new state-of-the-     quality and robustness for such applications.
+art performance. Our method is much lighter than previous
+approaches and can process 4K at 76 FPS and HD at 104           Most existing methods [18, 22, 32], despite being de-
+FPS on an Nvidia GTX 1080Ti GPU. Unlike most existing        signed for video applications, process individual frames as
+methods that perform video matting frame-by-frame as in-     independent images. Those approaches neglect the most
+dependent images, our method uses a recurrent architecture   widely available feature in videos: temporal information.
+to exploit temporal information in videos and achieves sig-  Temporal information can improve video matting perfor-
+nificant improvements in temporal coherence and matting      mance for many reasons. First, it allows the prediction
+quality. Furthermore, we propose a novel training strat-     of more coherent results, as the model can see multiple
+egy that enforces our network on both matting and segmen-    frames and its own predictions. This significantly reduces
+tation objectives. This significantly improves our model's   flicker and improves perceptual quality. Second, temporal
+robustness. Our method does not require any auxiliary in-    information can improve matting robustness. In the cases
+puts such as a trimap or a pre-captured background image,    where an individual frame might be ambiguous, e.g. the
+so it can be widely applied to existing human matting ap-    foreground color becomes similar to a passing object in the
+plications. Our code is available at https://peterl1n.       background, the model can better guess the boundary by
+                                                             referring to the previous frames. Third, temporal informa-
+github.io/RobustVideoMatting/                                tion allows the model to learn more about the background
+                                                             over time. When the camera moves, the background be-
+1. Introduction                                              hind the subjects is revealed due to the perspective change.
+                                                             Even if the camera is fixed, the occluded background still
+   Matting is the process of predicting the alpha matte and  often reveals due to the subject's movements. Having a bet-
+foreground color from an input frame. Formally, a frame I    ter understanding of the background simplifies the matting
+can be viewed as the linear combination of a foreground F    task. Therefore, we propose a recurrent architecture to ex-
+and a background B through an  coefficient:                  ploit the temporal information. Our method significantly
+                                                             improves the matting quality and temporal coherence. It
+  I = \alpha F + (1 - \alpha ) B \vspace {-5pt}     (1)      can be applied to all videos without any requirements for
+                                                             auxiliary inputs, such as a manually annotated trimap or a
+By extracting  and F , we can composite the foreground       pre-captured background image.
+object to a new background, achieving the background re-
+placement effect.                                               Furthermore, we propose a new training strategy to en-
+                                                             force our model on both matting and semantic segmen-
+   Background replacement has many practical applica-        tation objectives simultaneously. Most existing methods
+tions. Many rising use cases, e.g. video conferencing and
+entertainment video creation, need real-time background re-
+placement on human subjects without green-screen props.
+
+*Work performed during an internship at ByteDance.
+
+                                                             238
+[18, 22, 32] are trained on synthetic matting datasets. The           Auxiliary-free matting. Fully automatic matting with-
+samples often look fake and prevent the network to general-        out any auxiliary inputs has also been studied. Methods like
+ize to real images. Previous works [18, 22] have attempted         [27, 44] work on any foreground objects but not as robust,
+to initialize the model with weights trained on segmenta-          while others like [18, 33, 45] are trained specifically for hu-
+tion tasks, but the model still overfits to the synthetic distri-  man portraits. MODNet [18] is the latest portrait matting
+bution during the matting training. Others have attempted          method. In contrast, our method is trained to work well on
+adversarial training [32] or semi-supervised learning [18]         the full human body.
+on unlabeled real images as an additional adaptation step.
+We argue that human matting tasks are closely related to              Video matting. Very few neural matting methods are de-
+human segmentation tasks. Simultaneously training with a           signed for videos natively. MODNet [18] proposed a post-
+segmentation objective can effectively regulate our model          processing trick that compares the prediction of neighbor-
+without additional adaptation steps.                               ing frames to suppress flicker, but it cannot handle fast-
+                                                                   moving body-parts and the model itself still operates on
+   Our method outperforms the previous state-of-the-art            frames as independent images. BGM [32] explored taking
+method while being much lighter and faster. Our model              a few neighboring frames as additional input channels, but
+uses only 58% parameters and can process real-time high-           this only provides short-term temporal cues and its effects
+resolution videos at 4K 76 FPS and HD 104 FPS on an                were not the focus of the study. DVM [43] is video-native
+Nvidia GTX 1080Ti GPU.                                             but focused on utilizing temporal information to propagate
+                                                                   trimap annotations. On contrary, our method focuses on us-
+2. Related Works                                                   ing temporal information to improve matting quality in an
+                                                                   auxiliary-free setting.
+   Trimap-based matting. Classical (non-learning) algo-
+rithms [1, 5, 7, 10, 20, 21, 36] require a manual trimap anno-        Recurrent architecture. Recurrent neural network has
+tation to solve for the unknown regions of the trimap. Such        been widely used for sequence tasks. Two of the most pop-
+methods are reviewed in the survey by Wang and Cohen               ular architectures are LSTM (Long Short-Term Memory)
+[41]. Xu et al. [43] first used a deep network for trimap-         [13] and GRU (Gated Recurrent Unit) [6], which have also
+based matting and many recent research continued this ap-          being adopted to vision tasks as ConvLSTM [34] and Con-
+proach. FBA [9] is one of the latest. Trimap-based methods         vGRU [2]. Previous works have explored using recurrent
+are often object agnostic (not limited to human). They are         architectures for various video vision tasks and showed im-
+suitable for interactive photo-editing applications where the      proved performance compared to the image-based counter-
+user can select target objects and provide manual guidance.        parts [40, 26, 39]. Our work adopts recurrent architectures
+To extend it to video, Sun et al. proposed DVM [37], which         to the matting task.
+only requires a trimap on the first frame and can propagate
+it to the rest of the video.                                          High-resolution matting. Patch-based refinement has
+                                                                   been explored by PointRend [19] for segmentation and
+   Background-based matting. Soumyadip et al. pro-                 BGMv2 [22] for matting. It only performs convolution on
+posed background matting (BGM) [32], which requires an             selective patches. Another approach is using Guided Fil-
+additional pre-captured background image as input. This in-        ter [11], a post-processing filter that jointly upsamples the
+formation acts as an implicit way for foreground selection         low-resolution prediction given the high-resolution frame as
+and increases matting accuracy. Lin and Ryabtsev et al. fur-       guidance. Deep Guided Filter (DGF) [42] was proposed
+ther proposed BGMv2 [22] with improved performance and             as a learnable module that can be trained with the network
+a focus on real-time high-resolution. However, background          end-to-end without manual hyperparameters. Despite filter-
+matting cannot handle dynamic backgrounds and large cam-           based upsampling being less powerful, we choose it because
+era movements.                                                     it is faster and well supported by all inference frameworks.
+
+   Segmentation. Semantic segmentation is to predict a             3. Model Architecture
+class label for every pixel, often without auxiliary inputs.
+Its binary segmentation mask can be used to locate the hu-            Our architecture consists of an encoder that extracts indi-
+man subjects, but using it directly for background replace-        vidual frame's features, a recurrent decoder that aggregates
+ment will result in strong artifacts. Nonetheless, segmen-         temporal information, and a Deep Guided Filter module for
+tation tasks are similar to matting tasks in an auxiliary-free     high-resolution upsampling. Figure 2 shows our model ar-
+setting, and the research in segmentation inspires our net-        chitecture.
+work design. DeepLabV3 [3] proposed ASPP (Atrous Spa-
+tial Pyramid Pooling) module and used dilated convolution          3.1. Feature-Extraction Encoder
+in its encoder to improve performance. This design has been
+adopted by many following works, including MobileNetV3                Our encoder module follows the design of state-of-the-
+[15], which simplified ASPP to LR-ASPP.                            art semantic segmentation networks [3, 4, 15] because the
+                                                                   ability to accurately locate human subjects is fundamental
+
+                                                                   239
+Image HR                                                                                                                                                                                                                                                                                                                                                                              Hidden        Alpha
+
+       Downsample                                                                                                                                                                                                                                                                                                                                                                     Alpha         Foreground
+
+          Image LR                                                                                                                                                                                                                                                                                                                                                                    Foreground
+
+                    Encoder Blk    AvgPool                                                                                                                                                                                                                                                                                                                                            Segmentation
+                           Encoder Blk
+                                   Encoder BlkAvgPool
+                                          Encoder Blk
+                                   AvgPool
+                                       LR-ASPP
+                                               ConvGRU                                                                                                                                                                                                                                                                                                      Output Block                            Split
+                                                             Bilinear 2X
+                                                                                                                                                                                                                                                                                                                                                                                                    Concat
+                                                               Conv
+                                                                            BatchNorm                                                                                                                                                                                                                                                                                                               Output
+
+                                                                         ReLU
+                                                                                 ConvGRU
+                                                                                                   Bilinear 2X
+
+                                                                                                  Conv
+                                                                                                                  BatchNorm
+
+                                                                                                            ReLU
+                                                                                                                   ConvGRU
+                                                                                                                                         Bilinear 2X
+
+                                                                                                                                     Conv
+                                                                                                                                                         BatchNorm
+
+                                                                                                                                               ReLU
+                                                                                                                                                      ConvGRU
+                                                                                                                                                                                Bilinear 2X
+
+                                                                                                                                                                        Conv
+                                                                                                                                                                                                BatchNorm
+
+                                                                                                                                                                                 ReLU
+                                                                                                                                                                                      Conv
+                                                                                                                                                                                                                BatchNorm
+                                                                                                                                                                                                ReLU
+                                                                                                                                                                                                       Conv
+
+                                                                                                                                                                                                                        DGF
+
+                                                                                                                                                                                                                                                                                                                   Upsampling Block
+
+                                   Bottleneck Block
+
+                     Encoder                                                                                                                                                                                                                                                                                                 Recurrent Decoder                                        Upsampler
+
+Figure 2: Our network consists of a feature-extraction encoder, a recurrent decoder, and Deep Guided Filter (DGF) module. To process
+high-resolution videos, the input is first downsampled for the encoder-decoder network, then DGF is used to upsample the result.
+
+to the matting task. We adopt MobileNetV3-Large [15] as                                                                                                                                                                                                                                                                              As shown in Figure 2, our decoder consists of a bottle-
+
+our efficient backbone followed by the LR-ASPP module as                                                                                                                                                                                                                                                                     neck block, upsampling blocks, and an output block.
+
+proposed by MobileNetV3 for semantic segmentation tasks.                                                                                                                                                                                                                                                                             Bottleneck  block  operates  at  the       1     feature       scale       af-
+                                                                                                                                                                                                                                                                                                                                                                                16
+
+Noticeably, the last block of MobileNetV3 uses dilated con-                                                                                                                                                                                                                                                                  ter the LR-ASPP module. A ConvGRU layer is oper-
+
+volutions without downsampling stride. The encoder mod-                                                                                                                                                                                                                                                                      ated on only half of the channels by split and concatena-
+
+ule   operates       on  individual  frames          and                                                                                                                                                                                                                                       extracts  features  at  1  ,  tion. This significantly reduces parameters and computation
+                                                                                                                                                                                                                                                                                                                       2
+1     1          1
+4  ,  8  ,  and  16  scales   for  the  recurrent                                                                                                                                                                                                                                              decoder.                      since ConvGRU is computationally expansive.
+
+3.2. Recurrent Decoder                                                                                                                                                                                                                                                                                                               Upsampling  block  is  repeated  at  1  ,  1  ,  and     1  scale.    First,
+                                                                                                                                                                                                                                                                                                                                                                          8     4             2
+
+                                                                                                                                                                                                                                                                                                                             it concatenates the bilinearly upsampled output from the
+
+   We decide to use a recurrent architecture instead of at-                                                                                                                                                                                                                                                                  previous block, the feature map of the corresponding scale
+tention or simply feedforwarding multiple frames as addi-
+tional input channels for several reasons. Recurrent mech-                                                                                                                                                                                                                                                                   from the encoder, and the input image downsampled by re-
+anisms can learn what information to keep and forget by
+itself on a continuous stream of video, while the other two                                                                                                                                                                                                                                                                  peated 2 × 2 average pooling. Then, a convolution followed
+methods must rely on a fixed rule to remove old and in-
+sert new information to the limited memory pool on every                                                                                                                                                                                                                                                                     by Batch Normalization [16] and ReLU [25] activation is
+set interval. The ability to adaptively keep both long-term
+and short-term temporal information makes recurrent mech-                                                                                                                                                                                                                                                                    applied to perform feature merging and channel reduction.
+anisms more suitable for our task.
+                                                                                                                                                                                                                                                                                                                             Finally, a ConvGRU is applied to half of the channels by
+   Our decoder adopts ConvGRU at multiple scales to ag-
+gregate temporal information. We choose ConvGRU be-                                                                                                                                                                                                                                                                          split and concatenation.
+cause it is more parameter efficient than ConvLSTM by
+having fewer gates. Formally, ConvGRU is defined as:                                                                                                                                                                                                                                                                                 Output block does not use ConvGRU because we find
+
+                                                                                                                                                                                                                                                                                                                             it expansive and not impactful at this scale. The block only
+
+                                                                                                                                                                                                                                                                                                                             uses regular convolutions to refine the results. It first con-
+
+                                                                                                                                                                                                                                                                                                                             catenates the input image and the bilinearly upsampled out-
+
+                                                                                                                                                                                                                                                                                                                             put from the previous block. Then it employs 2 repeated
+
+                                                                                                                                                                                                                                                                                                                             convolution, Batch Normalization, and ReLU stacks to pro-
+
+                                                                                                                                                                                                                                                                                                                             duce the final hidden features. Finally, the features are pro-
+
+                                                                                                                                                                                                                                                                                                                             jected to outputs, including 1-channel alpha prediction, 3-
+
+          \begin {aligned} & z_t = \sigma (w_{zx} * x_t + w_{zh} * h_{t-1} + b_z) \ & r_t = \sigma (w_{rx} * x_t + w_{rh} * h_{t-1} + b_r) \ & o_t = tanh(w_{ox} * x_t + w_{oh} * (r_t \odot h_{t-1}) + b_o) \ & h_t = z_t \odot h_{t-1} + (1 - z_t) \odot o_t \end {aligned} \vspace {-5pt}                                 channel foreground prediction, and 1-channel segmentation
+
+                                                                                                                                                                                                                                                                                                                   (2)       prediction. The segmentation output is used for the segmen-
+
+                                                                                                                                                                                                                                                                                                                             tation training objective as later described in Section 4.
+
+                                                                                                                                                                                                                                                                                                                                     We find applying ConvGRU on half of the channels by
+
+                                                                                                                                                                                                                                                                                                                             split and concatenation effective and efficient. This design
+
+where operators  and  represent convolution and                                                                                                                                                                                                                                                                              helps ConvGRU to focus on aggregating temporal informa-
+element-wise product respectively; tanh and  represent
+hyperbolic tangent and sigmoid function respectively. w                                                                                                                                                                                                                                                                      tion, while the other split branch forwards the spatial fea-
+and b are the convolution kernel and the bias term. The
+hidden state ht is used as both the output and the recurrent                                                                                                                                                                                                                                                                 tures specific to the current frame. All convolutions use
+state to the next time step as ht-1. The initial recurrent state
+h0 is an all zero tensor.                                                                                                                                                                                                                                                                                                    3 × 3 kernels, except the last projection uses a 1 × 1 kernel.
+
+                                                                                                                                                                                                                                                                                                                                     We modify our network such that it can be given T
+
+                                                                                                                                                                                                                                                                                                                             frames at once as input and each layer processes all T
+
+                                                                                                                                                                                                                                                                                                                             frames before passing to the next layer. During training,
+
+                                                                                                                                                                                                                                                                                                                             240
+this allows Batch Normalization to compute statistics across   We divide the dataset into 475/4/5 clips for train/val/test
+both batch and time to ensure the normalization is consis-     splits. D646 and AIM are image matting datasets. We use
+tent. During inference, T = 1 can be used to process live      only images of humans and combine them to form 420/15
+videos and T > 1 can be used to exploit more GPU par-          train/val splits for training. For evaluation, D646 and AIM
+allelism from the non-recurrent layers as a form of batch-     each provide 11 and 10 test images respectively.
+ing if the frames are allowed to be buffered. Our recurrent
+decoder is uni-directional so it can be used for both live        For backgrounds, the dataset by [37] provides HD back-
+streaming and post-processing.                                 ground videos that are suitable for matting composition.
+                                                               The videos include a variety of motions, such as cars pass-
+3.3. Deep Guided Filter Module                                 ing, leaves shaking, and camera movements. We select
+                                                               3118 clips that does not contain humans and extract the
+   We adopt Deep Guided Filter (DGF) as proposed in            first 100 frames from every clip. We also crawl 8000 image
+[42] for high-resolution prediction. When processing high-     backgrounds following the approach of [22]. The images
+resolution videos such as 4K and HD, we downsample             have more indoor scenes such as offices and living rooms.
+the input frame by a factor s before passing through the
+encoder-decoder network. Then the low-resolution alpha,           We apply motion and temporal augmentations on both
+foreground, final hidden features, as well as the high-        foreground and background to increase data variety. Mo-
+resolution input frame are provided to the DGF module          tion augmentations include affine translation, scale, rota-
+to produce high-resolution alpha and foreground. The en-       tion, sheer, brightness, saturation, contrast, hue, noise and
+tire network is trained end-to-end as described in Section     blur that change continuously over time. The motion is ap-
+4. Note that the DGF module is optional and the encoder-       plied with different easing functions such that the changes
+decoder network can operate standalone if the video to be      are not always linear. The augmentation also adds artifi-
+processed is low in resolution.                                cial motions to the image datasets. Additionally, we apply
+                                                               temporal augmentation on videos, including clip reversal,
+   Our entire network does not use any special operators       speed changes, random pausing, and frame skipping. Other
+and can be deployed to most existing inference frameworks.     discrete augmentations i.e. horizontal flip, grayscale, and
+More architectural details are in the supplementary.           sharpening, are applied consistently to all frames.
+
+4. Training                                                    4.2. Segmentation Datasets
+
+   We propose to train our network with both matting and          We use video segmentation dataset YouTubeVIS and se-
+semantic segmentation objectives simultaneously for sev-       lect 2985 clips containing humans. We also use image
+eral reasons:                                                  segmentation datasets COCO [23] and SPD [38]. COCO
+                                                               provides 64,111 images containing humans while SPD pro-
+   First, human matting tasks are closely related to human     vides additional 5711 samples. We apply similar augmen-
+segmentation tasks. Unlike trimap-based and background-        tations but without motion, since YouTubeVIS already con-
+based matting methods that are given additional cues as in-    tains large camera movements and the image segmentation
+puts, our network must learn to semantically understand the    datasets do not require motion augmentation.
+scene and be robust in locating the human subjects.
+                                                               4.3. Procedures
+   Second, most existing matting datasets only provide
+ground-truth alpha and foreground that must be syntheti-          Our matting training is pipelined into four stages. They
+cally composited to background images. The compositions        are designed to let our network progressively see longer se-
+sometimes look fake due to the foreground and the back-        quences and higher resolutions to save training time. We
+ground having different lighting. On the other hand, se-       use Adam optimizer for training. All stages use batch size
+mantic segmentation datasets feature real images where the     B = 4 split across 4 Nvidia V100 32G GPUs.
+human subjects are included in all types of complex scenes.
+Training with semantic segmentation datasets prevents our         Stage 1: We first train on VM at low-resolution without
+model from overfitting to the synthetic distribution.          the DGF module for 15 epochs. We set a short sequence
+                                                               length T = 15 frames so that the network can get updated
+   Third, there is a lot more training data available for se-  quicker. The MobileNetV3 backbone is initialized with pre-
+mantic segmentation tasks. We harvest a variety of publi-      trained ImageNet [30] weights and uses 1e-4 learning rate,
+cally available datasets, both video-based and image-based,    while the rest of the network uses 2e-4. We sample the
+to train a robust model.                                       height and width of the input resolution h, w independently
+                                                               between 256 and 512 pixels. This makes our network robust
+4.1. Matting Datasets                                          to different resolutions and aspect ratios.
+
+   Our model is trained on VideoMatte240K (VM) [22],              Stage 2: We increase T to 50 frames, reduce the learning
+Distinctions-646 (D646) [28], and Adobe Image Matting          rate by half, and keep other settings from stage 1 to train our
+(AIM) [43] datasets. VM provides 484 4K/HD video clips.
+
+                                                               241
+model for 2 more epochs. This allows our network to see                                                                                            The total matting loss LM is:
+longer sequences and learn long-term dependencies. T =
+50 is the longest we can fit on our GPUs.                                                                                                            \mathcal {L}^{M} = \mathcal {L}^{\alpha }_{l1} + \mathcal {L}^{\alpha }_{lap} + 5 \mathcal {L}^{\alpha }_{tc} + \mathcal {L}^{F}_{l1} + 5 \mathcal {L}^{F}_{tc} \vspace {-5pt}   (8)
+
+   Stage 3: We attach the DGF module and train on VM                                                                                             For semantic segmentation, our network is only trained
+with high-resolution samples for 1 epoch. Since high res-
+olution consumes more GPU memory, the sequence length                                                                                         on the human category. To learn the segmentation probabil-
+must be set to very short. To avoid our recurrent network                                                                                     ity St w.r.t. the ground-truth binary label St, we compute
+overfitting to very short sequences, we train our network                                                                                     binary cross entropy loss:
+on both low-resolution long sequences and high-resolution
+short sequences. Specifically, the low-resolution pass does                                                                                          \mathcal {L}^{S} = S^*_t (-\log (S_t)) + (1-S^*_t)(-\log (1-S_t)) \vspace {-5pt}  (9)
+not employ DGF and has T = 40 and h, w  (256, 512).
+The high-resolution pass entails the low-resolution pass and                                                                                  5. Experimental Evaluation
+employs DGF with downsample factor s = 0.25, T^ = 6                                                                                           5.1. Evaluation on Composition Datasets
+and h^, w^  (1024, 2048). We set the learning rate of DGF
+to 2e-4 and the rest of the network to 1e-5.                                                                                                     We construct our benchmark by compositing each test
+                                                                                                                                              sample from VM, D646, and AIM datasets onto 5 video
+   Stage 4: We train on the combined dataset of D646 and                                                                                      and 5 image backgrounds. Every test clip has 100 frames.
+AIM for 5 epochs. We increase the decoder learning rate to                                                                                    Image samples are applied with motion augmentation.
+5e-5 to let our network adapt and keep other settings from
+stage 3.                                                                                                                                         We compare our approach against state-of-the-art
+                                                                                                                                              trimap-based method (FBA [9]), background-based method
+   Segmentation: Our segmentation training is interleaved                                                                                     (BGMv2 [22] with MobileNetV2 [31] backbone), and
+between every matting training iteration. We train the net-                                                                                   auxiliary-free method (MODNet [18]). To fairly com-
+work on image segmentation data after every odd iteration,                                                                                    pare them for fully automatic matting, FBA uses synthetic
+and on video segmentation data after every even ones. Seg-                                                                                    trimaps generated by dilation and erosion of semantic seg-
+mentation training is applied to all stages. For video seg-                                                                                   mentation method DeepLabV3 [3] with ResNet101 [12]
+mentation data, we use the same B, T , h, w settings follow-                                                                                  backbone; BGMv2 only sees the first frame's ground-truth
+ing every matting stage. For image segmentation data, we                                                                                      background; MODNet applies its neighbor frame smooth-
+treat them as video sequences of only 1 frame, so T  = 1.                                                                                     ing trick. We attempt to re-train MODNet on our data but
+This gives us room to apply a larger batch size B = B × T .                                                                                   get worse results, potentially due to issues during the train-
+Since the images are feedforwarded as the first frame, it                                                                                     ing, so MODNet uses its official weights; BGMv2 is already
+forces the segmentation to be robust even in the absence                                                                                      trained on all three datasets; FBA has not released the train-
+of recurrent information.                                                                                                                     ing code at the time of writing.
+
+4.4. Losses                                                                                                                                      We evaluate  w.r.t. ground-truth  using MAD (mean
+                                                                                                                                              absolute difference), MSE (mean squared error), Grad (spa-
+   We apply losses on all t  [1, T ] frames. To learn alpha                                                                                   tial gradient) [29], and Conn (connectivity) [29] for quality,
+t w.r.t. ground-truth t, we use L1 loss Ll1 and pyramid                                                                                       and adopt dtSSD [8] for temporal coherence. For F , we
+Laplacian loss Llap, as reported by [9, 14] to produce the                                                                                    only measure pixels where  > 0 by MSE. MAD and MSE
+best result. We also apply a temporal coherence loss Ltc, as                                                                                  are scaled by 1e3 and dtSSD is scaled by 1e2 for better read-
+used by [37], to reduce flicker:                                                                                                              ability. F is not measured on VM since it contains noisy
+                                                                                                                                              ground-truth. MODNet does not predict F , so we evaluate
+               \mathcal {L}^{\alpha }_{l1} = || \alpha _t - \alpha ^*_t ||_1                                                             (3)  on the input frame as its foreground prediction. This simu-
+                                                                                                                                              lates directly applying the alpha matte on the input.
+  \mathcal {L}^{\alpha }_{lap} = \sum _{s=1}^{5} \frac {2^{s-1}}{5} ||L^{s}_{pyr}(\alpha _t) - L^{s}_{pyr}(\alpha ^*_t) ||_1             (4)
+                                                                                                                                                 Table 1 compares methods using low-resolution input.
+               \mathcal {L}^{\alpha }_{tc} = || \frac {\text {d}\alpha _t}{\text {d}t} - \frac {\text {d}\alpha ^*_t}{\text {d}t} ||_2   (5)  Our method does not use DGF in this scenario. Ours pre-
+                                                                                                                                              dicts more accurate and consistent alpha across all datasets.
+   To learn foreground Ft w.r.t. ground-truth Ft, We com-                                                                                     In particular, FBA is limited by the inaccurate synthetic
+pute L1 loss LlF1 and temporal coherence loss LtFc on pixels                                                                                  trimap. BGMv2 performs poorly for dynamic backgrounds.
+where t > 0 following the approach of [22]:                                                                                                   MODNet produces less accurate and coherent results than
+                                                                                                                                              ours. For foreground prediction, ours is behind BGMv2 but
+               \mathcal {L}^{F}_{l1} = || (a^*_t > 0) * (F_t - F^*_t) ||_1 \vspace {-5pt}                                                (6)  outperforms FBA and MODNet.
+
+  \mathcal {L}^{F}_{tc} = || (a^*_t > 0) * (\frac {\text {d}F_t}{\text {d}t} - \frac {\text {d}F^*_t}{\text {d}t}) ||_2                  (7)     Table 2 further compares our method with MODNet on
+                                                                                                                                              high-resolution. Since DGF must be trained end-to-end
+                                                                                                                                              with the network, we modify MODNet to use non-learned
+                                                                                                                                              Fast Guided Filter (FGF) to upsample the prediction. Both
+                                                                                                                                              methods use downsample scale s = 0.25 for the encoder-
+                                                                                                                                              decoder network. We remove Conn metric because it is too
+
+                                                                                                                                              242
+                   Alpha                  FG                      5.3. Size and Speed Comparison
+
+Dataset Method  MAD MSE Grad Conn dtSSD MSE                          Tables 3 and 4 show that our method is significantly
+                                                                  lighter, with only 58% parameters compared to MODNet.
+DeepLabV3 14.47 9.67 8.55 1.69 5.18                               Ours is the fastest on HD (1920 × 1080), but a little slower
+                                                                  than BGMv2 on 512 × 288 and MODNet with FGF on
+FBA             8.36 3.37 2.09 0.75 2.09                          4K (3840 × 2160). Our inspection finds that DGF and
+                                                                  FGF incur very minor differences in performance. Our
+VM BGMv2 25.19 19.63 2.28 3.26 2.74                               method is slower than MODNet in 4K because ours pre-
+                                                                  dicts foreground in addition to alpha, so it is slower to pro-
+512×288                                                           cess 3 extra channels in high resolution. We use [35] to
+                                                                  measure GMACs (multiply­accumulate operations), but it
+        MODNet 9.41 4.30 1.89 0.81 2.23                           only measures convolutions and misses out resize and many
+                                                                  tensor operations which are used most in DGF and FGF,
+Ours            6.08 1.47 0.88 0.41 1.36                          so GMACs is only a rough approximation. Our method
+                                                                  achieves HD 104 FPS and 4K 76 FPS, which is considered
+DeepLabV3 24.50 20.1 20.30 6.41        4.51                       real-time for many applications.
+                                       2.36 5.84
+FBA             17.98 13.40 7.74 4.65  3.08 2.60
+
+D646 BGMv2 43.62 38.84 5.41 11.32      1.57 6.31
+                                       1.01 2.93
+512×512
+
+        MODNet 10.62 5.71 3.35 2.45
+
+Ours            7.28 3.01 2.81 1.83
+
+DeepLabV3 29.64 23.78 20.17 7.71       4.32
+                                       2.29 6.32
+FBA             23.45 17.66 9.05 6.05  2.69 3.31
+
+AIM BGMv2 44.61 39.08 5.54 11.60       1.76 9.51
+                                       1.01 5.01
+512×512                                                                Method        Parameters (Million) Size (MB)
+
+        MODNet 21.66 14.27 5.37 5.23
+
+Ours            14.84 8.93 4.35 3.83                                   DeepLabV3                60.996     233.3
+                                                                       FBA                      34.693     138.8
+Table 1: Low-resolution comparison. Our alpha prediction is bet-       BGMv2                     5.007
+ter than all others. Our foreground prediction is behind BGMv2         MODNet                    6.487      19.4
+but outperforms FBA and MODNet. Note that FBA uses synthetic                                                25.0
+trimap from DeepLabV3; BGMv2 only sees ground-truth back-
+ground from the first frame; MODNet does not predict foreground        Ours                     3.749      14.5
+so it is evaluated on the input image.
+                                                                  Table 3: Ours is lighter than all compared methods. Size is mea-
+Dataset Method     SAD MSE Grad dtSSD                             sured on FP32 weights.
+
+ VM MODNet + FGF   11.13 5,54 15.30 3.08                               Resolution s Method      FPS GMACs
+Ours 1920×1080      6.57 1.93 10.55 1.90
+
+D646 MODNet + FGF  11.27 6.13 30.78 2.19                                             DeepLabV3 + FBA 12.3  205.77
+Ours 2048×2048      8.67 4.28 30.06 1.64                                                                      8.46
+                                                                       512×288    1  BGMv2      152.5         8.80
+                                                                                     MODNet     104.9         4.57
+
+AIM MODNet + FGF   17.29 10.10 35.52 2.60                                            Ours       131.9
+Ours 2048×2048     14.89 9.01 34.97 1.71
+                                                                                     BGMv2      70.6 9.86
+
+Table 2: High-resolution alpha comparison. Ours is better than    1920×1080 0.25 MODNet + FGF 100.3 7.78
+MODNet with Fast Guided Filter (FGF).
+                                                                                     Ours       104.2 4.15
+
+expansive to compute at high-resolution. Our method out-                                 BGMv2  26.5 17.04
+performs MODNet on all metrics.                                   3840×2160 0.125 MODNet + FGF  88.6 7.78
+                                                                                                76.5 4.15
+                                                                                         Ours
+
+5.2. Evaluation on Real Videos                                    Table 4: Model performance comparison. s denotes the down-
+                                                                  sample scale. Models are converted to TorchScript and optimized
+   Figure 3 shows qualitative comparisons on real-videos.         before testing (BatchNorm fusion etc.). FPS is measured as FP32
+In Figure 3a, we compare alpha predictions across all meth-       tensor throughput on an Nvidia GTX 1080Ti GPU. GMACs is a
+ods and find ours predicts fine-grained details like hair         rough approximation.
+strands more accurately. In Figure 3b, we experiment on
+random YouTube videos. We remove BGMv2 from the                   6. Ablation Studies
+comparison since these videos do not have pre-captured            6.1. Role of Temporal Information
+backgrounds. We find our method is much more robust to
+semantic errors. In Figures 3c and 3d, we further compare            Figure 4 shows the change of average alpha MAD met-
+real-time matting against MODNet on cellphone and web-            ric across all VM test clips over time. The error of our
+cam videos. Our method can handle fast-moving body parts          model drops significantly in the first 15 frames then the
+better than MODNet.                                               metric stays stable. MODNet, even with its neighbor frame
+
+                                                                  243
+Input  FBA       BGMv2          MODNet  Ours                              Input          MODNet        Ours  Input                MODNet  Ours
+
+            (a) Alpha Detail
+
+Input       FBA         MODNet          Ours                                                           (c) Cellphone Videos
+
+                                                                                      Input                 MODNet                Ours
+
+            (b) YouTube Videos                                                                         (d) Webcam Videos
+
+Figure 3: Qualitative comparison. Our method produces more detailed alpha compared to others. When evaluating on YouTube, cellphone,
+and webcam videos, ours is consistently more robust than others. See supplementary for more results. YouTube videos are crawled from
+the Internet; cellphone videos are from a public dataset [17]; Some webcam examples are recorded while others are taken from [24].
+
+smoothing trick, has large fluctuations in the metric. We      Alpha MAD       12
+also experiment with disabling recurrence in our network                                       MODNet
+by passing zero tensors as the recurrent states. The qual-
+ity and consistency worsen as expected. This proves that                       11
+temporal information improves quality and consistency.
+                                                                               10
+   Figure 5 compares temporal coherence with MODNet on
+a video sample. Our method produces consistent results on                      9
+the handrail region while MODNet produces flicker, which
+significantly degrade perceptual quality. Please see our sup-                  8
+plementary for more results.
+                                                                               7.5
+   We further examine the recurrent hidden state. In Fig-
+ure 6, we find that our network has automatically learned                                    Ours      Ours (No Recurrence)
+to reconstruct the background as it is revealed over time
+and keep this information in its recurrent channels to help         Alpha MAD  7.0
+future predictions. It also uses other recurrent channels to
+keep track of motion history. Our method even attempts to                      6.5
+reconstruct the background when the videos contain camera
+movements and is capable of forgetting useless memory on                       6.0
+shot cuts. More examples are in the supplementary.
+                                                                               5.5       10 20 30 40 50 60 70 80 90
+                                                                                   0                                          Frames
+
+                                                               Figure 4: Average alpha MAD over time on VM without DGF. Our
+
+                                                               metric improves over time and is stable, showing that temporal
+
+                                                               information improves quality and consistency.
+
+                                                                                      t                t+1                   t+2          t+3
+
+                                                                    Input
+
+                                                                    Ours
+
+6.2. Role of Segmentation Training Objective                        MODNet
+
+   Table 5 shows that our method is as robust as the se-       Figure 5: Temporal coherence comparison. MODNet's result has
+mantic segmentation methods when evaluated on the sub-         flicker on the handrail while ours is consistent.
+set of COCO validation images that contain humans and
+only on the human category. Our method achieves 61.50          MobileNetV3 encoder and LR-ASPP module with the pre-
+mIOU, which is reasonably in between the performance of        trained weights on COCO and removing the segmentation
+MobileNetV3 and DeepLabV3 trained on COCO consider-            objective. The model overfits to the synthetic matting data
+ing the difference in model size. We also try to evaluate      and regresses significantly on COCO performance, achiev-
+the robustness of our alpha output by thresholding  > 0.5      ing only 38.24 mIOU.
+as the binary mask and our method still achieves 60.88
+mIOU, showing that the alpha prediction is also robust. For
+comparison, we train a separate model by initializing our
+
+                                                               244
+                    t=0  t = 100  t = 200  t = 300                 metric, BGMv2 outperforms ours on static backgrounds,
+                                                                   but it is expected to do worse in reality when the pre-
+Input                                                              captured background has misalignment.
+
+Recurrent Channels                                                 Background Method  MAD MSE Grad dtSSD
+
+                                                                            BGMv2     4.33 0.32 4.19 1.33
+
+                                                                   Static   MODNet + FGF 11.04 5.42 15.80 3.10
+
+                                                                            Ours      5.64 1.07 9.80 1.84
+
+                                                                            BGMv2     42.45 37.05 17.30 4.61
+
+                                                                   Dynamic  MODNet + FGF 11.23 5.65 14.79 3.06
+
+Figure 6: Two example channels in the recurrent hidden state.               Ours      7.50 2.80 11.30 1.96
+Our network learns to to reconstruct the background over time and
+keeps track of the motion history in its recurrent state.          Table 7: Comparing VM samples on static and dynamic back-
+                                                                   grounds. Ours does better on static backgrounds but can handle
+Method                                     mIOU                    both cases. Note that BGMv2 receives ground-truth static back-
+                                                                   grounds, but in reality the backgrounds have misalignment.
+DeepLabV3                                  68.93
+MobileNetV3 + LR-ASPP                      58.58
+
+Ours (alpha output, no seg objective)      38.24                   6.5. Larger Model for Extra Performance
+
+Ours (alpha output)                        60.88                      We experiment with switching the backbone to
+Ours (segmentation output)                 61.50                   ResNet50 [12] and increasing the decoder channels. Table
+                                                                   8 shows the performance improvement. The large model is
+Table 5: Segmentation performance on COCO validation set.          more suitable for server-side applications.
+Training with segmentation objective makes our method robust
+while training only with pre-trained weights regresses.            Method Params Size FPS MAD MSE Grad dtSSD
+
+6.3. Role of Deep Guided Filter                                    Ours Large 26.890 102.9 71.1 5.81 0.97 9.65 1.78
+
+   Table 6 shows that DGF has only a small overhead in             Ours     3.749 14.5 104.2 6.57 1.93 10.55 1.90
+size and speed compared to FGF. DGF has a better Grad
+metric, indicating its high-resolution details are more accu-      Table 8: Large model uses ResNet50 backbone and has more de-
+rate. DGF also produces more coherent results indicated            coder channels. Evaluated on VM in HD. Size is measured in MB.
+by the dtSSD metric, likely because it takes hidden features
+from the recurrent decoder into consideration. The MAD             6.6. Limitations
+and MSE metrics are inconclusive because they are domi-
+nated by segmentation-level errors, which are not corrected           Our method prefers videos with clear target subjects.
+by either DGF or FGF.                                              When there are people in the background, the subjects of
+                                                                   interest become ambiguous. It also favors simpler back-
+                                                                   grounds to produce more accurate matting. Figure 7 shows
+                                                                   examples of challenging cases.
+
+Method                   Params FPS MAD MSE Grad dtSSD
+
+Ours (FGF) 3.748 109.4 8.70 4.13 31.44 1.89
+
+Ours                     3.749 104.2 8.67 4.28 30.06 1.64
+
+Table 6: Comparing switching DGF to FGF on D646. Parameters        Figure 7: Challenging cases. People in the background make mat-
+are measured in millions. FPS is measured in HD.                   ting target ambiguous. Complex scenes make matting harder.
+
+6.4. Static vs. Dynamic Backgrounds                                7. Conclusion
+
+   Table 7 compares the performance on static and dynamic             We have proposed a recurrent architecture for robust hu-
+backgrounds. Dynamic backgrounds include both back-                man video matting. Our method achieves new state-of-the-
+ground object movements and camera movements. Our                  art while being lighter and faster. Our analysis shows that
+method can handle both cases and performs slightly better          temporal information plays an important role in improving
+on static backgrounds, likely because it is easier to recon-       the quality and consistency. We also introduce a new train-
+struct pixel-aligned backgrounds as shown in Figure 6. On          ing strategy to train our model on both matting and semantic
+the other hand, BGMv2 performs badly on dynamic back-              segmentation objectives. This approach effectively enforces
+grounds and MODNet does not exhibit any preference. In             our model to be robust on various types of videos.
+
+                                                                   245
+References                                                          [18] Zhanghan Ke, Kaican Li, Yurou Zhou, Qiuhua Wu, Xi-
+                                                                          angyu Mao, Qiong Yan, and Rynson W.H. Lau. Is a green
+ [1] Yagiz Aksoy, Tunc Ozan Aydin, and Marc Pollefeys. Design-            screen really necessary for real-time portrait matting? ArXiv,
+      ing effective inter-pixel information flow for natural image        abs/2011.11961, 2020.
+      matting. In Proceedings of the IEEE Conference on Com-
+      puter Vision and Pattern Recognition, pages 29­37, 2017.      [19] Alexander Kirillov, Yuxin Wu, Kaiming He, and Ross B.
+                                                                          Girshick. Pointrend: Image segmentation as rendering.
+ [2] Nicolas Ballas, L. Yao, C. Pal, and Aaron C. Courville. Delv-        2020 IEEE/CVF Conference on Computer Vision and Pat-
+      ing deeper into convolutional networks for learning video           tern Recognition (CVPR), pages 9796­9805, 2020.
+      representations. CoRR, abs/1511.06432, 2016.
+                                                                    [20] Anat Levin, Dani Lischinski, and Yair Weiss. A closed-form
+ [3] Liang-Chieh Chen, G. Papandreou, Florian Schroff, and                solution to natural image matting. IEEE transactions on
+      Hartwig Adam. Rethinking atrous convolution for seman-              pattern analysis and machine intelligence, 30(2):228­242,
+      tic image segmentation. ArXiv, abs/1706.05587, 2017.                2007.
+
+ [4] Liang-Chieh Chen, Yukun Zhu, George Papandreou, Flo-           [21] Anat Levin, Alex Rav-Acha, and Dani Lischinski. Spectral
+      rian Schroff, and Hartwig Adam. Encoder-decoder with                matting. IEEE transactions on pattern analysis and machine
+      atrous separable convolution for semantic image segmenta-           intelligence, 30(10):1699­1712, 2008.
+      tion, 2018.
+                                                                    [22] Shanchuan Lin, Andrey Ryabtsev, Soumyadip Sen-
+ [5] Qifeng Chen, Dingzeyu Li, and Chi-Keung Tang. Knn mat-               gupta, Brian Curless, Steve Seitz, and Ira Kemelmacher-
+      ting. IEEE transactions on pattern analysis and machine             Shlizerman. Real-time high-resolution background matting.
+      intelligence, 35(9):2175­2188, 2013.                                In Computer Vision and Pattern Regognition (CVPR), 2021.
+
+ [6] Kyunghyun Cho, B. V. Merrienboer, C¸ aglar Gu¨lc¸ehre,         [23] Tsung-Yi Lin, Michael Maire, Serge Belongie, Lubomir
+      Dzmitry Bahdanau, Fethi Bougares, Holger Schwenk, and               Bourdev, Ross Girshick, James Hays, Pietro Perona, Deva
+      Yoshua Bengio. Learning phrase representations using rnn            Ramanan, C. Lawrence Zitnick, and Piotr Dolla´r. Microsoft
+      encoder­decoder for statistical machine translation. ArXiv,         coco: Common objects in context, 2015.
+      abs/1406.1078, 2014.
+                                                                    [24] Marwa Mahmoud, Tadas Baltrusaitis, Peter Robinson, and
+ [7] Yung-Yu Chuang, Brian Curless, David H Salesin, and                  Laurel Riek. 3d corpus of spontaneous complex mental
+      Richard Szeliski. A bayesian approach to digital matting.           states. In Conference on Affective Computing and Intelligent
+      In CVPR (2), pages 264­271, 2001.                                   Interaction, 2011.
+
+ [8] M. Erofeev, Yury Gitman, D. Vatolin, Alexey Fedorov, and J.    [25] Vinod Nair and Geoffrey E. Hinton. Rectified linear units
+      Wang. Perceptually motivated benchmark for video matting.           improve restricted boltzmann machines. In ICML, 2010.
+      In BMVC, 2015.
+                                                                    [26] Andreas Pfeuffer, Karina Schulz, and K. Dietmayer. Se-
+ [9] Marco Forte and Franc¸ois Pitie´. F, b, alpha matting. CoRR,         mantic segmentation of video sequences with convolutional
+      abs/2003.07711, 2020.                                               lstms. 2019 IEEE Intelligent Vehicles Symposium (IV), pages
+                                                                          1441­1447, 2019.
+[10] Eduardo SL Gastal and Manuel M Oliveira. Shared sampling
+      for real-time alpha matting. In Computer Graphics Forum,      [27] Yu Qiao, Yuhao Liu, Xin Yang, Dongsheng Zhou, Mingliang
+      volume 29, pages 575­584. Wiley Online Library, 2010.               Xu, Qiang Zhang, and Xiaopeng Wei. Attention-guided hi-
+                                                                          erarchical structure aggregation for image matting. In Pro-
+[11] Kaiming He, Jian Sun, and X. Tang. Guided image filtering.           ceedings of the IEEE/CVF Conference on Computer Vision
+      IEEE Transactions on Pattern Analysis and Machine Intelli-          and Pattern Recognition, pages 13676­13685, 2020.
+      gence, 35:1397­1409, 2013.
+                                                                    [28] Yu Qiao, Yuhao Liu, Xin Yang, Dongsheng Zhou, Mingliang
+[12] Kaiming He, X. Zhang, Shaoqing Ren, and Jian Sun. Deep               Xu, Qiang Zhang, and Xiaopeng Wei. Attention-guided hi-
+      residual learning for image recognition. 2016 IEEE Confer-          erarchical structure aggregation for image matting. In The
+      ence on Computer Vision and Pattern Recognition (CVPR),             IEEE Conference on Computer Vision and Pattern Recogni-
+      pages 770­778, 2016.                                                tion (CVPR), June 2020.
+
+[13] S. Hochreiter and J. Schmidhuber. Long short-term memory.      [29] Christoph Rhemann, C. Rother, J. Wang, M. Gelautz, P.
+      Neural Computation, 9:1735­1780, 1997.                              Kohli, and P. Rott. A perceptually motivated online bench-
+                                                                          mark for image matting. In CVPR, 2009.
+[14] Qiqi Hou and Feng Liu. Context-aware image matting for
+      simultaneous foreground and alpha estimation, 2019.           [30] Olga Russakovsky, J. Deng, Hao Su, J. Krause, S. Satheesh,
+                                                                          S. Ma, Zhiheng Huang, A. Karpathy, A. Khosla, Michael S.
+[15] Andrew Howard, Mark Sandler, Grace Chu, Liang-Chieh                  Bernstein, A. Berg, and Li Fei-Fei. Imagenet large scale vi-
+      Chen, Bo Chen, Mingxing Tan, Weijun Wang, Yukun Zhu,                sual recognition challenge. International Journal of Com-
+      Ruoming Pang, Vijay Vasudevan, Quoc V. Le, and Hartwig              puter Vision, 115:211­252, 2015.
+      Adam. Searching for mobilenetv3, 2019.
+                                                                    [31] Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zh-
+[16] Sergey Ioffe and Christian Szegedy. Batch normalization:             moginov, and Liang-Chieh Chen. Mobilenetv2: Inverted
+      Accelerating deep network training by reducing internal co-         residuals and linear bottlenecks, 2019.
+      variate shift, 2015.
+                                                                    [32] Soumyadip Sengupta, Vivek Jayaram, Brian Curless, Steve
+[17] Yasamin Jafarian and Hyun Soo Park. Learning high fi-                Seitz, and Ira Kemelmacher-Shlizerman. Background mat-
+      delity depths of dressed humans by watching social media            ting: The world is your green screen. In Computer Vision
+      dance videos. In Proceedings of the IEEE/CVF Conference             and Pattern Regognition (CVPR), 2020.
+      on Computer Vision and Pattern Recognition (CVPR), pages
+      12753­12762, June 2021.
+
+                                                                    246
+[33] Xiaoyong Shen, Xin Tao, Hongyun Gao, Chao Zhou, and Ji-
+      aya Jia. Deep automatic portrait matting. In European Con-
+      ference on Computer Vision, pages 92­107. Springer, 2016.
+
+[34] Xingjian Shi, Zhourong Chen, Hao Wang, D. Yeung, W.
+      Wong, and W. Woo. Convolutional lstm network: A machine
+      learning approach for precipitation nowcasting. In NIPS,
+      2015.
+
+[35] Vladislav Sovrasov. flops-counter.pytorch.
+[36] Jian Sun, Jiaya Jia, Chi-Keung Tang, and Heung-Yeung
+
+      Shum. Poisson matting. In ACM Transactions on Graph-
+      ics (ToG), volume 23, pages 315­321. ACM, 2004.
+[37] Yanan Sun, Guanzhi Wang, Qiao Gu, Chi-Keung Tang, and
+      Yu-Wing Tai. Deep video matting via spatio-temporal align-
+      ment and aggregation. In Proceedings of the IEEE Confer-
+      ence on Computer Vision and Pattern Recognition, 2021.
+[38] supervise.ly. Supervisely person dataset. supervise.ly, 2018.
+[39] Pavel Tokmakov, Alahari Karteek, and C. Schmid. Learning
+      video object segmentation with visual memory. In ICCV,
+      2017.
+[40] C. Ventura, Miriam Bellver, Andreu Girbau, A. Salvador, F.
+      Marque´s, and Xavier Giro´ i Nieto. Rvos: End-to-end recur-
+      rent network for video object segmentation. 2019 IEEE/CVF
+      Conference on Computer Vision and Pattern Recognition
+      (CVPR), pages 5272­5281, 2019.
+[41] Jue Wang, Michael F Cohen, et al. Image and video matting:
+      a survey. Foundations and Trends® in Computer Graphics
+      and Vision, 3(2):97­175, 2008.
+[42] Huikai Wu, Shuai Zheng, Junge Zhang, and Kaiqi Huang.
+      Fast end-to-end trainable guided filter, 2019.
+[43] Ning Xu, Brian Price, Scott Cohen, and Thomas Huang.
+      Deep image matting. In Proceedings of the IEEE Conference
+      on Computer Vision and Pattern Recognition, pages 2970­
+      2979, 2017.
+[44] Yunke Zhang, Lixue Gong, Lubin Fan, Peiran Ren, Qix-
+      ing Huang, Hujun Bao, and Weiwei Xu. A late fusion cnn
+      for digital matting. In Proceedings of the IEEE Conference
+      on Computer Vision and Pattern Recognition, pages 7469­
+      7478, 2019.
+[45] Bingke Zhu, Yingying Chen, Jinqiao Wang, Si Liu, Bo
+      Zhang, and Ming Tang. Fast deep matting for portrait anima-
+      tion on mobile phone. In Proceedings of the 25th ACM inter-
+      national conference on Multimedia, pages 297­305. ACM,
+      2017.
+
+                                                                                   247
+

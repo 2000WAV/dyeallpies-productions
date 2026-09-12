@@ -1,0 +1,50 @@
+Maggioni, V., Azevedo-Coste, C., Durand, S., & Bailly, F. (2025). Optimisation and Comparison
+of Markerless and Marker-Based Motion Capture Methods for Hand and Finger Movement Analysis.
+Sensors, 25(4), 1079. PMID 40006308, PMCID PMC11858933. Open access (MDPI, CC BY).
+
+ABSTRACT (as printed; full article text saved in
+papers/maggioni2025-markerless-vs-markerbased-hand-mocap.html and the plain-text extract
+papers/maggioni2025-markerless-vs-markerbased-hand-mocap.txt -- the PMC PDF endpoint
+returned a bot-check page rather than a PDF, so the archived copy is the article's own HTML,
+which carries the full text under a CC BY licence):
+
+Ensuring the accurate tracking of hand and fingers movements is an ongoing challenge for
+upper limb rehabilitation assessment, as the high number of degrees of freedom and segments
+in the limited volume of the hand makes this a difficult task. The objective of this study is
+to evaluate the performance of two markerless approaches (the Leap Motion Controller and the
+Google MediaPipe API) in comparison to a marker-based one, and to improve the precision of the
+markerless methods by introducing additional data processing algorithms fusing multiple
+recording devices. Fifteen healthy participants were instructed to perform five distinct hand
+movements while being recorded by the three motion capture methods simultaneously. The
+captured movement data from each device was analyzed using a skeletal model of the hand
+through the inverse kinematics method of the OpenSim software. Finally, the root mean square
+errors of the angles formed by each finger segment were calculated for the markerless and
+marker-based motion capture methods to compare their accuracy. Our results indicate that the
+MediaPipe-based setup is more accurate than the Leap Motion Controller-based one (average
+root mean square error of 10.9 deg versus 14.7 deg), showing promising results for the use of
+markerless-based methods in clinical applications.
+
+RELEVANCE TO THIS PROJECT: the only independent, quantitative accuracy check found for
+MediaPipe Hands against a marker-based (Optitrack) ground truth, covering exactly the failure
+modes the task brief asks about. Key numbers, all for the "MP" (MediaPipe, v0.10.15, 30 Hz,
+4-camera) condition, averaged over 15 participants: mean joint-angle RMSE 10.9 +/- 7.8 deg
+across all tasks (vs. 14.7 +/- 8.6 deg for Leap Motion); per-joint RMSE mostly 8-11 deg
+except the thumb MP joint ("1mp"), 27.3 +/- 8.1 deg (the paper's largest single-joint error).
+The paper's own translation of these angle errors: "considering the length of a finger
+segment between two joints, this range of error (10 deg to 15 deg) is equivalent to a distal
+spatial error of a few (around two to three) millimeters" -- i.e. fingertip-level spatial
+error is on the order of 2-3 mm even under good conditions (static, unoccluded palm-down
+poses). Separately and directly on this project's two named failure modes: (1) on the
+relative-depth (z) channel -- "preliminary testing revealed that this third depth coordinate
+was unreliable, frequently causing the estimated hand to adopt impossible poses" (Section
+2.4) -- corroborates the build's choice to hold depth constant and solve pose by PnP rather
+than trust MediaPipe's own z; (2) on occlusion/closed-fist-like poses -- "these initial tests
+also showed that the landmarks of occluded fingers were not concurrent with the actual
+position of said fingers" and the "flexion" task (full finger flexion, fingertips hidden
+under the palm -- the closest analog in this study to a closed fist) is flagged as the task
+"evaluating their robustness to a high level of self-occlusion when the fingertips are
+completely hidden beneath the palm" (Section 2.3), with marker/landmark occlusion rates
+reaching 16.6 +/- 18.8% of frames in that task. No dorsal (back-of-hand) viewpoint was tested
+in this study -- all recordings were "palm facing down (towards the LMC)" -- so it does not
+directly speak to the back-of-hand camera angle used in this project's shot; that specific
+gap is marked NOT FOUND in the main writeup.

@@ -1,0 +1,559 @@
+Pergamon
+
+                                 TECHNICAL NOTE
+
+ADJUSTMENTS TO ZATSIORSKY-SELUYANOV'S                                         SEGMENT INERTIA
+                                          PARAMETERS
+
+                                                    Paolo de Leva
+                 Kinesiology Department, Indiana University, Bloomington, IN 47405, U.S.A.
+
+Abstract-Zatsiorsky et al. (in Contemporary Problems ofBiomechanics, pp. 272-291, CRC Press, Massachusetts.
+1990a) obtained, by means of a gamma-ray scanning technique, the relative body segment masses, center of mass
+(CM) positions, and radii of gyration for samples of college-aged Caucasian males and females. Although these
+data are the only available and comprehensive set of inertial parameters regarding young adult Caucasians. the)
+have been rarely utilized for biomechanical analyses of subjects belonging to the same or a similar population. The
+main reason is probably that Zatsiorsky et al. used bony landmarks as reference points for locating segment CMs
+and defining segment lengths. Some of these landmarks were markedly distant from the joint centers currently used
+by most researchers as reference points. The purpose of this study was to adjust the mean relative CM positions
+and radii of gyration reported by Zatsiorsky et al., in order to reference them to the joint centers or other
+commonly used landmarks, rather than the original landmarks. The adjustments were based on a number of
+carefully selected sources of anthropometric data. Copyright 0 1996 Elsevier Science Ltd.
+
+Keywords: Segment inertia parameters; Living subject; Adjustment; Joint center; Reference point.
+
+NOMENCLATURE     AND DEFINITION  OF TERMS                        LMAL         lateral malleolus--the most laleral point
+                                                                 MET3
+ACR              acromion-the most lateral point on the                       on the lateral malleolus.
+                                                                 MIDG, MIDH,  3rd metacarpale-a point on the dorsal
+AJC, EJC, HJC,   lateral margin of the acromial process of         MIDS       sulcus between the tip of the third metacar-
+  KJC, SJC. WJC  the scapula.                                                 pal (knuckle) and the base of the third
+                 respectively, the joint centers of ankle, el-   OMPH         finger.
+BB               bow, hip, knee, shoulder, and wrist (see de     RAD
+CERV                                                                          mid-gonion, mid-hip, and mid-shoulder--
+DAC3             Leva, 1996).                                    SPHY         the points midway between the gonions.
+GON              bispinous breadth-the distance between          STYL         hip joint centers, and shoulder joint
+HEEL             the two iliospinales.                           SUPR
+HSP mt.          cervicale-the superior palpable point of                     centers, respectively.
+                 the spine of the seventh cervical vertebra      TIB          omphalion--the center of the navel (Gor-
+HSPs             (Gordon et al., 1989).                          TTIP
+                                                                 VERT         don (`r al.. 1989).
+IL10             3rd dactylion--the tip of the 3rd digit.                     radiale--the most proximal point on the
+                 gonion-the most lateral point on the pos-       XYPH         lateral edge of the radius (Gordon (`T al..
+                 terior angle of the mandible (jawbone;                       1989).
+                 Gordon et al., 1989)                                         sphyrion (or tibia1 sphyrionr the distal
+                 (pternion)-the posterior point of the heel
+                                                                              tip of the tibia.
+                 (Gordon et al., 1989).                                       stylion--the distal tip of thr styloid pro-
+                 the intersection of the projections on the                   cess of the radius.
+                 frontal plane of the hip segmentation                        suprasternale--the most caudal point on
+                 planes (HSPs; Zatsiorsky et al. 1990a).
+                                                                              the margin of the jugular uotch of the
+                 hip segmentation planes-the boundaries                       sternum (breastbone).
+                 between thighs and trunk, defined as                         tibiale-the most proximal pomt on the
+                 planes passing through the respective ilio-                  medial margin of the head of the tibia.
+                 spinales, parallel to the trunk sagittal axis,               (acropodion)--the tip of the longest toe
+                 and forming a 37" angle with the sagittal
+                 plane (Zatsiorsky et al., 1990a).                            (first or second; Gordon (1'1ill.. 1989).
+                 iliospinale (or anterior iliospinale)-the in-                vertex--the most cranial point of the
+                                                                              head, when the head is oriented in the
+                 ferior point of one of the anterior superior                 Frankfort plane.
+                 iliac spines.                                                xyphion (or substernale) ~--the midpoint
+                                                                              of the sulcus between the body of the
+                                                                              sternum (breastbone) and the xyphoid pro-
+                                                                              cess(Zatsiorsky, personal communication.
+                                                                              1991).
+
+  Received in @a/ form 20 November 1995.                           Note: Except for MIDG, MIDH, MIDS. and unless other-
+  Current address: Paolo de Leva, Laboratorio di Biomec-         wise specified, the definitions correspond to those given by
+canica. ISEF Statale di Roma, P. Lauro de Bosis, 6, 00194        Chandler et al. (1975).
+Rome, Italy.
+
+                                           1223
+1224                                      Technical Note
+
+                                   INTRODUCTION                      et al. (1990a). Equation (1) is based on the assumption that the
+                                                                     individual values of rrel were identical for all subjects.
+Quantitative biomechanical analyses of human movement typi-
+cally require the estimate of the body segment inertia parameters       For each segment, fabs could be estimated by applying the
+(BSIPs: mass, position of the center of mass, and principal radii    following equation:
+
+of gyration, or moments of inertia). When body mass and stature      where f is the mean segment moment of inertia about the
+are the only known anthropometric parameters for a subject,          considered axis, and rii is the mean segment mass (both reported
+mean BSIPs obtained measuring cadavers of elderly males (e.g.,       by Zatsiorsky et al., 1990a; for segment masses of males, seealso
+Clauser et al., 1969, partly adjusted by Hinrichs, 1990) are widely  Zatsiorsky and Seluyanov, 1983 and Zatsiorsky et al., lYYOb,
+used for estimating the subject's inertial characteristics. Due to   1993).
+lack of other sources, even female subject's inertial character-
+istics are sometimes estimated using the same mean BSIPs. Yet,          Although for a single segment rabs is, by definition, equal to
+
+de Leva (1993) showed that generalization of cadaver data to         fi, equation (2) can be shown to be valid only if the radius of
+college athletes is likely to cause large errors in the calculated   gyration of the considered segment is identical for all subjects.
+position of their body centers of mass (CMs). For instance, when     Since the latter condition was not true, and the more massive
+the Clauser et al. BSIPs, partly adjusted by Hinrichs (lYYO), were   segments tend to have a longer radius of gyration, equation (2) is
+used for locating the CMs of both female and male athletes in        likely to overestimate systematically the value of r,,,,. However,
+                                                                     the error in estimating segment lengths by using equations (1)
+layout position, the mean errors in the longitudinal direction       and (2) is trifling. In fact, the mean segment lengths of the male
+were, respectively, 53 mm (SD. = 18) and 38 mm (SD. = 13),           sample could be also estimated by dividing mean absolute by
+with respect to the true CM positions determined with a high         mean relative segment CM positions. This second method is
+precision reaction board. On the contrary, the mean BSIPs            based on the assumption that, for each segment, the individual
+                                                                     relative CM positions were identical for all subjects. The mean
+reported by Zatsiorsky et al. (1990a) were found by de Leva to be    relative values were known; the mean absolute values, in cen-
+validly generalizable to college athletes: using the latter para-    timeters, were obtained by plugging mean body mass and stat-
+meters, the errors described above were reduced to 16mm              ure into the multiple regression equations reported by Zat-
+(SD. = 17) and - 4 mm (S.D. = 13), respectively. Similar re-         siorsky et al. (1990a), unfortunately for the male subjects only
+sults were obtained for other body positions.                        (the regression equations reported for the female subjects predict
+                                                                     relative CM positions). The differences between the segment
+   Zatsiorsky et al. (1990a) determined with a gamma-ray scan-       lengths estimated using equations (1) and (2), and those esti-
+ner the BSIPs of 100 male and 15 female Caucasian subiects           mated using multiple regression equations ranged from - 0.8%
+                                                                     to 1.9% (mean 0.7%); the absolute differences ranged from
+(mean ages: 24 and 19 years, respectively), most of which were        - 4.3 to 4.1 mm (mean 1.5mm). These differences are trifling
+undergraduates in a physical education college. The BSIPs of         compared to the errors typically accepted when mean segment
+their male sample have been available since 1983 (Zatsiorsky         inertia parameters from the literature, such as those reported at
+and Seluyanov, 1983; Zatsiorsky et al., 1990a,b, 1993) and no        the end of this note (Table 4), are generalized to an individual
+                                                                     subject (de Leva, 1993). For the sake of consistency, the segment
+other comprehensive studies have been published about the            lengths of both the male and female samples were estimated
+inertial characteristics of college-aged Caucasians. Yet, surpris-   using equations (1) and (2).
+ingly the Zatsiorsky et al. data have been rarely preferred to
+cadaver data, even for estimating the inertial properties of            For each segment, equations (1) and (2) were applied twice,
+                                                                     using the values of r;,i and T about the sagittal and transverse
+healthy young adult Caucasians. The main reason is probably          axes (those about the longitudinal axes were not used because of
+that Zatsiorsky's group used bony landmarks as reference points      their lower relative precision, due to their smaller magnitude).
+for locating segment CMs and defining segment lengths (e.g. the      The two results were averaged, and reported in Table 1. The
+iliospinale was the proximal reference point for the thigh). Some    differences between the two estimates of the length of each
+                                                                     segment ranged from 0.0 to 2.1 mm.
+of these points are remarkably distant from the centers of the
+neighboring joints. As a consequence, when a subject flexes his      Estimating joint center positions
+
+joints the distances of these reference points from the respective     de Leva (1996) reported the percent longitudinal distances of
+proximal or distal segment CMs significantly decrease. These         the main joint centers from neighboring bony landmarks, rela-
+and other related changes, which make it impossible to accurate-     tive to the lengths of the respective proximal and/or distal
+ly locate segment CMs, can be minimized only by using joint          segments. de Leva's proportions were multiplied by the respect-
+                                                                     ive mean segment lengths of the Zatsiorsky et nl. subjects, to
+centers as reference points.                                         obtain the absolute distances listed in Table 2. Among the
+  The purpose of this paper was to adjust the mean relative CM       needed segment lengths, only those of the forearm and shank
+                                                                     were directly obtained from Table 1. In fact, the definitions given
+positions and radii of gyration reported by Zatsiorsky's group,      by Zatsiorsky et al. for the upper arm, hand, and thigh lengths
+in order to reference them mainly to the positions of joint centers  did not coincide with those given by de Leva. The latter three
+rather than bony landmarks. In some cases the original land-         lengths were estimated for the Zatsiorsky et al. samples, accord-
+                                                                     ing to de Leva's definitions, as explained in the paragraphs
+marks were either considered adequate, or substituted with           dedicated to the respective segments.
+other commonly used bony landmarks. When possible, readers
+were offered the possibility to select among different landmarks       Two different estimates were available for the positions of the
+for defining a reference point.                                      centers of the elbow, wrist, and knee (Table 2). The respective
+                                                                     means were calculated and used for the adjustments to the
+      ADJUSTMENT  PROCEDURES AND RESULTS                             segment CM percentages.
+
+Segment lengths                                                      Selecting the trunk endpoints
+
+  Zatsiorsky et al. (1983,1990a,b, 1993) did not report the mean       Several different couples of reference points can be selected for
+lengths of their subjects' segments. These lengths were needed       locating trunk CM and computing trunk length. These points
+for the adjustments. They could not be computed from the             are assumed to lay on the segment longitudinal axis, and repres-
+original data, stored by the authors in a format that is not         ent the cranial and caudal endpoints of the trunk model. The
+readable by modern computers (Zatsiorsky, personal commun-
+ication, 1991), and were estimated as follows:
+
+                  r= rabs/);s,>           (1)
+
+where Tis the mean length of a segment, & is the mean absolute
+radius of gyration of that segment about a given axis, computed
+as explained below, and r;,, is the respective mean ratio between
+segment radius of gyration and length, as reported by Zatsiorsky
+                       Technical Note                                                                       I225
+
+Table 1. Estimated mean segment lengths for the Zatsiorsky er al. male and
+
+female subjects. The segment lengths are defined as the longitudinal distances
+                      between the respective segment endpoints
+
+                                                                                  Longitudinal length (mm)
+
+Segment                Endpoints                                                  Females Males
+
+Head                   Vertex, cervicale                                          243.7   242.9
+Whole trunk            Cervicale, HSP intersection                                690.1   709.3
+Upper part of trunk    Cervicale, xyphion                                         228.0   242.1
+Middle part of trunk   Xyphion, omphalion                                         205.3   215.5
+
+Lower part of trunk    Omphalion, HSP intersection                                256.8   251.7
+Upper arm              Acromion, radiale                                          235.9'  244.8*
+Forearm                Radiale, stylion                                           247.1   251.3
+Hand                   Stylion, 3rd dactylion                                     172.0   189.9
+                                                                                  496.2   520.2
+Thigh                  Iliospinale, tibiale                                       393.8
+Shank                  Tibiale, sphyrion                                                  393.4
+Foot                   Heel, toe tip                                              228.3   258.1
+
+   *Measured with the upper arm abducted by 90 `; in this position, the acromion
+is markedly closer to the radiale than in the standard anatomical position
+(adducted arm).
+
+Table 2. Estimated longitudinal positions of the main joint centers for the Zatsiorsky er (11.
+                  subjects (the positive sign indicates the proximal direction,
+
+              Longitudinal position
+                       (mm)
+
+Joint center  Females  Males                                       Relative to    Calculated using
+
+Shoulder      - 33.7   - 34.5                                      Acromion       Acromion-radiale*
+Elbow            13.9     14.3                                     Radiale        Acromion-radiale*
+                          16.8                                     Radiale        Radiale-stylion
+Elbow            16.6                                              Stylion        Radiale-stylion
+Wrist          - 1.5    - 1.5                                                     Stylion-3rd metacarpale
+Wrist          - 2.2                                               Stylion        Trochanterion-tibiale
+Hip                     - 2.4                                      Trochanterion
+                  2.8      3.2                                     Tibiale        Trochanterion-tibiale
+Knee            29.4      33.5                                     Tibiale        Tibiale-sphyrion
+Knee                      35.0                                                    Tibiale-sphyrion
+Ankle            35.0                                              Sphyrion
+              - 12.6   - 12.6
+
+*Estimated for subjects holding their arm in the standard anatomical position (adducted)
+
+trunk length is defined as the distance between the two end-       longitudinal axis of either the cervicale or the suprasternale is
+points. Despite their name, the endpoints do not coincide neces-   used as trunk cranial endpoint, rather than MIDS.
+sarily with the most cranial and caudal points of the actual
+trunk, and do not Iay necessarily on the segmentation planes         For allowing readers to select their preferred reference points.
+                                                                   the adjustments to the trunk parameters were performed using
+selected by Zatsiorsky's group for defining the boundaries be-     three different couples of reference points: cervicale p&&ion
+tween trunk and other segments (see Fig. 1). Zatsiorsky's group    and MIDH, suprasternale projection and MIDB, and MIDS
+used the intersection of the frontal projections of the hip seg-   and MIDH (see Table 4). The adjustments for the upper and
+mentation planes (HSP intersection) as the caudal endpoint of      lower parts of the trunk followed the same rationale (see Table
+                                                                   4). The parameters for the middle part of the trunk did not
+the trunk (Zatsiorsky, personal communication, 1992). Unfortu-     require adjustments.
+nately, the HSP intersection cannot be easily located on a sub-
+ject (see definition of HSPs); it is a purely theoretical point,   Combining anthropometric data fkm differrent .s~urct~~
+which does not coincide with any physical landmarks. In the
+author's opinion, the mid-hip (MIDH), a point midway between         Besides the segment lengths and the joint center positions
+the hip joint centers (HJCs), is the most convenient choice for    reported in Tables I and 2, other anthropometric data were
+                                                                   needed for the adjustments to the inertial parameters of trunk
+defining the trunk caudal endpoint. In fact, it can be easily      and thigh.
+computed from the positions of the HJCs, the only points of the
+trunk that can be used as proximal reference points of the thighs    The subjects analyzed by Zatsiorsky et al. were ethnically
+as well (de Leva, 1996).                                           Russian. No data were found in the literature concerning the
+                                                                   specific anthropometric characteristics of the Russian popula-
+   Similarly, the mid-shoulder (MIDS), a point midway between      tion, mainly composed of Caucasian (white) individuals. How-
+the shoulder joint centers (SJCs), would be the most convenient    ever, the anthropometric parameters relative to several other
+                                                                   Caucasian ethnic groups were available in a comprehensive
+choice for defining the trunk cranial endpoint, unless the SJCs    reference publication edited by a staff of the Webb Associates
+were free to change their position relative to the chest, to
+a remarkable extent. Typically, the trunk CM can be located
+with higher accuracy if the normal projection on the trunk
+1226                         Technical Note
+
+(1978) summarizing the results of 61 surveys performed              following equation:
+throughout the world. The Caucasian samples for which at least
+the mean stature and trochanteric height were reported in the                            s = 7&l,.                    (3)
+Webb Associates' book were selected (the two parameters were
+needed for normalizing the data). Among them, nine male sam-        where r, and r, are trunk lengths defined and computed as
+ples (98% white U.S. Air Force personnel, Greek and Italian         follows:
+military, French Army, German Air Force, British and New
+Zealand Royal Air Force, Czechoslovakian lumbermen,                   (a) For both males and females. the mean trunk length
+Swedish industrial workers) and four female samples (100%           & could be easily determined by summing the mean lengths of
+white U.S.A. citizens, 100% white U.S. Air Force personnel,         the three parts of the trunk, obtained from Table 1. It was
+British and Swedish citizens) were selected. The mean ages          therefore defined as the distance between the cervicale (cranial
+ranged from 21 to 36yr for the female samples, and from 22 to
+33 yr for six of the male samples (they were not reported for the   endpoint of the upper part of the trunk) and the HSP intersec-
+German, Czechoslovakian, and Swedish samples). The sample           tion (caudal endpoint of the lower part).
+sizes ranged from 87 to 10042 subjects.
+                                                                      (b) The mean trunk length i, was computed for the female
+   The anthropometric parameters needed for the adjustments         and male subjects by adding the percent distance between cer-
+were the mean stature, the mean cervicale, acromion, supraster-
+nale, iliospinale, and trochanterion heights, and the mean bispi-   vicale and iliospinale (6,) to the percent distance between ilios-
+nous breadth (BB). Except for stature and trochanterion height,     pinale and HSP intersection (dz). In turn, J, was equal to the
+none of these parameters was measured for all of the selected       difference between the trochanterion-cervicale and trochan-
+male or female samples. Indeed, the BB was not reported in any      terion-iliospinale normalized distances reported in Table 3;
+of the surveys of male populations summarized in the Webb
+Associates' book; it was found in a report by Clauser et al.        & was calculated as follows, according to the definition of the
+(1969), based on the analysis of 13 male cadavers (mean age:        HSP intersection:
+49 yr).
+                                                                                         J2 = r;i(2 tan 37 ),         (4)
+  The positions of the trunk landmarks (cervicale, acromion,
+suprasternale, iliospinale, and trochanterion) were originally      where 6 is the percent bispinous breadth reported in Table 3.
+reported as heights relative to the floor for standing subjects.    The computed values of (I1 were included in Table 3.
+For each sample, the longitudinal positions of the landmarks
+relative to the trochanterion were obtained by subtracting the        The scaling coefficients computed with equation (3) were
+trochanterion height from the landmark heights. The positions       s = 690.1/79.95% = 863.2 mm for females and s = 709.31
+relative to trochanterion were then normalized, to ensure com-
+parability between the different sources, by expressing them as     81.57% = 869.6 mm for males. The scaled distances between
+percentages of the respective trochanterion-vertex longitudinal     trunk landmarks were reported in Table 3.
+distance. The latter distance was obtained by subtracting tro-
+chanteric height from stature. The BB, which was the only           Adjustments to the CM percentuyes
+considered transverse dimension, was normalized with the same
+method. The distances between trochanterion and cervicale or          The main adjustments to the segment CM percentages
+suprasternale, theoretically best suited to be used as yardsticks   for males were performed as graphically shown in Fig. 1.
+for normalizing trunk data, were not considered due to lack of      Some calculations were too complex to be described in detail
+data. For the same reason, it was not possible to use a transverse  in Fig. I, and will be explained in the ensuing paragraphs.
+dimension for normalizing the BB.
+                                                                    Identical procedures were used also to adjust the CM percent-
+  Eventually, the normalized values available for each distance     ages for females. With similar methods, secondary adjustments
+(landmark positions and BB) were averaged, separately for fe-       were performed for the whole trunk, forearm, hand, and
+males and males. The results were reported in Table 3.              calf, using alternative sets of reference points. The calculations
+                                                                    shown in Fig. 1 were similar to those performed by
+Scaling the anthropometric data from the literature                 Hinrichs (1990) for adjusting the Clauser et al. (1969) percent-
+
+  The mean normalized distances reported in Table 3 were            ages. The results for both females and males were reported in
+multiplied by a scaling coefficient for estimating their absolute   Table 4.
+value for the Zatsiorsky et al. subjects. The scaling coefficient
+was determined, separately for males and females, using the           Head. For estimating the longitudinal position of the
+                                                                    gonion, used as caudal endpoint for the head, the ratio between
+
+                                                                    the gonion-cervicale and the vertex-cervicale longitudinal dis-
+                                                                    tances was needed. It was obtained. separately for females and
+                                                                    males, from the anthropometric data of Gordon et aI. (1989)
+                                                                    collected on two mixed-race samples of US. Army personnel,
+
+                                                                    composed of 2208 females (51.6% white) and 1774 males (66.1%
+                                                                    white). The computed ratios were 0.1784 for females, and 0.1629
+                                                                    for males.
+
+      Table 3. Means and scaled means of some normalized distances between trunk landmarks. The normalized
+
+      values were calculated using data from different anthropometric surveys of Caucasian populations. The
+      scaling coefficients for females and males were proportional respectively to the mean trunk lengths of the
+
+           Zatsiorsky et nl. female and male samples (N = number of surveys, SD. = standard deviation)
+
+                             Means for females                                           Means for males
+
+      Distance                   Normalized                         Scaled      Normalized                Scaled
+                             (% of troth.-vertex)                   (mm)    (% of troth.-vertex)          (mm)
+
+      Troch.-cervicale*      71.55 (N = 3, S.D. = 0.3)              617.6   69.75 (N = 7, S.D. = 0.9)          606.5
+      Troth.-acromion*       61.91 (N = 2, S.D. = 0.0)              534.4   63.62 (A' = 8, SD. = 2.5)          553.2
+      Troth.-suprasternale*  61.64 (N = 2, S.D. = OS)               532.1   61.53 (N = 9, SD. = 0.6)           535.1
+      Troth.-iliospinale*    11.39 (N = 1)                           98.3    7.69 (N = 2, S.D. = 0.6)           66.9
+      Bispinous breadth      29.83 (N = 1)                          257.5   29.40 (A' = 1)                     255.7
+      Iliospinale-HSP int.*  19.79t                                 170.8   19.517                             169.7
+
+      *Projection on the trunk longitudinal axis.
+      tDetermined by dividing the normalized bispinous breadth by 2tan37 ? (see text).
+                                           Technical Note
+
+                                                           42.28'&
+
+THICJH                        45.4990 (z)
+                                236.6 mm
+SHANK   x393.4 mm crl)                                     44.59%
+                        1CM
+                              40.47% @}                    55.41%
+                                159.2 mm
+
+        Fig. 1. A graphic description of the main adjustments to the relative CM positions for males. The adjusted
+        distances are shown on the right of the shaded area. For all segments, except trunk and upper arm (seetext).
+        tbe shaded area indicates the longitudinal distances between original (OR its left) and new (on its right)
+        reference points. All percent values are relative to the segment lengths indicated on their left. i* = see text:
+        C = Clauser et al., 1969; D = de Leva, 1995; G = Gordon et ai., 1989: TI = Table i; T3 = Table .1-
+
+                                                   Z = Zatsiorsky et ni.. 199&i).
+Table 4. Adjusted parameters for females (F; body mass = 61.9 kg, stature = 173.5 m) and males (M; 73.0 kg, 1.741 m). Segment masses are relative to body mass; segment CM positions are
+referenced either to proximal or cranial endpoints (origin). Both segment CM positions and radii of gyration (r) are relative to the respective segment lengths. A set of easy-to-use endpoints is
+considered in the first part of the table; for some segments, alternative endpoints are considered in the second part (UPT, MPT, and LPT are the Upper, Middle, and Lower Parts of Trunk)
+
+       Endpoints                     Longitudinal                    Mass*         Longitudinal        Sagittal r     Transverse r  Longitudinal r
+                                         length                       w-1          CM position            (%I              W)             (%I
+
+                                         (mm)                                           (%I
+
+Segment Origin                Other  F                 M      F§            WI     F             M  F              M  F     M       F     M
+
+Head   VERTt                  MIDGt  200.2             203.3  6.68          6.94   58.94  59.76     33.0     36.2     35.9  37.6    31.8  31.2
+                              MIDH$
+Trunk  SUPRt                  XYPHt  529.3             531.9  42.57         43.46  41.51  44.86     35.7     37.2     33.9  34.7    17.1  19.1
+                              OMPHt
+UPT    SUPRt                  MIDHf  142.5             170.7  15.45         15.96  20.77  29.99     74.6     71.6     50.2  45.4    71.8  65.9
+
+MPT*   XYPHt                  E-G    205.3             215.5  14.65         16.33  45.12  45.02     43.3     48.2     35.4  38.3    41.5  46.8
+                              WJCS
+LPT    OMPHt                  MET3t  181.5             145.7  12.47         11.17  49.20  61.15     43.3     61.5     40.2  55.1    44.4  58.7
+
+Upper arm SK*                 KJCS   275.1             281.7  2.55          2.71   57.54  57.72     27.8     28.5     26.0  26.9    14.8  15.8
+                              LMALt
+Forearm ETC$                  TTIPT  264.3             268.9  1.38          1.62   45.59  45.74     26.1     27.6     25.7  26.5    9.4   12.1
+
+Hand   WJCS                          78.0              86.2   0.56          0.61   74.74  79.00     53.1     62.8     45.4  51.3    33.5  40.1
+
+Thigh  HJCf                          368.5             422.2  14.78         14.16  36.12  40.95     36.9     32.9     36.4  32.9    16.2  14.9
+
+Shank KJCS                           432.3             434.0  4.81          4.33   44.16  44.59     27.1     25.5     26.7  24.9    9.3   10.3
+
+Foot*  HEEL?                         228.3             258.1  1.29          1.37   40.14  44.15     29.9     25.7     27.9  24.5    13.9  12.4
+
+Using alternative endpoints:
+
+Head* VERTt                   CERVt  243.7             242.9  6.68          6.94   48.41  50.02     27.1     30.3     29.5  31.5    26.1  26.1
+
+Trunk  CERVt                  MIDHS  614.8             603.3  42.57         43.46  49.64  51.38     30.7     32.8     29.2  30.6    14.7  16.9
+
+Trunk  MIDSS                  MIDHI  497.9             515.5  42.51         43.46  37.82  43.10     37.9     38.4     36.1  35.8    18.2  19.7
+
+UPT*   CERVt                  XYPHt  228.0             242.1  15.45         15.96  50.50  50.66     46.6     50.5     31.4  32.0    44.9  46.5
+
+Forearm EJCS                  STYLt  262.4             266.9  1.38          1.62   45.92  46.08     26.3     27.8     25.9  26.7    9.5   12.2
+       WJCS                   DAC3$                                                                                                       18.4
+Hand                                 170.1             187.9  0.56          0.61   34.27  36.24     24.4     28.8     20.8  23.5    15.4
+
+Hand*  STYLt                  DAC3$  172.0             189.9  0.56          0.61   35.02  36.91     24.1     28.5     20.6  23.3    15.2  18.2
+Hand   STYLt                  MET3t
+                                     79.9              88.2   0.56          0.6 1  75.34  79.48     51.9     61.4     44.3  50.2    32.7  39.2
+
+Shank  KJCS                   AJC$   438.6             440.3  4.8 1         4.33   43.52  43.95     26.7     25.1     26.3  24.6    9.2   10.2
+Shank  KJCS                   SPHYt                                                                                                       10.5
+                                     426.0             427.7  4.81          4.33 - 44.81  45.24     27.5  -  25.8     27.1  25.3    9.4
+
+* Not adjusted values.
+
+t Normal projection on the segment longitudinal axis.
+
+$ Assumed to lay on the segment longitudinal axis.
+
+0Zatsiorsky et al. (1990a).
+
+7 Zatsiorsky et al. (1990b, 1993).
+Technical Note                                                                                              I229
+
+   Thigh. The thigh length was defined by Zatsiorsky et al. as        elsewhere only for males (Zatsiorsky et al., 1990h). However,
+the longitudinal distance between iliospinale and tibiale. How-       researchers frequently prefer to model the trunk as a single
+ever, for locating the hip and knee joint centers (HJC and KJC),      rigid segment, neglecting the errors caused by trunk flexion
+                                                                      (de Leva, 1993). The reason is that the iandmaks defining
+the longitudinal distance between trochanterion and tibiale was       the `joints' between the trunk subsegments are difficult to
+                                                                      locate. Thus, it was important to include in this paper
+needed (see Table 2). For both males and females, the latter          the parameters for the whole trunk. both for males and
+distance was simply obtained by subtracting from the ilio-            females.
+
+spinale--tibiale distance (Table 1) the scaled trochanterion-           For the female subjects, the mean longitudinal distance of ihe
+iliospinale distance reported in Table 3.                             trunk CM from the cervicale was obtained as follows
+
+  Since the HJC is slightly proximal to the trochanterion             where r&. fi,, ti,, are, respectively, the mean percent masses of
+(de Leva, 1996), the longitudinal distance between iliospinale        the unner. middle. and lower subsegments of the trunk. reoorted
+and HJC (see Fig. 1) was computed, for both males and females,        by Za&iomky et b. (199Oa), and jccMLd, &, &, are ihe' mean
+by subtracting the HJC-trochanterion distance (Table 2)               longitudinal distances of the CMs of the three subseaments from
+                                                                      thecervicale. In turn,
+from the scaled trochanterion--iliospinale distance reported in
+Table 3.                                                              where &,, r,, &, are the mean subsegment lengths from Table 1,
+                                                                      and pci~~,,F,,x,,, pcCMa, re the mean ratios between subsegment
+   Lowrr part oftrunk. For both males and females, the distance       CM longitudinal positions and subsegment lengths, reported by
+between HSP intersection and MIDH, needed for adjusting the
+                                                                      Zatsiorsky er al. (1990a). The subsegment CM longitudinal posl-
+lower trunk CM percentage (Fig. i), was obtained by subtract-         tions were referenced to the respective subsegment cranial land-
+ing the iliospinale-HJC distance (computed as explained above)        marks (cervicale, xyphion, and omphalion).
+from the scaled iliospinale-HSP intersection distance reported
+III Table 3.                                                            The value computed with equation (5) for the female subjects
+                                                                      was &-, = 305.2 mm, which corresponds to 44.23"~~~of the re-
+   Upper ~lnn. The upper arm length was defined by Zatsiorsky
+                                                                      spective total trunk length (690.1 mm, Table I t.
+PI ul. as the longitudinal distance between Acromion and                Similar calculations, performed using the parameters reported
+radiaie. However. that distance was measured with the arm
+abducted by 90' relative to the longitudinal axis of the              for males (Zatsiorsky and Seluyanov. 1983: Zatsiorsky YI nl..
+trunk (Zatsiorsky. personal communication, 1993). That                1990b, 1993), gave as the final result a trunk CM percentage of
+
+position was probably required to clearly distinguish the             44.13%, very close to the value of 43.70% reported by Zat-
+upper arm mass from the trunk mass during the gamma-ray               siorsky rf nl. (1990b). The absolute distance between cervrcale
+scanning. With the abducted arm the acromion-radiale distance         and trunk CM reported in Fig. 1 is the product of the latter
+is markedly shorter than in the standard anatomical position          percentage by the total trunk length reported in Table 1~4170"~;.
+
+(adducted arm). In fact. the acromion is located on the               of 709.3 = 310.0mm).
+scapula. distant from the SJC; thus, the radiale, located
+on the elbow, markedly changes its position relative to the           Adjusting the radii qf yq~rariort
+acromion when the arm rotates about the SJC, relative to the
+                                                                        Zatsiorsky et al. (1990a) reported the percent ratios between
+scapula.                                                              segment radii of gyration and segment lengths (relative radii of
+   Using the Chandler rl nl. (1975) data, the standard ac-            gyration), for both males and females. These parameters were
+                                                                      adjusted by multiplying them by the ratios between the respect-
+romion--radiale distance, measured with adducted arm, was             ive original (Table 1) and adjusted (Table 4) segment lengths.
+found to be highly correlated (r > 0.8) to the iliospinale-tibiale    The results are listed in Table 4.
+and radialestylion distances. The ratios between the standard
+                                                                        Since the relative radii of gyration of the whole trunk fol
+acromion---radiale and the latter two distances were computed         females were not reported by Zatsiorsky et al. (199Oa), it was
+using anthropometric data from the same surveys that were             necessary to compute their adjusted values (Table 4) from the
+selected for estimating the trunk landmark positions (Table 3).       adjusted parameters of the three trunk subsegments rTable 4).
+The mean ratios between acromion-radiale and iliospinale-             using the Parallel Axes Theorem.
+
+tibialc were 0.6401 for females and 0.6551 for males. The mean          Assuming that a subject's segment radii of gyration arc
+ratios between acromion- radiale and radiale-stylion were             proportional to the respective segment lengths, the relative seg-
+1.3374 for females and 1.2841 for males. For both females and         ment masses and radii of gyration reported in Table 4 can be
+males, these ratios were multiplied, respectively, by the ilio-       used to estimate the subject's segment moments of inertia. The
+spinale--tibiaie and radiale stylion distances reported in Table 1.   moment of inertia of a given segment about a given principal
+Thus. two estimates of the standard acromion-radiale distances        axis is
+
+were obtained, for both the Zatsiorsky et aE. female and male                                   1 = (.M~rn).(l.fy.
+subjects. The respective means were 324.1 mm for females,
+                                                                      where M is the body mass of the considered subject, ti IS the
+and 331.8 mm for males {Fig. 1). Notice that both these               mean relative mass of the segment (Table 4). I is the segment
+estimated distances were about 90 mm longer than the re-              length, which can be measured from a filmed or videotaped
+spcctive acromion- radiale distances measured by Zatsiorky's          performance, and r is the mean relative radius of gyraticln of the
+group (Table I).                                                      segment about the considered axis (Table 4).
+
+   Nr&. The hand length was defined by Zatsiorsky et al. as the       Acknowledgement-l  wish to thank Dr Jeslis Dapena for his
+longitudinal distance between stylion and 3rd dactylion. How-
+ever, for locating the wrist joint center, the longitudinal distance  constant support and several valuable suggestions. based on
+                                                                      a detailed review of the procedures.
+between stylion and 3rd metacarpale was needed (seeTable 2).
+For both males and females, this distance was assumed to be
+
+equal IO 46.467'0 of the respective hand length, reported in Table
+ 1. This percentage was obtained from the anthropometric data
+of Clauser et NI. (19751.
+
+   The wl~k trunk und its parts. Most of the longitudinal di-
+
+mensions needed for adjusting the CM percentages of the
+whole trunk and of its upper part were either obtained from
+Table 1. or determined by simple subtraction, using the scaled
+values reported in Table 3. A more complex procedure was
+
+required to compute the CM percentage for the whole trunk of
+females.
+
+   Zatsiorskq (`r al. (1990a) reported the inertial parameters
+of the upper. middle. and lower parts of the trunk, for both
+the male and female subjects; they did not report the parameters
+of the whole trunk. The latter parameters were reported
+1230                                      Technical Note
+
+      REFERENCES                                                   Webb Associates' Staff (1978) Anthropometric source book,
+                                                                     Vol. II. A handbook of anthropometric data (NASA RP-
+Chandler, R. F., Clauser, C. E., McConville, J. T.: Reynolds, H.      1024). National Aeronautics and Space Administration, Texas
+                                                                     (NTIS No. N79-13711).
+M. and Young, J. W. (1975) Investigation of inertial properties
+                                                                   Zatsiorsky V. M., Raitsin, L. M., Seluyanov, V. N., Aruin, A. S.
+of the human body (AMRL TR 74-137). Wright-Patterson Air             and Prilutzky, B. J. (1993) Biomechanical characteristics of
+                                                                     the human body. In Biomechanics and Performance in Sporr
+Force Base, Ohio (NTIS No. AD-A016 485).                             (Edited by Baumann, W.), pp. 71-83. Bundeninstitut fur
+                                                                     Sportwissenschaft, Germany.
+Clauser, C. E., McConville, J. T. and Young J. W. (1969) Weight,
+                                                                   Zatsiorsky, V. and Seluyanov, V. (19833 The mass and inertia
+volume and center of mass of segments of the human body
+                                                                     characteristics of the main segments of the human body. In
+(AMRL TR 69-70). Wright-Patterson Air Force Base, Ohio               Biomechanics VIII-B (Edited by Matsui, H. and Kobayashi,
+                                                                     K.), pp. 1152-l 159. Human Kinetic, Illinois.
+(NTIS No. AD-710 622).                                             Zatsiorsky, V. M., Seluyanov, V. N. and Chugunova, L. G.
+
+de Leva, P. (1996) Joint center longitudinal positions computed      (1990a) Methods of determining mass-inertial characteristics
+                                                                     of human body segments. In Contemporary Problems of
+from a selected subset of Chandler's data. J. Biomechanics 29.        Biomechanics (Edited by Chemyi G. G. and Regirer, S. A.),
+                                                                     pp. 272-291. CRC Press, Massachusetts.
+de Leva, P. (1993) Validity and accuracy of four methods for
+                                                                   Zatsiorsky, V., Seluyanov, V. and Chugunova, L. (1990b) In vivo
+locating the center of mass of young male and female athletes. In     body segment inertial parameters determination using
+                                                                     a gamma-scanner method. In Biomechanics ofHuman Moue-
+~~rer~afjo~a~ Society of Biu~c~nics     XIVth Congrew-
+                                                                      ment: Applications in Rehabilitation, Sports and Ergonomics
+Abstracts (Edited by Bouisset, S.,Metral, S. and Monod, H.), pp.
+                                                                     (Edited by Berme, N. and Cappozzo, A.), pp. 186-202. Bertec,
+318-319. Universite Paris-Sud, France.                                Ohio.
+
+Gordon, C. C., Churchill, T., Clauser, C. E., Bradtmiller, B.,
+
+McConville, J. T., Tebbetts, I. and Walker, R. A. (1989) 1988
+
+anthropometric survey of U.S. Army personnel: summary statis-
+
+tics interim report (NATICK/TR-89/027). U.S. Army Natick RD
+
+& E Center, Massachusetts.
+
+Hinrichs, R. N. (1990) Adjustments to the segment center of mass
+
+proportions of Clauser et izl.(1969).J. B~o~~h~s 23,949951.
+

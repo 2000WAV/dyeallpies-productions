@@ -1,0 +1,280 @@
+Percentage-Closer Soft Shadows
+
+               Randima (Randy) Fernando
+        NVIDIA Developer Technology Group
+   Demo
+
+Copyright © NVIDIA Corporation 2005
+Algorithm Comparison
+
+Regular Shadow Maps Uniform Soft Shadows                 Perceptually-Correct
+                                                             Soft Shadows
+Always hard                          Always soft
+                                                            Shadows harden on
+                                                            contact
+
+       Noticeable Aliasing           Aliasing is hidden  Aliasing is hidden
+
+Copyright © NVIDIA Corporation 2005
+   Features
+
+               Perceptually-correct soft shadows
+               (good visual cues)
+               Artifacts vary smoothly (no popping)
+               Benefits from shadow mapping features
+
+                        Independent of geometric complexity
+
+                         Works with alpha testing, displacement mapping, etc...
+
+               Integrates easily
+
+                        Single floating-point shadow map and one shader
+                        No special steps, preprocessing, etc...
+
+Copyright © NVIDIA Corporation 2005
+Ordinary Shadow Mapping
+
+                                     Light
+                                     Shadow Map
+
+                                            Scene
+
+Copyright © NVIDIA Corporation 2005
+Percentage-Closer Filtering
+
+          Extension to shadow mapping
+          How Percentage-Closer Filtering (PCF) works:
+
+                                     Typical Shadow              Shaded Pixel
+                                         Map Test               (Black or White)
+
+Pixel to be
+ Shaded
+
+                                     4-Sample        Perform 4  Shaded Pixel
+                                        PCF
+Copyright © NVIDIA Corporation 2005                  Depth Tests (0, 0.25, 0.50, 0.75, 1.0)
+Basic Idea
+
+     Soften shadows by varying PCF kernel width
+
+                Small Kernel         Large Kernel
+               (Narrow Filter)       (Wide Filter)
+
+Copyright © NVIDIA Corporation 2005
+   Penumbra Estimation
+
+         Vary amount of softening
+
+                 Based on penumbra size
+
+         Penumbra size estimate based on:
+
+                 Blocker depth
+                 Receiver depth
+                 Light size
+
+Copyright © NVIDIA Corporation 2005
+"Blockers" and "Receivers"
+
+                                     Light
+                                     Blocker
+                                     Receiver
+
+Copyright © NVIDIA Corporation 2005
+Penumbra Size Estimation
+
+                                     · Assumes that blocker,
+                                       receiver, and light are
+                                       parallel
+
+Copyright © NVIDIA Corporation 2005
+Penumbra Size Estimation
+
+            We need:
+
+                     Distance from blocker to light source
+
+                              Don't know this... yet.
+
+                     Distance from receiver to light source
+
+                              Depth of the point we're shading
+
+                     Light size
+
+                              Uniform input to the shader
+
+Copyright © NVIDIA Corporation 2005
+   Main Algorithm
+
+         Generate a shadow map (as usual)
+         When shading each pixel on the screen:
+
+                 Blocker Search
+                 Penumbra Size Estimation
+                 Variable Percentage-Closer Filtering
+
+Copyright © NVIDIA Corporation 2005
+Blocker Search
+
+     Search region depends on light size and distance to light
+
+                                                      Light
+                                                      Shadow Map
+
+                                     Scene
+
+Copyright © NVIDIA Corporation 2005
+   Blocker Search
+
+          Iterate through all texels in search region
+          Do something with the depth values...
+
+                                                            Shadow Map
+
+Copyright © NVIDIA Corporation 2005
+   What to do with Blockers?
+
+         Take minimum?
+
+                 Artifacts when transitioning between blockers
+
+         Need some kind of average
+
+                 Average all blockers (depth < receiver)
+                 Flag the case if no blockers were found
+
+                         Fully lit ­ no need to perform filtering
+
+                 Gives good results
+                 Further exploration in progress...
+
+Copyright © NVIDIA Corporation 2005
+Penumbra Size Estimation
+
+               We have:
+
+                        Distance from blocker to light source
+
+                                 Result of blocker search
+
+                        Distance from receiver to light source
+
+                                 Depth of the point we're shading
+
+                        Light size
+
+                                 Uniform input to the shader
+
+               Estimate penumbra per pixel
+
+                        Change PCF kernel based on the result
+
+Copyright © NVIDIA Corporation 2005
+   Variable Percentage-Closer Filtering
+
+             Use a flexible PCF kernel that can vary:
+
+                      Filter width
+                      Number of samples
+
+             Vary kernel parameters based on penumbra
+             estimate
+
+                      Actually, projection of penumbra in screen space (but
+                      not yet implemented)
+
+Copyright © NVIDIA Corporation 2005
+   Demo
+
+      Observed current performance in FX
+      Composer (on GeForce 6800 Ultra):
+
+              ~20 fps @ 640 x 480
+
+                      64 blocker search samples
+                      144 PCF samples
+                      Great results (see image)
+                      Especially with a texture!
+
+              ~8 fps @ 640 x 480
+
+                      144 blocker search
+                      samples
+                      256 PCF samples
+                      For high-quality
+                      screenshots
+
+Copyright © NVIDIA Corporation 2005
+   Improvements
+
+         Performance
+
+                 Need to implement early exit for PCF
+
+                         Currently very wasteful (256 samples always!)
+
+                 No profiling/tuning done yet
+                 Mask out umbras and fully-lit regions
+
+         Quality
+
+                 Better blocker-search heuristics
+                 Better filtering to remove banding in large penumbras
+
+Copyright © NVIDIA Corporation 2005
+   Parting Thoughts
+
+          Algorithm is completely encapsulated in one shader file for
+          easy integration
+          Try it out ­ please let us know what you find
+          Tweak "Near Plane Factor" and "Shadow Map Bias" to match
+          your scene
+          Applications: DCC/CAD applications, pre-visualization, future
+          games
+          Improved version, video, and slides on the way...
+
+Copyright © NVIDIA Corporation 2005
+   Suggestions/Questions Welcome
+
+             Lots of relevant references in:
+                    http://www.randima.com/MastersThesis.pdf
+
+             Slides and code on
+             http://developer.nvidia.com
+             The Source for GPU Programming
+
+             E-mail: rfernando@nvidia.com
+
+             Thanks to Kevin Bjorke, whose basic PCF shader I based
+             this work on.
+             Thanks to Chris Maughan and FX Composer for making
+             shader development so easy.
+
+Copyright © NVIDIA Corporation 2005
+Copyright © NVIDIA Corporation 2005
+ GPU Gems 2
+
+ Programming Techniques for High-Performance Graphics
+ and General-Purpose Computation
+
+         880 full-color pages, 330 figures, hard cover
+         $59.99
+         Experts from universities and industry
+
+   "The topics covered in GPU Gems 2 are critical to the next generation of game
+   engines."
+
+   -- Gary McTaggart, Software Engineer at Valve, Creators of Half-Life and Counter-Strike
+
+   "GPU Gems 2 isn't meant to simply adorn your bookshelf--it's required reading for
+   anyone trying to keep pace with the rapid evolution of programmable graphics. If
+   you're serious about graphics, this book will take you to the edge of what the GPU
+   can do."
+
+   --Rémi Arnaud, Graphics Architect at Sony Computer Entertainment
+
+Copyright © NVIDIA Corporation 2005
+

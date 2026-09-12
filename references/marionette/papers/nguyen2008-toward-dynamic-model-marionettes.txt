@@ -1,0 +1,391 @@
+Toward a Dynamic Model of Robotic Marionettes
+
+   Nguyen Kim Doang, Lim Kwang Yong, Dong Wei, Goh Young Koon, Chen I-Ming, Yeo Song Huat,
+                                    Henry Been-Lirn Duh1, Li Kang, Su Chen Hao
+
+            School of Mechanical and Aerospace Engineering, Nanyang Technological University, Singapore
+           1 Department of Electrical and Computer Engineering, National University of Singapore, Singapore
+
+    Abstract--Robotic marionettes are those mechatronic system      The designs of ROMS versions (ROMS I, II, III) were inspired
+in which strings that control motion of a puppet are driven by a    by both Western and Eastern puppetry. The stationary
+puppeteer platform including motor-pulley modules. Systematic       assembly of motors and pulleys in modular forms is allusive to
+control of robotic marionettes is now still a tough problem, which  Gou Pai, in which all strings are connected to one control
+several research groups have been attempting to solve. In this      platform. ROMS is capable of various highly articulated
+paper, we present dynamic models of the robotic marionette          motions due to its high number of DOF. Low and high-level
+developed from Lagrange equation. Feed-forward control and          motor control enables the creation of gross and fine motion in
+feedback control are studied based on the dynamic models with       the marionette. Nguyen et al proposed a motion mapping
+the illustration of block diagrams. A process of identifying the    algorithm to map human motion into marionette motion. This
+parameters appearing in the dynamic models is presented in          technique allows him to use captured human motion to control
+details. The modeling provides better insight of the system, and    ROMS III in real-time [7]. Some other works on motion
+builds a mathematical platform to research the control and          planning for marionette can be found in [4],[8].
+simulation of the marionette system.
+                                                                       Though quite a few works were carried out, none of them
+    Keywords--dynamics, modelling, robotic marionette               presented a systematic research on the dynamic model of the
+                                                                    control system of a robotic marionette. In this work, we
+                          I. INTRODUCTION                           propose preliminary dynamic models of the robotic marionette
+                                                                    developed from Lagrange equation. Feed-forward control and
+    Marionette is a traditional art which exists in some cultures,  feedback control are studied based on the dynamic models
+but seeing a sharp decrease in popularity due to the arising of     with the illustration of block diagrams. A process of
+new type of entertainment. Many efforts have been made in           identifying the parameters appearing in the dynamic models is
+order to maintain this art in various countries. Approaching to     presented in details. The modeling provides better insight of
+this motivation, but from different point of view, researchers      the system, and builds a mathematical platform to research the
+have been exploring the ability of integrating current              control and simulation of the marionette system.
+technologies in robotics into marionette performance for
+bringing new colors to this traditional art.                                       II. MARIONETTE SYSTEM DYNAMICS
+
+   In his very early work on developing a robotic marionette,       A. Inverse dynamics model
+Hoffmann introduced a computerized controlled life-size
+marionette, whose mobility is twelve mechanical degrees of              The inverse dynamic model provides the motor torques and
+freedom [1]. The marionette is controlled by a mechatronic          forces in term of string-space variables, such as positions,
+rucksack to perform some simple choreographic motions.              velocities and accelerations. The model allows us to identify
+Hemami, et al. [2], proposed a strategy for stability of a          dynamic parameters that are necessary for both control and
+marionette under a system of unidirectional muscle-like             simulation, to compute the actuator torques needed for the
+actuators. The strategy provides positive force and positive        robotic system to achieve desired motions, and also to select
+input to the actuators which are analogous to functions of the      relevant actuators in mechanical system design. The inverse
+firing rate of natural muscles. Yamane et al. controlled the        dynamic model is described by
+upper body of a marionette to perform some dances using
+human motion [3]. A feed-forward controller was applied to            ( )  = f qs , qs , qs , fe
+prevent swinging problem of the puppet hands. Recently
+Johnson and Murphey presented a mixed dynamic-kinematic                In which,  is the vector of actuator torques
+modeling technique that removes the controller dynamics from
+the marionette, resulting in a clean abstraction that represents        qs , qs , qs is the vectors of string-space variables,
+the dynamics of the marionette in a natural way [4].
+                                                                    including positions, velocities and accelerations
+   Perhaps the most developed robotic marionette project is
+RObotic Marionette System (ROMS) by Chen, et al [5], [6].
+
+978-1-4244-1676-9/08 /$25.00 ©2008 IEEE                             RAM 2008
+    fe is the vector of forces and moments exerted by the                Equation (E3) represents the direct dynamic model of the
+                                                                     robotic marionette system.
+robotic marionette on environment
+                                                                         Based on equations (E2) and (E3), the below block diagram
+   We can model the above function by Lagrange equation:             can be obtained (refer to Figure 1)
+
+    = I(qs )qs +V (qs, qs )qs + G(qs )               (E1)
+
+   In which V (qs , qs ) is the matrix of centrifugal, Coriolis
+
+and viscous effects in general.
+
+    G(qs ) is the matrix of gravitational effect.
+
+    This equation represents the general form of the inverse         Figure 1 Direct dynamic model block diagram
+dynamic model of the robotic marionette system.
+                                                                     C. Marionette dynamics model
+B. Direct dynamics model                                                 In this section we will derive the specific inverse dynamic
+
+    The direct dynamic model describes the string accelerations      model for our marionette system.
+in term of the string positions, velocities and the toques at the
+actuators. It is employed to carry out simulation for the sake of
+testing the performance of the robot and to study the relative
+merits of possible control laws. During simulation, the dynamic
+equations are solved for the string acceleration given the input
+torques, and the current string positions and velocities. Then
+through integrations of the acceleration, the link trajectories can
+be determined. The general equation of the direct dynamic
+model is represented by the relation
+
+  ( ) qs = h qs , qs , , fe
+
+   Now from equation (E1), we separate I (qs ) into two
+
+( ) ( ) components Id qs
+                              and I qs               , where
+
+       I11 ... I1n                                                   Figure 2 Motor control circuit
+                   
+I  =                is the matrix of inertial effects in the             From the electric circuit of the motor control in Figure 2,
+                                                                     the control voltage is calculated as
+       Im1         Imn 
+
+                                           I11 0           0         vc  =  R1     Raia   +  La      dia   +  Kv     
+                                                                            R2                       dt              
+                                             0  I22        0  
+inverse dynamic equation,     and  Id  =  
+                                                                     We also have the relationship:  = Ktia
+                                                              
+                                          0 0            Inn 
+                                                                                   R1                             d                   
+is the diagonal matrix of I.                                         So     vc  =  R2   Ra           Kt    +  La  dt     Kt    +  Kv  
+                                                                                                                                      
+   So I (qs ) = I (qs ) + Id (qs )                                                                       
+
+   Plug this into inverse dynamic equation (E1), we get              Which means       vc  -  R1Kv            =  R1Ra     +    R1La   d
+                                                                                               R2                R2 Kt         R2 Kt  dt
+   ( ) ( ) ( ) ( ) Id qs + I qs  qs +V qs , qs qs + G qs = 
+                                                                     In term of string ith's variables:
+
+   ( ) ( ) ( ) Let d = I qs qs +V qs , qs qs + G qs        (E2)      vci -  R1i Kvi  qis   =  R1i Rai             +  Lai  d i  
+                                                                             R2i              R2i Kti       i        Rai  dt   
+                                                                                                                                      (E4)
+
+   ( ) ( ) We have Id qs qs + d qs , qs , qs =  , or                     With vci is the applied voltage from the controller on the
+                                                                     motor that drive the string ith.
+( )( ) qs  -1  qs
+   =               -d                  (E3)
+        Id
+   Now let  K ei   =  R1i Kvi    ,   Kmi  =  R2i Kti  ,     mi  =  Lai
+                       R2i                   R1i Rai               Rai
+
+   ( Kmi is torque-velocity gain,  mi is motor's time constant)
+
+    Laplace transform of equation (E4) gives the following s-
+domain equation
+
+   ( ) ( ) vci (s) - Keiqis (s)=1
+                            K mi     i +  misi
+
+   ( ) i.e.               Kmi
+        i   (s)   =   (1  +  mi  s)  vci (s) - Keiqis (s)    (E5)
+
+                                                                        Figure 3 Marionette system dynamics block diagram
+
+    The above equation describes the relation between the                                III. OPEN-LOOP CONTROL MODEL
+torque at the motor driving the string ith and the respective
+string velocity and control voltage. In other to obtain a                   An open-loop control system is controlled directly, and
+                                                                        only, by an input signal, without the benefit of feedback. The
+complete equation describe the dynamics of the whole system;            basic units of this system are an amplifier and a motor. The
+we combine those individual equations in to a unique one by             amplifier receives a low- level input signal and amplifies it
+                                                                        enough to drive the motor to perform the desired job. Open-
+state-space representation.                                             loop control systems are not as commonly used as closed-loop
+                                                                        control systems because they are less accurate. A typical
+   Now let                                                              property of the open-loop control system is that it does not use
+                                                                        feedback information to determine whether the inputs have
+        (1  Km1    )          0                 0                       achieved the desired task. This means that the outputs of the
+            + m1s            Km2                                        processes, which the system is controlling, are not being
+                                                                        observed. As a result, an open-loop control system actually can
+                          (1+ m2s)                                      not engage in machine learning and also cannot compensate for
+            0                                   0                       any errors that arise during its operation. It also may not
+m  =                          0                                         eliminate disturbances in the system. Open-loop control is
+                                                           ,            useful for well-defined systems where the relationship between
+                                                                        input and the resultant state can be modeled by a mathematical
+                                                                        formula.
+                                                Kmn 
+            0
+                                             (1+ mns) 
+
+                  Ke1 0                   0                             Equation (E2) gives:
+
+                     0    Ke2             0                             ( ) ( ) ( ) d = I qs qs +V qs , qs qs + G qs
+                                             
+   and  Ke  =                                                                                                              (E7)
+
+                                             
+                 0 0                          
+                                          Ken                               Where the sigh ~ under the variables to imply the desired
+                                                                        value.
+
+   Equation (E5) results in                                             ( ) Equation (E3) gives:  = Id qs qs + d           (E8)
+
+   ( ) (s) =  m vc (s) - Keqs (s)                            (E6)       Equation (E6) gives: vc (s) =  m-1(s) + Keqs (s) (E9)
+
+    Combine the equation (E2), (E3) and (E6), we have the                   Equations (E2), (E3), (E6), (E7), (E8) and (E9) altogether
+below block diagram (Figure 3), which is so-called Marionette           construct the block diagram of the open-loop control system as
+System Dynamics.                                                        shown in Figure 4.
+Figure 4 Open-loop control block diagram                                     time control system applications. Normally a control algorithm
+                                                                             also improves transient response characteristics, minimizes the
+      IV. STRING-SPACE CLOSED-LOOP CONTROL MODEL                             effects of parameter variations, and gets rid of the effects of
+                                                                             disturbance in-outs, hence enhances the overall performance of
+    For open-loop control systems which suffer significant                   the system.
+disturbances and parameter variation, the performance may be
+seriously affected. The difference between marionette input and                  In our robotic marionette, a closed-loop control system can
+output, so-called the system error, becomes larger. The system               be constructed in several ways. By attached a rotary encoder to
+stability is violated. The system hence cannot achieve the                   each motor, the string space outputs can be observed. This
+desired goal. In this cases, feedback control, or usually known              measured data are compared with the desired data. The errors
+as close-loop control, should be used.                                       are then fed into the control algorithm normally embedded in a
+                                                                             controller. The algorithm will tell the controller how much
+    In a closed-loop control system, an input forcing function is            voltage should be applied to the marionette system to achieve
+determined in part by the system response. The measured                      the desired motions. This is equivalent to joint space feedback
+outputs of a physical system are compared with the desired                   control in manipulators. The block diagram of the closed-loop
+outputs. The difference between these two output initiates                   control of the marionette system using string space feedback is
+actions that will result in the actual response of the system to             illustrated in Figure 5 and Figure 6.
+approach the desired response. This in turn drives the
+difference signal toward zero. The actions, which eliminate the                  Another way of feedback control for the marionette system
+system errors, are called a control algorithm. Typically the                 is to install a vision system or something like that, to record the
+difference signal is processed by another physical system,                   actual motions of the puppet. This approach is much more
+which may be a compensator, a controller, or a filter for real-              expensive and complicated than the former one. However the
+                                                                             use of marionette motion feedback has several advantages
+                                                                             compared with the string space closed-loop control. Firstly it
+                                                                             can adapt quite well to the changes of work-environment, and
+                                                                             even to inaccuracy kinematics. The closed-loop system using
+                                                                             marionette motion feedback may also not depend much on
+                                                                             inverse kinematics. Any disturbance from the string space to
+                                                                             the marionette motion space can be eliminated (this is not
+                                                                             possible for the former one, since that disturbance is not
+                                                                             included in the feedback information). This control approach is
+                                                                             equivalent to task space closed-loop control in manipulators.
+                                                                             The block diagram of the closed-loop control of the marionette
+                                                                             system using marionette motion feedback is illustrated in
+                                                                             Figure 7.
+
+                                                                             Figure 5 Closed-loop control with rotary encoder feedback
+
+Figure 6 Detailed block diagram of closed-loop control with rotary feedback
+                                                                                                           ( )  ( ( )) {( )( ) } ( ) Ek               mi  .     J  l  T          J  l   +                           
+                                                                                                                                         n                         i                i                                 
+                                                                                                                 =1                T                                   .                                              .q
+                                                                                                                   2
+                                                                                                                        qs            .                                                                                   s
+                                                                                                                                                  
+                                                                                                                                            i =1       1  J           T          0  Ri    f Ii      R0 t   .  J      
+                                                                                                                                                       2        i                f                               i
+                                                                                                                                                                       .                            fi
+
+Figure 7 Closed-loop control with vision feedback (motion capture)                                               Compare this equation with kinetic energy equation,
+
+                  V. PARAMETER IDENTIFICATION                                                                        1            T
+                                                                                                                     2
+    In the previous sections the complete dynamic model of the                                                                     .I.
+marionette system was derived based on Lagrange equation,                                                  ( ) ( ) Ek=  qs                  qs         , we obtain the expression which allow
+with some discussions on feed-forward and feedback control.
+The model is written in state space form and represented by a                                              to calculate the matrix of inertial effects
+set of dynamic parameters, such as matrix of inertial effects,
+matrix of viscous effects, matrix of gravitational effects, and so                                                ( ( )) {( )( ) } ( ) Inmi.J  l  T       J il        +                                  
+on. This section is dedicated to an identification scheme which                                                         i=1                    i          f0 Ri                                          
+can be used to determine those dynamic parameters.                                                                                                 .                    f
+
+                                                                                                                    =           1                 T                                                      
+                                                                                                                                 2          i                                                      i     
+                                                                                                                                         J         .                       Ii       R0 t   .    J
+
+                                                                                                                                                                                    fi
+
+                                                                                                           (E12)
+
+    Firstly the kinematic energy of a link in the marionette                                                   By matrix multiplication, kinetic energy equation can be
+system can be written in the following form, including the                                                 written in the form
+linear and angular components
+
+                                                                                                                       =1        n    n
+                                                                                                                         2      i =1
+                                                                                                                                          I ij
+
+                                                                                                                                      j =1
+{ ( ) } Eki=1mi.vct i.vci   +  1      it    .   0  Ri        f Ii  R0 t  .i            (E10)                       ( ) Ek                               qs      .qis  .q      s  
+    2                          2                f                                                                                                                             j
+                                                                   fi
+
+    The linear and angular velocities (or marionette motion                                                    On the other hand the potential energy of a link can be
+space) of the link ith is related with the string space variables by                                       written in the form
+
+the Jacobian matrix as shown in the expression below                                                             Epi = -mi.g.hci
+
+vci( )      =        J   l                  qs                                         (E11)                   The total potential energy of the system is determined by as
+i                        i     6×n                                                                         the sum of potential energies of the individual links. This
+     6×1                                                                                                   means
+                     J                             n×1
+                         i
+
+In  which,  J il     and       J         are linear and angular components of                                                i                    i
+                                      i                                                                            Ep = Epi = (-mi.g.hci )
+
+the matrix respectively                                                                                                 i=1                       i=1
+
+    By converting the equation (E10) into string space using                                                   The Lagrange equation can be expressed in term of
+Jacobian matrix, we get                                                                                    kinematic and potential energies as following
+
+( ) ( ) ( ) { ( ) } ( ) Eki1          T                      +1                    T
+     =  2  mi .      J      l  .q  s           J   l  .q  s    2   J     .q  s         f0Ri .     f Ii  .  R0 t  .i  J=i d.q    s  Ek                   Ek                       E p    
+                            i          .           i                  i             .                                  dt          qis                  qis                      qis    ,
+                                                                                                           fi                                     -                   +                             for i = 1, 2,..., n
+
+Grouping the dynamic parameters gives                                                                                                                        (E13)
+
+( ) ( ( )) {( )( ) } ( ) Ekimi .      J  l     T      Jil    +                                                 Now using some simple calculus of derivative, the terms in
+                                         i                                                                 Lagrange equation (E13) are going to be determined. At first
+    1       T                                   .                                                          we have the derivative of kinetic energy with respect to the
+    2                                                                                                      string velocity
+=       qs         .1                                                                    .q    s
+                     2
+                               J            T         0  Ri  f Ii  R0 t         .  Ji                             ( ) Ek        n
+                                      i               f
+                                             .                     fi                                            qis                Iij
+
+    The total kinetic energy of the system is known as the sum                                                          =       j =1              qs    .q   s  
+of kinetic energies of the individual links. This statement is                                                                                               j
+
+described by the formula below                                                                                   Taking differentiation of this equation with respect to time
+
+             n                                                                                             yields
+
+ Ek = Eki                                                                                                         ( ) ( ) dEk               n                qs       .q   s  +    Iij  qs      .q  s      (E14)
+            i =1                                                                                                        qis       =                                        j                        j
+                                                                                                                 dt                             I ij
+Hence
+                                                                                                                                            j =1
+
+                                                                                                                 According to chain rule of partial derivative
+( ) Iijqs  =     Iij      .q1s  +   Iij     .q2s    +...+       Iij     .qns                 desired motions, and a direct dynamic model which describes
+                 q1s                q2s                         qns                          the string accelerations in term of the string positions,
+                                                                                             velocities and the toques at the actuators. We also studied
+( )  OrIij    qs     =     n     Iij       .qks                                              dynamic model for open-loop and string-space closed-loop
+                          k =1                                                               control of the robotic marionette. The control models can be
+                                    qks                                                      considered a guide to design a motion controller for the
+                                                                                             marionette system. Then finally a strategy for identification of
+Plug this value into equation (E14), we have                                                 the model parameters was presented. Our dynamic models can
+                                                                                             be used as a mathematical tool for those who are working on
+ ( )  dEk            n                 qs    .q  s    +   n        n  Iij     .qks  .q  s    string-driven robots in general, and especially robotic
+      qis     =                                  j        j =1                          j    marionette projects.
+dt                       Iij                                             qks               
+                                                                k  =1                            For the next steps, we will implement the dynamic model
+                     j =1                                                                    on the ROMS III, to give it more accurate motion, less
+                                                                                             swinging, and thus better performance. The most challenging
+      (E15)                                                                                  problem in designing the motion controller for the robotic
+                                                                                             marionette is how to get reliable motion feedbacks of the
+    In addition, the derivative of kinetic energy with respect to                            marionette, or in other words how to capture the motion of the
+the string position is                                                                       marionette. As we know, there are several available
+                                                                                             technologies for capturing human motions. However
+  Ek  =    1  n         n  I jk        .qks  .q  s                            (E16)          marionettes have very small range of motion. Moreover
+           2  j =1                               j                                           anything attached to the puppet body will affect its
+qis                             qis                                                          performance. There are several possible solutions to this
+                     k  =1                                                                   problem. A set of markers can be attached on the puppet so that
+                                                                                             their movements are captured by a set of cameras. Then the
+    And derivative of potential energy with respect to the string                            marker movements are converted to marionette motion using
+position is                                                                                  inverse kinematics. Alternatively we can also mount
+                                                                                             inertial/magnetic units [9] on the puppet to get the orientations
+ Ep   =     i        -mi .g.      hci                                         (E17)          of its links, and then convert the information into marionette
+           i =1                   qis                                                        motion. Once the feedback motion from the marionette is
+qis                                                                                          capture, the loop is closed and the control system design based
+                                                                                             on the dynamic model can be completed.
+    Substitute the identified term in equations (E15), (E16) and
+(E17) in to the Lagrange equation (E13), we get the detailed                                                               REFERENCES
+form of inverse dynamic equation
+                                                                                             [1] G. Hoffmann, "Teach-In of a Robot by Showing the Motion," IEEE
+i =    ( ) n   I ij     qs      .q  s    +                                                         International Conference on Image Processing, 1996, pp. 529­532.
+                                    j
+                                                                                             [2] H. Hemami,"A Marionette-Based Strategy for Stable Movement", IEEE
+        j =1                                                                                       Transaction on System, Man, and Cybernetics, pp. 502­511,
+                                                                                                   March/April 1993.
+n        n        Iij       - 1 I jk                                i              hci     
+j =1    k =1      qks         2 qis                   .q           i=1             qis       [3] K. Yamane, J.K. Hodgins, and H.B. Brown, "Controlling a marionette
+   +                                           .qks       s  -            mi  .g.                  with human motion capture data," Proc. IEEE Int. Conf. Robotics
+                                                          j                                        Automation, pp. 3834­3841, 2003.
+
+    Thus the elements of matrix of centrifugal, Coriolis and                                 [4] E. Johnson, T. D. Murphey, "Dynamic Modeling and Motion Planning
+viscous effects can be calculated by                                                               for Marionettes: Rigid Bodies Articulated by Massless Strings", Proc.
+                                                                                                   IEEE International Conference on Robotics and Automation, pg. 330 ­
+( )  Vij                n       Iij          1    I jk                                             335, 2007
+qs , qs           =             qks      -   2    qis        .qks             (E18)
+                                                                                             [5] S. S. Xing, I-M Chen, "Design Expressive Behaviors for Robot
+                        k =1                                                                       Puppets", Proc. 7th Int'l Conf. Control, Automation, Robotics, Vision,
+                                                                                                   Singapore, pp378-383, 2002.
+    And elements of the matrix of gravitational effects can be
+calculated from                                                                              [6] I-M Chen, S. S. Xing, R. Tay, S. H. Yeo, "Many strings attached: from
+                                                                                                   conventional to robotic marionette manipulation", IEEE Robotics &
+qs( )  Gi  =     -    i     mi .g.       hci                                  (E19)                Automation Magazine, Vol. 12, Iss. 1, pp. 59-74, March 2005.
+                     i=1                 qis     
+                                                                                             [7] K. D. Nguyen, I-M Chen, S. H. Yeo, B. L. Duh, "Motion Control of a
+                                                                                                   Robotic Puppet through a Hybrid Motion Capture Device", Proc. IEEE
+    In summary, equations (E12) (E18) (E19) provide the                                            International Conference on Automation Science and Engineering, pg.
+necessary formulae to identify the important parameters which                                      753-758, 2007.
+form the dynamic model of the robotic marionette system.
+                                                                                             [8] K. D. Nguyen, I-. M. Chen, T. C. Ng, "Planning Algorithms for S-curve
+                          VI. CONCLUTION                                                           Trajectories", IEEE/ASME International Conference on Advanced
+                                                                                                   Intelligent Mechatronics (AIM 2007), ETH Zürich, Switzerland, Sep.
+    Based on Lagrange equation and state-space representation                                      2007.
+systematic dynamic models were proposed in this paper,
+including an inverse dynamic model which computes the                                        [9] W. Dong, K. Y. Lim, F. Y. K. Goh, K. D. Nguyen, I.-M. Chen, S. H.
+actuator torques needed for the robotic marionette to achieve                                      Yeo, and H. B. L. Duh, "A Low-cost Motion Tracker and Its Error
+                                                                                                   Analysis", IEEE International Conference on Robotics and Automation,
+                                                                                                   Pasadena, California, 2008.
+

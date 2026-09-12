@@ -1,0 +1,29 @@
+Lalonde, J.-F., and Efros, A.A. (2007). Using Color Compatibility for
+Assessing Image Realism. IEEE 11th International Conference on Computer
+Vision (ICCV 2007).
+
+STATUS: full text saved (CMU Robotics Institute author copy); see
+papers/lalonde2007-color-compatibility-realism.pdf/.txt.
+
+SUMMARY: studies the color statistics of a large dataset of natural photos
+and shows that composite images (an object pasted into a new background)
+can be classified realistic-vs-not using ONLY color-distribution
+compatibility between the pasted object and its new surroundings -- no
+geometry, shading or matting quality is used. Three increasingly powerful
+color models are compared (a global "universal" palette, then per-object
+marginal and joint color histograms, then a joint-histogram-plus-texture
+nearest-neighbor model).
+
+KEY NUMBERS: classifier performance reported as ROC AUC (chance = 0.5):
+0.59 (texture/texton-only, worst), 0.69-0.74 (marginal/joint color
+histograms), up to 0.78-0.79 (joint histogram + texture matching, best
+config) for distinguishing realistic from unrealistic composites purely
+from color statistics.
+
+RELEVANCE: quantifies, from an independent line of work, the same principle
+item 09 already applied by picking pure red for figure-ground contrast: an
+object's color relationship to its background measurably predicts whether
+a composite "looks real," on the order of ROC AUC ~0.75-0.8 from color
+alone -- i.e. getting the puppet's hue/warmth relationship to the off-white
+wall right is not merely a salience trick (item 09), it is independently a
+realism cue in the compositing literature.

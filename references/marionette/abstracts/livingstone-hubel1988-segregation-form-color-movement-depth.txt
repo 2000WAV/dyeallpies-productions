@@ -1,0 +1,33 @@
+Livingstone, M., and Hubel, D. (1988). Segregation of Form, Color, Movement,
+and Depth: Anatomy, Physiology, and Perception. Science, 240(4853), 740-749.
+
+STATUS: full text saved (open PDF, author's Harvard Medical School lab page);
+see papers/livingstone-hubel1988-segregation-form-color-movement-depth.pdf/.txt.
+
+SUMMARY: the primate visual system splits early into a parvocellular
+("colour and fine form") pathway and a magnocellular ("motion, depth,
+coarse form") pathway; the magnocellular pathway is essentially colour-blind
+(responds to luminance, not chromatic, contrast) but carries most of the
+system's contrast sensitivity, motion, stereo-depth and fine spatial/temporal
+resolution. Central demonstration (their Figure 1, described in the text,
+p.~741): a set of yellow/blue-gray shapes drawn to be ISOLUMINANT (yellow and
+"gray" patches matched in luminance, differing only in chromaticity) looks
+FLAT and hard to parse as 3-D objects in normal (full-colour) viewing, but
+springs into vivid apparent depth/3-D relief the moment it is viewed through
+a blue filter -- which desaturates the colour difference and reveals a
+genuine (previously colour-camouflaged) luminance difference between the
+shapes. Their interpretation: form, depth and "3-D-ness" are carried
+overwhelmingly by the luminance (parvo+magno-independent magnocellular)
+channel; the colour channel alone, at equal luminance, gives weak or absent
+form/depth information. Directly answers the item-9 brief's question "why
+does chromatic contrast alone give weak shape" -- this is the primary
+citation for that claim.
+
+KEY NUMBERS: this is a qualitative anatomy/psychophysics paper, not a numeric
+threshold study -- **NOT FOUND** for a specific quantitative isoluminance
+threshold in this paper; it demonstrates the qualitative effect (isoluminant
+colour boundaries look flat) rather than measuring a percent-contrast cutoff.
+For actual luminance-vs-chromatic contrast threshold NUMBERS, see the
+Michelson/Weber contrast formulas (Wikipedia Contrast (vision), saved as
+papers/wikipedia-contrast-vision.html) applied to the wall/puppet colours in
+09-colour-numbers.csv.

@@ -1,0 +1,1158 @@
+
+<!DOCTYPE html>
+<html class="theme-dark" lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="fb:app_id" content="859165274915480" />
+    <meta name="google-site-verification" content="HkYDcr-_XSVR6TjR8WWG5UI7QTuNMmBDSXnb0ozeraA" />
+    <meta name="rsk:app_id" content="6Lfi2iwrAAAAAIWl_kCGQGVvlivZBu82ZYzf1SPw" />
+    <meta charset="utf-8">
+<title>Integrating CGI Into a Live-Action Plate | The Rookies Blog</title>
+<meta name="description" content="It is important to write down all the set-data and camera-data. In my opinion, the least you should do is write down the camera model, lens model and focal length, height of the sensor to the ground, tilt of the camera and distance from the sensor to the spot where the CGI will be inserted.">
+<link rel="canonical" href="https://www.therookies.co/blog/education/integrating-cgi-into-a-live-action-plates">
+<meta property="og:site_name" content="The Rookies">
+<meta property="og:description" content="It is important to write down all the set-data and camera-data. In my opinion, the least you should do is write down the camera model, lens model and focal length, height of the sensor to the ground, tilt of the camera and distance from the sensor to the spot where the CGI will be inserted.">
+<meta property="og:title" content="Integrating CGI Into a Live-Action Plate | The Rookies Blog">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/07/Lennart-Vulto---VFX-Submission---Rookies-2020-_-The-Rookies---Google-Chrome-31_07_2020-10_55_29-AM-1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.therookies.co/blog/education/integrating-cgi-into-a-live-action-plates">
+<meta name="twitter:title" content="Integrating CGI Into a Live-Action Plate | The Rookies Blog">
+<meta name="twitter:description" content="It is important to write down all the set-data and camera-data. In my opinion, the least you should do is write down the camera model, lens model and focal length, height of the sensor to the ground, tilt of the camera and distance from the sensor to the spot where the CGI will be inserted.">
+<meta name="twitter:image" content="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/07/Lennart-Vulto---VFX-Submission---Rookies-2020-_-The-Rookies---Google-Chrome-31_07_2020-10_55_29-AM-1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2020-07-29T12:45:00.000+00:00">
+<meta property="article:modified_time" content="2020-07-31T01:29:18.000+00:00">
+<meta property="article:author" content="Lennart Vulto">
+<meta property="article:section" content="education">
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+      (function(win, doc) {
+        win.__ROOKIE_ASSETS = {
+          'illustrations/hand-blocks.svg': 'https://www.therookies.co/assets/illustrations/hand-blocks-b20658689924515466f0522d667252fe9ef48c6b5c4e31fda4f6c7cc925df342.svg',
+          'icons.svg': 'https://www.therookies.co/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg',
+          'photoswipe/preloader.gif': 'https://www.therookies.co/assets/photoswipe/preloader-bf53509f32991c52bbd97a8de22f6d74eba2cdbd488093e41663a72cf3c797c5.gif',
+        };
+        // Apply grid layout preference before first paint to prevent FOUC.
+        try {
+          if (localStorage.getItem('gridLayout') === 'uniform') {
+            doc.documentElement.classList.add('grid-uniform');
+          }
+        } catch(e) {}
+      })(window, document);
+    </script>
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="fG2J7iNJbnAOFLRoQ10WMJ6b7gv6L9BhqJ0A4l-BGzhN3duttLWU8Mc0CRlYK5HD_UlG0FqTj7bRFDNRtcttpQ" />
+    <link rel="stylesheet" href="/assets/application-085a43ae126e09bf0c1301bf05b0c52a2f1b8cf8693e544d38cae834643b4a93.css" media="all" />
+      <link rel="stylesheet" href="/packs/therookies-64d31dda3e48a15905bb.css" media="all" />
+
+      <link rel="dns-prefetch" href="https://d3stdg5so273ei.cloudfront.net">
+  <link rel="preconnect" href="https://d3stdg5so273ei.cloudfront.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#111111">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="msapplication-TileColor" content="#111111">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <meta name="theme-color" content="#e3c069">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KRKZCC2');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Start GPT Tag -->
+  <script async='async' src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+  <script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+  </script>
+
+  <script>
+      googletag.cmd.push(function() {
+        googletag.defineSlot('/430108488/therookies-projects-index',[750, 100],'div-gpt-ad-1550788008011-0').addService(googletag.pubads());
+        googletag.defineSlot('/430108488/therookies-footer', [300, 250], 'div-gpt-ad-1550773652345-0').addService(googletag.pubads());
+        googletag.defineSlot('/430108488/homepage-full', [1300, 380], 'div-gpt-ad-1635217066878-0').addService(googletag.pubads());
+        
+        googletag.pubads().disableInitialLoad();
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+
+        // Page-level slots: deferred refresh so all inline display() calls
+        // have run first. Dynamic slots (in-feed, modal) handle their own refresh.
+        setTimeout(function() { googletag.pubads().refresh(); }, 0);
+      });
+  </script>
+  <!-- End GPT Tag -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" media="print" onload="this.media='all'" />
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#000000",
+          "text": "#ffffff"
+        },
+        "button": {
+          "background": "#e3c069",
+          "text": "#000000"
+        }
+      },
+      "theme": "classic",
+      "position": "bottom-left",
+    })});
+</script>
+
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '143018984464658');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=143018984464658&ev=PageView&noscript=1"/></noscript>
+  <!-- End Facebook Pixel Code -->
+
+  </head>
+  <body>
+    
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRKZCC2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  
+  <div class="layout ">
+    
+<nav class="navigation navigation--narrow" id="navigation">
+  <div class="navigation-header">
+    <button class="navigation-toggle" id="navigation-toggle">
+      <span></span>
+      <div class="tsrt">Toggle Menu</div>
+    </button>
+
+    <div class="navigation-logo">
+      <a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 532 167" role="img" aria-label="The Rookies" style="fill: var(--white); height: auto;">
+  <path d="M25.6 25.565h45.335c29.117 0 46.119 13.037 46.119 38.337 0 20.433-12.116 32.498-30.29 36.392v.583L128 150v-13.1l-1.986-2.38-25.009-29.974c15.822-7.45 24.65-21.736 24.65-40.644C125.654 34.095 105.71 17 70.934 17H17v59.547h8.6V25.565z"/>
+  <path d="M17 119.046V151h25.92v-40.477h29.522l31.573 37.408 2.59 3.069H118l-41.508-49H34.279v40.476h-8.638v-23.43z"/>
+  <path d="M144.02 127.586l-1.98-2.364-1.983-2.364-13.235-15.78c10.919-11.049 16.837-26.18 16.837-43.485C143.659 24.367 116.143 0 71.85 0H18v8.506h53.851c39.586 0 63.221 20.593 63.221 55.087 0 18.149-7.09 32.915-20.2 42.548l18.579 22.152 1.982 2.364 1.98 2.363v25.475H103.022l-2.577-3.064-2.574-3.062-28.8-34.269H52.343v31.888h8.587V126.605h4.114l26.226 31.207 2.575 3.064 2.577 3.063L99 167H146V129.95l-1.98-2.364z"/>
+  <path d="M44.445 159.483H8.572v-48.966H25.713V102H0v66h60v-8.517h-8.572zM9 94V0H0v94h2.467zM35.332 51v34.436H18V94h26V51z"/>
+  <path d="M71.707 33H35v8.545h36.707c28.701 0 28.701 15.94 28.701 21.941 0 13.913-8.868 20.968-26.357 20.968H52.185V93h21.866C93.966 93 109 84.067 109 63.486 109 42.32 94.162 33 71.707 33M173 37h27.022v3.469h-11.613V69h-3.852V40.469H173zM241.783 69h-3.78V54.972h-19.465V69h-3.777V37h3.777v14.51h19.465V37h3.78zM283.543 54.972h-18.198v10.559H286V69h-24.565V37H286v3.469h-20.655V51.51h18.198zM199.017 89.004h-14.765v21.437h15.32c7.759 0 12.892-3.357 12.892-10.636 0-7.179-5.231-10.801-13.447-10.801zM175 81h24.298c14.102 0 22.7 6.642 22.7 18.449 0 8.536-4.58 14.172-11.678 16.894v.55l13.921 17.355v1.274h-10.276l-13.738-17.268h-15.975v17.268H175V81zm101.609 28.545c0-11.28-7.653-19.91-19.177-19.91-11.436 0-19.09 8.63-19.09 19.91 0 11.178 7.654 19.72 19.09 19.72 11.524 0 19.177-8.542 19.177-19.72m-47.443 0C229.166 93.63 240.06 81 257.432 81c17.467 0 28.361 12.629 28.361 28.545 0 15.724-10.894 28.455-28.36 28.455-17.373 0-28.267-12.731-28.267-28.455m113.918 0c0-11.28-7.653-19.91-19.177-19.91-11.435 0-19.088 8.63-19.088 19.91 0 11.178 7.653 19.72 19.088 19.72 11.524 0 19.177-8.542 19.177-19.72m-47.443 0C295.641 93.63 306.534 81 323.907 81c17.47 0 28.362 12.629 28.362 28.545 0 15.724-10.893 28.455-28.362 28.455-17.373 0-28.266-12.731-28.266-28.455M371.021 108.712L398.098 81h10.799v1.098l-21.317 21.894 21.317 30.343v1.187h-10.528l-17.178-24.989-10.17 10.536v14.453h-8.904V81h8.904zM418.745 135.522h9.848V81h-9.848zM477.791 112.352h-27.78v15.163h32.748v8.007h-41.856V81h41.856v8.006h-32.748v15.711h27.78zM494.974 124.363s6.423 5.273 15.971 5.273c7.942 0 11.241-3.185 11.241-7.553 0-4.174-2.762-6.275-13.03-9.267-12.576-3.642-18.556-7.729-18.556-16.27 0-9.55 7.318-15.546 20.432-15.546 13.835 0 19.721 5.45 19.721 5.45l-4.82 7.355s-5.529-4.456-14.901-4.456c-6.695 0-10.797 2.46-10.797 6.825 0 3.73 3.124 5.552 12.854 8.278 13.56 3.73 18.911 8.542 18.911 16.996 0 9.27-6.419 16.552-20.882 16.552-14.185 0-20.973-6.825-20.973-6.825l4.829-6.812z"/>
+</svg>
+</a>
+    </div>
+
+      <a href="/accounts/sign_up">Sign Up</a>
+  </div>
+
+  <div class="navigation-content">
+       
+    <a class="navigation-content-link" href="/projects">Projects</a>
+    <a class="navigation-content-link" href="/contests">Contests</a>
+    <a class="navigation-content-link" href="/schools">Schools</a>
+    <a class="navigation-content-link" href="/members">Find Talent</a>
+    <a class="navigation-content-link" href="/learning">Learning</a>
+    <a class="navigation-content-link" href="/live">Live</a>
+    <a class="navigation-content-link is-active" href="/blog">Blog</a>
+    <a class="navigation-content-link" href="/about">About</a>
+    <a class="navigation-content-link" href="http://help.therookies.co">Helpdesk</a>
+    <a class="navigation-content-link" href="https://discord.gg/EUqVtECqqw">Discord</a>
+    <a class="navigation-content-link" href="https://shop.therookies.co/">Shop</a>
+
+      <hr />
+      <div class="mt--16">
+          <a id="" href="/accounts/sign_in" class="button button--tertiary">
+
+
+    Log In
+
+
+  </a>
+
+        &nbsp;
+          <a id="" href="/accounts/sign_up" class="button">
+
+
+    Sign Up
+
+
+  </a>
+
+      </div>
+  </div>
+</nav>
+
+
+<nav class="navigation navigation--wide">
+  <div class="navigation-header">
+    <div class="navigation-logo">
+      <a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 532 167" role="img" aria-label="The Rookies" style="fill: var(--white); height: auto;">
+  <path d="M25.6 25.565h45.335c29.117 0 46.119 13.037 46.119 38.337 0 20.433-12.116 32.498-30.29 36.392v.583L128 150v-13.1l-1.986-2.38-25.009-29.974c15.822-7.45 24.65-21.736 24.65-40.644C125.654 34.095 105.71 17 70.934 17H17v59.547h8.6V25.565z"/>
+  <path d="M17 119.046V151h25.92v-40.477h29.522l31.573 37.408 2.59 3.069H118l-41.508-49H34.279v40.476h-8.638v-23.43z"/>
+  <path d="M144.02 127.586l-1.98-2.364-1.983-2.364-13.235-15.78c10.919-11.049 16.837-26.18 16.837-43.485C143.659 24.367 116.143 0 71.85 0H18v8.506h53.851c39.586 0 63.221 20.593 63.221 55.087 0 18.149-7.09 32.915-20.2 42.548l18.579 22.152 1.982 2.364 1.98 2.363v25.475H103.022l-2.577-3.064-2.574-3.062-28.8-34.269H52.343v31.888h8.587V126.605h4.114l26.226 31.207 2.575 3.064 2.577 3.063L99 167H146V129.95l-1.98-2.364z"/>
+  <path d="M44.445 159.483H8.572v-48.966H25.713V102H0v66h60v-8.517h-8.572zM9 94V0H0v94h2.467zM35.332 51v34.436H18V94h26V51z"/>
+  <path d="M71.707 33H35v8.545h36.707c28.701 0 28.701 15.94 28.701 21.941 0 13.913-8.868 20.968-26.357 20.968H52.185V93h21.866C93.966 93 109 84.067 109 63.486 109 42.32 94.162 33 71.707 33M173 37h27.022v3.469h-11.613V69h-3.852V40.469H173zM241.783 69h-3.78V54.972h-19.465V69h-3.777V37h3.777v14.51h19.465V37h3.78zM283.543 54.972h-18.198v10.559H286V69h-24.565V37H286v3.469h-20.655V51.51h18.198zM199.017 89.004h-14.765v21.437h15.32c7.759 0 12.892-3.357 12.892-10.636 0-7.179-5.231-10.801-13.447-10.801zM175 81h24.298c14.102 0 22.7 6.642 22.7 18.449 0 8.536-4.58 14.172-11.678 16.894v.55l13.921 17.355v1.274h-10.276l-13.738-17.268h-15.975v17.268H175V81zm101.609 28.545c0-11.28-7.653-19.91-19.177-19.91-11.436 0-19.09 8.63-19.09 19.91 0 11.178 7.654 19.72 19.09 19.72 11.524 0 19.177-8.542 19.177-19.72m-47.443 0C229.166 93.63 240.06 81 257.432 81c17.467 0 28.361 12.629 28.361 28.545 0 15.724-10.894 28.455-28.36 28.455-17.373 0-28.267-12.731-28.267-28.455m113.918 0c0-11.28-7.653-19.91-19.177-19.91-11.435 0-19.088 8.63-19.088 19.91 0 11.178 7.653 19.72 19.088 19.72 11.524 0 19.177-8.542 19.177-19.72m-47.443 0C295.641 93.63 306.534 81 323.907 81c17.47 0 28.362 12.629 28.362 28.545 0 15.724-10.893 28.455-28.362 28.455-17.373 0-28.266-12.731-28.266-28.455M371.021 108.712L398.098 81h10.799v1.098l-21.317 21.894 21.317 30.343v1.187h-10.528l-17.178-24.989-10.17 10.536v14.453h-8.904V81h8.904zM418.745 135.522h9.848V81h-9.848zM477.791 112.352h-27.78v15.163h32.748v8.007h-41.856V81h41.856v8.006h-32.748v15.711h27.78zM494.974 124.363s6.423 5.273 15.971 5.273c7.942 0 11.241-3.185 11.241-7.553 0-4.174-2.762-6.275-13.03-9.267-12.576-3.642-18.556-7.729-18.556-16.27 0-9.55 7.318-15.546 20.432-15.546 13.835 0 19.721 5.45 19.721 5.45l-4.82 7.355s-5.529-4.456-14.901-4.456c-6.695 0-10.797 2.46-10.797 6.825 0 3.73 3.124 5.552 12.854 8.278 13.56 3.73 18.911 8.542 18.911 16.996 0 9.27-6.419 16.552-20.882 16.552-14.185 0-20.973-6.825-20.973-6.825l4.829-6.812z"/>
+</svg>
+</a>
+    </div>
+
+    <div class="navigation-pages">
+      <a class="navigation-pages-link" href="/projects">Projects</a>
+      <a class="navigation-pages-link" href="/learning">Learning</a>
+      <a class="navigation-pages-link" href="/contests">Contests</a>
+      <a class="navigation-pages-link" href="/schools">Schools</a>
+      <a class="navigation-pages-link" href="/members">Find Talent</a>
+      <a class="navigation-pages-link" href="/live">Live</a>
+      <a class="navigation-pages-link is-active" href="/blog">Blog</a>
+      <div class="dropdown dropdown--caret">
+        <button class="dropdown-toggle">
+          <span class="navigation-pages-link">More</span>
+        </button>
+        <div class="dropdown-content">
+          <a class="dropdown-link" href="/about">About</a>
+          <a class="dropdown-link" href="http://help.therookies.co">Helpdesk</a>
+          <a class="dropdown-link" href="https://discord.gg/EUqVtECqqw">Discord</a>
+          <a class="dropdown-link" href="https://shop.therookies.co/">Shop</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation-actions">
+          <a id="" href="/accounts/sign_in" class="button button--tertiary">
+
+
+    Log In
+
+
+  </a>
+
+          <a id="" href="/accounts/sign_up" class="button">
+
+
+    Sign Up
+
+
+  </a>
+
+
+    </div>
+  </div>
+</nav>
+
+    <main class="layout-content">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Integrating CGI Into a Live-Action Plate","description":"It is important to write down all the set-data and camera-data. In my opinion, the least you should do is write down the camera model, lens model a...","image":"https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/07/Lennart-Vulto---VFX-Submission---Rookies-2020-_-The-Rookies---Google-Chrome-31_07_2020-10_55_29-AM-1.png","datePublished":"2020-07-29T12:45:00.000+00:00","dateModified":"2020-07-31T01:29:18.000+00:00","author":{"@type":"Person","name":"Lennart Vulto","url":"https://www.linkedin.com/in/lennart-vulto/","image":"https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/LennartVulto_Avatar.jpg","sameAs":["https://www.linkedin.com/in/lennart-vulto/"]},"publisher":{"@type":"Organization","name":"The Rookies","logo":{"@type":"ImageObject","url":"https://www.therookies.co/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.therookies.co/blog/education/integrating-cgi-into-a-live-action-plates"}}
+  </script>
+
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.therookies.co/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.therookies.co/blog"},{"@type":"ListItem","position":3,"name":"Schools \u0026 Education","item":"https://www.therookies.co/blog/education"},{"@type":"ListItem","position":4,"name":"Integrating CGI Into a Live-Action Plate","item":"https://www.therookies.co/blog/education/integrating-cgi-into-a-live-action-plates"}]}
+  </script>
+
+
+
+
+<div class="navigationSub navigationSub--gray">
+  <div class="navigationSub-pages">
+    <a class="navigationSub-pages-link" href="/blog">Explore</a>
+    <a class="navigationSub-pages-link" href="/blog/headlines">News</a>
+    <a class="navigationSub-pages-link" href="/blog/events">Events</a>
+    <a class="navigationSub-pages-link" href="/blog/careers">Careers</a>
+    <a class="navigationSub-pages-link is-active" href="/blog/education">Education</a>
+    <a class="navigationSub-pages-link" href="/blog/breakdowns">Breakdowns</a>
+    <a class="navigationSub-pages-link" href="/blog/resources">Resources</a>
+    <a class="navigationSub-pages-link" href="/blog/all">All</a>
+  </div>
+</div>
+
+<article class="blog-post">
+
+  <!-- Hero Section -->
+  <div class="project-hero">
+      <img class="project-hero-media"
+           srcset="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/07/450xAUTO/Lennart-Vulto---VFX-Submission---Rookies-2020-_-The-Rookies---Google-Chrome-31_07_2020-10_55_29-AM-1.png 450w,
+                   https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/07/800xAUTO/Lennart-Vulto---VFX-Submission---Rookies-2020-_-The-Rookies---Google-Chrome-31_07_2020-10_55_29-AM-1.png 800w,
+                   https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/07/1400xAUTO/Lennart-Vulto---VFX-Submission---Rookies-2020-_-The-Rookies---Google-Chrome-31_07_2020-10_55_29-AM-1.png 1400w"
+           sizes="100vw"
+           src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/07/1400xAUTO/Lennart-Vulto---VFX-Submission---Rookies-2020-_-The-Rookies---Google-Chrome-31_07_2020-10_55_29-AM-1.png"
+           alt="Integrating CGI Into a Live-Action Plate"
+           loading="eager"
+           fetchpriority="high">
+      <img loading="lazy" class="profile-header-media" alt="default-cover" src="https://www.therookies.co/assets/backgrounds/map-edge-04770802ccb32fb603f1b2314ace6f9dacc38c4ca16ad3c271608b16a9335e90.svg" />
+
+    <!-- Share Buttons -->
+    <div class="project-hero-actions">
+      <span class="project-hero-actions-social">
+        <span class="heading-6 mb--0">Share</span>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.therookies.co/blog/education/integrating-cgi-into-a-live-action-plates" class="buttonCircle buttonCircle--S" target="_blank" rel="nofollow noopener noreferrer">
+          <svg class="icon icon--S" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-facebook" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-facebook"></use>
+</svg>
+
+        </a>
+
+        <a href="https://twitter.com/intent/tweet?url=https://www.therookies.co/blog/education/integrating-cgi-into-a-live-action-plates&amp;text=Integrating%20CGI%20Into%20a%20Live-Action%20Plate" class="buttonCircle buttonCircle--S" target="_blank" rel="nofollow noopener noreferrer">
+          <svg class="icon icon--S" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-twitter" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-twitter"></use>
+</svg>
+
+        </a>
+
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.therookies.co/blog/education/integrating-cgi-into-a-live-action-plates&amp;title=Integrating%20CGI%20Into%20a%20Live-Action%20Plate" class="buttonCircle buttonCircle--S" target="_blank" rel="nofollow noopener noreferrer">
+          <svg class="icon icon--S" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-linkedin" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-linkedin"></use>
+</svg>
+
+        </a>
+
+        <a href="https://reddit.com/submit?url=https://www.therookies.co/blog/education/integrating-cgi-into-a-live-action-plates&amp;title=Integrating%20CGI%20Into%20a%20Live-Action%20Plate" class="buttonCircle buttonCircle--S" target="_blank" rel="nofollow noopener noreferrer">
+          <svg class="icon icon--S" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-reddit" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-reddit"></use>
+</svg>
+
+        </a>
+      </span>
+    </div>
+
+    <div class="project-hero-container">
+      <div class="grid">
+        <div class="grid-box grid-box--S--9">
+
+          <!-- Title -->
+          <h1 class="heading-2 heading-2--shadow">
+            Integrating CGI Into a Live-Action Plate
+          </h1>
+
+          <!-- Author Info -->
+          <div class="bucket bucket--spacing">
+              <div class="avatar avatar--M avatar--level3">
+                <img class="avatar-media"
+                     data-src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/LennartVulto_Avatar.jpg"
+                     alt="Lennart Vulto"
+                     loading="lazy">
+              </div>
+            <span>
+                By                   <a class="tc--grayTT" href="/blog/author/lennartvulto">Lennart Vulto</a>
+                <span class="tc--grayT"> • </span>
+              July 29, 2020
+                <span class="tc--grayT"> • </span>
+                14 min read
+            </span>
+          </div>
+
+          <!-- Comments Button -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="row--bg--solid ">
+    <div class="grid">
+      <div class="grid-box ad">
+          <div class="adIframe" id="div-gpt-ad-1550788008011-0" style="height: 100px;">
+            <script>
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1550788008011-0'); });
+            </script>
+          </div>
+        <div class="ad-applause">
+          <span class="ts--up4"><svg class="icon" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#applause" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#applause"></use>
+</svg>
+</span>
+          Round of applause for our sponsors
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Post Content -->
+  <div class="grid row">
+    <div class="grid-box">
+      <div class="blog-post-content">
+        <p>Lennart Vulto takes us through his process of shooting a shot for CGI integration, making photorealistic fish and integrating them into this live-action plate.</p><hr><p>Some time ago, the art-director for a graduation film at <a href="https://www.filmacademie.ahk.nl/">The Netherlands Film Academy</a>, approached me with the following dilemma: in the script there was a scene where the protagonist smashes a fish tank, leaving two black veiltail fishes flopping onto the ground. Because we are against animal suffering (and wanted to be able to say “no animals were harmed in the making of this film” at the end of the credits), this of course, could not be done for real. </p><p>Well, the smashing of the tank could be done without real fish, but the scripted close-up of the fish on the ground couldn’t. As the VFX supervisor for this project, it was me who had to solve this dilemma.</p><p>In this blog post I will take you through my process of shooting a shot for CGI integration, making photorealistic fish and integrating them into this live-action plate.</p><figure class="kg-card kg-embed-card"><iframe src="https://player.vimeo.com/video/425508171?app_id=122963" width="426" height="178" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="EZG_Fish_Final"></iframe></figure><p>The shot you see above was created for the Dutch short film <a href="https://www.imdb.com/title/tt12174354/?ref_=ttfc_fc_tt"><em>En zo geschiedde</em></a>, 2020 (English: <em>And So It Happened</em>), directed by <a href="https://www.imdb.com/name/nm3897321/">Lobke de Boer</a>.</p><h3 id="plate-shoots-taking-set-data">Plate shoots &amp; taking set data</h3><p>I was on set when we shot the plates for the fish. In pre-production the director, the cinematographer and I had discussed the blocking of the shot, and I had made an extensive plan for the plates I wanted to shoot. When it comes to integrating CGI into a live-action shot, I like to shoot the following plates:</p><ul>
+<li>The hero-plate (of course): this is the actual shot in which the CGI will be integrated, which in our case was also the clean-plate (without any elements that had to be painted out).</li>
+<li>A reference-plate: this is the same shot as the hero-plate, but this time with an object in it, which resembles your CG object as closely as possible. Ideally the proportions and material(s) of your reference object are the same as the ones of the CG object you want to integrate. This plate is a great reference for how the light on set reacts with the materials of your object/character. It shows how the shadows and depth of field look, and also provides something on set to interact with. We experienced that it is quite hard to find something non-living with fish-skin texture, so we ended up using small black plastic decorative fish. Shooting with these reference-fish was also a great means of communication of where exactly the fish should be placed in post-production.</li>
+</ul><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Fish_ref.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Fish_ref.jpg" class="kg-image" alt loading="lazy"></a></figure><ul>
+<li>An HDRI (High-Dynamic-Range Image): this is a big help when lighting your CGI and also great set reference. There are many ways of shooting a HDRI. In this case I used a 360° camera, the <a href="https://theta360.com">Ricoh Theta V</a>. Our head of department at the Netherlands Film Academy, Kasper Oerlemans, created an awesome plug-in for the Theta camera, which automatically creates HDRIs. The application, <a href="https://pluginstore.theta360.com/plugins/com.kasper.authydra/">Authydra</a>, takes one image to set the base settings of the camera, then takes a set of 3 images for denoise, repeats this process for 11 different exposures and finally combines all images into a single EXR file.</li>
+<li>Grey-ball and Macbeth plates: those are shots of a 360 degree neutral grey ball and a Macbeth colour checker chart, for lighting, colour and shadow reference.</li>
+</ul><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Ball_ref_notes.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Ball_ref_notes.jpg" class="kg-image" alt loading="lazy"></a></figure><ul>
+<li>A lens-distortion grid: this is a shot of a simple grid pattern to later extract the lens-distortion from, which you can then apply to your CGI.</li>
+<li>Last but not least I always like to shoot what I would call an “interaction plate”. This isn’t strictly necessary (and also not always possible), but in my opinion the interaction between something that was actually there on set and your CGI really helps grounding your CGI in the shot and making it feel like it was actually there. For this reason we also shot a plate where the first AD and I were subtly poking the glass with sticks with sponges (of about the size of the fish) attached to the ends. By this point most of the crew had declared me slightly mad.</li>
+</ul><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Glass_plate.gif"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Glass_plate.gif" class="kg-image" alt loading="lazy"></a></figure><p>Apart from shooting all these plates it is important to write down all the set-data and camera-data. In my opinion, the least you should do is write down the camera model, lens model and focal length (which in this case was a beautiful 35mm anamorphic), height of the sensor to the ground, tilt of the camera and distance from the sensor to the spot where the CGI will be inserted. Luckily, I got help from a camera assistant writing down all that data.</p><h3 id="reference">Reference</h3><p>You probably have read this a thousand times, but when wanting to create something in the computer, especially something photorealistic, you always have to start researching your subject and with searching lots and lots of reference images. In my case I searched especially for shape and material references, since the lighting would be determined by the actual lighting on set.</p><p>Naturally, the shape and material also has to be oriented towards the actual living fish on set, but searching for additional references never hurts and is helpful in really trying to find detailed reference images from all angels.</p><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Fishref.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Fishref.jpg" class="kg-image" alt loading="lazy"></a></figure><p>All references were gathered in <a href="https://www.pureref.com/">PureRef.</a></p><p>For the animation process we looked extensively at movement references of fish flopping on land as well (it was a fun afternoon), but more about that later.</p><h3 id="modelling">Modelling</h3><p>After shooting, we knew exactly what the fish and the shot should look like, so it was time to start the modelling process. I started with creating a very basic blocky model and went on from there.</p><figure class="kg-card kg-image-card kg-width-wide"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/zbrush_progress.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/zbrush_progress.jpg" class="kg-image" alt loading="lazy"></a></figure><p>In my experience, you should always try to subdivide as little as possible while getting the primary shapes right, before jumping into the small details on a really high poly mesh.</p><p>Fortunately, sculpting the fish was not that hard of a task, especially because I decided against sculpting each and every scale on the fish, following the advice of <a href="https://www.artstation.com/mutte">Maarten Verhoeven</a>. This decision was made under the more practical consideration that the fish wouldn’t be that big on screen, so adding the scales in the texturing stage would be sufficient and save a lot of valuable time to focus on other stuff. For a really high-end production I would advise sculpting in details and baking them, but in our case, with a pretty tight deadline, this approach was the way to go.  </p><blockquote>My general advice would be to always have a good idea of the blocking and the camera angle of a shot before investing large amounts of time into details which won’t even be visible and maybe even slow down your render later on.</blockquote><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Sculpt_final.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Sculpt_final.jpg" class="kg-image" alt loading="lazy"></a></figure><p>Another practical consideration was to only model one fish, and to simply scale it a little to get a second variation. This would be sufficient because the second fish would be completely out of focus.</p><p>For the fins I knew in advance that I wanted to simulate them, so all I needed for this were planes in the shape of the fins. Veil tail fish aren’t named that way for no reason: their fins are extremely thin, like see-through veils. I decided to model these fins in <a href="https://www.autodesk.com/education/free-software/maya">Maya</a>, rather than <a href="https://store.pixologic.com/">Zbrush</a>, because in Maya I find it much faster and easier to load in a reference image, create a plane and trace the shape by manipulating points on only the x and y axis, but this is of course a personal preference.</p><p>After I was done I had a pretty high poly model of the body as well as the fins, so I loaded everything into <a href="https://www.sidefx.com/products/houdini-apprentice">Houdini</a> and did a quick retopo, using the amazing Topobuild tool. I could also have used quad-draw in Maya, but since about a year, I am moving more and more towards Houdini as my main 3D software. The model is still quite high-poly, because I subdivided it again after retopo’ing, but because it was such a lightweight model, this was no problem.</p><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Retopo.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Retopo.jpg" class="kg-image" alt loading="lazy"></a></figure><h3 id="animation">Animation</h3><p>As I am not very much into animation, I am glad to be surrounded by some very talented animators. I asked two classmates to help me out with the rigging and animation of the fish. For the rig all credits go to <a href="https://www.brendanboot.com/">Florentijn Boot</a>, who got into rigging in Maya especially for this project. <a href="http://bramvermaas.com/">Bram Vermaas</a> provided us with some great tips for the rig.</p><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Rig.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Rig.jpg" class="kg-image" alt loading="lazy"></a></figure><figure class="kg-card kg-image-card kg-card-hascaption"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/mouthBlendshape.gif"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/mouthBlendshape.gif" class="kg-image" alt loading="lazy"></a><figcaption>For the mouth of the fish we decided to use simple blendshapes.</figcaption></figure><p>The animation of the two fish was done in Maya by <a href="https://www.linkedin.com/in/winston-van-graafeiland-6b4322162/">Winston van Graafeiland</a>.</p><p>As I mentioned, we started by looking up reference videos of fish flopping on land. Videos like <a href="https://youtu.be/3P6NPAF_Ur4?t=35">this</a>.</p><p>At this point in the process the entire ‘fish tank throwing scene’ was unfortunately cut from the movie because it wasn’t essential for the development of the story. This meant that the fish shot we had been working on was cancelled. But since I was already quite far in the process of making the fish and had asked other artists to help, I decided to finish the shot anyway. I also felt I had the responsibility to the others to do so. </p><p>One advantage of the fact that it was no longer part of the movie, was that I had complete creative freedom over the shot. This meant the animation process was a very smooth back and forth between Winston and me, by which Winston would make a versions of the animation and I would give him feedback.</p><figure class="kg-card kg-embed-card"><iframe src="https://player.vimeo.com/video/425487995?app_id=122963" width="288" height="240" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="EZG_animPasses"></iframe></figure><p>Besides, my job was to match the CG camera to the actual camera that was used for the shot, which was was quite easy, considering it was a static shot and I had written down all measurements.</p><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/rig_cam.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/rig_cam.jpg" class="kg-image" alt loading="lazy"></a></figure><h3 id="simulating-the-fins">Simulating the fins</h3><p>During the animation process I had already started doing R&amp;D for the fin simulation. I had never done a cloth simulation before, so I had to step out of my comfort zone and try something new. I am very glad I did, because I learned so much from it and really enjoyed doing it. I ended up using Houdini’s Vellum. Especially helpful for this task was <a href="https://www.sidefx.com/">SideFX</a>’s <a href="https://vimeo.com/297151453">Vellum Masterclass</a> by Jeff Lait.</p><p>After a lot of tweaking of parameters (especially the mass, thickness, stretch and bend stiffness, compression stiffness and also the constraint stiffness) I finally reached a look I was satisfied with.</p><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Vellum_nodes.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/Vellum_nodes.jpg" class="kg-image" alt loading="lazy"></a></figure><p>Once the animation of the body was done, I exported the alembic into Houdini where I ran the preconfigured vellum simulation on the fins.</p><figure class="kg-card kg-embed-card"><iframe src="https://player.vimeo.com/video/425496355?app_id=122963" width="426" height="240" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="EZG_Vellum_R&amp;amp;D"></iframe></figure><p>This had to be tweaked again to fit the animation. If you really want to take a look at how I did the final cloth simulation just send me a message and I’m happy to share the hip-file.</p><figure class="kg-card kg-embed-card"><iframe src="https://player.vimeo.com/video/425490756?app_id=122963" width="426" height="240" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="EZG_Vellum_Final"></iframe></figure><h3 id="texturing">Texturing</h3><p>Before I could dive into my texture software of preference, <a href="https://www.allegorithmic.com/products/substance-painter">Substance Painter</a>, I had to do the UVs. For this I used Maya, because in my opinion it has the best UV tools. I decided to give each “main-part” (e.g. body/eyes/top fin/side fins) an own UDIM, not only to have enough resolution, but also to increase the clarity. Maybe a bit overdoing it, but fortunately it wasn’t a very heavy scene to render.</p><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/UVs.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/UVs.jpg" class="kg-image" alt loading="lazy"></a></figure><p>Once my model had proper UVs, I loaded it into Substance Painter and after baking all maps I began making folders with masks for each part of the model that had a different material.</p><p>I then started with the basic colour and roughness, experimenting with some procedural smart materials as a foundation. Just as with the sculpting, I think that it is important that you first try to really get your basic materials right before delving into the small details or even the height. </p><p>Personally, I will only go more into detail and hand paint stuff like irregularities and surface imperfections once I’m satisfied with the foundation. For this part I often use real images which I take directly from Google or photobash and manipulate to my needs in <a href="https://blog.therookies.co/p/3da33e37-1273-41a3-b645-fdfc4dd3d122/Adobe%20-%20https://www.adobe.com/photoshop">Photoshop</a>. Always remember to check your individual channels and tweak them separately.</p><blockquote>When texturing, you have to again really look at your reference. Take your time to observe how surfaces look and how light reacts with them. Also try to think about what your model “has been through” and try to incorporate these “traces of use” in logical places in your textures. </blockquote><p>For example, a used Second World War tank would probably have a lot of dirt on its caterpillar tracks and damaged edges (especially there where soldiers get in and out), it would probably also be paler on top because of the sun and have a lot of traces of battle, like bullet holes and so on. Luckily, my fish hasn’t fought in the Second World War, but it has its own history. Adding such details can really add a backstory to your model and bring it to life.</p><h3 id="lighting-look-dev-">Lighting &amp; Look-Dev:</h3><p>I decided to use Arnold as my render engine. I had access to the Arnold <a href="https://www.arnoldrenderer.com/arnold/arnold-for-houdini/">htoa plugin</a> for Houdini, so I assembled everything within Houdini and plugged all exported texture maps from Substance into AiStandard Shaders. I did not change many shader parameters, apart from a few small tweaks. After four months of lighting in Houdini during my internship at <a href="https://bighugfx.com/">BigHugFX</a> in Munich, Germany, I was prepared for the worst, but sadly (or luckily) the HDRI I had captured on set was almost enough to light the 3D fish realistically.</p><figure class="kg-card kg-image-card"><a class="photoswipe-trigger" href="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/HDRI.jpg"><img src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/HDRI.jpg" class="kg-image" alt loading="lazy"></a></figure><p>I only had to add some rim lights on the two fish and a bit of bounce-fill. The plates we had shot of the reference fish, the grey ball and the Macbeth chart now came in handy for matching the lighting. For the shadows I created a separate HDRI.</p><figure class="kg-card kg-embed-card"><iframe src="https://player.vimeo.com/video/425512131?app_id=122963" width="426" height="240" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="EZG_LookDev_Turntable"></iframe></figure><p>When rendering I always like to render at least the following AOVs, besides the beauty:</p><ul>
+<li>Normal</li>
+<li>Z(-Depth)</li>
+<li>Diffuse</li>
+<li>Specular</li>
+<li>Position</li>
+</ul><p>And depending on the situation:</p><ul>
+<li>Transmission</li>
+<li>Emission</li>
+<li>SSS</li>
+</ul><blockquote>AOVs are, in my opinion, absolutely vital if you want to composite your CGI.</blockquote><p>I also highly recommend rendering in <a href="https://www.oscars.org/science-technology/sci-tech-projects/aces">ACES</a> if you want to integrate CGI into a life-action plate. The Academy Color Encoding System (ACES) is a unifying colour management standard, which allows you to transform the colourspace of your renders and your live-action footage into a scene-referred colour science with a common (linear) starting point.  Another advantage of ACES is its increased colour accuracy (due to its big range), which can help tremendously in achieving photorealism.</p><h3 id="compositing">Compositing</h3><p>Lastly, but definitely not least, comes compositing. Here you really get the chance to blend your CGI into the live-action. The compositing software I used was NukeX. </p><p>One of the most important things when integrating CGI is to start with matching the colours and black values of your render with those of the hero plate. <a href="https://www.imdb.com/name/nm2479308/">Ewoud Heidanus</a>, our amazing compositing teacher, who was an enormous help with this project, taught me to do the following steps one after the other:</p><ul>
+<li>Start with matching the exposure</li>
+<li>Then apply a colour correction (to match the colours), by really looking at the separate R, G and B channels</li>
+<li>Then match the saturation</li>
+<li>Correct any gamma differences</li>
+<li>And finally, match the black levels using a grade node. Again, really pay attention to the separate RGB channels</li>
+</ul><p>Applying these few simple nodes will make a tremendous difference in integration.</p><p>Another big help in this comp, was tweaking the specular AOV. The raw render was way too extreme, so I pulled all specular off my beauty render, matched them to the specular highlights of the plate and merged this back over my beauty. This way of working with AOVs can be an absolute lifesaver and often rescues you from having to render your entire shot again.</p><p>After the colours, blacks and specular highlights were matching, I had to defocus the right fish, to match the plate. After experimenting with a few different techniques, Ewoud Heidanus showed me a clever way of creating an anamorphic bokeh using the Convolve node, which lets you create custom filter effects by supplying your own filter image. His method was to transform a simple roto shape into the desired bokeh shape, which, in my case, was oval. Set the gain of your plate way up and then use the convolve node, with the roto shape as filter, and then merge this back over your plate.</p><blockquote>When it comes to compositing you always have to keep the 80/20 rule in mind. This rule means that roughly 80% of your work is done in the first 20% of your time, but these last 20% of your work, to really get it to 100% takes up the remaining 80% of your time. It’s easy to be satisfied when reaching this 80%, but I think it is absolutely worth it to take your time for these last subtle fixes who elevate your final work. </blockquote><p>Some small changes can make a big difference between photorealism and clearly CG. Some tips for achieving this goal:</p><ul>
+<li>Apply chromatic aberration (but don’t overdo it!). It is lens imperfections like this, which really help sell your shot.</li>
+<li>Use the Soften node to “soften” your CGI. If your render is looking too sharp and clean, this often gives away that something is CG.</li>
+<li>Denoise your hero plate at the beginning, extract the noise information via the difference between your denoised plate and your original to a separate noise-plate and merge this plate over your entire shot (now with CGI) at the end.</li>
+<li>Also don’t forget to apply the lens-distortion from your actual lens on your CGI.</li>
+</ul><p>Here’s a little breakdown of my comp:</p><figure class="kg-card kg-embed-card"><iframe src="https://player.vimeo.com/video/425551031?app_id=122963" width="426" height="180" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="EZG_comp_breakdown"></iframe></figure><p>Like I wrote at the beginning, I always try to incorporate interaction between something that was actually there on set and my CGI, to really merge it in there. For this shot I had the plate of the glass shards getting moved. I roto’ed one glass shard from this plate and moved and timed it just right to the jump of the fish in the foreground. I also modified the leaves of the aquarium plant on the left to slightly cover the fish in the background. This helps to enclose in your CGI into the scene, like in a sandwich.</p><p>At the end I added a subtle camera shake and vignette and then there was my final result.</p><h3 id="takeaways">Takeaways</h3><p>Looking back on this project I learned so much. Creatively, as well as technically. There are some things I will definitely do differently next time, but that’s inherent to learning and this will probably/hopefully be the case for every project I will do in the future. So I want to end with a few takeaways, which I hope you will remember from this blog. They will probably sound like I’m a real expert, which isn’t true at all, but hey, maybe there is something that’s still new to you:</p><ul>
+<li>Observe everything around you. Really soak up the details. Only if you really understand how something works in the real world (e.g. how lights reacts with a surface, how fish jump on land), you will be able to truly recreate it in the computer.</li>
+<li>Before starting on a project, sketch a (rough) schedule and also make a priority list. At school or while working on personal projects we often have, or take, huge amounts of time to do something, but unfortunately when working in the industry this (almost) never is possible. It is in my opinion a very useful skill to be able to set priorities and also to look for creative solutions which will speed up your workflow, thereby enabling you to make tight deadlines. This will also prevent you from getting totally lost in little details and will help you to focus on the main goal at hand.</li>
+<li>Don’t let setbacks discourage you. I was pretty bummed when I heard that the entire scene with the fish in it was cut from the movie, but it didn’t withhold me from finishing them and enjoying the experience of making them.</li>
+<li>In my experience it’s very beneficial as a 3D artist to know (at least the basics) of compositing. Even if you, like me, don’t want to become a compositor, the compositors with whom you will be working in the future will be very appreciative for the fact that you understand what they are doing. Furthermore, it is a really great feeling to step up your own renderings a notch with some simple comp.</li>
+<li>Finally, maybe the biggest lesson I have learned in the last few years, is to enjoy the journey of learning, and always keep experimenting with things outside of your comfort zone. For example, I was quite hesitant to get into Vellum for this project, because it meant a lot of extra work and seemed quite complicated. But looking back, the fact that I did it, might now be one of the things I’m the most proud of considering this shot.</li>
+</ul><figure class="kg-card kg-embed-card"><iframe src="https://player.vimeo.com/video/425508171?app_id=122963" width="426" height="178" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="EZG_Fish_Final"></iframe></figure><p><br>Find out more: <a href="https://www.therookies.co/entries/6028">Rookies 2020 submission</a> | <a href="https://www.linkedin.com/in/lennart-vulto/">LinkedIn</a> | <a href="https://vimeo.com/lennartvulto">Vimeo</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PhotoSwipe Component -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="pswp__bg"></div>
+
+  <div class="pswp__scroll-wrap">
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <div class="pswp__counter"></div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+        <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Author Section -->
+    <div class="grid row mt--2">
+      <div class="grid-box">
+        <div class="blog-post-width">
+            <div class="blog-post-author-bio">
+                <div class="blog-post-author-avatar">
+                  <img data-src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2020/06/LennartVulto_Avatar.jpg"
+                       alt="Lennart Vulto"
+                       loading="lazy">
+                </div>
+              <div class="blog-post-author-info">
+                <h3 class="heading-5 mb--05">
+                  <a class="tc--white" href="/blog/author/lennartvulto">Lennart Vulto</a>
+                </h3>
+                  <p class="tc--grayT mb--0">Lennart is student at The Netherlands Film Academy. He is specialised in 3D moddeling, texturing, look-dev and lighting and has been VFX-supervisor and coordinator for various graduation films.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Lead Generation CTA -->
+  
+<div class="row row--bg--solid row--collapse mb--0">
+  <div class="grid row">
+    <div class="grid-box">
+      <div class="blog-post-width">
+        <h4 class="heading-6 tc--gold mb--04">
+          <svg class="icon" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#star" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#star"></use>
+</svg>
+ Free Download
+        </h4>
+        <h3 class="heading-4 mb--04">The Creative Education Report 2026</h3>
+        <p class="mb--08">86-page PDF ranking the best creative schools across 12 disciplines. Based on 38,000+ professional assessments.</p>
+        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+            <a id="" href="/creative-education-report-2026?utm_campaign=report_2026&amp;utm_medium=cta&amp;utm_source=blog" class="button button--minWidth button--secondary">
+
+
+    Download Free Report
+
+
+  </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Comments Section -->
+      <hr />
+  <a name="comment-form"></a>
+  <div class="grid row">
+    <div class="grid-box">
+      <div class="has-comment">
+        <h4 class="heading-5 mb--08">Comments (0)</h4>
+          <p>Be the first to comment on this article.</p>
+
+
+        <div id="media-153746-comments"
+             data-comments-url="/comments/media/153746.js"></div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            LiteAjax.ajax("/comments/media/153746.js");
+          });
+        </script>
+
+          <div class="mt--12">
+              <a id="" href="/accounts/sign_up" class="button button--secondary">
+
+
+    Sign up to comment
+
+
+  </a>
+
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Related Articles & Schools -->
+    <div id="related-articles" class="row mt--2">
+
+        <div class="grid row row--S">
+          <div class="grid-box headerSub">
+            <h2 class="headerSub-heading headerSub-simple">Related Articles &amp; Schools</h2>
+          </div>
+        </div>
+
+      <div class="grid row">
+        <div class="grid-box">
+          <div class="grid grid--flush">
+              <div class="grid-box grid-box--S--6 grid-box--L--4">
+                <a class="card bc--graySS" href="https://www.therookies.co/blog/education/spotlight-voxel-school">
+  <div class="card-header">
+    <img class="card-image"
+         data-srcset="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/250xAUTO/alexander-kolesnikov-card.jpeg 300w,
+                 https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/450xAUTO/alexander-kolesnikov-card.jpeg 600w,
+                 https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/800xAUTO/alexander-kolesnikov-card.jpeg 1000w"
+         sizes="(max-width: 1088px) 300px, 600px"
+         data-src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/450xAUTO/alexander-kolesnikov-card.jpeg"
+         alt="Voxel School: The Tech and Talent Hub Shaping Digital Artists"
+         loading="lazy">
+  </div>
+  <div class="card-content">
+    <div class="cardProject-byline">
+        <div class="blogPrimaryTag">
+          <span class="tag tag--profile tag--grayS">Learning</span>
+        </div>
+    </div>
+    <h4 class="heading-5">Voxel School: The Tech and Talent Hub Shaping Digital Artists</h4>
+      <p class="card-excerpt">How Voxel School uses active studio professionals, an elite HP tech partnership, and live project pipelines to launch students into major...</p>
+  </div>
+  <div class="card-footer">
+    <div class="bucket bucket--spacing">
+        <div class="avatar avatar--S avatar--level1">
+          <img class="avatar-media"
+               data-src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2018/06/45341.jpg"
+               alt="The Scout"
+               loading="lazy">
+        </div>
+      <div class="lh--12">
+        <div><strong>The Scout</strong></div>
+        <div>Sep 10, 2026</div>
+      </div>
+    </div>
+    <span>3 min</span>
+  </div>
+</a>
+
+              </div>
+              <div class="grid-box grid-box--S--6 grid-box--L--4">
+                <a class="card bc--graySS" href="https://www.therookies.co/blog/education/building-the-future-of-game-design-abertay-university">
+  <div class="card-header">
+    <img class="card-image"
+         data-srcset="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/250xAUTO/SupportingImage01.jpeg 300w,
+                 https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/450xAUTO/SupportingImage01.jpeg 600w,
+                 https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/800xAUTO/SupportingImage01.jpeg 1000w"
+         sizes="(max-width: 1088px) 300px, 600px"
+         data-src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/450xAUTO/SupportingImage01.jpeg"
+         alt="Building the Future of Game Design: Inside Abertay University’s Industry-Leading Ecosystem"
+         loading="lazy">
+  </div>
+  <div class="card-content">
+    <div class="cardProject-byline">
+        <div class="blogPrimaryTag">
+          <span class="tag tag--profile tag--grayS">Learning</span>
+        </div>
+    </div>
+    <h4 class="heading-5">Building the Future of Game Design: Inside Abertay University’s Industry-Leading Ecosystem</h4>
+      <p class="card-excerpt">Abertay University bridges classroom learning with real-world studio pipelines to prepare students for the global games industry.</p>
+  </div>
+  <div class="card-footer">
+    <div class="bucket bucket--spacing">
+        <div class="avatar avatar--S avatar--level1">
+          <img class="avatar-media"
+               data-src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2018/06/45341.jpg"
+               alt="The Scout"
+               loading="lazy">
+        </div>
+      <div class="lh--12">
+        <div><strong>The Scout</strong></div>
+        <div>Sep 09, 2026</div>
+      </div>
+    </div>
+    <span>2 min</span>
+  </div>
+</a>
+
+              </div>
+              <div class="grid-box grid-box--S--6 grid-box--L--4">
+                <a class="card bc--graySS" href="https://www.therookies.co/blog/education/rising-sun-pictures-vfx-pipeline-success">
+  <div class="card-header">
+    <img class="card-image"
+         data-srcset="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/250xAUTO/DSC_4388-Enhanced-NR.jpg 300w,
+                 https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/450xAUTO/DSC_4388-Enhanced-NR.jpg 600w,
+                 https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/800xAUTO/DSC_4388-Enhanced-NR.jpg 1000w"
+         sizes="(max-width: 1088px) 300px, 600px"
+         data-src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2026/07/450xAUTO/DSC_4388-Enhanced-NR.jpg"
+         alt="From Student to Studio: A Guide to the Rising Sun Pictures VFX Pipeline"
+         loading="lazy">
+  </div>
+  <div class="card-content">
+    <div class="cardProject-byline">
+        <div class="blogPrimaryTag">
+          <span class="tag tag--profile tag--grayS">Learning</span>
+        </div>
+    </div>
+    <h4 class="heading-5">From Student to Studio: A Guide to the Rising Sun Pictures VFX Pipeline</h4>
+      <p class="card-excerpt">Learn how Harrison Day transitioned from a visual effects student to a professional technician at Rising Sun Pictures.</p>
+  </div>
+  <div class="card-footer">
+    <div class="bucket bucket--spacing">
+        <div class="avatar avatar--S avatar--level1">
+          <img class="avatar-media"
+               data-src="https://d3stdg5so273ei.cloudfront.net/ghost/content/images/2018/06/45341.jpg"
+               alt="The Scout"
+               loading="lazy">
+        </div>
+      <div class="lh--12">
+        <div><strong>The Scout</strong></div>
+        <div>Sep 04, 2026</div>
+      </div>
+    </div>
+    <span>8 min</span>
+  </div>
+</a>
+
+              </div>
+              <div class="grid-box grid-box--S--6 grid-box--L--4">
+                <div class="card card-school recommended-school-card">
+  <a class="card-school-link" href="/schools/studio-mercier">
+    <div class="card-header card-header--gold">
+      <img class="cardSchool-media"
+        data-srcset="https://d3stdg5so273ei.cloudfront.net/alwyn/2025-01-17/382481/250xAUTO/BannerTheRookies.jpg 250w,
+                https://d3stdg5so273ei.cloudfront.net/alwyn/2025-01-17/382481/450xAUTO/BannerTheRookies.jpg 450w,
+                https://d3stdg5so273ei.cloudfront.net/alwyn/2025-01-17/382481/800xAUTO/BannerTheRookies.jpg 800w"
+        sizes="(max-width: 1088px) 220px,
+               (max-width: 3000px) 420px,
+               800px"
+        data-src="https://d3stdg5so273ei.cloudfront.net/alwyn/2025-01-17/382481/450xAUTO/BannerTheRookies.jpg"
+        alt="Studio Mercier"
+      />
+    </div>
+    <div class="cardProject-byline mb--12">
+        <div class="school-logo">
+          <img alt="Studio Mercier" class="avatar-media"
+               src="https://d3stdg5so273ei.cloudfront.net/alwyn/2025-12-07/966200/450xAUTO/avec%20fond%20blanc%20%404x.jpeg" />
+        </div>
+      <div class="cardSchool-header">
+        <h3>Studio Mercier</h3>
+          <span><svg class="icon" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#location" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#location"></use>
+</svg>
+France</span>
+      </div>
+    </div>
+      <div class="cardSchool-header mb--08">
+          <span class="tag tag--grayS">Campus</span>
+      </div>
+    <div class="card-content">
+      <p class="mh--auto tt--3">The future of 3D is in your hands</p>
+    </div>
+  </a>
+  <div class="card-footer recommended-card-footer">
+    <div class="bucket bucket--spacing">
+          <!-- Non-members see button that triggers registration modal -->
+    <button type="button" class="button button--secondary" onclick="showSchoolListRegistrationModal();">
+      <span class="button-icon">
+        <svg class="icon" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#high-five" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#high-five"></use>
+</svg>
+
+      </span>
+      Add To List
+    </button>
+
+    </div>
+    <div class="bucket bucket--spacing">
+        <button type="button" class="button button--primary button--S" onclick="showSchoolIntroRegistrationModal();">
+          Request Intro
+        </button>
+    </div>
+  </div>
+</div>
+
+              </div>
+              <div class="grid-box grid-box--S--6 grid-box--L--4">
+                <div class="card card-school recommended-school-card">
+  <a class="card-school-link" href="/schools/artside-school">
+    <div class="card-header card-header--gold">
+      <div class="has-icon has-icon--M has-icon--noborder">
+        <img loading="lazy" style="max-width: 85%; margin-top:5px" alt="Rookies Certified School" src="https://d3stdg5so273ei.cloudfront.net/andrew/2023-01-10/856887/150x150/schools-certified.png" />
+      </div>
+      <img class="cardSchool-media"
+        data-srcset="https://d3stdg5so273ei.cloudfront.net/andrew/2023-02-10/317756/250xAUTO/artside-school-2.jpeg 250w,
+                https://d3stdg5so273ei.cloudfront.net/andrew/2023-02-10/317756/450xAUTO/artside-school-2.jpeg 450w,
+                https://d3stdg5so273ei.cloudfront.net/andrew/2023-02-10/317756/800xAUTO/artside-school-2.jpeg 800w"
+        sizes="(max-width: 1088px) 220px,
+               (max-width: 3000px) 420px,
+               800px"
+        data-src="https://d3stdg5so273ei.cloudfront.net/andrew/2023-02-10/317756/450xAUTO/artside-school-2.jpeg"
+        alt="Artside School"
+      />
+    </div>
+    <div class="cardProject-byline mb--12">
+        <div class="school-logo">
+          <img alt="Artside School" class="avatar-media"
+               src="https://d3stdg5so273ei.cloudfront.net/alwyn/2023-01-18/066733/450xAUTO/Artside.jpeg" />
+        </div>
+      <div class="cardSchool-header">
+        <h3>Artside School</h3>
+          <span><svg class="icon" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#location" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#location"></use>
+</svg>
+France</span>
+      </div>
+    </div>
+      <div class="cardSchool-header mb--08">
+          <span class="tag tag--grayS">Online</span>
+          <span class="tag tag--grayS">Campus</span>
+      </div>
+    <div class="card-content">
+      <p class="mh--auto tt--3">Created by digital art professionals, our students learn at Artside from top industry mentors to reach their artistic goals.</p>
+    </div>
+  </a>
+  <div class="card-footer recommended-card-footer">
+    <div class="bucket bucket--spacing">
+          <!-- Non-members see button that triggers registration modal -->
+    <button type="button" class="button button--secondary" onclick="showSchoolListRegistrationModal();">
+      <span class="button-icon">
+        <svg class="icon" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#high-five" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#high-five"></use>
+</svg>
+
+      </span>
+      Add To List
+    </button>
+
+    </div>
+    <div class="bucket bucket--spacing">
+        <button type="button" class="button button--primary button--S" onclick="showSchoolIntroRegistrationModal();">
+          Request Intro
+        </button>
+    </div>
+  </div>
+</div>
+
+              </div>
+              <div class="grid-box grid-box--S--6 grid-box--L--4">
+                <div class="card card-school recommended-school-card">
+  <a class="card-school-link" href="/schools/coco-school">
+    <div class="card-header card-header--gold">
+      <img class="cardSchool-media"
+        data-srcset="https://d3stdg5so273ei.cloudfront.net/alwyn/2026-03-25/964491/250xAUTO/BANNERCOCO2_TheRookies.jpg 250w,
+                https://d3stdg5so273ei.cloudfront.net/alwyn/2026-03-25/964491/450xAUTO/BANNERCOCO2_TheRookies.jpg 450w,
+                https://d3stdg5so273ei.cloudfront.net/alwyn/2026-03-25/964491/800xAUTO/BANNERCOCO2_TheRookies.jpg 800w"
+        sizes="(max-width: 1088px) 220px,
+               (max-width: 3000px) 420px,
+               800px"
+        data-src="https://d3stdg5so273ei.cloudfront.net/alwyn/2026-03-25/964491/450xAUTO/BANNERCOCO2_TheRookies.jpg"
+        alt="Coco School | Escuela Europea para la Comunicación y las Artes Visuales"
+      />
+    </div>
+    <div class="cardProject-byline mb--12">
+        <div class="school-logo">
+          <img alt="Coco School | Escuela Europea para la Comunicación y las Artes Visuales" class="avatar-media"
+               src="https://d3stdg5so273ei.cloudfront.net/alwyn/2026-03-25/723490/450xAUTO/LOGOCOCO2_TheRookies.jpg" />
+        </div>
+      <div class="cardSchool-header">
+        <h3>Coco School | Escuela Europea para la Comunicación y las Artes Visuales</h3>
+          <span><svg class="icon" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#location" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#location"></use>
+</svg>
+Mexico, Spain</span>
+      </div>
+    </div>
+      <div class="cardSchool-header mb--08">
+          <span class="tag tag--grayS">Online</span>
+          <span class="tag tag--grayS">Campus</span>
+      </div>
+    <div class="card-content">
+      <p class="mh--auto tt--3">Coco School is an international creative arts institution founded in 2003, with campuses in Madrid, Spain, and Mexico City. </p>
+    </div>
+  </a>
+  <div class="card-footer recommended-card-footer">
+    <div class="bucket bucket--spacing">
+          <!-- Non-members see button that triggers registration modal -->
+    <button type="button" class="button button--secondary" onclick="showSchoolListRegistrationModal();">
+      <span class="button-icon">
+        <svg class="icon" aria-hidden="true">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#high-five" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#high-five"></use>
+</svg>
+
+      </span>
+      Add To List
+    </button>
+
+    </div>
+    <div class="bucket bucket--spacing">
+        <button type="button" class="button button--primary button--S" onclick="showSchoolIntroRegistrationModal();">
+          Request Intro
+        </button>
+    </div>
+  </div>
+</div>
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Newsletter Signup -->
+    <div class="grid row mt--2">
+      <div class="grid-box">
+        <div class="blog-mailchimp-signup ta--center">
+  <h3 class="heading-4 mb--05">Stay in the loop</h3>
+  <p class="tc--grayT mb--1 ta--center">Get the latest tutorials, career tips, and inspiration delivered to your inbox.</p>
+  <form action="https://therookies.us11.list-manage.com/subscribe/post?u=b8688534a82e76e4efd89a4d0&amp;id=b3a31ac982&amp;f_id=006798e1f0" method="post" target="_self" novalidate class="blog-mailchimp-form">
+    <input type="email" name="EMAIL" placeholder="your@email.com" required class="blog-mailchimp-input">
+    <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_b8688534a82e76e4efd89a4d0_b3a31ac982" tabindex="-1" value=""></div>
+    <button type="submit" class="button button--gold">Subscribe</button>
+  </form>
+</div>
+
+      </div>
+    </div>
+</article>
+
+<script>
+// Gallery Flex Calculator - Mimics Ghost's dynamic flex behavior
+document.addEventListener('DOMContentLoaded', function() {
+  function calculateGalleryFlex() {
+    const galleries = document.querySelectorAll('.kg-gallery-container');
+
+    galleries.forEach(gallery => {
+      const images = gallery.querySelectorAll('.kg-gallery-image');
+      if (images.length === 0) return;
+
+      images.forEach(img => {
+        const imageElement = img.querySelector('img');
+        if (!imageElement) return;
+
+        const naturalWidth = imageElement.naturalWidth;
+        const naturalHeight = imageElement.naturalHeight;
+
+        if (naturalWidth && naturalHeight) {
+          const aspectRatio = naturalWidth / naturalHeight;
+          const flexValue = aspectRatio;
+
+          img.style.flex = flexValue + ' 1 0%';
+        }
+      });
+    });
+  }
+
+  calculateGalleryFlex();
+
+  const images = document.querySelectorAll('.kg-gallery-image img');
+  images.forEach(img => {
+    if (img.complete) {
+      calculateGalleryFlex();
+    } else {
+      img.addEventListener('load', calculateGalleryFlex);
+    }
+  });
+
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(calculateGalleryFlex, 250);
+  });
+});
+</script>
+</main>
+    <footer class="footer">
+  <div class="grid">
+    <div class="footer-connect">
+      <a class="footer-connect-logo" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 532 167" role="img" aria-label="The Rookies" style="fill: var(--gold); height: auto;">
+  <path d="M25.6 25.565h45.335c29.117 0 46.119 13.037 46.119 38.337 0 20.433-12.116 32.498-30.29 36.392v.583L128 150v-13.1l-1.986-2.38-25.009-29.974c15.822-7.45 24.65-21.736 24.65-40.644C125.654 34.095 105.71 17 70.934 17H17v59.547h8.6V25.565z"/>
+  <path d="M17 119.046V151h25.92v-40.477h29.522l31.573 37.408 2.59 3.069H118l-41.508-49H34.279v40.476h-8.638v-23.43z"/>
+  <path d="M144.02 127.586l-1.98-2.364-1.983-2.364-13.235-15.78c10.919-11.049 16.837-26.18 16.837-43.485C143.659 24.367 116.143 0 71.85 0H18v8.506h53.851c39.586 0 63.221 20.593 63.221 55.087 0 18.149-7.09 32.915-20.2 42.548l18.579 22.152 1.982 2.364 1.98 2.363v25.475H103.022l-2.577-3.064-2.574-3.062-28.8-34.269H52.343v31.888h8.587V126.605h4.114l26.226 31.207 2.575 3.064 2.577 3.063L99 167H146V129.95l-1.98-2.364z"/>
+  <path d="M44.445 159.483H8.572v-48.966H25.713V102H0v66h60v-8.517h-8.572zM9 94V0H0v94h2.467zM35.332 51v34.436H18V94h26V51z"/>
+  <path d="M71.707 33H35v8.545h36.707c28.701 0 28.701 15.94 28.701 21.941 0 13.913-8.868 20.968-26.357 20.968H52.185V93h21.866C93.966 93 109 84.067 109 63.486 109 42.32 94.162 33 71.707 33M173 37h27.022v3.469h-11.613V69h-3.852V40.469H173zM241.783 69h-3.78V54.972h-19.465V69h-3.777V37h3.777v14.51h19.465V37h3.78zM283.543 54.972h-18.198v10.559H286V69h-24.565V37H286v3.469h-20.655V51.51h18.198zM199.017 89.004h-14.765v21.437h15.32c7.759 0 12.892-3.357 12.892-10.636 0-7.179-5.231-10.801-13.447-10.801zM175 81h24.298c14.102 0 22.7 6.642 22.7 18.449 0 8.536-4.58 14.172-11.678 16.894v.55l13.921 17.355v1.274h-10.276l-13.738-17.268h-15.975v17.268H175V81zm101.609 28.545c0-11.28-7.653-19.91-19.177-19.91-11.436 0-19.09 8.63-19.09 19.91 0 11.178 7.654 19.72 19.09 19.72 11.524 0 19.177-8.542 19.177-19.72m-47.443 0C229.166 93.63 240.06 81 257.432 81c17.467 0 28.361 12.629 28.361 28.545 0 15.724-10.894 28.455-28.36 28.455-17.373 0-28.267-12.731-28.267-28.455m113.918 0c0-11.28-7.653-19.91-19.177-19.91-11.435 0-19.088 8.63-19.088 19.91 0 11.178 7.653 19.72 19.088 19.72 11.524 0 19.177-8.542 19.177-19.72m-47.443 0C295.641 93.63 306.534 81 323.907 81c17.47 0 28.362 12.629 28.362 28.545 0 15.724-10.893 28.455-28.362 28.455-17.373 0-28.266-12.731-28.266-28.455M371.021 108.712L398.098 81h10.799v1.098l-21.317 21.894 21.317 30.343v1.187h-10.528l-17.178-24.989-10.17 10.536v14.453h-8.904V81h8.904zM418.745 135.522h9.848V81h-9.848zM477.791 112.352h-27.78v15.163h32.748v8.007h-41.856V81h41.856v8.006h-32.748v15.711h27.78zM494.974 124.363s6.423 5.273 15.971 5.273c7.942 0 11.241-3.185 11.241-7.553 0-4.174-2.762-6.275-13.03-9.267-12.576-3.642-18.556-7.729-18.556-16.27 0-9.55 7.318-15.546 20.432-15.546 13.835 0 19.721 5.45 19.721 5.45l-4.82 7.355s-5.529-4.456-14.901-4.456c-6.695 0-10.797 2.46-10.797 6.825 0 3.73 3.124 5.552 12.854 8.278 13.56 3.73 18.911 8.542 18.911 16.996 0 9.27-6.419 16.552-20.882 16.552-14.185 0-20.973-6.825-20.973-6.825l4.829-6.812z"/>
+</svg>
+</a>
+      <div class="footer-connect-row">
+          <a href="https://www.facebook.com/TheRookiesCO" class="buttonCircle buttonCircle--S" target="_blank" rel="nofollow noopener noreferrer">
+    <svg class="icon icon--S" role="img" title="Facebook">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-facebook" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-facebook"></use>
+</svg>
+
+  </a>
+
+          <a href="https://www.instagram.com/therookiesco/" class="buttonCircle buttonCircle--S" target="_blank" rel="nofollow noopener noreferrer">
+    <svg class="icon icon--S" role="img" title="Instagram">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-instagram" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-instagram"></use>
+</svg>
+
+  </a>
+
+          <a href="https://twitter.com/TheRookiesCO" class="buttonCircle buttonCircle--S" target="_blank" rel="nofollow noopener noreferrer">
+    <svg class="icon icon--S" role="img" title="Twitter">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-twitter" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-twitter"></use>
+</svg>
+
+  </a>
+
+          <a href="https://www.youtube.com/therookiesco" class="buttonCircle buttonCircle--S" target="_blank" rel="nofollow noopener noreferrer">
+    <svg class="icon icon--S" role="img" title="YouTube">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-youtube" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#social-youtube"></use>
+</svg>
+
+  </a>
+
+      </div>
+    </div>
+
+    <div class="footer-navigation">
+        <div class="navigationSide navigationSide--fullHeight navigationSide--S">
+            <h4 class="heading-6">About&nbsp;Us</h4>
+            <ul class="navigationSide-list">
+                <li><a class="navigationSide-link" href="/about">About</a></li>
+                <li><a class="navigationSide-link" href="/about/team">Team</a></li>
+                <li><a class="navigationSide-link" href="/about/advertise">Advertise</a></li>
+                <li><a class="navigationSide-link" href="https://www.dropbox.com/sh/84j5l2fmprak4iq/AACW0Dw0pRiTiOoxXEMWbOqDa?dl=0">Media Kit</a></li>
+                <li><a class="navigationSide-link" href="http://help.therookies.co">Helpdesk</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-navigation">
+      <div class="navigationSide navigationSide--fullHeight navigationSide--S">
+        <h4 class="heading-6">Community</h4>
+        <ul class="navigationSide-list">
+          <li><a class="navigationSide-link" href="/projects">Projects</a></li>
+          <li><a class="navigationSide-link" href="/contests">Contests</a></li>
+          <li><a class="navigationSide-link" href="/rookieawards">Rookie Awards</a></li>
+          <li><a class="navigationSide-link" href="https://discord.gg/EUqVtECqqw">Discord</a></li>
+          <li><a class="navigationSide-link" href="https://shop.therookies.co/">Shop</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-navigation">
+      <div class="navigationSide navigationSide--fullHeight navigationSide--S">
+        <h4 class="heading-6">Discover</h4>
+        <ul class="navigationSide-list">
+          <li><a class="navigationSide-link" href="/blog">Blog</a></li>
+          <li><a class="navigationSide-link" href="/live">Live Events</a></li>
+          <li><a class="navigationSide-link" href="/schools">Find a School</a></li>
+          <li><a class="navigationSide-link" href="/schools/rankings">School Rankings</a></li>
+          <li><a class="navigationSide-link" href="/members">Find Talent</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-ad">
+      <!-- /430108488/therookies-footer -->
+      <div id='div-gpt-ad-1550773652345-0' class="adFooterIframe">
+        <script>
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1550773652345-0'); });
+        </script>
+      </div>
+    </div>
+
+    <div class="footer-footer">
+        <a href="/privacy-policy">Privacy Policy</a> <span>&bull;</span> <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+      </div>
+  </div>
+</footer>
+
+  </div>
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="pswp__bg"></div>
+
+  <div class="pswp__scroll-wrap">
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <div class="pswp__counter"></div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+        <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="feed-preview-modal"
+     id="feed-preview-modal"
+     role="dialog"
+     aria-modal="false"
+     aria-hidden="true"
+     aria-label="Detail preview">
+  <div class="feed-preview-topbar">
+    <a href="#" class="feed-preview-fullpage" data-feed-preview-full>View Full Page &rarr;</a>
+    <button type="button" class="feed-preview-close buttonCircle buttonCircle--S"
+            data-feed-preview-close aria-label="Close preview">
+      <svg class="icon" role="img" title="Close">
+  <use href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#x" xlink:href="/assets/icons-808e5245662770dae815e96d34718431d7e8eac94441342a353dcd3eef25562c.svg#x"></use>
+</svg>
+
+    </button>
+  </div>
+  <button type="button" class="feed-preview-nav feed-preview-nav--prev" data-feed-preview-prev aria-label="Previous">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button type="button" class="feed-preview-nav feed-preview-nav--next" data-feed-preview-next aria-label="Next">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="feed-preview-modal-content">
+    <div class="feed-preview-modal-body" id="feed-preview-modal-body" tabindex="-1"></div>
+    <div class="feed-preview-legend">
+      <span><kbd>&larr;</kbd> Previous</span>
+      <span><kbd>&rarr;</kbd> Next</span>
+      <span><kbd>Esc</kbd> Close</span>
+    </div>
+  </div>
+</div>
+
+  
+  <script type="text/javascript">
+  window.helpcrunchSettings = {
+    organization: 'therookies',
+    appId: 'b8231c0c-7515-4eb9-b4b5-33d9bd75966d',
+  };
+</script>
+
+<script type="text/javascript">
+  (function(w,d){
+    var hS = w.helpcrunchSettings;
+    if(!hS || !hS.organization){
+      return;
+    }
+    var widgetSrc = 'https://embed.helpcrunch.com/sdk.js';
+    w.HelpCrunch = function(){ w.HelpCrunch.q.push(arguments) };
+    w.HelpCrunch.q = [];
+    function r(){
+      if (d.querySelector('script[src="' + widgetSrc + '"]')) {
+        return;
+      }
+      var s = d.createElement('script');
+      s.async = 1;
+      s.type = 'text/javascript';
+      s.src = widgetSrc;
+      (d.body || d.head).appendChild(s);
+    }
+    if(d.readyState === 'complete' || hS.loadImmediately){
+      r();
+    } else if(w.attachEvent){
+      w.attachEvent('onload', r);
+    } else {
+      w.addEventListener('load', r, false);
+    }
+  })(window, document);
+</script>
+
+<script type="text/javascript">
+  HelpCrunch('showChatWidget');
+</script>
+
+
+    
+    <script src="/packs/runtime-8ace7ee385405ebc2477.js"></script>
+<script src="/packs/therookies-c8d014354db57d81b7e6.js"></script>
+    <script src="/packs/what-input-1d28095d3dbde3613149.js"></script>
+    <script src="/packs/ujs-54df59859ba12f7978ce.js"></script>
+    
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a39af3847cf7f183',t:'MTc4OTE3NDU3NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

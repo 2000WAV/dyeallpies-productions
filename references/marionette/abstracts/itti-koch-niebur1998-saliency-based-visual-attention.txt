@@ -1,0 +1,28 @@
+Itti, L., Koch, C., and Niebur, E. (1998). A Model of Saliency-Based Visual
+Attention for Rapid Scene Analysis. IEEE Transactions on Pattern Analysis and
+Machine Intelligence, 20(11), 1254-1259.
+
+STATUS: full text saved (open PDF, mirrored copy from a course site); see
+papers/itti1998-saliency-based-visual-attention.pdf/.txt.
+
+SUMMARY: the foundational bottom-up visual saliency model. Multiscale image
+features (intensity/luminance contrast, colour contrast in red-green and
+blue-yellow opponent channels, and orientation) are each computed as
+centre-surround differences across a Gaussian pyramid, normalized, and summed
+into a single topographic saliency map; a "winner-take-all" network then picks
+the most conspicuous location first, followed by others in order of decreasing
+saliency (an "inhibition of return" mechanism keeps it from re-fixating the same
+spot). Directly relevant to item 9: local FEATURE CONTRAST against the
+immediate surround, not the absolute value of any one feature, is what a visual
+system computes as salient -- a colour is salient only relative to what is
+around it. This is the formal basis for "a colour is salient relative to its
+surround: on an off-white warm wall, which hue maximises contrast" framing in
+the brief. The model treats intensity/luminance-contrast and colour-contrast
+as separate, additive-ish feature channels feeding the same map -- consistent
+with Nothdurft (2000)'s later psychophysical finding that luminance-contrast
+salience is largely independent of colour/orientation-contrast salience.
+
+KEY NUMBERS: none of direct pixel/luminance-value use for this project; the
+paper is a computational architecture, not a set of universal contrast
+thresholds. Used here for the qualitative "salience = local contrast, not
+absolute colour" argument only.

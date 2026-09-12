@@ -1,0 +1,684 @@
+                             MITSUBISHI ELECTRIC RESEARCH LABORATORIES
+                                                    http://www.merl.com
+
+                   Experimental Analysis of BRDF Models
+
+                                     Addy Ngan, Fredo Durand, Wojciech Matusik
+
+                                                  TR2005-151 June 2005
+
+                                                            Abstract
+       The Bidirectional Reflectance Distribution Function (BRDF) describes the appearance of a ma-
+       terial by its interaction with light at a surface point. A variety of analytical models have been
+       proposed to represent BRDFs. However, analysis of these models has been scarce due to the lack
+       of high-resolution measured data. In this work we evaluate several well-known analytical mod-
+       els in terms of their ability to fit measured BRDFs. We use an existing high-resolution data set
+       of a hundred isotropic materials and compute the best approximation for each analytical model.
+       Furthermore, we have built a new setup for efficient acquisition of anisotropic BRDFs, which
+       allows us to acquire anisotropic materials at high resolution. We have measured four samples
+       of anisotropic materials (brushed aluminum, velvet, and two satins). Based on the numerical
+       errors, function plots, and rendered images we provide insights into the performance of the vari-
+       ous models. We conclude that for most isotropic materials physically-based analytic reflectance
+       models can represent their appearance quite well. We illustrate the important difference between
+       the two common ways of defining the specular lobe: around the mirror direction and with respect
+       to the half-vector. Our evaluation shows that the latter gives a more accurate shape for the reflec-
+       tion lobe. Our analysis of anisotropic materials indicates current parametric reflectance models
+       cannot represent their appearances faithfully in many cases. We show that using a sampled mi-
+       crofacet distribution computed from measurements improves the fit and qualitatively reproduces
+       the measurements.
+
+This work may not be copied or reproduced in whole or in part for any commercial purpose. Permission to copy in whole or in part
+without payment of fee is granted for nonprofit educational and research purposes provided that all such whole or partial copies include
+the following: a notice that such copying is by permission of Mitsubishi Electric Research Laboratories, Inc.; an acknowledgment of
+the authors and individual contributions to the work; and all applicable portions of the copyright notice. Copying, reproduction, or
+republishing for any other purpose shall require a license with payment of fee to Mitsubishi Electric Research Laboratories, Inc. All
+rights reserved.
+
+                                         Copyright c Mitsubishi Electric Research Laboratories, Inc., 2005
+                                                    201 Broadway, Cambridge, Massachusetts 02139
+MERLCoverPageSide2
+Eurographics Symposium on Rendering (2005)
+Kavita Bala, Philip Dutré (Editors)
+
+Experimental Analysis of BRDF Models
+
+Addy Ngan, Frédo Durand, and Wojciech Matusik
+
+                                            MIT CSAIL            MERL
+
+Abstract
+The Bidirectional Reflectance Distribution Function (BRDF) describes the appearance of a material by its in-
+teraction with light at a surface point. A variety of analytical models have been proposed to represent BRDFs.
+However, analysis of these models has been scarce due to the lack of high-resolution measured data. In this work
+we evaluate several well-known analytical models in terms of their ability to fit measured BRDFs. We use an
+existing high-resolution data set of a hundred isotropic materials and compute the best approximation for each
+analytical model. Furthermore, we have built a new setup for efficient acquisition of anisotropic BRDFs, which
+allows us to acquire anisotropic materials at high resolution. We have measured four samples of anisotropic ma-
+terials (brushed aluminum, velvet, and two satins). Based on the numerical errors, function plots, and rendered
+images we provide insights into the performance of the various models. We conclude that for most isotropic ma-
+terials physically-based analytic reflectance models can represent their appearance quite well. We illustrate the
+important difference between the two common ways of defining the specular lobe: around the mirror direction and
+with respect to the half-vector. Our evaluation shows that the latter gives a more accurate shape for the reflec-
+tion lobe. Our analysis of anisotropic materials indicates current parametric reflectance models cannot represent
+their appearances faithfully in many cases. We show that using a sampled microfacet distribution computed from
+measurements improves the fit and qualitatively reproduces the measurements.
+
+1. Introduction                                                  1.1. Related Work
+
+Realistic graphics can be seen as a variant of physics that      BRDF research has combined skilled engineering and firm
+addresses light interaction. Physical sciences involve both      scientific principles. Empirical models respond to engineer-
+a modeling phase where real phenomena are modeled with           ing tradeoffs between realism and efficiency, two criteria that
+quantitative law, and an experimental validation phase. In       are highlighted by the advent of programmable real-time
+realistic graphics, validation is challenging because the phe-   shading. Physical models are derived from first principles
+nomena are complex and measuring all the scene parameters        and they have been compared against real data when avail-
+is difficult [MRC86, RWP95]. In this paper, we tackle an         able [CT81, HTSG91, War92].
+important part of the equation by focusing on material re-
+flectance and the associated models. With the presence of a         Unfortunately, real BRDF data have long been hard to ac-
+large number of BRDF models, we feel that an experimental        quire and measurements were often limited in angular res-
+analysis and comparison is sorely needed. In this paper, we      olution. Recent research efforts have resulted in a wider
+evaluate the performance of various BRDF models by com-          availability of BRDF data [Cor, Nis, War92, DvGNK99,
+paring their abilities to represent real measured BRDFs. We      MWL99,MPBM03,HP03,SSK03]. This provides us with a
+believe our analysis can serve as a guide for practitioners in   unique opportunity to experimentally analyze BRDF models
+their choice on BRDF models, and our extended data fitting       and gain a practical experience on their ability to represent
+results should also serve as starting points for using the more  real BRDFs.
+sophisticated models.
+                                                                    Understanding the tradeoffs and fitting performances of
+ email: addy, fredo@csail.mit.edu                                BRDFs is becoming increasingly important [SHSL97]. In-
+ email: matusik@merl.com                                         verse rendering, e.g. [FGR93,Mar98,YDMH99] and new ac-
+                                                                 quisition techniques, e.g. [SWI97, LKG01, KBMK01] typ-
+ c The Eurographics Association 2005.                            ically estimate reflectance properties using a very sparse
+Ngan et al. / Experimental Analysis of BRDF Models
+
+set of observations. Even data acquired using gonioreflec-      of materials, and effects such as retroreflection might be
+tometers often do not contain many samples and can exhibit      underrepresented. In fact, our BRDFs have no valid sam-
+noise, e.g. [Bor03]. These limitations prevent the direct use   ples within 3 degrees from the retroreflection direction since
+of the measured data and make the fit to an analytical model    the light source occludes the detector. The BRDFs were ac-
+a requirement. The low sampling rate and noise level make       quired by capturing images of a sphere sample lit by a point
+the BRDF fitting very underconstrained, and the final vi-       source from a dense set of directions, similar to Marschner
+sual result is heavily dependent on the choice of the model.    et al. [MWL99]. This image-based method allows for high
+Dana et al. [DNGK97] fit a wide range of materials to BRDF      angular resolution measurement since many radiance sam-
+models. However, their data set is limited in resolution (205   ples can be recorded in one single image. However, this mea-
+viewing/illumination combinations), and they only fit to the    surement setup is limited to isotropic BRDFs and requires
+Oren-Nayar model [ON94] and the Koenderink representa-          spherical samples.
+tion [KvDS96] based on Zernike polynomials.
+                                                                2.2. Anisotropic BRDF acquisition setup
+1.2. Overview
+                                                                In this work, we extend the image-based BRDF acquisi-
+In this paper, we provide experimental analysis and insights    tion setup to handle anisotropic materials (Figure 1), simi-
+that should guide practitioners in the field. While previous    lar to Lu et al. [LKK00]. Spherical samples provide a two-
+work in BRDF modeling has validated the proposed models         dimensional set of normals in each image, but it is diffi-
+using physical measurements, the number of materials used       cult to manufacture spherical samples for some materials.
+in the validation is typically small and often confined to the  Marschner et al. [MWL99] also use a cylindrical target
+category on which the model is primarily focused. In our        shape for some measurements but only acquire BRDFs in the
+study we quantify and compare the performance of seven an-      incidence plane. Using a cylindrical target any planar sam-
+alytical BRDF models on a data set of 100 isotropic BRDFs       ple that is flexible can be wrapped on the surface without
+acquired at high resolution and covering a wide range of ma-    distortion. In our setup we compensate for the lost degree
+terials. We also conduct a study on a data set of 4 common      of freedom in the normal variations by mounting the cylin-
+anisotropic materials measured at high resolution. The read-    der on a precision motor and performing measurements at
+ers should refer to our website for complete fitting results    different tilt angles. In order to account for anisotropy the
+and instructions for raw data access.                           rectangular strips on the cylinder are obtained from a pla-
+                                                                nar sample of the material at different orientations. Together
+   We observe that most isotropic materials under natu-         with the degree of freedom for the light position, we are able
+ral illumination can be represented reasonably well using       to acquire the full 4D BRDF using a large set of two dimen-
+physically-based reflectance models. One of our observa-        sional images. Figure 2 shows an example input image of a
+tions is that constructions based on the mirror-angle poorly    acquired velvet sample.
+model real reflectance. In particular, we emphasize that the
+basis functions of the Lafortune et al. [LFTG97] model are         Cylinder (1D normal variation)
+not a good match to the shape of the primary reflection lobe
+of many materials (Section 4.5).                                   with stripes of the material
+
+   Our study indicates that some anisotropic materials can         at different orientations (1D)
+exhibit a complexity that exceeds the expressive power
+of current parametric BRDF models. We show that the             Precision                  Camera
+microfacet-based BRDF generator proposed by Ashikhmin             motor
+et al. [APS00] provides many more degrees of freedom and
+is able to reproduce these measurements qualitatively. We        Rotation of               Light source path (1D)
+describe an iterative method to estimate the microfacet dis-     cylinder (1D)
+tribution directly from the measured BRDF (Section 5).
+                                                                Light source
+2. Data set and acquisition
+                                                                                Precision
+2.1. Isotropic BRDFs                                                              motor
+
+We use a data set of 100 BRDFs measured with high pre-          Figure 1: Acquisition setup for anisotropic materials. The
+cision acquired by Matusik et al. [MPBM03]. The data set        cylinder tilt, surface normal variation, light position and
+includes metals, plastics, painted surfaces, and fabrics. We    strip orientation each contributes to one degree of freedom
+acknowledge that our data set does not cover the full range     for acquiring the 4D BRDF.
+
+ http://groups.csail.mit.edu/graphics/brdf/                        The sampling density of the light position and cylinder
+                                                                positions can be adjusted easily as they are controlled by
+
+                                                                                           c The Eurographics Association 2005.
+                                      Ngan et al. / Experimental Analysis of BRDF Models
+
+precision motors. The resolution of the acquired BRDF is           We sample the isotropic and anisotropic data with inter-
+mainly limited by the number of material strips mounted on      vals of 1 and 2 degrees respectively, and approximately 85%
+the cylinder. It is difficult to use strips narrower than 1cm   and 25% of the bins are non-empty. The processed data can
+due to the manual procedure of attaching the strips to the      be used directly for fitting by ignoring the empty bins.
+cylinder.
+                                                                3. Methodology
+        Figure 2: Target cylinder covered with velvet.
+                                                                3.1. BRDF models
+2.3. Anisotropic data
+Our anisotropic data set currently includes 4 materials: vel-   We choose seven analytical isotropic models for our anal-
+vet, two satins, and brushed aluminum. The light position       ysis: Ward [War92], Blinn-Phong [Bli77], Cook-Torrance
+is rotated at 2 degrees interval and covers most of the full    [CT81], Lafortune et al. [LFTG97], Ashikhmin-Shirley
+circle. Positions where the light occludes the camera or is     [AS00], He et al. [HTSG91], and a variant of the Ward
+occluded by the cylinder are discarded. The motor driving       model proposed by Duer [Due04], which fixes the normal-
+the cylinder is incremented at an interval of 5 degrees, from   ization of the specular lobe. The formulas for the models
+0 to 180. The strips on the cylinder are cut from a planar      are listed in the supplemental document on our website, and
+sample of the material using a laser cutter to obtain precise   the reader is referred to the original papers for further de-
+orientation. The strip orientation ranges from 0 to 180 de-     tails. These models differ in their degrees of freedom and
+grees spaced at 9 degrees intervals. Combining this with the    goals, ranging from physically-based to ad-hoc models de-
+cylinder rotation provides a full 360 coverage. For each ob-    signed for computation speed. Comparing them is in a sense
+ject/light position combination, we take 8 images with expo-    "unfair," and we only focus on the numerical ability to fit
+sure time from 40 microseconds to 1 second, and combine         measured data.
+them to form a high dynamic range image. The acquisition
+time is about 16 hours for each material and the raw uncom-        To evaluate the performance of the analytical models, we
+pressed data size is 30GB.                                      first restrict them to have only one specular lobe and the dif-
+                                                                fuse contribution to be Lambertian. The shape of the specu-
+2.4. Data processing                                            lar lobe is enforced to be identical across the color channels,
+Each pixel in the input images with non-zero irradiance is      and hence all the BRDF models can be expressed with six
+considered a BRDF sample. We group all the samples into         parameters for the diffuse and specular color, and a variable
+bins uniformly spaced in the 4D angular space defined by        number of parameters for the specular lobe:
+in, out , in, out . We set the BRDF values to the median
+value in each bin.                                              M = (dr, dg, db)di f f use+(sr, sg, sb)specular(p0, p1, ..., pn)
+
+   The isotropic data from Matusik et al. was originally rep-   3.2. Fitting BRDFs
+resented using the Rusinkiewicz parameterization based on
+the half-vector and tabulated non-uniformly to optimize for     A core part of our analysis is to fit measured BRDFs to an-
+rendering quality. To avoid bias due to the choice of param-    alytical models. We apply constrained nonlinear optimiza-
+eterizations and binning intervals, we reprocess the isotropic  tion techniques based on Sequential Quadratic Program-
+data directly from the raw acquired images according to the     ming(SQP) over the specular lobe parameters p0, p1, ..., pn
+same procedure described above.                                 to minimize the error metric described in the next paragraph.
+                                                                The diffuse and specular color (6 parameters) are computed
+                                                                analytically as a sub-procedure based on linear least square.
+                                                                Like any nonlinear optimization, the quality of the fit is de-
+                                                                pendent on a good initial guess. To make sure the optimiza-
+                                                                tion converges to the global minimum, we visually inspect
+                                                                the fitting quality of the result and if necessary restart the
+                                                                optimization from a different set of initial guesses.
+
+                                                                   Our fitting procedure does not take into account knowl-
+                                                                edge about the meaning of physically-based parameters for
+                                                                models such as Cook-Torrance or He et al. While this might
+                                                                result in physically-inconsistent values, it provides the best
+                                                                approximation of the data. Using a constrained optimization
+                                                                is an interesting avenue of future work.
+
+                                                                3.3. Error Metric
+
+                                                                The objective function of the optimization is defined as the
+                                                                mean squared error between the measured BRDF R, and the
+
+c The Eurographics Association 2005.
+        Ngan et al. / Experimental Analysis of BRDF Models
+
+target model M given parameter vector p:                         the BRDF over the outgoing hemisphere, given an incident
+                                                                 direction. We compute the albedos of the BRDF over the
+E(p) =   w[R(i, o)cosi - M(i, o; p)cosi]2  (1)                   range of 0 to 80 degrees incidence, and we use the maxi-
+                               w                                 mum value to normalize the errors plotted in Figure 14. This
+                                                                 normalization allows us to compare the residue errors for
+   The sum is over the non-empty bins of R, i and o are          different materials while discounting the factor of relative
+the incident and outgoing directions respectively, and i is      scale. In certain cases, the absolute error can be more mean-
+the elevation angle of the incident direction. The weight w is   ingful (e.g. darker materials are easier to approximate). The
+the solid angle correction term. We ignore data with incident    absolute errors are reported in the supplementary document
+or outgoing angle larger than 80 degrees as measurements         available on our website.
+close to extreme grazing angles are in general unreliable.
+The metric is essentially a L2 metric over the hemispheres,         We sort the materials according to the errors of the Lafor-
+with part of the domain removed where there is a lack of         tune fits. The errors for the Ashikhmin-Shirley and Ward-
+reliable measurements. The form of this metric allows us to      Duer models are not shown in the figure: the Ashikhmin-
+separate the linear parameters (diffuse/specular color) from     Shirley errors are very close to Cook-Torrance in most cases,
+the main optimization, which greatly improves the efficiency     and the Ward-Duer errors are very close to the original Ward,
+and stability of the fitting routine.                            though consistently lower.
+
+   The cos i term in the metric weighs the BRDF under               Figure 14 shows that He, Cook-Torrance and Ashikhmin-
+the assumption of uniform incoming radiance, and in prac-        Shirley typically have the lowest errors. One factor of their
+tice we observe that the optimal fit with the cosine factor      good performance is probably their explicit modeling of the
+produces renderings which are visually superior to the fit       Fresnel effect. In the case of the He model, the number of
+without it. Lafortune et al. [LFTG97] define the objective       degrees of freedom is also bigger. In contrast Blinn-Phong
+function for fitting as the BRDF difference multiplied by the    and Ward consistently yield higher errors. The errors for the
+cosines of both the incident and outgoing elevation angles.      Lafortune model lie in between for a majority of the mate-
+We find that the additional cosine factor gives results which    rials. To the left end of the plot are mostly diffuse or mildly
+are visually similar to ours.                                    glossy materials like fabrics, rubber and paints, while ma-
+                                                                 terials close to the right end are mostly smooth metals and
+   We have experimented with other fitting metrics based on      highly specular plastics. The normalized errors span several
+the logarithm or cubic root of the BRDF. As the logarithm        order of magnitudes as the shape of the BRDF is vastly dif-
+behaves badly near zero, it imposes an arbitrary choice of       ferent for the wide spectrum of materials.
+scaling the BRDF, and in practice it is difficult to make a
+single choice that consistently performs well for all materi-    Figure 3: Fitting the measured "green-metallic-paint"
+als. For the metric based on the cubic-root, the best-fit BRDF   BRDF with the seven models. Clockwise from upper left:
+often result in renderings with highlights that are too blurry   Measured, Ward, Ward-Duer, Blinn-Phong, He, Ashikhmin-
+compared to the measured data.                                   Shirley, Cook-Torrance, Lafortune.
+
+   It is clear that choosing an appropriate metric for fitting
+BRDF is difficult, and our choice of the direct L2 metric is
+based on two reasons: i) it provides plausible fits in the ren-
+dered images for most materials in our data set, ii) the linear
+nature of the metric makes the minimization lower dimen-
+sional and more stable. We should emphasize that the best fit
+according to our metric might not always correspond to the
+best visual match, which is highly dependent on scene ge-
+ometry/illumination. Developing a perceptually-based met-
+ric which is simple and stable for optimization would be in-
+teresting direction for future work.
+
+4. Isotropic material analysis                                      One example fit, to the measurement "green-metallic-
+                                                                 paint" is shown in Figure 3 with spheres rendered under an
+4.1. Fitting quality of the models                               environment map. The polar plots in the incidence plane for
+                                                                 three models are also shown in Figure 4. The relative quality
+We fit the isotropic data set of 100 materials to the seven      of the fits from the different models for this material is typ-
+models listed in the previous section. The fitting errors of 5   ical of the data set. The Ward, Ward-Duer and Blinn-Phong
+of the models are plotted in Figure 14. The errors are nor-      images are all noticeably different from the original data.
+malized by the maximum albedo of each BRDF and plotted           The highlights near the center of the sphere are significantly
+in logarithmic scale. The albedo is computed by integrating
+                                                                                                                              c The Eurographics Association 2005.
+               Ngan et al. / Experimental Analysis of BRDF Models
+
+Ward                                                                                                                                                          2
+Cook-Torrance                                                                                                                                                             Cook-Torrance 1
+
+                                                                                                                                                                 Cook-Torrance 2
+
+                                                                                                                                                              1  Lafortune 1
+
+                                                                                                                                                                 Lafortune 2
+
+                                                                                                                                                              0
+
+                                                                                                                                        log (Err/Max Albedo)-1
+
+                                                                                                                                      -2   10
+
+Lafortune
+                                                                                                                                      -3
+
+                                                                                                                                                            -4
+
+                                                                                                                                                                 5            10           15        20  25  30
+
+                                                                                                                                                                                           Material
+
+Figure 4: Polar plots of the measured "green-metallic-paint"      Figure 5: The fitting errors (logarithmic scale) with one/two
+in the incidence plane compared to the fits from the Ward,        lobes of the Cook-Torrance and the Lafortune models.
+Cook-Torrance and Lafortune models. Cubic root applied.
+
+brighter than the original, and near grazing angle the high-      cosine lobes [LFTG97] serve as basis functions for repre-
+lights are much less pronounced. Of the three models, Ward-       senting BRDFs and thus multiple lobes are expected in gen-
+Duer has the strongest highlight near grazing angle, but it is    eral. We fit the data set with the two lobes version of both
+still noticeably dimmer than the measured data. The images        the Cook-Torrance and Lafortune models. In 26 cases for
+from the Ashikhmin-Shirley, Cook-Torrance and He fits are         Cook-Torrance and 31 cases for Lafortune, the extra lobe re-
+very similar to each other and are mostly faithful to the di-     duces the error by more than 25%. These typically include
+rect rendering. The Lafortune fit shows an abrupt increase in     materials that have multiple layers of finishing (e.g. metallic
+intensity near grazing angle, however values closer to nor-       paints) and also some brushed metals. The fitting errors with
+mal incidence are too low. In addition, the highlight is ex-      the Cook-Torrance and the Lafortune models with one and
+cessively blurred along the circumference of the sphere, an       two lobes for the 30 most improved materials are shown in
+effect that we will look into in Section 4.5.                     Figure 5. Figure 6 shows the comparison of the one and two
+                                                                  lobes fit to the nickel sample.
+   With a broader view over the entire data set, we find that
+physically-based models like Cook-Torrance and He often              Lafortune et al. [LFTG97] employed three lobes for the
+produce the best fits. The He model, which is known to be         example materials. However, we found that in practice, fit-
+the most comprehensive BRDF model, does not produce no-           ting with three lobes is very unstable, and hence in the cur-
+ticeably superior visual results to the Cook-Torrance model.      rent version we omit results from the three-lobe Lafortune
+However, it should be noted that our measurement and anal-        model. Qualitatively, we believe the addition of a third lobe
+ysis ignore polarization and spectral dependence, two impor-      would only offer marginal improvements to the shape mis-
+tant aspects modeled by He. The Lafortune model, without          match of the main lobe.
+an explicit Fresnel factor, yields reasonable fits for materials
+that do not show significant intensity increase near grazing      4.3. Evaluation of different microfacet distributions
+angle. In addition, glossy materials are not good candidates
+for the Lafortune model due to the anisotropic blurriness         There are three common choices of the shape of the specular
+near grazing angle. The Blinn-Phong and Ward model both           lobe: Gaussian, cosine power, and the Beckmann distribu-
+have near constant reflection power independent of incident       tion function. Our study shows that the fitting quality of the
+angle, and thus they are only suitable to a subclass of the       Cook-Torrance model with the three different formulations
+materials, including some metals and plastics. The Duer ver-      are nearly identical both numerically and visually.
+sion of the Ward model with increased strength near grazing
+improves the fitting performance, however the improvement         4.4. Fresnel effect
+is limited as the grazing angle increase is not controllable.
+                                                                  To study the importance of the Fresnel effect, we compare
+4.2. Multiple lobes                                               the fit quality of the Cook-Torrance model with and without
+                                                                  the standard Fresnel term, and also with the Schlick [Sch94]
+Cook and Torrance [CT81] suggest that two or more spec-           approximation. While the errors without the Fresnel term are
+ular lobes are necessary to model surfaces where there are        significantly higher (20% on average), the Schlick approx-
+multiple scales of roughness. Lafortune et al's generalized       imation does not introduce further errors compared to the
+                                                                  original formulation.
+ c The Eurographics Association 2005.
+Ngan et al. / Experimental Analysis of BRDF Models
+
+Figure 6: Fitting the measured BRDF "nickel" with the multi-lobe Cook-Torrance and Lafortune models. Left to Right: Input,
+Cook-Torrance 1 lobe, Cook-Torrance 2 lobes, Lafortune 1 lobe, Lafortune 2 lobes.
+
+4.5. Shape of the specular lobe                                                                                           H
+                                                                                                                    N
+Our fitting results highlight the profound difference between                                      L
+two popular formulations of the specular lobe and their ef-
+fects at near grazing angles. Most previous discussions of                                                                               VH
+the behavior of reflectance when the incident angle moves                                                                             R
+toward grazing have focused on the increase in intensity of
+the reflection. As such, BRDF models are often only com-             Figure 7: The V · R lobe compared with the H · N lobe
+pared to measurements in the incidence plane. We find that           remapped to the outgoing directions.
+the shape of the lobe also has important implications. The
+mirror angle construction employed by models like Phong              L. The blue circle around the normal N denotes the cone of
+and Lafortune, results in excessively blurry reflections near        directions where the dot product with N is constant. One of
+grazing angle. While the shape difference between these two          the half-vectors H in this set is shown. We can map H to
+lobe constructions is known to BRDF specialists, we believe          its corresponding outgoing direction VH , following a great
+it is important to restate it in the context of experimental         circle on the sphere of directions. This can be done for the
+evaluation, so that practitioners understand the tradeoff in         entire set of half-vectors in the blue circle, and we show the
+models such as Lafortune that sacrifice lobe shape for com-          corresponding set of outgoing directions in green around the
+putation speed.                                                      mirror vector R. Comparing it to the red circle, representing
+                                                                     the cone of directions V with constant V · R, the remapped
+   In the original Phong model [Pho75], the specular lobe is         contour is asymmetric and is narrower in the direction per-
+defined around the mirror direction symmetrically (V · R). In        pendicular to the incident plane. By similar construction, we
+the Blinn variation of the Phong model and most microfacet-          can visualize that this contour is more circular when L is
+based models, the specular lobe is expressed with respect to         near N, and becomes narrower when L moves towards graz-
+the half vector H and the normal N, where H is the average           ing angle. The V · R lobe is, however, always circular around
+vector between the incident and outgoing vector. The Lafor-          the mirror direction R.
+tune model, on the other hand, employs a generalized cosine
+lobe similar to the original Phong lobe. While the general-             A plot of the measured BRDF of PVC plastic at 55 inci-
+ized dot product gives flexibility in specifying the principal       dent angle is shown in Figure 8. It displays a similar asym-
+reflection direction, the lobe remains symmetric around the          metry to the remapped contour associated with the H · N
+main reflection direction. Hence, the Lafortune lobe is sim-         lobe. This asymmetry is observed in the data set for most
+ilar to the V · R lobe where R can be seen as a generalized          materials with an apparent specular lobe. Such behavior can
+mirror direction.                                                    be explained by the microfacet theory, e.g. [CT81]. The the-
+                                                                     ory models the surface as a collection of microfacets, with
+   Since all analytical models we have considered are func-          normals oriented according to some distribution function.
+tions of either H · N or V · R, we focus the rest of our dis-        Assuming that the microfacets are perfect mirrors, the re-
+cussion on isocontours of these dot products in the space of         flectance from L to V is then proportional to the fraction
+directions. We illustrate the difference between the two rep-
+resentations in Figure 7. Consider a given incident direction                                                                     c The Eurographics Association 2005.
+
+ The generalized cosine lobe:
+
+   fr(u, v) = sCs(u)[u · v]n, u = normalize(Cxux,Cyuy,Czuz) (2)
+
+where u and v are the incident and outgoing angle respectively, and
+Cs(u) is a scalar factor independent of v.
+                                              Ngan et al. / Experimental Analysis of BRDF Models
+
+                      N                       N                 BRDF of three variables. They went on to introduce a new
+R                                                          L    set of 2D coordinates which can be considered as a hy-
+                                                                brid of the two families of parameterization. They showed
+                                      L                         that their parameterization produces superior approximation
+                                                                to two measured materials when the BRDFs are projected
+                                           R                    onto the 2D domain. Further investigating the performance
+                                                                of Stark et al.'s proposed model and variants based on the
+Figure 8: Side and top-down view of the measured "PVC"          hybrid parameterization would be an interesting avenue for
+BRDF, at 55 incidence. (Cubic root is applied to the BRDF       future work.
+for visualization.) Its specular lobe exhibits a similar asym-
+metry to the H · N lobe.                                        5. Anisotropic material analysis
+                                                                In this section we describe our first step in analyzing
+of microfacets with normals aligned with the half-vector H,     anisotropic reflectance models and how they are able to rep-
+with some adjustments for shadowing and masking. Thus,          resent measured anisotropic materials. As described in Sec-
+the reflectance function for a microfacet model is naturally    tion 2.2, we have acquired high resolution samples for four
+defined with respect to H. For isotropic models, the distri-    different highly anisotropic materials.
+bution of normals is radially symmetric; therefore, a cone
+of half-vector H around N should have constant reflectance      Figure 9: Brushed Aluminum: One measurement photo-
+value if the shadowing and masking terms are not consid-        graph (upper left), reconstruction using Ward model (x =
+ered. Hence, it is reasonable to define reflectance as a func-  0.04, y = 0.135) (upper right), reconstruction using Poulin-
+tion of H · N under this theory. On the contrary, the V · R     Fournier model (n = 3000, d = 0.18, h = 0.5)(lower left),
+contour is not consistent with any distribution of normals, as  reconstruction using Ashikhmin model with sampled micro-
+a circular cone of vectors around different Rs with the same    facet distribution (lower right).
+spread would map to a different set of half-vectors around
+N.                                                                 In our data set two materials (brushed aluminum and yel-
+                                                                low satin) are suitable for analytic modeling. We fit two dif-
+   The difference between the two formulations explains the     ferent anisotropic analytic models to these measurements
+anisotropic blurring for the Lafortune fits in Figure 6 and     ­ anisotropic Ward and Poulin-Fournier models, using the
+Figure 3. Compared to a half-vector based lobe, the sym-        same fitting procedure as for the isotropic materials. We
+metric mirror lobe does not get narrow at grazing angles,       present the visual comparison of the fit for the brushed alu-
+resulting in blurring in the direction orthogonal to the inci-  minum to the original measurements in Figure 9. As can be
+dent plane, which is along the circumference for the case of    seen, these models can qualitatively represent brushed alu-
+a sphere.                                                       minum relatively faithfully. The yellow satin (not shown) has
+                                                                blurrier highlights, but the anisotropy is qualitatively similar
+   We have shown that the H · N representation is a more        to the brushed aluminum. As a result it can also be modeled
+accurate way to model specular reflections. This is in strong   reasonably well with the analytical models.
+opposition to some beliefs that the half-vector representation
+is just a more convenient way of interpreting the specular
+lobe. We believe this has been overlooked in the past mainly
+due to the fact that the two representations are trivially re-
+lated in the incidence plane.
+
+   Note that this observation is different from the popular
+re-parameterization proposed by Rusinkiewicz [Rus98] that
+also emphasizes the importance of the half vector. In his
+work, he shows that the parameterization based on half-
+angle is a more compact representation in the context of
+compression, compared to the standard BRDF parameteri-
+zation based on the incident and outgoing directions. In our
+work, we compare the shape of the reflection lobe defined
+by the half vector to the one defined by the mirror direction.
+
+   Stark et al. [SAS05] show that Ward and Lafortune can
+both be mathematically reduced to bivariate functions, and
+thus they are inherently unable to represent general isotropic
+
+c The Eurographics Association 2005.
+                 Ngan et al. / Experimental Analysis of BRDF Models
+
+5.1. More Complex Anisotropy                                      well-preserved, although their sharpness is not reproduced
+                                                                  exactly.
+Some fabrics that exhibit anisotropic reflectance properties
+can have much more complicated micro-geometry since the           Figure 10: Left: Purple satin - one input photograph. Right:
+way threads are woven together can be potentially much            - reconstruction using sampled microfacet distribution.
+more complex than the simple structure of a brushed metal.
+We observe that the BRDFs of the purple satin and red velvet         The computed microfacet distributions also match the mi-
+far exceed the expressive power of simple analytical models       crostructure of the materials. Compare the spherical plot of
+(e.g., the purple satin sample in Figure 10 shows two off-        the microfacet density in Figure 11 with a macro photo-
+specular peaks). This is why we turn to the microfacet-based      graph of the corresponding sample of brushed aluminum.
+BRDF generator presented by Ashikhmin et al. [APS00]              The density is high around a vertical great circle, which is the
+since it offers many more degrees of freedom by replac-           type of normal distribution expected from cylindrical micro-
+ing the analytical expression for the microfacet distribution     geometry.
+by an arbitrary tabulated representation. In their paper, it is
+shown how to compute a BRDF given a microfacet distri-
+bution. In order to use their model to approximate our mea-
+sured data, we need to solve the inverse problem and esti-
+mate the microfacet distribution from the BRDF.
+
+Computing a microfacet distribution from a BRDF We
+first recall the expression for the Ashikhmin et al. model:
+
+(k1, k2)  =  p(h) h · n F(k · h)                 (3)
+                4g(k1)g(k2)
+
+where p(h) is the microfacet distribution; g(k1) and g(k2)
+are shadowing and masking terms; F(kh) is the Fresnel
+term; and denotes the average over the distribution p.
+
+We can rewrite Equation 3 in the following way:
+
+p(h) = (k1, k2)  4g(k1)g(k2)                     (4)
+                 h · n F(k · h)
+
+   If we ignore shadowing and masking, the BRDF is pro-           Figure 11: Left: Brushed aluminium macro photograph.
+portional to the microfacet distribution. We can then obtain      Right: deduced microfacet distribution (log plot).
+a least-squares fit by averaging the estimate of p(h) for all
+the pairs k1, k2 corresponding to the same h. In practice,        Figure 12: Left: Purple satin macro photograph with
+we guess the Fresnel term through trial and error; however,       sketched double cones. Right: deduced microfacet distribu-
+the Fresnel term can be also computed through optimization        tion (log plot).
+in the outermost loop.
+                                                                     The purple satin sample has an intriguing distribution: a
+   The main difficulty, however, is the shadowing/masking         large density around two great circles that are symmetri-
+function g which depends on the distribution p(h) itself.         cally slightly tilted from the vertical direction (Figure 12).
+Fortunately, we observe that g is extremely smooth [APS00]        This type of distribution can be caused by symmetric cone
+and we have found that an iterative approach works very           pairs. When we examine the macro photograph (Figure 12)
+well. We start with a constant g, and we alternate the esti-      we note that the longest visible segments of thread are high
+mation of p(h) using the current g and the computation of g
+from p(h). In practice, about five or less iterations are suffi-
+cient.
+
+Observation on measured data We have used the above
+method to compute a microfacet distribution for our four
+measurements of anisotropic materials. Figure 9 and Fig-
+ure 10 show comparisons between photographs of the mea-
+surement cylinder and renderings using the estimated micro-
+facet distribution and the Ashikhmin et al. microfacet-based
+BRDF model. The renderings show good qualitative agree-
+ment with the photographs and the shape of the highlights is
+
+                                                                     c The Eurographics Association 2005.
+                                      Ngan et al. / Experimental Analysis of BRDF Models
+
+in their middle and have a symmetrical slope that might be           We have also built a new setup for high resolution mea-
+similar to a cone, as sketched on the right part of the image.    surement of anisotropic BRDFs using material strips on a
+                                                                  rotating cylinder. We have used it to measure four typi-
+Figure 13: Left: Red velvet macro photograph. Right: de-          cal anisotropic materials and have shown that only two of
+duced microfacet distribution (log plot).                         them can be modeled by parametric models. Our fabric mea-
+                                                                  surements exhibit a complexity that cannot be accounted
+   The red velvet sample exhibits a secondary lobe in ad-         for by the elliptical functions used to introduce anisotropy
+dition to the main lobe around the normal. This is mainly         in these models. Furthermore, we have shown how to es-
+due to the dominant combing direction of the velvet sam-          timate a tabulated microfacet distribution from these mea-
+ple. This shows an important type of anisotropy that cannot       surements, which yields good results with Ashikhmin et al.'s
+be modeled by the standard analytical models. We should           microfacet-based BRDF generator. This model draws its ex-
+also note that we are lacking measurements near extreme           pressive power from a general representation of microfacet
+grazing angles, and therefore we may have missed impor-           distributions.
+tant reflectance properties of the velvet in those directions.
+In addition, it is difficult to enforce the exact combing direc-     There are several directions for future work. First, we ex-
+tion uniformly on the entire piece of velvet. Small deviations    pect that a new set of basis functions, similar to the gen-
+can be tolerated, however, as the average BRDF of velvet is       eralized cosine lobes, but expressed with the half-vector,
+relatively low-frequency.                                         would yield improved fitting results with fewer number of
+                                                                  lobes. Stark et al. [SAS05]'s barycentric coordinates are
+6. Discussion                                                     also possible candidates. These basis functions should be
+In this work we have analyzed the performance of several          reasonably inexpensive to compute and be flexible enough
+analytical BRDF models by their ability to fit real BRDFs.        to represent complex reflectance phenomena, e.g., retro-
+Our experimental results suggest that using a single specu-       reflection. Second, while our metric for BRDF fitting gives
+lar lobe, the Cook-Torrance, Ashikhmin-Shirley and the He         reasonable results in most cases, it does not directly corre-
+models perform well for most of the 100 isotropic BRDFs           spond to perceptually important differences. A perceptually-
+in the data set. Moreover, our results show that for a num-       based metric would improve the visual quality of the fits
+ber of materials, the fit quality is much improved when an        [PFG00, RWP95], especially when the fit is relatively poor
+additional lobe is employed. This is mostly attributed to the     and different choices of approximation tradeoffs are present.
+multiple layer finish on these materials.
+                                                                     This paper has also highlighted that anisotropic materials
+   Our study also illustrates that the difference between the     are difficult to model and acquire, and that much research
+two ways of modeling the specular lobes is profound. The          effort is needed to improve the state of the art. The tabulated
+H · N formulation naturally corresponds to the microfacet-        representation of microfacets is powerful but it requires high
+based theory, and its viability is confirmed by the data set.     resolution measurements. In addition, it is not easy for an
+Meanwhile, models based on the V · R lobes are visually           artist to edit these distributions. While the recovered distri-
+inaccurate in a rendered scene. The fitting results of these      butions are more complex than elliptical shapes, they exhibit
+models are systematically inferior to their counterparts. The     enough smoothness to leave hope for expressive and easy-
+Lafortune model, though highly expressive with its ba-            to-manipulate parametric models. Finally, it is our belief that
+sis of generalized cosine lobes, cannot accurately model          the most critical issue in reproducing real material is the ac-
+real BRDFs with a single lobe. While the computation for          quisition itself. Our setup has allowed us to measure high
+each generalized cosine lobe is cheaper relative to a Cook-       quality BRDFs, but it occupies an entire room and it takes
+Torrance lobe, fitting more than a few of these lobes to mea-     several hours to acquire one BRDF. We believe that the de-
+sured data is unstable.                                           velopment of a portable and easy-to-use reflectance scanner
+                                                                  is a major challenge.
+
+                                                                  Acknowledgement We thank Eric Chan, Jan Kautz, Jaakko
+                                                                  Lehtinen, Daniel Vlasic and the anonymous reviewers for
+                                                                  valuable feedback on this paper. This work was supported by
+                                                                  an NSF CAREER award 0447561 Transient Signal Process-
+                                                                  ing for Realistic Imagery, an NSF CISE Research Infrastruc-
+                                                                  ture Award (EIA9802220) and the Singapore-MIT Alliance.
+
+                                                                  References
+
+                                                                  [APS00] ASHIKMIN M., PREMOZE S., SHIRLEY P.: A
+                                                                     microfacet-based BRDF generator. In Proc. of SIGGRAPH 2000
+                                                                     (2000), ACM Press/Addison-Wesley Publishing Co. 2, 8
+
+c The Eurographics Association 2005.
+                      Ngan et al. / Experimental Analysis of BRDF Models
+
+[AS00] ASHIKHMIN M., SHIRLEY P.: An anisotropic phong brdf            [MPBM03] MATUSIK W., PFISTER H., BRAND M., MCMIL-
+   model. J. Graph. Tools 5, 2 (2000), 25­32. 3                          LAN L.: A data-driven reflectance model. ACM Trans. Graph.
+                                                                         22, 3 (2003), 759­769. 1, 2
+[Bli77] BLINN J. F.: Models of light reflection for computer syn-
+   thesized pictures. In Proceedings of SIGGRAPH 1977 (1977),         [MRC86] MEYER G. W., RUSHMEIER H. E., COHEN M. F.,
+   ACM Press, pp. 192­198. 3                                             GREENBERG D. P., TORRANCE K. E.: An experimental eval-
+                                                                         uation of computer graphics imagery. ACM Trans. Graph. 5, 1
+[Bor03] BORSHUKOV G.: Measured BRDF in film production-                  (1986), 30­50. 1
+   Realistic cloth appearance for "The Matrix Reloaded". SIG-
+   GRAPH 2003 Sketches and Applications Program (2003). 2             [MWL99] MARSCHNER S., WESTIN S., LAFORTUNE E.,
+                                                                         TORRANCE K., GREENBERG D.: Image-based BRDF measure-
+[Cor] Cornell  Light  Measurement  Laboratory:                           ment including human skin. In Rendering Techniques '99 (1999),
+                                                                         pp. 139­152. 1, 2
+http://www.graphics.cornell.edu/research/measure/. 1
+                                                                      [Nis] NIST reference reflectometer: STARR facility.
+[CT81] COOK R. L., TORRANCE K. E.: A reflectance model for               http://physics.nist.gov/. 1
+   computer graphics. In Proceedings of SIGGRAPH 1981 (1981),
+   ACM Press, pp. 307­316. 1, 3, 5, 6                                 [ON94] OREN M., NAYAR S. K.: Generalization of lambert's
+                                                                         reflectance model. In Proc. of SIGGRAPH 1994 (1994), ACM
+[DNGK97] DANA K. J., NAYAR S. K., GINNEKEN B. V.,                        Press, pp. 239­246. 2
+   KOENDERINK J. J.: Reflectance and texture of real-world sur-
+   faces. In Proceedings of the 1997 Conference on Computer Vi-       [PFG00] PELLACINI F., FERWERDA J. A., GREENBERG D. P.:
+   sion and Pattern Recognition (CVPR '97) (1997), IEEE Com-             Toward a psychophysically-based light reflection model for im-
+   puter Society, p. 151. 2                                              age synthesis. In Proc. of SIGGRAPH 2000 (2000), ACM
+                                                                         Press/Addison-Wesley Publishing Co., pp. 55­64. 9
+[Due04] DUER A.: On the Ward model for global illumination.
+   Submitted for review, Sept. 2004. 3                                [Pho75] PHONG B. T.: Illumination for computer generated pic-
+                                                                         tures. Communications of ACM 18, 6 (1975), 311­317. 6
+[DvGNK99] DANA K. J., VAN GINNEKEN B., NAYAR S. K.,
+   KOENDERINK J. J.: Reflectance and texture of real-world sur-       [Rus98] RUSINKIEWICZ S. M.: New change of variables for
+   faces. ACM Trans. Graph. 18, 1 (1999). 1                              efficient BRDF representation. In Rendering Techniques '98
+                                                                         (1998), Drettakis G., Max N., (Eds.), Eurographics, Springer-
+[FGR93] FOURNIER A., GUNAWAN A. S., ROMANZIN C.:                         Verlag Wien New York, pp. 11­22. 7
+   Common illumination between real and computer generated
+   scenes. In Graphics Interface '93 (May 1993). 1                    [RWP95] RUSHMEIER H., WARD G., PIATKO C., SANDERS
+                                                                         P., RUST B.: Comparing real and synthetic images: Some
+[HP03] HAN J. Y., PERLIN K.: Measuring bidirectional tex-                ideas about metrics. In Eurographics Rendering Workshop 1995
+   ture reflectance with a kaleidoscope. ACM Trans. Graph. 22,           (1995). 1, 9
+   3 (2003), 741­748. 1
+                                                                      [SAS05] STARK M. M., ARVO J., SMITS B.: Barycentric pa-
+[HTSG91] HE X. D., TORRANCE K. E., SILLION F. X.,                        rameterizations for isotropic brdfs. IEEE Transactions on Visu-
+   GREENBERG D. P.: A comprehensive physical model for light             alization and Computer Graphics 11, 2 (2005), 126­138. 7, 9
+   reflection. In Proceedings of SIGGRAPH 1991 (1991), ACM
+   Press, pp. 175­186. 1, 3                                           [Sch94] SCHLICK C.: An inexpensive BRDF model for
+                                                                         physically-based rendering. Computer Graphics Forum 13, 3
+[KBMK01] KOUDELKA M., BELHUMEUR P., MAGDA S.,                            (1994), 233­246. 5
+   KRIEGMAN D.: Image-based modeling and rendering of sur-
+   faces with arbitrary BRDFs. In Proc. of Computer Vision and        [SHSL97] SHIRLEY P., HU H., SMITS B., LAFORTUNE E.: A
+   Pattern Recognition (2001). 1                                         practitioners' assessment of light reflection models. In Proceed-
+                                                                         ings of Pacific Graphics 97 (1997). 1
+[KvDS96] KOENDERINK J. J., VAN DOORN A. J., STAVRIDI
+   M.: Bidirectional reflection distribution function expressed in    [SSK03] SATTLER M., SARLETTE R., KLEIN R.: Efficient and
+   terms of surface scattering modes. In Proc. of the 4th European       realistic visualization of cloth. In Proceedings of the 14th Euro-
+   Conference on Computer Vision-Volume II (1996), Springer-             graphics workshop on Rendering (2003), Eurographics Associa-
+   Verlag, pp. 28­39. 2                                                  tion, pp. 167­177. 1
+
+[LFTG97] LAFORTUNE E. P. F., FOO S.-C., TORRANCE K. E.,               [SWI97] SATO Y., WHEELER M. D., IKEUCHI K.: Object shape
+   GREENBERG D. P.: Non-linear approximation of reflectance              and reflectance modeling from observation. In Proc. of SIG-
+   functions. In Proc. of SIGGRAPH 1997 (1997), ACM                      GRAPH 1997 (1997), ACM Press/Addison-Wesley Publishing
+   Press/Addison-Wesley Publishing Co., pp. 117­126. 2, 3, 4, 5          Co., pp. 379­387. 1
+
+[LKG01] LENSCH H. P. A., KAUTZ J., GOESELE M., HEI-                   [War92] WARD G.: Measuring and modeling anisotropic reflec-
+   DRICH W., SEIDEL H.-P.: Image-based reconstruction of spa-            tion. In Proc. of SIGGRAPH 1992 (1992), ACM Press. 1, 3
+   tially varying materials. In Rendering Techniques 2001: 12th Eu-
+   rographics Workshop on Rendering (June 2001), pp. 103­114. 1       [YDMH99] YU Y., DEBEVEC P., MALIK J., HAWKINS T.: In-
+                                                                         verse global illumination: recovering reflectance models of real
+[LKK00] LU R., KAPPERS A., KOENDERINK J.: Optical prop-                  scenes from photographs. In Proc. of SIGGRAPH 1999 (1999),
+   erties (Bidirectional Reflectance Distribution Functions) of shot     ACM Press/Addison-Wesley Publishing Co. 1
+   fabric. Applied Optics 39, 31 (Nov. 2000), 5785­5795. 2
+
+[Mar98] MARSCHNER S.: Inverse Rendering for Computer
+   Graphics. PhD thesis, Cornell University, 1998. 1
+
+                                                                          c The Eurographics Association 2005.
+                                              Ngan et al. / Experimental Analysis of BRDF Models
+
+                           He
+
+                           Cook-Torrance
+
+                           Lafortune
+
+                     0.5   Ward
+
+                           Blinn-Phong
+
+                     0
+
+log(Err/Max Albedo)  -0.5
+
+                     -1
+
+                     -1.5
+
+                     -2
+
+                           10             20  30  40  50        60                                70  80  90  100
+
+                                                      Material
+
+Figure 14: The normalized fitting errors (logarithmic scale) of five analytic models to our isotropic data set of 100 BRDFs. The
+BRDFs are sorted in the errors of the Lafortune model (Red) for visualization purpose.
+
+c The Eurographics Association 2005.
+

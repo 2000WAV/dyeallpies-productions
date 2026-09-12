@@ -1,0 +1,1011 @@
+Apple iPhone 14 Image Sensor - Apple iPhone 14 Pro and Pro Max Cameras | TechInsights
+ 
+
+ 
+
+ tag -->
+ 
+
+ 
+ 
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-MFT49D5XY1');
+ 
+
+ 
+
+ Skip to main content
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ TechInsights
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ User account menu
+Insights 
+ 
+ 
+ 
+ 
+ 
+ 
+ Technologies 
+Topics 
+Who We Serve 
+Capabilities 
+Experts 
+Case Studies 
+Strategic Technology Intelligence
+Leverage competitive technical and market intelligence to drive innovation and make informed, strategic product roadmap decisions
+Automotive
+Cloud, Collaboration &amp; Data Center Intelligence
+Compute
+Connectivity
+Manufacturing
+Materials
+Packaging
+Power
+Sensors
+Storage
+Teardown
+Key Industry Topics
+Examine the fundamental topics influencing semiconductor innovation and strategic market decisions.
+Sustainability
+Artificial Intelligence
+Chinese Developments
+Chiplets
+Tariffs
+Empowering Semiconductor Innovation with Insight, Tools, and Industry Connections
+TechInsights empowers semiconductor and electronics leaders with deep technical analysis, tools, exclusive events, and industry connections—built to support R&amp;D, product strategy, and competitive insight.
+Engineering Professionals
+Strategy Professionals
+Finance Professionals
+Procurement and Supply Chain Professionals
+Product Development and Management Professionals
+Sales and Marketing Professionals
+Sustainability Professionals
+TechInsights Capabilities
+Review how TechInsights supports the Semiconductor Industry with Technical to Market Analysis to help drive innovation, target markets, and mange cost and risk.
+Reverse Engineering
+Product Teardown
+Market Intelligence
+Cost Analysis
+Regulatory Understanding
+IP Services
+Our Experts
+Check out the TechInsights experts that support customers. Detailed technical and market analysis with decades of experience drive innovation for the semidoncutor industry.
+Sustainability
+Reverse Engineering
+Market Analysis
+Advisory
+Spend Insights
+Products 
+ 
+ 
+ 
+ 
+ 
+ 
+ Capital Equipment 
+Fabless Semiconductor 
+Foundry 
+Integrated Device Manufacturer 
+Product Manufacturer 
+Government 
+Automotive 
+Mobile Carriers 
+Capital Equipment Semiconductor Products 
+Power your roadmap with predictive insights from TechInsights and uncover what leading semiconductor players are doing next to help you stay ahead of the curve.
+Key Features:
+Capital Equipment R&amp;D
+Capital Equipment Sub-Systems and Components
+Capital Equipment and Manufacturing Markets
+Capital Equipment and Manufacturing Strategies
+Capital Equipment IR Strategies
+Capital Equipment Sales Strategies
+Capital Equipment Sustainability
+Fabless Semiconductor Products 
+TechInsights delivers critical insights that empower fabless semiconductor companies to optimize chip design, outpace competitors, and lead with innovation.
+Advanced Packaging
+High Performance Computing
+Cloud, Collaboration &amp; Data Center Intelligence
+EcoInsights
+Automotive
+Connected Computing
+Connected/Smart Home
+Executive Insights
+Sensors
+Compute
+Manufacturing Analysis
+IoT Connectivity SoC
+Storage
+Mobile RF
+Power Semiconductors
+Smartphones, Tablets, Wearables
+Materials
+Foundry Semiconductor Products 
+Maximize foundry performance with TechInsights’ deep analysis and strategic intelligence—empowering sharper decisions and a competitive edge at every step of production.
+Advanced Packaging
+EcoInsights
+Automotive
+Cloud, Collaboration &amp; Data Center Intelligence
+Consumer Electronics
+Sensors
+IoT Connectivity SoC
+Compute
+Manufacturing Analysis
+Storage
+Mobile RF
+Power Semiconductors
+Smartphones, Tablets, Wearables
+Executive Insights
+Materials
+Integrated Device Manufacturer Products 
+TechInsights equips Integrated Device Manufacturers with unmatched semiconductor intelligence and strategic analysis to accelerate innovation, outperform rivals, and deliver market-leading products.
+Advanced Packaging
+Mobile RF
+Cloud, Collaboration &amp; Data Center Intelligence
+High Performance Computing
+Automotive
+Connected Computing
+Consumer Electronics
+Executive Insights
+Sensors
+IoT Connectivity SoC
+Compute
+Manufacturing Analysis
+Storage
+Power Semiconductors
+Smartphones, Tablets, Wearables
+Materials
+Product Manufacturer Products 
+Elevate your Product Manufacturer's performance with cutting-edge insights and strategic analysis.
+Advanced Packaging
+Cloud, Collaboration &amp; Data Center Intelligence
+Connected Computing
+Connected/Smart Home
+Executive Insights
+Sensors
+IoT Connectivity SoC
+Compute
+EcoInsights
+Manufacturing Analysis
+Storage
+Power Semiconductors
+Procurement
+Smartphones
+Smartphones, Tablets, Wearables
+Consumer Electronics
+Government Products 
+TechInsights provides unparalleled analysis of semiconductor technologies, supply chains, and intellectual property to support national security, regulatory compliance, and policy development.
+Cloud, Collaboration &amp; Data Center Intelligence
+Compliance and Supply Chain Monitor
+Request a Demo 
+Contact Sales 
+Automotive Products 
+TechInsights equips you with the insights you need to successfully navigate the automotive semiconductor market.
+Executive Insights
+Market Opportunity
+Module Innovation
+Procurement
+Semiconductor Innovation
+Supply Chain
+Mobile Carrier Products 
+TechInsights’ Mobile Carriers product delivers in-depth analysis and data-driven insights into the strategies of global mobile network operators.
+Advanced Packaging
+Cloud, Collaboration &amp; Data Center Intelligence
+Consumer Electronics
+IoT Connectivity SoC
+Compute
+Mobile RF
+Smartphones
+Smartphones, Tablets, and Wearables
+Executive Insights
+Resources 
+ 
+ 
+ 
+ 
+ 
+ 
+ Blogs
+Webinars
+Events
+Featured Reports
+Podcast
+Our Experts
+Case Studies
+Latest Releases
+
+Apple iPhone 18 Memory Costs: Rising DRAM and NAND Prices Add Pressure
+
+Webinar - Memory Executive Fireside Chat
+2026 CMC Seminar in Singapore
+
+Register Today
+1-day materials supply-chain forum, bringing together industry leaders and experts to explore the latest trends, challenges, and opportunities across local and global materials supply chains.
+Company 
+ 
+ About Us
+Investments
+Careers
+Community Involvement
+Contact Us
+Careers
+
+/* header */
+
+.mobile-menu-body {
+ display: none; /* Hide by default */
+}
+@media (max-width: 767px) {
+ .mobile-menu-body {
+ display: block; /* Show on mobile */
+ }
+}
+
+.header .item-left{
+ flex:0 0 17%;
+}
+.header .logo a{
+ font-size: 30px;
+ color:#000000;
+ 
+ text-decoration: none;
+}
+.header .item-center{
+ flex:0 0 100%;
+}
+.header .item-right{
+ flex:0 0 17%;
+ display: flex;
+ justify-content: flex-end;
+}
+.header .item-right a{ 
+ text-decoration: none;
+ font-size: 16px;
+ color:#555555;
+ display: inline-block;
+ margin-left: 10px;
+ transition: color 0.3s ease;
+}
+.header .menu > ul > li{
+ display: inline-block;
+ line-height: 50px;
+ margin-left: 25px;
+}
+.header .menu > ul > li > a{
+ font-size: 15px;
+ 
+ color:#000000;
+ position: relative;
+ text-transform: capitalize;
+ transition: color 0.3s ease;
+ font-weight: 600;
+}
+.header .menu > ul > li .sub-menu{
+ position: absolute;
+ z-index: 500;
+ background-color:#ffffff;
+ box-shadow: -2px 2px 70px -25px rgba(0,0,0,0.3); 
+ padding: 20px 30px;
+ transition: all 0.5s ease;
+ margin-top:25px;
+ opacity:0;
+ visibility: hidden;
+}
+@media(min-width: 992px){
+.header .menu > ul > li.menu-item-has-children:hover .sub-menu{
+ margin-top: 0;
+ visibility: visible;
+ opacity: 1;
+}
+}
+.header .menu > ul > li .sub-menu > ul > li{
+ line-height: 1;
+}
+.header .menu > ul > li .sub-menu > ul > li > a{
+ display: inline-block;
+ padding: 10px 0;
+ font-size: 0.9rem;
+ color: #555555;
+ transition: color 0.3s ease;
+ text-decoration: none;
+ text-transform: capitalize;
+}
+.header .menu > ul > li .single-column-menu{
+ min-width: 280px;
+ max-width: 350px;
+font-size: 0.85rem;
+font-weight: 600;
+}
+.single-column-menu p{
+font-size: 0.85rem;
+font-weight: 600;
+}
+.header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li{
+ line-height: 1;
+ display: block; 
+
+}
+.header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a {
+ padding:10px 0;
+ display: inline-block;
+ font-size: 0.85rem;
+ color:#555555;
+ transition: color 0.3s ease;
+}
+.header .menu > ul > li .sub-menu.mega-menu{ 
+ /*left: 50%;
+
+ transform: translateX(-50%); */
+ left: 900px;
+ transform: translateX(-75%)
+
+}
+
+.header .menu > ul > li .sub-menu.mega-menu-column-4{
+ /*max-width: 1100px;
+ width: 100%; 
+ display: flex;
+ flex-wrap: wrap;
+ padding:15px 10px;*/
+
+ min-width: 1200px;
+ max-width: 1400px;
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ padding: 15px 10px;
+
+}
+.header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item{
+ flex:0 0 25%;
+ padding:0 15px;
+}
+.header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item .title{
+ 
+ color:#2676BB;
+ 
+ line-height: 1;
+ padding:10px 0;
+}
+.header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item.text-center .title{
+ text-align: center;
+}
+.header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item img{
+ max-width: 100%;
+ width: 100%;
+ vertical-align: middle;
+ margin-top: 10px;
+ /*height: 300px;*/
+ object-fit: cover;
+}
+.header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a:hover,
+.header .menu > ul > li .sub-menu > ul > li > a:hover,
+.header .item-right a:hover,
+.header .menu > ul > li:hover > a{
+ color:#2676BB;
+ font-weight: 600;
+}
+
+.list-item p {
+ font-size: 0.88rem;
+ font-weight: 600;
+ color: #000;
+}
+
+/* banner section */
+.banner-section{
+ background-image: url('../img/banner.jpg');
+ background-size: cover;
+ background-position: center;
+ height: 700px;
+ width: 100%;
+ display: block;
+}
+.mobile-menu-head, 
+.mobile-menu-trigger{
+ display: none;
+}
+
+.top-nav-button-primary-sm {
+ font-size: 1.0rem;
+ font-weight: 700;
+ text-shadow: 0px 0px 0px rgba(0,0,0,0.3);
+ color: #ffffff;
+ background-color: #2676BB;
+ border-style: solid;
+ border-width: 1px 1px 1px 1px;
+ box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
+ border-radius: 8px;
+ padding: 12px 24px 12px 24px;
+ font-family: "Source Sans Pro";
+ margin-top: 10px;
+ }
+
+ .top-nav-button-primary-sm:hover{
+ font-size: 1.0rem;
+ font-weight: 700;
+ text-shadow: 0 0 30px #000;
+ 
+ color: #ffffff;
+ background-color:#2676bb;
+ border-style: solid;
+ border-width: 1px 1px 1px 1px;
+ border-radius: 8px;
+ padding: 12px 24px 12px 24px;
+ text-decoration: none;
+ 
+ font-family: "Source Sans Pro";
+ font-style: normal;
+
+ } 
+
+/*responsive*/
+@media(max-width: 991px){
+
+ .header .item-center{
+ order:3;
+ flex:0 0 100%;
+ }
+ .header .item-left,
+ .header .item-right{
+ flex:0 0 auto;
+ }
+ .v-center{
+ justify-content: space-between;
+ }
+
+ .header .mobile-menu-trigger span{
+ display: block;
+ height: 2px;
+ background-color: #333333;
+ width: 24px;
+ position: relative;
+ }
+ .header .mobile-menu-trigger span:before,
+ .header .mobile-menu-trigger span:after{
+ content: '';
+ position: absolute;
+ left:0;
+ width: 100%;
+ height: 100%;
+ background-color: #333333;
+ }
+ .header .mobile-menu-trigger span:before{
+ top:-6px;
+ }
+ .header .mobile-menu-trigger span:after{
+ top:6px;
+ }
+ .header .item-right{
+ align-items: center;
+ }
+
+ .header .menu.active{
+ transform: translate(0%); 
+ }
+ .header .menu > ul > li{
+ line-height: 1;
+ margin:0;
+ display: block;
+ }
+ .header .menu > ul > li > a{
+ line-height: 50px;
+ height: 50px;
+ padding:0 50px 0 15px;
+ display: block;
+ border-bottom: 1px solid rgba(0,0,0,0.1);
+ }
+ .header .menu > ul > li > a i{
+ position: absolute;
+ height: 50px;
+ width: 50px;
+ top:0;
+ right: 0;
+ text-align: center;
+ line-height: 50px;
+ transform: rotate(-90deg);
+ }
+ .header .menu .mobile-menu-head{
+ display: flex;
+ height: 50px;
+ border-bottom: 1px solid rgba(0,0,0,0.1);
+ justify-content: space-between;
+ align-items: center;
+ position: relative;
+ z-index: 501;
+ position: sticky;
+ background-color: #ffffff;
+ top:0;
+ }
+ .header .menu .mobile-menu-head .go-back{
+ height: 50px;
+ width: 50px;
+ border-right: 1px solid rgba(0,0,0,0.1);
+ cursor: pointer;
+ line-height: 50px;
+ text-align: center;
+ color:#000000;
+ font-size: 16px;
+ /*display: none;*/
+ }
+ .header .menu .mobile-menu-head.active .go-back{
+ display: block;
+ }
+ .header .menu .mobile-menu-head .current-menu-title{
+ font-size: 15px;
+ font-weight: 500;
+ color:#000000;
+ }
+ .header .menu .mobile-menu-head .mobile-menu-close{
+ height: 50px;
+ width: 50px;
+ border-left: 1px solid rgba(0,0,0,0.1);
+ cursor: pointer;
+ line-height: 50px;
+ text-align: center;
+ color:#000000; 
+ font-size: 25px;
+ }
+
+ .header .menu .menu-main{
+ height: 100%;
+ overflow-x: hidden;
+ overflow-y: auto;
+ }
+ .header .menu > ul > li .sub-menu.mega-menu,
+ .header .menu > ul > li .sub-menu{
+ visibility: visible;
+ opacity: 1;
+ position: absolute;
+ box-shadow: none;
+ margin:0;
+ padding:15px;
+ top:0;
+ left:0;
+ width: 100%;
+ height: 100%;
+ padding-top: 65px;
+ max-width: none;
+ min-width: auto;
+ display: none;
+ transform: translateX(0%);
+ overflow-y: auto;
+ }
+.header .menu > ul > li .sub-menu.active{
+ display: block;
+}
+@keyframes slideLeft{
+ 0%{
+ opacity:0;
+ transform: translateX(100%);
+ }
+ 100%{
+ opacity:1;
+ transform: translateX(0%); 
+ }
+}
+@keyframes slideRight{
+ 0%{
+ opacity:1;
+ transform: translateX(0%);
+ }
+ 100%{
+ opacity:0;
+ transform: translateX(100%); 
+ }
+}
+ .header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item img{
+ margin-top:0;
+ }
+ .header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item.text-center .title{
+ margin-bottom: 20px;
+ }
+ .header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item.text-center:last-child .title{
+ margin-bottom:0px;
+ }
+ .header .menu > ul > li .sub-menu.mega-menu-column-4 > .list-item{
+ flex: 0 0 100%;
+ padding: 0px;
+ }
+ .header .menu > ul > li .sub-menu > ul > li > a,
+ .header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a{
+ display: block;
+ }
+ .header .menu > ul > li .sub-menu.mega-menu > .list-item > ul {
+ margin-bottom: 15px;
+ }
+ .menu-overlay{
+ /*
+ position: fixed;
+ background-color: rgba(0,0,0,0.5);
+ left:0;
+ top:0;
+ width: 100%;
+ height: 100%;
+ z-index: 1098;
+ visibility: hidden;
+ opacity:0;
+ transition: all 0.5s ease;
+ */
+ }
+ .menu-overlay.active{
+ visibility: visible;
+ opacity:1; 
+ }
+}
+
+const menu = document.querySelector(".menu");
+const menuMain = menu.querySelector(".menu-main");
+const goBack = menu.querySelector(".go-back");
+const menuTrigger = document.querySelector(".mobile-menu-trigger");
+const closeMenu = menu.querySelector(".mobile-menu-close");
+const overlay = document.querySelector(".menu-overlay");
+const menuItemsWithChildren = document.querySelectorAll(".menu-item-has-children");
+
+let subMenu = null;
+
+// Open mobile menu
+menuTrigger.addEventListener("click", () => {
+ if (menu.classList.contains("active")) {
+ closeMenuFn();
+ } else {
+ openMenu();
+ }
+});
+
+// Close menu from close button or overlay
+closeMenu.addEventListener("click", () => {
+ closeMenuFn();
+});
+overlay.addEventListener("click", () => {
+ closeMenuFn();
+});
+
+// Show sub-menu on click
+menuMain.addEventListener("click", (e) => {
+ if (!menu.classList.contains("active")) return;
+
+ const hasChildren = e.target.closest(".menu-item-has-children");
+ if (hasChildren) {
+ showSubMenu(hasChildren);
+ }
+});
+
+// Go back to main menu
+goBack.addEventListener("click", () => {
+ hideSubMenu();
+});
+
+// Handle resizing
+window.addEventListener("resize", () => {
+ if (window.innerWidth > 991 && menu.classList.contains("active")) {
+ closeMenuFn();
+ }
+});
+
+// Utility functions
+function openMenu() {
+ menu.classList.add("active");
+ overlay.classList.add("active");
+ toggleMenuIcon(true); // Toggle the icon to "close"
+}
+
+function closeMenuFn() {
+ menu.classList.remove("active");
+ overlay.classList.remove("active");
+ resetMenu();
+ toggleMenuIcon(false); // Toggle the icon back to "hamburger"
+}
+
+function toggleMenuIcon(isOpen) {
+ const icon = menuTrigger.querySelector("i");
+ if (isOpen) {
+ icon.classList.remove("fa-bars");
+ icon.classList.add("fa-times");
+ } else {
+ icon.classList.remove("fa-times");
+ icon.classList.add("fa-bars");
+ }
+}
+
+function resetMenu() {
+ // Remove all active submenus
+ const allSubMenus = menu.querySelectorAll(".sub-menu.active");
+ allSubMenus.forEach((submenu) => {
+ submenu.classList.remove("active");
+ submenu.style.animation = "";
+ });
+
+ // Reset submenu reference
+ subMenu = null;
+
+ // Hide submenu header (back button + title)
+ const menuHead = menu.querySelector(".mobile-menu-head");
+ menuHead.classList.remove("active");
+
+ // Clear the title
+ menu.querySelector(".current-menu-title").textContent = "";
+}
+
+function showSubMenu(hasChildren) {
+ subMenu = hasChildren.querySelector(".sub-menu");
+ subMenu.classList.add("active");
+ subMenu.style.animation = "slideLeft 0.5s ease forwards";
+
+ const menuTitle = hasChildren.querySelector("i").parentNode.childNodes[0].textContent.trim();
+ menu.querySelector(".current-menu-title").textContent = menuTitle;
+ menu.querySelector(".mobile-menu-head").classList.add("active");
+}
+
+function hideSubMenu() {
+ if (subMenu) {
+ subMenu.style.animation = "slideRight 0.5s ease forwards";
+ setTimeout(() => {
+ subMenu.classList.remove("active");
+ subMenu.style.animation = "";
+ }, 300);
+ menu.querySelector(".current-menu-title").textContent = "";
+ menu.querySelector(".mobile-menu-head").classList.remove("active");
+ }
+}
+
+// Toggle submenu visibility
+menuItemsWithChildren.forEach(item => {
+ const link = item.querySelector("a");
+
+ link.addEventListener("click", (e) => {
+ e.preventDefault(); // Prevent default link behavior
+ const subMenu = item.querySelector(".sub-menu");
+ if (subMenu) {
+ subMenu.classList.toggle('active'); // Toggle visibility of the submenu
+ }
+ });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+ openMenu(); // auto-open menu when page loads
+});
+
+ 
+/*
+ const menu = document.querySelector(".menu");
+ const menuMain = menu.querySelector(".menu-main");
+ const goBack = menu.querySelector(".go-back");
+ const menuTrigger = document.querySelector(".mobile-menu-trigger");
+ const closeMenu = menu.querySelector(".mobile-menu-close");
+ let subMenu;
+ menuMain.addEventListener("click", (e) =>{
+ if(!menu.classList.contains("active")){
+ return;
+ }
+ if(e.target.closest(".menu-item-has-children")){
+ const hasChildren = e.target.closest(".menu-item-has-children");
+ showSubMenu(hasChildren);
+ }
+ });
+ goBack.addEventListener("click",() =>{
+ hideSubMenu();
+ })
+ menuTrigger.addEventListener("click",() =>{
+ toggleMenu();
+ })
+ closeMenu.addEventListener("click",() =>{
+ toggleMenu();
+ })
+ document.querySelector(".menu-overlay").addEventListener("click",() =>{
+ toggleMenu();
+ })
+ function toggleMenu(){
+ menu.classList.toggle("active");
+ document.querySelector(".menu-overlay").classList.toggle("active");
+ }
+ function showSubMenu(hasChildren){
+ subMenu = hasChildren.querySelector(".sub-menu");
+ subMenu.classList.add("active");
+ subMenu.style.animation = "slideLeft 0.5s ease forwards";
+ const menuTitle = hasChildren.querySelector("i").parentNode.childNodes[0].textContent;
+ menu.querySelector(".current-menu-title").innerHTML=menuTitle;
+ menu.querySelector(".mobile-menu-head").classList.add("active");
+ }
+
+ function hideSubMenu(){ 
+ subMenu.style.animation = "slideRight 0.5s ease forwards";
+ setTimeout(() =>{
+ subMenu.classList.remove("active"); 
+ },300); 
+ menu.querySelector(".current-menu-title").innerHTML="";
+ menu.querySelector(".mobile-menu-head").classList.remove("active");
+ }
+ 
+ window.onresize = function(){
+ if(this.innerWidth >991){
+ if(menu.classList.contains("active")){
+ toggleMenu();
+ }
+
+ }
+ }
+*/
+
+/* NEW CSS */
+.mobile-menu-head {
+ display: none;
+}
+
+.mobile-menu-head.active {
+ display: block; /* or flex, whatever your layout requires */
+}
+
+.tab-content {
+ border:0px;
+}
+
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ TechInsights
+ 
+
+ 
+
+ 
+ 
+ 
+ User account menu
+
+ Home
+ 
+Apple iPhone 14 Image Sensor - Apple iPhone 14 Pro and Pro Max Cameras
+Apple's newest iPhone Three Camera System is "Cam-packed"
+Ziad Shukri
+Some of the new features Apple introduced is an upgraded main rear cam on the baseline model iPhone 14, a revised Front camera module on the iPhone 14 Pro/Max and of course a long-anticipated rear camera resolution upgrade that finally came to the iPhone 14 Pro/Max.
+On initial release of the Blog on September 10th, we speculated on the different sensors expected to be in use for the iPhone 14/Plus as well as the iPhone 14 Pro/Max series. Since then, TechInsights has obtained recent optical photos of the iPhone 14 Pro/Max and this Blog is updated to reflect this information. Furthermore, initial speculation on the iPhone 14/Plus has been removed and a future update will be provided once images are available.
+Front Cameras
+In contrast to the baseline model, the high-end iPhone 14 Pro and Pro Max have undergone a re-deign of the Front camera module, where is it now referred to as a “Dynamic Island”. The opaque area of the pill-shaped region hiding the front TrueDepth and IR cameras is no longer a notch and is made to “expand” in OLED screen in a dynamic way giving the illusion that it is part of the display, and not merely to house the front cameras.
+Looking at a highly contrasted image from the Apple iPhone 14 Pro/Max, the Front-facing camera module seems to have two regions, one for the TrueDepth and another for the IR camera/emitter components, as shown in Figure 1. The image sensor used on the Face ID IR Cam is the same in both the iPhone 13, and the iPhone 14, a 1.4 MP 2.8 µm pixel pitch STMicroelectronics Die. However, the Sony TrueDepth cameras have been upgraded to include Phase Detection Autofocus – PDAF (Figure 2).
+
+Figure 1. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max Front Camera Module.
+
+Figure 2. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max Front Cameras CIS Dies.
+Rear Cameras
+Main Rear (Wide-Angle) Camera
+Figure 3 shows iPhone 13 Pro and Pro Max vs iPhone 14 Pro and Pro Max main rear camera modules.
+
+Figure 3. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max Main Rear Camera.
+One of the most notable new features Apple introduced this year is the new main rear camera sensor in the iPhone 14 Pro/Max, with an upgraded resolution of 48MP. The reported pixel-pitch is 2.44 µm for a Quad-pixel. In other words, this sensor’s absolute pixel pitch is 1.22 µm at a resolution of 48MP or 2.44 µm at 12MP. It is rather interesting that the Quad-pixel reverts back to Apple’s legacy resolution of 12MP.
+This new Rear Cam sensor has a different Masked PDAF pattern compared to that of its predecessor Rear cam on the iPhone 13 Pro/Max, as shown in Figure 4. The Masked PDAF includes a new double metal pattern for each 2×2 pixel group. In addition to Masked PDAF, previous Sony sensors also employed two photodiodes per pixel which likely provided supplemental “Dual Photodiode” (DP) PDAF information across the entire array. This full-array Dual Photodiode feature is also confirmed to be in use in the new 48 MP sensor.
+
+Figure 4. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max Main Rear Camera CIS Dies.
+Ultrawide Rear Camera
+Figure 5 shows iPhone 13 Pro and Pro Max vs iPhone 14 Pro and Pro Max Ultrawide rear camera modules.
+
+Figure 5. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max Ultrawide Rear Camera.
+Another camera improvement in the iPhone 14 Pro/Max, is the Ultrawide camera, with a 12MP, 1.4 µm pixel size. This sensor seems to be a reuse of iPhone 12 Pro wide-angle main camera and it features Masked PDAF plus full array dual photodiode (PD) compared with the iPhone 13 Ultrawide, which used a 12MP, 1.0 µm pixel size and Masked PDAF (Figure 6).
+
+Figure 6. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max Ultrawide Rear Camera CIS Dies.
+Ultrawide Rear Camera
+Figure 7 shows iPhone 13 Pro and Pro Max vs iPhone 14 Pro and Pro Max Telephoto rear camera modules.
+
+Figure 7. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max Telephoto Rear Camera.
+The iPhone 14 Pro/Max Telephoto camera, with a 12MP, 1.0 µm pixel size and masked PDAF, seems to be the same as iPhone 13 Pro/Max Telephoto (Figure 8).
+
+Figure 8. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max Telephoto Rear Camera CIS Dies.
+LiDAR Rear Camera
+Figure 9 shows iPhone 13 Pro and Pro Max vs iPhone 14 Pro and Pro Max LiDAR rear camera modules.
+
+Figure 9. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max LiDAR Rear Camera.
+The iPhone 14 Pro/Max LiDAR camera, with a 0.3MP, 10 µm pixel size, is the same die as of iPhone 13 Pro/Max LiDAR (Figure 10).
+
+Figure 10. Apple iPhone 13 Pro/Max vs iPhone 14 Pro/Max LiDAR Rear Camera CIS Dies.
+TechInsights has planned Device Essential, Device Essential Plus and Exploratory and analysis on the iPhone 14 series image sensors and expect to provide more definitive details once analysis are complete. Stay tuned.
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+September 10, 2026
+
+Apple iPhone 18 Memory Costs: DRAM &amp; NAND Price Pressure
+ DRAM and NAND prices are rising through the iPhone 18 launch. See what higher memory costs could mean for Apple, AI, BOM costs, and smartphone strategy.
+
+Learn More
+ 
+
+September 09, 2026
+
+Apple iPhone 18 Pro: A20 Pro, Camera, C2 Modem &amp; Key Changes
+ Explore what is new in the Apple iPhone 18 Pro and Pro Max, including the 2 nm A20 Pro, variable-aperture camera, C2 modem, cooling, and battery.
+
+Learn More
+ 
+
+September 09, 2026
+
+Can 2200 V PowiGaN Challenge Silicon Carbide?
+ Access TechInsights’ special report on Power Integrations’ 2200 V PowiGaN demonstration and its potential impact on high-voltage power semiconductor markets.
+
+Learn More
+
+The Authoritative Information Platform to the Semiconductor Industry.
+Discover why TechInsights stands as the semiconductor industry's most trusted source for actionable, in-depth intelligence.
+About TechInsights
+Who We Are
+About Us
+Investments
+Careers
+Community Involvement
+Our Experts
+Trust Center
+Key Topics
+Sustainability
+Artificial Intelligence
+Chinese Developments
+Chiplets
+Capabilities
+Reverse Engineering
+Market Intelligence
+Cost Analysis
+Intellectual Property Services
+Get in Touch
+Contact
+Contact Us
+Office Locations
+Sales Inquiry
+Media Relations
+Latest Insights
+Resources
+Blogs
+Webinars
+Featured Reports
+Podcasts
+Case Studies
+1-877-826-4447
+1891 Robertson Rd #500, Nepean, ON K2H 5B7
+Copyright © 2026 TechInsights Inc. All rights reserved.
+Accessibility | Privacy Policy | Terms &amp; Conditions | Conflict of Interest &amp; Confidential Information | Ethics &amp; Compliance

@@ -1,0 +1,25 @@
+"Jiri Trnka", World Encyclopedia of Puppetry Arts (WEPA), wepa.unima.org
+(accessed 2026-09-12).
+
+STATUS: full HTML page saved; see papers/wepa-jiri-trnka.html. Licence:
+CC BY-NC-SA (WEPA's standard article licence, consistent with the other
+WEPA pages already archived under item 1, e.g.
+papers/wepa-string-puppet.html).
+
+SUMMARY: biographical/critical entry on Jiri Trnka (1912-1969), the Czech
+puppet-film director/sculptor whose stop-motion marionette animation
+(founded his studio in 1946) conveyed character and drama primarily through
+BODY LANGUAGE, staging, expressive lighting and camera movement rather than
+facial animation -- his puppets typically have simplified, near-expressionless
+carved faces, and the ILLUSION OF LIFE is built from posture, timing and
+lighting, not from detailed facial realism.
+
+KEY NUMBERS: none (biographical/critical text, not a quantitative source).
+
+RELEVANCE: item 11 section 6 -- a strong precedent for THIS project's own
+figure: a marionette with a simplified, non-detailed face/body (exactly
+what the current capsule/ellipsoid MuJoCo figure is) can still read as
+alive and expressive if the STAGING (pose, motion, lighting direction) does
+the work, consistent with Kleffner & Ramachandran 1992's shape-from-shading
+argument (item 09) that one consistent overhead-ish key light reads as
+"solid" almost pre-attentively, independent of surface detail.

@@ -1,0 +1,1297 @@
+(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+
+ 
+ Apple iPhone 14 Camera test - DXOMARK
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+:root{--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,161;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px;--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{clip:rect(1px,1px,1px,1px);word-wrap:normal!important;border:0;-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{clip:auto!important;background-color:#ddd;-webkit-clip-path:none;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+@font-face {
+ font-family: "fl-icons";
+ font-display: block;
+ src: url(https://www.dxomark.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.eot?v=3.18.3);
+ src:
+ url(https://www.dxomark.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.eot#iefix?v=3.18.3) format("embedded-opentype"),
+ url(https://www.dxomark.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.woff2?v=3.18.3) format("woff2"),
+ url(https://www.dxomark.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.ttf?v=3.18.3) format("truetype"),
+ url(https://www.dxomark.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.woff?v=3.18.3) format("woff"),
+ url(https://www.dxomark.com/wp-content/themes/flatsome/assets/css/icons/fl-icons.svg?v=3.18.3#fl-icons) format("svg");
+ }
+
+/* */
+
+/* */
+
+{"@context":"https:\/\/schema.org\/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.dxomark.com\/apple-iphone-14-camera-test\/"},"url":"https:\/\/www.dxomark.com\/apple-iphone-14-camera-test\/","headline":"Apple iPhone 14 Camera test","datePublished":"2022-11-15T15:58:27+01:00","dateModified":"2026-03-16T14:22:12+01:00","publisher":{"@type":"Organization","@id":"https:\/\/www.dxomark.com\/#organization","name":"DXOMARK","logo":{"@type":"ImageObject","url":"https:\/\/cdn.dxomark.com\/wp-content\/themes\/flatsome-child\/assets\/img\/logo.svg","width":600,"height":60}},"image":{"@type":"ImageObject","url":"https:\/\/www.dxomark.com\/wp-content\/uploads\/medias\/post-125834\/Apple-iPhone-14_FINAL_featured-image-packshot-review.jpg","width":1281,"height":865},"articleSection":"Mobile Review","description":"We put the Apple iPhone 14 through our rigorous DXOMARK Camera test suite to measure its performance in photo, video, and zoom quality from an end-user perspective. This article breaks down how the device fared in a variety of tests and several common use cases and is intended to","author":{"@type":"Person","name":"DXOMARK","url":"\/editorial-team\/#admin","image":{"@type":"ImageObject","url":"https:\/\/secure.gravatar.com\/avatar\/1763b01f3974d168a2558e3c9361da8a?s=96&d=mm&r=g","height":96,"width":96}}}
+
+{
+ "@context": "http://schema.org",
+ "@type": "NewsArticle",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://www.dxomark.com/apple-iphone-14-camera-test/"
+ },
+ "headline": "Apple iPhone 14 Camera test",
+ "datePublished": "2022-11-15T15:58:27+0100",
+ "dateModified": "2026-03-16T14:22:12+0100",
+ "author": {
+ "@type": "Person",
+ "name": "DXOMARK"
+ },
+ "description": "We put the Apple iPhone 14 through our rigorous DXOMARK Camera test suite to measure its performance in photo,",
+ "image": {
+ "@type": "ImageObject",
+ "url": "https://www.dxomark.com/wp-content/uploads/medias/post-125834/Apple-iPhone-14_FINAL_featured-image-packshot-review.jpg",
+ "width": 1281,
+ "height": 865
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "DXOMARK",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://www.dxomark.com/wp-content/uploads/2019/09/logo-o-transparent.png",
+ "width": 250,
+ "height": 250
+ }
+ }
+}
+
+ 
+ if ((document.cookie.match( /^(?:.*;)?\s*cookie_notice_accepted\s*=\s*([^;]+)(?:.*)?$/)||[,null])[1] != 'false') {
+
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-5340360-1', 'auto');
+ ga('set', 'contentGroup1', 'Mobile Reviews');
+ ga('send', 'pageview');
+
+ function _gaLt(event) {
+
+ /* If GA is blocked or not loaded, or not main|middle|touch click then don't track */
+ if (!ga.hasOwnProperty('loaded') || ga.loaded != true || (event.which != 1 && event.which != 2)) {
+ return;
+ }
+
+ var el = event.srcElement || event.target;
+
+ /* Loop up the DOM tree through parent elements if clicked element is not a link (eg: an image inside a link) */
+ while (el && (typeof el.tagName == 'undefined' || el.tagName.toLowerCase() != 'a' || !el.href)) {
+ el = el.parentNode;
+ }
+
+ /* if a link with valid href has been clicked */
+ if (el && el.href) {
+
+ var link = el.href;
+
+ /* Only if it is an external link */
+ if (link.indexOf(location.host) == -1 && link.indexOf('cdn.dxomark.com') == -1 && !link.match(/^javascript\:/i)) {
+
+ /* Is actual target set and not _(self|parent|top)? */
+ var target = (el.target && !el.target.match(/^_(self|parent|top)$/i)) ? el.target : false;
+
+ /* Assume a target if Ctrl|shift|meta-click */
+ if (event.ctrlKey || event.shiftKey || event.metaKey || event.which == 2) {
+ target = '_blank';
+ }
+
+ var hbrun = false; // tracker has not yet run
+
+ /* HitCallback to open link in same window after tracker */
+ var hitBack = function() {
+ /* run once only */
+ if (hbrun) return;
+ hbrun = true;
+ window.location.href = link;
+ };
+
+ var label = el.textContent || el.innerText || '';
+
+ if (target) { /* If target opens a new window then just track */
+ ga(
+ 'send', 'event', 'Outgoing Links', link,
+ label
+ );
+ } else { /* Prevent standard click, track then open */
+ event.preventDefault ? event.preventDefault() : event.returnValue = !1;
+ /* send event with callback */
+ ga(
+ 'send', 'event', 'Outgoing Links', link,
+ label, {
+ 'hitCallback': hitBack
+ }
+ );
+
+ /* Run hitCallback again if GA takes longer than 1 second */
+ setTimeout(hitBack, 1000);
+ }
+ }
+ }
+ }
+
+ var _w = window;
+ /* Use 'click' if touchscreen device, else 'mousedown' */
+ var _gaLtEvt = ('ontouchstart' in _w) ? 'click' : 'mousedown';
+ /* Attach the event to all clicks in the document after page has loaded */
+ _w.addEventListener ? _w.addEventListener('load', function() {document.body.addEventListener(_gaLtEvt, _gaLt, !1)}, !1)
+ : _w.attachEvent && _w.attachEvent('onload', function() {document.body.attachEvent('on' + _gaLtEvt, _gaLt)});
+ }
+
+ jQuery(function($){
+ $(document).ready(function() {
+ $('.orejime-Notice-saveButton').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Cookies',
+ eventAction: 'Accept',
+ eventLabel: 'Accept Cookies'
+ });
+ });
+
+ $('.orejime-Notice-declineButton').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Cookies',
+ eventAction: 'Necessary only',
+ eventLabel: 'Accept only necessary cookies'
+ });
+ });
+
+ $('.orejime-Notice-learnMoreButton').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Cookies',
+ eventAction: 'Preferences',
+ eventLabel: 'Cookies preferences'
+ });
+ });
+
+ $('.orejime-Notice-privacyPolicyLink').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Cookies',
+ eventAction: 'Privacy Policy',
+ eventLabel: 'Privacy Policy'
+ });
+ });
+
+ $('.modal-visit-corp').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Corp Modal',
+ eventAction: 'Visit Corp',
+ eventLabel: 'Corp Website'
+ });
+ });
+
+ $('.modal-stay').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Corp Modal',
+ eventAction: 'Stay on dxomark.com',
+ eventLabel: 'Stay here'
+ });
+ });
+
+ var target = document.querySelector('.orejime-ModalPortal');
+ var observer = new MutationObserver(function(mutations) {
+ $('.orejime-Modal-saveButton').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Cookies',
+ eventAction: 'Confirm',
+ eventLabel: 'Confirm'
+ });
+ });
+
+ $('.orejime-AppToggles-disableAll').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Cookies',
+ eventAction: 'Disable all',
+ eventLabel: 'Disable all except necessary cookies'
+ });
+ });
+
+ $('.orejime-AppToggles-enableAll').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Cookies',
+ eventAction: 'Enable all',
+ eventLabel: 'Enable all cookies'
+ });
+ });
+ });
+
+ observer.observe(target, {
+ childList: true
+ });
+
+ $('.smartphones-ranking #ranking-brand-filter').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Smartphone Ranking Filters',
+ eventAction: 'Filter Use',
+ eventLabel: 'Brand Filter'
+ });
+ });
+
+ $('.smartphones-ranking #ranking-segment-filter').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Smartphone Ranking Filters',
+ eventAction: 'Filter Use',
+ eventLabel: 'Segment Filter'
+ });
+ });
+
+ $('.smartphones-ranking #ranking-price-filter').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Smartphone Ranking Filters',
+ eventAction: 'Filter Use',
+ eventLabel: 'Price Filter'
+ });
+ });
+
+ $('.smartphones-ranking #ranking-date-filter').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Smartphone Ranking Filters',
+ eventAction: 'Filter Use',
+ eventLabel: 'Date Filter'
+ });
+ });
+
+ $('.speakers-ranking #ranking-brand-filter').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Speaker Ranking Filters',
+ eventAction: 'Filter Use',
+ eventLabel: 'Brand Filter'
+ });
+ });
+
+ $('.speakers-ranking #ranking-segment-filter').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Speaker Ranking Filters',
+ eventAction: 'Filter Use',
+ eventLabel: 'Segment Filter'
+ });
+ });
+
+ $('.speakers-ranking #ranking-price-filter').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Speaker Ranking Filters',
+ eventAction: 'Filter Use',
+ eventLabel: 'Price Filter'
+ });
+ });
+
+ $('.speakers-ranking #ranking-date-filter').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Speaker Ranking Filters',
+ eventAction: 'Filter Use',
+ eventLabel: 'Date Filter'
+ });
+ });
+
+ $('.ranking-position .more').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Review Rankings Expand',
+ eventAction: 'Show More',
+ eventLabel: 'Ranking Expand'
+ });
+ });
+
+ $('.rankings-container .us-switch').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Speaker Ranking US-Toggle',
+ eventAction: 'US Toggle Switch',
+ eventLabel: 'US Toggle'
+ });
+ });
+
+ $('.smartphones .sort-header').click(function(){
+ let sortColumn = '';
+ if ($(this).hasClass('mobile')) {
+ sortColumn = 'Camera';
+ } else if ($(this).hasClass('selfie')) {
+ sortColumn = 'Selfie';
+ } else if ($(this).hasClass('audio')) {
+ sortColumn = 'Audio';
+ } else if ($(this).hasClass('display')) {
+ sortColumn = 'Display';
+ } else if ($(this).hasClass('battery')) {
+ sortColumn = 'Battery';
+ } else if ($(this).hasClass('launch_date')) {
+ sortColumn = 'Date';
+ } else if ($(this).hasClass('launch_price')) {
+ sortColumn = 'Price';
+ }
+
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Smartphone Ranking Sort',
+ eventAction: 'Sort by Protocol',
+ eventLabel: sortColumn + ' Sort'
+ });
+ });
+
+ $('.speakers .sort-header').click(function(){
+ let sortColumn = '';
+ if ($(this).hasClass('launch_date')) {
+ sortColumn = 'Date';
+ } else if ($(this).hasClass('launch_price')) {
+ sortColumn = 'Price';
+ }
+
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Speaker Ranking Sort',
+ eventAction: 'Sort by Protocol',
+ eventLabel: sortColumn + ' Sort'
+ });
+ });
+
+ $('.download-report-camera').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Download Report',
+ eventAction: 'Download Report Camera',
+ eventLabel: 'Download Report Camera'
+ });
+ });
+
+ setTimeout(function() {
+ if (document.querySelector('affilizz-lazy-content') !== null && document.querySelector('affilizz-lazy-content').shadowRoot.querySelector('.affilizz-offer') !== null) {
+ $('.download-report-camera').click(function(){
+ ga('send', {
+ hitType: 'event',
+ eventCategory: 'Affiliz Display',
+ eventAction: 'Affiliz Display Product Review',
+ eventLabel: 'Affiliz Display Product Review'
+ });
+ });
+ }
+ }, 3000);
+
+ });
+ });
+
+ 
+
+ 
+ 
+ 
+ 
+ if ((document.cookie.match( /^(?:.*;)?\s*cookie_notice_accepted\s*=\s*([^;]+)(?:.*)?$/)||[,null])[1] != "false") {
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag("js", new Date());
+ gtag("config", "G-9JY6CQ7T1K");
+
+ }
+ 
+ 
+ 
+ 
+ (function(c,l,a,r,i,t,y){
+ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+ t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+ })(window, document, "clarity", "script", "k1rgrsydgv");
+ 
+ var cdn = "https://www.dxomark.com";.bg{opacity: 0; transition: opacity 1s; -webkit-transition: opacity 1s;} .bg-loaded{opacity: 1;}
+ 
+
+ @font-face {
+ font-family: FuturaPTMedium;
+ src: url("../assets/fonts/futura-pt-medium.otf");
+ }
+
+ #comments {
+ display: none;
+ }
+
+ .labelTitle {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ }
+
+ .labelTitle span {
+ font-weight: 400;
+ }
+
+ .label-sub {
+ font-size: 15px;
+ font-style: italic;
+ }
+
+ .labeled-devices .title p.h1 {
+ font-size: 96px;
+ border-bottom: none;
+ margin-bottom: 0;
+ padding-bottom: 0;
+ color: #21252f;
+ }
+ .labeled-devices .title h2 {
+ font-size: 28px;
+ font-weight: 500;
+ border-bottom: none;
+ margin-top: 0;
+ }
+
+ .labeled-devices .label-stamp {
+ display: flex;
+ flex-direction: column;
+ }
+
+ .labeled-devices .accordion-title {
+ padding: 0;
+ background: none;
+ border: none;
+ }
+
+ .labeled-devices .accordion-title i {
+ margin: -22px 0 0;
+ padding: 0 10px;
+ }
+
+ .labeled-devices .accordion-inner {
+ padding: 0;
+ }
+
+ .labeled-devices .parent {
+ display: flex;
+ flex-wrap: wrap;
+ }
+
+ .labeled-devices .child {
+ flex: 1 0 30%;
+ margin: 5px 0;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ overflow: hidden;
+ font-family: "Poppins";
+ font-style: normal;
+ font-weight: 600;
+ font-size: 13px;
+ line-height: 20px;
+ }
+
+ .labeled-devices .child a {
+ color: #5e627b;
+ }
+
+ .labeled-devices .label-tabs h2 {
+ }
+
+ .labeled-devices h3 {
+ font-size: 28px;
+ margin-bottom: 0;
+ margin-top: 30px;
+ }
+
+ .labeled-devices .label-gold h3,
+ .labeled-devices .label-gold h4 {
+ color: #D7B361;
+ }
+
+ .labeled-devices .label-silver h3,
+ .labeled-devices .label-silver h4 {
+ color: #606060;
+ }
+
+ .labeled-devices .label-bronze h3,
+ .labeled-devices .label-bronze h4 {
+ color: #B13F18;
+ }
+
+ .labeled-devices .label-tabs .tab-panels {
+ border: none;
+ }
+
+ .labeled-devices .label-tabs ul li {
+ text-align: center;
+ margin: -2px 0;
+ }
+
+ .labeled-devices .label-tabs ul li .tab-icon {
+ width: 50px;
+ height: 50px;
+ }
+
+ .labeled-devices .label-tabs ul li.active a {
+ font-weight: 600;
+ position: relative;
+ filter: none;
+ border-bottom: 3px solid var(--context-color);
+ }
+ .labeled-devices .label-tabs ul li.active aaa:after {
+ content: "";
+ background-color: var(--context-color);
+ height: 3px;
+ width: 100%;
+ }
+
+ .labeled-devices .label-tabs ul li a {
+ background: none;
+ font-family: "Poppins";
+ font-weight: 400;
+ font-size: 12px; 
+ display: flex;
+ flex-direction: column;
+ flex-wrap: nowrap;
+ justify-content: flex-start;
+ border: none;
+ padding: 5px 0 0;
+ margin: 0 10px;
+ border-bottom: 3px solid white;
+ filter: opacity(0.5) grayscale(1);
+ }
+
+ .labeled-devices .tabbed-content > ul.nav-size-normal > li {
+ margin: 15px;
+ }
+
+ 
+
+ 
+
+ function getSVGParams() {
+ // Find all .dynamic-svg SVGs elements
+ // console.log("1");
+ const dynamicSVGs = document.getElementsByClassName("dynamic-svg");
+ // Replace dynamic params for each SVGs
+ for (i = 0; i 
+ 
+ jQuery(document).ready(function() {
+ const myHash = location.hash.substr(1)
+ // console.log(myHash);
+ if (myHash == "speakers") {
+ $(".speakers .accordion-inner").show();
+ }
+ })
+ 
+
+ 
+
+ 
+
+ .subscoreTitle h4 {
+ font-size: 1.6em;
+ }
+
+ .subscoreTitle h5 {
+ font-size: 1.5em;
+ margin-bottom: 0;
+ flex: 1;
+ line-height: 32px;
+ }
+
+ .score-summary .bars-graph .col .row .col {
+ margin: 10px 0!important;
+ }
+
+ .subscoreHeading.heading-score-v5.summary-v5 {
+ padding: 5px;
+ margin: 0;
+ }
+
+ .subscoreHeading.heading-score-v5.summary-v5 .summaryBar {
+ display: flex;
+ flex-direction: row;
+ align-content: center;
+ }
+
+ .subscoreHeading.heading-score-v5.summary-v5 .summaryBar .subscoreTitle {
+ min-width: 100px;
+ font-size: 13px;
+ line-height: 24px;
+ justify-content: flex-end;
+ padding-right: 10px;
+ }
+ .subscoreHeading.heading-score-v5.summary-v5 .summaryBar .subscoreTitle a {
+ color: #5e627b;
+ }
+
+ .subscoreHeading.heading-score-v5.summary-v5 .summaryBar .subScoreBars {
+ transform: scale(0.65);
+ width: 95%;
+ margin: -8px -45% -8px -20%;
+ align-content: center;
+ }
+
+ .subscoreHeading.heading-score-v5.summary-v5 .currentScore {
+ font-size: 20px;
+ width: 30px;
+ text-align: center;
+ }
+
+ .subscoreHeading.heading-score-v5.summary-v5 .subScoreBars .bestDeviceBar .bestDeviceSubScore {
+ display: block; 
+ }
+
+ .score-summary.battery .subscores {
+ justify-content: left;
+ padding-left: 15px;
+ color: #5e627b;
+ }
+
+ .score-summary.battery .subscores .value {
+ color: var(--context-color);
+ }
+
+ .score-summary.battery .subscores .value {
+ font-size: 28px;
+ }
+
+ .score-summary.battery .bars-graph .col.large-8 {
+ margin: 5px -15px 5px;
+ }
+
+ @media (max-width: 849px) {
+ .score-summary.battery .subscores {
+ justify-content: center!important;
+ text-align: center;
+ }
+ }
+
+ .score-summary .subscores,
+ .score-summary.camera .subscores,
+ .score-summary.audio .subscores,
+ .score-summary.selfie .subscores,
+ .score-summary.display .subscores,
+ .score-summary.battery .subscores,
+ .score-summary .subscores a,
+ .score-summary.camera .subscores a,
+ .score-summary.audio .subscores a,
+ .score-summary.selfie .subscores a,
+ .score-summary.display .subscores a,
+ .score-summary.battery .subscores a {
+ justify-content: left;
+ color: #5e627b;
+ height: 100%;
+ }
+
+ .score-summary .subscores .value {
+ color: var(--context-color);
+ }
+
+ @media (max-width: 849px) {
+ .score-summary .subscores {
+ justify-content: center!important;
+ text-align: center;
+ }
+
+ .subscoreHeading.heading-score-v5.summary-v5 .summaryBar .subScoreBars {
+ margin: -8px -45% -8px -18%;
+ width: 100%;
+ }
+ }
+ 
+ 
+ .subscoreHeading.heading-score-v5 {
+ background-color: #fff;
+ border: none;
+ padding: 20px 0 10px;
+ flex-direction: column;
+ font-size: 16px;
+ }
+ .subscoreHeading.heading-score-v5 .subscoreTitle {
+ display: flex;
+ flex-direction: row;
+ }
+
+ .subscoreHeading.heading-score-v5 .currentScore {
+ font-size: 2em;
+ font-family: var(--global--font-titles);
+ font-weight: 700;
+ color: var(--context-color);
+ padding-right: 5px;
+ line-height: 35px;
+ min-width: 65px;
+ }
+ .subscoreHeading.heading-score-v5 h2, .subscoreHeading.heading-score-v5 h3, .subscoreHeading.heading-score-v5 h4 {
+ font-weight: 600;
+ /*color: var(--context-color);*/
+ color: #5e627b;
+ }
+ .subscoreHeading.heading-score-v5 h3 {
+ font-size: 2em;
+ }
+ .subscoreHeading.heading-score-v5 .subScoreBars {
+ min-width: 60%;
+ font-family: var(--global--font-titles);
+ margin-top: 10px;
+ }
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceBar {
+ height: 15px;
+ border-radius: 100px;
+ margin: 10px 0;
+ min-width: 55%;
+ }
+
+ .subscoreHeading.heading-score-v5 .subScoreBars .currentDeviceBar {
+ border-radius: 100px;
+ }
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceBar p.currentDeviceName {
+ display: none;
+ }
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceBar .bestDeviceSubScore {
+ padding: 0;
+ margin-top: -5px;
+ font-size: 1em;
+ font-weight: 600;
+ width: 40px;
+ }
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceBar>p {
+ color: #b7baca;
+ }
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceName {
+ font-size: 0.75em;
+ font-weight: 600;
+ color: #b7baca;
+ }
+
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceBar {
+ min-width: calc(100% - 105px)
+ }
+
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceNameMobile {
+ width: 100%;
+ text-align: right;
+ font-size: 0.75em;
+ padding: 8px 0 3px;
+ font-weight: 600;
+ color: #b7baca;
+ }
+
+ .subscoreHeading.heading-score-v5.level-4 {
+ font-size: 14px;
+ }
+ .subscoreHeading.heading-score-v5.level-4 .subScoreBars,
+ .subscoreHeading.heading-score-v5.level-4 .currentScore {
+ padding: 0px 20px 0 2px;
+ }
+ .subscoreHeading.heading-score-v5.level-4 .subScoreBars .bestDeviceBar {
+ height: 12px;
+ }
+
+ .subscoreHeading.heading-score-v5.level-5 {
+ font-size: 12px;
+ }
+ .subscoreHeading.heading-score-v5.level-5 .subScoreBars,
+ .subscoreHeading.heading-score-v5.level-5 .currentScore {
+ padding: 0px 20px 0 2px;
+ }
+ .subscoreHeading.heading-score-v5.level-5 .subScoreBars .bestDeviceBar {
+ height: 10px;
+ }
+
+ @media (max-width: 849px) {
+
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceName {
+ width: 100%;
+ text-align: right;
+ font-size: 0.75em;
+ }
+
+ }
+
+ @media (max-width: 549px) {
+ .subscoreHeading.heading-score-v5 .subScoreBars .bestDeviceBar .bestDeviceSubScore {
+ display: block;
+ }
+ }
+
+ .info-box {
+ border: 1px solid #eee;
+ border-radius: var(--global--border-radius);
+ display: flex;
+ flex-direction: row;
+ padding: 10px 20px;
+ font-size: 13px;
+ font-style: italic;
+ margin: -10px 0 30px;
+ }
+
+ .info-box .info-box-icon {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-content: center;
+ }
+
+ .info-box .info-box-icon a {
+ background-color: #dddddd;
+ border-radius: 50px;
+ color: white;
+ text-align: center;
+ width: 20px;
+ height: 20px;
+ cursor: pointer;
+ display: inline-block;
+ line-height: 20px;
+ font-size: 13px;
+ font-weight: bolder;
+ font-family: monospace;
+ font-style: italic;
+ font-style: italic;
+ transform: scale(1.5);
+ margin: 0 40px 0 30px;
+ }
+
+ .info-box .info-box-title {
+ font-weight: 600;
+ padding-top: 10px;
+ }
+
+ .info-box .info-box-content {
+ font-size: 1em; 
+ }
+
+ .info-box .info-box-content p {
+ margin: 5px 0;
+ }
+
+ .info-box .info-box-link {
+ text-align: right;
+ }
+
+ .info-box .info-box-link a {
+ color: #334862;
+ font-size: 1em;
+ font-weight: 600; 
+ }
+
+ .info-box .info-box-link a i {
+ font-size: 15px;
+ top: 4px;
+ left: 6px; 
+ }
+
+ @media (max-width: 849px) {
+
+ .info-box {
+ font-size: 11px;
+ }
+
+ .info-box .info-box-icon a {
+ margin: 0 15px 0 0;
+ transform: scale(1);
+ }
+
+ }
+
+ 
+ /*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+#post-16072 .entry-image {
+display: none;
+} 
+ 
+ 
+
+ .echarts-item {
+ padding: 30px 15px 15px;
+ border-radius: var(--global--border-radius-buttons);
+ border: 1px solid #eee;
+ background-color: #fff;
+ }
+
+ .echarts-item .echarts-item {
+ border: none;
+ }
+
+ .tabbed-content .echarts-item {
+ border: none;
+ background: none;
+ }
+
+ .tabbed-content.two-tabs {
+ padding: 15px 0;
+ }
+
+ .tabbed-content.two-tabs .col {
+ padding-bottom: 0;
+ }
+
+ .tabbed-content.two-tabs .tab-panels {
+ border-radius: 0 var(--global--border-radius-buttons) var(--global--border-radius-buttons) var(--global--border-radius-buttons);
+ border-color: #eee;
+ padding: 0;
+ }
+
+ .tabbed-content.two-tabs ul li {
+ text-align: center;
+ margin: -2px 0;
+ }
+
+ .tabbed-content.two-tabs ul li .tab-icon {
+ width: 50px;
+ height: 50px;
+ }
+
+ .tabbed-content.two-tabs ul li.active a {
+ font-weight: 600;
+ position: relative;
+ border-top: 1px solid;
+ border-color: #eee;
+ background: white;
+ border-top: 1px solid #eee;
+ border-left: 1px solid #eee;
+ border-right: 1px solid #eee;
+ }
+ .tabbed-content.two-tabs ul li.active aaa:after {
+ content: '';
+ background-color: var(--context-color);
+ height: 3px;
+ width: 100%;
+ }
+
+ .tabbed-content.two-tabs ul li a {
+ background: none;
+ font-family: 'Poppins';
+ font-weight: 400; 
+ display: flex;
+ flex-direction: row;
+ flex-wrap: nowrap;
+ justify-content: flex-start;
+ background: #eee;
+ border-radius: var(--global--border-radius-buttons) var(--global--border-radius-buttons) 0 0;
+ padding: 5px 15px 0;
+ border-color: white;
+ }
+ .tabbed-content.two-tabs ul li a span {
+ margin: 10px 0;
+ }
+ 
+
+Skip to content
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ English 
+ 
+ English
+ 中文
+Rankings
+
+ Custom Ranking
+Smartphones
+Camera Sensors
+Camera Lenses
+Speakers
+Laptops
+Reviews
+
+ Smartphones
+Camera Sensors
+Camera Lenses
+Wireless Speakers
+Laptops
+Articles
+
+ Test results
+Best of
+Tech articles
+Insights
+About us
+
+ Our company
+Our Label
+Smart Choice Label
+Our Partners
+Expert committee
+How we test
+Contact Us
+
+ 
+ 
+ Menu
+
+ 
+ 
+
+ B2B Solutions
+ 
+ Apple iPhone 14 Camera test
+in Global Ranking
+OTHER AVAILABLE TESTS FOR THIS DEVICE
+Selfie
+Audio
+Display
+Battery
+Overview
+Test summaryPhoto
+Preview
+Zoom
+Video
+We put the Apple iPhone 14 through our rigorous DXOMARK Camera test suite to measure its performance in photo, video, and zoom quality from an end-user perspective. This article breaks down how the device fared in a variety of tests and several common use cases and is intended to highlight the most important results of our testing with an extract of the captured data.
+Overview
+Key camera specifications:
+Primary: 12MP 1/1.9-inch sensor, 24mm equivalent f/1.5-aperture lens, Dual PDAF, OIS
+Ultra-wide: 12MP sensor, 24mm equivalent f/2.4-aperture lens, PDAF
+Scoring
+Sub-scores and attributes included in the calculations of the global score.
+130
+130
+125
+125
+117
+82
+85
+93
+128
+122
+116
+120
+120
+118
+120
+86
+119
+Use cases &amp; Conditions
+Use case scores indicate the product performance in specific situations. They are not included in the overall score calculations.
+Outdoor
+Photos &amp; videos shot in bright light conditions (&ge;1000 lux)
+Indoor
+Photos &amp; videos shot in good lighting conditions (&ge;100lux)
+Lowlight
+Photos &amp; videos shot in low lighting conditions (&lt;100 lux)
+Friends &amp; Family
+Portrait and group photo &amp; videos
+Pros
+Good exposure and nice color
+Fast and accurate autofocus
+Realistic bokeh effect in portrait mode
+Preview image close to capture
+Good video exposure and fairly wide dynamic range
+Very effective video stabilization, even with intense camera motion
+Good texture/noise trade-off in video
+Smooth video autofocus with fast convergence
+Cons
+Luminance noise in low light, especially in areas of plain color
+Highlight clipping in strongly backlit scenes
+Artifacts, including ghosting, ringing and hue shift
+No macro mode
+Orange white balance casts in low-light video
+Occasional video exposure instabilities and slow exposure adaptation
+Lens flare, ringing, and color quantization in video, especially in low light
+Noise on moving elements in the scene in low light video
+Just like the flagships iPhone 14 Pro and 14 Pro Max, the iPhone 14 proved to be an extremely reliable camera in our testing, producing repeatable image and video results in all conditions. It particularly shined in video, thanks to high levels of detail, as well as excellent autofocus tracking. The camera lagged slightly behind the Pro version in terms of zoom performance, though. This was mainly due to the lack of a dedicated lens and a smaller maximum aperture on the ultra-wide module. With only a 5x digital zoom, overall zoom capabilities are quite limited, especially at medium and long range.
+Test summary
+About DXOMARK Camera tests: DXOMARK&rsquo;s Camera evaluations take place in laboratories and in real-world situations using a wide variety of subjects. The scores rely on objective tests for which the results are calculated directly by measurement software on our laboratory setups, and on perceptual tests in which a sophisticated set of metrics allow a panel of image experts to compare aspects of image quality that require human judgment. Testing a smartphone involves a team of engineers and technicians for about a week. Photo, Zoom, and Video quality are scored separately and then combined into an Overall score for comparison among the cameras in different devices. For more information about the DXOMARK Camera protocol, click here. More details on smartphone camera scores are available here. The following section gathers key elements of DXOMARK&rsquo;s exhaustive tests and analyses. Full performance evaluations are available upon request. Please contact us&nbsp; on how to receive a full report.
+Photo
+Apple iPhone 14
+169
+For scoring and analysis, DXOMARK engineers capture and evaluate more than 2,600 test images both in controlled lab environments and in outdoor, indoor and low-light natural scenes, using the camera&rsquo;s default settings. The photo protocol is designed to take into account the main use cases and is based on typical shooting scenarios, such as portraits, family, and landscape photography. The evaluation is performed by visually inspecting images against a reference of natural scenes, and by running objective measurements on images of charts captured in the lab under different lighting conditions from 1 to 1,000+ lux and color temperatures from 2,300K to 6,500K.
+In terms of still image quality, the iPhone 14 was overall quite close to last year&rsquo;s 13 Pro and 13 Pro Max, but with improved skin tones in difficult light conditions. This said, image noise was slightly more intrusive on the iPhone 14 base model than on both last year&rsquo;s 13 Pro models and the latest iPhone 14 Pro.
+Exposure
+Apple iPhone 14
+130
+Color
+Apple iPhone 14
+130
+Exposure and color are the key attributes for technically good pictures. For exposure, the main attribute evaluated is the brightness of the main subject through various use cases such as landscape, portrait, or still life. Other factors evaluated are the contrast and the dynamic range, eg. the ability to render visible details in both bright and dark areas of the image. Repeatability is also important because it demonstrates the camera's ability to provide the same rendering when shooting several images of the same scene.
+For color, the image quality attributes analyzed are skin-tone rendering, white balance, color shading, and repeatability. For color and skin tone rendering, we penalize unnatural colors but we respect a manufacturer's choice of color signature.
+Autofocus
+Apple iPhone 14
+125
+
+Texture
+Apple iPhone 14
+125
+Texture tests analyze the level of details and the texture of subjects in the images taken in the lab as well as in real-life scenarios. For natural shots, particular attention is paid to the level of details in the bright and dark areas of the image. Objective measurements are performed on chart images taken in various lighting conditions from 1 to 1000 lux and different kinds of dynamic range conditions. The charts used are the proprietary DXOMARK chart (DMC) and the Dead Leaves chart.
+Noise
+Apple iPhone 14
+117
+Noise tests analyze various attributes of noise such as intensity, chromaticity, grain, structure on real-life images as well as images of charts taken in the lab. For natural images, particular attention is paid to the noise on faces, landscapes, but also on dark areas and high dynamic range conditions. Noise on moving objects is also evaluated on natural images. Objective measurements are performed on images of charts taken in various conditions from 1 to 1000 lux and different kinds of dynamic range conditions. The chart used is the Dead Leaves chart and the standardized measurement such as Visual Noise derived from ISO 15739.
+Artifacts
+Apple iPhone 14
+82
+The artifacts evaluation looks at lens shading, chromatic aberrations, geometrical distortion, edges ringing, halos, ghosting, quantization, unexpected color hue shifts, among others type of possible unnatural effects on photos. The more severe and the more frequent the artifact, the higher the point deduction on the score. The main artifacts observed and corresponding point loss are listed below.
+Preview
+Apple iPhone 14
+93
+Preview tests analyze the image quality of the camera app's preview of the image, with particular attention paid to the difference between the capture and the preview, especially regarding dynamic range and the application of the bokeh effect. Also evaluated is the smoothness of the exposure, color and focus adaptation when zooming from the minimal to the maximal zoom factor available. The preview frame rate is measured using the LED Universal Timer.
+Zoom
+Apple iPhone 14
+169
+DXOMARK engineers capture and evaluate over 400 test images in controlled lab environments and in outdoor, indoor, and low-light natural scenes, using the camera&rsquo;s default settings and pinch zoom at various zoom factors from ultra wide to very long-range zoom. The evaluation is performed by visually inspecting the images against a reference of natural scenes, and by running objective measurements of chart mages captured in the lab under different conditions from 20 to 1000 lux and color temperatures from 2300K to 6500K.
+For a device without a dedicated tele lens, the iPhone 14 offered pretty decent image quality across the entire zoom range. The ultra-wide results were similar to the older iPhone 13 images. The 13mm lens offered a wide field of view and good quality images but slightly less detail and more noise than on the 14 Pro. When using the tele zoom, at close and medium range, images showed significant improvements over the iPhone 13.
+Wide
+Apple iPhone 14
+122
+ These tests analyze the performance of the ultra-wide camera at several focal lengths from 12 mm to 20 mm. All image quality attributes are evaluated, with particular attention paid to such artifacts as chromatic aberrations, lens softness, and distortion. Pictures below are an extract of tested scenes.
+Tele
+Apple iPhone 14
+128
+ All image quality attributes are evaluated at focal lengths from approximately 40 mm to 300 mm, with particular attention paid to texture and detail. The score is derived from a number of objective measurements in the lab and perceptual analysis of real-life images.
+5 lux
+20 lux
+100 lux
+1000 lux
+Video
+Apple iPhone 14
+159
+DXOMARK engineers capture and evaluate more than 2.5 hours of video in controlled lab environments and in natural low-light, indoor and outdoor scenes, using the camera&rsquo;s default settings. The evaluation consists of visually inspecting natural videos taken in various conditions and running objective measurements on videos of charts recorded in the lab under different conditions from 1 to 1000+ lux and color temperatures from 2,300K to 6,500K.
+Video tests on the iPhone 14 were performed at 4K resolution and 30 frames per second, with Dolby Vision activated. The camera offered overall excellent video quality and showed improvements over the 13 Pro and Pro Max in most video test attributes, taking it quite close to the latest flagships iPhone 14 and 14 Pro Max.
+Please note: YouTube only displays the original HDR rendering if videos are watched on a compatible HDR screen. Otherwise, a compressed SDR video is displayed.
+Exposure
+Apple iPhone 14
+116
+Color
+Apple iPhone 14
+120
+Exposure tests evaluate the brightness of the main subject and the dynamic range, eg. the ability to render visible details in both bright and dark areas of the image. Stability and temporal adaption of the exposure are also analyzed.
+Image-quality color analysis looks at color rendering, skin-tone rendering, white balance, color shading, stability of the white balance and its adaption when light is changing.
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+Texture
+Apple iPhone 14
+118
+Texture tests analyze the level of details and texture of the real-life videos as well as the videos of charts recorded in the lab. Natural videos recordings are visually evaluated, with particular attention paid to the level of details in the bright and areas as well as in the dark. Objective measurements are performed of images of charts taken in various conditions from 1 to 1000 lux. The charts used are the DXOMARK chart (DMC) and Dead Leaves chart.
+Noise
+Apple iPhone 14
+120
+Noise tests analyze various attributes of noise such as intensity, chromaticity, grain, structure, temporal aspects on real-life video recording as well as videos of charts taken in the lab. Natural videos are visually evaluated, with particular attention paid to the noise in the dark areas and high dynamic range conditions. Objective measurements are performed on the videos of charts recorded in various conditions from 1 to 1000 lux. The chart used is the DXOMARK visual noise chart.
+Spatial Noise
+Temporal Noise
+Stabilization
+Apple iPhone 14
+119
+Stabilization evaluation tests the ability of the device to stabilize footage thanks to software or hardware technologies such as OIS, EIS, or any others means. The evaluation looks at residual motion, smoothness, jellow artifacts and residual motion blur on walk and run use cases in various lighting conditions. The video below is an extract from one of the tested scenes.
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+Artifacts
+Apple iPhone 14
+86
+Artifacts are evaluated with MTF and ringing measurements on the SFR chart in the lab as well as frame-rate measurements using the LED Universal Timer. Natural videos are visually evaluated by paying particular attention to artifacts such as aliasing, quantization, blocking, and hue shift, among others. The more severe and the more frequent the artifact, the higher the point deduction from the score. The main artifacts and corresponding point loss are listed below.
+DXOMARK encourages its readers to share comments on the articles. To read or post comments, Disqus cookies are required. Change your Cookies Preferences and read more about our Comment Policy.
+Our Company
+FAQ
+Glossary
+Press Relations
+Join Us
+Contact Us
+Rankings
+
+ Custom Ranking
+Smartphones
+Camera Sensors
+Camera Lenses
+Speakers
+Laptops
+Reviews
+
+ Smartphones
+Camera Sensors
+Camera Lenses
+Wireless Speakers
+Laptops
+Articles
+
+ Test results
+Best of
+Tech articles
+Insights
+About us
+
+ Our company
+Our Label
+Smart Choice Label
+Our Partners
+Expert committee
+How we test
+Contact Us
+B2B Solutions 
+
+ 
+ English 
+ 
+ English
+ 中文
+
+ FacebookInstagramTwitterYoutube

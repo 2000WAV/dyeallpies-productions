@@ -1,0 +1,28 @@
+Zhang, F., Bazarevsky, V., Vakunov, A., Tkachenka, A., Sung, G., Chang, C.-L., & Grundmann, M.
+(2020). MediaPipe Hands: On-device Real-time Hand Tracking. arXiv:2006.10214 [cs.CV].
+
+ABSTRACT (as printed in the paper; full text saved in
+papers/arxiv-2006.10214-mediapipe-hands.pdf, text extract in the .txt of the same name):
+
+We present a real-time on-device hand tracking solution that predicts a hand skeleton of a
+human from a single RGB camera for AR/VR applications. Our pipeline consists of two models:
+1) a palm detector, that is providing a bounding box of a hand to, 2) a hand landmark model,
+that is predicting the hand skeleton. It is implemented via MediaPipe, a framework for
+building cross-platform ML solutions. The proposed model and pipeline architecture
+demonstrate real-time inference speed on mobile GPUs with high prediction quality. MediaPipe
+Hands is open sourced at https://mediapipe.dev.
+
+RELEVANCE TO THIS PROJECT: this is the original architecture paper for the palm
+detector + hand landmark model pipeline the build's tracker is built on. Key facts used:
+(1) the landmark model outputs "21 hand landmarks consisting of x, y, and relative depth" --
+2.5D, not metric 3D -- with "the relative depth w.r.t. the wrist point being learned only
+from synthetic images" (Section 2.2), i.e. the z channel in this 2020 paper has no
+real-image supervision at all; (2) palm detector average precision 95.7% with the
+decoder+focal-loss design (Table 1); (3) landmark-model quality is reported as MSE
+normalized by palm size, 13.4% for the combined real+synthetic training set (Table 2), not
+a millimeter or pixel error; (4) no discussion anywhere in the paper of dorsal (back-of-hand)
+view or closed-fist failure modes -- those are only covered in the 2021 model card
+(mediapipe-model-card-hand-tracking-fairness-2021.txt) and in the independent validation
+study (pmc11858933-markerless-vs-markerbased-hand-mocap.txt). The metric "world landmarks"
+the build actually consumes were added later (GHUM-fitted, per the model card) and are not
+part of this original paper.

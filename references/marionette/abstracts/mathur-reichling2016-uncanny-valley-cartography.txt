@@ -1,0 +1,33 @@
+1. Cognition. 2016 Jan;146:22-32. doi: 10.1016/j.cognition.2015.09.008. Epub 2015
+ Sep 21.
+
+Navigating a social world with robot partners: A quantitative cartography of the 
+Uncanny Valley.
+
+Mathur MB(1), Reichling DB(2).
+
+Author information:
+(1)Quantitative Sciences Unit, Stanford University, United States. Electronic 
+address: mmathur@stanford.edu.
+(2)Department of Oral & Maxillofacial Surgery, University of California, San 
+Francisco, United States.
+
+Android robots are entering human social life. However, human-robot interactions 
+may be complicated by a hypothetical Uncanny Valley (UV) in which imperfect 
+human-likeness provokes dislike. Previous investigations using unnaturally 
+blended images reported inconsistent UV effects. We demonstrate an UV in 
+subjects' explicit ratings of likability for a large, objectively chosen sample 
+of 80 real-world robot faces and a complementary controlled set of edited faces. 
+An "investment game" showed that the UV penetrated even more deeply to influence 
+subjects' implicit decisions concerning robots' social trustworthiness, and that 
+these fundamental social decisions depend on subtle cues of facial expression 
+that are also used to judge humans. Preliminary evidence suggests category 
+confusion may occur in the UV but does not mediate the likability effect. These 
+findings suggest that while classic elements of human social psychology govern 
+human-robot social interaction, robust UV effects pose a formidable 
+android-specific problem.
+
+Copyright © 2015 The Authors. Published by Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.cognition.2015.09.008
+PMID: 26402646 [Indexed for MEDLINE]

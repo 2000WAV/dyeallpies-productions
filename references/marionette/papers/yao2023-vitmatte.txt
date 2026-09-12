@@ -1,0 +1,171 @@
+                                        ViTMatte: Boosting Image Matting with Pretrained Plain Vision Transformers
+
+                                                          Jingfeng Yao1,, Xinggang Wang1,, Shusheng Yang1, Baoyuan Wang2
+                                                              1 School of EIC, Huazhong University of Science & Technology
+                                                                                            2 Xiaobing.AI
+
+                                                                                    {jingfengyao,xgwang@hust.edu.cn}
+
+arXiv:2305.15272v2 [cs.CV] 31 May 2023                          Abstract                                                                        
+
+                                           Recently, plain vision Transformers (ViTs) have shown            supervised/                           
+                                        impressive performance on various computer vision tasks,
+                                        thanks to their strong modeling capacity and large-scale          self-supervised    ViT
+                                        pretraining. However, they have not yet conquered the prob-
+                                        lem of image matting. We hypothesize that image mat-              pretraining
+                                        ting could also be boosted by ViTs and present a new ef-
+                                        ficient and robust ViT-based matting system, named ViT-                            Adapted by ViTMatte
+                                        Matte. Our method utilizes (i) a hybrid attention mecha-
+                                        nism combined with a convolution neck to help ViTs achieve               =  + 1 -  
+                                        an excellent performance-computation trade-off in matting
+                                        tasks. (ii) Additionally, we introduce the detail capture         Figure 1. Pipeline of image matting. We input foreground F and
+                                        module, which just consists of simple lightweight convolu-        its corresponding trimap T into ViTMatte and predict the alpha
+                                        tions to complement the detailed information required by          matte . Then we can use them to create a new composition image
+                                        matting. To the best of our knowledge, ViTMatte is the            with the equation I = F +(1-)B. The images are from AIM-
+                                        first work to unleash the potential of ViT on image matting       500 [29] and the internet. Please zoom in for a better view.
+                                        with concise adaptation. It inherits many superior prop-
+                                        erties from ViT to matting, including various pretraining
+                                        strategies, concise architecture design, and flexible infer-
+                                        ence strategies. We evaluate ViTMatte on Composition-
+                                        1k and Distinctions-646, the most commonly used bench-
+                                        mark for image matting, our method achieves state-of-the-
+                                        art performance and outperforms prior matting works by
+                                        a large margin. Our codes and models are available at:
+                                        https://github.com/hustvl/ViTMatte.
+
+                                        1. Introduction                                                   so on. In recent years, the performance of image mat-
+                                                                                                          ting has been dramatically improved by deep learning-based
+                                           Image matting has been a long-standing and fundamen-           methods [36, 47, 56, 59] which can leverage the strong se-
+                                        tal research problem in computer vision [1, 28]. As shown         mantic representation to capture meaningful context, com-
+                                        in Figure 1, it aims to precisely separate the foreground         pared with traditional sampling [23, 44] or propagation-
+                                        object and background by predicting the alpha matte for           based methods [7, 27, 46]. The mainstream CNN-based Im-
+                                        each pixel (also known as Alpha Mating). It can be ap-            age matting typically follows such a paradigm: A hierar-
+                                        plied to numerous killer applications, such as movie spe-         chical backbone is used to extract the features of the im-
+                                        cial effects, digital person creation, video conferences, and     age and then a decoder with injected prior is employed to
+                                                                                                          fuse multi-level features. It is generally assumed that the
+                                             This work was done when Jingfeng Yao was interning           decoder needs to simultaneously accomplish two tasks (i)
+                                        at Xiaobing.AI. Xinggang Wang is the corresponding author:        fusing multi-level features and (ii) capturing the detailed in-
+                                        xgwang@hust.edu.cn
+
+                                                                                                       1
+Image  Simple Feature Pyramid                                     Image&              Detail Capture Module
+           (5.6M # param.)                                        Trimap
+ViT                                                                                ConvStream
+                                                                  ViT            (0.2M # param.)
+
+       up    1/4                                                                 1/2
+       4x
+
+       up    1/8                 Task                                     Conv   1/4                         Fusion
+       2x                      Specific                                   Layer  1/8                         Layers
+                                                                                 1/16
+       1x    1/16              Decoder                                                                         2.7M
+                                                                                                             # param.
+                                  Det
+       down  1/32                Pose
+                                  RS
+       2x
+
+       (a) previous task                                                  (b) matting task (ours)
+
+Figure 2. Overview of ViTMatte and other applications of plain vision transformers [31, 51, 57]. They use a simple feature pyramid
+designed by ViTDet [31]. Differently, we propose a new adaptation strategy, especially for image matting, named ViTMatte. We use
+simple convolution layers to get detailed information about the image and the feature map output by plain vision transformers is used only
+once.
+
+formation [30, 41, 59], which complicates the design of the       putes self-attention among all patches in the image, pro-
+decoder and whole system.                                         ducing long patch sequences and excessive computational
+                                                                  burden. (2) How to capture the finest details on top of the
+   On the other hand, the plain vision transformer (ViT) has      non-hierarchical ViT representation. Considering the mo-
+become a powerful backbone for various computer vision            tivation discussed above, we are not supposed to carefully
+tasks [14, 31, 57]. Unlike the commonly used hierarchical         design complex hierarchical feature fusion mechanisms as
+backbone [24, 37], ViT is minimalist and non-hierarchical.        in prior works [30, 40, 47, 59].
+Recently, some works have explored the use of plain vi-
+sion transformer on object detection [31] and pose estima-           To address the challenges above, we propose ViTMatte,
+tion [57] and achieved remarkable results. The key insight        an efficient and effective image matting system with a plain
+behind this is that a task-agnostic pretrained transformer        vision transformer. Based on our analysis, we believe that
+structure could already encode rich enough semantic rep-          a pretrained ViT model provides the majority of the neces-
+resentation which simplifies the adaptation of downstream         sary functionality for image matting, and we only need to
+tasks. For example, ViTDet [31] finds that even without           make concise and lightweight adaptations to use it for this
+the feature fusion process of a Feature Pyramid Network           purpose. On one hand, a plain ViT is stacked with the same
+(FPN) [34], ViT is still able to achieve impressive perfor-       transformer blocks, each of which computes the global self-
+mance with a feature pyramid generated by simple decon-           attention at an expensive cost. We argue that it is unneces-
+volutions. A similar paradigm shift is also observed in other     sary and propose a simple ViT adaptation strategy tailored
+domains, where the foundation models (i.e. GPT-3 [3] and          for solving matting. Specifically, we employ both window
+Florence [60]) are supposed to do most of the heavy lifting       and global attention to achieve better trade-offs for the com-
+things. Inspired by all those prior works, it would be inter-     putation. Besides, we find that the convolution module can
+esting to raise the question: if a plain ViT is "foundation"      effectively enhance the global attention on top of ViT, and
+enough for solving image matting with concise adaptation?         the residual convolutional neck could further improve mat-
+                                                                  ting performance. On the other hand, a plain ViT has a fixed
+   In this paper, we try to enable the ViTs to be finetuned       patch embedding process, leading to information loss, espe-
+on matting tasks and unleash their potential. Our goal is not     cially for very subtle details. To fully model the details for
+to design new complex modules tailored for image matting          matting, we introduce a detail capture module specially for
+but to pursue more general and effective matting architec-        plain ViTs, which consists of only less than 3M number of
+tures with minimal adaptations. If successful, it would fur-      parameters.
+ther confirm the paradigm-shifting and decouple the task-
+agnostic pre-training from task-specific adaptation. How-            Compared with previous ViT-based tasks and matting
+ever, to explore ViT for image matting, there are two spe-        systems, ViTMatte is the first ViT-adaptation method spe-
+cific challenges. (1) How to reduce the intensive computa-        cially designed for image matting. As shown in Figure 2,
+tional cost for high-resolution images [58]? Plain ViT com-       compared to the previous adaptation strategy [31], it gets
+
+                                                               2
+better results with fewer parameters. It could save 70%           that a vision foundation model [2] can be trained based on
+FLOPs when processing high-resolution images. ViTMatte            plain ViT and the downstream tasks can be accomplished by
+is also the first ViT-based image matting method and boosts       task-specific adaptation. In this paper, we aim to study the
+image matting with various self-supervised pretrained ViTs.       difficult image matting task since it requires detailed visual
+We evaluate ViTMatte on the most widely-used benchmark            information that is not easy to be learned in a foundation
+Composition-1k and Distinctions-646, and it achieves the          model.
+new state-of-the-art results with fewer parameters. Our con-
+tributions can be summarized as follows:                          2.2. Pre-training of Plain ViTs
+
+   · We propose ViTMatte, the first plain ViT-based mat-             Pre-training and fine-tuning have been the de facto
+      ting system. To address the challenges, we introduce        paradigm for many visual understanding tasks. Most vision
+      a ViT adaptation strategy and a detail capture module.      transformers are typically pre-trained on ImageNet [12]
+      For the first time, we prove that a plain vision trans-     with supervised learning. Recently, self-supervised pre-
+      former can achieve significantly better matting perfor-     training strategies have been introduced to the vision from
+      mance than other backbones with even fewer parame-          NLP [4, 13, 42, 43]. They address the appetite for data
+      ters.                                                       problems by using unlabeled data. Many of them, such as
+                                                                  MAE [22], DINO [6], and iBOT [63] mainly target plain vi-
+   · We evaluate ViTMatte on the most widely used bench-          sion transformer structures and pretrained models in a self-
+      marks. Compared with previous state-of-the-art meth-        supervised manner. These methods have been shown to be
+      ods, our model gets 2.54 improvement of SAD and             able to facilitate many downstream tasks, such as semantic
+      3.06 improvement of Connectivity on Composition-            segmentation, object detection, and instance segmentation.
+      1k; and gets 8.60 improvements of SAD and 8.50              However, how to best leverage such pretrained representa-
+      improvement of Connectivity on Distinctions-646 re-         tion for matting is still yet to be explored to a large extent
+      spectively, making ViTMatte as the new state-of-the-        from both computational cost and accuracy perspectives.
+      art system with even smaller model size.
+                                                                  2.3. Plain ViTs for Downstream Tasks
+   · ViTMatte well inherits the advantages of ViTs. Plenty
+      of comprehensive experiments and analyses have been            The plain vision transformer is originally used as a
+      done to compare it to previous ViT-adaptation strate-       strong backbone for image classification [14]. However,
+      gies and previous matting systems. It reveals unique        due to its non-hierarchical structure design, it has poor
+      insights from ViTMatte. We hope it could inspire the        compatibility with common decoders or heads for many
+      following matting work with plain vision transformers.      downstream tasks. People prefer to use transformers that
+                                                                  are specifically designed for vision tasks such as [16, 25,
+2. Related Work                                                   37, 53, 61]. Their multi-level architecture makes them di-
+                                                                  rectly transferable to many convolution-based tasks. How-
+   Here we mainly review the most relevant works, refer to        ever, with the rise of self-supervised pre-training for plain
+[1, 32, 40] for a detailed discussion of the matting problem.     ViT(i.e. [22]), there has been a renewed focus on this non-
+                                                                  hierarchical structure. For example, ViTDet [31] finds that
+2.1. Transformer-based Image Matting                              using only parallel deconvolutions to generate the simple
+                                                                  feature pyramid without the heavy feature pyramid net-
+   Learning-based image matting has been dominated by             works (FPN) [34] allows plain ViT to achieve impressive
+convolutional neural networks (CNN) in the literature [26,        results on object detection tasks. ViTPose [57] find that
+30,32,33,41,48,52,56,59,62] for a long time. Until recently,      ViTs are more compatible with simple decoder designs than
+transformer-based [14, 49] methods disrupted a wide spec-         convolutional neural networks. We speculate that this con-
+trum of many vision tasks thanks to their powerful long-          cise property of ViT could facilitate a new structural design
+distance modeling capability compared with CNNs. In-              for solving image matting.
+spired by the paradigm-shifting, a few recent works started
+to employ transformers for solving matting tasks [5, 10, 40]      3. Methodology
+and showed encouraging results, i.e. Swin Transformer [37]
+and SegFormer [55]. However, these specialized visual             3.1. Preliminary
+transformers have a similar hierarchical structure as CNNs
+and are designed as direct replacements for CNN back-                To improve clarity, we provide a concise explanation of
+bones. Technologies are involved rapidly, the recent con-         the concepts of trimap in image matting and plain vision
+clusion is drawn by [31] indicating that a plain ViT could        transformers.
+be more powerful than expected despite its minimalist and
+non-hierarchical nature. [31] reveals an important message           Trimap in Image Matting In natural image matting, re-
+                                                                  searchers always use trimaps as priors to distinguish fore-
+
+                                                               3
+

@@ -1,0 +1,34 @@
+Wanger, L.R., Ferwerda, J.A., and Greenberg, D.P. (1992). Perceiving Spatial
+Relationships in Computer-Generated Images. IEEE Computer Graphics and
+Applications 12(3), 44-58.
+
+STATUS: PDF saved (author-hosted, Ferwerda's RIT page) but the file is a
+1992 SCANNED document with no OCR text layer -- pdftotext returns nothing,
+and no OCR tool (tesseract) is available on this machine. See
+papers/wanger1992-perceiving-spatial-relationships.pdf (kept for the
+record). Summary below is from the paper's own widely-quoted abstract/
+findings as described in secondary sources (Ferwerda's own later papers,
+e.g. papers/jamesferwerda... "Three Varieties of Realism," and multiple
+citing works found via WebSearch), NOT independently re-verified against
+the primary text of this specific PDF -- flagged as such.
+
+SUMMARY: three psychophysical experiments measuring how accurately subjects
+match the position, orientation and size of a "test" object to a "standard"
+by interactively manipulating it, under different combinations of pictorial
+depth cues (shadows, motion parallax, texture, perspective). Not all cues
+matter equally: texture had only a small effect, shadows had a MAJOR
+effect on relative-position judgments, and motion parallax's effect on
+performance was inconsistent/task-dependent (sometimes it helped, sometimes
+it did not, depending on what was being judged). This is one of the
+founding studies (with Kersten et al. 1997) establishing that cast shadows
+are an outsized depth/spatial cue relative to their rendering cost.
+
+KEY NUMBERS: NOT FOUND -- the specific accuracy percentages per cue
+combination are in the scanned paper's tables/figures, not recoverable
+without OCR; only the qualitative ranking (shadow > perspective > texture,
+motion parallax inconsistent) is used in the main document, cited to this
+paper's well-established secondary description.
+
+RELEVANCE: supports item 11 section 1's "cast shadows carry outsized
+weight" claim, converging with Kersten et al. 1997's ball-in-a-box result
+and with item 05's own shadow-direction-and-penumbra recipe.

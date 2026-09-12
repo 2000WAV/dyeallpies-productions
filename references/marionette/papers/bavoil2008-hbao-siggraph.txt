@@ -1,0 +1,530 @@
+Image-Space
+Horizon-Based
+Ambient
+Occlusion
+
+             Louis Bavoil, Miguel Sainz
+                          NVIDIA
+Sky Light
+
+· Simplest form of Ambient Occlusion                        scene
+                                                          sphere light
+   ­ Light source = sky (sphere light)
+   ­ Two definitions of AO
+
+         · AO = diffuse illumination from the sky
+
+                [Landis 02] [Christensen 03]
+
+         · AO = shadow from the sky illumination
+
+                [Pharr and Green 04] [Hegeman et al. 06]
+
+· Limited to outdoor scenes
+Ambient Occlusion
+
+· Light = local hemisphere    scene
+                                           n
+   ­ Centered at current
+                                         P
+      surface point
+                                    local sphere light
+   ­ Radius = user parameter
+
+· Can be rendered with
+
+  ray-tracing
+
+   ­ [Gelato] [Mental Ray]
+Ambient Occlusion
+
+· Gives perceptual clues of depth, curvature
+
+  and spatial proximity
+
+Without AO  With our AO
+Screen Space Ambient Occlusion
+
+· Approach introduced by                    eye
+                                                            image plane
+        [Shanmugam and Orikan 07]
+        [Mittring 07] [Fox and Compton 08]                     Z-Buffer
+
+· Input = Z-Buffer + normals
+
+    ­ Render approximate AO for
+
+        dynamic scenes with no
+        precomputations
+
+· Z-Buffer = Heightfield
+
+     ­ z = f(x,y)
+Horizon Mapping [Max 86]
+
+ · Given a 1D heightfield
+
+              -Z
+
+P                      horizon angle
+                                         +X
+   sampling direction
+Finding the Horizon
+
+ · Marching on the heightfield
+
+              -Z
+
+                    S0          horizon angle
+P                                                  +X
+
+   sampling direction
+Finding the Horizon
+
+ · Marching on the heightfield
+
+              -Z
+
+   S0
+
+P                                            +X
+
+                                         S1
+
+   sampling direction
+Finding the Horizon
+
+· Marching on the heightfield
+
+           -Z
+
+                    S0  S2
+P                                  horizon angle
+
+   sampling direction                             +X
+                        S1
+Finding the Horizon
+
+· Marching on the heightfield
+
+-Z                                 S3
+                                             horizon angle
+                     S0
+P                                S2
+
+    sampling direction                             +X
+                         S1
+Tangent Plane
+
+· Given point P and its normal n
+
+    -Z
+                 n
+
+P                     XY plane
+    tangent vector T            tangent angle
+Horizon-Based AO
+
+-Z                                      horizon angle in [-/2, /2]
+      horizon vector H                  h(H) = atan(H.z / ||H.xy||)
+
+                              XY plane  tangent angle in [-/2, /2]
+P                                       t(T) = atan(T.z / ||T.xy||)
+
+    tangent vector T
+
+                        AO = sin h ­ sin t
+Ambient Occlusion Radius
+
+· Ambient occlusion radius           Eye
+                                                       image plane
+  defined in eye space
+                                  PR
+    ­ Scene = depth image                     sphere light
+
+· Project light sphere into
+
+  texture space
+
+    ­ Approximate projection of
+
+       the sphere by a disk
+
+    ­ Project disk onto uv space
+Sampling the Depth Image
+
+                                                                                          u
+
+· Use uniform distribution of
+
+  directions per pixel
+
+· Fixed num samples / dir
+
+· Per-pixel randomization v  P
+
+· Rotate directions by
+
+  random per-pixel angle
+
+· Jitter samples by a        Example with 4 directions / pixel
+
+  random offset
+Normals
+
+· We store per-pixel normals                 interpolated
+                                             normal
+­ Not interpolated normals        false
+                                  occlusion                   face
+                                                              normal
+· Would generate false occlusion
+                                             P
+­ But face normals
+
+· Using ddx/ddy instructions on
+
+  eye-space coordinates in the
+  geometry pass
+Core Algorithm
+
+· Integrate AO in 2D
+
+    ­ Average AO over multiple 2D directions 
+    ­ AO() = sin h() - sin t()
+
+                            
+                       -Z
+
+                                                            h()
+
+surface point P     XY plane
+                 t()
+Ambient Occlusion in Creases
+Low-Tessellation Problem
+
+   
+
+-Z
+                           n
+
+XY plane  AO > 0              false occlusion
+
+          sampling direction  tangent plane
+Solution: Angle Bias
+
+· Similar to "spread" parameter in [Mental Ray]
+
+· Ignore occlusion near the tangent plane
+
+             
+
+-Z                            effective tangent plane
+
+          n
+
+                              t() + bias
+
+XY plane  AO == 0
+
+                              t()
+
+          sampling direction  tangent plane
+                              (signed angle)
+The Angle Bias in Action
+
+Without angle bias  With angle bias = 30 deg
+Sampling Outside the Screen
+
+· No scene information outside view frustum
+
+   ­ We remove false occlusion by using clamping to
+
+      edge and an angle bias
+
+angle bias = 0  angle bias = 30 deg
+Discontinuity Problem
+
+-Z                             -Z
+
+    n                              n         S1
+               S1
+
+Pixel P0 S0                        Adjacent
+                                   Pixel P1
+
+AO(P0) = sin h ­ sin t         AO(P1) = sin h ­ sin t =
+          = sin 0 ­ sin 0 = 0            = sin(45deg) ­ sin 0 = 0.7
+
+    Î Large AO discontinuity between P0 and P1
+Attenuation Function
+
+· Weight AO by a radial function W(r)
+
+    ­ Similar to obscurances [Zhukov et al. 98]
+    ­ "Falloff" in [Gelato] and [Mental Ray]
+
+1.2                                              Normalized distance
+
+1                                                r = ||S ­ P|| / R
+
+0.8                                              We use the attenuation
+
+0.6                      step W(r) = 1 - r2
+
+                         1-r
+
+0.4                      1-r^2
+
+0.2
+
+0
+
+      0  0.5  1  1.5  2
+
+-0.2
+Per-Sample Attenuation
+
+· Initialize WAO = 0                                (S2)
+
+· After sample S1                                   S2
+                                                            (S1)
+    ­ AO(S1) = sin (S1) ­ sin t
+    ­ WAO += W(S1) AO(S1)                    R  S1
+
+· After sample S2                               P1
+
+    ­ If (S2) > (S1)                              sampling direction
+
+           · AO(S2) = sin (S2) ­ sin t
+           · WAO += W(S2) (AO(S2) - AO(S1))
+With and Without Attenuation
+
+With Attenuation  Without Attenuation
+   W(r) = 1 - r2         W(r) = 1
+Noise
+
+· Per-pixel randomization generates noise
+
+                             AO with 6 directions x 6 steps/dir
+Cross Bilateral Filter
+
+· We blur the ambient occlusion
+· Depth-dependent Gaussian blur
+
+    · [Petschnigg et al. 04]
+
+       [Eisemann and Durand 04]
+
+   · Reduces blurring across edges
+· Although it is a non-separable filter, we apply it
+
+  separately in the X and Y directions
+Cross Bilateral Filter
+
+· Depth-dependent Blur
+
+Without Blur            With 15x15 Blur
+Half-Resolution AO
+
+· AO is mostly low frequency
+
+   ­ Can render the AO in half resolution
+
+         · Source half-resolution depth image
+
+· Still do the blur passes in full resolution
+
+   ­ To avoid bleeding across edges
+   ­ Source full resolution eye-space depths
+
+         · [Kopf et al. 07]
+Rendering Pipeline
+
+        Render opaque
+            geometry
+
+        eye-space  eye-space  Unprojection parameters
+        normals    depths     (fovy and aspect ratio)
+
+           Render AO          Eye-space radius R
+        (Half or Full Res)    Number of directions
+                              Number of steps / direction
+colors                        Angle bias
+
+        Blur AO in X          Kernel radius
+                              Spatial sigma
+        Blur AO in Y          Range sigma
+
+        Modulate Color
+Demo
+Performance
+
+· Depends on
+
+   ­ Screen Resolution
+   ­ Ambient Occlusion Resolution
+   ­ Number of samples (directions * steps)
+   ­ Blur Size
+Half-Resolution AO
+
+                    Image Size 1600x1200
+                    AO Resolution 800x600
+                    Blur Resolution 1600x1200
+
+                    Half-Res AO  GeForce GTX 280
+                     Geometry          1.0 ms
+                                       3.5 ms
+                         AO            2.5 ms
+                        Blur           7.0 ms
+                        Total          143 fps
+
+                    6 directions per pixel
+                    6 steps per direction
+                    15x15 Blur Size
+Full-Resolution AO
+
+                    Image Size 1600x1200
+                    AO Resolution 1600x1200
+                    Blur Resolution 1600x1200
+
+                    Full-Res AO  GeForce GTX 280
+                    Geometry           1.0 ms
+                                       30.0 ms
+                         AO            2.5 ms
+                        Blur           33.5 ms
+                        Total           30 fps
+
+                    6 directions per pixel
+                    6 steps per direction
+                    15x15 Blur Size
+Half-Resolution AO      AO = 3.5 ms @ 800x600
+6x6 samples / AO pixel  On GeForce GTX 280
+No Blur
+Half-Resolution AO      AO = 3.5 ms @ 800x600
+6x6 samples / AO pixel  Blur = 2.5 ms @ 1600x1200
+15x15 Blur              On GeForce GTX 280
+Full-Resolution AO      AO = 30 ms @ 800x600
+6x6 samples / AO pixel  Blur = 2.5 ms @ 1600x1200
+15x15 Blur              On GeForce GTX 280
+Full-Resolution AO
+16x16 samples / pixel
+No Blur
+Full-Resolution AO
+16x32 samples / pixel
+No Blur
+Conclusion
+
+· DirectX10 SDK sample
+
+    ­ Now available on developer.nvidia.com
+    ­ Including video and brief whitepaper
+
+· Easy to integrate into a game engine
+
+    ­ Input Data = eye-space depths and normals
+    ­ Rendered in a post-processing pass
+
+· More details in ShaderX7 (to appear)
+Acknowledgments
+
+    ­ NVIDIA
+
+         · Rouslan Dimitrov, Samuel Gateau, Michael Thompson,
+
+             Ignacio Castano, the demo team
+
+    ­ Models
+
+         · Dragon - Stanford 3D Scanning Repository
+         · Sibenik Cathedral - Marko Dabrovic
+Questions?
+
+Code sample available on     lbavoil@nvidia.com
+http://developer.nvidia.com  msainz@nvidia.com
+References
+
+· [Max 86] MAX, N. L. 1986. "Horizon mapping: Shadows for bump-
+
+    mapped surfaces." In Proceedings of Computer Graphics Tokyo '86
+    on Advanced Computer Graphics.
+
+· [Zhukov et al. 98] Sergej Zhukov, Andrej Inoes, Grigorij Kronin, 1998.
+
+    "An ambient light illumination model." In Rendering Techniques '98, G.
+    Drettakis and N. Max, Eds., Eurographics, 45­56.
+
+· [Landis 02] Landis, 2002. "Production-Ready Global Illumination," In
+
+    ACM SIGGRAPH Course #16.
+
+· [Christensen 03] Christensen, P. H. 2003. "Global illumination and all
+
+    that". In ACM SIGGRAPH Course 9.
+References
+
+· [Eisemann and Durand 04] Elmar Eisemann and Frédo Durand,
+
+    "Flash Photography Enhancement via Intrinsic Relighting", ACM
+    SIGGRAPH 2004.
+
+· [Petschnigg et al. 04] Petschnigg, Szeliski, Agrawala, Cohen, Hoppe,
+
+    Toyama, "Digital photography with flash and no-flash image pairs."
+    ACM SIGGRAPH 2004.
+
+· [Schüler 05] Christian Schüler, 2005. "Eliminate surface acne with
+
+    gradient shadow mapping", ShaderX4: Advanced Rendering
+    Techniques.
+
+· [Gelato] Gritz, L. 2006. "Gelato 2.1 Technical Reference". NVIDIA.
+· [Mental Ray] "mental ray Shader Reference", November 2007.
+References
+
+· [Mittring 07] MITTRING, M. 2007. "Finding next gen: Cry Engine 2". In
+
+    SIGGRAPH '07: ACM SIGGRAPH 2007 courses.
+
+· [Shanmugam and Orikan 07] SHANMUGAM, P., AND ARIKAN, O.
+
+    2007. "Hardware accelerated ambient occlusion techniques on
+    GPUs". In I3D '07: Proceedings of the 2007 symposium on Interactive
+    3D graphics and games.
+
+· [Kopf et al. 07] Johannes Kopf, Michael F. Cohen, Dani Lischinski,
+
+    Matt Uyttendaele, "Joint Bilateral Upsampling", SIGGRAPH '07: ACM
+    SIGGRAPH 2007 papers.
+
+· [Fox and Compton 08] Megan Fox and Stuart Compton, "Ambient
+
+    Occlusive Crease Shading", Game Developer Magazine, March 2008.
+Computing Eye-Space Positions
+
+· For a given sample S at (u,v)
+
+uv space  snap    unproject  eye space    uv
+   u,v    to s,t      s,t         x,y
+                                                st
+                  texture    z
+                                        snapping to
+                  fetch                 pixel center
+
+­ Snap uv to avoid mismatch between
+
+  reconstructed (x,y) and sampled z
+Tangent Angle
+
+· Given a tangent vector T                 n              XY
+                                  P           t() in [-/2,/2]
+   ­ T() on the plane
+   ­ t() = atan(T.z / ||T.xy||)   tangent vector T()
+
+· Compute plane basis
+
+    ­ Basis = (dP/du,dP/dv)
+    ­ T = dP/du u + dP/dv v
+    ­ Similar to gradient shadow
+
+       mapping [Schüler 05]
+

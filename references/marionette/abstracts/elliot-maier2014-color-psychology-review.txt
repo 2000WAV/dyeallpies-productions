@@ -1,0 +1,38 @@
+Elliot, A.J., and Maier, M.A. (2014). Color Psychology: Effects of Perceiving
+Color on Psychological Functioning in Humans. Annual Review of Psychology,
+65, 95-120. doi:10.1146/annurev-psych-010213-115035. PMID: 23808916.
+
+STATUS: abstract only (fetched via NCBI E-utilities efetch; the Annual Reviews
+PDF and the JOV-style paywalled full text both returned HTTP 403 to curl --
+see downloads-09.md). No PDF saved.
+
+ABSTRACT (verbatim from PubMed):
+"Color is a ubiquitous perceptual stimulus that is often considered in terms
+of aesthetics. Here we review theoretical and empirical work that looks
+beyond color aesthetics to the link between color and psychological
+functioning in humans. We begin by setting a historical context for research
+in this area, particularly highlighting methodological issues that hampered
+earlier empirical work. We proceed to overview theoretical and methodological
+advances during the past decade and conduct a review of emerging empirical
+findings. Our empirical review focuses especially on color in achievement and
+affiliation/attraction contexts, but it also covers work on consumer behavior
+as well as food and beverage evaluation and consumption. The review clearly
+shows that color can carry important meaning and can have an important impact
+on people's affect, cognition, and behavior. The literature remains at a
+nascent stage of development, however, and we note that considerable work on
+boundary conditions, moderators, and real-world generalizability is needed
+before strong conceptual statements and recommendations for application are
+warranted."
+
+RELEVANCE to item 9 ("red advantage"): this review is the standard citation
+for the "red advantage" literature (red increases perceived attractiveness,
+dominance, and physiological arousal/vigilance in achievement and
+attraction contexts; red is processed as a signal requiring attention).
+NOTE: the saved abstract does not itself contain the specific red-arousal
+numbers (e.g. effect sizes) -- those live in the primary studies the review
+cites, which were not separately fetched (out of scope for a 10-15 source
+compact set). Treat "red captures attention preferentially and is associated
+with heightened arousal/vigilance" as attributed to this review at the level
+of its abstract and title, not to a specific effect-size number -- **NOT
+FOUND** for a citable numeric effect size from a saved source in this
+research pass.
