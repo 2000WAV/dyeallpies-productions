@@ -4,7 +4,7 @@ plate behind the hand matte, with bloom, spill and grain.
 
     python render_puppet.py <master.mp4> <hand3d.npz> <sim.npz> <matte.npy> <out.mp4>
         [look=red] [style=neon|solid] [string_px=3] [bake=hand/work/puppet_layer.npy] [preview=42,44,48,60]
-        [trim=0,267] [shutter=0.5] [scale=2] [backend=gl|cpu] [plate=wall|black] [hand_gain=1.0] [spill=1.0] [wall=1.0]
+        [trim=0,267] [shutter=0.5] [scale=2] [backend=gl|cpu] [plate=wall|black] [hand_gain=1.0] [spill=1.0] [spill_hi=1.0] [wall=1.0]
 
 Two backends, one look (2026-09-12). `backend=gl` (default, studio.gl on the RTX 2060) reproduces the
 CPU shader below term for term from the same depth + ID buffers: 0.05 s a frame instead of 8.7 s
@@ -90,12 +90,13 @@ LOOKS = {
                        bodies=dict(upper_arm_l=(0.75, 0.00, 1.00), upper_arm_r=(0.75, 0.00, 1.00),      # magenta
                                    forearm_l=(1.00, 0.10, 0.04), forearm_r=(1.00, 0.10, 0.04),          # electric blue
                                    thigh_l=(1.00, 0.00, 0.14), thigh_r=(1.00, 0.00, 0.14),              # blue-violet
-                                   shank_l=(0.02, 0.32, 1.00), shank_r=(0.02, 0.32, 1.00))),            # amber
+                                   shank_l=(0.00, 0.00, 1.00), shank_r=(0.00, 0.00, 1.00))),            # the boots: pure red #FF0000 (Dennis: 255, 0, 0; was amber, then near-red)
 }
 BLOOM = [(3, 0.22), (9, 0.12), (27, 0.07), (81, 0.04)]   # neon: sigma px at 1x, weight (see the docstring; 06 for the range)
 BLOOM_SOLID = [(3, 0.04)]                                 # solid: the faintest near halo; item 09: bloom is veiling luminance and
                                                           # collapses the edge on a bright wall (2026-09-12)
 STRING_PX = 3                                             # the string's width at 1x (2026-09-12, Dennis: thicker; was 1.5)
+SPILL_REACH = 350                                         # px at 1x: the figure's light on the hand halves at this distance (2026-09-12)
 KEY_LIGHT = np.array([-0.55, -0.60, 0.58]); KEY_LIGHT /= np.linalg.norm(KEY_LIGHT)   # toward the light: left, front (the camera side), up
 
 
@@ -383,9 +384,11 @@ void main() {
         vec2 seed = texelFetch(jfa, p, 0).rg;
         float dist = (seed.x < 0.0) ? 0.0 : length(vec2(p) + 0.5 - seed);
         float core = pow(clamp(dist / max(thick[bid], 1.0), 0.0, 1.0), 0.7);
-        vec3 rim = pow(1.0 - ndv, 3.0) * 2.0 * (0.5 * col + 0.5);
-        float spec = pow(ndh, 80.0) * 1.5;
-        vec3 E = col * (0.22 + 0.45 * ndl + 0.45 * core) + rim + vec3(spec);
+        // the rim and the specular carry less white than the wall-plate neon did (0.5 -> 0.25 of white in the
+        // rim, the specular in the body's own colour): a pure-red boot went pink at its edge (Dennis, 2026-09-12)
+        vec3 rim = pow(1.0 - ndv, 3.0) * 2.0 * (0.75 * col + 0.25);
+        vec3 spec = pow(ndh, 80.0) * 1.5 * (0.6 * col + 0.4);
+        vec3 E = col * (0.22 + 0.45 * ndl + 0.45 * core) + rim + spec;
         o = vec4(E, 1.0);
     }
 }
@@ -519,7 +522,24 @@ def wide_blur(img, sigma, down=4):
     return cv2.resize(small, (W, H), interpolation=cv2.INTER_LINEAR)
 
 
-def composite_black(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon", hand_gain=1.0, spill=1.0, wall=1.0):
+def clean_matte(matte):
+    """Keep the hand-and-arm component only. The wall's dark horizontal line (row ~130 of the plate) came
+    through the matte as a soft full-width band (alpha 100-140) and flickered on the black plate around
+    1 s (Dennis, 2026-09-12): an opening drops anything thin, the largest component is the arm, a 6 px
+    dilation gives the soft edge back, everything else (the band, slivers, the border rows) goes."""
+    matte = matte.copy(); matte[:2] = 0; matte[-2:] = 0; matte[:, :2] = 0; matte[:, -2:] = 0   # rembg leaves alpha on the frame's
+    hard = (matte > 128).astype(np.uint8)                                                  # border rows: the plate's dark top line showed through and flickered
+    opened = cv2.morphologyEx(hard, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+    n, lab, stats, _ = cv2.connectedComponentsWithStats(opened, connectivity=8)
+    if n < 2: return matte
+    keep = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA]))   # the mask is applied even with one component: the wall line at
+                                                             # row ~130 is a SOFT band (alpha ~100-140 across the width) that
+                                                             # never reaches the hard matte (2026-09-12)
+    mask = cv2.dilate((lab == keep).astype(np.uint8), np.ones((13, 13), np.uint8))
+    return (matte * mask).astype(np.uint8)
+
+
+def composite_black(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon", hand_gain=1.0, spill=1.0, wall=1.0, spill_hi=1.0):
     """The neon-on-black plate (2026-09-12): the hand isolated on pitch black, the figure behind it, the
     bloom over both (the glow wraps the finger edges), the figure's light on the hand, grain everywhere.
     - The hand's edge is decontaminated against the wall (Smith & Blinn 1996: C = a F + (1 - a) B, so
@@ -529,11 +549,16 @@ def composite_black(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon
     - spill: how much the figure's light lands on the hand: hand * (1 + spill * irradiance), irradiance =
       a wide blur (sigma 40 px) of the UNOCCLUDED layer (the light reaches the fingers whether or not the
       camera sees the figure behind them), scaled so a figure at the fingertips gives ~+30 % at spill 1.
+    - spill_hi: the hand's bright parts (nails, knuckles, the lit side) reflect the figure's colours more
+      than its dark parts, as a glossy skin would: the hand's luminance above 0.25, squared, times the
+      figure's irradiance colour, added on top (Dennis, 2026-09-12: "the white brightness of the hand
+      renders the reflection of the doll's colours; the more, the better").
     - wall: the dark wall behind the figure catches its light (2026-09-12, Dennis: the doll's colours
       reflecting in the background): a near pool (sigma 60 px) and a broad one (sigma 180 px) of the
       unoccluded emission, dim, under the figure and the hand; 0 = pitch black."""
     # every array float32 and every full-frame pass counted: the first version cost 1.45 s a frame in
     # float64 temporaries, a full-frame exp for the shoulder and a fresh 6 M-sample noise draw (2026-09-12)
+    matte = clean_matte(matte)
     a = matte.astype(np.float32)[..., None] * np.float32(1 / 255.0)
     C = srgb8_to_lin(plate_bgr); L = np.asarray(layer, dtype=np.float32)
     outside = (matte == 0).astype(np.uint8); dist = cv2.distanceTransform(outside, cv2.DIST_L2, 5)
@@ -545,8 +570,26 @@ def composite_black(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon
         ab = a[band]; hand[band] = np.clip((C[band] - (1 - ab) * B[None]) / np.maximum(ab, np.float32(1e-3)), 0, 1) * ab
     if hand_gain != 1.0: hand *= np.float32(hand_gain)
     E = L[..., :3] * (1 - a)                                       # the figure where the hand is not
-    irr = wide_blur(L[..., :3], 40)                                # the light the figure throws (unoccluded)
-    irr *= np.float32(6.0 * spill); irr += 1; hand *= irr
+    # the figure's light on the hand. Physically the irradiance of a 15 cm emitter 5-30 cm away is a few
+    # percent of the hand's exposure and invisible (a sigma-40 blur x 6 read as nothing at spill 5, 2026-09-12);
+    # Dennis wants the reflection strong ("the more, the better"), so the light field is a wide blur of the
+    # emission NORMALISED to its own peak (0..1 over the frame, the fingertips near the figure at 0.3-0.6)
+    # and its chromaticity tints the hand: reflected = hand * (1 + spill * field * tint) + gloss.
+    field = wide_blur(L[..., :3], 60); field += wide_blur(L[..., :3], 200)
+    lum = 0.114 * field[..., 0] + 0.587 * field[..., 1] + 0.299 * field[..., 2]
+    tint = field / (lum[..., None] + 1e-6)                                        # the colour direction, luminance 1
+    tint[lum < 1e-5] = 1.0
+    # the strength by distance to the figure, 1 / (1 + (d / reach)^2): a Gaussian field was 0.5-6 % of its
+    # peak on the hand (the figure hangs 100-800 px below the fingertips), invisible at any spill
+    far = (L[..., 3] < 0.05).astype(np.uint8)
+    dist = cv2.distanceTransform(far, cv2.DIST_L2, 5) if far.min() == 0 else np.full(far.shape, 1e4, np.float32)
+    strength = (1.0 / (1.0 + (dist / np.float32(SPILL_REACH)) ** 2))[..., None].astype(np.float32)
+    if spill_hi > 0:                                               # the glossy read: bright skin mirrors the figure's colour
+        Y = 0.114 * hand[..., 0] + 0.587 * hand[..., 1] + 0.299 * hand[..., 2]
+        hi = np.clip((Y - 0.25) / 0.45, 0, 1) ** 2
+        gloss = tint * strength * hi[..., None]; gloss *= np.float32(0.35 * spill_hi)
+    hand *= 1 + np.float32(spill) * strength * tint
+    if spill_hi > 0: hand += gloss
     out = hand; out += E
     if wall > 0:
         src = L[..., :3]
@@ -576,13 +619,13 @@ def _grain(shape, std, k):
     return _GRAIN[key][k % 8]
 
 
-def composite(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon", plate="wall", hand_gain=1.0, spill=1.0, wall=1.0):
+def composite(plate_bgr, layer, matte, grain_std, bloom=BLOOM, style="neon", plate="wall", hand_gain=1.0, spill=1.0, wall=1.0, spill_hi=1.0):
     """plate uint8 BGR, layer (H,W,4) premultiplied linear (float16 or float32), matte uint8 (255 = hand).
     Works inside the figure's bounding box (plus the widest bloom's 3 sigma); the plate passes through
     untouched elsewhere (the full-frame composite cost 0.5 s a frame, 2026-09-12). plate="black": the
     isolated hand on black (composite_black)."""
     if plate == "black":
-        return composite_black(plate_bgr, layer, matte, grain_std, bloom, style, hand_gain, spill, wall)
+        return composite_black(plate_bgr, layer, matte, grain_std, bloom, style, hand_gain, spill, wall, spill_hi)
     a_any = np.asarray(layer[..., 3]) > 0
     ys, xs = np.nonzero(a_any.any(1)), np.nonzero(a_any.any(0))
     if len(ys[0]) == 0:
@@ -639,14 +682,14 @@ def main():
     style = kw.get("style", "solid"); string_px = float(kw.get("string_px", STRING_PX))
     backend = kw.get("backend", "gl")
     bloom = BLOOM_SOLID if style == "solid" else BLOOM
-    plate = kw.get("plate", "wall"); hand_gain = float(kw.get("hand_gain", 1.0)); spill = float(kw.get("spill", 1.0)); wall = float(kw.get("wall", 1.0))
-    comp = lambda fr, lay, m: composite(fr, lay, m, grain, bloom, style, plate, hand_gain, spill, wall)
+    plate = kw.get("plate", "wall"); hand_gain = float(kw.get("hand_gain", 1.0)); spill = float(kw.get("spill", 1.0)); wall = float(kw.get("wall", 1.0)); spill_hi = float(kw.get("spill_hi", 1.0))
+    comp = lambda fr, lay, m: composite(fr, lay, m, grain, bloom, style, plate, hand_gain, spill, wall, spill_hi)
     preview = [int(x) for x in kw["preview"].split(",")] if "preview" in kw else None
     t0_, t1_ = (int(x) for x in kw.get("trim", "0,267").split(","))
     hand = np.load(hand_npz); sim = np.load(sim_npz); matte = np.load(matte_npy, mmap_mode="r")
     cap = cv2.VideoCapture(video); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); W = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)); H = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     R = (PuppetRendererGL if backend == "gl" else PuppetRenderer)(hand, sim, look, scale, style, string_px)
-    print(f"backend {backend}, look {look}, style {style}, plate {plate}" + (f" (hand_gain {hand_gain}, spill {spill}, wall {wall})" if plate == "black" else ""))
+    print(f"backend {backend}, look {look}, style {style}, plate {plate}" + (f" (hand_gain {hand_gain}, spill {spill}, spill_hi {spill_hi}, wall {wall})" if plate == "black" else ""))
     # the alignment check: the pads projected through the render camera vs the tracked tips (should agree to the pad offset, a few px)
     r = int(sim["ref"]) * R.sub
     pp = R.project(R.pad_pos[r]) / scale; tips = hand["tips_img"][int(sim["ref"])]
