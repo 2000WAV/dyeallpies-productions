@@ -75,6 +75,7 @@ from studio import gl as sgl
 from studio.colour import srgb_to_lin, lin_to_srgb, srgb8_to_lin, lin_to_srgb8
 from studio.cache import BakeCache
 from studio.encode import RawWriter
+from studio.glow import wide_blur                   # the quarter-resolution wide Gaussian (moved to studio.glow on 2026-09-12 for the sting)
 
 LOOKS = {
     # per-body linear-light colours (BGR order for OpenCV), a hue for the trunk/head and one for the limbs
@@ -110,7 +111,7 @@ LOOKS = {
 # the neon shader's defaults per body, overridden by a look's per-body dicts of the same name (2026-09-12)
 BODY_DEFAULTS = dict(gain=1.0, glow=1.0, rim_white=0.25, spec_white=0.4, spec_pow=80.0)
 GLOW_MAX = 8.0                                            # the composite clips the per-pixel bloom gain here (a ratio of two small numbers at a soft edge)
-BLOOM = [(3, 0.22), (9, 0.12), (27, 0.07), (81, 0.04)]   # neon: sigma px at 1x, weight (see the docstring; 06 for the range)
+from studio.glow import BLOOM                              # neon: sigma px at 1x, weight (see the docstring; 06 for the range); the sting shares it
 BLOOM_SOLID = [(3, 0.04)]                                 # solid: the faintest near halo; item 09: bloom is veiling luminance and
                                                           # collapses the edge on a bright wall (2026-09-12)
 STRING_PX = 3                                             # the string's width at 1x (2026-09-12, Dennis: thicker; was 1.5)
@@ -547,18 +548,6 @@ class PuppetRendererGL(PuppetBase):
         layer = self.gl.read(self.acc_fbo, components=4, dtype="f2")
         glow = self.gl.read(self.acc_fbo, components=1, dtype="f2", attachment=1)     # the fifth channel: coverage x bloom gain
         return np.concatenate([layer, glow], axis=-1)
-
-
-def wide_blur(img, sigma, down=4):
-    """A Gaussian of sigma >= 12 px computed at 1/down resolution and resized back: the same result to
-    the eye at a sixteenth of the cost (the black composite's four wide blurs cost 1.4 s a frame at
-    full resolution, 2026-09-12)."""
-    if sigma < 12:
-        return cv2.GaussianBlur(img, (0, 0), sigma)
-    H, W = img.shape[:2]
-    small = cv2.resize(img, (W // down, H // down), interpolation=cv2.INTER_AREA)
-    small = cv2.GaussianBlur(small, (0, 0), sigma / down)
-    return cv2.resize(small, (W, H), interpolation=cv2.INTER_LINEAR)
 
 
 def glow_gain(L):

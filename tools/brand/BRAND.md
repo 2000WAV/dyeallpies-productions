@@ -69,6 +69,20 @@ puppet, whose outro dips to #000000) gets the sting on `ground=#000000` (an opti
 `render_brand_sting.py`): the warm near-black would read as a step up at the join. Dennis's call
 for that video; the brand's own ground is unchanged.
 
+## The brand is not fixed yet: a video's look may carry into its logo (Dennis, 2026-09-12)
+
+"We don't have a fixed brand yet, so let's make this video have a common visual thread that extends
+into the logo." So v1 above is provisional, and `render_brand_sting.py look=neon` renders the sting
+in the neon puppet video's own look: the wordmark and the falling strings in the doll's electric
+violet #8F00FF with a pale tube core #CCA1FF (the strings' colour in the video), `PRODUCTIONS` and
+the URL in that pale violet, the tick under the wordmark in the boots' pure red #FF0000 with the
+boots' 3.5x glow, and the glow itself computed as the video's composite computes it (`studio.glow`:
+the emission at 1.5 in linear light, the 3/9/27/81 px bloom, the sigma 60 + 180 pool on the wall at
+0.8, the shoulder). The colours are options (`accent=`, `core=`, `tick=`, `gain=`, `wall=`), so the
+next video's look can carry the same way. Sheets: `hand/work/sting_neon_sheet.png`,
+`sting_neon_logo_1to1.png`. Whether the neon violet becomes the brand is his call once a few videos
+exist; the orange v1 stays the default of the script.
+
 ## Appending the sting (2026-09-12)
 
 `render_brand_sting.py <out> append=<shot>` encodes the sting with the shot's own stream parameters

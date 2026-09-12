@@ -5,6 +5,10 @@
     options: hold=1.5 (s of URL hold after the 1 s animation) frames=<dir> (write PNGs of the beats for a check)
              ground=#000000 (the sting's ground; default the brand main #231F20. Pitch black for the neon-on-black
              puppet, Dennis 2026-09-12: the shot ends on #000000 and the sting must not step to the warm near-black)
+             look=neon [accent=#8F00FF core=#CCA1FF tick=#FF0000 gain=1.5 wall=0.8] (2026-09-12: the puppet video's
+             own look carried into the logo: the wordmark and strings in the doll's violet with a pale tube core, the
+             tick in the boots' red with the boots' glow, the glow computed in linear light with studio.glow's
+             bloom + pool + shoulder, the same numbers as the video's composite)
 
 The brand rules and every number: tools/brand/BRAND.md (from references/marionette/08-brand-sting.md);
 the palette and fonts come from studio.brand so the sting and the document cannot drift apart.
@@ -24,6 +28,8 @@ import cv2
 from PIL import Image, ImageDraw
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))   # tools/ -> studio (or the .pth)
 from studio import brand
+from studio import glow as sglow
+from studio.colour import srgb8_to_lin, lin_to_srgb8
 from studio.encode import RawWriter, sting_encode_args, concat_copy, decode_check
 
 W, H, FPS = 1080, 1920, 30
@@ -31,6 +37,13 @@ GROUND = brand.bgr("main")            # #231F20
 ACCENT = brand.bgr("secondary")       # #D75413: the wordmark, the strings, the tick
 NEUTRAL = brand.bgr("neutral")        # #F2F0EA: PRODUCTIONS, the URL, the strings' core
 WHITE = brand.bgr("white")
+TICK = ACCENT                         # the tick under the wordmark (the neon look gives it its own hue)
+CORE = NEUTRAL                        # the tube core of the strings and, in the neon look, of the wordmark's glyphs
+NEON = False                          # look=neon: the puppet video's own glow instead of the brand's sRGB three-Gaussian halo
+NEON_GAIN = 1.5                       # the lit elements' emission in linear light (the doll's parts reach 1-2 with their rim and specular)
+HOT_GAIN = 3.5                        # the `hot` layer's extra bloom (the violet-mix boots' glow gain)
+WALL = 0.8                            # the pool on the wall (the puppet composite's wall=0.8)
+CORE_INSET = 7                        # px: the glyph erosion that leaves the tube core (the wordmark's stems are ~28 px at 150 px)
 WORD = "DyeAllPies"; SUB = "PRODUCTIONS"; URL = "github.com/DyeAllPies/dyeallpies-productions"
 
 
@@ -57,7 +70,9 @@ def frame(i, hold_frames):
     t = i / FPS
     canvas = np.zeros((H, W, 3), np.uint8); canvas[:] = GROUND
     lit = np.zeros((H, W, 3), np.uint8)                      # the emissive elements only (bloomed)
+    hot = np.zeros((H, W, 3), np.uint8)                      # the elements bloomed HOT_GAIN times more (the tick in the neon look, as the boots)
     pil = Image.new("RGB", (W, H)); dr = ImageDraw.Draw(pil)
+    pil_word = Image.new("RGB", (W, H)); dr_word = ImageDraw.Draw(pil_word)   # the wordmark alone: the neon look carves its tube core from it
     f_word = brand.font("wordmark", 150); f_sub = brand.font("sub", 44); f_url = brand.font("mono", 52)
     # layout: the wordmark centred at y = 900 (inside the 270-1250 safe band), PRODUCTIONS under its right half, the URL at 1150
     bbox = dr.textbbox((0, 0), WORD, font=f_word); ww = bbox[2] - bbox[0]; x_word = (W - ww) // 2; y_word = 900 - (bbox[3] - bbox[1]) // 2 - bbox[1]
@@ -80,7 +95,7 @@ def frame(i, hold_frames):
         t0 = 10 + k * 1.2; a = ease_out((i - t0) / 4)
         if a <= 0: continue
         c = tuple(int(ACCENT[j] * a + WHITE[j] * 0.35 * a * (1 - a) * 4) for j in range(3))   # a white flash on the way in
-        dr.text((xs[k][0], y_word), ch, font=f_word, fill=(c[2], c[1], c[0]))
+        dr_word.text((xs[k][0], y_word), ch, font=f_word, fill=(c[2], c[1], c[0]))
     # PRODUCTIONS tracks in, frames 22-30
     a = ease_out((i - 22) / 8)
     if a > 0:
@@ -90,24 +105,48 @@ def frame(i, hold_frames):
             dr.text((x, y), ch, font=f_sub, fill=(int(NEUTRAL[2] * a), int(NEUTRAL[1] * a), int(NEUTRAL[0] * a))); x += dr.textlength(ch, font=f_sub) + spacing
         # the accent tick under the wordmark's left half, drawn left to right
         x0, x1 = x_word, x_word + int(ww * 0.42 * a); yt = y_word + bbox[3] + 26
-        cv2.line(lit, (x0, yt), (x1, yt), ACCENT, 4, cv2.LINE_AA)
+        cv2.line(hot if NEON else lit, (x0, yt), (x1, yt), TICK, 4, cv2.LINE_AA)
     # the URL fades in over 6 frames from frame 30 and holds
     a = ease_out((i - 30) / 6)
     if a > 0:      # two lines: 44 characters of mono at a legible size do not fit the 950 px safe width on one line
         for k, line in enumerate(("github.com/DyeAllPies/", "dyeallpies-productions")):
             uw = dr.textlength(line, font=f_url)
             dr.text(((W - uw) // 2, 1120 + k * 66), line, font=f_url, fill=(int(NEUTRAL[2] * a), int(NEUTRAL[1] * a), int(NEUTRAL[0] * a)))
-    text = cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2BGR)
-    lit = np.maximum(lit, text)
-    out = np.maximum(canvas, glow(lit))
-    return out
+    text = cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2BGR); word = cv2.cvtColor(np.array(pil_word), cv2.COLOR_RGB2BGR)
+    if NEON:
+        # the tube core: the glyph eroded by CORE_INSET px is filled with the pale core colour at the glyph's own
+        # brightness (the light-up alpha and the flash carry through), the accent stays as the tube's rim: the
+        # same read as the doll's parts, a bright thick middle and a coloured edge
+        bright = np.clip(word.max(-1).astype(np.float32) / 255.0, 0, 1)
+        inner = cv2.erode((bright > 0.02).astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * CORE_INSET + 1, 2 * CORE_INSET + 1))) > 0
+        core = (np.array(CORE, np.float32)[None, None] * bright[..., None]).astype(np.uint8)
+        word[inner] = core[inner]
+    lit = np.maximum(lit, np.maximum(text, word))
+    if not NEON:
+        return np.maximum(canvas, glow(lit))
+    # the neon look (2026-09-12, Dennis: the logo in the doll's violet, its elements neon and shining, reflecting
+    # in the background; "a common visual thread that extends into the logo"): the puppet composite's own glow in
+    # linear light, studio.glow: the emission at NEON_GAIN, the mip bloom, the pool on the wall, the shoulder
+    E = srgb8_to_lin(lit) * np.float32(NEON_GAIN); Eh = srgb8_to_lin(hot) * np.float32(NEON_GAIN)
+    src = E + Eh * np.float32(HOT_GAIN)
+    out = srgb8_to_lin(canvas) + E + Eh + sglow.bloom(src) + sglow.pool(src, WALL)
+    return lin_to_srgb8(sglow.shoulder(out))
 
 
 def main():
     out = sys.argv[1]; kw = dict(a.split("=", 1) for a in sys.argv[2:])
     hold = float(kw.get("hold", 1.5)); n = 30 + int(round(hold * FPS))
+    global GROUND, ACCENT, NEUTRAL, TICK, CORE, NEON, NEON_GAIN, WALL
     if "ground" in kw:
-        global GROUND; GROUND = brand.bgr(kw["ground"]); print(f"ground {kw['ground']}")
+        GROUND = brand.bgr(kw["ground"]); print(f"ground {kw['ground']}")
+    if kw.get("look") == "neon":
+        # the video's own thread carried into the logo (Dennis, 2026-09-12: no fixed brand yet): the wordmark and the
+        # strings in the doll's electric violet, their cores and the secondary text in the strings' pale violet, the
+        # tick in the boots' pure red with the boots' glow; the defaults are the violet-mix look's colours in sRGB
+        NEON = True
+        ACCENT = brand.bgr(kw.get("accent", "#8F00FF")); CORE = brand.bgr(kw.get("core", "#CCA1FF")); NEUTRAL = CORE
+        TICK = brand.bgr(kw.get("tick", "#FF0000")); NEON_GAIN = float(kw.get("gain", NEON_GAIN)); WALL = float(kw.get("wall", WALL))
+        print(f"look neon: accent {kw.get('accent', '#8F00FF')} core {kw.get('core', '#CCA1FF')} tick {kw.get('tick', '#FF0000')} gain {NEON_GAIN} wall {WALL}")
     shot = kw.get("append")
     if shot:
         # encode the sting so that it can be concatenated after the shot WITHOUT re-encoding the shot
