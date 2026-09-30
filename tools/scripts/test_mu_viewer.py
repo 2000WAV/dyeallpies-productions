@@ -77,6 +77,15 @@ def test_upload_route():
         srv.shutdown()
 
 
+def test_rep_update_validation():
+    ok = mv.parse_rep_update(b'{"name": "muscleup-2026-08-24-01.mp4", "t": 35.5, "removed": true}')
+    assert ok == ("muscleup-2026-08-24-01.mp4", 35.5, True), ok
+    for bad in (b"not json", b'{"name": "../x.mp4", "t": 1, "removed": true}', b'{"name": "muscleup-2026-08-24-01.mp4", "t": "a", "removed": true}',
+                b'{"name": "muscleup-2026-08-24-01.mp4", "t": 1e999, "removed": true}', b'{"name": "muscleup-2026-08-24-01.mp4", "t": 3, "removed": "yes"}',
+                b"[]"):
+        assert mv.parse_rep_update(bad) is None, bad
+
+
 if __name__ == "__main__":
     for f in (test_clip_names, test_folder_and_week, test_range, test_upload_names_are_made_by_the_server,
               test_upload_checks, test_upload_route):

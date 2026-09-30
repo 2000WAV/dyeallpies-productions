@@ -86,6 +86,7 @@ def test_clean_rep():
     r = reps[0]
     assert r["outcome"] == "rep", r
     assert r["faults"] == [], r
+    assert 0.9 < r["torso_ratio"] < 1.1 and 0.45 < r["x_rel"] < 0.6, r        # signature for the rep feedback
     assert r["com_at_transition_torso"] > 0
 
 

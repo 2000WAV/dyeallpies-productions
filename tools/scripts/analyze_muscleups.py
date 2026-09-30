@@ -122,6 +122,15 @@ def legs_seen(T, frames):
     return max(np.median(np.minimum(v[:, 25], v[:, 27])), np.median(np.minimum(v[:, 26], v[:, 28]))) >= LEG_VIS
 
 
+def rep_signature(T, a, b):
+    """Who did this rep: size of the tracked person next to the clip's usual size, and where across
+    the frame. Used by rep_feedback.py to learn which reps are someone else's."""
+    fr = slice(a, max(b, a + 1))
+    size = np.nanmedian(np.linalg.norm(T.S[fr] - T.Hp[fr], axis=1)) / T.L
+    x = np.nanmedian(T.S[fr, 0]) / T.w
+    return dict(torso_ratio=round(float(size), 2), x_rel=round(float(x), 2))
+
+
 def viewer_series(T):
     """Per-frame arrays for mu_viewer.py."""
     rd = lambda a, n=1: np.round(np.nan_to_num(a), n).tolist()
@@ -240,6 +249,7 @@ def analyze(npz_path, series=False, height=None):
         sp = speeds(T, pull, tr, height)
         reps.append(dict(rep=len(reps) + 1, outcome=outcome, facing=int(face),
                          support_torso=None if support is None else round(support, 2),
+                         **rep_signature(T, pull, tr),
                          pull_speed_torso_s=sp["mean_speed_torso_s"], pull_peak_torso_s=sp["peak_speed_torso_s"],
                          pull_speed_m_s=sp["mean_speed_m_s"], pull_peak_m_s=sp["peak_speed_m_s"],
                          t_pull=round(pull / fps, 2), t_transition=round(tr / fps, 2),

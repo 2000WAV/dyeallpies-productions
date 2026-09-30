@@ -21,7 +21,7 @@ from urllib.parse import parse_qs, urlparse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import analyze_muscleups, analyze_pullups_side
+import analyze_muscleups, analyze_pullups_side, rep_feedback, math
 
 NAME = re.compile(r"(muscleup|pullup)-(\d{4}-\d{2}-\d{2})-\d{2}\.(mp4|mov)")
 UP_NAME = re.compile(r"up-(muscleup|pullup)-(\d{8})-\d{6}-[0-9a-f]{6}\.(mp4|mov)")   # made here, never by the client
@@ -93,6 +93,8 @@ class Clips:
 
     def __init__(self, cache, host, folder, height=None, uploads="work/uploads"):
         self.cache, self.host, self.folder, self.height, self.uploads = cache, host, folder, height, uploads
+        self.feedback = rep_feedback.Feedback(os.path.join(cache, "feedback.json"))
+        self.fb_lock = threading.Lock()
         os.makedirs(cache, exist_ok=True)
         os.makedirs(uploads, exist_ok=True)
         self.state, self.wanted = {}, []
@@ -178,6 +180,19 @@ class Clips:
         self.state[name] = "ready"
 
 
+def parse_rep_update(body):
+    """(clip name, rep time, removed) from the page's JSON, or None if anything is off."""
+    try:
+        d = json.loads(body)
+        name, t, removed = d["name"], d["t"], d["removed"]
+    except (ValueError, TypeError, KeyError):
+        return None
+    if not (isinstance(name, str) and valid_name(name) and isinstance(t, (int, float)) and not isinstance(t, bool)
+            and math.isfinite(t) and isinstance(removed, bool)):
+        return None
+    return name, float(t), removed
+
+
 def handler(clips):
     class H(BaseHTTPRequestHandler):
         def send(self, code, body, ctype="application/json"):
@@ -212,8 +227,10 @@ def handler(clips):
                     st = clips.status(name)
                     if st != "ready":
                         return self.send(200, dict(state=st))
-                    with open(clips.path(name, ".analysis.json"), "rb") as f:
-                        return self.send(200, f.read())
+                    with open(clips.path(name, ".analysis.json")) as f:
+                        res = json.load(f)
+                    with clips.fb_lock:
+                        return self.send(200, clips.feedback.annotate(name, res))
                 if u.path == "/video":
                     return self.video(clips.path(name, ".mp4"))
                 self.send(404, dict(error="not found"))
@@ -226,6 +243,19 @@ def handler(clips):
         def do_POST(self):
             u = urlparse(self.path)
             try:
+                if u.path == "/api/rep":                   # remove / restore one rep ("that is not me")
+                    n = int(self.headers.get("Content-Length") or 0)
+                    upd = parse_rep_update(self.rfile.read(min(n, 4096)))
+                    if not upd:
+                        return self.send(400, dict(error="bad rep update"))
+                    name, t, removed = upd
+                    if clips.status(name) != "ready":
+                        return self.send(409, dict(error="clip not analysed yet"))
+                    with open(clips.path(name, ".analysis.json")) as f:
+                        res = json.load(f)
+                    with clips.fb_lock:
+                        clips.feedback.set(name, t, removed, res)
+                        return self.send(200, clips.feedback.annotate(name, res))
                 if u.path != "/api/upload":
                     return self.send(404, dict(error="not found"))
                 kind = parse_qs(u.query).get("kind", [""])[0]

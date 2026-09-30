@@ -56,6 +56,7 @@ def test_counts_reps_and_chin_over_bar():
     assert [r["chin_over_bar"] for r in reps] == [True, True, False], reps
     assert all(0.4 < r["concentric_s"] < 1.0 for r in reps), reps
     assert reps[0]["top_torso"] < 0.2 and reps[2]["top_torso"] > 0.4, reps
+    assert all(0.9 < r["torso_ratio"] < 1.1 and 0.45 < r["x_rel"] < 0.55 for r in reps), reps
 
 
 def test_standing_is_not_a_set():
