@@ -149,7 +149,7 @@ def analyze(npz_path, series=False):
     if series:                                    # per frame, for mu_viewer.py
         face = np.sign(np.nanmedian(nose[:, 0] - ears[:, 0])) or 1.0
         rd = lambda a, n=1: np.round(np.nan_to_num(a), n).tolist()
-        res.update(width=w, height=h, series=dict(
+        res.update(width=w, height=h, series=dict(facing=int(face),
             points=rd(px[:, DRAWN].reshape(len(px), -1)), bar=rd(B), rise=rd(rise, 2),
             hip=rd(hip), knee=rd(knee), com=rd(face * (com[:, 0] - B[:, 0]) / L, 2)))
     return res

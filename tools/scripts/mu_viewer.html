@@ -152,7 +152,7 @@ function draw() {
   ctx.beginPath(); ctx.arc(sx, sy, 8, 0, 7); ctx.fill();
   // centre of mass arrow: in front (green) or behind (red) the bar plane, drawn at hip height
   const hp = P(9), hp2 = P(10), hy = (hp[1] + hp2[1]) / 2;
-  const facing = Math.sign((P(0)[0] - (P(1)[0] + P(2)[0]) / 2)) || 1;
+  const facing = s.facing;          // one per clip: per frame, nose vs ears flips when the head leaves the frame
   const cx = bx + facing * com * data.torso_px * sc;
   ctx.strokeStyle = ctx.fillStyle = com >= 0 ? "#3ecf7a" : "#ef5a5a"; ctx.lineWidth = 3;
   ctx.beginPath(); ctx.moveTo(bx, hy); ctx.lineTo(cx, hy); ctx.stroke();

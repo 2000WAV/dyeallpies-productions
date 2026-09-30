@@ -188,6 +188,7 @@ def test_series_for_the_viewer():
     assert len(sr["bar"]) == n and len(sr["rise"]) == n and len(sr["hip"]) == n and len(sr["com"]) == n
     i = int(3.5 * FPS)                                  # in support: shoulders a torso over the bar
     assert sr["rise"][i] < -0.9 and abs(sr["bar"][i][1] - BAR[1]) < 1
+    assert sr["facing"] == 1                            # one facing for the clip: the page must not guess per frame
     assert "series" not in run(img)                     # the CLI JSON stays small
 
 
