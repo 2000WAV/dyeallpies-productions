@@ -29,11 +29,14 @@
   video { height: calc(100vh - 150px); max-width: 100%; background: #000; display: block; }
   #overlay { position: absolute; left: 0; top: 0; pointer-events: none; }
   #timeline { width: 100%; height: 28px; margin-top: 6px; cursor: pointer; display: block; }
-  aside { flex: 1; min-width: 280px; max-width: 460px; display: flex; flex-direction: column; gap: 10px; }
+  aside { flex: none; width: 440px; max-width: 100%; display: flex; flex-direction: column; gap: 10px; }
   .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
   .card h2 { margin: 0 0 6px; font-size: 13px; color: var(--dim); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
-  .live { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; font-variant-numeric: tabular-nums; }
-  .live b { font-size: 18px; }
+  /* fixed value column, no wrapping: values change length every frame, and a card that grows or
+     shrinks by a line makes every card under it jump (the flicker seen on the reps card) */
+  .live { display: grid; grid-template-columns: 1fr 17ch; gap: 2px 12px; font-variant-numeric: tabular-nums; }
+  .live span, .live b { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .live b { font-size: 18px; text-align: right; }
   .att { border-left: 4px solid var(--line); padding: 6px 8px; margin: 6px 0; cursor: pointer; border-radius: 4px; }
   .att:hover { background: #22262e; }
   .att.on { background: #262b35; }
