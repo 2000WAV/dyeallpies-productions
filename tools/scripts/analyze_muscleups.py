@@ -30,6 +30,7 @@ SWING_MAX = 0.5        # torso lengths, hip horizontal range in the 1.5 s before
 HIP_LOST_MAX = 25.0    # degrees of hip flexion given back between its peak and the transition
 COM_MIN = 0.0          # torso lengths in front of the bar at the transition
 KICK_MAX = 0.3         # torso lengths the ankles go behind the bar after the transition
+LEG_VIS = 0.5          # median visibility of knees and ankles under which no knee angle is given
 FRONT_MIN = 0.5        # shoulder width / torso length above this = seen from the front, no verdict
 LOCK = -0.95           # torso lengths of shoulders over the hands that count as the lockout (arm ~ 1.1 torso)
 PULL_MIN = 0.4        # torso lengths the shoulders must rise from the hang's low point: sliding down to let go is no attempt
@@ -168,7 +169,8 @@ def analyze(npz_path, series=False, height=None):
         swing = float(np.ptp(fwd(Hp, pre))) if len(pre) > 1 else 0.0
         hip_min = float(hip[pull:tr + 1].min())
         hip_lost = float(hip[tr] - hip_min)
-        knee_tr, knee_min = float(knee[tr]), float(knee[pull:tr + 1].min())
+        legs = np.median(T.vis[pull:tr + 1][:, [25, 26, 27, 28]]) >= LEG_VIS      # knees really seen
+        knee_tr, knee_min = (float(knee[tr]), float(knee[pull:tr + 1].min())) if legs else (None, None)
         com_tr = float(fwd(com, tr))
         kick = float(max(0.0, -fwd(A, np.arange(tr, min(end, tr + int(fps)))).min()))
         faults = [name for name, bad in (("swing", swing > SWING_MAX),
@@ -181,8 +183,9 @@ def analyze(npz_path, series=False, height=None):
                          pull_speed_m_s=sp["mean_speed_m_s"], pull_peak_m_s=sp["peak_speed_m_s"],
                          t_pull=round(pull / fps, 2), t_transition=round(tr / fps, 2),
                          swing_torso=round(swing, 2), hip_min_deg=round(hip_min, 1),
-                         hip_lost_deg=round(hip_lost, 1), knee_at_transition_deg=round(knee_tr, 1),
-                         knee_min_deg=round(knee_min, 1), com_at_transition_torso=round(com_tr, 2),
+                         hip_lost_deg=round(hip_lost, 1),
+                         knee_at_transition_deg=None if knee_tr is None else round(knee_tr, 1),
+                         knee_min_deg=None if knee_min is None else round(knee_min, 1), com_at_transition_torso=round(com_tr, 2),
                          kick_behind_bar_torso=round(kick, 2), faults=faults))
     res = dict(fps=fps, view=view, torso_px=round(float(L), 1), reps=reps)
     if series:                                    # per frame, for mu_viewer.py
@@ -200,7 +203,7 @@ def main():
         print("front view: swing, hip, CoM and kickback are depth here and not seen; no verdict given")
     for r in res["reps"]:
         print(f"{r['rep']}. {r['outcome']:10s} @ {r['t_transition']:.2f}s  swing {r['swing_torso']:.2f}  "
-              f"hip lost {r['hip_lost_deg']:.0f} deg  knee {r['knee_at_transition_deg']:.0f} deg  CoM {r['com_at_transition_torso']:+.2f}  "
+              f"hip lost {r['hip_lost_deg']:.0f} deg  knee {r['knee_at_transition_deg']} deg  CoM {r['com_at_transition_torso']:+.2f}  "
               f"kick {r['kick_behind_bar_torso']:.2f}  -> {', '.join(r['faults']) or ('clean' if res['view'] == 'side' else 'no verdict')}")
     if not res["reps"]:
         print("no attempt found: no hang followed by a pull to the bar (check the tracked landmarks)")

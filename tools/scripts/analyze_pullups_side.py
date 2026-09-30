@@ -9,7 +9,7 @@ Usage:
 """
 import json, sys
 import numpy as np
-from analyze_muscleups import track, viewer_series, runs, speeds
+from analyze_muscleups import track, viewer_series, runs, speeds, LEG_VIS
 
 PROMINENCE = 0.3     # torso lengths the shoulders must rise from the bottom for a rep to count
 MIN_GAP = 0.6        # seconds between two tops
@@ -17,7 +17,6 @@ DEAD_HANG = 0.7      # torso lengths the shoulders must be under the hands at th
                      # the hands on the bar reads ~0.4, a hang with straight arms ~0.9-1.1
 HAND_VIS = 0.3       # a frame counts only if at least one wrist is really seen: hidden hands put the bar anywhere
 STILL = 0.5          # torso lengths the hands may move from the bottom to the top: more is letting go, not a pull
-LEG_VIS = 0.5        # median visibility of knees and ankles under which the knee and hip angles are not given
 
 
 def analyze(npz_path, series=False, height=None):

@@ -229,6 +229,13 @@ def test_pull_speed():
     assert 1.0 < r["pull_speed_torso_s"] < 1.7 and r["pull_peak_torso_s"] >= r["pull_speed_torso_s"], r
 
 
+def test_legs_out_of_frame_give_no_knee_angle():
+    img = make_rep(swing=20, hip_hold=5, com_front=40, kick=0)
+    img[:, 25:29, 3] = 0.1                                     # knees and ankles guessed, not seen
+    r = run(img)["reps"][0]
+    assert r["knee_min_deg"] is None and r["knee_at_transition_deg"] is None and r["outcome"] == "rep", r
+
+
 if __name__ == "__main__":
     for f in (test_clean_rep, test_faulty_rep, test_front_view_gives_no_verdict,
               test_panning_camera_changes_nothing, test_walking_past_is_not_a_rep, test_failed_attempt_is_graded,
@@ -236,6 +243,6 @@ if __name__ == "__main__":
               test_sliding_down_before_letting_go_is_not_an_attempt, test_dropping_from_the_hang_is_not_a_rep,
               test_tracking_glitch_over_the_bar_keeps_the_rep, test_series_for_the_viewer,
               test_hidden_wrist_does_not_move_the_bar, test_no_pose_no_attempt,
-              test_knee_flexion, test_pull_speed):
+              test_knee_flexion, test_pull_speed, test_legs_out_of_frame_give_no_knee_angle):
         f()
         print("ok", f.__name__)
