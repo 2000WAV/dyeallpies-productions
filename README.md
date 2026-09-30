@@ -14,12 +14,13 @@ nearly shipped.
 
 ## Formats
 
-The three current formats. Everything older sits in [formats/archive/](formats/archive/), kept
+The current formats. Everything older sits in [formats/archive/](formats/archive/), kept
 as it was posted.
 
 | Format | What it makes | The measurement / ML part |
 |---|---|---|
 | [pullup-analysis](formats/pullup-analysis/) | A pull-up set counted and graded rep by rep against the USMC standard: tempo, range of motion, chin-vs-bar verdict in a rectified doorway plane, lock-out, sway, velocity loss, work / power / kcal, an efficiency score, and a muscle map on a matted body against a replaced backdrop, coloured by a physics-driven muscle model (inverse dynamics, force sharing, Hill force–velocity, three-compartment fatigue that carries from rep to rep). Plus a dashboard, a written report, a references card and an interactive page. Set #3 is the current one; sets #1 and #2 are in the same folder. | MediaPipe Pose heavy (33 landmarks, 3D) cross-checked by YOLOv8-pose, Robust Video Matting, MediaPipe multiclass segmentation; the model's constants come from the archived literature in `references/pullup-science/` (Youdas 2010, Crowninshield & Brand 1981, Frey-Law 2012, Looft 2018, Holzbaur 2005, …) |
+| [muscleup-analysis](formats/muscleup-analysis/) | A side-on bar muscle-up (bodyweight or weighted) graded rep by rep on the four faults that lose heavy attempts in competition: swing before the pull, hip flexion given back before the bar, weight behind the bar at the transition, leg kick-back. Method taken from Tescoaching's breakdown of the Finalrep Worlds weighted muscle-up flight. | MediaPipe Pose heavy; distances in torso lengths, centre of mass from Winter's segment mass fractions; front views detected and left ungraded |
 | [phoneme-breakdown](formats/phoneme-breakdown/) | A talking-head clip with every phoneme graded and mapped onto the spectrogram: phone boundaries, grade colours per symbol, an accent flag per phoneme, a hand skeleton, and the promoted videos appearing where the finger points. The GitHub promo reel. | wav2vec2 phoneme recogniser + CTC forced alignment, Goodness of Pronunciation (Witt & Young 2000), formants vs Deterding 1997 and Hillenbrand 1995, VOT vs Lisker & Abramson 1964, sibilant centre of gravity vs Haley 2010, MediaPipe Hand Landmarker |
 | [phonetics-trend](formats/phonetics-trend/) | Vowel measurements cut to a song's beat grid: acting shots, one word per beat at the drop, a waterfall ridgeline spectrum. Reel 4, "English is easy". | Beat grid from onset comb filtering, Praat formant tracking (parselmouth), Deterding (1997) RP reference, MediaPipe face anchor for punch-ins |
 
