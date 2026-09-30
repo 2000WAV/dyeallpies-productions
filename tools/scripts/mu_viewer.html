@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Analyse muscle-up</title>
+<title>Analyse MU / PU</title>
 <style>
   :root { --bg: #111317; --panel: #1b1e24; --line: #2c313a; --text: #e6e8eb; --dim: #8b93a1;
           --rep: #3ecf7a; --press: #f0a53a; --pull: #ef5a5a; --bar: #4fb3ff; --bone: #f5f5f5; }
@@ -13,7 +13,18 @@
   header select, header button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font: inherit; }
   header button { cursor: pointer; }
   #state { color: var(--dim); }
-  main { display: flex; gap: 12px; padding: 12px; align-items: flex-start; flex-wrap: wrap; }
+  main { display: flex; gap: 12px; padding: 12px; align-items: flex-start; }
+  nav { width: 210px; flex: none; max-height: calc(100vh - 80px); overflow-y: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px; }
+  nav details { margin: 2px 0; }
+  nav summary { cursor: pointer; font-weight: 600; padding: 4px 6px; border-radius: 4px; }
+  nav summary:hover { background: #22262e; }
+  nav .day { color: var(--dim); font-size: 12px; margin: 6px 0 2px 10px; }
+  nav .clip { display: block; width: calc(100% - 14px); margin-left: 14px; text-align: left; background: none; border: 0; color: var(--text); padding: 3px 6px; border-radius: 4px; cursor: pointer; font: inherit; font-size: 13px; }
+  nav .clip:hover { background: #22262e; }
+  nav .clip.on { background: #2d3440; outline: 1px solid var(--bar); }
+  .mode { background: var(--panel); color: var(--dim); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; font: inherit; cursor: pointer; }
+  .mode.on { color: var(--text); border-color: var(--bar); background: #1d2a38; }
+  @media (max-width: 900px) { main { flex-wrap: wrap; } nav { width: 100%; max-height: 200px; } }
   #stage { position: relative; line-height: 0; }
   video { height: calc(100vh - 150px); max-width: 100%; background: #000; display: block; }
   #overlay { position: absolute; left: 0; top: 0; pointer-events: none; }
@@ -35,8 +46,9 @@
 </head>
 <body>
 <header>
+  <button class="mode on" data-kind="muscleup">Muscle-up</button>
+  <button class="mode" data-kind="pullup">Tractions</button>
   <button id="prev" title="Clip précédent (←)">◀</button>
-  <select id="pick"></select>
   <button id="next" title="Clip suivant (→)">▶</button>
   <select id="rate" title="Vitesse">
     <option value="0.25">×0.25</option><option value="0.5">×0.5</option><option value="1" selected>×1</option>
@@ -44,6 +56,7 @@
   <span id="state">chargement de la liste…</span>
 </header>
 <main>
+  <nav id="nav"></nav>
   <div>
     <div id="stage"><video id="vid" controls muted playsinline></video><canvas id="overlay"></canvas></div>
     <canvas id="timeline"></canvas>
@@ -77,19 +90,34 @@ const FAULT = { swing: "balancement", hip_flexion_lost: "flexion de hanche perdu
                 weight_behind_bar: "poids derrière la barre", leg_kickback: "retour de jambe" };
 const STATE = { new: "en attente", queued: "en file", fetching: "récupération sur le NAS",
                 encoding: "ré-encodage", pose: "détection de pose (1-2 min)", analysis: "analyse" };
-let clips = [], idx = 0, data = null, token = 0;
+const PU = () => kind === "pullup";
+let clips = [], idx = 0, data = null, token = 0, kind = "muscleup";
 
 async function api(url) { const r = await fetch(url); const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status); return j; }
 
 async function loadList() {
-  try { clips = (await api("/api/clips")).clips; }
+  data = null; clips = []; renderNav(); $("state").textContent = "chargement de la liste…";
+  try { clips = (await api("/api/clips?kind=" + kind)).clips; }
   catch (e) { $("state").textContent = "liste impossible : " + e.message; return; }
-  $("pick").innerHTML = clips.map((c, i) => `<option value="${i}">${c.name.replace(/^muscleup-|\.(mp4|mov)$/g, "")}${c.state === "ready" ? " ✓" : ""}</option>`).join("");
-  if (clips.length) open(0); else $("state").textContent = "aucun clip muscleup-* sur le NAS";
+  renderNav();
+  if (clips.length) open(0); else $("state").textContent = `aucun clip dans ${PU() ? "02-PullUp" : "01-MuscleUp"}`;
+}
+
+const DAYS = ["dim", "lun", "mar", "mer", "jeu", "ven", "sam"];
+function renderNav() {
+  const cur = clips[idx], weeks = {};
+  clips.forEach((c, i) => ((weeks[c.week] ??= {})[c.day] ??= []).push(i));
+  $("nav").innerHTML = Object.entries(weeks).map(([w, days]) => `
+    <details ${cur && cur.week === w ? "open" : ""}><summary>${w} <span class="dim">(${Object.values(days).flat().length})</span></summary>
+      ${Object.entries(days).map(([d, is]) => `<div class="day">${DAYS[new Date(d + "T12:00").getDay()]} ${d.slice(8)}/${d.slice(5, 7)}</div>` +
+        is.map(i => `<button class="clip ${i === idx ? "on" : ""}" data-i="${i}">${clips[i].name.replace(/^\w+-\d{4}-\d\d-\d\d-|\.\w+$/g, "#")}${clips[i].state === "ready" ? " ✓" : ""}</button>`).join("")).join("")}
+    </details>`).join("") || '<div class="dim" style="padding:6px">–</div>';
+  document.querySelectorAll("nav .clip").forEach(b => b.onclick = () => open(+b.dataset.i));
+  const on = document.querySelector("nav .clip.on"); if (on) on.scrollIntoView({ block: "nearest" });
 }
 
 async function open(i) {
-  idx = (i + clips.length) % clips.length; $("pick").value = idx;
+  idx = (i + clips.length) % clips.length; renderNav();
   const my = ++token, name = clips[idx].name;
   data = null; vid.removeAttribute("src"); vid.load(); draw(); renderAttempts();
   while (my === token) {
@@ -103,10 +131,10 @@ async function open(i) {
     await new Promise(r => setTimeout(r, 1500));
   }
   if (my !== token) return;
-  clips[idx].state = "ready"; $("pick").options[idx].textContent = name.replace(/^muscleup-|\.(mp4|mov)$/g, "") + " ✓";
-  const n = data.reps.length;
-  $("state").textContent = `${name} — ${n} tentative${n > 1 ? "s" : ""}` + (data.view === "front" ? " — vue de face : pas de verdict" : "");
-  $("view").textContent = data.view === "front" ? "Vue de face détectée : balancement, hanche, CdM et retour de jambe ne se voient pas de face." : "";
+  clips[idx].state = "ready"; renderNav();
+  const n = data.reps.length, word = PU() ? "rép" : "tentative";
+  $("state").textContent = `${name} — ${n} ${word}${n > 1 ? "s" : ""}` + (data.view === "front" && !PU() ? " — vue de face : pas de verdict" : "");
+  $("view").textContent = data.view === "front" && !PU() ? "Vue de face détectée : balancement, hanche, CdM et retour de jambe ne se voient pas de face." : "";
   vid.src = "/video?name=" + encodeURIComponent(name);
   vid.playbackRate = +$("rate").value;
   renderAttempts();
@@ -120,8 +148,9 @@ function fit() {
   tl.width = tl.clientWidth; tl.height = tl.clientHeight;
 }
 
+const span = r => PU() ? [r.t_top - 1, r.t_top + 0.8] : [r.t_pull - 1, r.t_transition + 1.2];
 function attemptAt(t) {
-  return data && data.reps.find(r => t >= r.t_pull - 1 && t <= r.t_transition + 1.2);
+  return data && data.reps.find(r => { const [a, b] = span(r); return t >= a && t <= b; });
 }
 
 function draw() {
@@ -158,7 +187,8 @@ function draw() {
   ctx.beginPath(); ctx.moveTo(bx, hy); ctx.lineTo(cx, hy); ctx.stroke();
   ctx.beginPath(); ctx.arc(cx, hy, 7, 0, 7); ctx.fill();
   // live numbers
-  $("phase").textContent = att ? (vid.currentTime < att.t_transition ? "tirage" : "après la barre") : (rise < 0 ? "au-dessus" : "–");
+  $("phase").textContent = PU() ? (att ? (vid.currentTime < att.t_top ? "montée" : "descente") : "–")
+    : att ? (vid.currentTime < att.t_transition ? "tirage" : "après la barre") : (rise < 0 ? "au-dessus" : "–");
   $("rise").textContent = rise < 0 ? `${(-rise).toFixed(2)} au-dessus` : `${rise.toFixed(2)} sous`;
   $("hip").textContent = `${Math.round(hip)}°`;
   $("knee").textContent = `${Math.round(s.knee[f])}° (flexion ${Math.max(0, Math.round(180 - s.knee[f]))}°)`;
@@ -166,9 +196,11 @@ function draw() {
   $("com").style.color = com >= 0 ? "var(--rep)" : "var(--pull)";
   // attempt banner
   if (att) {
-    const col = { rep: "#3ecf7a", miss_press: "#f0a53a", miss_pull: "#ef5a5a" }[att.outcome];
-    const faults = data.view === "side" ? att.faults.map(x => FAULT[x]) : [];
-    const lines = [`#${att.rep} ${LABEL[att.outcome]}`, ...(faults.length ? faults : [data.view === "side" ? "aucune faute" : ""])].filter(Boolean);
+    const col = PU() ? (att.chin_over_bar ? "#3ecf7a" : "#ef5a5a") : { rep: "#3ecf7a", miss_press: "#f0a53a", miss_pull: "#ef5a5a" }[att.outcome];
+    const faults = PU() ? [`montée ${att.concentric_s} s`, `genoux ${Math.round(att.knee_min_deg)}°`]
+      : data.view === "side" ? att.faults.map(x => FAULT[x]) : [];
+    const head = PU() ? `#${att.rep} ${att.chin_over_bar ? "menton au-dessus" : "trop court"}` : `#${att.rep} ${LABEL[att.outcome]}`;
+    const lines = [head, ...(faults.length ? faults : [data.view === "side" ? "aucune faute" : ""])].filter(Boolean);
     ctx.font = "bold 18px system-ui"; const w = Math.max(...lines.map(l => ctx.measureText(l).width)) + 20;
     ctx.fillStyle = "rgba(0,0,0,.65)"; ctx.fillRect(10, 10, w, 12 + lines.length * 24);
     ctx.fillStyle = col; ctx.fillText(lines[0], 20, 34);
@@ -185,8 +217,8 @@ function drawTimeline() {
   const dur = vid.duration;
   if (!data || !dur) return;
   for (const r of data.reps) {
-    tctx.fillStyle = { rep: "#3ecf7a", miss_press: "#f0a53a", miss_pull: "#ef5a5a" }[r.outcome];
-    const x0 = (r.t_pull - 1) / dur * W, x1 = (r.t_transition + 1.2) / dur * W;
+    tctx.fillStyle = PU() ? (r.chin_over_bar ? "#3ecf7a" : "#ef5a5a") : { rep: "#3ecf7a", miss_press: "#f0a53a", miss_pull: "#ef5a5a" }[r.outcome];
+    const [a, b] = span(r), x0 = a / dur * W, x1 = b / dur * W;
     tctx.fillRect(x0, 4, Math.max(4, x1 - x0), H - 8);
   }
   tctx.fillStyle = "#fff"; tctx.fillRect(vid.currentTime / dur * W - 1, 0, 2, H);
@@ -195,7 +227,11 @@ function drawTimeline() {
 function renderAttempts() {
   if (!data) { $("atts").innerHTML = '<span class="dim">–</span>'; return; }
   if (!data.reps.length) { $("atts").innerHTML = '<span class="dim">Aucune tentative détectée. Barre et tête dans le cadre ? Une seule personne suivie ?</span>'; return; }
-  $("atts").innerHTML = data.reps.map((r, i) => `
+  $("atts").innerHTML = data.reps.map((r, i) => PU() ? `
+    <div class="att ${r.chin_over_bar ? "rep" : "miss_pull"}" data-i="${i}" data-t="${r.t_top - 1.5}">
+      <b>#${r.rep} ${r.chin_over_bar ? "Menton au-dessus" : "Trop court"}</b> <span class="dim">${r.t_top.toFixed(1)} s</span><br>
+      <span class="dim">épaules ${r.top_torso >= 0 ? r.top_torso + " sous" : -r.top_torso + " au-dessus"} des mains · montée ${r.concentric_s} s · balancement ${r.swing_torso} · hanche ${Math.round(r.hip_min_deg)}° · genoux ${Math.round(r.knee_min_deg)}°</span>
+    </div>` : `
     <div class="att ${r.outcome}" data-i="${i}" data-t="${r.t_pull - 1}">
       <b>#${r.rep} ${LABEL[r.outcome]}</b> <span class="dim">${r.t_transition.toFixed(1)} s</span><br>
       <span class="dim">balancement ${r.swing_torso} · hanche perdue ${Math.round(r.hip_lost_deg)}° · genoux ${Math.round(r.knee_at_transition_deg)}° au passage (min ${Math.round(r.knee_min_deg)}°) · CdM ${r.com_at_transition_torso > 0 ? "+" : ""}${r.com_at_transition_torso} · retour de jambe ${r.kick_behind_bar_torso}</span><br>
@@ -219,7 +255,13 @@ new ResizeObserver(() => { fit(); draw(); }).observe(vid);
 tl.addEventListener("click", e => { if (vid.duration) vid.currentTime = e.offsetX / tl.clientWidth * vid.duration; });
 $("prev").onclick = () => open(idx - 1);
 $("next").onclick = () => open(idx + 1);
-$("pick").onchange = e => open(+e.target.value);
+document.querySelectorAll(".mode").forEach(b => b.onclick = () => {
+  if (b.dataset.kind === kind) return;
+  kind = b.dataset.kind; token++;
+  document.querySelectorAll(".mode").forEach(x => x.classList.toggle("on", x === b));
+  $("atts").previousElementSibling.textContent = PU() ? "Répétitions" : "Tentatives";
+  loadList();
+});
 $("rate").onchange = e => vid.playbackRate = +e.target.value;
 document.addEventListener("keydown", e => {
   if (e.target.tagName === "SELECT") return;

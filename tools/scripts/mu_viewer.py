@@ -1,29 +1,41 @@
 """
-Local viewer for the muscle-up clips on the NAS: pick a clip, watch it with the tracked
-skeleton, the bar (the hands), the live numbers and every graded attempt drawn over the video
-as it plays; next / previous through the clips. Each clip is fetched from the NAS (read only),
-re-encoded to H.264 if the browser cannot play it, run through extract_pose_mp.py and
-analyze_muscleups.py, and cached. The clip after the one on screen is prepared meanwhile.
+Local viewer for the sorted muscle-up and pull-up clips on the NAS (01-MuscleUp, 02-PullUp):
+pick the MU or PU view, a week, a session, a clip; watch it with the tracked skeleton, the bar
+(the hands), the live numbers and every graded attempt or rep drawn over the video as it plays.
+Each clip is fetched from the NAS (read only), re-encoded to H.264 if the browser cannot play it,
+run through extract_pose_mp.py and analyze_muscleups.py or analyze_pullups_side.py, and cached.
+The clip after the one on screen is prepared meanwhile.
 
 Usage:
     python tools/scripts/mu_viewer.py [port=8765] [cache=work/viewer] [host=nas-git]
-                                      [dir=/volume1/07-Scratch/02-StreetLifting/00-INBOX]
+                                      [dir=/volume1/07-Scratch/02-StreetLifting]
 then open http://localhost:8765. Listens on 127.0.0.1 only.
 """
-import json, os, re, shlex, subprocess, sys, threading, traceback
+import datetime, json, os, re, shlex, subprocess, sys, threading, traceback
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import analyze_muscleups
+import analyze_muscleups, analyze_pullups_side
 
-NAME = re.compile(r"muscleup-\d{4}-\d{2}-\d{2}-\d{2}\.(mp4|mov)")
+NAME = re.compile(r"(muscleup|pullup)-(\d{4}-\d{2}-\d{2})-\d{2}\.(mp4|mov)")
+FOLDERS = {"muscleup": "01-MuscleUp", "pullup": "02-PullUp"}
+ANALYSES = {"muscleup": analyze_muscleups.analyze, "pullup": analyze_pullups_side.analyze}
 MODEL = os.path.join(HERE, "..", "models", "pose_landmarker_heavy.task")
 
 
 def valid_name(name):
     return bool(NAME.fullmatch(name or ""))
+
+
+def folder_of(name):
+    return FOLDERS[name.split("-", 1)[0]]
+
+
+def week_of(name):
+    y, w, _ = datetime.date.fromisoformat(NAME.fullmatch(name).group(2)).isocalendar()
+    return f"{y}-S{w:02d}"
 
 
 def parse_range(header, size):
@@ -52,16 +64,18 @@ class Clips:
         threading.Thread(target=self.work, daemon=True).start()
 
     def path(self, name, ext):
-        return os.path.join(self.cache, os.path.splitext(name)[0] + ext)
+        # keyed by folder too: sorting reused INBOX names (muscleup-...-01) for other videos
+        return os.path.join(self.cache, folder_of(name) + "__" + os.path.splitext(name)[0] + ext)
 
-    def listing(self):
-        cmd = f"find {shlex.quote(self.folder)} -maxdepth 1 -type f -name 'muscleup-*'"
+    def listing(self, kind):
+        cmd = f"find {shlex.quote(self.folder + '/' + FOLDERS[kind])} -maxdepth 1 -type f -name '{kind}-*'"
         out = subprocess.run(["ssh", self.host, cmd], capture_output=True, text=True, timeout=60)
         if out.returncode:
             raise RuntimeError(f"NAS listing failed: {out.stderr.strip()[:200]}")
         names = sorted({os.path.basename(p) for p in out.stdout.split("\n") if valid_name(os.path.basename(p))},
                        reverse=True)
-        return [dict(name=n, state=self.status(n)) for n in names]
+        return [dict(name=n, state=self.status(n), week=week_of(n), day=NAME.fullmatch(n).group(2))
+                for n in names]
 
     def status(self, name):
         if os.path.exists(self.path(name, ".analysis.json")):
@@ -94,7 +108,7 @@ class Clips:
         raw, video, npz = self.path(name, ".src"), self.path(name, ".mp4"), self.path(name, ".npz")
         if not os.path.exists(video):
             self.state[name] = "fetching"
-            remote = shlex.quote(f"{self.folder}/{name}")
+            remote = shlex.quote(f"{self.folder}/{folder_of(name)}/{name}")
             with open(raw + ".part", "wb") as f:           # read only on the NAS: cat, nothing else
                 subprocess.run(["ssh", self.host, f"cat {remote}"], stdout=f, check=True, timeout=900)
             os.replace(raw + ".part", raw)
@@ -113,7 +127,7 @@ class Clips:
                             npz + ".part.npz"], check=True, capture_output=True)
             os.replace(npz + ".part.npz", npz)
         self.state[name] = "analysis"
-        res = analyze_muscleups.analyze(npz, series=True)
+        res = ANALYSES[name.split("-", 1)[0]](npz, series=True)
         tmp = self.path(name, ".analysis.json.part")
         with open(tmp, "w") as f:
             json.dump(res, f)
@@ -139,7 +153,10 @@ def handler(clips):
                     with open(os.path.join(HERE, "mu_viewer.html"), "rb") as f:
                         return self.send(200, f.read(), "text/html; charset=utf-8")
                 if u.path == "/api/clips":
-                    return self.send(200, dict(clips=clips.listing()))
+                    kind = parse_qs(u.query).get("kind", ["muscleup"])[0]
+                    if kind not in FOLDERS:
+                        return self.send(400, dict(error="bad kind"))
+                    return self.send(200, dict(clips=clips.listing(kind)))
                 if not valid_name(name):
                     return self.send(400, dict(error="bad clip name"))
                 if u.path == "/api/clip":
@@ -195,7 +212,7 @@ def main():
     kw = dict(a.split("=", 1) for a in sys.argv[1:])
     port = int(kw.get("port", 8765))
     clips = Clips(kw.get("cache", "work/viewer"), kw.get("host", "nas-git"),
-                  kw.get("dir", "/volume1/07-Scratch/02-StreetLifting/00-INBOX"))
+                  kw.get("dir", "/volume1/07-Scratch/02-StreetLifting"))
     print(f"muscle-up viewer on http://localhost:{port}  (cache {os.path.abspath(clips.cache)})", flush=True)
     ThreadingHTTPServer(("127.0.0.1", port), handler(clips)).serve_forever()
 

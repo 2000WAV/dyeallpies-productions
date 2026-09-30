@@ -18,6 +18,7 @@ cancels a hand-held camera that pans to follow the lift. Distances are in torso 
 look along the bar (side-on): from the front every metric here is depth and is not seen.
 """
 import json, sys
+from types import SimpleNamespace
 import numpy as np
 
 NOSE, EARS, SHOULDERS, WRISTS, HIPS, KNEES, ANKLES = 0, [7, 8], [11, 12], [15, 16], [23, 24], [25, 26], [27, 28]
@@ -65,7 +66,8 @@ def runs(m):
     return list(zip(e[::2], e[1::2]))
 
 
-def analyze(npz_path, series=False):
+def track(npz_path):
+    """The smoothed track every analysis starts from (shared with analyze_pullups_side.py)."""
     d = np.load(npz_path)
     fps, w, h = float(d["fps"]), float(d["width"]), float(d["height"])
     px = fill_smooth(d["img"][..., :2] * [w, h], max(1, int(round(fps / 15))))
@@ -85,6 +87,23 @@ def analyze(npz_path, series=False):
     knee = angle(Hp, K, A)                        # 180 = legs straight; Tescoaching: bent knees make the kick worse
     rise = (S[:, 1] - B[:, 1]) / L                # shoulders under the bar (+), over it (-)
     view = "front" if np.nanmedian(np.abs(np.diff(px[:, SHOULDERS, 0], axis=1))) / L > FRONT_MIN else "side"
+    face = np.sign(np.nanmedian(nose[:, 0] - ears[:, 0])) or 1.0
+    return SimpleNamespace(fps=fps, w=w, h=h, px=px, S=S, Hp=Hp, K=K, A=A, B=B, nose=nose, ears=ears,
+                           found=found, L=L, com=com, hip=hip, knee=knee, rise=rise, view=view, face=face,
+                           vis=np.nan_to_num(d["img"][..., 3]))
+
+
+def viewer_series(T):
+    """Per-frame arrays for mu_viewer.py."""
+    rd = lambda a, n=1: np.round(np.nan_to_num(a), n).tolist()
+    return dict(facing=int(T.face), points=rd(T.px[:, DRAWN].reshape(len(T.px), -1)), bar=rd(T.B),
+                rise=rd(T.rise, 2), hip=rd(T.hip), knee=rd(T.knee), com=rd(T.face * (T.com[:, 0] - T.B[:, 0]) / T.L, 2))
+
+
+def analyze(npz_path, series=False):
+    T = track(npz_path)
+    fps, w, h, px, S, Hp, K, A, B = T.fps, T.w, T.h, T.px, T.S, T.Hp, T.K, T.A, T.B
+    nose, ears, found, L, com, hip, knee, rise, view = T.nose, T.ears, T.found, T.L, T.com, T.hip, T.knee, T.rise, T.view
 
     # An attempt starts from a hang (hands above the nose, at least 0.3 s) and runs to the next
     # hang. The bar is where the hands sat just before the hang ended (0.4-0.15 s before: a hang
@@ -147,11 +166,7 @@ def analyze(npz_path, series=False):
                          kick_behind_bar_torso=round(kick, 2), faults=faults))
     res = dict(fps=fps, view=view, torso_px=round(float(L), 1), reps=reps)
     if series:                                    # per frame, for mu_viewer.py
-        face = np.sign(np.nanmedian(nose[:, 0] - ears[:, 0])) or 1.0
-        rd = lambda a, n=1: np.round(np.nan_to_num(a), n).tolist()
-        res.update(width=w, height=h, series=dict(facing=int(face),
-            points=rd(px[:, DRAWN].reshape(len(px), -1)), bar=rd(B), rise=rd(rise, 2),
-            hip=rd(hip), knee=rd(knee), com=rd(face * (com[:, 0] - B[:, 0]) / L, 2)))
+        res.update(width=w, height=h, series=viewer_series(T))
     return res
 
 
