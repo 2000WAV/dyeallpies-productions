@@ -40,3 +40,6 @@ __pycache__/
 pullup/
 formats/*/work/
 formats/*/out/
+
+# viewer cache and per-clip working files
+work/

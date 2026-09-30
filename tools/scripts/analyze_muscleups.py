@@ -21,6 +21,7 @@ import json, sys
 import numpy as np
 
 NOSE, EARS, SHOULDERS, WRISTS, HIPS, KNEES, ANKLES = 0, [7, 8], [11, 12], [15, 16], [23, 24], [25, 26], [27, 28]
+DRAWN = [0, 7, 8, 11, 12, 13, 14, 15, 16, 23, 24, 25, 26, 27, 28]   # landmarks the viewer draws
 
 # ponytail: thresholds set from the synthetic check and the video's verdicts, not fitted on
 # real clips yet; recalibrate once there are graded profile clips (clean vs no-rep).
@@ -64,17 +65,24 @@ def runs(m):
     return list(zip(e[::2], e[1::2]))
 
 
-def analyze(npz_path):
+def analyze(npz_path, series=False):
     d = np.load(npz_path)
     fps, w, h = float(d["fps"]), float(d["width"]), float(d["height"])
     px = fill_smooth(d["img"][..., :2] * [w, h], max(1, int(round(fps / 15))))
     mid = lambda idx: px[:, idx].mean(axis=1)
-    S, Hp, K, A, B = mid(SHOULDERS), mid(HIPS), mid(KNEES), mid(ANKLES), mid(WRISTS)
+    S, Hp, K, A = mid(SHOULDERS), mid(HIPS), mid(KNEES), mid(ANKLES)
+    # the bar is the wrists weighted by visibility squared: side-on, the far wrist is hidden behind
+    # the body and MediaPipe guesses it 0.5 torso off, on the belly, at visibility ~0.1-0.3. Picking
+    # the more visible one instead flips between them when both read ~0.5 and makes the bar jump.
+    wv = np.nan_to_num(d["img"][:, WRISTS, 3]) ** 2 + 1e-6
+    B = (px[:, WRISTS] * wv[..., None]).sum(axis=1) / wv.sum(axis=1)[:, None]
     nose, ears = px[:, NOSE], mid(EARS)
+    found = d["ok"].astype(float)                 # frames where MediaPipe actually saw a pose
     L = np.nanmedian(np.linalg.norm(S - Hp, axis=1))
     # segment centres weighted by Winter's mass fractions: head+arms+trunk, thighs, shanks+feet
     com = 0.678 * (S + Hp) / 2 + 0.2 * (Hp + K) / 2 + 0.122 * (K + A) / 2
     hip = angle(S, Hp, K)
+    knee = angle(Hp, K, A)                        # 180 = legs straight; Tescoaching: bent knees make the kick worse
     rise = (S[:, 1] - B[:, 1]) / L                # shoulders under the bar (+), over it (-)
     view = "front" if np.nanmedian(np.abs(np.diff(px[:, SHOULDERS, 0], axis=1))) / L > FRONT_MIN else "side"
 
@@ -114,7 +122,8 @@ def analyze(npz_path):
         k = int(0.1 * fps)
         moved = np.linalg.norm(B[max(0, tr - k): tr + k + 1] - B[tr], axis=1).max() / L
         reach = (S[tr, 1] - bar[1]) / L
-        if rise[a0:b0].max() - rise[tr] < PULL_MIN or moved > STILL or reach > REACH:
+        seen = found[max(0, tr - int(0.5 * fps)): tr + int(0.5 * fps) + 1].mean()   # not an interpolated gap
+        if rise[a0:b0].max() - rise[tr] < PULL_MIN or moved > STILL or reach > REACH or seen < 0.5:
             continue
         face = np.sign(np.median(nose[a0:tr + 1, 0] - ears[a0:tr + 1, 0])) or 1.0   # +1: facing +x
         fwd = lambda p, t: face * (p[t, 0] - B[t, 0]) / L       # torso lengths in front of the bar
@@ -123,6 +132,7 @@ def analyze(npz_path):
         swing = float(np.ptp(fwd(Hp, pre))) if len(pre) > 1 else 0.0
         hip_min = float(hip[pull:tr + 1].min())
         hip_lost = float(hip[tr] - hip_min)
+        knee_tr, knee_min = float(knee[tr]), float(knee[pull:tr + 1].min())
         com_tr = float(fwd(com, tr))
         kick = float(max(0.0, -fwd(A, np.arange(tr, min(end, tr + int(fps)))).min()))
         faults = [name for name, bad in (("swing", swing > SWING_MAX),
@@ -132,9 +142,17 @@ def analyze(npz_path):
         reps.append(dict(rep=len(reps) + 1, outcome=outcome, facing=int(face),
                          t_pull=round(pull / fps, 2), t_transition=round(tr / fps, 2),
                          swing_torso=round(swing, 2), hip_min_deg=round(hip_min, 1),
-                         hip_lost_deg=round(hip_lost, 1), com_at_transition_torso=round(com_tr, 2),
+                         hip_lost_deg=round(hip_lost, 1), knee_at_transition_deg=round(knee_tr, 1),
+                         knee_min_deg=round(knee_min, 1), com_at_transition_torso=round(com_tr, 2),
                          kick_behind_bar_torso=round(kick, 2), faults=faults))
-    return dict(fps=fps, view=view, torso_px=round(float(L), 1), reps=reps)
+    res = dict(fps=fps, view=view, torso_px=round(float(L), 1), reps=reps)
+    if series:                                    # per frame, for mu_viewer.py
+        face = np.sign(np.nanmedian(nose[:, 0] - ears[:, 0])) or 1.0
+        rd = lambda a, n=1: np.round(np.nan_to_num(a), n).tolist()
+        res.update(width=w, height=h, series=dict(
+            points=rd(px[:, DRAWN].reshape(len(px), -1)), bar=rd(B), rise=rd(rise, 2),
+            hip=rd(hip), knee=rd(knee), com=rd(face * (com[:, 0] - B[:, 0]) / L, 2)))
+    return res
 
 
 def main():
@@ -147,7 +165,7 @@ def main():
         print("front view: swing, hip, CoM and kickback are depth here and not seen; no verdict given")
     for r in res["reps"]:
         print(f"{r['rep']}. {r['outcome']:10s} @ {r['t_transition']:.2f}s  swing {r['swing_torso']:.2f}  "
-              f"hip lost {r['hip_lost_deg']:.0f} deg  CoM {r['com_at_transition_torso']:+.2f}  "
+              f"hip lost {r['hip_lost_deg']:.0f} deg  knee {r['knee_at_transition_deg']:.0f} deg  CoM {r['com_at_transition_torso']:+.2f}  "
               f"kick {r['kick_behind_bar_torso']:.2f}  -> {', '.join(r['faults']) or ('clean' if res['view'] == 'side' else 'no verdict')}")
     if not res["reps"]:
         print("no attempt found: no hang followed by a pull to the bar (check the tracked landmarks)")

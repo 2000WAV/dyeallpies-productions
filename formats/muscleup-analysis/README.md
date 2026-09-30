@@ -68,6 +68,10 @@ the head leaves the top of the frame, which is exactly when they matter.
 | `weight_behind_bar` | centre of mass in front of the bar at the transition (segment centres weighted by Winter's mass fractions) | < 0 |
 | `leg_kickback` | how far the ankle midpoint goes behind the bar in the second after the transition | > 0.3 |
 
+Also measured, not graded: the knee angle (hip-knee-ankle, 180 = straight) at the transition
+and its minimum during the pull. Tescoaching names bent knees on top of lost hip flexion as what
+makes a kick-back worse (7:47); there is no threshold until graded clips give one.
+
 The faults are graded on misses too: that is where they explain something. The hips opening
 towards lockout after the transition is normal and not penalised. Pull height is not graded: in
 this material it is never the limiter.
@@ -91,6 +95,24 @@ $PY tools/scripts/test_analyze_muscleups.py
 `analyze_muscleups.py` prints one line per attempt (outcome, the four metrics, the faults) and
 writes them with the timestamps to the JSON. Look at the frames at each printed time before
 trusting a line: draw the landmarks on them.
+
+## Viewer
+
+```bash
+$PY tools/scripts/mu_viewer.py            # then open http://localhost:8765
+```
+
+A local page for going through the clips: it lists `muscleup-*` on the NAS (read only, over ssh),
+fetches the chosen clip, re-encodes it to H.264 if needed, runs the pose and the analysis, caches
+everything under `work/viewer/`, and prepares the next clip while this one plays. Over the video,
+in sync: the skeleton, the bar (the hands) with its vertical plane, the shoulders marker (green
+over the bar), the centre-of-mass arrow (green in front, red behind), and a banner with the
+outcome and the faults during each attempt. Beside it, live: phase, shoulders vs bar, hip and
+knee angles, centre of mass; the attempts with their metrics, click to jump. Keys: left / right
+clip, space, `,` `.` frame by frame, 1 2 3 speed.
+
+Clip names on this NAS came from a per-session sort and are wrong for about a third of the
+files (a `muscleup-` clip can be dips): list by the sorted folder once the clips are filed.
 
 ## Rules
 

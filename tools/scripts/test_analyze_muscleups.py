@@ -48,7 +48,7 @@ def make_rep(swing, hip_hold, com_front, kick, fail=False, press_fail=False):
         # thigh direction from the hip angle: straight down at 180, forward (+x) as it flexes
         a = np.radians(180 - hip_ang)
         kx, ky = hx + 150 * np.sin(a), hy + 150 * np.cos(a)
-        ax, ay = kx, ky + 150
+        ax, ay = kx + 150 * np.sin(a), ky + 150 * np.cos(a)   # legs straight: shank in line with the thigh
         if ti >= 2.2:
             ax -= kick * min((ti - 2.2) / 0.3, 1.0)    # ankles thrown back behind the bar
         pts = {0: (sx + 20, shy - 40), 7: (sx, shy - 40), 8: (sx, shy - 40),
@@ -72,12 +72,12 @@ def standing(seconds):
     return img
 
 
-def run(img):
+def run(img, series=False):
     with tempfile.TemporaryDirectory() as d:
         p = os.path.join(d, "pose.npz")
         np.savez(p, fps=FPS, width=W, height=H, n_frames=len(img), img=img,
-                 world=np.zeros((len(img), 33, 3)), ok=np.ones(len(img), bool))
-        return am.analyze(p)
+                 world=np.zeros((len(img), 33, 3)), ok=~np.isnan(img[:, 11, 0]))
+        return am.analyze(p, series=series)
 
 
 def test_clean_rep():
@@ -179,11 +179,55 @@ def test_tracking_glitch_over_the_bar_keeps_the_rep():
     assert [r["outcome"] for r in reps] == ["rep"], reps
 
 
+def test_series_for_the_viewer():
+    img = make_rep(swing=20, hip_hold=5, com_front=40, kick=0)
+    res = run(img, series=True)
+    sr = res["series"]
+    n = len(img)
+    assert len(sr["points"]) == n and len(sr["points"][0]) == len(am.DRAWN) * 2
+    assert len(sr["bar"]) == n and len(sr["rise"]) == n and len(sr["hip"]) == n and len(sr["com"]) == n
+    i = int(3.5 * FPS)                                  # in support: shoulders a torso over the bar
+    assert sr["rise"][i] < -0.9 and abs(sr["bar"][i][1] - BAR[1]) < 1
+    assert "series" not in run(img)                     # the CLI JSON stays small
+
+
+def test_hidden_wrist_does_not_move_the_bar():
+    # side-on, the far wrist is hidden behind the body: MediaPipe guesses it on the belly with a
+    # low visibility. The bar must stay on the visible hand.
+    img = make_rep(swing=20, hip_hold=5, com_front=40, kick=0)
+    img[:, 16, 1] += 150 / H
+    img[:, 16, 3] = 0.2
+    res = run(img, series=True)
+    assert all(abs(b[1] - BAR[1]) < 10 for b in res["series"]["bar"]), res["series"]["bar"][:3]   # 0.05 torso
+    assert [r["outcome"] for r in res["reps"]] == ["rep"], res["reps"]
+
+
+def test_no_pose_no_attempt():
+    # nobody in frame around the transition: the gap is interpolated for drawing, never graded
+    img = make_rep(swing=20, hip_hold=5, com_front=40, kick=0)
+    img[int(1.6 * FPS):int(2.9 * FPS)] = np.nan
+    assert run(img)["reps"] == []
+
+
+def test_knee_flexion():
+    straight = run(make_rep(swing=20, hip_hold=5, com_front=40, kick=0), series=True)
+    assert straight["reps"][0]["knee_at_transition_deg"] > 170, straight["reps"][0]
+    img = make_rep(swing=20, hip_hold=5, com_front=40, kick=0)
+    i = int(1.5 * FPS)
+    img[i:, 27:29, 0] -= 120 / W                       # heels pulled back from the pull on
+    bent = run(img, series=True)
+    r = bent["reps"][0]
+    assert r["knee_at_transition_deg"] < 150 and r["knee_min_deg"] <= r["knee_at_transition_deg"], r
+    assert len(bent["series"]["knee"]) == len(img) and bent["series"]["knee"][int(3 * FPS)] < 150
+
+
 if __name__ == "__main__":
     for f in (test_clean_rep, test_faulty_rep, test_front_view_gives_no_verdict,
               test_panning_camera_changes_nothing, test_walking_past_is_not_a_rep, test_failed_attempt_is_graded,
               test_dropping_off_is_not_a_rep, test_no_lockout_is_a_press_miss,
               test_sliding_down_before_letting_go_is_not_an_attempt, test_dropping_from_the_hang_is_not_a_rep,
-              test_tracking_glitch_over_the_bar_keeps_the_rep):
+              test_tracking_glitch_over_the_bar_keeps_the_rep, test_series_for_the_viewer,
+              test_hidden_wrist_does_not_move_the_bar, test_no_pose_no_attempt,
+              test_knee_flexion):
         f()
         print("ok", f.__name__)
