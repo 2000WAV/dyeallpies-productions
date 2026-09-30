@@ -146,12 +146,14 @@ def test_sliding_down_before_letting_go_is_not_an_attempt():
     fall[:, 15:17, 1] += np.linspace(0, 200 / H, len(fall))[:, None]     # a torso length in 0.15 s
     back = np.concatenate([np.repeat(bent[None], int(0.4 * FPS), 0), fall])
     reps = run(np.concatenate([img, back, standing(2)]))["reps"]
-    assert [r["outcome"] for r in reps] == ["miss_press"], reps
+    assert [r["outcome"] for r in reps] == ["rep"], reps
 
 
-def test_no_lockout_is_a_press_miss():
-    reps = run(make_rep(swing=20, hip_hold=5, com_front=40, kick=0, press_fail=True))["reps"]
-    assert [r["outcome"] for r in reps] == ["miss_press"], reps
+def test_press_is_measured_not_judged():
+    # over the bar but only 0.6 torso over the hands: the height is reported, no press verdict
+    # (on real clips clean reps read -0.75 to -1.2 and a stuck dip -0.94: the camera decides)
+    r = run(make_rep(swing=20, hip_hold=5, com_front=40, kick=0, press_fail=True))["reps"][0]
+    assert r["outcome"] == "rep" and -0.7 < r["support_torso"] < -0.4, r
 
 
 def test_dropping_from_the_hang_is_not_a_rep():
@@ -251,14 +253,41 @@ def test_standing_on_the_box_is_not_an_attempt():
     assert reps == [], reps
 
 
+def test_head_bowed_over_the_bar_is_not_a_new_hang():
+    # at the transition he bows the head forward: the nose drops under the hands for 0.5 s while the
+    # shoulders are already over them. One muscle-up, locked out, not a press miss plus a second rep
+    img = make_rep(swing=20, hip_hold=5, com_front=40, kick=0)
+    i = int(2.35 * FPS)
+    img[i:i + int(0.5 * FPS), 0, 1] = (BAR[1] + 40) / H
+    reps = run(img)["reps"]
+    assert [r["outcome"] for r in reps] == ["rep"], reps
+
+
+def test_knee_angle_from_the_visible_leg():
+    # side-on: the near leg is seen and straight, the far leg is hidden and guessed bent
+    img = make_rep(swing=20, hip_hold=5, com_front=40, kick=0)
+    img[:, [26, 28], 3] = 0.1                                   # far knee and ankle hidden
+    img[:, 28, 0] -= 150 / W                                    # ... and guessed 150 px off
+    r = run(img)["reps"][0]
+    assert r["knee_min_deg"] is not None and r["knee_min_deg"] > 170, r
+
+
+def test_split_attempt_is_merged():
+    reps = [dict(rep=1, t_transition=10.0, outcome="miss_pull"), dict(rep=2, t_transition=11.3, outcome="rep"),
+            dict(rep=3, t_transition=20.0, outcome="miss_pull")]
+    out = am.merge_split(reps)
+    assert [(r["rep"], r["outcome"]) for r in out] == [(1, "rep"), (2, "miss_pull")], out
+
+
 if __name__ == "__main__":
     for f in (test_clean_rep, test_faulty_rep, test_front_view_gives_no_verdict,
               test_panning_camera_changes_nothing, test_walking_past_is_not_a_rep, test_failed_attempt_is_graded,
-              test_dropping_off_is_not_a_rep, test_no_lockout_is_a_press_miss,
+              test_dropping_off_is_not_a_rep, test_press_is_measured_not_judged,
               test_sliding_down_before_letting_go_is_not_an_attempt, test_dropping_from_the_hang_is_not_a_rep,
               test_tracking_glitch_over_the_bar_keeps_the_rep, test_series_for_the_viewer,
               test_hidden_wrist_does_not_move_the_bar, test_no_pose_no_attempt,
               test_knee_flexion, test_pull_speed, test_legs_out_of_frame_give_no_knee_angle,
-              test_standing_on_the_box_is_not_an_attempt):
+              test_standing_on_the_box_is_not_an_attempt, test_head_bowed_over_the_bar_is_not_a_new_hang,
+              test_knee_angle_from_the_visible_leg, test_split_attempt_is_merged):
         f()
         print("ok", f.__name__)

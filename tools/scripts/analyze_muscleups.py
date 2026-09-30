@@ -32,9 +32,9 @@ COM_MIN = 0.0          # torso lengths in front of the bar at the transition
 KICK_MAX = 0.3         # torso lengths the ankles go behind the bar after the transition
 DEAD_HANG = 0.7        # torso lengths the shoulders must hang under the hands before a pull: standing on
                        # the box with the hands on the bar reads ~0.4, a hang with straight arms ~0.9-1.1
+TOP_EDGE = 0.02        # shoulders above 2 % of the frame height: out of the top of the frame, position guessed
 LEG_VIS = 0.5          # median visibility of knees and ankles under which no knee angle is given
 FRONT_MIN = 0.5        # shoulder width / torso length above this = seen from the front, no verdict
-LOCK = -0.95           # torso lengths of shoulders over the hands that count as the lockout (arm ~ 1.1 torso)
 PULL_MIN = 0.4        # torso lengths the shoulders must rise from the hang's low point: sliding down to let go is no attempt
 STILL = 0.5            # torso lengths the hands may move within 0.1 s of the event: more is letting go
 REACH = 0.3            # torso lengths under the hang's bar position the shoulders must reach: dropping off never does
@@ -89,7 +89,12 @@ def track(npz_path):
     fps, w, h = float(d["fps"]), float(d["width"]), float(d["height"])
     px = fill_smooth(d["img"][..., :2] * [w, h], max(1, int(round(fps / 15))))
     mid = lambda idx: px[:, idx].mean(axis=1)
-    S, Hp, K, A = mid(SHOULDERS), mid(HIPS), mid(KNEES), mid(ANKLES)
+    vis_all = np.nan_to_num(d["img"][..., 3])
+    # legs by visibility, like the wrists: side-on the far leg is hidden and guessed, and averaging
+    # it in bends the knee angle and drags the visibility under the threshold
+    seen = lambda idx: (px[:, idx] * (vis_all[:, idx] ** 2 + 1e-6)[..., None]).sum(1) / (vis_all[:, idx] ** 2 + 1e-6).sum(1)[:, None]
+    S, Hp, K, A = mid(SHOULDERS), mid(HIPS), seen(KNEES), seen(ANKLES)
+    Hs = seen(HIPS)                               # the better-seen hip, for the knee angle only
     # the bar is the wrists weighted by visibility squared: side-on, the far wrist is hidden behind
     # the body and MediaPipe guesses it 0.5 torso off, on the belly, at visibility ~0.1-0.3. Picking
     # the more visible one instead flips between them when both read ~0.5 and makes the bar jump.
@@ -102,13 +107,19 @@ def track(npz_path):
     # segment centres weighted by Winter's mass fractions: head+arms+trunk, thighs, shanks+feet
     com = 0.678 * (S + Hp) / 2 + 0.2 * (Hp + K) / 2 + 0.122 * (K + A) / 2
     hip = angle(S, Hp, K)
-    knee = angle(Hp, K, A)                        # 180 = legs straight; Tescoaching: bent knees make the kick worse
+    knee = angle(Hs, K, A)                        # 180 = legs straight; Tescoaching: bent knees make the kick worse
     rise = (S[:, 1] - B[:, 1]) / L                # shoulders under the bar (+), over it (-)
     view = "front" if np.nanmedian(np.abs(np.diff(px[:, SHOULDERS, 0], axis=1))) / L > FRONT_MIN else "side"
     face = np.sign(np.nanmedian(nose[:, 0] - ears[:, 0])) or 1.0
     return SimpleNamespace(fps=fps, w=w, h=h, px=px, S=S, Hp=Hp, K=K, A=A, B=B, nose=nose, ears=ears,
                            found=found, L=L, com=com, hip=hip, knee=knee, rise=rise, view=view, face=face,
-                           vis=np.nan_to_num(d["img"][..., 3]))
+                           vis=vis_all, top_out=px[:, SHOULDERS, 1].min(axis=1) < TOP_EDGE * h)
+
+
+def legs_seen(T, frames):
+    """The better-seen leg (knee and ankle both) has a median visibility over LEG_VIS."""
+    v = T.vis[frames]
+    return max(np.median(np.minimum(v[:, 25], v[:, 27])), np.median(np.minimum(v[:, 26], v[:, 28]))) >= LEG_VIS
 
 
 def viewer_series(T):
@@ -118,6 +129,7 @@ def viewer_series(T):
                 rise=rd(T.rise, 2), hip=rd(T.hip), knee=rd(T.knee), com=rd(T.face * (T.com[:, 0] - T.B[:, 0]) / T.L, 2))
 
 
+SPEED_MAX = 6.0           # torso lengths/s (~3 m/s): no weighted pull goes faster, above it the track is lost
 TORSO_OF_HEIGHT = 0.288   # shoulder (0.818 H) to hip (0.530 H), Winter's anthropometric table
 
 
@@ -128,11 +140,32 @@ def speeds(T, a, b, height=None):
         return dict(mean_speed_torso_s=None, peak_speed_torso_s=None, mean_speed_m_s=None, peak_speed_m_s=None)
     k = max(1, int(round(0.2 * T.fps)))           # 0.2 s: the peak is otherwise frame-to-frame tracking noise
     v = np.convolve(-np.gradient(T.rise) * T.fps, np.ones(k) / k, mode="same")
-    mean, peak = (T.rise[a] - T.rise[b]) * T.fps / (b - a), float(v[a:b + 1].max())
+    inside = ~T.top_out[a:b + 1]                   # shoulders out of the frame are guessed: no speed from them
+    if not inside.any() or T.top_out[b]:
+        return dict(mean_speed_torso_s=None, peak_speed_torso_s=None, mean_speed_m_s=None, peak_speed_m_s=None)
+    mean, peak = (T.rise[a] - T.rise[b]) * T.fps / (b - a), float(v[a:b + 1][inside].max())
+    if peak > SPEED_MAX:                          # the tracker lost the upper body (head out of the frame)
+        return dict(mean_speed_torso_s=None, peak_speed_torso_s=None, mean_speed_m_s=None, peak_speed_m_s=None)
     m = TORSO_OF_HEIGHT * height if height else None
     r = lambda x: round(float(x), 2)
     return dict(mean_speed_torso_s=r(mean), peak_speed_torso_s=r(peak),
                 mean_speed_m_s=r(mean * m) if m else None, peak_speed_m_s=r(peak * m) if m else None)
+
+
+RANK = {"rep": 1, "miss_pull": 0}
+
+
+def merge_split(reps, gap=2.0):
+    """Two events under `gap` s apart are one attempt the tracker split (head leaving the frame,
+    bowing over the bar): keep one, with the best outcome of the two."""
+    out = []
+    for r in reps:
+        if out and r["t_transition"] - out[-1]["t_transition"] < gap:
+            if RANK[r["outcome"]] > RANK[out[-1]["outcome"]]:
+                out[-1]["outcome"] = r["outcome"]
+            continue
+        out.append(dict(r, rep=len(out) + 1))
+    return out
 
 
 def analyze(npz_path, series=False, height=None):
@@ -154,7 +187,9 @@ def analyze(npz_path, series=False, height=None):
     # still around the event (letting go brings the wrists down past the shoulders, which reads
     # like a pull). (Elbow angles are not used: MediaPipe loses the
     # arms when the head leaves the top of the frame, which is exactly when they matter.)
-    hangs = [(a, b) for a, b in runs(B[:, 1] < nose[:, 1]) if b - a >= 0.3 * fps]
+    # a hang: hands above the nose AND shoulders under the hands; bowing the head forward over the
+    # bar at the transition puts the nose under the hands too, and used to split one muscle-up in two
+    hangs = [(a, b) for a, b in runs((B[:, 1] < nose[:, 1]) & (rise > 0.3)) if b - a >= 0.3 * fps]
     reps = []
     for i, (a0, b0) in enumerate(hangs):
         end = min(hangs[i + 1][0] if i + 1 < len(hangs) else len(S), b0 + int(6 * fps))
@@ -165,12 +200,19 @@ def analyze(npz_path, series=False, height=None):
             tr = over[0][0]
             # lockout looked for over the whole grip, not just the first stay over the bar: a
             # one-frame tracking glitch as the head leaves the frame splits that stay in two
-            outcome = "rep" if rise[tr:end][grip[tr - b0:]].min() < LOCK else "miss_press"
+            # support height: shoulders over the hands until he lets go (hands falling > 2 torso/s). Not
+            # judged: on real sets clean reps read -0.75 to -1.2 and a verified stuck dip -0.94, the
+            # camera angle and the head leaving the frame decide more than the lockout does
+            vy = np.gradient(B[:, 1]) * fps / L
+            w = min(end, tr + int(2.5 * fps))
+            fall = np.flatnonzero(vy[tr:w] > 2.0)
+            support = float(rise[tr:max(tr + (fall[0] if len(fall) else w - tr), tr + 2)].min())
+            outcome = "rep"
         else:
             under = np.flatnonzero((rise[b0:end] >= 0) & grip)
             if len(under) == 0:
                 continue
-            tr, outcome = b0 + under[np.argmin(rise[b0 + under])], "miss_pull"
+            tr, outcome, support = b0 + under[np.argmin(rise[b0 + under])], "miss_pull", None
             if rise[tr] > 0.25:
                 continue
         k = int(0.1 * fps)
@@ -187,7 +229,7 @@ def analyze(npz_path, series=False, height=None):
         swing = float(np.ptp(fwd(Hp, pre))) if len(pre) > 1 else 0.0
         hip_min = float(hip[pull:tr + 1].min())
         hip_lost = float(hip[tr] - hip_min)
-        legs = np.median(T.vis[pull:tr + 1][:, [25, 26, 27, 28]]) >= LEG_VIS      # knees really seen
+        legs = legs_seen(T, slice(pull, tr + 1))                              # knees really seen
         knee_tr, knee_min = (float(knee[tr]), float(knee[pull:tr + 1].min())) if legs else (None, None)
         com_tr = float(fwd(com, tr))
         kick = float(max(0.0, -fwd(A, np.arange(tr, min(end, tr + int(fps)))).min()))
@@ -197,6 +239,7 @@ def analyze(npz_path, series=False, height=None):
                                          ("leg_kickback", kick > KICK_MAX)) if bad and view == "side"]
         sp = speeds(T, pull, tr, height)
         reps.append(dict(rep=len(reps) + 1, outcome=outcome, facing=int(face),
+                         support_torso=None if support is None else round(support, 2),
                          pull_speed_torso_s=sp["mean_speed_torso_s"], pull_peak_torso_s=sp["peak_speed_torso_s"],
                          pull_speed_m_s=sp["mean_speed_m_s"], pull_peak_m_s=sp["peak_speed_m_s"],
                          t_pull=round(pull / fps, 2), t_transition=round(tr / fps, 2),
@@ -205,6 +248,7 @@ def analyze(npz_path, series=False, height=None):
                          knee_at_transition_deg=None if knee_tr is None else round(knee_tr, 1),
                          knee_min_deg=None if knee_min is None else round(knee_min, 1), com_at_transition_torso=round(com_tr, 2),
                          kick_behind_bar_torso=round(kick, 2), faults=faults))
+    reps = merge_split(reps)
     res = dict(fps=fps, view=view, torso_px=round(float(L), 1), reps=reps)
     if series:                                    # per frame, for mu_viewer.py
         res.update(width=w, height=h, series=viewer_series(T))

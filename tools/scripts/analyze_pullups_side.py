@@ -9,7 +9,7 @@ Usage:
 """
 import json, sys
 import numpy as np
-from analyze_muscleups import track, viewer_series, runs, speeds, LEG_VIS, DEAD_HANG
+from analyze_muscleups import track, viewer_series, runs, speeds, legs_seen, DEAD_HANG
 
 PROMINENCE = 0.3     # torso lengths the shoulders must rise from the bottom for a rep to count
 MIN_GAP = 0.6        # seconds between two tops
@@ -45,7 +45,7 @@ def analyze(npz_path, series=False, height=None):
                 continue
             span = np.arange(bottom, min(b0, top + int(0.3 * fps)) + 1)
             x = np.array([fwd(Hp, j) for j in span])
-            legs = np.median(T.vis[span][:, [25, 26, 27, 28]]) >= LEG_VIS
+            legs = legs_seen(T, span)
             ang = lambda a: round(float(a[span].min()), 1) if legs else None
             reps.append(dict(_top=top, rep=len(reps) + 1, t_top=round(top / fps, 2),
                              chin_over_bar=bool(nose[top, 1] < B[top, 1]),

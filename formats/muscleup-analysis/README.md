@@ -50,8 +50,7 @@ runs to the next hang. The transition is the first time the shoulders stay over 
 
 | Outcome | Meaning |
 |---|---|
-| `rep` | over the bar, and the shoulders then get a full arm (0.95 torso) over the hands: locked out |
-| `miss_press` | over the bar, stuck in the dip, no lockout |
+| `rep` | over the bar (the transition is made). The support height, shoulders over the hands until he lets go, is reported in torso lengths but not judged: on real sets clean reps read 0.75 to 1.2 and a verified stuck dip 0.94, the camera angle and the head leaving the frame decide more than the lockout does |
 | `miss_pull` | never over the bar; graded at the highest point, if the shoulders got within 0.25 torso of it |
 
 What is **not** an attempt, each one a false positive met on real clips: walking past the rig
