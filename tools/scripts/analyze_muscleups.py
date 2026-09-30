@@ -9,10 +9,11 @@ Tescoaching's weighted muscle-up breakdown of the Finalrep Worlds flight names
   leg_kickback       ankles thrown behind the bar after the transition (a no-rep in comp)
 
 Usage:
-    python analyze_muscleups.py <pose_mp.npz> <out.json> [bar=X,Y]
+    python analyze_muscleups.py <pose_mp.npz> <out.json>
 
-pose_mp.npz comes from extract_pose_mp.py. bar= is the bar in source pixels; without it the
-bar is the median position of the resting wrists. Distances are in torso lengths
+pose_mp.npz comes from extract_pose_mp.py. The hands never leave the bar during an attempt,
+so the wrist midpoint is the bar, frame by frame: everything is measured from it, which
+cancels a hand-held camera that pans to follow the lift. Distances are in torso lengths
 (shoulder-mid to hip-mid), so no height or camera calibration is needed. The camera must
 look along the bar (side-on): from the front every metric here is depth and is not seen.
 """
@@ -28,6 +29,11 @@ HIP_LOST_MAX = 25.0    # degrees of hip flexion given back between its peak and 
 COM_MIN = 0.0          # torso lengths in front of the bar at the transition
 KICK_MAX = 0.3         # torso lengths the ankles go behind the bar after the transition
 FRONT_MIN = 0.5        # shoulder width / torso length above this = seen from the front, no verdict
+LOCK = -0.95           # torso lengths of shoulders over the hands that count as the lockout (arm ~ 1.1 torso)
+PULL_MIN = 0.4        # torso lengths the shoulders must rise from the hang's low point: sliding down to let go is no attempt
+STILL = 0.5            # torso lengths the hands may move within 0.1 s of the event: more is letting go
+REACH = 0.3            # torso lengths under the hang's bar position the shoulders must reach: dropping off never does
+GRIP = 1.0             # torso lengths the hands may drift from where the hang ended and still be on the bar
 
 
 def fill_smooth(x, k):
@@ -45,14 +51,6 @@ def fill_smooth(x, k):
     return x
 
 
-def bar_from_wrists(wr):
-    """Bar = median wrist midpoint over the frames where the wrists are still (hang + support)."""
-    m = np.nanmean(wr, axis=1)
-    speed = np.r_[np.inf, np.linalg.norm(np.diff(m, axis=0), axis=1)]
-    still = speed <= np.nanpercentile(speed, 50)
-    return tuple(np.nanmedian(m[still], axis=0))
-
-
 def angle(a, b, c):
     """Angle at b (degrees) for (N, 2) point arrays."""
     u, v = a - b, c - b
@@ -60,65 +58,99 @@ def angle(a, b, c):
     return np.degrees(np.arccos(np.clip(cos, -1, 1)))
 
 
-def analyze(npz_path, bar=None):
+def runs(m):
+    """(start, end) of every run of True in a boolean array."""
+    e = np.flatnonzero(np.diff(np.r_[0, m.astype(int), 0]))
+    return list(zip(e[::2], e[1::2]))
+
+
+def analyze(npz_path):
     d = np.load(npz_path)
     fps, w, h = float(d["fps"]), float(d["width"]), float(d["height"])
     px = fill_smooth(d["img"][..., :2] * [w, h], max(1, int(round(fps / 15))))
     mid = lambda idx: px[:, idx].mean(axis=1)
-    S, Hp, K, A = mid(SHOULDERS), mid(HIPS), mid(KNEES), mid(ANKLES)
-    bx, by = bar if bar else bar_from_wrists(px[:, WRISTS])
-
-    face = np.sign(np.nanmedian(px[:, NOSE, 0] - mid(EARS)[:, 0])) or 1.0   # +1: facing +x
+    S, Hp, K, A, B = mid(SHOULDERS), mid(HIPS), mid(KNEES), mid(ANKLES), mid(WRISTS)
+    nose, ears = px[:, NOSE], mid(EARS)
     L = np.nanmedian(np.linalg.norm(S - Hp, axis=1))
-    fwd = lambda p: face * (p[:, 0] - bx) / L          # torso lengths in front of the bar
     # segment centres weighted by Winter's mass fractions: head+arms+trunk, thighs, shanks+feet
     com = 0.678 * (S + Hp) / 2 + 0.2 * (Hp + K) / 2 + 0.122 * (K + A) / 2
     hip = angle(S, Hp, K)
+    rise = (S[:, 1] - B[:, 1]) / L                # shoulders under the bar (+), over it (-)
     view = "front" if np.nanmedian(np.abs(np.diff(px[:, SHOULDERS, 0], axis=1))) / L > FRONT_MIN else "side"
 
-    above = S[:, 1] < by
-    edges = np.flatnonzero(np.diff(np.r_[0, above.astype(int), 0]))
+    # An attempt starts from a hang (hands above the nose, at least 0.3 s) and runs to the next
+    # hang. The bar is where the hands sat just before the hang ended (0.4-0.15 s before: a hang
+    # that ends by letting go ends with the hands already falling). The hands count as on the bar
+    # while they stay within GRIP of it:
+    # letting go and landing moves them 1.5-3 torso lengths, a following camera ~0.5. The
+    # transition is the first time the shoulders stay over the hands for 0.15 s with the hands on
+    # the bar; a rep if the shoulders then get a full arm over the hands while still on the bar,
+    # a press miss if not.
+    # With no transition it is a pull miss, graded at its highest point under the bar, if the
+    # shoulders got within 0.25 torso of the bar. Either way the shoulders must have risen PULL_MIN
+    # from the lowest point of the hang and reached within REACH of the bar, and the hands must be
+    # still around the event (letting go brings the wrists down past the shoulders, which reads
+    # like a pull). (Elbow angles are not used: MediaPipe loses the
+    # arms when the head leaves the top of the frame, which is exactly when they matter.)
+    hangs = [(a, b) for a, b in runs(B[:, 1] < nose[:, 1]) if b - a >= 0.3 * fps]
     reps = []
-    for a, b in zip(edges[::2], edges[1::2]):
-        if b - a < 0.15 * fps or a == 0:          # too short, or the clip starts above the bar
+    for i, (a0, b0) in enumerate(hangs):
+        end = min(hangs[i + 1][0] if i + 1 < len(hangs) else len(S), b0 + int(6 * fps))
+        bar = np.median(B[max(a0, b0 - int(0.4 * fps)): max(a0 + 1, b0 - int(0.15 * fps))], axis=0)
+        grip = np.linalg.norm(B[b0:end] - bar, axis=1) < GRIP * L
+        over = [(b0 + a, b0 + b) for a, b in runs((rise[b0:end] < 0) & grip) if b - a >= 0.15 * fps]
+        if over:
+            tr = over[0][0]
+            # lockout looked for over the whole grip, not just the first stay over the bar: a
+            # one-frame tracking glitch as the head leaves the frame splits that stay in two
+            outcome = "rep" if rise[tr:end][grip[tr - b0:]].min() < LOCK else "miss_press"
+        else:
+            under = np.flatnonzero((rise[b0:end] >= 0) & grip)
+            if len(under) == 0:
+                continue
+            tr, outcome = b0 + under[np.argmin(rise[b0 + under])], "miss_pull"
+            if rise[tr] > 0.25:
+                continue
+        k = int(0.1 * fps)
+        moved = np.linalg.norm(B[max(0, tr - k): tr + k + 1] - B[tr], axis=1).max() / L
+        reach = (S[tr, 1] - bar[1]) / L
+        if rise[a0:b0].max() - rise[tr] < PULL_MIN or moved > STILL or reach > REACH:
             continue
-        tr = a
-        w0 = max(0, tr - int(1.5 * fps))
-        pull = w0 + len(S[w0:tr]) - 1 - np.argmax(S[w0:tr, 1][::-1])   # last lowest-shoulder frame
-        sw = Hp[max(0, pull - int(1.5 * fps)): pull + 1]
-        swing = float(np.ptp(face * sw[:, 0]) / L) if len(sw) > 1 else 0.0
+        face = np.sign(np.median(nose[a0:tr + 1, 0] - ears[a0:tr + 1, 0])) or 1.0   # +1: facing +x
+        fwd = lambda p, t: face * (p[t, 0] - B[t, 0]) / L       # torso lengths in front of the bar
+        pull = a0 + (tr - a0) - int(np.argmax(rise[a0:tr + 1][::-1]))    # last lowest-shoulder frame
+        pre = np.arange(max(a0, pull - int(1.5 * fps)), pull + 1)
+        swing = float(np.ptp(fwd(Hp, pre))) if len(pre) > 1 else 0.0
         hip_min = float(hip[pull:tr + 1].min())
         hip_lost = float(hip[tr] - hip_min)
-        com_tr = float(fwd(com)[tr])
-        kick = float(max(0.0, -fwd(A)[tr: tr + int(1.0 * fps)].min()))
+        com_tr = float(fwd(com, tr))
+        kick = float(max(0.0, -fwd(A, np.arange(tr, min(end, tr + int(fps)))).min()))
         faults = [name for name, bad in (("swing", swing > SWING_MAX),
                                          ("hip_flexion_lost", hip_lost > HIP_LOST_MAX),
                                          ("weight_behind_bar", com_tr < COM_MIN),
                                          ("leg_kickback", kick > KICK_MAX)) if bad and view == "side"]
-        reps.append(dict(rep=len(reps) + 1, t_pull=round(float(pull / fps), 2), t_transition=round(float(tr / fps), 2),
+        reps.append(dict(rep=len(reps) + 1, outcome=outcome, facing=int(face),
+                         t_pull=round(pull / fps, 2), t_transition=round(tr / fps, 2),
                          swing_torso=round(swing, 2), hip_min_deg=round(hip_min, 1),
                          hip_lost_deg=round(hip_lost, 1), com_at_transition_torso=round(com_tr, 2),
                          kick_behind_bar_torso=round(kick, 2), faults=faults))
-    return dict(fps=fps, bar_px=[round(float(bx), 1), round(float(by), 1)], facing=int(face), view=view,
-                torso_px=round(float(L), 1), reps=reps)
+    return dict(fps=fps, view=view, torso_px=round(float(L), 1), reps=reps)
 
 
 def main():
     src, out = sys.argv[1:3]
-    kw = dict(a.split("=", 1) for a in sys.argv[3:])
-    bar = tuple(float(v) for v in kw["bar"].split(",")) if "bar" in kw else None
-    res = analyze(src, bar)
+    res = analyze(src)
     with open(out, "w") as f:
         json.dump(res, f, indent=2)
-    print(f"bar {res['bar_px']}  torso {res['torso_px']} px  facing {res['facing']:+d}  view {res['view']}")
+    print(f"torso {res['torso_px']} px  view {res['view']}")
     if res["view"] == "front":
         print("front view: swing, hip, CoM and kickback are depth here and not seen; no verdict given")
     for r in res["reps"]:
-        print(f"rep {r['rep']} @ {r['t_transition']:.2f}s  swing {r['swing_torso']:.2f}  "
+        print(f"{r['rep']}. {r['outcome']:10s} @ {r['t_transition']:.2f}s  swing {r['swing_torso']:.2f}  "
               f"hip lost {r['hip_lost_deg']:.0f} deg  CoM {r['com_at_transition_torso']:+.2f}  "
               f"kick {r['kick_behind_bar_torso']:.2f}  -> {', '.join(r['faults']) or ('clean' if res['view'] == 'side' else 'no verdict')}")
     if not res["reps"]:
-        print("no rep found: shoulders never went above the bar (check bar= and the camera angle)")
+        print("no attempt found: no hang followed by a pull to the bar (check the tracked landmarks)")
 
 
 if __name__ == "__main__":

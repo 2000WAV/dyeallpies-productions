@@ -38,9 +38,28 @@ leg return because a little weight sits behind the bar at a 1RM).
 
 ## What is measured
 
-All distances are in torso lengths (shoulder midpoint to hip midpoint, median over the clip),
-so no height or camera calibration is needed. "In front" means the side the lifter faces
-(nose vs ears).
+**The hands are the bar.** They never leave it during an attempt, so the wrist midpoint is the
+bar position frame by frame and every distance is taken from it. That cancels a hand-held phone
+that pans to follow the lift, and needs no bar marking. All distances are in torso lengths
+(shoulder midpoint to hip midpoint, median over the clip), so no height or camera calibration
+is needed. "In front" means the side the lifter faces (nose vs ears).
+
+**Attempts and outcomes.** An attempt starts from a hang (hands above the nose for 0.3 s) and
+runs to the next hang. The transition is the first time the shoulders stay over the hands for
+0.15 s while the hands are still on the bar.
+
+| Outcome | Meaning |
+|---|---|
+| `rep` | over the bar, and the shoulders then get a full arm (0.95 torso) over the hands: locked out |
+| `miss_press` | over the bar, stuck in the dip, no lockout |
+| `miss_pull` | never over the bar; graded at the highest point, if the shoulders got within 0.25 torso of it |
+
+What is **not** an attempt, each one a false positive met on real clips: walking past the rig
+(no hang), letting go and landing (the shoulders never reach the bar: at most 0.3 torso under
+where the hands were just before the hang ended), sliding back under the bar before letting go
+(the hands move more than 0.5 torso within 0.1 s of the event, or the shoulders rose less than
+0.4 torso from the hang's low point). Elbow angles are not used: MediaPipe loses the arms when
+the head leaves the top of the frame, which is exactly when they matter.
 
 | Fault | Metric | Flag when |
 |---|---|---|
@@ -49,45 +68,60 @@ so no height or camera calibration is needed. "In front" means the side the lift
 | `weight_behind_bar` | centre of mass in front of the bar at the transition (segment centres weighted by Winter's mass fractions) | < 0 |
 | `leg_kickback` | how far the ankle midpoint goes behind the bar in the second after the transition | > 0.3 |
 
-The transition is the first frame the shoulder midpoint is above the bar; each stretch of at
-least 0.15 s above the bar is one rep. The hips opening towards lockout after the transition
-is normal and not penalised. Pull height is not graded: in this material it is never the
-limiter.
+The faults are graded on misses too: that is where they explain something. The hips opening
+towards lockout after the transition is normal and not penalised. Pull height is not graded: in
+this material it is never the limiter.
 
 ## Pipeline
 
 ```bash
 PY=.venv/bin/python        # Windows: .venv/Scripts/python.exe
-# 0. only when other people are in the frame: crop to the lifter (MediaPipe tracks one pose
-#    and will lock on to the loader in front of the rig)
-ffmpeg -i clip.mp4 -vf "crop=W:H:X:Y" -an -c:v libx264 -crf 16 work/mu.mp4
+# 0. trim to the attempts (no warm-up pull-ups: a pull-up is a muscle-up with no transition and
+#    grades as a miss) and, when anyone else is in the frame, crop to the lifter: MediaPipe
+#    tracks ONE pose and picks whoever it likes, the loader or someone on the next rig
+ffmpeg -ss T0 -to T1 -i clip.mp4 -vf "crop=W:H:X:Y" -an -c:v libx264 -crf 16 work/mu.mp4
 # 1. pose
 $PY tools/scripts/extract_pose_mp.py work/mu.mp4 tools/models/pose_landmarker_heavy.task work/mu_pose.npz
-# 2. grade (bar=X,Y in source pixels overrides the bar found from the resting wrists)
+# 2. grade
 $PY tools/scripts/analyze_muscleups.py work/mu_pose.npz work/mu.json
 # check
 $PY tools/scripts/test_analyze_muscleups.py
 ```
 
-`analyze_muscleups.py` prints one line per rep and writes the metrics, the timestamps and the
-faults to the JSON.
+`analyze_muscleups.py` prints one line per attempt (outcome, the four metrics, the faults) and
+writes them with the timestamps to the JSON. Look at the frames at each printed time before
+trusting a line: draw the landmarks on them.
 
 ## Rules
 
-- **Film side-on, camera level with the bar, the whole body and the bar in frame.** Swing,
-  hip position, centre of mass and kick-back all happen in the sagittal plane; from the front
-  they are depth and not seen. The script measures shoulder width against the torso and, on
-  a front view, prints the numbers with no verdict rather than grading noise.
-- **Crop to the lifter when anyone else is in the frame**, then check the tracked landmarks on
-  a few frames before trusting any number.
-- **Check the bar line** on one frame: the auto bar is the median of the resting wrists, which
-  is wrong if the clip is mostly walking around.
+- **Film side-on, the whole body and the bar in frame, head included at the top of the
+  transition.** Swing, hip position, centre of mass and kick-back all happen in the sagittal
+  plane; from the front they are depth and not seen. The script measures shoulder width against
+  the torso and, on a front view, prints the numbers with no verdict rather than grading noise.
+  A three-quarter view still grades, with every horizontal distance shrunk by the angle.
+- **A hand-held phone is fine**, following the lift: the hands are the reference.
+- **Trim and crop** (step 0): other people in the frame are the first source of wrong lines.
 - **Recalibrate the thresholds** once there are side-on clips with known outcomes (clean /
   no-rep for the legs); they are first estimates.
 
-## Worked check (2026-09-30)
+## Worked checks (2026-09-30)
 
-The source video is front-on competition footage, so it can only check the plumbing: on the
-46.5 kg record attempt, cropped to the rig, the pose follows the lifter, the auto bar sits on
-the bar, one rep is found at the transition and the view is flagged `front` with no verdict.
-Without the crop, MediaPipe tracked the loader standing in front of the rig.
+- **The source video** is front-on competition footage, so it only checks the plumbing: on the
+  46.5 kg record attempt, cropped to the rig, the pose follows the lifter and the view is
+  flagged `front` with no verdict. Uncropped, MediaPipe tracked the loader in front of the rig.
+- **Eight gym clips** (weighted muscle-ups, April 2026, hand-held phone, side-on to
+  three-quarter, other people training around), every printed line checked against the frames:
+  - right: 7 reps and 2 press misses, including a miss stuck in the dip (over the bar,
+    slid back, let go) and a rep whose lockout the tracker split in two as the head left the
+    frame. Each false positive listed above came from these clips and has a test in
+    `test_analyze_muscleups.py` built to fail without its rule.
+  - wrong, all from framing, none fixable in the analysis: warm-up pull-ups read as pull misses
+    (3), standing on the box to set the grip read as a pull miss (1), MediaPipe following
+    someone else (a lifter on the rig behind, a bystander next to the phone, a figure at the
+    far end of the gym: 6 lines over 3 clips), and one attempt filmed with the bar and the hands
+    above the frame, not found at all. Hence step 0 and the framing rule.
+  - the faults are **not yet discriminative**: every rep and every miss here is flagged for
+    swing (0.7-1.4 torso) and for weight behind the bar, reps and misses alike.
+    Either this lifter swings on every attempt, or the thresholds are too strict for a kipping
+    weighted muscle-up filmed three-quarter. Settling it takes clips graded by a judge or a
+    coach (clean / no-rep and why), the same way Tescoaching grades the Worlds flight.
