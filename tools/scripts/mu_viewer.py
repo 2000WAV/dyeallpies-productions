@@ -9,10 +9,13 @@ The clip after the one on screen is prepared meanwhile.
 Usage:
     python tools/scripts/mu_viewer.py [port=8765] [cache=work/viewer] [host=nas-git]
                                       [dir=/volume1/07-Scratch/02-StreetLifting] [height=1.80]
+                                      [uploads=work/uploads]
 height (metres) turns the rise speeds into m/s.
-then open http://localhost:8765. Listens on 127.0.0.1 only.
+then open http://localhost:8765. Listens on 127.0.0.1 only: reach it from the phone through
+`tailscale serve` (tailnet only). Clips sent from the phone (POST /api/upload) stay local under
+uploads=, never on the NAS. /live is the in-browser camera page.
 """
-import datetime, json, os, re, shlex, subprocess, sys, threading, traceback
+import datetime, json, os, re, secrets, shlex, subprocess, sys, threading, traceback
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
@@ -21,22 +24,53 @@ sys.path.insert(0, HERE)
 import analyze_muscleups, analyze_pullups_side
 
 NAME = re.compile(r"(muscleup|pullup)-(\d{4}-\d{2}-\d{2})-\d{2}\.(mp4|mov)")
+UP_NAME = re.compile(r"up-(muscleup|pullup)-(\d{8})-\d{6}-[0-9a-f]{6}\.(mp4|mov)")   # made here, never by the client
+UP_TYPES = {"video/mp4": "mp4", "video/quicktime": "mov"}
+MAX_UPLOAD = 600 * 1024 * 1024
 FOLDERS = {"muscleup": "01-MuscleUp", "pullup": "02-PullUp"}
 ANALYSES = {"muscleup": analyze_muscleups.analyze, "pullup": analyze_pullups_side.analyze}
 MODEL = os.path.join(HERE, "..", "models", "pose_landmarker_heavy.task")
 
 
 def valid_name(name):
-    return bool(NAME.fullmatch(name or ""))
+    return bool(NAME.fullmatch(name or "") or UP_NAME.fullmatch(name or ""))
+
+
+def kind_of(name):
+    m = UP_NAME.fullmatch(name)
+    return m.group(1) if m else name.split("-", 1)[0]
 
 
 def folder_of(name):
-    return FOLDERS[name.split("-", 1)[0]]
+    return "uploads" if UP_NAME.fullmatch(name) else FOLDERS[name.split("-", 1)[0]]
+
+
+def day_of(name):
+    m = UP_NAME.fullmatch(name)
+    return f"{m.group(2)[:4]}-{m.group(2)[4:6]}-{m.group(2)[6:]}" if m else NAME.fullmatch(name).group(2)
 
 
 def week_of(name):
-    y, w, _ = datetime.date.fromisoformat(NAME.fullmatch(name).group(2)).isocalendar()
+    y, w, _ = datetime.date.fromisoformat(day_of(name)).isocalendar()
     return f"{y}-S{w:02d}"
+
+
+def upload_name(kind, ctype):
+    """A fresh safe name for a clip sent from the phone, or None for a kind or type we do not take."""
+    if kind not in FOLDERS or ctype not in UP_TYPES:
+        return None
+    return f"up-{kind}-{datetime.datetime.now():%Y%m%d-%H%M%S}-{secrets.token_hex(3)}.{UP_TYPES[ctype]}"
+
+
+def check_upload(ctype, length):
+    """HTTP status refusing an upload, or None if the headers are acceptable."""
+    if ctype not in UP_TYPES:
+        return 415
+    if length is None:
+        return 411
+    if not length.isdigit():
+        return 400
+    return 413 if int(length) > MAX_UPLOAD else None
 
 
 def parse_range(header, size):
@@ -57,9 +91,10 @@ class Clips:
     """The clip list, each clip's state, and one worker preparing the most recently asked clip
     first (the one on screen beats the one queued for later)."""
 
-    def __init__(self, cache, host, folder, height=None):
-        self.cache, self.host, self.folder, self.height = cache, host, folder, height
+    def __init__(self, cache, host, folder, height=None, uploads="work/uploads"):
+        self.cache, self.host, self.folder, self.height, self.uploads = cache, host, folder, height, uploads
         os.makedirs(cache, exist_ok=True)
+        os.makedirs(uploads, exist_ok=True)
         self.state, self.wanted = {}, []
         self.cv = threading.Condition()
         threading.Thread(target=self.work, daemon=True).start()
@@ -69,6 +104,9 @@ class Clips:
         return os.path.join(self.cache, folder_of(name) + "__" + os.path.splitext(name)[0] + ext)
 
     def listing(self, kind):
+        if kind == "uploads":
+            names = sorted((n for n in os.listdir(self.uploads) if UP_NAME.fullmatch(n)), reverse=True)
+            return [dict(name=n, kind=kind_of(n), state=self.status(n), week=week_of(n), day=day_of(n)) for n in names]
         cmd = f"find {shlex.quote(self.folder + '/' + FOLDERS[kind])} -maxdepth 1 -type f -name '{kind}-*'"
         out = subprocess.run(["ssh", self.host, cmd], capture_output=True, text=True, timeout=60)
         if out.returncode:
@@ -108,11 +146,14 @@ class Clips:
     def prepare(self, name):
         raw, video, npz = self.path(name, ".src"), self.path(name, ".mp4"), self.path(name, ".npz")
         if not os.path.exists(video):
-            self.state[name] = "fetching"
-            remote = shlex.quote(f"{self.folder}/{folder_of(name)}/{name}")
-            with open(raw + ".part", "wb") as f:           # read only on the NAS: cat, nothing else
-                subprocess.run(["ssh", self.host, f"cat {remote}"], stdout=f, check=True, timeout=900)
-            os.replace(raw + ".part", raw)
+            if UP_NAME.fullmatch(name):                    # sent from the phone: already here, kept as sent
+                raw = os.path.join(self.uploads, name)
+            else:
+                self.state[name] = "fetching"
+                remote = shlex.quote(f"{self.folder}/{folder_of(name)}/{name}")
+                with open(raw + ".part", "wb") as f:       # read only on the NAS: cat, nothing else
+                    subprocess.run(["ssh", self.host, f"cat {remote}"], stdout=f, check=True, timeout=900)
+                os.replace(raw + ".part", raw)
             self.state[name] = "encoding"
             codec = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
                                     "stream=codec_name", "-of", "default=nw=1:nk=1", raw],
@@ -121,14 +162,15 @@ class Clips:
             subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, *enc, "-an", "-movflags", "+faststart",
                             video + ".part.mp4"], check=True)
             os.replace(video + ".part.mp4", video)
-            os.remove(raw)
+            if not UP_NAME.fullmatch(name):
+                os.remove(raw)
         if not os.path.exists(npz):
             self.state[name] = "pose"
             subprocess.run([sys.executable, os.path.join(HERE, "extract_pose_mp.py"), video, MODEL,
                             npz + ".part.npz"], check=True, capture_output=True)
             os.replace(npz + ".part.npz", npz)
         self.state[name] = "analysis"
-        res = ANALYSES[name.split("-", 1)[0]](npz, series=True, height=self.height)
+        res = ANALYSES[kind_of(name)](npz, series=True, height=self.height)
         tmp = self.path(name, ".analysis.json.part")
         with open(tmp, "w") as f:
             json.dump(res, f)
@@ -142,6 +184,7 @@ def handler(clips):
             body = body if isinstance(body, bytes) else json.dumps(body).encode()
             self.send_response(code)
             self.send_header("Content-Type", ctype)
+            self.send_header("Cache-Control", "no-cache")   # pages and states change: the phone must not keep an old one
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
@@ -150,12 +193,16 @@ def handler(clips):
             u = urlparse(self.path)
             name = parse_qs(u.query).get("name", [""])[0]
             try:
-                if u.path == "/":
-                    with open(os.path.join(HERE, "mu_viewer.html"), "rb") as f:
+                if u.path == "/favicon.ico":
+                    self.send_response(204)
+                    return self.end_headers()
+                if u.path in ("/", "/live"):
+                    page = "mu_viewer.html" if u.path == "/" else "mu_live.html"
+                    with open(os.path.join(HERE, page), "rb") as f:
                         return self.send(200, f.read(), "text/html; charset=utf-8")
                 if u.path == "/api/clips":
                     kind = parse_qs(u.query).get("kind", ["muscleup"])[0]
-                    if kind not in FOLDERS:
+                    if kind not in FOLDERS and kind != "uploads":
                         return self.send(400, dict(error="bad kind"))
                     return self.send(200, dict(clips=clips.listing(kind)))
                 if not valid_name(name):
@@ -170,6 +217,39 @@ def handler(clips):
                 if u.path == "/video":
                     return self.video(clips.path(name, ".mp4"))
                 self.send(404, dict(error="not found"))
+            except (BrokenPipeError, ConnectionResetError):
+                pass
+            except Exception as e:
+                traceback.print_exc()
+                self.send(500, dict(error=str(e)[:300]))
+
+        def do_POST(self):
+            u = urlparse(self.path)
+            try:
+                if u.path != "/api/upload":
+                    return self.send(404, dict(error="not found"))
+                kind = parse_qs(u.query).get("kind", [""])[0]
+                ctype = (self.headers.get("Content-Type") or "").split(";")[0].strip().lower()
+                bad = check_upload(ctype, self.headers.get("Content-Length"))
+                if bad:
+                    return self.send(bad, dict(error="refused: send a video (mp4 or mov) under 600 MB"))
+                name = upload_name(kind, ctype)
+                if not name:
+                    return self.send(400, dict(error="kind must be muscleup or pullup"))
+                left, dest = int(self.headers["Content-Length"]), os.path.join(clips.uploads, name)
+                with open(dest + ".part", "wb") as f:
+                    while left > 0:
+                        chunk = self.rfile.read(min(1 << 20, left))
+                        if not chunk:
+                            break
+                        f.write(chunk)
+                        left -= len(chunk)
+                if left:
+                    os.remove(dest + ".part")
+                    return self.send(400, dict(error="upload cut short"))
+                os.replace(dest + ".part", dest)
+                clips.want(name)
+                self.send(200, dict(name=name))
             except (BrokenPipeError, ConnectionResetError):
                 pass
             except Exception as e:
@@ -214,7 +294,7 @@ def main():
     port = int(kw.get("port", 8765))
     clips = Clips(kw.get("cache", "work/viewer"), kw.get("host", "nas-git"),
                   kw.get("dir", "/volume1/07-Scratch/02-StreetLifting"),
-                  float(kw["height"]) if "height" in kw else None)
+                  float(kw["height"]) if "height" in kw else None, kw.get("uploads", "work/uploads"))
     print(f"muscle-up viewer on http://localhost:{port}  (cache {os.path.abspath(clips.cache)})", flush=True)
     ThreadingHTTPServer(("127.0.0.1", port), handler(clips)).serve_forever()
 

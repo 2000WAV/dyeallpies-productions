@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Barre · live</title>
+<style>
+  :root { --bg: #000; --surface: rgba(20,23,28,.86); --line: #262b34; --text: #eceef1; --dim: #a3abb8;
+          --accent: #5eb1ff; --good: #34d399; --bad: #f87171; --tap: 44px; color-scheme: dark; accent-color: var(--accent);
+          --safe-t: env(safe-area-inset-top); --safe-b: env(safe-area-inset-bottom); }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+               font: 15px/1.4 -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums; overflow: hidden; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button, a { font: inherit; color: inherit; }
+  svg.i { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .cam { position: fixed; inset: 0; }
+  video, canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+  .top { position: fixed; left: 0; right: 0; top: 0; display: flex; align-items: center; gap: 8px; padding: calc(var(--safe-t) + 8px) 12px 8px; }
+  .iconbtn, .pill { height: var(--tap); display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--surface);
+                    backdrop-filter: blur(12px); border-radius: 999px; padding: 0 14px; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .iconbtn { width: var(--tap); padding: 0; justify-content: center; }
+  .seg { display: flex; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 3px; backdrop-filter: blur(12px); }
+  .seg button { height: 38px; min-width: 44px; position: relative; padding: 0 14px; border: 0; border-radius: 999px; background: none; color: var(--dim); font-weight: 600; font-size: 14px; }
+  .seg button.on { background: #2a303a; color: var(--text); }
+  .grow { flex: 1; }
+  .panel { position: fixed; left: 0; right: 0; bottom: 0; padding: 14px 16px calc(var(--safe-b) + 14px); background: var(--surface);
+           backdrop-filter: blur(16px); border-top: 1px solid var(--line); border-radius: 18px 18px 0 0; }
+  .row { display: flex; align-items: center; gap: 14px; }
+  .count { font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -.03em; width: 2.2ch; text-align: center; }
+  .count small { display: block; font-size: 12px; font-weight: 600; color: var(--dim); letter-spacing: 0; margin-top: 4px; }
+  .grid { flex: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; min-width: 0; }
+  .grid span { display: block; color: var(--dim); font-size: 12px; white-space: nowrap; }
+  .grid b { display: block; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 1.35em; }
+  .last { margin-top: 10px; color: var(--dim); font-size: 13px; min-height: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .last b { color: var(--text); }
+  .ctrl { display: flex; gap: 10px; margin-top: 12px; }
+  .rec { flex: 1; height: 52px; border-radius: 14px; border: 0; background: var(--bad); color: #fff; font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+  .rec.on { background: #fff; color: #b91c1c; }
+  .rec:disabled { opacity: .5; }
+  .ghost { height: 52px; border-radius: 14px; border: 1px solid var(--line); background: #1b1f26; padding: 0 16px; font-weight: 600; }
+  .dotr { width: 12px; height: 12px; border-radius: 50%; background: currentColor; }
+  #msg { position: fixed; left: 16px; right: 16px; top: calc(var(--safe-t) + 64px); padding: 12px 14px; border-radius: 12px; background: var(--surface);
+         border: 1px solid var(--line); backdrop-filter: blur(12px); font-size: 14px; display: none; }
+  #msg.show { display: block; }
+  #msg a { color: var(--accent); }
+  progress { width: 100%; height: 6px; margin-top: 8px; appearance: none; border: 0; border-radius: 99px; background: #2a303a; overflow: hidden; }
+  progress::-webkit-progress-bar { background: #2a303a; }
+  progress::-webkit-progress-value { background: var(--accent); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+</svg>
+<div class="cam"><video id="cam" playsinline muted autoplay></video><canvas id="ov"></canvas></div>
+<header class="top">
+  <a class="iconbtn" href="/" aria-label="Retour aux clips"><svg class="i"><use href="#i-back"/></svg></a>
+  <div class="seg" aria-label="Mouvement"><button class="on" data-kind="muscleup">MU</button><button data-kind="pullup">Tractions</button></div>
+  <span class="grow"></span>
+</header>
+<div id="msg" role="status"></div>
+<section class="panel">
+  <div class="row">
+    <div class="count"><span id="n">0</span><small id="nl">MU</small></div>
+    <div class="grid">
+      <div><span>Épaules / mains</span><b id="rise">–</b></div>
+      <div><span>Vitesse</span><b id="v">–</b></div>
+      <div><span>Genoux</span><b id="knee">–</b></div>
+      <div><span>État</span><b id="st">démarrage…</b></div>
+    </div>
+  </div>
+  <div class="last" id="last">Place le téléphone de profil, corps entier et barre dans le cadre.</div>
+  <div class="ctrl">
+    <button class="ghost" id="reset">Remettre à 0</button>
+    <button class="rec" id="rec" disabled><span class="dotr"></span><span id="recl">Enregistrer</span></button>
+  </div>
+</section>
+<script type="module">
+// Live approximation of analyze_muscleups.py / analyze_pullups_side.py, run on the phone. The server
+// analysis of the recorded clip stays the reference; these few rules only give feedback during the set.
+import { PoseLandmarker, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.0.1/vision_bundle.mjs";
+
+const HEIGHT_M = 1.79, TORSO_M = 0.288 * HEIGHT_M;          // Winter: shoulder-to-hip = 0.288 x height
+const DEAD_HANG = 0.7, PROMINENCE = 0.3, STILL = 0.5;         // same thresholds as the Python analyses
+const $ = id => document.getElementById(id);
+const cam = $("cam"), ov = $("ov"), g = ov.getContext("2d");
+let kind = "muscleup", count = 0, lm = null, stream = null;
+const BONES = [[11,12],[11,13],[13,15],[12,14],[14,16],[11,23],[12,24],[23,24],[23,25],[25,27],[24,26],[26,28]];
+
+function say(html, ms) { $("msg").innerHTML = html; $("msg").classList.add("show"); if (ms) setTimeout(() => $("msg").classList.remove("show"), ms); }
+
+async function start() {
+  if (!navigator.mediaDevices?.getUserMedia) { say("La caméra demande une page en HTTPS : ouvre l'adresse https://…ts.net de l'app."); $("st").textContent = "caméra indisponible"; return; }
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment", width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false });
+  } catch (e) { say("Caméra refusée : autorise-la dans Réglages › Safari › Caméra, puis recharge."); $("st").textContent = "caméra refusée"; return; }
+  cam.srcObject = stream; await cam.play();
+  $("rec").disabled = false;
+  navigator.wakeLock?.request("screen").catch(() => {});        // keep the screen on during the set
+  $("st").textContent = "modèle…";
+  const files = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.0.1/wasm");
+  const opts = d => ({ baseOptions: { modelAssetPath: "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/latest/pose_landmarker_lite.task", delegate: d },
+                       runningMode: "VIDEO", numPoses: 1 });
+  lm = await PoseLandmarker.createFromOptions(files, opts("GPU")).catch(() => PoseLandmarker.createFromOptions(files, opts("CPU")));
+  $("st").textContent = "prêt";
+  requestAnimationFrame(tick);
+}
+
+// ---- per-frame state ----
+let L = null, hist = [], phase = "wait", minRise = 9, hangB = null, overSince = null, peakV = 0, kneeMin = 180, lastTs = -1;
+const mid = (p, a, b) => ({ x: (p[a].x + p[b].x) / 2, y: (p[a].y + p[b].y) / 2 });
+const ang = (a, b, c) => { const u = [a.x - b.x, a.y - b.y], v = [c.x - b.x, c.y - b.y];
+  return Math.acos(Math.max(-1, Math.min(1, (u[0] * v[0] + u[1] * v[1]) / (Math.hypot(...u) * Math.hypot(...v) || 1)))) * 180 / Math.PI; };
+
+function tick(now) {
+  requestAnimationFrame(tick);
+  if (!lm || cam.readyState < 2 || now <= lastTs) return;
+  lastTs = now;
+  const res = lm.detectForVideo(cam, now);
+  fitCanvas();
+  const W = cam.videoWidth, H = cam.videoHeight;
+  const p = res.landmarks?.[0]?.map(q => ({ x: q.x * W, y: q.y * H, v: q.visibility ?? 1 }));
+  draw(p);
+  if (!p) { $("st").textContent = "personne"; return; }
+  const S = mid(p, 11, 12), Hp = mid(p, 23, 24);
+  const w1 = p[15].v ** 2 + 1e-6, w2 = p[16].v ** 2 + 1e-6;   // the bar = wrists weighted by visibility^2
+  const B = { x: (p[15].x * w1 + p[16].x * w2) / (w1 + w2), y: (p[15].y * w1 + p[16].y * w2) / (w1 + w2) };
+  const torso = Math.hypot(S.x - Hp.x, S.y - Hp.y);
+  if (torso > 10) L = L == null ? torso : 0.95 * L + 0.05 * torso;
+  const rise = (S.y - B.y) / L, t = now / 1000;
+  const legs = Math.min(p[25].v, p[26].v, p[27].v, p[28].v) > 0.5;
+  const knee = legs ? (ang(p[23], p[25], p[27]) + ang(p[24], p[26], p[28])) / 2 : null;
+  hist.push([t, rise]); while (hist.length && t - hist[0][0] > 0.25) hist.shift();
+  const v = hist.length > 2 ? Math.max(0, -(rise - hist[0][1]) / (t - hist[0][0])) * TORSO_M : 0;   // m/s, smoothed over 0.25 s
+  const handsSeen = Math.max(p[15].v, p[16].v) > 0.3, onBar = handsSeen && B.y < S.y;
+  $("rise").textContent = rise < 0 ? `${(-rise).toFixed(2)} au-dessus` : `${rise.toFixed(2)} sous`;
+  $("v").textContent = `${v.toFixed(2)} m/s`;
+  $("knee").textContent = knee == null ? "hors cadre" : `flex ${Math.max(0, Math.round(180 - knee))}°`;
+
+  // ---- rep rules (approximation) ----
+  if (onBar && rise >= DEAD_HANG) {                          // dead hang: arm a new rep
+    phase = "hang"; minRise = rise; hangB = B; overSince = null; peakV = 0; kneeMin = 180;
+  }
+  if (phase === "hang" || phase === "up") {
+    peakV = Math.max(peakV, v); if (knee != null) kneeMin = Math.min(kneeMin, knee);
+    minRise = Math.min(minRise, rise);
+    const moved = hangB ? Math.hypot(B.x - hangB.x, B.y - hangB.y) / L : 0;
+    if (kind === "muscleup") {
+      if (rise < 0 && moved < STILL) { overSince ??= t; if (t - overSince > 0.15) done("MU", true); }
+      else overSince = null;
+    } else if (rise <= DEAD_HANG - PROMINENCE) {
+      phase = "up";
+      if (rise > minRise + 0.1) done(p[0].y < B.y ? "menton au-dessus" : "trop court", p[0].y < B.y);   // on the way back down
+    }
+  }
+  $("st").textContent = { wait: onBar ? "en place" : "prêt", hang: "suspendu", up: "montée", done: "rep comptée" }[phase] || phase;
+}
+
+function done(label, ok) {
+  count++; phase = "done";
+  $("n").textContent = count;
+  $("last").innerHTML = `#${count} <b style="color:${ok ? "var(--good)" : "var(--bad)"}">${label}</b> · vitesse max <b>${peakV.toFixed(2)} m/s</b> · genoux <b>${kneeMin < 180 ? `flex ${Math.round(180 - kneeMin)}°` : "hors cadre"}</b>`;
+  navigator.vibrate?.(40);
+}
+
+function fitCanvas() {
+  const d = devicePixelRatio || 1, cw = ov.clientWidth * d, ch = ov.clientHeight * d;
+  if (ov.width !== cw || ov.height !== ch) { ov.width = cw; ov.height = ch; }
+}
+function draw(p) {
+  g.clearRect(0, 0, ov.width, ov.height);
+  if (!p) return;
+  const W = cam.videoWidth, H = cam.videoHeight, sc = Math.min(ov.width / W, ov.height / H);   // object-fit: contain
+  const ox = (ov.width - W * sc) / 2, oy = (ov.height - H * sc) / 2, X = q => ox + q.x * sc, Y = q => oy + q.y * sc;
+  g.lineWidth = 3 * (devicePixelRatio || 1); g.strokeStyle = "rgba(245,245,245,.9)"; g.lineCap = "round";
+  for (const [a, b] of BONES) { if (p[a].v < 0.3 || p[b].v < 0.3) continue; g.beginPath(); g.moveTo(X(p[a]), Y(p[a])); g.lineTo(X(p[b]), Y(p[b])); g.stroke(); }
+  const w1 = p[15].v ** 2 + 1e-6, w2 = p[16].v ** 2 + 1e-6, bx = (X(p[15]) * w1 + X(p[16]) * w2) / (w1 + w2), by = (Y(p[15]) * w1 + Y(p[16]) * w2) / (w1 + w2);
+  g.strokeStyle = "#5eb1ff"; g.lineWidth = 4 * (devicePixelRatio || 1);
+  g.beginPath(); g.moveTo(bx - 40, by); g.lineTo(bx + 40, by); g.stroke();
+}
+
+// ---- mode, reset, record + send ----
+document.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
+  kind = b.dataset.kind; document.querySelectorAll(".seg button").forEach(x => x.classList.toggle("on", x === b));
+  $("nl").textContent = kind === "pullup" ? "PU" : "MU"; reset();
+});
+function reset() { count = 0; phase = "wait"; $("n").textContent = 0; $("last").textContent = "Compteur remis à 0."; }
+$("reset").onclick = reset;
+
+let rec = null, chunks = [];
+$("rec").onclick = () => {
+  if (rec) { rec.stop(); return; }
+  const type = ["video/mp4", "video/quicktime"].find(t => window.MediaRecorder?.isTypeSupported?.(t));
+  if (!type) { say("Ce navigateur n'enregistre pas en MP4 : utilise Safari sur l'iPhone, ou envoie le clip depuis la page principale.", 6000); return; }
+  chunks = []; rec = new MediaRecorder(stream, { mimeType: type });
+  rec.ondataavailable = e => e.data.size && chunks.push(e.data);
+  rec.onstop = () => send(new Blob(chunks, { type }));
+  rec.start(1000);
+  $("rec").classList.add("on"); $("recl").textContent = "Arrêter et analyser";
+};
+function send(blob) {
+  const k = kind; rec = null; $("rec").classList.remove("on"); $("recl").textContent = "Enregistrer";
+  say(`Envoi pour l'analyse complète… <progress id="p" max="1" value="0"></progress>`);
+  const x = new XMLHttpRequest();
+  x.open("POST", "/api/upload?kind=" + k);
+  x.setRequestHeader("Content-Type", blob.type.split(";")[0]);
+  x.upload.onprogress = e => { const el = document.getElementById("p"); if (el && e.lengthComputable) el.value = e.loaded / e.total; };
+  x.onload = () => { let j = {}; try { j = JSON.parse(x.responseText); } catch (_) {}
+    x.status === 200 ? say(`Reçu. <a href="/#up=${encodeURIComponent(j.name)}&kind=${k}">Voir l'analyse complète</a> (1-2 min de calcul).`)
+                     : say("Envoi refusé : " + (j.error || x.status), 8000); };
+  x.onerror = () => say("Envoi impossible : réseau coupé. Réessaie depuis la page principale.", 8000);
+  x.send(blob);
+}
+start().catch(e => { say("Erreur au démarrage : " + e.message); $("st").textContent = "erreur"; });
+</script>
+</body>
+</html>

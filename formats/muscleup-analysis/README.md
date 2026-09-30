@@ -114,6 +114,20 @@ clip, space, `,` `.` frame by frame, 1 2 3 speed.
 Clip names on this NAS came from a per-session sort and are wrong for about a third of the
 files (a `muscleup-` clip can be dips): list by the sorted folder once the clips are filed.
 
+### From the phone (gym)
+
+The same server, reached from the iPhone over the tailnet (`tailscale serve`, HTTPS, never
+funnel; the server itself stays on 127.0.0.1):
+
+- **Envoyer**: pick or film a clip, choose MU or pull-ups; it is stored under `work/uploads/`
+  with a name the server makes (`up-<kind>-<date>-<time>-<hex>.mp4|mov`, 600 MB cap, mp4/mov only),
+  analysed like the NAS clips, and listed under *Envois*. Uploads stay on the PC, not the NAS.
+- **Live** (`/live`): rear camera, MediaPipe Tasks Vision in the browser (lite model), skeleton,
+  shoulders vs hands, rise speed, knee flexion and a rep counter. The counter is a small JS port of
+  the rules above and only a live approximation; *Enregistrer* records the set and sends it for the
+  full server analysis.
+- Persistent: `~/.config/systemd/user/mu-viewer.service` (the PC and WSL must be on).
+
 ## Rules
 
 - **Film side-on, the whole body and the bar in frame, head included at the top of the
