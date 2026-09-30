@@ -114,10 +114,22 @@ def test_speed_up():
     assert run(make_set(tops=(20.0,)))["reps"][0]["mean_speed_m_s"] is None      # no height, no m/s
 
 
+def test_jittery_wrists_give_a_steady_bar():
+    # hands at the top of the frame: the tracker throws the wrists +-30 px frame to frame
+    img = make_set()
+    rng = np.random.default_rng(0)
+    img[:, 15:17, 1] += (rng.uniform(-30, 30, (len(img), 1)) / H).astype(np.float32)
+    res = run(img, series=True)
+    bar_y = np.array(res["series"]["bar"])[int(2.5 * FPS):, 1]              # once he is on the bar
+    assert bar_y.std() < 4, bar_y.std()
+    reps = res["reps"]
+    assert [r["chin_over_bar"] for r in reps] == [True, True, False], reps
+
+
 if __name__ == "__main__":
     for f in (test_counts_reps_and_chin_over_bar, test_standing_is_not_a_set, test_kipping_knees,
               test_series_for_the_viewer, test_standing_on_the_box_holding_the_bar_is_not_a_rep,
               test_legs_out_of_frame_give_no_knee_angle, test_hidden_hands_and_letting_go_are_not_reps,
-              test_speed_up):
+              test_speed_up, test_jittery_wrists_give_a_steady_bar):
         f()
         print("ok", f.__name__)

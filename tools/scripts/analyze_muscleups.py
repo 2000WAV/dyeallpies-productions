@@ -30,6 +30,8 @@ SWING_MAX = 0.5        # torso lengths, hip horizontal range in the 1.5 s before
 HIP_LOST_MAX = 25.0    # degrees of hip flexion given back between its peak and the transition
 COM_MIN = 0.0          # torso lengths in front of the bar at the transition
 KICK_MAX = 0.3         # torso lengths the ankles go behind the bar after the transition
+DEAD_HANG = 0.7        # torso lengths the shoulders must hang under the hands before a pull: standing on
+                       # the box with the hands on the bar reads ~0.4, a hang with straight arms ~0.9-1.1
 LEG_VIS = 0.5          # median visibility of knees and ankles under which no knee angle is given
 FRONT_MIN = 0.5        # shoulder width / torso length above this = seen from the front, no verdict
 LOCK = -0.95           # torso lengths of shoulders over the hands that count as the lockout (arm ~ 1.1 torso)
@@ -52,6 +54,20 @@ def fill_smooth(x, k):
             pad = np.pad(v, k // 2, mode="edge")
             v[:] = np.convolve(pad, np.ones(k) / k, mode="valid")[: len(v)]
     return x
+
+
+def steady_bar(B, vis, fps, hold_vis=0.3, window_s=1.0):
+    """The hands do not move on the bar; only a following camera moves them in the image, slowly.
+    Hold the last well-seen position while the wrists are hidden, then a 1 s rolling median: the
+    tracker's frame-to-frame jumps (hands at the top edge of the frame) go, a pan is still followed."""
+    B = B.copy()
+    for i in range(1, len(B)):
+        if vis[i] < hold_vis:
+            B[i] = B[i - 1]
+    k = max(1, int(window_s * fps)) | 1
+    pad = np.pad(B, ((k // 2, k // 2), (0, 0)), mode="edge")
+    win = np.lib.stride_tricks.sliding_window_view(pad, k, axis=0)
+    return np.median(win, axis=-1)
 
 
 def angle(a, b, c):
@@ -79,6 +95,7 @@ def track(npz_path):
     # the more visible one instead flips between them when both read ~0.5 and makes the bar jump.
     wv = np.nan_to_num(d["img"][:, WRISTS, 3]) ** 2 + 1e-6
     B = (px[:, WRISTS] * wv[..., None]).sum(axis=1) / wv.sum(axis=1)[:, None]
+    B = steady_bar(B, np.nan_to_num(d["img"][:, WRISTS, 3]).max(axis=1), fps)
     nose, ears = px[:, NOSE], mid(EARS)
     found = d["ok"].astype(float)                 # frames where MediaPipe actually saw a pose
     L = np.nanmedian(np.linalg.norm(S - Hp, axis=1))
@@ -160,7 +177,8 @@ def analyze(npz_path, series=False, height=None):
         moved = np.linalg.norm(B[max(0, tr - k): tr + k + 1] - B[tr], axis=1).max() / L
         reach = (S[tr, 1] - bar[1]) / L
         seen = found[max(0, tr - int(0.5 * fps)): tr + int(0.5 * fps) + 1].mean()   # not an interpolated gap
-        if rise[a0:b0].max() - rise[tr] < PULL_MIN or moved > STILL or reach > REACH or seen < 0.5:
+        if (rise[a0:b0].max() - rise[tr] < PULL_MIN or rise[a0:b0].max() < DEAD_HANG or moved > STILL
+                or reach > REACH or seen < 0.5):
             continue
         face = np.sign(np.median(nose[a0:tr + 1, 0] - ears[a0:tr + 1, 0])) or 1.0   # +1: facing +x
         fwd = lambda p, t: face * (p[t, 0] - B[t, 0]) / L       # torso lengths in front of the bar
