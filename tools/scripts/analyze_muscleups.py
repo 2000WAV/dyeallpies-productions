@@ -100,7 +100,24 @@ def viewer_series(T):
                 rise=rd(T.rise, 2), hip=rd(T.hip), knee=rd(T.knee), com=rd(T.face * (T.com[:, 0] - T.B[:, 0]) / T.L, 2))
 
 
-def analyze(npz_path, series=False):
+TORSO_OF_HEIGHT = 0.288   # shoulder (0.818 H) to hip (0.530 H), Winter's anthropometric table
+
+
+def speeds(T, a, b, height=None):
+    """Mean and peak speed of the shoulders towards the hands from frame a to b: torso/s, and m/s
+    when the athlete's height is known. Measured against the hands, so a following camera cancels."""
+    if b <= a:
+        return dict(mean_speed_torso_s=None, peak_speed_torso_s=None, mean_speed_m_s=None, peak_speed_m_s=None)
+    k = max(1, int(round(0.2 * T.fps)))           # 0.2 s: the peak is otherwise frame-to-frame tracking noise
+    v = np.convolve(-np.gradient(T.rise) * T.fps, np.ones(k) / k, mode="same")
+    mean, peak = (T.rise[a] - T.rise[b]) * T.fps / (b - a), float(v[a:b + 1].max())
+    m = TORSO_OF_HEIGHT * height if height else None
+    r = lambda x: round(float(x), 2)
+    return dict(mean_speed_torso_s=r(mean), peak_speed_torso_s=r(peak),
+                mean_speed_m_s=r(mean * m) if m else None, peak_speed_m_s=r(peak * m) if m else None)
+
+
+def analyze(npz_path, series=False, height=None):
     T = track(npz_path)
     fps, w, h, px, S, Hp, K, A, B = T.fps, T.w, T.h, T.px, T.S, T.Hp, T.K, T.A, T.B
     nose, ears, found, L, com, hip, knee, rise, view = T.nose, T.ears, T.found, T.L, T.com, T.hip, T.knee, T.rise, T.view
@@ -158,7 +175,10 @@ def analyze(npz_path, series=False):
                                          ("hip_flexion_lost", hip_lost > HIP_LOST_MAX),
                                          ("weight_behind_bar", com_tr < COM_MIN),
                                          ("leg_kickback", kick > KICK_MAX)) if bad and view == "side"]
+        sp = speeds(T, pull, tr, height)
         reps.append(dict(rep=len(reps) + 1, outcome=outcome, facing=int(face),
+                         pull_speed_torso_s=sp["mean_speed_torso_s"], pull_peak_torso_s=sp["peak_speed_torso_s"],
+                         pull_speed_m_s=sp["mean_speed_m_s"], pull_peak_m_s=sp["peak_speed_m_s"],
                          t_pull=round(pull / fps, 2), t_transition=round(tr / fps, 2),
                          swing_torso=round(swing, 2), hip_min_deg=round(hip_min, 1),
                          hip_lost_deg=round(hip_lost, 1), knee_at_transition_deg=round(knee_tr, 1),

@@ -222,6 +222,13 @@ def test_knee_flexion():
     assert len(bent["series"]["knee"]) == len(img) and bent["series"]["knee"][int(3 * FPS)] < 150
 
 
+def test_pull_speed():
+    reps = run(make_rep(swing=20, hip_hold=5, com_front=40, kick=0))["reps"]
+    r = reps[0]
+    # shoulders rise 190 px (0.95 torso) in 0.7 s: ~1.36 torso/s between pull start and transition
+    assert 1.0 < r["pull_speed_torso_s"] < 1.7 and r["pull_peak_torso_s"] >= r["pull_speed_torso_s"], r
+
+
 if __name__ == "__main__":
     for f in (test_clean_rep, test_faulty_rep, test_front_view_gives_no_verdict,
               test_panning_camera_changes_nothing, test_walking_past_is_not_a_rep, test_failed_attempt_is_graded,
@@ -229,6 +236,6 @@ if __name__ == "__main__":
               test_sliding_down_before_letting_go_is_not_an_attempt, test_dropping_from_the_hang_is_not_a_rep,
               test_tracking_glitch_over_the_bar_keeps_the_rep, test_series_for_the_viewer,
               test_hidden_wrist_does_not_move_the_bar, test_no_pose_no_attempt,
-              test_knee_flexion):
+              test_knee_flexion, test_pull_speed):
         f()
         print("ok", f.__name__)

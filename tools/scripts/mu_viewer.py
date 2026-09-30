@@ -8,7 +8,8 @@ The clip after the one on screen is prepared meanwhile.
 
 Usage:
     python tools/scripts/mu_viewer.py [port=8765] [cache=work/viewer] [host=nas-git]
-                                      [dir=/volume1/07-Scratch/02-StreetLifting]
+                                      [dir=/volume1/07-Scratch/02-StreetLifting] [height=1.80]
+height (metres) turns the rise speeds into m/s.
 then open http://localhost:8765. Listens on 127.0.0.1 only.
 """
 import datetime, json, os, re, shlex, subprocess, sys, threading, traceback
@@ -56,8 +57,8 @@ class Clips:
     """The clip list, each clip's state, and one worker preparing the most recently asked clip
     first (the one on screen beats the one queued for later)."""
 
-    def __init__(self, cache, host, folder):
-        self.cache, self.host, self.folder = cache, host, folder
+    def __init__(self, cache, host, folder, height=None):
+        self.cache, self.host, self.folder, self.height = cache, host, folder, height
         os.makedirs(cache, exist_ok=True)
         self.state, self.wanted = {}, []
         self.cv = threading.Condition()
@@ -127,7 +128,7 @@ class Clips:
                             npz + ".part.npz"], check=True, capture_output=True)
             os.replace(npz + ".part.npz", npz)
         self.state[name] = "analysis"
-        res = ANALYSES[name.split("-", 1)[0]](npz, series=True)
+        res = ANALYSES[name.split("-", 1)[0]](npz, series=True, height=self.height)
         tmp = self.path(name, ".analysis.json.part")
         with open(tmp, "w") as f:
             json.dump(res, f)
@@ -212,7 +213,8 @@ def main():
     kw = dict(a.split("=", 1) for a in sys.argv[1:])
     port = int(kw.get("port", 8765))
     clips = Clips(kw.get("cache", "work/viewer"), kw.get("host", "nas-git"),
-                  kw.get("dir", "/volume1/07-Scratch/02-StreetLifting"))
+                  kw.get("dir", "/volume1/07-Scratch/02-StreetLifting"),
+                  float(kw["height"]) if "height" in kw else None)
     print(f"muscle-up viewer on http://localhost:{port}  (cache {os.path.abspath(clips.cache)})", flush=True)
     ThreadingHTTPServer(("127.0.0.1", port), handler(clips)).serve_forever()
 

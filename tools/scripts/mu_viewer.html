@@ -197,7 +197,7 @@ function draw() {
   // attempt banner
   if (att) {
     const col = PU() ? (att.chin_over_bar ? "#3ecf7a" : "#ef5a5a") : { rep: "#3ecf7a", miss_press: "#f0a53a", miss_pull: "#ef5a5a" }[att.outcome];
-    const faults = PU() ? [`montée ${att.concentric_s} s`, `genoux ${Math.round(att.knee_min_deg)}°`]
+    const faults = PU() ? [`vitesse ${spd(att.mean_speed_m_s, att.mean_speed_torso_s)}`, `montée ${att.concentric_s} s`]
       : data.view === "side" ? att.faults.map(x => FAULT[x]) : [];
     const head = PU() ? `#${att.rep} ${att.chin_over_bar ? "menton au-dessus" : "trop court"}` : `#${att.rep} ${LABEL[att.outcome]}`;
     const lines = [head, ...(faults.length ? faults : [data.view === "side" ? "aucune faute" : ""])].filter(Boolean);
@@ -224,17 +224,18 @@ function drawTimeline() {
   tctx.fillStyle = "#fff"; tctx.fillRect(vid.currentTime / dur * W - 1, 0, 2, H);
 }
 
+const spd = (ms, ts) => ms != null ? `${ms} m/s` : ts != null ? `${ts} torse/s` : "–";
 function renderAttempts() {
   if (!data) { $("atts").innerHTML = '<span class="dim">–</span>'; return; }
   if (!data.reps.length) { $("atts").innerHTML = '<span class="dim">Aucune tentative détectée. Barre et tête dans le cadre ? Une seule personne suivie ?</span>'; return; }
   $("atts").innerHTML = data.reps.map((r, i) => PU() ? `
     <div class="att ${r.chin_over_bar ? "rep" : "miss_pull"}" data-i="${i}" data-t="${r.t_top - 1.5}">
       <b>#${r.rep} ${r.chin_over_bar ? "Menton au-dessus" : "Trop court"}</b> <span class="dim">${r.t_top.toFixed(1)} s</span><br>
-      <span class="dim">épaules ${r.top_torso >= 0 ? r.top_torso + " sous" : -r.top_torso + " au-dessus"} des mains · montée ${r.concentric_s} s · balancement ${r.swing_torso} · hanche ${Math.round(r.hip_min_deg)}° · genoux ${Math.round(r.knee_min_deg)}°</span>
+      <span class="dim">vitesse ${spd(r.mean_speed_m_s, r.mean_speed_torso_s)} (pic ${spd(r.peak_speed_m_s, r.peak_speed_torso_s)}) · épaules ${r.top_torso >= 0 ? r.top_torso + " sous" : -r.top_torso + " au-dessus"} des mains · montée ${r.concentric_s} s · balancement ${r.swing_torso} · hanche ${Math.round(r.hip_min_deg)}° · genoux ${Math.round(r.knee_min_deg)}°</span>
     </div>` : `
     <div class="att ${r.outcome}" data-i="${i}" data-t="${r.t_pull - 1}">
       <b>#${r.rep} ${LABEL[r.outcome]}</b> <span class="dim">${r.t_transition.toFixed(1)} s</span><br>
-      <span class="dim">balancement ${r.swing_torso} · hanche perdue ${Math.round(r.hip_lost_deg)}° · genoux ${Math.round(r.knee_at_transition_deg)}° au passage (min ${Math.round(r.knee_min_deg)}°) · CdM ${r.com_at_transition_torso > 0 ? "+" : ""}${r.com_at_transition_torso} · retour de jambe ${r.kick_behind_bar_torso}</span><br>
+      <span class="dim">vitesse de tirage ${spd(r.pull_speed_m_s, r.pull_speed_torso_s)} (pic ${spd(r.pull_peak_m_s, r.pull_peak_torso_s)}) · balancement ${r.swing_torso} · hanche perdue ${Math.round(r.hip_lost_deg)}° · genoux ${Math.round(r.knee_at_transition_deg)}° au passage (min ${Math.round(r.knee_min_deg)}°) · CdM ${r.com_at_transition_torso > 0 ? "+" : ""}${r.com_at_transition_torso} · retour de jambe ${r.kick_behind_bar_torso}</span><br>
       ${data.view === "side" ? (r.faults.length ? r.faults.map(x => `<span class="tag">${FAULT[x]}</span>`).join("") : '<span class="ok">aucune faute</span>') : '<span class="dim">vue de face : pas de verdict</span>'}
     </div>`).join("");
   document.querySelectorAll(".att").forEach(el => el.onclick = () => { vid.currentTime = Math.max(0, +el.dataset.t); vid.play(); });

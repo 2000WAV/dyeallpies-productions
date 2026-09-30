@@ -41,12 +41,12 @@ def make_set(tops=(20.0, 20.0, 100.0), knee_bend=0.0):
     return np.array(frames)
 
 
-def run(img, series=False):
+def run(img, series=False, height=None):
     with tempfile.TemporaryDirectory() as d:
         p = os.path.join(d, "pose.npz")
         np.savez(p, fps=FPS, width=W, height=H, n_frames=len(img), img=img,
                  world=np.zeros((len(img), 33, 3)), ok=~np.isnan(img[:, 11, 0]))
-        return ap.analyze(p, series=series)
+        return ap.analyze(p, series=series, height=height)
 
 
 def test_counts_reps_and_chin_over_bar():
@@ -104,9 +104,20 @@ def test_hidden_hands_and_letting_go_are_not_reps():
     assert len(reps) == 1 and reps[0]["chin_over_bar"], reps
 
 
+def test_speed_up():
+    # 160 px = 0.8 torso of rise in half of a 1.5 s sine: mean ~1.07 torso/s, peak pi/2 x mean
+    r = run(make_set(tops=(20.0,)), height=1.80)["reps"][0]
+    assert 0.95 < r["mean_speed_torso_s"] < 1.2, r
+    assert r["peak_speed_torso_s"] > r["mean_speed_torso_s"] * 1.3, r
+    torso_m = 0.288 * 1.80
+    assert abs(r["mean_speed_m_s"] - r["mean_speed_torso_s"] * torso_m) < 0.02, r
+    assert run(make_set(tops=(20.0,)))["reps"][0]["mean_speed_m_s"] is None      # no height, no m/s
+
+
 if __name__ == "__main__":
     for f in (test_counts_reps_and_chin_over_bar, test_standing_is_not_a_set, test_kipping_knees,
               test_series_for_the_viewer, test_standing_on_the_box_holding_the_bar_is_not_a_rep,
-              test_legs_out_of_frame_give_no_knee_angle, test_hidden_hands_and_letting_go_are_not_reps):
+              test_legs_out_of_frame_give_no_knee_angle, test_hidden_hands_and_letting_go_are_not_reps,
+              test_speed_up):
         f()
         print("ok", f.__name__)

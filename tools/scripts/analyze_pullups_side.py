@@ -9,7 +9,7 @@ Usage:
 """
 import json, sys
 import numpy as np
-from analyze_muscleups import track, viewer_series, runs
+from analyze_muscleups import track, viewer_series, runs, speeds
 
 PROMINENCE = 0.3     # torso lengths the shoulders must rise from the bottom for a rep to count
 MIN_GAP = 0.6        # seconds between two tops
@@ -20,7 +20,7 @@ STILL = 0.5          # torso lengths the hands may move from the bottom to the t
 LEG_VIS = 0.5        # median visibility of knees and ankles under which the knee and hip angles are not given
 
 
-def analyze(npz_path, series=False):
+def analyze(npz_path, series=False, height=None):
     T = track(npz_path)
     fps, rise, B, Hp, nose = T.fps, T.rise, T.B, T.Hp, T.nose
     fwd = lambda p, i: T.face * (p[i, 0] - B[i, 0]) / T.L
@@ -54,6 +54,7 @@ def analyze(npz_path, series=False):
                              chin_over_bar=bool(nose[top, 1] < B[top, 1]),
                              top_torso=round(float(rise[top]), 2),
                              concentric_s=round((top - bottom) / fps, 2),
+                             **speeds(T, bottom, top, height),
                              swing_torso=round(float(np.ptp(x)), 2),
                              hip_min_deg=ang(T.hip), knee_min_deg=ang(T.knee)))
             last = i
