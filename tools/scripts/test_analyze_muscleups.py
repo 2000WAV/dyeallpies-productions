@@ -279,6 +279,13 @@ def test_split_attempt_is_merged():
     assert [(r["rep"], r["outcome"]) for r in out] == [(1, "rep"), (2, "miss_pull")], out
 
 
+def test_series_output_is_plain_json_with_the_video_size():
+    import json
+    res = run(make_rep(swing=20, hip_hold=5, com_front=40, kick=0), series=True)
+    assert res["width"] == W and res["height"] == H, (res["width"], res["height"])
+    json.dumps(res)                                            # what the viewer writes to its cache
+
+
 if __name__ == "__main__":
     for f in (test_clean_rep, test_faulty_rep, test_front_view_gives_no_verdict,
               test_panning_camera_changes_nothing, test_walking_past_is_not_a_rep, test_failed_attempt_is_graded,
@@ -288,6 +295,7 @@ if __name__ == "__main__":
               test_hidden_wrist_does_not_move_the_bar, test_no_pose_no_attempt,
               test_knee_flexion, test_pull_speed, test_legs_out_of_frame_give_no_knee_angle,
               test_standing_on_the_box_is_not_an_attempt, test_head_bowed_over_the_bar_is_not_a_new_hang,
-              test_knee_angle_from_the_visible_leg, test_split_attempt_is_merged):
+              test_knee_angle_from_the_visible_leg, test_split_attempt_is_merged,
+              test_series_output_is_plain_json_with_the_video_size):
         f()
         print("ok", f.__name__)

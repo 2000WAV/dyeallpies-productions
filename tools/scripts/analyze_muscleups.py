@@ -204,9 +204,9 @@ def analyze(npz_path, series=False, height=None):
             # judged: on real sets clean reps read -0.75 to -1.2 and a verified stuck dip -0.94, the
             # camera angle and the head leaving the frame decide more than the lockout does
             vy = np.gradient(B[:, 1]) * fps / L
-            w = min(end, tr + int(2.5 * fps))
-            fall = np.flatnonzero(vy[tr:w] > 2.0)
-            support = float(rise[tr:max(tr + (fall[0] if len(fall) else w - tr), tr + 2)].min())
+            wend = min(end, tr + int(2.5 * fps))
+            fall = np.flatnonzero(vy[tr:wend] > 2.0)
+            support = float(rise[tr:max(tr + (fall[0] if len(fall) else wend - tr), tr + 2)].min())
             outcome = "rep"
         else:
             under = np.flatnonzero((rise[b0:end] >= 0) & grip)
